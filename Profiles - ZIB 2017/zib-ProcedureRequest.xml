@@ -1,0 +1,433 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2017-09-29T16:15:04.388+02:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-ProcedureRequest" />
+  <version value="2.0" />
+  <name value="ZIB-ProcedureRequest" />
+  <title value="HCIM ProcedureRequest" />
+  <status value="draft" />
+  <date value="2017-05-17T13:30:03.2275207+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="ProcedureRequest as defined by the Dutch Health and Care Information model for PlannedCareActivity (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017. It includes the request of NursingProcedure and Procedures." />
+  <purpose value="Recording planned appointments, referrals, treatments, diagnostic procedures, open orders and orders of which the results are not yet known gives every recipient, user or healthcare facility insight in the planned healthcare for this patient. This can prevent situations in which diagnostics and treatment can conflict with each other.&#xD;&#xA;This will give the recipient the option to place an order, cancel the order or act in any other way in accordance with their own policy.&#xD;&#xA;For orders that do not yet have results, the recipient is informed of the fact that potentially relevant results will be made available (which have to be requested)." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.0" />
+  <mapping>
+    <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v1.2.1(2015EN)" />
+    <name value="HCIM PlannedCareActivityForTransfer-v1.2.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.0(2016EN)" />
+    <name value="HCIM PlannedCareActivityForTransfer-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.1(2017EN)" />
+    <name value="HCIM PlannedCareActivityForTransfer-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/ProcedureForTransfer-v1.2(2015EN)" />
+    <name value="HCIM ProcedureForTransfer-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-procedurefortransfer-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/ProcedureForTransfer-v3.0(2016EN)" />
+    <name value="HCIM ProcedureForTransfer-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-procedure-v4.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Procedure-v4.1(2017EN)" />
+    <name value="HCIM ProcedureForTransfer-v4.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-nursingintervention-v1.0-2015EN" />
+    <uri value="https://zibs.nl/wiki/NursingIntervention-v1.0(2015EN)" />
+    <name value="HCIM NursingIntervention-v1.0(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-nursingintervention-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/NursingIntervention-v3.0(2016EN)" />
+    <name value="HCIM NursingIntervention-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-nursingintervention-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/NursingIntervention-v3.1(2017EN)" />
+    <name value="HCIM NursingIntervention-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="ProcedureRequest" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ProcedureRequest" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ProcedureRequest">
+      <path value="ProcedureRequest" />
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nursingintervention-v1.0-2015EN" />
+        <map value="NL-CM:16.1.12" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nursingintervention-v3.0-2016EN" />
+        <map value="NL-CM:16.1.12" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nursingintervention-v3.1-2017EN" />
+        <map value="NL-CM:16.1.12" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.status.extension">
+      <path value="ProcedureRequest.status.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="ProcedureRequest.status.extension:orderStatus">
+      <path value="ProcedureRequest.status.extension" />
+      <sliceName value="orderStatus" />
+      <short value="OrderStatus" />
+      <definition value="The status of the order." />
+      <alias value="OrderStatus" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.9" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.9" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.9" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.status.extension:orderStatus.valueCodeableConcept:valueCodeableConcept">
+      <path value="ProcedureRequest.status.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="The status of the order." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000" />
+          <display value="OrderStatusCodelist" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ProcedureRequest.code">
+      <path value="ProcedureRequest.code" />
+      <short value="ProcedureType" />
+      <definition value="The name of the procedure.&#xD;&#xA;As of 1 January 2013, all procedures in the primary process have to be documented with CBV codes. To meet this requirement, the DHD procedure thesaurus (CBV procedures set) is used to code procedures. It is possible that in addition to the CBV procedures set, the NIC will be used for nurse procedures and that a “coded value set” will be introduced for paramedic procedures." />
+      <alias value="VerrichtingType" />
+      <binding>
+        <strength value="extensible" />
+        <description value="The name of the procedure using the Verrichtingenthesaurus DHD." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.1.2--20171231000000" />
+          <display value="VerrichtingTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
+        <map value="NL-CM:14.1.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v3.0-2016EN" />
+        <map value="NL-CM:14.1.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedure-v4.1-2017EN" />
+        <map value="NL-CM:14.1.4" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.subject">
+      <path value="ProcedureRequest.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+    </element>
+    <element id="ProcedureRequest.context">
+      <path value="ProcedureRequest.context" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" />
+      </type>
+    </element>
+    <element id="ProcedureRequest.occurrence[x]">
+      <path value="ProcedureRequest.occurrence[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="type.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="ProcedureRequest.occurrence[x]:occurrenceDateTime">
+      <path value="ProcedureRequest.occurrence[x]" />
+      <sliceName value="occurrenceDateTime" />
+      <type>
+        <code value="dateTime" />
+      </type>
+    </element>
+    <element id="ProcedureRequest.occurrence[x]:occurrencePeriod">
+      <path value="ProcedureRequest.occurrence[x]" />
+      <sliceName value="occurrencePeriod" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+    <element id="ProcedureRequest.occurrence[x]:occurrencePeriod.start">
+      <path value="ProcedureRequest.occurrence[x].start" />
+      <short value="StartDate" />
+      <definition value="Planned or requested date. Clinical reminders can be used to indicate from when the procedure can take place. A vague date (such as only the month and year) is permitted." />
+      <alias value="BeginDatum" />
+      <alias value="VerrichtingStartDatum" />
+      <alias value="ActieStartDatumTijd" />
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.10" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.10" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.10" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.occurrence[x]:occurrencePeriod.end">
+      <path value="ProcedureRequest.occurrence[x].end" />
+      <short value="EndDate" />
+      <definition value="The planned end date of the procedure can be included as well if needed. Depending on the type of procedure, this can also be used to indicate before which time it has to have been completed." />
+      <alias value="EindDatum" />
+      <alias value="ActieEindDatumTijd" />
+      <alias value="VerrichtingEindDatum" />
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.11" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.11" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.11" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.occurrence[x]:occurrenceTiming">
+      <path value="ProcedureRequest.occurrence[x]" />
+      <sliceName value="occurrenceTiming" />
+      <type>
+        <code value="Timing" />
+      </type>
+    </element>
+    <element id="ProcedureRequest.occurrence[x]:occurrenceTiming.repeat.frequency">
+      <path value="ProcedureRequest.occurrence[x].repeat.frequency" />
+      <short value="Frequency" />
+      <definition value="The frequency describes how often and in which period certain procedures are carried out, e.g. 3x a day." />
+      <alias value="Frequentie" />
+      <mapping>
+        <identity value="hcim-nursingintervention-v1.0-2015EN" />
+        <map value="NL-CM:14.2.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nursingintervention-v3.0-2016EN" />
+        <map value="NL-CM:14.2.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nursingintervention-v3.1-2017EN" />
+        <map value="NL-CM:14.2.4" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.occurrence[x]:occurrenceTiming.repeat.period">
+      <path value="ProcedureRequest.occurrence[x].repeat.period" />
+      <short value="Interval" />
+      <definition value="Interval indicates the time between planned procedures.&#xD;&#xA;When entering an interval, the focus is on the time between the consecutive procedures, such as in the treatment of a wound, for example. The exact times are of lesser importance." />
+      <alias value="Interval" />
+      <mapping>
+        <identity value="hcim-nursingintervention-v1.0-2015EN" />
+        <map value="NL-CM:14.2.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nursingintervention-v3.0-2016EN" />
+        <map value="NL-CM:14.2.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nursingintervention-v3.1-2017EN" />
+        <map value="NL-CM:14.2.3" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.requester.agent">
+      <path value="ProcedureRequest.requester.agent" />
+      <short value="RequestedBy" />
+      <alias value="AangevraagdDoor" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
+        <map value="NL-CM:14.1.10" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.performer">
+      <path value="ProcedureRequest.performer" />
+      <short value="CarriedOutBy" />
+      <definition value="The healthcare provider who will carrie out the procedure. In most cases, only the medical specialty is entered, and not the name of the healthcare provider or the healthcare center where the procedure will be carried out." />
+      <alias value="UitgevoerdDoor" />
+      <alias value="Locatie" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-healthcareservice" />
+      </type>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
+        <map value="NL-CM:14.1.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v3.0-2016EN" />
+        <map value="NL-CM:14.1.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedure-v4.1-2017EN" />
+        <map value="NL-CM:14.1.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
+        <map value="NL-CM:14.1.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v3.0-2016EN" />
+        <map value="NL-CM:14.1.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedure-v4.1-2017EN" />
+        <map value="NL-CM:14.1.5" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.reasonReference">
+      <path value="ProcedureRequest.reasonReference" />
+      <short value="Indication" />
+      <definition value="The indication is the reason for the procedure." />
+      <alias value="Indicatie" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Concern" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
+      </type>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
+        <map value="NL-CM:14.1.9" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:14.1.9" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:14.1.9" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.bodySite">
+      <path value="ProcedureRequest.bodySite" />
+      <short value="ProcedureAnatomicalLocation" />
+      <definition value="Anatomical location which is the focus of the procedure." />
+      <alias value="VerrichtingAnatomischeLocatie" />
+      <binding>
+        <strength value="extensible" />
+        <description value="Anatomical location which is the focus of the procedure." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.1.1--20171231000000" />
+          <display value="VerrichtingAnatomischeLocatieCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
+        <map value="NL-CM:14.1.8" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,95 @@
+﻿<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
+    <id value="ffa1ef65-c2f2-40af-851e-49ba417c6a73"/>
+    <meta>
+        <versionId value="1"/>
+        <lastUpdated value="2017-05-03T18:10:49.287+02:00"/>
+    </meta>
+    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification"/>
+    <version value="1.0"/>
+    <name value="ZIB-TreatmentDirective-Verification"/>
+    <title value="HCIM TreatmentDirective Verification"/>
+    <status value="active"/>
+    <date value="2017-02-17T16:43:55.3245828+01:00"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="Extension to the CarePlan, which is used for the 'TreatmentDirective as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 1.0.  to provide information on the verification of the treatment instruction."/>
+    <purpose value="Need to provide infromation on the possible verification of the treatment instruction given by the patient."/>
+    <copyright value="CC0"/>
+    <fhirVersion value="3.0.1"/>
+    <kind value="complex-type"/>
+    <abstract value="false"/>
+    <contextType value="resource"/>
+    <context value="Consent"/>
+    <type value="Extension"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Extension">
+            <path value="Extension"/>
+            <short value="Verification"/>
+            <definition value="Container of the Verification concept. This container contains all data elements of the Verification concept."/>
+            <alias value="Verificatie"/>
+            <isModifier value="false"/>
+        </element>
+        <element id="Extension.extension:Verified">
+            <path value="Extension.extension"/>
+            <sliceName value="Verified"/>
+        </element>
+        <element id="Extension.extension:Verified.url">
+            <path value="Extension.extension.url"/>
+            <fixedUri value="Verified"/>
+        </element>
+        <element id="Extension.extension:Verified.valueBoolean">
+            <path value="Extension.extension.valueBoolean"/>
+            <short value="Verified"/>
+            <definition value="Indication of the fact that the treatment instruction has been verified with the patient, the patient’s family and/or the patient's authorized representative."/>
+            <alias value="Geverifieerd"/>
+            <type>
+                <code value="boolean"/>
+            </type>
+        </element>
+        <element id="Extension.extension:VerifiedWith">
+            <path value="Extension.extension"/>
+            <sliceName value="VerifiedWith"/>
+        </element>
+        <element id="Extension.extension:VerifiedWith.url">
+            <path value="Extension.extension.url"/>
+            <fixedUri value="VerifiedWith"/>
+        </element>
+        <element id="Extension.extension:VerifiedWith.valueCodeableConcept">
+            <path value="Extension.extension.valueCodeableConcept"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+        </element>
+        <element id="Extension.extension:VerificationDate">
+            <path value="Extension.extension"/>
+            <sliceName value="VerificationDate"/>
+        </element>
+        <element id="Extension.extension:VerificationDate.url">
+            <path value="Extension.extension.url"/>
+            <fixedUri value="VerificationDate"/>
+        </element>
+        <element id="Extension.extension:VerificationDate.valueDateTime">
+            <path value="Extension.extension.valueDateTime"/>
+            <short value="VerificationDate"/>
+            <definition value="Date on which the verification with the patient, the patient’s family and/or the patient's authorized representative took place."/>
+            <alias value="VerificatieDatum"/>
+            <type>
+                <code value="dateTime"/>
+            </type>
+        </element>
+        <element id="Extension.value">
+            <path value="Extension.value[x]"/>
+            <max value="0"/>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -1,0 +1,58 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
+  <id value="e7abf192-457d-4410-9533-38caf709cbf6" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2017-02-22T10:32:08.189+00:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalAid-Organization" />
+  <version value="1.0"/>
+  <name value="ZIB-MedicalAid-Organization" />
+  <title value="HCIM MedicalAid Organization" />
+  <status value="draft" />
+  <date value="2017-02-01T17:54:32.4726597+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The healthcare provider at which use of the medical aid was initiated or where the aid was implanted as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) 'MedischHulpmiddel' version 1.0." />
+  <purpose value="To provide additional information on the Healthcare provider where the medical device was initiated or the aid was implanted. This extension is used because currently there is no reference to an Organization resource for this supporting information." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.0" />
+  <kind value="primitive-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="DeviceUseStatement" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalAid-Organization" />
+    </element>
+    <element id="Extension.valueReference">
+      <path value="Extension.valueReference" />
+      <short value="HealthcareProvider" />
+      <definition value="The healthcare provider at which use of the medical aid was initiated or where the aid was implanted." />
+      <alias value="Zorgaanbieder" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,258 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="6000e494-955a-4ac8-8729-a80b7bfcfa1e" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2018-02-26T17:32:46.458+01:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Alert" />
+  <version value="2.0" />
+  <name value="ZIB-Alert" />
+  <title value="HCIM Alert" />
+  <status value="active" />
+  <date value="2017-01-13T14:12:08.6186301+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Alert as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.2, release 2017.&#xD;&#xA;&#xD;&#xA;An alert describes a clinical or administrative fact brought to the attention of the users of the clinical systems to be taken into account when shaping diagnostic and therapeutic policy or in dealing with the patient, usually because of a safety risk. &#xD;&#xA;Disorders that describe the body’s sensitivity to a substance which results in a specific physiological reaction after being exposed to that substance are referred to as allergies. These are described in a separate information model. &#xD;&#xA;Warnings for non-allergic disorders can concern:&#xD;&#xA;- A disorder (condition or diagnosis which can be considered as a contraindication for the use of groups of medication or undergoing a certain type of therapy), such as pregnancy or long QT syndrome&#xD;&#xA;- Impaired functioning of an organ system (heart failure, impaired liver or kidney function, weakened immune system) &#xD;&#xA;- Risk of spreading certain microorganisms (multi-resistant bacteria, tubercle bacilli, HIV, HBV, Ebola virus)&#xD;&#xA;- Other risks" />
+  <purpose value="Documenting and entering disorders or conditions that require attention is an important part of medical registration. It concerns the core of patient safety. In the execution of research and treatment, these patient characteristics - which are marked as a warning - constantly have to be taken into account. They provide information that is important for the patient’s condition and the options a healthcare provider has for therapy. Disorders that are registered or transferred as an Alert can also be described as a Problem. The difference is in the fact that the healthcare provider considers the problem as an Alert = warning. In many cases, transfer will be subject to strict privacy rules, as the warning will not always elicit an adequate reaction in the informed environment." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-alert-v1.0-2015EN" />
+    <uri value="https://zibs.nl/wiki/Alert-v1.0(2015EN)" />
+    <name value="HCIM Alert-v1.0(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-alert-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Alert-v3.0(2016EN)" />
+    <name value="HCIM Alert-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-alert-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/Alert-v3.2(2017EN)" />
+    <name value="HCIM Alert-v3.2(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Flag" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Flag" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Flag">
+      <path value="Flag" />
+      <short value="Alert" />
+      <mapping>
+        <identity value="hcim-alert-v1.0-2015EN" />
+        <map value="NL-CM:8.3.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alert-v3.0-2016EN" />
+        <map value="NL-CM:8.3.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alert-v3.2-2017EN" />
+        <map value="NL-CM:8.3.1" />
+      </mapping>
+    </element>
+    <element id="Flag.extension">
+      <path value="Flag.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Flag.extension:ConcernReference">
+      <path value="Flag.extension" />
+      <sliceName value="ConcernReference" />
+      <short value="Condition" />
+      <definition value="The patient’s health problem or condition that is the subject of the alert. This could involve a patient’s problem, condition or diagnosis that is seen as a contraindication in prescribing medication or which has to be taken into account when shaping diagnostic and therapeutic policy. This can be in the patient’s own interest, or it can involve a problem or disorder that can make the patient a risk to their surroundings, such as an infection hazard. These are references to conditions included on the patient’s problem list.&#xD;&#xA;If there is a contraindication, the code system G-Standard Contraindications (Table 40) from the ProblemNameCodeList of the ConcernTransfer information model should be used." />
+      <alias value="Conditie" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/flag-detail" />
+      </type>
+      <mapping>
+        <identity value="hcim-alert-v1.0-2015EN" />
+        <map value="NL-CM:8.3.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alert-v3.0-2016EN" />
+        <map value="NL-CM:8.3.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alert-v3.2-2017EN" />
+        <map value="NL-CM:8.3.3" />
+      </mapping>
+    </element>
+    <element id="Flag.extension:ConcernReference.url">
+      <path value="Flag.extension.url" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/flag-detail" />
+    </element>
+    <element id="Flag.category">
+      <path value="Flag.category" />
+      <short value="AlertType" />
+      <definition value="Indicates the type of alert, meaning a rough description of the cause or origin of the warning." />
+      <alias value="AlertType" />
+      <example>
+        <label value="Example of AlertType" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://loinc.org" />
+            <code value="75323-6" />
+            <display value="condition" />
+            <userSelected value="false" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="Indicates the type of alert, meaning a rough description of the cause or origin of the warning." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.3.1--20171231000000" />
+          <display value="AlertTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-alert-v1.0-2015EN" />
+        <map value="NL-CM:8.3.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alert-v3.0-2016EN" />
+        <map value="NL-CM:8.3.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alert-v3.2-2017EN" />
+        <map value="NL-CM:8.3.6" />
+      </mapping>
+    </element>
+    <element id="Flag.code">
+      <path value="Flag.code" />
+      <short value="AlertName" />
+      <definition value="A warning, other than a condition or problem. For example, a patient can be given an ‘Aggressive patient' alert.&#xD;&#xA;The warning can be entered in code (there are codes for frequently used alerts), but seeing the dynamic nature of the warnings cf. SARS and Ebola, these alerts will often be entered as free text." />
+      <alias value="AlertNaam" />
+      <example>
+        <label value="Example of AlertName" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="432415000" />
+            <display value="Methicillin resistant staphylococcus aureus carrier" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.3.2--20171231000000" />
+          <display value="AlertNaamCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-alert-v1.0-2015EN" />
+        <map value="NL-CM:8.3.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alert-v3.0-2016EN" />
+        <map value="NL-CM:8.3.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alert-v3.2-2017EN" />
+        <map value="NL-CM:8.3.4" />
+      </mapping>
+    </element>
+    <element id="Flag.subject">
+      <path value="Flag.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure" />
+      </type>
+    </element>
+    <element id="Flag.period.start">
+      <path value="Flag.period.start" />
+      <short value="StartDateTime" />
+      <definition value="The date and time at which the described condition was entered as a warning.&#xD;&#xA;This can be an exact date and time, or a rough indication of the date (such as only the year, or the month and the year)." />
+      <alias value="BeginDatumTijd" />
+      <example>
+        <label value="Example of StartDateTime" />
+        <valueDateTime value="2017-02-07" />
+      </example>
+      <mapping>
+        <identity value="hcim-alert-v1.0-2015EN" />
+        <map value="NL-CM:8.3.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alert-v3.0-2016EN" />
+        <map value="NL-CM:8.3.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alert-v3.2-2017EN" />
+        <map value="NL-CM:8.3.5" />
+      </mapping>
+    </element>
+    <element id="Flag.encounter">
+      <path value="Flag.encounter" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact" />
+      </type>
+    </element>
+    <element id="Flag.author">
+      <path value="Flag.author" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalAidProduct" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

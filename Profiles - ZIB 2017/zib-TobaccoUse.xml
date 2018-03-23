@@ -1,0 +1,349 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="28f2e632-8290-42e4-aac7-470a6f28ae92" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2018-02-14T15:27:41.501+01:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TobaccoUse" />
+  <version value="2.0" />
+  <name value="ZIB-TobaccoUse" />
+  <title value="HCIM TobaccoUse" />
+  <status value="active" />
+  <date value="2017-01-06T10:06:48.2524311+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="TobaccoUseas defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017.&#xD;&#xA;&#xD;&#xA;Tobacco is a product that comes from the leaves of the tobacco plant, which is smoked as a drug. Smokable forms of tobacco include rolling tobacco, cigarettes, cigars and pipe tobacco. This information model describes the information asked of the patient about their use of tobacco." />
+  <purpose value="During the social anamnesis, the patient is frequently asked about their use of tobacco or exposure to tobacco smoke at home or elsewhere. Information on tobacco use can be important for treatment and diagnostics." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-tobaccouse-v1.2.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/TobaccoUse-v1.2.1(2015EN)" />
+    <name value="HCIM TobaccoUse-v1.2.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-tobaccouse-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/TobaccoUse-v3.0(2016EN)" />
+    <name value="HCIM TobaccoUse-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-tobaccouse-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/TobaccoUse-v3.1(2017EN)" />
+    <name value="HCIM TobaccoUse-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/observation-nl" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="TobaccoUse" />
+      <definition value="Root concept of the TobaccoUse information model. This concept contains all data elements of the TobaccoUse information model." />
+      <alias value="TabakGebruik" />
+      <mapping>
+        <identity value="hcim-tobaccouse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.2.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.0-2016EN" />
+        <map value="NL-CM:7.2.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.1-2017EN" />
+        <map value="NL-CM:7.2.1" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:TobaccoUseCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="TobaccoUseCode" />
+      <short value="TobaccoUseCode" />
+    </element>
+    <element id="Observation.code.coding:TobaccoUseCode.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:TobaccoUseCode.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="365980008" />
+    </element>
+    <element id="Observation.code.coding:TobaccoUseCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <fixedString value="Finding of tobacco use and exposure (finding)" />
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <min value="1" />
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effectivePeriod" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+    <element id="Observation.effectivePeriod.start">
+      <path value="Observation.effectivePeriod.start" />
+      <short value="StartDate" />
+      <definition value="The date on which the patient started smoking." />
+      <alias value="StartDatum" />
+      <mapping>
+        <identity value="hcim-tobaccouse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.2.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.0-2016EN" />
+        <map value="NL-CM:7.2.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.1-2017EN" />
+        <map value="NL-CM:7.2.4" />
+      </mapping>
+    </element>
+    <element id="Observation.effectivePeriod.end">
+      <path value="Observation.effectivePeriod.end" />
+      <short value="StopDate" />
+      <definition value="The date on which the patient quit smoking.&#xD;&#xA;If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time." />
+      <alias value="StopDatum" />
+      <example>
+        <label value="Example dateTime" />
+        <valueDateTime value="2012-02-28T00:00:00" />
+      </example>
+      <mapping>
+        <identity value="hcim-tobaccouse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.2.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.0-2016EN" />
+        <map value="NL-CM:7.2.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.1-2017EN" />
+        <map value="NL-CM:7.2.5" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]">
+      <path value="Observation.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="TobaccoUseStatus" />
+      <definition value="The status of the patient’s tobacco use." />
+      <alias value="TabakGebruikStatus" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="The status of the patient’s tobacco use." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.2.2--20171231000000" />
+          <display value="TabakGebruikStatusCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-tobaccouse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.2.10" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.0-2016EN" />
+        <map value="NL-CM:7.2.10" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.1-2017EN" />
+        <map value="NL-CM:7.2.10" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Relevant comment on the patient’s use of tobacco." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-tobaccouse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.2.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.0-2016EN" />
+        <map value="NL-CM:7.2.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.1-2017EN" />
+        <map value="NL-CM:7.2.3" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component.TypeOfTobaccoUsed">
+      <path value="Observation.component" />
+      <sliceName value="TypeOfTobaccoUsed" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:TypeOfTobaccoUsed.code">
+      <path value="Observation.component.code" />
+      <definition value="A reference to a code defined by a terminology system." />
+      <comment value="The exact snomed code for this concept is not yet determined. More information on the status of this terminology binding, please check the public issue https://bits.nictiz.nl/browse/ZIB-562 . " />
+    </element>
+    <element id="Observation.component:TypeOfTobaccoUsed.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:TypeOfTobaccoUsed.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="266918002" />
+    </element>
+    <element id="Observation.component:TypeOfTobaccoUsed.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Tobacco smoking consumption (observable entity)" />
+    </element>
+    <element id="Observation.component:TypeOfTobaccoUsed.value[x]">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="TypeOfTobaccoUsed" />
+      <definition value="Type of tobacco the patient uses." />
+      <alias value="SoortTabakGebruik" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="Type of tobacco the patient uses." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.2.3--20171231000000" />
+          <display value="SoortTabakGebruikCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-tobaccouse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.2.9" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.0-2016EN" />
+        <map value="NL-CM:7.2.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.1-2017EN" />
+        <map value="NL-CM:7.2.6" />
+      </mapping>
+    </element>
+    <element id="Observation.component.Amount">
+      <path value="Observation.component" />
+      <sliceName value="Amount" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Amount.code">
+      <path value="Observation.component.code" />
+      <definition value="A reference to a code defined by a terminology system." />
+      <comment value="Correcct terminology needed. Same code is now used for TypeOfTobaccoUsed and Amount. Therefore the component.code.coding.code is not yet fixed." />
+    </element>
+    <element id="Observation.component:Amount.value[x]">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Amount" />
+      <definition value="The number of cigarettes, cigars or grams of rolling tobacco consumed per day, week, month or year." />
+      <alias value="Hoeveelheid" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <example>
+        <label value="Example of TobaccoQuantity" />
+        <valueQuantity>
+          <value value="5" />
+          <unit value="cigarettepacks/week" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="{cigarette packs}/wk" />
+        </valueQuantity>
+      </example>
+      <mapping>
+        <identity value="hcim-tobaccouse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.2.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.0-2016EN" />
+        <map value="NL-CM:7.2.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.1-2017EN" />
+        <map value="NL-CM:7.2.6" />
+      </mapping>
+    </element>
+    <element id="Observation.component.PackYears">
+      <path value="Observation.component" />
+      <sliceName value="PackYears" />
+      <comment value="For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4)." />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:PackYears.code">
+      <path value="Observation.component.code" />
+      <definition value="A reference to a code defined by a terminology system." />
+    </element>
+    <element id="Observation.component:PackYears.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:PackYears.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="401201003" />
+    </element>
+    <element id="Observation.component:PackYears.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Cigarette pack-years (observable entity)" />
+    </element>
+    <element id="Observation.component:PackYears.value[x]">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="PackYears" />
+      <definition value="The pack year is a measure for smokers’ exposure to tobacco smoke. The calculation is not included in the model. It is entered in the EPD and/or during the anamnesis and is only entered if known. This should not be calculated based on the other values in this clinical information model.&#xD;&#xA;&#xD;&#xA;The unit indicating the smoker’s total exposure to tobacco smoke. For cigarettes, this is calculated using the number of smoked packs of cigarettes per day (one pack = 20 cigarettes) times the number of years of smoking. For other forms of tobacco, this is usually converted to an equivalent cigarette consumption. Often, only the number of pack years is estimated." />
+      <alias value="PackYears" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="hcim-tobaccouse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.2.7" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.0-2016EN" />
+        <map value="NL-CM:7.2.7" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-tobaccouse-v3.1-2017EN" />
+        <map value="NL-CM:7.2.7" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

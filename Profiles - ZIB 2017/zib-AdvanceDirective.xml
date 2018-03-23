@@ -1,0 +1,263 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2017-09-29T17:17:29.306+02:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective" />
+  <version value="2.0" />
+  <name value="ZIB-AdvanceDirective" />
+  <title value="HCIM AdvanceDirective" />
+  <status value="active" />
+  <date value="2017-05-03T12:18:39.6788994+02:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="AdvanceDirective (formerly know as LivingWill) as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 1.0.&#xD;&#xA;A living will is a verbal or written description of the patient’s wishes with regard to future medical action or end of their life. A living will is mainly used for situations in which the patient is no longer able to speak about these decisions with their healthcare provider." />
+  <purpose value="A good overview of the patient’s wishes is important. A healthcare provider can use the living will to discuss the existing wishes with the persons involved and to incorporate these wishes in their own policy. A concise, orderly list is of particular importance in acute care situations." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-advancedirective-v1.0-2015EN" />
+    <uri value="https://zibs.nl/wiki/AdvanceDirective-v1.0(2015EN)" />
+    <name value="HCIM AdvanceDirective-v1.0(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-advancedirective-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/AdvanceDirective-v3.0(2016EN)" />
+    <name value="HCIM AdvanceDirective-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-advancedirective-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/AdvanceDirective-v3.1(2017EN)" />
+    <name value="HCIM AdvanceDirective-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Consent" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Consent" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Consent">
+      <path value="Consent" />
+      <short value="LivingWill" />
+      <alias value="Wilsverklaring" />
+      <mapping>
+        <identity value="hcim-advancedirective-v1.0-2015EN" />
+        <map value="NL-CM:7.15.1" />
+      </mapping>
+    </element>
+    <element id="Consent.extension">
+      <path value="Consent.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Consent.extension:disorder">
+      <path value="Consent.extension" />
+      <sliceName value="disorder" />
+      <short value="Disorder" />
+      <definition value="The problem or disorder to which the living will applies." />
+      <alias value="Aandoening" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective-Disorder" />
+      </type>
+      <mapping>
+        <identity value="hcim-advancedirective-v1.0-2015EN" />
+        <map value="NL-CM:7.15.4" />
+      </mapping>
+    </element>
+    <element id="Consent.extension:comment">
+      <path value="Consent.extension" />
+      <sliceName value="comment" />
+      <short value="Comment" />
+      <definition value="Optional Extension Element - found in all resources." />
+      <alias value="Toelichting" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/consent-comment" />
+      </type>
+      <mapping>
+        <identity value="hcim-advancedirective-v1.0-2015EN" />
+        <map value="NL-CM:7.15.6" />
+      </mapping>
+    </element>
+    <element id="Consent.category">
+      <path value="Consent.category" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="coding.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="2" />
+    </element>
+    <element id="Consent.category:livingWill">
+      <path value="Consent.category" />
+      <sliceName value="livingWill" />
+      <short value="Living will and advance directive record" />
+      <definition value="Category snomed code used for indexing/retrieval of LivingWills" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Consent.category:livingWill.coding.system">
+      <path value="Consent.category.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Consent.category:livingWill.coding.code">
+      <path value="Consent.category.coding.code" />
+      <fixedCode value="11341000146107" />
+    </element>
+    <element id="Consent.category:livingWill.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Consent.category.coding.display" />
+      <fixedString value="Living will and advance directive record (record artifact)" />
+    </element>
+    <element id="Consent.category:typeOfLivingWill">
+      <path value="Consent.category" />
+      <sliceName value="typeOfLivingWill" />
+      <short value="TypeOfLivingWill" />
+      <definition value="List of the different types of living wills." />
+      <alias value="WilsverklaringType" />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="List of the different types of living wills." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.15.1--20171231000000" />
+          <display value="WilsverklaringTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-advancedirective-v1.0-2015EN" />
+        <map value="NL-CM:7.15.2" />
+      </mapping>
+    </element>
+    <element id="Consent.patient">
+      <path value="Consent.patient" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+    </element>
+    <element id="Consent.dateTime">
+      <path value="Consent.dateTime" />
+      <short value="LivingWillDate" />
+      <definition value="The date on which the living will was recorded." />
+      <alias value="WilsverklaringDatum" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-advancedirective-v1.0-2015EN" />
+        <map value="NL-CM:7.15.7" />
+      </mapping>
+    </element>
+    <element id="Consent.consentingParty">
+      <path value="Consent.consentingParty" />
+      <short value="Representative" />
+      <definition value="The person who is the legal representative or is appointed as the authorized representative in the signed authorization." />
+      <alias value="Vertegenwoordiger" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <mapping>
+        <identity value="hcim-advancedirective-v1.0-2015EN" />
+        <map value="NL-CM:7.15.3" />
+      </mapping>
+    </element>
+    <element id="Consent.actor.reference">
+      <path value="Consent.actor.reference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalAidProduct" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+    <element id="Consent.organization">
+      <path value="Consent.organization" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="Consent.source[x]">
+      <path value="Consent.source[x]" />
+      <short value="LivingWillDocument" />
+      <alias value="WilsverklaringDocument" />
+      <mapping>
+        <identity value="hcim-advancedirective-v1.0-2015EN" />
+        <map value="NL-CM:7.15.5" />
+      </mapping>
+    </element>
+    <element id="Consent.except.actor.reference">
+      <path value="Consent.except.actor.reference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalAidProduct" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

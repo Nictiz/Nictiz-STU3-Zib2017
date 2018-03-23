@@ -1,0 +1,183 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="bp" />
+  <meta>
+    <lastUpdated value="2018-03-07T15:02:25.354+01:00" />
+  </meta>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
+    <valueMarkdown value="####Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **85354-9'**&#xD;    -   Other additional codes are allowed - e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;2.  One  `Observation.component.code`  which must have&#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8480-6'**&#xD;    -   Other additional codes are allowed - e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;3.   One  `Observation.component.code`  which must have&#xD;    -   a fixed `Observation.component.code.coding.system`=**'http://loinc.org'**&#xD;    -   fixed  `Observation.component.code.coding.code`= **'8462-4'**&#xD;    -   Other additional codes are allowed - e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;4.  fixed`Observation.component.valueQuantity.code` = **'mm[Hg]'**" />
+  </extension>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/bp" />
+  <version value="2.0" />
+  <name value="Vital Signs Profile" />
+  <title value="VitalSigns BloodPressure" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2016-03-25" />
+  <publisher value="Health Level Seven International (Orders and Observations Workgroup)" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="FHIR Blood Pressure Profile - Copied FHIR Vital Signs Profile to remove .component.value quantity type constrain. More information can be found in the GForge ticket #13796." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-bloodpressure-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/BloodPressure-v1.2(2015EN)" />
+    <name value="HCIM BloodPressure-v1.2(2015EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-VitalSigns" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="FHIR Blood Pressure Profile" />
+      <definition value="This profile defines  how to represent Blood Pressure observations in FHIR using a standard LOINC code and UCUM units of measure.  This is a grouping structure. It has no value in Observation.valueQuantity but contains at least one component (systolic and/or diastolic)." />
+      <alias value="FHIR Bloeddruk-profiel" />
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.1" />
+      </mapping>
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <comment value="additional codes that translate or map to this code are allowed. For example a more granular LOINC code or code that is used locally in a system." />
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <ordered value="false" />
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:BPCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="BPCode" />
+    </element>
+    <element id="Observation.code.coding:BPCode.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.code.coding:BPCode.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="85354-9" />
+    </element>
+    <element id="Observation.valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <max value="0" />
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <ordered value="false" />
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:SystolicBP">
+      <path value="Observation.component" />
+      <sliceName value="SystolicBP" />
+    </element>
+    <element id="Observation.component:SystolicBP.code">
+      <path value="Observation.component.code" />
+      <comment value="additional codes that translate or map to this code are allowed. For example a more granular LOINC code or code that is used locally in a system." />
+    </element>
+    <element id="Observation.component:SystolicBP.code.coding">
+      <path value="Observation.component.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <ordered value="false" />
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:SystolicBP.code.coding:SBPCode">
+      <path value="Observation.component.code.coding" />
+      <sliceName value="SBPCode" />
+      <definition value="Systolic Blood Pressure." />
+    </element>
+    <element id="Observation.component:SystolicBP.code.coding:SBPCode.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.component:SystolicBP.code.coding:SBPCode.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="8480-6" />
+    </element>
+    <element id="Observation.component:SystolicBP.valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <type>
+        <code value="Quantity" />
+      </type>
+    </element>
+    <element id="Observation.component:SystolicBP.valueQuantity.code">
+      <path value="Observation.component.valueQuantity.code" />
+      <fixedCode value="mm[Hg]" />
+    </element>
+    <element id="Observation.component:DiastolicBP">
+      <path value="Observation.component" />
+      <sliceName value="DiastolicBP" />
+    </element>
+    <element id="Observation.component:DiastolicBP.code">
+      <path value="Observation.component.code" />
+      <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system." />
+    </element>
+    <element id="Observation.component:DiastolicBP.code.coding">
+      <path value="Observation.component.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <ordered value="false" />
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:DiastolicBP.code.coding:DBPCode">
+      <path value="Observation.component.code.coding" />
+      <sliceName value="DBPCode" />
+      <definition value="Diastolic Blood Pressure." />
+    </element>
+    <element id="Observation.component:DiastolicBP.code.coding:DBPCode.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.component:DiastolicBP.code.coding:DBPCode.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="8462-4" />
+    </element>
+    <element id="Observation.component:DiastolicBP.valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <type>
+        <code value="Quantity" />
+      </type>
+    </element>
+    <element id="Observation.component:DiastolicBP.valueQuantity.code">
+      <path value="Observation.component.valueQuantity.code" />
+      <fixedCode value="mm[Hg]" />
+    </element>
+  </differential>
+</StructureDefinition>

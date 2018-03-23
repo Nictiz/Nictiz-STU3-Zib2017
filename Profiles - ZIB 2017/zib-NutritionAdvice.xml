@@ -1,0 +1,215 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="e82adf20-9b15-455a-9f13-1a0bb2d20b8b" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2017-05-31T16:09:30.195+02:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-NutritionAdvice" />
+  <version value="2.0" />
+  <name value="ZIB-NutritionAdvice" />
+  <title value="HCIM NutritionAdvice" />
+  <status value="active" />
+  <date value="2017-02-13T15:20:12.6745603+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="NutritionAdvice as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017.&#xD;&#xA;&#xD;&#xA;A nutritional advice is a description of nourishment for the patient, which must meet specific requirements in view of the health condition of the patient. Allergies and food intolerances or chewing and swallowing problems may be a reason for special nutrition." />
+  <purpose value="Recording and communicating nutrition advice provides insight in policy regarding the patient’s diet. If this information is not available, it can lead to unsafe situations for the patient. &#xD;&#xA;Especially in transfer cases, it is important for nutrition advices to be clearly communicated." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-nutritionadvice-v1.0-2015EN" />
+    <uri value="https://zibs.nl/wiki/NutritionAdvice-v1.0(2015EN)" />
+    <name value="HCIM NutritionAdvice-v1.0(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-nutritionadvice-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/NutritionAdvice-v3.0(2016EN)" />
+    <name value="HCIM NutritionAdvice-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-nutritionadvice-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/NutritionAdvice-v3.1(2017EN)" />
+    <name value="HCIM NutritionAdvice-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="NutritionOrder" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/NutritionOrder" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="NutritionOrder">
+      <path value="NutritionOrder" />
+      <short value="NutritionOrder" />
+      <alias value="Voedingsadvies" />
+      <mapping>
+        <identity value="hcim-nutritionadvice-v1.0-2015EN" />
+        <map value="NL-CM:7.11.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.0-2016EN" />
+        <map value="NL-CM:7.11.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.1-2017EN" />
+        <map value="NL-CM:7.11.1" />
+      </mapping>
+    </element>
+    <element id="NutritionOrder.extension">
+      <path value="NutritionOrder.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="NutritionOrder.extension:Comment">
+      <path value="NutritionOrder.extension" />
+      <sliceName value="Comment" />
+      <short value="Comment" />
+      <definition value="A comment on the nutrition advice." />
+      <alias value="Toelichting" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-NutritionAdvice-Explanation" />
+      </type>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v1.0-2015EN" />
+        <map value="NL-CM:7.11.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.0-2016EN" />
+        <map value="NL-CM:7.11.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.1-2017EN" />
+        <map value="NL-CM:7.11.4" />
+      </mapping>
+    </element>
+    <element id="NutritionOrder.patient">
+      <path value="NutritionOrder.patient" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+    </element>
+    <element id="NutritionOrder.encounter">
+      <path value="NutritionOrder.encounter" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact" />
+      </type>
+    </element>
+    <element id="NutritionOrder.orderer">
+      <path value="NutritionOrder.orderer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+    </element>
+    <element id="NutritionOrder.allergyIntolerance">
+      <path value="NutritionOrder.allergyIntolerance" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance" />
+      </type>
+    </element>
+    <element id="NutritionOrder.oralDiet.type.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="NutritionOrder.oralDiet.type.text" />
+      <short value="DietType" />
+      <definition value="Description of the type of diet." />
+      <alias value="DieetType" />
+      <mapping>
+        <identity value="hcim-nutritionadvice-v1.0-2015EN" />
+        <map value="NL-CM:7.11.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.0-2016EN" />
+        <map value="NL-CM:7.11.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.1-2017EN" />
+        <map value="NL-CM:7.11.2" />
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.texture.modifier.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="NutritionOrder.oralDiet.texture.modifier.text" />
+      <short value="Consistency" />
+      <definition value="A description of the consistency of the food." />
+      <comment value="Because of a granularity difference between the ZIB DieataryRecommendations and NutritionOrder, the ZIB concept Consistency is mapped to the elements .oralDiet.texture.modifier.text, .oralDiet.texture.foodType.text  and .oralDiet.fluidConsistencyType.text." />
+      <alias value="Consistentie" />
+      <mapping>
+        <identity value="hcim-nutritionadvice-v1.0-2015EN" />
+        <map value="NL-CM:7.11.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.0-2016EN" />
+        <map value="NL-CM:7.11.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.1-2017EN" />
+        <map value="NL-CM:7.11.3" />
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.texture.foodType.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="NutritionOrder.oralDiet.texture.foodType.text" />
+      <short value="Consistency" />
+      <definition value="A description of the consistency of the food." />
+      <comment value="Because of a granularity difference between the ZIB DieataryRecommendations and NutritionOrder, the ZIB concept Consistency is mapped to the elements .oralDiet.texture.modifier.text, .oralDiet.texture.foodType.text  and .oralDiet.fluidConsistencyType.text." />
+      <alias value="Consistentie" />
+      <mapping>
+        <identity value="hcim-nutritionadvice-v1.0-2015EN" />
+        <map value="NL-CM:7.11.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.0-2016EN" />
+        <map value="NL-CM:7.11.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.1-2017EN" />
+        <map value="NL-CM:7.11.3" />
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.fluidConsistencyType.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="NutritionOrder.oralDiet.fluidConsistencyType.text" />
+      <short value="Consistency" />
+      <definition value="A description of the consistency of the food." />
+      <comment value="Because of a granularity difference between the ZIB DieataryRecommendations and NutritionOrder, the ZIB concept Consistency is mapped to the elements .oralDiet.texture.modifier.text, .oralDiet.texture.foodType.text  and .oralDiet.fluidConsistencyType.text." />
+      <alias value="Consistentie" />
+      <mapping>
+        <identity value="hcim-nutritionadvice-v1.0-2015EN" />
+        <map value="NL-CM:7.11.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.0-2016EN" />
+        <map value="NL-CM:7.11.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-nutritionadvice-v3.1-2017EN" />
+        <map value="NL-CM:7.11.3" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

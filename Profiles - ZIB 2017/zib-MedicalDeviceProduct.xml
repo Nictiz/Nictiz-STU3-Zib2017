@@ -1,0 +1,208 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="bdc91486-6274-4b32-b3db-c019ae085fa1" />
+  <meta>
+    <versionId value="3" />
+    <lastUpdated value="2018-03-07T17:10:17.76+01:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+  <version value="2.0" />
+  <name value="ZIB-MedicalDevice-Product" />
+  <title value="HCIM MedicalDevice Product" />
+  <status value="active" />
+  <date value="2017-01-13T11:58:48.3888108+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This resource is part of MedicalDevice as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017.&#xD;&#xA;&#xD;&#xA;Medical aids are any internally implanted and external devices and/or aids used by the patient (in the past) to reduce the effects of functional limitations in organ systems or to facilitate the treatment of a disease." />
+  <purpose value="Data on medical aids is recorded for several reasons. Knowledge of the presence of these implants enables tracing and taking the aid or device into account in diagnostic or therapeutic procedures, care and transport.&#xD;&#xA;&#xD;&#xA;Examples include: &#xD;&#xA;* Consequences for transportation, toilet use, etc., in the case of a wheelchair;&#xD;&#xA;* A pacemaker can be of medical importance, but also has consequences for planning radiological exams." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-medicaldevice-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/MedicalDevice-v1.2(2015EN)" />
+    <name value="HCIM MedicalDevice-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-medicaldevice-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/MedicalDevice-v3.0(2016EN)" />
+    <name value="HCIM MedicalDevice-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-medicaldevice-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/MedicalDevice-v3.1(2017EN)" />
+    <name value="HCIM MedicalDevice-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)" />
+    <name value="HCIM LaboratoryTestResultForTransfer-v4.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Device" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Device" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Device">
+      <path value="Device" />
+      <short value="Product" />
+      <definition value="The medical aid used (internally or externally)." />
+      <alias value="Product" />
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.2" />
+      </mapping>
+    </element>
+    <element id="Device.identifier">
+      <path value="Device.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="type.coding.system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="ProductID" />
+      <definition value="Unique identification of the product, such as the serial number. &#xD;&#xA;Frequently used coding systems are HIBC and GTIN.&#xD;&#xA;If the law requires this to be registered on the basis of a UDI (Unique Device Identifier), the unique identification must consist of a UDI-DI (Device Identifier) and a UDI-PI (Production Identifier(s)). See http://www.gs1.org/healthcare/udi for more information. &#xD;&#xA;&#xD;&#xA;The UDI-DI must be recorded in reference to GS1 GTIN (01) encryptions, with which for example a firm is linked to the product type. The UDI-PI must consist of the following: application identifier (AI); expiration date (17) and serial number (21) and/or batch or lot number (10)." />
+      <alias value="ProductID" />
+      <max value="1" />
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.4" />
+      </mapping>
+    </element>
+    <element id="Device.identifier:GTIN">
+      <path value="Device.identifier" />
+      <sliceName value="GTIN" />
+    </element>
+    <element id="Device.identifier:GTIN.system">
+      <path value="Device.identifier.system" />
+      <short value=" Global Trade Item Number System" />
+      <fixedUri value="urn:oid:1.3.160" />
+    </element>
+    <element id="Device.identifier:GTIN.value">
+      <path value="Device.identifier.value" />
+      <binding>
+        <strength value="extensible" />
+        <description value="Global Trade Item Number (GTIN)" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.3--20171231000000" />
+          <display value="ProductIDCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Device.identifier:HIBC">
+      <path value="Device.identifier" />
+      <sliceName value="HIBC" />
+    </element>
+    <element id="Device.identifier:HIBC.system">
+      <path value="Device.identifier.system" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.6.40" />
+    </element>
+    <element id="Device.identifier:HIBC.value">
+      <path value="Device.identifier.value" />
+      <binding>
+        <strength value="extensible" />
+        <description value="Health Industry Bar Code (HIBC)" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.5--20171231000000" />
+          <display value="HIBCProductIDCodelist" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Device.type">
+      <path value="Device.type" />
+      <short value="ProductType" />
+      <definition value="The code of the type of product." />
+      <alias value="ProductType" />
+      <binding>
+        <strength value="extensible" />
+        <description value="The code of the type of product." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.1--20171231000000" />
+          <display value="ProductTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.3" />
+      </mapping>
+    </element>
+    <element id="Device.type.coding.system">
+      <path value="Device.type.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Device.type.coding.code">
+      <path value="Device.type.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Device.type.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Device.type.text" />
+      <definition value="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.&#xD;&#xA;" />
+      <comment value="For LaboratoryTestResult.Specimen.SpecimenSource a device may be recoreded as a subject of the Specimen. Fore example If the material is not collected directly from the patient but comes from a patient-related object, e.g. a cathetertip. This source of material can be recorded here." />
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:13.1.29" />
+      </mapping>
+    </element>
+    <element id="Device.patient">
+      <path value="Device.patient" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+    </element>
+    <element id="Device.note.text">
+      <path value="Device.note.text" />
+      <short value="ProductDescription" />
+      <definition value="Textual description of the product." />
+      <alias value="ProductOmschrijving" />
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.13" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.13" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.13" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

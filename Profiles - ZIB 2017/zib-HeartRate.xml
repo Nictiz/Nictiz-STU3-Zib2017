@@ -1,0 +1,168 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2017-09-11T09:35:57.691+02:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HeartRate" />
+  <version value="2.0" />
+  <name value="ZIB-HeartRate" />
+  <title value="HCIM HeartRate" />
+  <status value="active" />
+  <date value="2017-09-06T12:02:17.702+02:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is derived from the HL7 Vital Signs profile for heart rate in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) Heartrate v3.1, release 2017, and to provide extensions for missing concepts." />
+  <purpose value="Obtaining information on circulation and heart function by measuring the heartbeat. " />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-heartrate-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/HeartRate-v1.2(2015EN)" />
+    <name value="HCIM HeartRate-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-heartrate-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/HeartRate-v3.0(2016EN)" />
+    <name value="HCIM HeartRate-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-heartrate-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/HeartRate-v3.1(2017EN)" />
+    <name value="HCIM HeartRate-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/heartrate" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="HeartRate" />
+      <definition value="This profile defines how to represent heart rate observations in FHIR using a standard LOINC code and UCUM units of measure.&#xD;&#xA;The heart frequency is the number of heartbeats per minute." />
+      <alias value="Hartfrequentie" />
+      <mapping>
+        <identity value="hcim-heartrate-v1.2-2015EN" />
+        <map value="NL-CM:12.3.1" />
+      </mapping>
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
+      <short value="HeartRateDateTime" />
+      <definition value="Date and time of the heart frequency measurement." />
+      <alias value="HartfrequentieDatumTijd" />
+      <mapping>
+        <identity value="hcim-heartrate-v1.2-2015EN" />
+        <map value="NL-CM:12.3.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.0-2016EN" />
+        <map value="NL-CM:12.3.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.1-2017EN" />
+        <map value="NL-CM:12.3.4" />
+      </mapping>
+    </element>
+    <element id="Observation.valueQuantity:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="HeartRateValue" />
+      <definition value="The heart frequency measured as the number of heartbeats per minute." />
+      <alias value="HartfrequentieWaarde" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-heartrate-v1.2-2015EN" />
+        <map value="NL-CM:12.3.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.0-2016EN" />
+        <map value="NL-CM:12.3.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.1-2017EN" />
+        <map value="NL-CM:12.3.2" />
+      </mapping>
+    </element>
+    <element id="Observation.interpretation">
+      <path value="Observation.interpretation" />
+      <short value="HeartbeatRegularity" />
+      <definition value="Regularity of the heartbeat." />
+      <alias value="HartslagRegelmatigheid" />
+      <binding>
+        <strength value="extensible" />
+        <description value="HartslagRegelmatigheidCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.3.1--20171231000000" />
+          <display value="HartslagRegelmatigheidCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-heartrate-v1.2-2015EN" />
+        <map value="NL-CM:12.3.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.0-2016EN" />
+        <map value="NL-CM:12.3.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.1-2017EN" />
+        <map value="NL-CM:12.3.5" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comment on any problems or factors that may influence the measurement. Further explanation can be provided here as well." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-heartrate-v1.2-2015EN" />
+        <map value="NL-CM:12.3.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.0-2016EN" />
+        <map value="NL-CM:12.3.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.1-2017EN" />
+        <map value="NL-CM:12.3.3" />
+      </mapping>
+    </element>
+    <element id="Observation.method">
+      <path value="Observation.method" />
+      <short value="HeartRateMeasurementMethod" />
+      <definition value="The method used to count and observe the heartbeat." />
+      <alias value="HartslagMeetMethode" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationMethod" />
+        </extension>
+        <strength value="extensible" />
+        <description value="HartslagMeetMethodeCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.3.2--20171231000000" />
+          <display value="HartslagMeetMethodeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-heartrate-v1.2-2015EN" />
+        <map value="NL-CM:12.3.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.0-2016EN" />
+        <map value="NL-CM:12.3.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.1-2017EN" />
+        <map value="NL-CM:12.3.6" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

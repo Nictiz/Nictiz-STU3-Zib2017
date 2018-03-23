@@ -1,0 +1,46 @@
+﻿<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
+    <meta>
+        <lastUpdated value="2017-06-19T14:22:10.414+02:00"/>
+    </meta>
+    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment"/>
+    <version value="1.0"/>
+    <name value="ZIB-TreatmentDirective-Treatment"/>
+    <title value="HCIM TreatmentDirective Treatment"/>
+    <status value="active"/>
+    <date value="2017-06-19T14:16:40.1504131+02:00"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="An extension for Consent based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) TreatmentInstructin version 1.0. This extenion provides infromation on the medical treatment to which the treatment instruction applies."/>
+    <copyright value="CC0"/>
+    <fhirVersion value="3.0.1"/>
+    <kind value="complex-type"/>
+    <abstract value="false"/>
+    <contextType value="resource"/>
+    <context value="Consent"/>
+    <type value="Extension"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Extension.url">
+            <path value="Extension.url"/>
+            <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment"/>
+        </element>
+        <element id="Extension.value[x]:valueCodeableConcept">
+            <path value="Extension.valueCodeableConcept"/>
+            <sliceName value="valueCodeableConcept"/>
+            <short value="Treatment"/>
+            <definition value="The medical treatment to which the treatment instruction applies."/>
+            <alias value="Behandeling"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

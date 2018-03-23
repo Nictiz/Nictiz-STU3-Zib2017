@@ -1,0 +1,51 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2018-03-07T17:37:43.841+01:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
+  <version value="2.0" />
+  <name value="BodySite Qualifier" />
+  <title value="BodySite Qualifier" />
+  <status value="draft" />
+  <date value="2018-03-07T17:26:15.441+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Qualifier to refine the anatomical location. These include qualifiers for laterality, relative location, directionality, number, and plane." />
+  <purpose value="To provide additional information regarding the anatomical location withouth the need to use the BodySite resource." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="datatype" />
+  <context value="CodeableConcept" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <definition value="Qualifier to refine the anatomical location. These include qualifiers for laterality, relative location, directionality, number, and plane." />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
+    </element>
+    <element id="Extension.valueCodeableConcept:valueCodeableConcept">
+      <path value="Extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="BodySite qualifier" />
+      <definition value="Qualifier to refine the anatomical location. These include qualifiers for laterality, relative location, directionality, number, and plane." />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

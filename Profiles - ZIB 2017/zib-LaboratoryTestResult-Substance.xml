@@ -1,0 +1,54 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Substance" />
+  <version value="2.0" />
+  <name value="ZIB-LaboratoryTestResult-Substance" />
+  <title value="HCIM LaboratoryTestResult Substance" />
+  <status value="draft" />
+  <date value="2018-03-19T17:28:25.568+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The Substance details from the LaboratoryTestResult.specimen.microorganism as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 4.1, release 2017." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)" />
+    <name value="HCIM LaboratoryTestResultForTransfer-v4.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Substance" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Substance" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Substance.code">
+      <path value="Substance.code" />
+      <short value="Microorganism" />
+      <definition value="In particular in microbiological determinations the subject of the test is an isolate of certain microorganism rather then a material. This concept provides the ability to capture information about this microorganism." />
+      <alias value="Microorganisme" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceCode" />
+        </extension>
+        <strength value="extensible" />
+        <description value="MicroorganismCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.10--20171231000000" />
+          <display value="MicroorganismCodelist" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:13.1.22" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

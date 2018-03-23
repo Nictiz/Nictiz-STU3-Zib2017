@@ -1,0 +1,478 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="0f01e7ed-99b5-4781-8e06-0b92fef40c71" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2018-03-06T16:54:30.703+01:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance" />
+  <version value="2.0" />
+  <name value="ZIB-AllergyIntolerance" />
+  <title value="HCIM AllergyIntolerance" />
+  <status value="draft" />
+  <date value="2016-12-09T08:27:09.849+00:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="AllergyIntolerance as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.2, release 2017. An allergy or intolerance describes a patient’s tendency towards hypersensitivity to a certain substance, so that an unwanted physiological reaction is expected after exposure to the substance, while most people would not exhibit such a reaction to that amount. The observed physiological changes are usually the result of an immunological reaction. The substances can be categorized as follows:&#xD;&#xA;* Medicine&#xD;&#xA;* Medicine category&#xD;&#xA;* Ingredient/addition&#xD;&#xA;* Nutrition&#xD;&#xA;* Environmental factor&#xD;&#xA;* Animal&#xD;&#xA;* Plants&#xD;&#xA;* Chemicals&#xD;&#xA;* Inhaled allergenic" />
+  <purpose value="Documenting and communicating allergies and intolerances is an important part of medical registration. It concerns the core of patient safety in general and medication safety in particular. In the execution of research, treatment and care, these patient characteristics constantly have to be taken into account. &#xD;&#xA;In principle, allergies and intolerances are also disorders and also could be entered as a problem. Nevertheless, these are usually entered separately.&#xD;&#xA;Allergies/Intolerances have a lot in common with warnings (Alert). An important difference is that with allergies and intolerances, a lot of detailed information is recorded on things such as the reactions to the causative substance. Furthermore, not every warning is a problem or medical condition. Every allergy/intolerance is, however, while not every allergy or intolerance implies a warning." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.0" />
+  <mapping>
+    <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/AllergyIntolerance-v1.0.2(2015EN)" />
+    <name value="HCIM AllergyIntolerance-v1.0.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/AllergyIntolerance-v3.0(2016EN)" />
+    <name value="HCIM AllergyIntolerance-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/AllergyIntolerance-v3.2(2017EN)" />
+    <name value="HCIM AllergyIntolerance-v3.2(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="AllergyIntolerance" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="AllergyIntolerance">
+      <path value="AllergyIntolerance" />
+      <short value="AllergyIntolerance" />
+      <alias value="AllergieIntolerantie" />
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.1" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.identifier">
+      <path value="AllergyIntolerance.identifier" />
+      <short value="Identifier" />
+      <alias value="Identificatie" />
+    </element>
+    <element id="AllergyIntolerance.clinicalStatus.extension">
+      <path value="AllergyIntolerance.clinicalStatus.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="AllergyIntolerance.clinicalStatus.extension:AllergieStatusCodelijst">
+      <path value="AllergyIntolerance.clinicalStatus.extension" />
+      <sliceName value="AllergieStatusCodelijst" />
+      <short value="AllergyStatus" />
+      <definition value="Statement on the status of the patient’s hypersensitivity." />
+      <alias value="AllergieStatus" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="AllergieStatusCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.3--20171231000000" />
+          <display value="AllergieStatusCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.5" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.category.extension">
+      <path value="AllergyIntolerance.category.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="AllergyIntolerance.category.extension:AllergieCategorieCodelijst">
+      <path value="AllergyIntolerance.category.extension" />
+      <sliceName value="AllergieCategorieCodelijst" />
+      <short value="AllergyCategory" />
+      <definition value="Identifies the allergy category such as medication, food or environment." />
+      <alias value="AllergieCategorie" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="AllergieCategorieCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.2--20171231000000" />
+          <display value="AllergieCategorieCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.4" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.criticality.extension">
+      <path value="AllergyIntolerance.criticality.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="AllergyIntolerance.criticality.extension:CriticalExtentCodelist">
+      <path value="AllergyIntolerance.criticality.extension" />
+      <sliceName value="CriticalExtentCodelist" />
+      <short value="Criticality" />
+      <definition value="Critical extent is defined as “the potential severity of future reactions.” &#xD;&#xA;This represents a clinical evaluation of the worst case scenario for a future reaction. It can be based on the severity of past reactions, the dose and manner of exposure which caused reactions in the past, and the life-threatening potential of the type of reaction. Critical extent is a property of the allergy, and not of the reaction itself." />
+      <alias value="MateVanKritiekZijn" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="CriticalExtentCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.4--20171231000000" />
+          <display value="MateVanKritiekZijnCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.7" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.7" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.7" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.code">
+      <path value="AllergyIntolerance.code" />
+      <short value="CausativeAgent" />
+      <alias value="VeroorzakendeStof" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.3.11.1--201712310000000" />
+          <display value="VeroorzakendeStofCodeLijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.2" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.patient">
+      <path value="AllergyIntolerance.patient" />
+      <short value="Patient" />
+      <alias value="Patiënt" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+    </element>
+    <element id="AllergyIntolerance.onset[x]">
+      <path value="AllergyIntolerance.onset[x]" />
+      <short value="StartDateTime" />
+      <definition value="The date and time at which the allergy or undesired reaction was determined.  &#xD;&#xA;This can be an exact date and time, or a rough indication of the date (such as only the year, or the month and the year)." />
+      <alias value="BeginDatumTijd" />
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.6" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.recorder">
+      <path value="AllergyIntolerance.recorder" />
+      <short value="Recorder" />
+      <alias value="Auteur" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+    </element>
+    <element id="AllergyIntolerance.asserter">
+      <path value="AllergyIntolerance.asserter" />
+      <short value="Informant" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+    </element>
+    <element id="AllergyIntolerance.lastOccurrence">
+      <path value="AllergyIntolerance.lastOccurrence" />
+      <short value="LastReactionDateTime" />
+      <definition value="Entry of the last time a hypersensitive reaction took place." />
+      <alias value="LaatsteReactieDatumTijd" />
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.8" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.8" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.8" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.note.author[x]">
+      <path value="AllergyIntolerance.note.author[x]" />
+      <short value="Author" />
+      <alias value="Auteur" />
+      <type>
+        <code value="string" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+    <element id="AllergyIntolerance.note.text">
+      <path value="AllergyIntolerance.note.text" />
+      <short value="Comment" />
+      <definition value="Textual explanation of the hypersensitivity which cannot be entered in any of the other fields." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.9" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.9" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.9" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction">
+      <path value="AllergyIntolerance.reaction" />
+      <short value="Reaction" />
+      <alias value="Reactie" />
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.10" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.10" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.10" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.substance">
+      <path value="AllergyIntolerance.reaction.substance" />
+      <short value="SpecificSubstance" />
+      <definition value="More specific indication of the substance that caused the reaction. This can be a specific substance from a group of substances to which the patient is allergic or hypersensitive." />
+      <alias value="SpecifiekeStof" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.3.11.2--201712310000000" />
+          <display value="SpecifiekeStofCodeLijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.12" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.12" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.12" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.manifestation">
+      <path value="AllergyIntolerance.reaction.manifestation" />
+      <short value="Symptom" />
+      <definition value="The content specifications of the reaction that takes place when the patient is exposed to the causative substance." />
+      <alias value="Symptoom" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.5--20171231000000" />
+          <display value="SymptoomCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.11" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.11" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.11" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.description">
+      <path value="AllergyIntolerance.reaction.description" />
+      <short value="ReactionDescription" />
+      <alias value="ReactieBeschrijving" />
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.13" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.13" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.13" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.onset">
+      <path value="AllergyIntolerance.reaction.onset" />
+      <short value="ReactionTime" />
+      <definition value="Date and time at which the reaction took place. This may also be just the date or a partial date, in the event that the exact date is unknown." />
+      <alias value="ReactieTijdstip" />
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.17" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.17" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.17" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.severity">
+      <path value="AllergyIntolerance.reaction.severity" />
+      <short value="Severity" />
+      <definition value="The severity of the reaction as a result of exposure to the causative substance." />
+      <alias value="Ernst" />
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.14" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.14" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.14" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.exposureRoute">
+      <path value="AllergyIntolerance.reaction.exposureRoute" />
+      <short value="MannerOfExposure" />
+      <definition value="Way in which the patient came into contact with the causative agent or the way in which the agent was administered." />
+      <alias value="WijzeVanBlootstelling" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.12--20171231000000" />
+          <display value="WijzeVanBlootstellingCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
+        <map value="NL-CM:8.2.15" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.0-2016EN" />
+        <map value="NL-CM:8.2.15" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.15" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

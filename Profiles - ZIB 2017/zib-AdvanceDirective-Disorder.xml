@@ -1,0 +1,57 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2017-05-03T14:27:22.056+02:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective-Disorder" />
+  <version value="2.0" />
+  <name value="ZIB-AdvanceDirective-Disorder" />
+  <title value="HCIM AdvanceDirective Disorder" />
+  <status value="active" />
+  <date value="2017-05-03T14:01:26.8857331+02:00" />
+  <publisher value="Niztiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The problem or disorder to which the living will applies as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) 'OverdrachtConcern' version 1.0." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-advancedirective-v1.0-2015EN" />
+    <uri value="https://zibs.nl/wiki/AdvanceDirective-v1.0(2015EN)" />
+    <name value="HCIM AdvanceDirective-v1.0(2015EN)" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Consent" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective-Disorder" />
+    </element>
+    <element id="Extension.valueReference">
+      <path value="Extension.valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Concern" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

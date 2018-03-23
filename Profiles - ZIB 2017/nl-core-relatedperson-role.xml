@@ -1,0 +1,57 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="965eab6e-13c7-4882-b888-af04908a7903" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2017-09-29T13:44:16.458+02:00" />
+  </meta>
+  <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role" />
+  <version value="2.0" />
+  <name value="nl-core-relatedperson-role" />
+  <title value="nl-core-relatedperson-role" />
+  <status value="active" />
+  <publisher value="HL7 Netherlands" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Extension to support RelatedPerson.role" />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-contactperson-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/ContactPerson-v1.2(2015EN)" />
+    <name value="HCIM ContactPerson-v1.2(2015EN)" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="RelatedPerson" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Role" />
+      <alias value="Rol" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <mapping>
+        <identity value="hcim-contactperson-v1.2-2015EN" />
+        <map value="NL-CM:3.1.2" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

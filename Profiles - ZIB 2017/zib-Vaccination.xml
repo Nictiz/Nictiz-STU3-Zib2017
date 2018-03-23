@@ -1,0 +1,280 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="632d5a10-f1f5-492a-ad09-2a3470302de0" />
+  <meta>
+    <versionId value="3" />
+    <lastUpdated value="2018-03-06T16:58:00.228+01:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Vaccination" />
+  <version value="2.0" />
+  <name value="ZIB-Vaccination" />
+  <title value="HCIM Vaccination" />
+  <status value="active" />
+  <date value="2017-01-16T11:38:25.218701+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Vaccinatie as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.0, release 2017.&#xD;&#xA;&#xD;&#xA;Immunization can be defined as “Generating natural immunity against pathogens by means of vaccination (active immunization) or by administering immunoglobulins (passive immunization)”.&#xD;&#xA;&#xD;&#xA;Only vaccinations are included in this information model. Administering immunoglobulins is part of the medication overview. Vaccinations have lifelong relevance.&#xD;&#xA;&#xD;&#xA;Most vaccinations are carried out in the Netherlands as part of the RVP (Rijksvaccinatieprogramma, National Immunisation Program). RVP information is especially important for children. &#xD;&#xA;&#xD;&#xA;Vaccinations are also relevant for adult patients such as transplant patients, dialysis patients and patients with a post-splenectomy status. In addition, there are specific indications for the vaccination of risk groups, such as travelers, professionals who come into contact with blood or patients with wounds, weakened immune systems or heightened risk." />
+  <purpose value="Documenting vaccinations that have already taken place in a patient is important for things such as the diagnostics of infectious diseases and the indication and planning of (re)vaccinations." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-vaccination-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/Vaccination-v1.2(2015EN)" />
+    <name value="HCIM Vaccination-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-vaccination-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Vaccination-v3.0(2016EN)" />
+    <name value="HCIM Vaccination-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-vaccination-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Vaccination-v3.1(2017EN)" />
+    <name value="HCIM Vaccination-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Immunization" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Immunization" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Immunization">
+      <path value="Immunization" />
+      <short value="Vaccination" />
+      <alias value="Vaccinatie" />
+      <mapping>
+        <identity value="hcim-vaccination-v1.2-2015EN" />
+        <map value="NL-CM:11.1.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.0-2016EN" />
+        <map value="NL-CM:11.1.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.1-2017EN" />
+        <map value="NL-CM:11.1.1" />
+      </mapping>
+    </element>
+    <element id="Immunization.vaccineCode">
+      <path value="Immunization.vaccineCode" />
+      <short value="ProductCode" />
+      <definition value="The product code of the vaccine administered.&#xD;&#xA;There are several possible code systems for documenting the product code. If the vaccination data is registered based on an anamnesis, coding with the ATC code is preferred. In all cases it concerns those products that fall under ATC group J07 (vaccines)." />
+      <alias value="ProductCode" />
+      <mapping>
+        <identity value="hcim-vaccination-v1.2-2015EN" />
+        <map value="NL-CM:11.1.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.0-2016EN" />
+        <map value="NL-CM:11.1.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.1-2017EN" />
+        <map value="NL-CM:11.1.2" />
+      </mapping>
+    </element>
+    <element id="Immunization.vaccineCode.coding">
+      <path value="Immunization.vaccineCode.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Immunization.vaccineCode.coding:ProductCodeGPKCodelijst">
+      <path value="Immunization.vaccineCode.coding" />
+      <sliceName value="ProductCodeGPKCodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodeGPKCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.3--20171231000000" />
+          <display value="ProductCodeGPKCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Immunization.vaccineCode.coding:ProductCodeHPKCodelijst">
+      <path value="Immunization.vaccineCode.coding" />
+      <sliceName value="ProductCodeHPKCodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodeHPKCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.2--20171231000000" />
+          <display value="ProductCodeHPKCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Immunization.vaccineCode.coding:ProductCodeZICodelijst">
+      <path value="Immunization.vaccineCode.coding" />
+      <sliceName value="ProductCodeZICodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodeZICodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.6--20171231000000" />
+          <display value="ProductCodeZICodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Immunization.vaccineCode.coding:ProductCodeATCCodelijst">
+      <path value="Immunization.vaccineCode.coding" />
+      <sliceName value="ProductCodeATCCodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodeATCCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.4--20171231000000" />
+          <display value="ProductCodeATCCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Immunization.vaccineCode.coding:ProductCodePRKCodelijst">
+      <path value="Immunization.vaccineCode.coding" />
+      <sliceName value="ProductCodePRKCodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodePRKCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.1--20171231000000" />
+          <display value="ProductCodePRKCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Immunization.vaccineCode.coding:ProductCodeGTINCodelijst">
+      <path value="Immunization.vaccineCode.coding" />
+      <sliceName value="ProductCodeGTINCodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodeGTINCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.5--20171231000000" />
+          <display value="ProductCodeGTINCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Immunization.encounter">
+      <path value="Immunization.encounter" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
+      </type>
+    </element>
+    <element id="Immunization.date">
+      <path value="Immunization.date" />
+      <short value="VaccinationDate" />
+      <definition value="Date (and if possible time) that the vaccine was administered." />
+      <alias value="VaccinatieDatum" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-vaccination-v1.2-2015EN" />
+        <map value="NL-CM:11.1.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.0-2016EN" />
+        <map value="NL-CM:11.1.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.1-2017EN" />
+        <map value="NL-CM:11.1.3" />
+      </mapping>
+    </element>
+    <element id="Immunization.manufacturer">
+      <path value="Immunization.manufacturer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="Immunization.doseQuantity:SimpleQuantity">
+      <path value="Immunization.doseQuantity" />
+      <sliceName value="SimpleQuantity" />
+      <short value="Dose" />
+      <definition value="The amount of product administered shown in milliliters. In most cases, the entire product is administered; in some cases, a described part of the product is administered." />
+      <alias value="Dosis" />
+      <mapping>
+        <identity value="hcim-vaccination-v1.2-2015EN" />
+        <map value="NL-CM:11.1.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.0-2016EN" />
+        <map value="NL-CM:11.1.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.1-2017EN" />
+        <map value="NL-CM:11.1.4" />
+      </mapping>
+    </element>
+    <element id="Immunization.practitioner.actor">
+      <path value="Immunization.practitioner.actor" />
+      <short value="Administrator" />
+      <definition value="The healthcare provider and/or organization where or by whom the immunization was done." />
+      <alias value="Toediener" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <mapping>
+        <identity value="hcim-vaccination-v1.2-2015EN" />
+        <map value="NL-CM:11.1.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.0-2016EN" />
+        <map value="NL-CM:11.1.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.1-2017EN" />
+        <map value="NL-CM:11.1.6" />
+      </mapping>
+    </element>
+    <element id="Immunization.note">
+      <path value="Immunization.note" />
+      <mapping>
+        <identity value="hcim-vaccination-v1.2-2015EN" />
+        <map value="NL-CM:11.1.7" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.0-2016EN" />
+        <map value="NL-CM:11.1.7" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.1-2017EN" />
+        <map value="NL-CM:11.1.7" />
+      </mapping>
+    </element>
+    <element id="Immunization.note.text">
+      <path value="Immunization.note.text" />
+      <short value="Comment" />
+      <definition value="Free text explanation.&#xD;&#xA;Examples of commonly used explanations are: - &quot;Vaccination according to the National Immunisation Program&quot;. - &quot;Not according to the National Immunisation Program&quot;, followed by further explanation. - &quot;Unknown&quot;" />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-vaccination-v1.2-2015EN" />
+        <map value="NL-CM:11.1.7" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.0-2016EN" />
+        <map value="NL-CM:11.1.7" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.1-2017EN" />
+        <map value="NL-CM:11.1.7" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

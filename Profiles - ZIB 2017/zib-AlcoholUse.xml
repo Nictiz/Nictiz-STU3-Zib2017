@@ -1,0 +1,273 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="7092bccf-d465-4b55-844c-d47205c9b52d" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2018-02-12T17:11:40.567+01:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AlcoholUse" />
+  <version value="2.0" />
+  <name value="ZIB-AlcoholUse" />
+  <title value="HCIM AlcoholUse" />
+  <status value="active" />
+  <date value="2017-01-04T10:27:28.0292377+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="AlcoholUse as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version v3.1, release 2017.&#xD;&#xA;&#xD;&#xA;In the context of this information model, alcohol is the collective term for alcoholic beverages consumed as a leisure product. This information model describes the information asked of the patient about their alcohol use." />
+  <purpose value="During the social anamnesis, the patient is frequently asked about their alcohol consumption. Excessive (episodic) alcohol consumption may influence the current treatment and diagnostics. Alcohol-related problems are diagnosed as secondary diagnoses more and more often. Source: Guidelines - Multidisciplinary guidelines for Disorders in alcohol use (CBO, 2009)" />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-alcoholuse-v1.2.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/AlcoholUse-v1.2.1(2015EN)" />
+    <name value="HCIM AlcoholUse-v1.2.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-alcoholuse-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/AlcoholUse-v3.0(2016EN)" />
+    <name value="HCIM AlcoholUse-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-alcoholuse-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/AlcoholUse-v3.1(2017EN)" />
+    <name value="HCIM AlcoholUse-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/observation-nl" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="AlcoholUse" />
+      <definition value="Root concept of the AlcoholUse information model. This concept contains all data elements of the AlcoholUse information model." />
+      <alias value="AlcoholGebruik" />
+      <mapping>
+        <identity value="hcim-alcoholuse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.3.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.0-2016EN" />
+        <map value="NL-CM:7.3.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.1-2017EN" />
+        <map value="NL-CM:7.3.1" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:AlcoholUseCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="AlcoholUseCode" />
+    </element>
+    <element id="Observation.code.coding:AlcoholUseCode.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:AlcoholUseCode.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="228273003" />
+    </element>
+    <element id="Observation.code.coding:AlcoholUseCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <fixedString value="Finding relating to alcohol drinking behavior (finding)" />
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <min value="1" />
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effectivePeriod" />
+      <type>
+        <code value="Period" />
+      </type>
+      <example>
+        <label value="Example of an effecitvePeriod" />
+        <valuePeriod>
+          <start value="1975" />
+          <end value="2012-02-28" />
+        </valuePeriod>
+      </example>
+    </element>
+    <element id="Observation.effectivePeriod.start">
+      <path value="Observation.effectivePeriod.start" />
+      <short value="Startdate" />
+      <definition value="The date on which the patient started using alcohol." />
+      <alias value="StartDatum" />
+      <mapping>
+        <identity value="hcim-alcoholuse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.3.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.0-2016EN" />
+        <map value="NL-CM:7.3.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.1-2017EN" />
+        <map value="NL-CM:7.3.4" />
+      </mapping>
+    </element>
+    <element id="Observation.effectivePeriod.end">
+      <path value="Observation.effectivePeriod.end" />
+      <short value="StopDate" />
+      <definition value="The date on which the patient stopped consuming alcohol.&#xD;&#xA;If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time." />
+      <alias value="StopDatum" />
+      <mapping>
+        <identity value="hcim-alcoholuse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.3.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.0-2016EN" />
+        <map value="NL-CM:7.3.5" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.1-2017EN" />
+        <map value="NL-CM:7.3.5" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]">
+      <path value="Observation.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="AlcoholUseStatus" />
+      <definition value="The status of the patient’s alcohol use." />
+      <alias value="AlcoholGebruikStatus" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Dutch example of instance" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="219006" />
+            <display value="Current drinker of alcohol" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="Codes defining the alcohol intake status." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.3.2--20171231000000" />
+          <display value="AlcoholGebruikStatusCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-alcoholuse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.3.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.0-2016EN" />
+        <map value="NL-CM:7.3.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.1-2017EN" />
+        <map value="NL-CM:7.3.2" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Relevant comment on the alcohol consumption." />
+      <alias value="Toelichting" />
+      <example>
+        <label value="Dutch example instance of element" />
+        <valueString value="consumptie alcohol alleen in het weekend" />
+      </example>
+      <mapping>
+        <identity value="hcim-alcoholuse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.3.7" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.0-2016EN" />
+        <map value="NL-CM:7.3.7" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.1-2017EN" />
+        <map value="NL-CM:7.3.7" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component.Amount">
+      <path value="Observation.component" />
+      <sliceName value="Amount" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Amount.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:Amount.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="160573003" />
+    </element>
+    <element id="Observation.component:Amount.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Alcohol intake (observable entity)" />
+    </element>
+    <element id="Observation.component:Amount.value[x]">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Amount" />
+      <definition value="The extent of the patient’s alcohol use in units of alcohol per time period defined in UCUM {glasses}/wk where wk (week) may be any reasonable time unit like d (day), wk (week), mo (month) or a (annum/year)" />
+      <alias value="Hoeveelheid" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <example>
+        <label value="Example of glasses/week" />
+        <valueQuantity>
+          <value value="32" />
+          <unit value="glasses/week" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="{glasses}/wk" />
+        </valueQuantity>
+      </example>
+      <mapping>
+        <identity value="hcim-alcoholuse-v1.2.1-2015EN" />
+        <map value="NL-CM:7.3.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.0-2016EN" />
+        <map value="NL-CM:7.3.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-alcoholuse-v3.1-2017EN" />
+        <map value="NL-CM:7.3.6" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,158 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="23d7a84f-88de-435a-8f05-09bf14678b97" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2018-02-14T16:18:14.389+01:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LivingSituation" />
+  <version value="2.0" />
+  <name value="ZIB-LivingSituation" />
+  <title value="HCIM LivingSituation" />
+  <status value="active" />
+  <date value="2017-01-09T14:12:14.1341407+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="LivingSituation as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 1.0.&#xD;&#xA;&#xD;&#xA;The living situation is the physical environment in which the patient normally lives, sleeps, keeps their clothing, etc." />
+  <purpose value="The goal is to take stock of the patient’s current living situation. This is in regard to any current or future problems the patient encounters or could encounter when living with the disease and the patient’s (future) constraints. &#xD;&#xA;There are many reasons to ask about the patient’s living situation. The living situation can be relevant in the patient’s wish to live in their own home independently in the event of disease and/or disability (WMO, 2011; CIZ, 2011). Furthermore, the living situation is important in evaluating the risks of falling, particularly among people living alone (CMO, guidelines for fall prevention, 2004)." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-livingsituation-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/LivingSituation-v1.2(2015EN)" />
+    <name value="HCIM LivingSituation-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-livingsituation-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/LivingSituation-v3.1(2017EN)" />
+    <name value="HCIM LivingSituation-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-livingsituation-3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/LivingSituation-v3.0(2016EN)" />
+    <name value="HCIM LivingSituation-v3.0(2016EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/observation-nl" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="LivingSituation" />
+      <definition value="Root concept of the LivingSituation information model. This root concept contains all data elements of the LivingSituation information model." />
+      <alias value="Woonsituatie" />
+      <mapping>
+        <identity value="hcim-livingsituation-v1.2-2015EN" />
+        <map value="NL-CM:7.8.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-livingsituation-3.0-2016EN" />
+        <map value="NL-CM:7.8.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-livingsituation-v3.1-2017EN" />
+        <map value="NL-CM:7.8.1" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:LivingSituationCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="LivingSituationCode" />
+    </element>
+    <element id="Observation.code.coding:LivingSituationCode.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:LivingSituationCode.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="365508006" />
+    </element>
+    <element id="Observation.code.coding:LivingSituationCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <fixedString value="Finding of residence and accommodation circumstances (finding)" />
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <min value="1" />
+    </element>
+    <element id="Observation.value[x]">
+      <path value="Observation.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="TypeOfHome" />
+      <definition value="Type of home the patient lives in." />
+      <alias value="WoningType" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of TypeofHome" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.13.1" />
+            <code value="FLATW" />
+            <display value="Appartement of flatwoning" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="Type of home the patient lives in." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.8.1--20171231000000" />
+          <display value="WoningTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-livingsituation-v1.2-2015EN" />
+        <map value="NL-CM:7.8.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-livingsituation-3.0-2016EN" />
+        <map value="NL-CM:7.8.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-livingsituation-v3.1-2017EN" />
+        <map value="NL-CM:7.8.3" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comments in free text on problems or details of the patient’s living situation that may be relevant." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-livingsituation-v1.2-2015EN" />
+        <map value="NL-CM:7.8.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-livingsituation-3.0-2016EN" />
+        <map value="NL-CM:7.8.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-livingsituation-v3.1-2017EN" />
+        <map value="NL-CM:7.8.2" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
