@@ -42,7 +42,7 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/observation-nl" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation">
@@ -258,6 +258,25 @@
         <identity value="hcim-functionalormentalstatus-v3.1-2017EN" />
         <map value="NL-CM:4.26.6" />
       </mapping>
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
     </element>
     <element id="Observation.valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />

@@ -42,7 +42,7 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/observation-nl" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation">
@@ -95,6 +95,22 @@
     <element id="Observation.subject">
       <path value="Observation.subject" />
       <min value="1" />
+        <type>
+          <code value="Reference" />
+          <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+        </type>
+        <type>
+          <code value="Reference" />
+          <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+        </type>
+        <type>
+          <code value="Reference" />
+          <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+        </type>
+        <type>
+          <code value="Reference" />
+          <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+        </type>
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effectivePeriod" />
@@ -144,6 +160,25 @@
         <identity value="hcim-alcoholuse-v3.1-2017EN" />
         <map value="NL-CM:7.3.5" />
       </mapping>
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.valueCodeableConcept" />

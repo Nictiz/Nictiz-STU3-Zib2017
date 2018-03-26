@@ -41,7 +41,7 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/observation-nl" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation">
@@ -249,9 +249,22 @@
       <path value="Observation.subject" />
       <short value="Patient" />
       <alias value="Patiënt" />
+      <min value="1" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
       </type>
     </element>
     <element id="Observation.effective[x]">
@@ -271,6 +284,25 @@
         <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
         <map value="NL-CM:13.1.13" />
       </mapping>
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]" />
