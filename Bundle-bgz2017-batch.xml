@@ -1,0 +1,178 @@
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="bundle-BGZ-request" />
+  <type value="batch" />
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Patient?identifier=123456789&amp;_include=Patient:general-practitioner" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Coverage?subscriber:Patient.identifier=123456789&amp;_include=Coverage:payor:Patient&amp;_include=Coverage:payor:Organization" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Consent?patient.identifier=123456789&amp;category=http://snomed.info/sct|11291000146105" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Consent?patient.identifier=123456789&amp;category=http://snomed.info/sct|11291000146105" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Observation/$lastn?patient.identifier=123456789&amp;category=http://snomed.info/sct|118228005,http://snomed.info/sct|364644000" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Condition?patient.identifier=123456789" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Observation/$lastn?patient.identifier=123456789&amp;code=http://snomed.info/sct|365508006" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Observation?patient.identifier=123456789&amp;code=http://snomed.info/sct|228366006" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Observation?patient.identifier=123456789&amp;code=http://snomed.info/sct|228273003" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Observation?patient.identifier=123456789&amp;code=http://snomed.info/sct|365980008" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/NutritionOrder?patient.identifier=123456789&amp;status=active" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Flag?patient.identifier=123456789" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/AllergyIntolerance?patient.identifier=123456789" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/MedicationStatement?patient.identifier=123456789&amp;status=active&amp;category=urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3|6&amp;_include:MedicationStatement:medication" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/MedicationRequest?patient.identifier=123456789&amp;status=active&amp;category=http://snomed.info/sct|16076005&amp;_include:MedicationRequest:medication" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/MedicationDispense?patient.identifier=123456789&amp;category=http://snomed.info/sct|422037009&amp;_include:MedicationDispense:medication" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/DeviceUseStatement?patient.identifier=123456789&amp;_include=DeviceUseStatement:device" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Immunization?patient.identifier=123456789&amp;status=completed" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Observation/$lastn?patient.identifier=123456789&amp;code=http://loinc.org|85354-9" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Observation/$lastn?patient.identifier=123456789&amp;code=http://loinc.org|29463-7" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Observation/$lastn?patient.identifier=123456789&amp;code=http://loinc.org|8302-2,http://loinc.org|8306-3,http://loinc.org|8308-9" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Observation/$lastn?patient.identifier=123456789&amp;category=http://snomed.info/sct|275711006&amp;_include=Observation:related-target&amp;_include=Observation:specimen" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Procedure?patient.identifier=123456789&amp;category=http://snomed.info/sct|365508006" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Encounter?patient.identifier=123456789&amp;class=http://hl7.org/fhir/v3/ActCode|IMP,http://hl7.org/fhir/v3/ActCode|ACUTE,http://hl7.org/fhir/v3/ActCode|NONAC" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/ProcedureRequest?patient.identifier=123456789&amp;status=active" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/ImmunizationRecommendation?patient.identifier=123456789" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/MedicationDispense?patient.identifier=123456789&amp;category=http://snomed.info/sct|422037009&amp;status=in-progress,status=preparation" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/DeviceRequest?patient.identifier=123456789&amp;status=active" />
+    </request>
+  </entry>
+  <entry>
+    <request>
+      <method value="GET" />
+      <url value="/Appointment?patient.identifier=123456789&amp;status=booked,pending,proposed" />
+    </request>
+  </entry>
+</Bundle>
