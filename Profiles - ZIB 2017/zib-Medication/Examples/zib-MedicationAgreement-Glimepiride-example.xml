@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/MedicationRequest.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/MedicationRequest.xsd">
+  <id value="medicationAgreement-example"/>
+  <meta>
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
+  </meta>
+  <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration">
+    <valueDuration>
+      <value value="4"/>
+      <unit value="week"/>
+      <system value="http://unitsofmeasure.org" />
+      <code value="wk"/>
+    </valueDuration>
+  </extension>
+  <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
+    <valuePeriod>
+      <start value="2016-06-15"/>
+      <end value="2016-07-13"/>
+    </valuePeriod>
+  </extension>
+  <identifier>
+    <system value="http://example-implementer.com/fhir/MedicationRequest-ID"/>
+    <value value="875452574"/>
+  </identifier>
+  <status value="active"/>
+  <intent value="order"/>
+  <category>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="16076005"/>
+      <display value="Prescription (procedure)"/>
+    </coding>
+  </category>
+  <medicationReference>
+    <reference value="Medication/example"/>
+    <display value="Glimepiride tablet 3mg"/>
+  </medicationReference>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="dhr. P. Jansen"/>
+  </subject>
+  <authoredOn value="2016-06-15"/>
+  <requester>
+    <agent>
+      <reference value="Practitioner/example"/>
+      <display value="H.Huis"/>
+    </agent>
+  </requester>
+  <reasonCode>
+    <text value="Diabetus Mellitus"/>
+  </reasonCode>
+  <note>
+    <text value="Exact 4 weken"/>
+  </note>
+  <dosageInstruction>
+    <text value="1 maal per dag 2 tabletten voor 4 weken"/>
+    <timing>
+      <repeat>
+        <boundsDuration>
+          <value value="4"/>
+          <unit value="week"/>
+          <system value="http://unitsofmeasure.org" />
+          <code value="wk"/>
+        </boundsDuration>
+        <frequency value="1"/>
+        <period value="1"/>
+        <periodUnit value="d"/>
+      </repeat>
+    </timing>
+    <route>
+      <coding>
+        <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+        <code value="oraal"/>
+        <display value="Oraal"/>
+      </coding>
+    </route>
+    <doseQuantity>
+      <value value="2"/>
+      <unit value="STUK"/>
+      <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+      <code value="245"/>
+    </doseQuantity>    
+  </dosageInstruction>
+</MedicationRequest>  

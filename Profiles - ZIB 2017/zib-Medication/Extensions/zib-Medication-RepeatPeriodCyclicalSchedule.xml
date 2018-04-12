@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-RepeatPeriodCyclicalSchedule" />
+  <version value="1.0" />
+  <name value="ZIB-Medication-RepeatPeriodCyclicalSchedule" />
+  <title value="HCIM Medication RepeatPeriodCyclicalSchedule" />
+  <status value="draft" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days." />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="MedicationAdministration" />
+  <context value="MedicationDispense" />
+  <context value="MedicationRequest" />
+  <context value="MedicationStatement" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-RepeatPeriodCyclicalSchedule" />
+    </element>
+    <element id="Extension.value[x]:valueDuration">
+      <path value="Extension.valueDuration" />
+      <sliceName value="valueDuration" />
+      <short value="RepeatPeriodCyclicalSchedule" />
+      <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days." />
+      <type>
+        <code value="Duration" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/medicationadministration.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<MedicationAdministration xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationadministration.xsd">
+  <id value="MedicationAdministration-example"/>
+  <meta>
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration"/>
+  </meta>
+  <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-DeviatingAdministration">
+    <extension url="deviation">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="reasonForDeviation">
+      <valueCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.5.8"/>
+          <code value="PREFUS"/>
+          <display value="Patient refuse"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </extension>
+  <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-DoubleCheckPerformed">
+    <valueBoolean value="false"/>
+  </extension>
+  <identifier>
+    <system value="Sacred Hearth Medication Administration System"/>
+    <value value="6565265656"/>
+  </identifier>
+  <status value="stopped" />
+  <category>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="18629005"/>
+      <display value="Administration of drug or medicament (procedure)"/>
+    </coding>
+  </category>
+  <medicationReference>
+    <reference value="Medication/123412"/>
+    <display value="Glucose/NaCl 2,5/0,45% infvlst zak 500ml"/>
+  </medicationReference>
+  <subject>
+    <reference value="Patient/4321"/>
+    <display value="nl-core-patient"/>
+  </subject>
+  <context>
+    <reference value="Encounter/2323"/>
+  </context>
+  <supportingInformation>
+    <reference value="MedicationRequest/medicationAgreement-example"/>
+    <display value="Glucose/NaCl"/>
+  </supportingInformation>
+  <effectivePeriod>
+    <start value="2016-02-02T13:00:00+01:00"/>
+    <end value="2016-02-02T14:00:00+01:00"/>
+  </effectivePeriod>
+  <performer>
+    <actor>
+      <reference value="Practitioner/13123"/>
+      <display value="J.J. Smith"/>
+    </actor>
+    <onBehalfOf>
+      <reference value="Organization/1231"/>
+      <display value="Sacred Hearth Health Plaza"/>
+    </onBehalfOf>
+  </performer>
+  <note>
+    <text value="Administration stopped because patient refused to to take more"/>
+  </note>
+  <dosage>
+    <route>
+      <coding>
+        <system value="urn:oid:2.16.840.1.113883.2.4.4.9" />
+        <code value="5" />
+        <display value="INTRAVENEUS"/>
+      </coding>
+    </route>
+    <dose>
+      <value value="300"/>
+      <unit value="Milliliter"/>
+      <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+      <code value="233"/>
+    </dose>
+    <rateRatio>
+     <numerator>
+       <value value="500"/>
+       <unit value="Milliliter"/>
+       <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2" />
+       <code value="233"/>
+     </numerator>
+      <denominator>
+        <value value="1"/>
+        <unit value="hour"/>
+        <system value="http://unitsofmeasure.org" />
+        <code value="h"/>
+      </denominator>
+    </rateRatio>
+  </dosage>
+</MedicationAdministration>

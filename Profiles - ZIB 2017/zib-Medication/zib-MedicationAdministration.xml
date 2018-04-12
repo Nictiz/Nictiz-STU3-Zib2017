@@ -1,5 +1,5 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="8c6e8ba5-9637-477a-8bd7-340a3a99b342" />
   <meta>
     <versionId value="4" />
@@ -103,10 +103,6 @@
         <map value="NL-CM:9.13.23171" />
       </mapping>
     </element>
-    <element id="MedicationAdministration.extension:agreedDateTime.url">
-      <path value="MedicationAdministration.extension.url" />
-      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-AgreedDateTime" />
-    </element>
     <element id="MedicationAdministration.extension:deviatingAdministration">
       <path value="MedicationAdministration.extension" />
       <sliceName value="deviatingAdministration" />
@@ -119,19 +115,13 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-DeviatingAdministration" />
       </type>
     </element>
-    <element id="MedicationAdministration.extension:deviatingAdministration.extension">
-      <path value="MedicationAdministration.extension.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="MedicationAdministration.extension:deviatingAdministration.extension:deviation">
       <path value="MedicationAdministration.extension.extension" />
       <sliceName value="deviation" />
+      <type>
+        <code value="Extension" />
+        <profile value="deviation" />
+      </type>
       <mapping>
         <identity value="hcim-MedicationAdministration2-v1.0-2017EN" />
         <map value="NL-CM:9.13.23167" />
@@ -140,26 +130,14 @@
     <element id="MedicationAdministration.extension:deviatingAdministration.extension:reasonForDeviation">
       <path value="MedicationAdministration.extension.extension" />
       <sliceName value="reasonForDeviation" />
+      <type>
+        <code value="Extension" />
+        <profile value="reasonForDeviation" />
+      </type>
       <mapping>
         <identity value="hcim-MedicationAdministration2-v1.0-2017EN" />
         <map value="NL-CM:9.13.23166" />
       </mapping>
-    </element>
-    <element id="MedicationAdministration.extension:deviatingAdministration.extension:reasonForDeviation.value[x]:valueCodeableConcept">
-      <path value="MedicationAdministration.extension.extension.value[x]" />
-      <sliceName value="valueCodeableConcept" />
-      <binding>
-        <strength value="extensible" />
-        <description value="MedicatieToedieningRedenVanAfwijkenCodelijst" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.13.3--20171231000000" />
-          <display value="MedicatieToedieningRedenVanAfwijkenCodelijst" />
-        </valueSetReference>
-      </binding>
-    </element>
-    <element id="MedicationAdministration.extension:deviatingAdministration.url">
-      <path value="MedicationAdministration.extension.url" />
-      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-DeviatingAdministration" />
     </element>
     <element id="MedicationAdministration.extension:doubleCheckPerformed">
       <path value="MedicationAdministration.extension" />
@@ -177,10 +155,6 @@
         <map value="NL-CM:9.13.23168" />
       </mapping>
     </element>
-    <element id="MedicationAdministration.extension:doubleCheckPerformed.url">
-      <path value="MedicationAdministration.extension.url" />
-      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-DoubleCheckPerformed" />
-    </element>
     <element id="MedicationAdministration.extension:medicationTreatment">
       <path value="MedicationAdministration.extension" />
       <sliceName value="medicationTreatment" />
@@ -197,10 +171,6 @@
         <identity value="Medication-Process-v09" />
         <map value="mp-dataelement900-22092" />
       </mapping>
-    </element>
-    <element id="MedicationAdministration.extension:medicationTreatment.url">
-      <path value="MedicationAdministration.extension.url" />
-      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment" />
     </element>
     <element id="MedicationAdministration.identifier">
       <path value="MedicationAdministration.identifier" />
@@ -261,8 +231,12 @@
         <map value="NL-CM:16.1.9" />
       </mapping>
     </element>
-    <element id="MedicationAdministration.status.extension:orderStatus.valueCodeableConcept">
-      <path value="MedicationAdministration.status.extension.valueCodeableConcept" />
+    <element id="MedicationAdministration.status.extension:orderStatus.url">
+      <path value="MedicationAdministration.status.extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+    </element>
+    <element id="MedicationAdministration.status.extension:orderStatus.value[x]:valueCodeableConcept">
+      <path value="MedicationAdministration.status.extension.value[x]" />
       <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
@@ -426,6 +400,7 @@
     </element>
     <element id="MedicationAdministration.performer.actor">
       <path value="MedicationAdministration.performer.actor" />
+            <definition value="The device, practitioner, etc. who performed the action."/>
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />

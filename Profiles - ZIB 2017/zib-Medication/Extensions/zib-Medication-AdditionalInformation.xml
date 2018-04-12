@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
+    <meta>
+        <lastUpdated value="2017-09-04T17:02:23.423+02:00"/>
+    </meta>
+    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-AdditionalInformation"/>
+    <version value="1.0"/>
+    <name value="ZIB-AdditionalInformation"/>
+    <title value="HCIM AdditionalInformation"/>
+    <status value="active"/>
+    <date value="2018-02-12T14:04:06.8260228+02:00"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This is a broad CodeableConcept extension in scope of the Dutch Health and Care Information modelss (Dutch: Zorginformatiebouwsteen or ZIB) for Medication. &#xD;&#xA;This extenstion can be used for example to a give logistics and other instructions such as: do not enter in GDS, urgent, purposeful deviation, etc."/>
+    <copyright value="CC0"/>
+    <fhirVersion value="3.0.1"/>
+    <kind value="complex-type"/>
+    <abstract value="false"/>
+    <contextType value="resource"/>
+    <context value="MedicationRequest"/>
+    <context value="MedicationDispense"/>
+    <type value="Extension"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Extension.url">
+            <path value="Extension.url"/>
+            <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-AdditionalInformation"/>
+        </element>
+        <element id="Extension.valueCodeableConcept">
+            <path value="Extension.valueCodeableConcept"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>
