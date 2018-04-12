@@ -1,52 +1,52 @@
-﻿<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
-    <id value="1f3ce9bd-8ee1-41c9-8391-4fce6db1d96b"/>
-    <meta>
-        <versionId value="2"/>
-        <lastUpdated value="2017-06-23T11:20:31.593+02:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse"/>
-    <version value="1.0"/>
-    <name value="ZIB-Medication-Period-Of-Use"/>
-    <title value="HCIM Medication Period Of Use"/>
-    <status value="active"/>
-    <date value="2016-12-12T16:31:32.569+00:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="The period in which the medication is/was taken"/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <kind value="primitive-type"/>
-    <abstract value="false"/>
-    <contextType value="resource"/>
-    <context value="MedicationRequest"/>
-    <context value="MedicationDispense"/>
-    <type value="Extension"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Extension">
-            <path value="Extension"/>
-            <short value="UsagePeriod"/>
-            <alias value="Gebruiksperiode"/>
-        </element>
-        <element id="Extension.url">
-            <path value="Extension.url"/>
-            <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse"/>
-        </element>
-        <element id="Extension.value[x]:valuePeriod">
-            <path value="Extension.valuePeriod"/>
-            <sliceName value="valuePeriod"/>
-            <type>
-                <code value="Period"/>
-            </type>
-        </element>
-    </differential>
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="1f3ce9bd-8ee1-41c9-8391-4fce6db1d96b" />
+  <meta>
+    <versionId value="2" />
+    <lastUpdated value="2017-06-23T11:20:31.593+02:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse" />
+  <version value="2.0" />
+  <name value="ZIB-Medication-Period-Of-Use" />
+  <title value="HCIM Medication Period Of Use" />
+  <status value="active" />
+  <date value="2016-12-12T16:31:32.569+00:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The period in which the medication is/was taken" />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="primitive-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="MedicationRequest" />
+  <context value="MedicationDispense" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="UsagePeriod" />
+      <alias value="Gebruiksperiode" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse" />
+    </element>
+    <element id="Extension.value[x]:valuePeriod">
+      <path value="Extension.valuePeriod" />
+      <sliceName value="valuePeriod" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

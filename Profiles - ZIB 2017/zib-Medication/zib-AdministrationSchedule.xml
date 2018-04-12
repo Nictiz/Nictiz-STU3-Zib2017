@@ -1,13 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
   <id value="77dc0559-023b-4c4d-92e1-781f16acd33e" />
   <meta>
     <versionId value="5" />
-    <lastUpdated value="2017-10-26T14:41:16.500+02:00" />
+    <lastUpdated value="2017-10-26T14:41:16.5+02:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationSchedule" />
-  <version value="1.0" />
+  <version value="2.0" />
   <name value="ZIB-Administration-Schedule" />
   <title value="HCIM Administration Schedule" />
   <status value="active" />
@@ -21,18 +20,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="The frequency indicates the number of dose moments per time unit, usually per day. If this frequency is included, then the Interval will not have been included. Usually, frequency comprises both amount and time unit (3 times a day), but it can occur without the time unit (single use).  
-    In that case, a reasonable distribution over the day is expected, but exact times are not given. This is left to the patient. It is the most common manner of extramural prescription. In the case of Baxter packs and intramural care, such a prescription is used to draw up a (location-specific) outline for distribution times (logistics).  
-    The time unit of the frequency must be the same as how it is indicated in the textual description of the dose.  
-    
-    Example:  
-    for a '2x a day...' dose: 
-    amount = 2 
-    time unit = 'day'. 
-    
-    for a '3x a week...' dose: 
-    amount = 3 
-    time unit = 'week'." />
+  <description value="The frequency indicates the number of dose moments per time unit, usually per day. If this frequency is included, then the Interval will not have been included. Usually, frequency comprises both amount and time unit (3 times a day), but it can occur without the time unit (single use).       In that case, a reasonable distribution over the day is expected, but exact times are not given. This is left to the patient. It is the most common manner of extramural prescription. In the case of Baxter packs and intramural care, such a prescription is used to draw up a (location-specific) outline for distribution times (logistics).       The time unit of the frequency must be the same as how it is indicated in the textual description of the dose.            Example:       for a '2x a day...' dose:      amount = 2      time unit = 'day'.           for a '3x a week...' dose:      amount = 3      time unit = 'week'." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -136,8 +124,7 @@
     <element id="Timing.repeat.timeOfDay">
       <path value="Timing.repeat.timeOfDay" />
       <short value="AdministrationTime" />
-      <definition value="The time of administration is a specific time of day (on the clock). This time usually isn’t (intended to be) exact. There can be multiple administering times in one day.
-        The ideal time of administration can also be entered as a time of day (morning, afternoon, evening, night-time). The administration time is then to be left empty, and the time of day can be entered in the TimeOfDay concept."/>
+      <definition value="The time of administration is a specific time of day (on the clock). This time usually isn’t (intended to be) exact. There can be multiple administering times in one day.         The ideal time of administration can also be entered as a time of day (morning, afternoon, evening, night-time). The administration time is then to be left empty, and the time of day can be entered in the TimeOfDay concept." />
       <alias value="Toedientijd" />
       <mapping>
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />

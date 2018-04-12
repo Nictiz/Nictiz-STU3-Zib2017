@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
   <meta>
     <lastUpdated value="2017-10-16T16:05:10.557+02:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-InstructionsForUse" />
-  <version value="1.0" />
+  <version value="2.0" />
   <name value="ZIB-InstructionsForUse" />
   <title value="HCIM InstructionsForUse" />
   <status value="active" />
@@ -84,7 +84,7 @@
     </element>
     <element id="Dosage.timing">
       <path value="Dosage.timing" />
-            <short value="AdministeringSchedule"/>
+      <short value="AdministeringSchedule" />
       <definition value="Specifications of the times at which the medication is to be administered. This is indicated as follows:                  Time(s) (16:00) or indications (“before meals”) at which the medication is to be taken each day.                 A specific number of times the medication is to be taken each day (“3x a day“), indicated with the frequency                 A time interval between consecutive doses (“Every 2 hours”, “every 3 days”), indicated with the word Interval.                 Combined periods with an interval and duration (“1 daily for three out of four weeks: the pill schedule”)                                                   If a certain medication is not to be taken daily, the aforementioned can be combined with daily indications:                  One or more week days on which the medication is to be administered (e.g. “Monday, Wednesday, Friday”)                 ”3x a week”, “2x a month”.                                                   The specified administration “infinite” is automatically to be repeated until:                  The end date and time has been reached                 The total administration duration has been reached (14 days)                                                   A specific amount of administrations has been reached (“20 doses”, “one-time only”), to be entered in the NumberOfDoses concept." />
       <type>
         <code value="Timing" />
