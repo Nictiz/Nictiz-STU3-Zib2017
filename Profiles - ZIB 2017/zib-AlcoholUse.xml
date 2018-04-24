@@ -1,6 +1,6 @@
 <?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-  <id value="7092bccf-d465-4b55-844c-d47205c9b52d" />
+  <id value="zib-AlcoholUse" />
   <meta>
     <versionId value="1" />
     <lastUpdated value="2018-02-12T17:11:40.567+01:00" />
@@ -9,7 +9,7 @@
   <version value="2.0" />
   <name value="ZIB-AlcoholUse" />
   <title value="HCIM AlcoholUse" />
-  <status value="active" />
+  <status value="draft" />
   <date value="2017-01-04T10:27:28.0292377+01:00" />
   <publisher value="Nictiz" />
   <contact>
@@ -95,22 +95,22 @@
     <element id="Observation.subject">
       <path value="Observation.subject" />
       <min value="1" />
-        <type>
-          <code value="Reference" />
-          <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
-        </type>
-        <type>
-          <code value="Reference" />
-          <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
-        </type>
-        <type>
-          <code value="Reference" />
-          <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
-        </type>
-        <type>
-          <code value="Reference" />
-          <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-        </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effectivePeriod" />
