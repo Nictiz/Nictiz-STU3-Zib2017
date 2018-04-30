@@ -1,0 +1,78 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="nl-core-episodeofcare" />
+  <meta>
+    <lastUpdated value="2017-08-21T15:37:11.778+02:00" />
+  </meta>
+  <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+  <version value="1.0" />
+  <name value="nl-core-episodeofcare" />
+  <title value="nl-core-episodeofcare" />
+  <status value="active" />
+  <date value="2017-04-24T16:22:23.5828179+02:00" />
+  <publisher value="HL7 Netherlands" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An EpisdeOfCare resource as defined for the Dutch realm" />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-concernfortransfer-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/ConcernForTransfer-v1.2(2015EN)" />
+    <name value="HCIM ConcernForTransfer-v1.2(2015EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="EpisodeOfCare" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="EpisodeOfCare.type.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="EpisodeOfCare.type.text" />
+      <short value="ConcernLabel" />
+      <definition value="If needed, a short, written description of the concern. Mainly in first-line care this will be used for the episode name." />
+      <alias value="ConcernLabel" />
+      <mapping>
+        <identity value="hcim-concernfortransfer-v1.2-2015EN" />
+        <map value="NL-CM:5.1.9" />
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.diagnosis.condition">
+      <path value="EpisodeOfCare.diagnosis.condition" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Concern" />
+      </type>
+    </element>
+    <element id="EpisodeOfCare.patient">
+      <path value="EpisodeOfCare.patient" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+    </element>
+    <element id="EpisodeOfCare.managingOrganization">
+      <path value="EpisodeOfCare.managingOrganization" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="EpisodeOfCare.careManager">
+      <path value="EpisodeOfCare.careManager" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
