@@ -1,0 +1,97 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="gp-EncounterReport" />
+  <meta>
+    <lastUpdated value="2018-01-11T15:13:44.905+01:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/gp-EncounterReport" />
+  <name value="gp-EncounterReport" />
+  <title value="gp-EncounterReport" />
+  <status value="draft" />
+  <date value="2018-01-11T14:44:39.2508418+01:00" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The general practitioner encounter report is an S-O-A-P (Subjective, Objective, Assessment, Plan) structured report of a patient encounter. S-O-A-P is known as S-O-E-P (Subjectief, Objectief, Evaluatie, Plan) in Dutch. Each Composition.section corresponds with a letter from SOAP and may additionally be ICPC coded using the appropriate extension. If the encounter report relates to an episode of care then the association with EpisodeOfCare shall be in Composition.event.detail." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.0" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Composition" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/composition-nl" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Composition">
+      <path value="Composition" />
+    </element>
+    <element id="Composition.type">
+      <path value="Composition.type" />
+    </element>
+    <element id="Composition.type.coding.system">
+      <path value="Composition.type.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.type.coding.code">
+      <path value="Composition.type.coding.code" />
+      <fixedCode value="67781-5" />
+    </element>
+    <element id="Composition.encounter">
+      <path value="Composition.encounter" />
+      <min value="1" />
+    </element>
+    <element id="Composition.title">
+      <path value="Composition.title" />
+      <definition value="Official human-readable label for the composition. Suggested value is either episode title, or the ICPC display name on the E-entry" />
+    </element>
+    <element id="Composition.section">
+      <path value="Composition.section" />
+    </element>
+    <element id="Composition.section.extension">
+      <path value="Composition.section.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section.extension:code_icpc_1_nl">
+      <path value="Composition.section.extension" />
+      <sliceName value="code_icpc_1_nl" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-icpc-1-nl" />
+      </type>
+    </element>
+    <element id="Composition.section.code">
+      <path value="Composition.section.code" />
+      <min value="1" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CompositionSectionType" />
+        </extension>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.2--20111012000000" />
+          <display value="JournaalregelType" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Composition.section.text">
+      <path value="Composition.section.text" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section.entry">
+      <path value="Composition.section.entry" />
+      <definition value="A reference to data that supports this section. Examples of references could be a diagnostic result on the &quot;O&quot; entry, or a medication agreement or a care plan on the &quot;P&quot; entry." />
+    </element>
+  </differential>
+</StructureDefinition>
