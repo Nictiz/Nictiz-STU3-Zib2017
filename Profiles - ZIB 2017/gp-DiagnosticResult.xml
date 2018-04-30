@@ -28,8 +28,15 @@
   <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation" />
   <derivation value="constraint" />
   <differential>
-    <element id="Observation">
-      <path value="Observation" />
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
     <element id="Observation.code.coding:NHGTable45">
       <path value="Observation.code.coding" />

@@ -19,19 +19,13 @@
   </contact>
   <description value="The general practitioner encounter report is an S-O-A-P (Subjective, Objective, Assessment, Plan) structured report of a patient encounter. S-O-A-P is known as S-O-E-P (Subjectief, Objectief, Evaluatie, Plan) in Dutch. Each Composition.section corresponds with a letter from SOAP and may additionally be ICPC coded using the appropriate extension. If the encounter report relates to an episode of care then the association with EpisodeOfCare shall be in Composition.event.detail." />
   <copyright value="CC0" />
-  <fhirVersion value="3.0.0" />
+  <fhirVersion value="3.0.1" />
   <kind value="resource" />
   <abstract value="false" />
   <type value="Composition" />
-  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/composition-nl" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
   <derivation value="constraint" />
   <differential>
-    <element id="Composition">
-      <path value="Composition" />
-    </element>
-    <element id="Composition.type">
-      <path value="Composition.type" />
-    </element>
     <element id="Composition.type.coding.system">
       <path value="Composition.type.coding.system" />
       <fixedUri value="http://loinc.org" />
@@ -43,13 +37,55 @@
     <element id="Composition.encounter">
       <path value="Composition.encounter" />
       <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact" />
+      </type>
+    </element>
+    <element id="Composition.author">
+      <path value="Composition.author" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
     </element>
     <element id="Composition.title">
       <path value="Composition.title" />
       <definition value="Official human-readable label for the composition. Suggested value is either episode title, or the ICPC display name on the E-entry" />
     </element>
-    <element id="Composition.section">
-      <path value="Composition.section" />
+    <element id="Composition.attester.party">
+      <path value="Composition.attester.party" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="Composition.custodian">
+      <path value="Composition.custodian" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
     </element>
     <element id="Composition.section.extension">
       <path value="Composition.section.extension" />
@@ -64,12 +100,15 @@
     <element id="Composition.section.extension:code_icpc_1_nl">
       <path value="Composition.section.extension" />
       <sliceName value="code_icpc_1_nl" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/code-icpc-1-nl" />
       </type>
+    </element>
+    <element id="Composition.section.extension:code_icpc_1_nl.valueCodeableConcept:valueCodeableConcept">
+      <path value="Composition.section.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
     </element>
     <element id="Composition.section.code">
       <path value="Composition.section.code" />
