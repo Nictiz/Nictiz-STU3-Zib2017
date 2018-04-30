@@ -107,6 +107,10 @@
         <map value="23286" />
       </mapping>
     </element>
+    <element id="MedicationRequest.extension:relatedMedicationAgreement.valueReference:valueReference">
+      <path value="MedicationRequest.extension.valueReference" />
+      <sliceName value="valueReference" />
+    </element>
     <element id="MedicationRequest.extension:medicationTreatment">
       <path value="MedicationRequest.extension" />
       <sliceName value="medicationTreatment" />
@@ -114,7 +118,6 @@
       <definition value="This extension is to describe which overarching medication treatment this information is part of. This is done by the use of an identifier of that medication treatment." />
       <comment value="No HCIM concept is available for this element. Therefore a mapping to the relevant element Medication Process data element is provided." />
       <alias value="Medicamenteuze behandeling" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -162,11 +165,11 @@
     </element>
     <element id="MedicationRequest.category.coding:DispenseRequestCode.system">
       <path value="MedicationRequest.category.coding.system" />
-      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3" />
+      <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="MedicationRequest.category.coding:DispenseRequestCode.code">
       <path value="MedicationRequest.category.coding.code" />
-      <fixedCode value="3" />
+      <fixedCode value="52711000146108" />
     </element>
     <element id="MedicationRequest.medication[x]">
       <path value="MedicationRequest.medication[x]" />
@@ -274,6 +277,16 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-InstructionsForUse" />
       </type>
     </element>
+    <element id="MedicationRequest.dosageInstruction.dose[x]">
+      <path value="MedicationRequest.dosageInstruction.dose[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="MedicationRequest.dispenseRequest">
       <path value="MedicationRequest.dispenseRequest" />
       <short value="DisenseRequest" />
@@ -304,6 +317,10 @@
         <identity value="hcim-dispenserequest-v1.0-2017EN" />
         <map value="NL-CM:9.10.20068" />
       </mapping>
+    </element>
+    <element id="MedicationRequest.dispenseRequest.extension:dispenseLocation.valueString:valueString">
+      <path value="MedicationRequest.dispenseRequest.extension.valueString" />
+      <sliceName value="valueString" />
     </element>
     <element id="MedicationRequest.dispenseRequest.validityPeriod">
       <path value="MedicationRequest.dispenseRequest.validityPeriod" />
