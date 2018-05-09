@@ -101,7 +101,7 @@
         <map value="NL-CM:8.2.5" />
       </mapping>
     </element>
-    <element id="AllergyIntolerance.clinicalStatus.extension:AllergieStatusCodelijst.valueCodeableConcept">
+    <element id="AllergyIntolerance.clinicalStatus.extension:AllergieStatusCodelijst.valueCodeableConcept:valueCodeableConcept">
       <path value="AllergyIntolerance.clinicalStatus.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <binding>
@@ -147,7 +147,7 @@
         <map value="NL-CM:8.2.4" />
       </mapping>
     </element>
-    <element id="AllergyIntolerance.category.extension:AllergieCategorieCodelijst.valueCodeableConcept">
+    <element id="AllergyIntolerance.category.extension:AllergieCategorieCodelijst.valueCodeableConcept:valueCodeableConcept">
       <path value="AllergyIntolerance.category.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <binding>
@@ -193,7 +193,7 @@
         <map value="NL-CM:8.2.7" />
       </mapping>
     </element>
-    <element id="AllergyIntolerance.criticality.extension:CriticalExtentCodelist.valueCodeableConcept">
+    <element id="AllergyIntolerance.criticality.extension:CriticalExtentCodelist.valueCodeableConcept:valueCodeableConcept">
       <path value="AllergyIntolerance.criticality.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <binding>
@@ -209,13 +209,6 @@
       <path value="AllergyIntolerance.code" />
       <short value="CausativeAgent" />
       <alias value="VeroorzakendeStof" />
-      <binding>
-        <strength value="extensible" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.3.11.1--201712310000000" />
-          <display value="VeroorzakendeStofCodeLijst" />
-        </valueSetReference>
-      </binding>
       <mapping>
         <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
         <map value="NL-CM:8.2.2" />
@@ -228,6 +221,76 @@
         <identity value="hcim-allergyintolerance-v3.2-2017EN" />
         <map value="NL-CM:8.2.2" />
       </mapping>
+    </element>
+    <element id="AllergyIntolerance.code.coding">
+      <path value="AllergyIntolerance.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="AllergyIntolerance.code.coding:causativeAgentAllergicAgentCodelist">
+      <path value="AllergyIntolerance.code.coding" />
+      <sliceName value="causativeAgentAllergicAgentCodelist" />
+      <binding>
+        <strength value="extensible" />
+        <description value="SNOMED CT - Alle waarden" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.17--20171231000000" />
+          <display value="SpecifiekeStofAllergeneStoffenCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="AllergyIntolerance.code.coding:causativeAgentHPKCodelist">
+      <path value="AllergyIntolerance.code.coding" />
+      <sliceName value="causativeAgentHPKCodelist" />
+      <binding>
+        <strength value="extensible" />
+        <description value="G-Standaard Handels Product Kode (HPK) - Alle waarden" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.19--20171231000000" />
+          <display value="SpecifiekeStofHPKCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="AllergyIntolerance.code.coding:causativeAgentSNKCodelist">
+      <path value="AllergyIntolerance.code.coding" />
+      <sliceName value="causativeAgentSNKCodelist" />
+      <binding>
+        <strength value="extensible" />
+        <description value="G-standaard Stofnaamcode (SNK) - Alle waarden" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.14--20171231000000" />
+          <display value="SpecifiekeStofSNKCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="AllergyIntolerance.code.coding:causativeAgentSSKCodelist">
+      <path value="AllergyIntolerance.code.coding" />
+      <sliceName value="causativeAgentSSKCodelist" />
+      <binding>
+        <strength value="extensible" />
+        <description value="G-standaard Stofnaamcode i.c.m. toedieningsweg (SSK) - Alle waarden" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.13--20171231000000" />
+          <display value="SpecifiekeStofSSKCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="AllergyIntolerance.code.coding:causativeAgentThesaurus122Codelist">
+      <path value="AllergyIntolerance.code.coding" />
+      <sliceName value="causativeAgentThesaurus122Codelist" />
+      <binding>
+        <strength value="extensible" />
+        <description value="G-standaard Ongewenste medicatiegroepen - Alle waarden" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.15--20171231000000" />
+          <display value="SpecifiekeStofThesaurus122Codelijst" />
+        </valueSetReference>
+      </binding>
     </element>
     <element id="AllergyIntolerance.patient">
       <path value="AllergyIntolerance.patient" />
