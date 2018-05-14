@@ -51,18 +51,18 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Extension.extension.BankName">
+    <element id="Extension.extension:BankName">
       <path value="Extension.extension" />
       <sliceName value="BankName" />
-      <min value="0" />
       <max value="1" />
     </element>
-    <element id="Extension.extension.BankName.url">
+    <element id="Extension.extension:BankName.url">
       <path value="Extension.extension.url" />
       <fixedUri value="BankName" />
     </element>
-    <element id="Extension.extension.BankName.valueString">
+    <element id="Extension.extension:BankName.value[x]:valueString">
       <path value="Extension.extension.valueString" />
+      <sliceName value="valueString" />
       <short value="BankName" />
       <definition value="Name of the financial organization." />
       <alias value="BankNaam" />
@@ -70,18 +70,19 @@
         <code value="string" />
       </type>
     </element>
-    <element id="Extension.extension.AccountNumber">
+    <element id="Extension.extension:AccountNumber">
       <path value="Extension.extension" />
       <sliceName value="AccountNumber" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Extension.extension.AccountNumber.url">
+    <element id="Extension.extension:AccountNumber.url">
       <path value="Extension.extension.url" />
       <fixedUri value="AccountNumber" />
     </element>
-    <element id="Extension.extension.AccountNumber.valueString">
+    <element id="Extension.extension:AccountNumber.value[x]:valueString">
       <path value="Extension.extension.valueString" />
+      <sliceName value="valueString" />
       <short value="AccountNumber" />
       <definition value="The payer’s bank account number at the listed organization. For European countries, this is the IBAN." />
       <alias value="Rekeningnummer" />
@@ -89,24 +90,28 @@
         <code value="string" />
       </type>
     </element>
-    <element id="Extension.extension.Bankcode">
+    <element id="Extension.extension:Bankcode">
       <path value="Extension.extension" />
       <sliceName value="Bankcode" />
-      <min value="0" />
       <max value="1" />
     </element>
-    <element id="Extension.extension.Bankcode.url">
+    <element id="Extension.extension:Bankcode.url">
       <path value="Extension.extension.url" />
       <fixedUri value="Bankcode" />
     </element>
-    <element id="Extension.extension.Bankcode.valueString">
+    <element id="Extension.extension:Bankcode.value[x]:valueString">
       <path value="Extension.extension.valueString" />
+      <sliceName value="valueString" />
       <short value="Bankcode" />
       <definition value="Code indicating the bank and branch. For European countries, this is the organization’s BIC or SWIFT code." />
       <alias value="Bankcode" />
       <type>
         <code value="string" />
       </type>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
     </element>
   </differential>
 </StructureDefinition>
