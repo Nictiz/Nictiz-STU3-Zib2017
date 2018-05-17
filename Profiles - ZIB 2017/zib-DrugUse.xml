@@ -1,5 +1,5 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-DrugUse" />
   <meta>
     <versionId value="1" />
@@ -113,13 +113,14 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
     </element>
-    <element id="Observation.effective[x]">
+    <element id="Observation.effective[x]:effectivePeriod">
       <path value="Observation.effectivePeriod" />
+      <sliceName value="effectivePeriod" />
       <type>
         <code value="Period" />
       </type>
     </element>
-    <element id="Observation.effectivePeriod.start">
+    <element id="Observation.effective[x]:effectivePeriod.start">
       <path value="Observation.effectivePeriod.start" />
       <short value="StartDate" />
       <definition value="The date on which the patient started using." />
@@ -137,7 +138,7 @@
         <map value="NL-CM:7.4.6" />
       </mapping>
     </element>
-    <element id="Observation.effectivePeriod.end">
+    <element id="Observation.effective[x]:effectivePeriod.end">
       <path value="Observation.effectivePeriod.end" />
       <short value="StopDate" />
       <definition value="The date on which the patient quit using.&#xD;&#xA;If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time." />
@@ -174,7 +175,7 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
       </type>
     </element>
-    <element id="Observation.value[x]">
+    <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="DrugUseStatus" />
@@ -296,7 +297,7 @@
         <map value="NL-CM:7.4.2" />
       </mapping>
     </element>
-    <element id="Observation.component.RouteOfAdministration">
+    <element id="Observation.component:RouteOfAdministration">
       <path value="Observation.component" />
       <sliceName value="RouteOfAdministration" />
     </element>
@@ -315,7 +316,7 @@
       <path value="Observation.component.code.coding.display" />
       <fixedString value="Route of administration (attribute)" />
     </element>
-    <element id="Observation.component:RouteOfAdministration.value[x]">
+    <element id="Observation.component:RouteOfAdministration.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="RouteOfAdministration" />
@@ -355,7 +356,7 @@
         <map value="NL-CM:7.4.4" />
       </mapping>
     </element>
-    <element id="Observation.component.Amount">
+    <element id="Observation.component:Amount">
       <path value="Observation.component" />
       <sliceName value="Amount" />
     </element>
@@ -374,7 +375,7 @@
       <path value="Observation.component.code.coding.display" />
       <fixedString value="Frequency of drug misuse (observable entity)" />
     </element>
-    <element id="Observation.component:Amount.value[x]">
+    <element id="Observation.component:Amount.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
       <sliceName value="valueQuantity" />
       <short value="Amount" />
@@ -383,15 +384,6 @@
       <type>
         <code value="Quantity" />
       </type>
-      <example>
-        <label value="Example of Frequency of drug misuse" />
-        <valueQuantity>
-          <value value="10" />
-          <unit value="joints/week" />
-          <system value="http://unitsofmeasure.org" />
-          <code value="{joints}/wk" />
-        </valueQuantity>
-      </example>
       <mapping>
         <identity value="hcim-druguse-v1.2.2-2015EN" />
         <map value="NL-CM:7.4.8" />
@@ -404,11 +396,6 @@
         <identity value="hcim-druguse-v3.2-2017EN" />
         <map value="NL-CM:7.4.8" />
       </mapping>
-    </element>
-    <element id="Observation.component.Amount.valueRatio.denominator">
-      <path value="Observation.component.valueRatio.denominator" />
-      <short value="UnitOfTime" />
-      <alias value="Tijdseenheid" />
     </element>
   </differential>
 </StructureDefinition>
