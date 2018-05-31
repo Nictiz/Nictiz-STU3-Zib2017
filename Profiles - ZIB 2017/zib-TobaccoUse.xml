@@ -113,13 +113,14 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
     </element>
-    <element id="Observation.effective[x]">
+    <element id="Observation.effective[x]:effectivePeriod">
       <path value="Observation.effectivePeriod" />
+      <sliceName value="effectivePeriod" />
       <type>
         <code value="Period" />
       </type>
     </element>
-    <element id="Observation.effectivePeriod.start">
+    <element id="Observation.effective[x]:effectivePeriod.start">
       <path value="Observation.effectivePeriod.start" />
       <short value="StartDate" />
       <definition value="The date on which the patient started smoking." />
@@ -137,7 +138,7 @@
         <map value="NL-CM:7.2.4" />
       </mapping>
     </element>
-    <element id="Observation.effectivePeriod.end">
+    <element id="Observation.effective[x]:effectivePeriod.end">
       <path value="Observation.effectivePeriod.end" />
       <short value="StopDate" />
       <definition value="The date on which the patient quit smoking.&#xD;&#xA;If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time." />
@@ -178,7 +179,7 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
       </type>
     </element>
-    <element id="Observation.value[x]">
+    <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="TobaccoUseStatus" />
@@ -237,7 +238,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Observation.component.TypeOfTobaccoUsed">
+    <element id="Observation.component:TypeOfTobaccoUsed">
       <path value="Observation.component" />
       <sliceName value="TypeOfTobaccoUsed" />
       <max value="1" />
@@ -262,7 +263,7 @@
       <path value="Observation.component.code.coding.display" />
       <fixedString value="Tobacco smoking consumption (observable entity)" />
     </element>
-    <element id="Observation.component:TypeOfTobaccoUsed.value[x]">
+    <element id="Observation.component:TypeOfTobaccoUsed.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="TypeOfTobaccoUsed" />
@@ -292,7 +293,7 @@
         <map value="NL-CM:7.2.6" />
       </mapping>
     </element>
-    <element id="Observation.component.Amount">
+    <element id="Observation.component:Amount">
       <path value="Observation.component" />
       <sliceName value="Amount" />
       <max value="1" />
@@ -302,7 +303,22 @@
       <definition value="A reference to a code defined by a terminology system." />
       <comment value="Correcct terminology needed. Same code is now used for TypeOfTobaccoUsed and Amount. Therefore the component.code.coding.code is not yet fixed." />
     </element>
-    <element id="Observation.component:Amount.value[x]">
+    <element id="Observation.component:Amount.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:Amount.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="53661000146106" />
+    </element>
+    <element id="Observation.component:Amount.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Type of tobacco used (observable entity)" />
+    </element>
+    <element id="Observation.component:Amount.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
       <sliceName value="valueQuantity" />
       <short value="Amount" />
@@ -333,7 +349,7 @@
         <map value="NL-CM:7.2.6" />
       </mapping>
     </element>
-    <element id="Observation.component.PackYears">
+    <element id="Observation.component:PackYears">
       <path value="Observation.component" />
       <sliceName value="PackYears" />
       <comment value="For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4)." />
@@ -358,7 +374,7 @@
       <path value="Observation.component.code.coding.display" />
       <fixedString value="Cigarette pack-years (observable entity)" />
     </element>
-    <element id="Observation.component:PackYears.value[x]">
+    <element id="Observation.component:PackYears.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
       <sliceName value="valueQuantity" />
       <short value="PackYears" />
