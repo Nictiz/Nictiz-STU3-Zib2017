@@ -78,11 +78,14 @@
         <map value="NL-CM:7.15.4" />
       </mapping>
     </element>
+    <element id="Consent.extension:disorder.valueReference:valueReference">
+      <path value="Consent.extension.valueReference" />
+      <sliceName value="valueReference" />
+    </element>
     <element id="Consent.extension:comment">
       <path value="Consent.extension" />
       <sliceName value="comment" />
       <short value="Comment" />
-      <definition value="Optional Extension Element - found in all resources." />
       <alias value="Toelichting" />
       <max value="1" />
       <type>
@@ -93,6 +96,10 @@
         <identity value="hcim-advancedirective-v1.0-2015EN" />
         <map value="NL-CM:7.15.6" />
       </mapping>
+    </element>
+    <element id="Consent.extension:comment.valueString:valueString">
+      <path value="Consent.extension.valueString" />
+      <sliceName value="valueString" />
     </element>
     <element id="Consent.category">
       <path value="Consent.category" />
@@ -113,6 +120,16 @@
       <min value="1" />
       <max value="1" />
     </element>
+    <element id="Consent.category:livingWill.coding">
+      <path value="Consent.category.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Consent.category:livingWill.coding.system">
       <path value="Consent.category.coding.system" />
       <fixedUri value="http://snomed.info/sct" />
@@ -122,6 +139,29 @@
       <fixedCode value="11341000146107" />
     </element>
     <element id="Consent.category:livingWill.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Consent.category.coding.display" />
+      <fixedString value="Living will and advance directive record (record artifact)" />
+    </element>
+    <element id="Consent.category:livingWill.coding:livingWill">
+      <path value="Consent.category.coding" />
+      <sliceName value="livingWill" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Consent.category:livingWill.coding:livingWill.system">
+      <path value="Consent.category.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Consent.category:livingWill.coding:livingWill.code">
+      <path value="Consent.category.coding.code" />
+      <min value="1" />
+      <fixedCode value="11341000146107" />
+    </element>
+    <element id="Consent.category:livingWill.coding:livingWill.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>

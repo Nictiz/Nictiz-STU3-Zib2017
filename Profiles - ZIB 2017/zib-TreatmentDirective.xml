@@ -111,6 +111,10 @@
         <map value="NL-CM:2.1.9" />
       </mapping>
     </element>
+    <element id="Consent.extension:verification.extension:Verified.valueBoolean:valueBoolean">
+      <path value="Consent.extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+    </element>
     <element id="Consent.extension:verification.extension:VerifiedWith">
       <path value="Consent.extension.extension" />
       <sliceName value="VerifiedWith" />
@@ -159,6 +163,10 @@
         <map value="NL-CM:2.1.10" />
       </mapping>
     </element>
+    <element id="Consent.extension:verification.extension:VerificationDate.valueDateTime:valueDateTime">
+      <path value="Consent.extension.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
+    </element>
     <element id="Consent.extension:verification.url">
       <path value="Consent.extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification" />
@@ -186,6 +194,10 @@
         <identity value="hcim-treatmentdirective-v3.1-2017EN" />
         <map value="NL-CM:2.1.15" />
       </mapping>
+    </element>
+    <element id="Consent.extension:comment.valueString:valueString">
+      <path value="Consent.extension.valueString" />
+      <sliceName value="valueString" />
     </element>
     <element id="Consent.extension:treatment">
       <path value="Consent.extension" />
@@ -292,14 +304,17 @@
       <path value="Consent.category.coding" />
       <sliceName value="treatmentDirective" />
       <definition value="Category snomed code used for indexing/retrieval of TreatmentDirective." />
+      <min value="1" />
       <max value="1" />
     </element>
     <element id="Consent.category.coding:treatmentDirective.system">
       <path value="Consent.category.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Consent.category.coding:treatmentDirective.code">
       <path value="Consent.category.coding.code" />
+      <min value="1" />
       <fixedCode value="11291000146105" />
     </element>
     <element id="Consent.category.coding:treatmentDirective.display">
@@ -495,6 +510,10 @@
         <identity value="hcim-treatmentdirective-v3.1-2017EN" />
         <map value="NL-CM:2.1.5" />
       </mapping>
+    </element>
+    <element id="Consent.except.extension:restrictions.valueString:valueString">
+      <path value="Consent.except.extension.valueString" />
+      <sliceName value="valueString" />
     </element>
     <element id="Consent.except.type">
       <path value="Consent.except.type" />
