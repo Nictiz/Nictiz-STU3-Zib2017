@@ -1,0 +1,48 @@
+<?xml-model href="http://hl7.org/fhir/STU3/operationdefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/operationdefinition.xsd">
+  <url value="http://nictiz.nl/fhir/OperationDefinition/eAfspraken-appointment-book"/>
+  <name value="Appointment Book"/>
+  <status value="draft"/>
+  <kind value="operation"/>
+  <date value="2018-03-01T11:36:05+01:00"/>
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description
+    value="Request to book a selected Appointment. This operation follows the slot-find operation.  This operaton completes the booking of an appointment.  The server determines if the nominated appointment is still available (i.e., all the required actors and physical assets needed for the appointment are still available) and either accepts or rejects the hold request and updates the specific slot and appointment resource status accordingly. &#xA;&#xA; **This operation is heavily influenced by the operation defined in the [US Argonaut project](https://argonautproject.github.io/scheduling/OperationDefinition-appointment-book.html)**"/>
+  <idempotent value="false"/>
+  <code value="book"/>
+  <comment
+    value="It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with the patient(s), or determine whether the context has the rights to the nominated patient(s), if there is one.  Specifying the relationship between the context, a user and patient records is outside the scope of this specification"/>
+  <resource value="Appointment"/>
+  <system value="false"/>
+  <type value="true"/>
+  <instance value="false"/>
+  <parameter>
+    <name value="appointment"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="After fetching open Slots, an Appointment resource is created by the Client Application and is exchanged with the EHR. This parameter represents this appointment"/>
+    <type value="Appointment"/>
+    <profile>
+      <reference value="http://nictiz.nl/fhir/StructureDefinition/eAfspraken-Appointment"/>
+    </profile>
+  </parameter>
+  <parameter>
+    <name value="return"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="A Bundle of type `searchset` containing the requested Appointment resource and may also contain an [OperationOutcome](http://hl7.org/fhir/stu3/operationoutcome.html) with errors, warnings or information as a result of processing the operation.   If the booking is accepted, the Appointment resource will have an updated `status` of &quot;booked&quot; and  the `participants`element updated to include the patients.  If the booking is rejected, the Appointment resource will have an updated `status` of  &quot;cancelled&quot;."/>
+    <type value="Bundle"/>
+  </parameter>
+</OperationDefinition>

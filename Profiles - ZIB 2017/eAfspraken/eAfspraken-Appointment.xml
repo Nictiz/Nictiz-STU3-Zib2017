@@ -1,0 +1,451 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+    <id value="eAfspraken-Appointment"/>
+    <meta>
+        <lastUpdated value="2018-01-29T14:59:29.485+01:00"/>
+    </meta>
+    <url value="http://nictiz.nl/fhir/StructureDefinition/eAfspraken-Appointment"/>
+    <version value="1.0"/>
+    <name value="eAfsprakenAppointment"/>
+    <title value="eAfspraken Appointment"/>
+    <status value="draft"/>
+    <date value="2017-12-04T15:40:59.783+01:00"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description
+        value="An appointment including the location and reason for contact. Thi is used to provide information about a planned meeting that may be in the future or past.&#xD;&#xA;&#xD;&#xA;Examples include a scheduled surgery, a follow-up for a clinical visit, a scheduled conference call between clinicians to discuss a case, the reservation of a piece of diagnostic equipment for a particular use, etc. The visit scheduled by an appointment may be in person or remote (by phone, video conference, etc.) All that matters is that the time and usage of one or more individuals, locations and/or pieces of equipment is being fully or partially reserved for a designated period of time.&#xD;&#xA;&#xD;&#xA;This definition takes the concepts of appointments in a clinical setting and also extends them to be relevant in the community healthcare space, and to ease exposure to other appointment / calendar standards widely used outside of healthcare. "/>
+    <copyright value="CC0"/>
+    <fhirVersion value="3.0.1"/>
+    <mapping>
+        <identity value="art-decor-eafspraken"/>
+        <uri value="http://decor.nictiz.nl/art-decor/decor-datasets--eafspraken-?id=2.16.840.1.113883.2.4.3.11.60.61.1.1"/>
+        <name value="ART-DECOR Dataset eAfspraken"/>
+    </mapping>
+    <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
+        <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v1.2.1(2015EN)"/>
+        <name value="HCIM PlannedCareActivityForTransfer-v1.2.1(2015EN)"/>
+    </mapping>
+    <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
+        <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.0(2016EN)"/>
+        <name value="HCIM PlannedCareActivityForTransfer-v3.0(2016EN)"/>
+    </mapping>
+    <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
+        <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.1(2017EN)"/>
+        <name value="HCIM PlannedCareActivityForTransfer-v3.1(2017EN)"/>
+    </mapping>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="Appointment"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Appointment">
+            <path value="Appointment"/>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
+                <map value="NL-CM:16.1.6"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
+                <map value="NL-CM:16.1.6"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
+                <map value="NL-CM:16.1.6"/>
+            </mapping>
+        </element>
+        <element id="Appointment.extension">
+            <path value="Appointment.extension"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="url"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Appointment.extension:PatientInstructions">
+            <path value="Appointment.extension"/>
+            <sliceName value="PatientInstructions"/>
+            <short value="ContactPatientInstructions"/>
+            <definition value="Remarks associated with the appointment that are not part of the appointment and as such are not influenced by third party edits of the appointment."/>
+            <alias value="ContactPatiëntInstructie"/>
+            <type>
+                <code value="Extension"/>
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/eAfspraken-Appointment-PatientInstructions"/>
+            </type>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-23"/>
+            </mapping>
+        </element>
+        <element id="Appointment.extension:PatientInstructions.url">
+            <path value="Appointment.extension.url"/>
+            <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/eAfspraken-Appointment-PatientInstructions"/>
+        </element>
+        <element id="Appointment.extension:OnlineEditable">
+            <path value="Appointment.extension"/>
+            <sliceName value="OnlineEditable"/>
+            <max value="1"/>
+            <type>
+                <code value="Extension"/>
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/eAfspraken-Appointment-OnlineEditable"/>
+            </type>
+        </element>
+        <element id="Appointment.extension:OnlineEditable.extension">
+            <path value="Appointment.extension.extension"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="url"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Appointment.extension:OnlineEditable.extension:Indicator">
+            <path value="Appointment.extension.extension"/>
+            <sliceName value="Indicator"/>
+            <alias value="OnlineWijzigbaarIndicator"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-52"/>
+            </mapping>
+        </element>
+        <element id="Appointment.extension:OnlineEditable.extension:OnlineEditableUntil">
+            <path value="Appointment.extension.extension"/>
+            <sliceName value="OnlineEditableUntil"/>
+            <alias value="OnlineWijzigbaarTot"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-53"/>
+            </mapping>
+        </element>
+        <element id="Appointment.extension:OnlineEditable.url">
+            <path value="Appointment.extension.url"/>
+            <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/eAfspraken-Appointment-OnlineEditable"/>
+        </element>
+        <element id="Appointment.identifier">
+            <path value="Appointment.identifier"/>
+            <short value="IdentificationNumber"/>
+            <definition value="Globally unique number that identifies the instantiation of the information model. The number is composed of an identification of the issuer organization and a unique number assigned by this organization"/>
+            <alias value="Identificatienummer"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-3"/>
+            </mapping>
+        </element>
+        <element id="Appointment.status">
+            <path value="Appointment.status"/>
+            <short value="ContactStatus"/>
+            <alias value="ContactStatus"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value=" eafspraken-dataelement-20"/>
+            </mapping>
+        </element>
+        <element id="Appointment.status.extension">
+            <path value="Appointment.status.extension"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="url"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Appointment.status.extension:OrderSatus">
+            <path value="Appointment.status.extension"/>
+            <sliceName value="OrderSatus"/>
+            <short value="OrderStatus"/>
+            <max value="1"/>
+            <type>
+                <code value="Extension"/>
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification"/>
+            </type>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
+                <map value="NL-CM:16.1.9"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
+                <map value="NL-CM:16.1.9"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
+                <map value="NL-CM:16.1.9"/>
+            </mapping>
+        </element>
+        <element id="Appointment.status.extension:OrderSatus.valueCodeableConcept:valueCodeableConcept">
+            <path value="Appointment.status.extension.valueCodeableConcept"/>
+            <sliceName value="valueCodeableConcept"/>
+            <binding>
+                <strength value="extensible"/>
+                <description value="The status of the order."/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000"/>
+                </valueSetReference>
+            </binding>
+        </element>
+        <element id="Appointment.serviceCategory">
+            <path value="Appointment.serviceCategory"/>
+            <short value="ContactCategory"/>
+            <definition value="A broad categorisation of the service that is to be performed during this appointment"/>
+            <alias value="ContactCategorie"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-25"/>
+            </mapping>
+        </element>
+        <element id="Appointment.serviceType">
+            <path value="Appointment.serviceType"/>
+            <short value="ContactProcedureType"/>
+            <definition value="Type of procedure or service that is performed or is scheduled to be performed during the contract"/>
+            <alias value="ContactVerrichtingType"/>
+        </element>
+        <element id="Appointment.specialty">
+            <path value="Appointment.specialty"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="coding.system"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <alias value="Specialisme"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-26"/>
+            </mapping>
+        </element>
+        <element id="Appointment.specialty:specialtyAGB">
+            <path value="Appointment.specialty"/>
+            <sliceName value="specialtyAGB"/>
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="specialty"/>
+                </extension>
+                <strength value="extensible"/>
+                <description value="Specific specialty associated with the agency"/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.7--20171231000000"/>
+                </valueSetReference>
+            </binding>
+        </element>
+        <element id="Appointment.specialty:specialtyUZI">
+            <path value="Appointment.specialty"/>
+            <sliceName value="specialtyUZI"/>
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="specialty"/>
+                </extension>
+                <strength value="extensible"/>
+                <description value="Specific specialty associated with the agency"/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.6--20171231000000"/>
+                </valueSetReference>
+            </binding>
+        </element>
+        <element id="Appointment.appointmentType">
+            <path value="Appointment.appointmentType"/>
+            <short value=" ContactType"/>
+            <definition value="The type of contact."/>
+            <alias value="ContactType"/>
+            <binding>
+                <strength value="extensible"/>
+                <description value="ContactTypeCodelijst"/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.15.1.1--20171231000000"/>
+                </valueSetReference>
+            </binding>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value=" eafspraken-dataelement-24"/>
+            </mapping>
+        </element>
+        <element id="Appointment.reason">
+            <path value="Appointment.reason"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-46"/>
+            </mapping>
+        </element>
+        <element id="Appointment.indication">
+            <path value="Appointment.indication"/>
+            <short value="ContactReason"/>
+            <alias value="RedenContact"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-42"/>
+            </mapping>
+        </element>
+        <element id="Appointment.description">
+            <path value="Appointment.description"/>
+            <short value="ContactSubject"/>
+            <definition value=" The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field."/>
+            <alias value="ContactOnderwerp"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value=" eafspraken-dataelement-4"/>
+            </mapping>
+        </element>
+        <element id="Appointment.start">
+            <path value="Appointment.start"/>
+            <short value="StartDateTime"/>
+            <definition value="The date and time at which the contact took place."/>
+            <alias value="BeginDatumTijd"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-377"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
+                <map value="NL-CM:16.1.10"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
+                <map value="NL-CM:16.1.10"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
+                <map value="NL-CM:16.1.10"/>
+            </mapping>
+        </element>
+        <element id="Appointment.end">
+            <path value="Appointment.end"/>
+            <short value="EndDateTime"/>
+            <definition value="The date and time at which the contact ended. If the contact takes place over a period of time, this indicates the end of the period, in the case of an admission, for example."/>
+            <alias value="EindDatumTijd"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-378"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
+                <map value="NL-CM:16.1.11"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
+                <map value="NL-CM:16.1.11"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
+                <map value="NL-CM:16.1.11"/>
+            </mapping>
+        </element>
+        <element id="Appointment.minutesDuration">
+            <path value="Appointment.minutesDuration"/>
+            <short value="ContactDuration"/>
+            <definition value="Appointment duration. The duration of a clinical appointment usually equals the difference between EndDateTime and StartDateTime. This is usually not the case in the care, e.g. home health. In a care setting there is usually a time range, for example between 12 and 2PM, for performing certain services within a maximum timespan of e.g. 15 minutes. The difference between end and Start of the appointment may be longer than the actual appointment, for example because of an extended visit at the previous client and/or busy traffic."/>
+            <alias value="ContactDuur"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-682"/>
+            </mapping>
+        </element>
+        <element id="Appointment.created">
+            <path value="Appointment.created"/>
+            <short value="DateTime"/>
+            <definition value="The date/time stamp that this appointment was initially created"/>
+            <alias value="DatumTijd"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-568"/>
+            </mapping>
+        </element>
+        <element id="Appointment.comment">
+            <path value="Appointment.comment"/>
+            <short value="ContactDescription"/>
+            <definition value="Additional description about the appointment in free text."/>
+            <alias value="ContactOmschrijving"/>
+        </element>
+        <element id="Appointment.incomingReferral">
+            <path value="Appointment.incomingReferral"/>
+            <definition value="Referral that is the basis for requesting an appointment or planning one. A referral is required in some contexts to be eligible for a specific type of care. In a lot of cases this referral will be from the general practitioner."/>
+            <alias value="Verwijzing"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value=" eafspraken-dataelement-49"/>
+            </mapping>
+        </element>
+        <element id="Appointment.participant">
+            <path value="Appointment.participant"/>
+            <short value="ContactWith"/>
+            <definition value="The healthcare provider with whom the contact took place. The specialty and role of the healthcare provider can be entered in the HealthcareProvider building block as well."/>
+            <alias value="ContactMet"/>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-27"/>
+            </mapping>
+        </element>
+        <element id="Appointment.participant.actor">
+            <path value="Appointment.participant.actor"/>
+            <alias value="Contactpersoon"/>
+            <alias value="Patient"/>
+            <alias value="Zorgverlener"/>
+            <alias value="Locatie"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+            </type>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-30"/>
+            </mapping>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-31"/>
+            </mapping>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-32"/>
+            </mapping>
+            <mapping>
+                <identity value="art-decor-eafspraken"/>
+                <map value="eafspraken-dataelement-33"/>
+            </mapping>
+        </element>
+        <element id="Appointment.participant.required">
+            <path value="Appointment.participant.required"/>
+            <short value="ContactWithRequired"/>
+            <alias value="ContactMetVereist"/>
+        </element>
+        <element id="Appointment.participant.status">
+            <path value="Appointment.participant.status"/>
+            <short value="ContactWithStatus"/>
+            <definition value="Indicated presence of the ContactParty."/>
+            <alias value="ContactMetStatus"/>
+        </element>
+    </differential>
+</StructureDefinition>
