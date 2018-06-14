@@ -66,27 +66,6 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="MedicationDispense.extension:usageDuration">
-      <path value="MedicationDispense.extension" />
-      <sliceName value="usageDuration" />
-      <short value="Duration" />
-      <definition value="The intended duration of use. E.g. 5 days or 8 weeks. It is not allowed to indicate the duration in months, because different months have a variable duration in days." />
-      <alias value="Gebruiksduur" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration" />
-      </type>
-      <mapping>
-        <identity value="hcim-administrationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.8.22660" />
-        <comment value="Maps to the &quot;duration&quot; portion of the &quot;PeriodOfUse&quot; element " />
-      </mapping>
-    </element>
-    <element id="MedicationDispense.extension:usageDuration.valueDuration:valueDuration">
-      <path value="MedicationDispense.extension.valueDuration" />
-      <sliceName value="valueDuration" />
-    </element>
     <element id="MedicationDispense.extension:authoredOn">
       <path value="MedicationDispense.extension" />
       <sliceName value="authoredOn" />
@@ -140,6 +119,23 @@
         <identity value="hcim-administrationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.8.22660" />
         <comment value="Maps to the &quot;start date&quot; and &quot;end date&quot; portion of the &quot;PeriodOfUse&quot; element " />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:usageDuration">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="usageDuration" />
+      <short value="Duration" />
+      <definition value="The intended duration of use. E.g. 5 days or 8 weeks. It is not allowed to indicate the duration in months, because different months have a variable duration in days." />
+      <alias value="Gebruiksduur" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration" />
+      </type>
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.22660" />
+        <comment value="Maps to the &quot;duration&quot; portion of the &quot;PeriodOfUse&quot; element " />
       </mapping>
     </element>
     <element id="MedicationDispense.extension:additionalInformation">
