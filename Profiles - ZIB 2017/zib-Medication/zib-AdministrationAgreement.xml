@@ -20,7 +20,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on the Dutch Health and Care Information (HCIM) models (Dutch: Zorginformatiebouwsteen or ZIB) nl.zorg.Verstrekking version 1.0, year 2017." />
+  <description value="This profile is based on the Dutch Health and Care Information (HCIM) models (Dutch: Zorginformatiebouwsteen or ZIB) nl.zorg.Toedieningsafspraak version 1.0, year 2017." />
   <purpose value="The goal of the administration agreement is to provide insight into the concrete instructions for administration/use of medication." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -80,6 +80,7 @@
       <mapping>
         <identity value="hcim-administrationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.8.22660" />
+        <comment value="Maps to the &quot;duration&quot; portion of the &quot;PeriodOfUse&quot; element " />
       </mapping>
     </element>
     <element id="MedicationDispense.extension:usageDuration.valueDuration:valueDuration">
@@ -130,7 +131,7 @@
       <path value="MedicationDispense.extension" />
       <sliceName value="periodOfUse" />
       <short value="PeriodOfUse" />
-      <definition value="Start date: This is the time at which the agreement was to take effect (or took effect or will take effect). This is the time at which the instructions for use in this agreement start. In the case of an agreement to discontinue use, this is the start date of the original administration agreement. The end date indicates from when the medication is to be discontinued.&#xD;&#xA;&#xD;&#xA;Duration: The intended duration of use. E.g. 5 days or 8 weeks. It is not allowed to indicate the duration in months, because different months have a variable duration in days.&#xD;&#xA;&#xD;&#xA;End date: The time at which the period of use ends (or ended or will end). In the case of an agreement to discontinue use, this is the time at which the medication is to be discontinued. To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date.&#xD;&#xA;&#xD;&#xA;With medication for an indefinite period only a start date is indicated." />
+      <definition value="Start date: This is the time at which the agreement was to take effect (or took effect or will take effect). This is the time at which the instructions for use in this agreement start. In the case of an agreement to discontinue use, this is the start date of the original administration agreement. The end date indicates from when the medication is to be discontinued.&#xD;&#xA;&#xD;&#xA;End date: The time at which the period of use ends (or ended or will end). In the case of an agreement to discontinue use, this is the time at which the medication is to be discontinued. To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date.&#xD;&#xA;&#xD;&#xA;With medication for an indefinite period only a start date is indicated." />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse" />
@@ -138,6 +139,7 @@
       <mapping>
         <identity value="hcim-administrationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.8.22660" />
+        <comment value="Maps to the &quot;start date&quot; and &quot;end date&quot; portion of the &quot;PeriodOfUse&quot; element " />
       </mapping>
     </element>
     <element id="MedicationDispense.extension:additionalInformation">
@@ -214,7 +216,6 @@
       <label value="HerhaalperiodeCyclischSchema" />
       <short value="RepeatPeriodCyclicalSchedule" />
       <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days.&#xD;&#xA;RepeatPeriodCyclicalSchedule" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -429,6 +430,16 @@
         <identity value="hcim-administrationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.8.22098" />
       </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.dose[x]">
+      <path value="MedicationDispense.dosageInstruction.dose[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
   </differential>
 </StructureDefinition>
