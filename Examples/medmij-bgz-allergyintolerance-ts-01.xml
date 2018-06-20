@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/allergyintolerance.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<AllergyIntolerance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/allergyintolerance.xsd"
+  xmlns="http://hl7.org/fhir">
+  <id value="medmij-bgz-allergyintolerance-ts-01"/>
+  <meta>
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance"/>
+  </meta>
+  <clinicalStatus value="active">
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ActStatus"/>
+          <code value="active"/>
+          <display value="Active"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </clinicalStatus>
+  <verificationStatus value="confirmed"/>
+  <category value="environment">
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="419199007"/>
+          <display value="Allergy to substance"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </category>
+  <criticality value="high">
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="24484000"/>
+          <display value="Severe"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </criticality>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="288328004"/>
+      <display value="Bee venom"/>
+    </coding>
+  </code>
+  <patient>
+    <reference value="Patient/medmij-bgz-patient-ts-01"/>
+  </patient>
+  <onsetDateTime value="2008-11-08"/>
+  <lastOccurrence value="2009-11-15"/>
+  <reaction>
+    <manifestation>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="16932000"/>
+        <display value="Nausea and vomiting"/>
+      </coding>
+    </manifestation>
+    <severity value="severe"/>
+  </reaction>
+</AllergyIntolerance>
