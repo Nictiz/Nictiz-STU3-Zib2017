@@ -311,22 +311,42 @@
         </element>
         <element id="MedicationRequest.supportingInformation">
             <path value="MedicationRequest.supportingInformation"/>
-            <short value="MedicationAgreementAdditionalInformation"/>
-            <definition value="Additional information includes details on the structure of the agreement made. This can be used e.g. to indicate that there was a conscious decision to deviate from the norm or that the agreement is to be structured in a certain way. &#xD;&#xA;Also used for reference to observations regarding bodyweight and bodyheight."/>
-            <alias value="MedicatieAfspraakAanvullendeInformatie"/>
-            <alias value="Lichaamslengte"/>
+            <slicing>
+                <discriminator>
+                    <type value="profile"/>
+                    <path value="meta.profile"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="MedicationRequest.supportingInformation:BodyWeight">
+            <path value="MedicationRequest.supportingInformation"/>
+            <sliceName value="BodyWeight"/>
+            <short value="MedicationAgreementAdditionalInformation: BodyWeight"/>
+            <definition value="Weight the dose is based on, relevant to this agreement."/>
             <alias value="Lichaamsgewicht"/>
-            <mapping>
-                <identity value="hcim-medicationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.6.23283"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.6.23023"/>
-            </mapping>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyWeight"/>
+            </type>
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.23028"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.supportingInformation:BodyHeight">
+            <path value="MedicationRequest.supportingInformation"/>
+            <sliceName value="BodyHeight"/>
+            <short value="MedicationAgreementAdditionalInformation: BodyHeight"/>
+            <definition value="Height the dose is based on, relevant to this agreement."/>
+            <alias value="Lichaamslengte"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyHeight"/>
+            </type>
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN"/>
+                <map value="NL-CM:9.6.23023"/>
             </mapping>
         </element>
         <element id="MedicationRequest.authoredOn">
