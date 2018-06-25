@@ -344,10 +344,12 @@
             <path value="MedicationRequest.requester"/>
             <short value="Prescriber"/>
             <definition value="The health professional that entered the medication agreement with the patient."/>
+            <comment value="Note that in FHIR STU3, there is an agent Reference type PractitionerRole missing. PractitionerRole, contrary to Practitioner, allows for specialism and organization. This issue has been fixed in FHIR R4. For FHIR STU3, you cannot state the specialism for the practitioner, and his organization goes through onBehalfOf."></comment>
             <alias value="Voorschrijver"/>
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.1030"/>
+                <comment value="Mapping for agent zib-HealthProfessional (nl-core-practitioner). Element onBehalfOf may carry zib-HealthcareProvider (nl-core-organization)"/>
             </mapping>
         </element>
         <element id="MedicationRequest.requester.agent">
@@ -372,11 +374,13 @@
                 <code value="Reference"/>
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
             </type>
-            <mapping>
-                <identity value="hcim-medicationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.6.1030"/>
-                <comment value="Mapping for zib-HealthProfessional"/>
-            </mapping>
+        </element>
+        <element id="MedicationRequest.requester.onBehalfOf">
+            <path value="MedicationRequest.requester.onBehalfOf"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+            </type>
         </element>
         <element id="MedicationRequest.recorder">
             <path value="MedicationRequest.recorder"/>
