@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentObjective" />
+  <version value="1" />
+  <name value="Zib TreatmentObjective" />
+  <title value="HCIM TreatmentObjective" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="TreatmentObjective as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017. The treatment objective describes the desired result of the treatment/interventions in terms of the patient’s diagnosed problem. The objective and target date are entered in addition to the target value. Comparing the healthcare results to the treatment objective provides insight into the effectivity of the treatment/interventions." />
+  <purpose value="A treatment objective is recorded to indicate the intention of the treatment/intervention. It provides an indication of the procedures to be carried out as part of the care process. This also enables us to monitor developments in the patient’s health condition for the desired healthcare result." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-treatmentobjective-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/TreatmentObjective-v3.1(2017EN)" />
+    <name value="HCIM TreatmentObjective-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Goal" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Goal" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Goal">
+      <path value="Goal" />
+      <short value="TreatmentObjective" />
+      <alias value="Behandeldoel" />
+      <mapping>
+        <identity value="hcim-treatmentobjective-v3.1-2017EN" />
+        <map value="NL-CM:13.5.1" />
+      </mapping>
+    </element>
+    <element id="Goal.description">
+      <path value="Goal.description" />
+      <short value="DesiredHealthcareResult" />
+      <definition value="The textual account of the treatment objective. This concept provides the option to define a treatment objective which cannot be described as a measurement value or functional/mental status." />
+      <alias value="GewenstZorgresultaat" />
+      <mapping>
+        <identity value="hcim-treatmentobjective-v3.1-2017EN" />
+        <map value="NL-CM:13.5.5" />
+      </mapping>
+    </element>
+    <element id="Goal.subject">
+      <path value="Goal.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient-organization" />
+      </type>
+    </element>
+    <element id="Goal.target.measure">
+      <path value="Goal.target.measure" />
+      <definition value="The parameter whose value is being tracked, e.g. body weight, blood pressure, hemoglobin A1c level or functional or mental status name." />
+      <comment value="The HCIM TreatmentObject states a reference to the observations GeneralMeasurement or FunctionalOrMentalStatus to provide information on the Goal's target. This profile uses the Goal elements target.measure and target.detail to record this information inside the Goal resource. The Observation.code maps to target.measure and Observation.value maps to target.detail.&#xD;&#xA;&#xD;&#xA;The gol-1 constraints requires that both elements are given if target.measure or target.detail is used. " />
+      <mapping>
+        <identity value="hcim-treatmentobjective-v3.1-2017EN" />
+        <map value="NL-CM:13.5.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentobjective-v3.1-2017EN" />
+        <map value="NL-CM:13.5.3" />
+      </mapping>
+    </element>
+    <element id="Goal.target.detail[x]">
+      <path value="Goal.target.detail[x]" />
+      <short value="TargetValue / DesiredHealthCondition" />
+      <definition value="The target value is the desired value (e.g. blood pressure, weight, pain score) which can be evaluated by means of a measurement or the desired health condition is a target value which can be expressed as the patient’s functional or mental status." />
+      <comment value="The HCIM TreatmentObject states a reference to the observations GeneralMeasurement or FunctionalOrMentalStatus to provide information on the Goal's target. This profile uses the Goal elements target.measure and target.detail to record this information inside the Goal resource. The Observation.code maps to target.measure and Observation.value maps to target.detail.&#xD;&#xA;&#xD;&#xA;The gol-1 constraints requires that both elements are given if target.measure or target.detail is used. " />
+      <alias value="Streefwaarde / GewensteGezondheidstoestand" />
+      <mapping>
+        <identity value="hcim-treatmentobjective-v3.1-2017EN" />
+        <map value="NL-CM:13.5.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentobjective-v3.1-2017EN" />
+        <map value="NL-CM:13.5.3" />
+      </mapping>
+    </element>
+    <element id="Goal.addresses">
+      <path value="Goal.addresses" />
+      <short value="Problem" />
+      <definition value="Description of the problem to which the treatment objective applies." />
+      <alias value="Probleem" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationStatement" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ProcedureRequest" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment" />
+      </type>
+      <mapping>
+        <identity value="hcim-treatmentobjective-v3.1-2017EN" />
+        <map value="NL-CM:13.5.4" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
