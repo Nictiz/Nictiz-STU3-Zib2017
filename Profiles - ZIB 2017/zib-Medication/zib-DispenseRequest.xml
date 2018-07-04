@@ -48,7 +48,7 @@
     <element id="MedicationRequest">
       <path value="MedicationRequest" />
       <short value="MedicationDispenseRequest" />
-      <alias value="Medicatieverstrekkingsverzoek" />
+      <alias value="Verstrekkingsverzoek" />
       <mapping>
         <identity value="hcim-dispenserequest-v1.0-2017EN" />
         <map value="NL-CM:9.10.19963" />
@@ -272,20 +272,7 @@
     </element>
     <element id="MedicationRequest.dosageInstruction">
       <path value="MedicationRequest.dosageInstruction" />
-      <type>
-        <code value="Dosage" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-InstructionsForUse" />
-      </type>
-    </element>
-    <element id="MedicationRequest.dosageInstruction.dose[x]">
-      <path value="MedicationRequest.dosageInstruction.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
+      <max value="0" />
     </element>
     <element id="MedicationRequest.dispenseRequest">
       <path value="MedicationRequest.dispenseRequest" />
@@ -360,9 +347,8 @@
         <map value="NL-CM:9.10.22120" />
       </mapping>
     </element>
-    <element id="MedicationRequest.dispenseRequest.quantity:SimpleQuantity">
+    <element id="MedicationRequest.dispenseRequest.quantity">
       <path value="MedicationRequest.dispenseRequest.quantity" />
-      <sliceName value="SimpleQuantity" />
       <short value="Amount" />
       <definition value="This is the number of units of the ordered product per dispense. &#xD;&#xA;The number of refills indicates how often this amount is allowed to be dispensed." />
       <alias value="TeVerstrekkenHoeveelheid" />
