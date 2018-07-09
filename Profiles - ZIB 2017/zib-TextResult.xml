@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-TextResult" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2017-08-10T11:26:30.216+02:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult" />
+  <version value="2.0" />
+  <name value="ZIB-TextResult" />
+  <title value="HCIM TextResult" />
+  <status value="draft" />
+  <date value="2016-11-11T12:24:22.445+00:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A TextResult as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 4.1. Textual results describe the findings and interpretation of diagnostic or therapeutic procedures carried out on patients or on specimens from the patient.&#xD;&#xA;&#xD;&#xA;Note that the HCIM TextResult-v4.1 has NL-CM:13.2.5 Procedure as property of the report. FHIR has this relationship reversed, so the procedure points to the report." />
+  <purpose value="Recording the results of diagnostic procedures for the purpose of communicating these with the person requesting the procedure and documenting the findings resulting from therapeutic procedures." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-textresultfortransfer-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/TextResultForTransfer-v1.2.2(2015EN)" />
+    <name value="HCIM TextResultForTransfer-v1.2.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-textresultfortransfer-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/TextResultForTransfer-v3.0(2016EN)" />
+    <name value="HCIM TextResultForTransfer-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-textresult-v4.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/TextResult-v4.1(2017EN)" />
+    <name value="HCIM TextResult-v4.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-patient-v2.0.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
+    <name value="HCIM Patient-v2.0.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-patient-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
+    <name value="HCIM Patient-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-patient-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DiagnosticReport" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DiagnosticReport">
+      <path value="DiagnosticReport" />
+      <short value="TextResult" />
+      <definition value="Textual results describe the findings and interpretation of diagnostic or therapeutic procedures carried out on patients or on specimens from the patient. Recording the results of diagnostic procedures for the purpose of communicating these with the person requesting the procedure and documenting the findings resulting from therapeutic procedures." />
+      <alias value="TekstUitslag" />
+      <mapping>
+        <identity value="hcim-textresultfortransfer-v1.2-2015EN" />
+        <map value="NL-CM:13.2.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-textresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.2.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-textresult-v4.1-2017EN" />
+        <map value="NL-CM:13.2.1" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.identifier">
+      <path value="DiagnosticReport.identifier" />
+      <short value="Identifier" />
+      <alias value="Identificatie" />
+    </element>
+    <element id="DiagnosticReport.status">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
+        <valueString value="default: final" />
+      </extension>
+      <path value="DiagnosticReport.status" />
+      <short value="TextResultStatus" />
+      <alias value="TekstUitslagStatus" />
+    </element>
+    <element id="DiagnosticReport.status.extension">
+      <path value="DiagnosticReport.status.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DiagnosticReport.status.extension:TextResultStatus">
+      <path value="DiagnosticReport.status.extension" />
+      <sliceName value="TextResultStatus" />
+      <short value="Provides the specific HCIM code for TextResultStatus" />
+      <definition value="Defines a more specific value to a code. Especially useful for FHIRs required ValueSets." />
+      <alias value="TekstUitslagStatus" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.2.2--20171231000000" />
+          <display value="ResultaatStatusCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-textresultfortransfer-v1.2-2015EN" />
+        <map value="NL-CM:13.2.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-textresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.2.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-textresult-v4.1-2017EN" />
+        <map value="NL-CM:13.2.6" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.code">
+      <path value="DiagnosticReport.code" />
+      <short value="Test" />
+      <alias value="Onderzoek" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.2.1--20150401000000" />
+          <display value="TekstUitslagTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-textresultfortransfer-v1.2-2015EN" />
+        <map value="NL-CM:13.2.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-textresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.2.4" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-textresult-v4.1-2017EN" />
+        <map value="NL-CM:13.2.4" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.subject">
+      <path value="DiagnosticReport.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.1-2017EN" />
+        <map value="NL-CM:0.1.1" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.effective[x]">
+      <path value="DiagnosticReport.effective[x]" />
+      <mapping>
+        <identity value="hcim-textresultfortransfer-v1.2-2015EN" />
+        <map value="NL-CM:13.2.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-textresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.2.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-textresult-v4.1-2017EN" />
+        <map value="NL-CM:13.2.3" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.conclusion">
+      <path value="DiagnosticReport.conclusion" />
+      <mapping>
+        <identity value="hcim-textresultfortransfer-v1.2-2015EN" />
+        <map value="NL-CM:13.2.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-textresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.2.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-textresult-v4.1-2017EN" />
+        <map value="NL-CM:13.2.2" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
