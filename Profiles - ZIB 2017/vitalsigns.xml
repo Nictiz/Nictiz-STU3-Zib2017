@@ -1,6 +1,6 @@
 ﻿<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
-    <id value="zib-VitalSigns"/>
+    <id value="vitalsigns-nl"/>
     <meta>
         <lastUpdated value="2017-09-07T13:03:07.673+02:00"/>
     </meta>
@@ -10,52 +10,24 @@
         />
     </extension>
     <url value="http://nictiz.nl/fhir/StructureDefinition/zib-VitalSigns"/>
-    <version value="1.0"/>
-    <name value="Vital Signs Profile"/>
-    <title value="VitalSigns"/>
+    <version value="2.0"/>
+    <name value="Vital Signs Profile NL"/>
+    <title value="VitalSigns Profile NL"/>
     <status value="active"/>
     <experimental value="false"/>
-    <date value="2016-03-25"/>
+    <date value="2018-07-12"/>
     <publisher value="Health Level Seven International (Orders and Observations Workgroup)"/>
     <contact>
+        <name value="Nictiz" />
         <telecom>
-            <system value="url"/>
-            <value value="http://www.hl7.org/Special/committees/orders/index.cfm Orders and Observations"/>
+            <system value="email" />
+            <value value="info@nictiz.nl" />
+            <use value="work" />
         </telecom>
     </contact>
-    <description value="Copied FHIR Vital Signs Profile to remove .component.value quantity type constrain. More informatino can be found in the GForge ticket #13796."/>
+    <description value="Copied FHIR Vital Signs Profile to remove .component.value quantity type constrain. More information can be found in the GForge ticket #13796."/>
     <copyright value="CC0"/>
     <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="workflow"/>
-        <uri value="http://hl7.org/fhir/workflow"/>
-        <name value="Workflow Mapping"/>
-    </mapping>
-    <mapping>
-        <identity value="sct-concept"/>
-        <uri value="http://snomed.info/conceptdomain"/>
-        <name value="SNOMED CT Concept Domain Binding"/>
-    </mapping>
-    <mapping>
-        <identity value="v2"/>
-        <uri value="http://hl7.org/v2"/>
-        <name value="HL7 v2 Mapping"/>
-    </mapping>
-    <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
-    </mapping>
-    <mapping>
-        <identity value="w5"/>
-        <uri value="http://hl7.org/fhir/w5"/>
-        <name value="W5 Mapping"/>
-    </mapping>
-    <mapping>
-        <identity value="sct-attr"/>
-        <uri value="http://snomed.info/sct"/>
-        <name value="SNOMED CT Attribute Binding"/>
-    </mapping>
     <kind value="resource"/>
     <abstract value="false"/>
     <type value="Observation"/>
@@ -118,7 +90,7 @@
             <min value="1"/>
             <type>
                 <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
             </type>
             <mustSupport value="true"/>
         </element>
@@ -136,6 +108,27 @@
                 <expression value="($this as dateTime).toString().length() &gt;= 8"/>
                 <xpath value="f:matches(effectiveDateTime,/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)"/>
             </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.performer">
+            <path value="Observation.performer"/>
+            <min value="1"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+            </type>
             <mustSupport value="true"/>
         </element>
         <element id="Observation.value[x]">
