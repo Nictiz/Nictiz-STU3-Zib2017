@@ -1,0 +1,149 @@
+<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+    <url value="http://nictiz.nl/fhir/ConceptMap/NHGTable14-to-ActEncounterCode"/>
+    <version value="1.0"/>
+    <name value="NHGTable14-to-ActEncounterCode"/>
+    <title value="NHG NHGTable14 to ActEncounterCode"/>
+    <status value="active"/>
+    <date value="2018-07-17T14:09:00+02:00"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="Maps the NHG Table 14 version 7 (September 2011) terminology for ContactType to the FHIR STU3 terminology binded at Encounter.class"/>
+    <purpose value="To aid in mapping from ZIB Contact value set ContactTypeCodelijst to FHIR STU3 Contact.class"/>
+    <copyright value="CC0"/>
+    <targetUri value="http://hl7.org/fhir/ValueSet/v3-ActEncounterCode"/>
+    <group>
+        <source value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-14-contactwijze"/>
+        <sourceVersion value="7 (September 2011)"/>
+        <target value="http://hl7.org/fhir/v3/ActCode"/>
+        <targetVersion value="2016-11-11"/>
+        <element>
+            <code value="1"/>
+            <display value="visite"/>
+            <target>
+                <code value="HH"/>
+                <display value="home"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="2"/>
+            <display value="nacht/dienst visite"/>
+            <target>
+                <code value="HH"/>
+                <display value="home"/>
+                <equivalence value="inexact"/>
+                <comment value="Nacht/dienst semantics not covered"/>
+            </target>
+        </element>
+        <element>
+            <code value="3"/>
+            <display value="Consult"/>
+            <target>
+                <code value="AMB"/>
+                <display value="ambulatory"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="4"/>
+            <display value="nacht/dienst consult"/>
+            <target>
+                <code value="AMB"/>
+                <display value="ambulatory"/>
+                <equivalence value="inexact"/>
+                <comment value="Nacht/dienst semantics not covered"/>
+            </target>
+        </element>
+        <element>
+            <code value="5"/>
+            <display value="telefonisch contact"/>
+            <target>
+                <code value="VR"/>
+                <display value="virtual"/>
+                <equivalence value="wider"/>
+                <comment value="Virtual is broader/wider than just phone"/>
+            </target>
+        </element>
+        <element>
+            <code value="6"/>
+            <display value="nacht/dienst telefonisch consult"/>
+            <target>
+                <code value="VR"/>
+                <display value="virtual"/>
+                <equivalence value="relatedto"/>
+                <comment value="Virtual is broader/wider than just phone. Nacht/dienst semantics not covered"/>
+            </target>
+        </element>
+        <element>
+            <code value="8"/>
+            <display value="postverwerking"/>
+            <target>
+                <code value="VR"/>
+                <display value="virtual"/>
+                <equivalence value="relatedto"/>
+                <comment value="Processing the mail is about the patient, but there is no true encounter"/>
+            </target>
+        </element>
+        <element>
+            <code value="9"/>
+            <display value="overleg"/>
+            <target>
+                <code value="VR"/>
+                <display value="virtual"/>
+                <equivalence value="relatedto"/>
+                <comment value="Inter-collegial consultation is about the patient, but there is no true encounter"/>
+            </target>
+        </element>
+        <element>
+            <code value="11"/>
+            <display value="notitie/memo"/>
+            <target>
+                <code value="VR"/>
+                <display value="virtual"/>
+                <equivalence value="relatedto"/>
+                <comment value="Note/memo is about the patient, but there is no true encounter"/>
+            </target>
+        </element>
+        <element>
+            <code value="12"/>
+            <display value="e-consult"/>
+            <target>
+                <code value="VR"/>
+                <display value="virtual"/>
+                <equivalence value="equal"/>
+                <comment value="Virtual is presumably broader/wider than e-consult"/>
+            </target>
+        </element>
+    </group>
+    <group>
+        <source value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-14-contactwijze"/>
+        <sourceVersion value="7 (September 2011)"/>
+        <target value="http://hl7.org/fhir/v3/NullFlavor"/>
+        <element>
+            <code value="90"/>
+            <display value="onbekend"/>
+            <target>
+                <code value="UNK"/>
+                <display value="unknown"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="99"/>
+            <display value="overig"/>
+            <target>
+                <code value="OTH"/>
+                <display value="other"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+    </group>
+</ConceptMap>
