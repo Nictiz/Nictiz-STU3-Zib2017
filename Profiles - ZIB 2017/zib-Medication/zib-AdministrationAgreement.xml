@@ -392,6 +392,7 @@
       <mapping>
         <identity value="hcim-administrationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.8.22097" />
+        <comment value="For MP: Use a reference to an nl-core-organization using the actor.reference element" />
       </mapping>
     </element>
     <element id="MedicationDispense.performer.actor">
@@ -444,6 +445,16 @@
         <identity value="hcim-administrationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.8.22098" />
       </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.dose[x]">
+      <path value="MedicationDispense.dosageInstruction.dose[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
   </differential>
 </StructureDefinition>
