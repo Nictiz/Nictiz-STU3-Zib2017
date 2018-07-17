@@ -103,8 +103,9 @@
         <map value="NL-CM:9.13.23171" />
       </mapping>
     </element>
-    <element id="MedicationAdministration.extension:agreedDateTime.valueDateTime">
+    <element id="MedicationAdministration.extension:agreedDateTime.valueDateTime:valueDateTime">
       <path value="MedicationAdministration.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
     </element>
     <element id="MedicationAdministration.extension:doubleCheckPerformed">
       <path value="MedicationAdministration.extension" />
@@ -122,8 +123,9 @@
         <map value="NL-CM:9.13.23168" />
       </mapping>
     </element>
-    <element id="MedicationAdministration.extension:doubleCheckPerformed.valueBoolean">
+    <element id="MedicationAdministration.extension:doubleCheckPerformed.valueBoolean:valueBoolean">
       <path value="MedicationAdministration.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
     </element>
     <element id="MedicationAdministration.extension:medicationTreatment">
       <path value="MedicationAdministration.extension" />
@@ -142,6 +144,10 @@
         <map value="mp-dataelement900-22092" />
       </mapping>
     </element>
+    <element id="MedicationAdministration.extension:medicationTreatment.valueIdentifier:valueIdentifier">
+      <path value="MedicationAdministration.extension.valueIdentifier" />
+      <sliceName value="valueIdentifier" />
+    </element>
     <element id="MedicationAdministration.extension:deviatingAdministration">
       <path value="MedicationAdministration.extension" />
       <sliceName value="deviatingAdministration" />
@@ -159,19 +165,27 @@
         <map value="NL-CM:9.13.23167" />
       </mapping>
     </element>
-    <element id="MedicationAdministration.extension:deviatingAdministration.extension:deviation.valueBoolean">
+    <element id="MedicationAdministration.extension:deviatingAdministration.extension:deviation.valueBoolean:valueBoolean">
       <path value="MedicationAdministration.extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
     </element>
     <element id="MedicationAdministration.extension:deviatingAdministration.extension:reasonForDeviation">
       <path value="MedicationAdministration.extension.extension" />
       <sliceName value="reasonForDeviation" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.3.2--20150401000000" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-MedicationAdministration2-v1.0-2017EN" />
         <map value="NL-CM:9.13.23166" />
       </mapping>
     </element>
-    <element id="MedicationAdministration.extension:deviatingAdministration.extension:reasonForDeviation.valueCodeableConcept">
+    <element id="MedicationAdministration.extension:deviatingAdministration.extension:reasonForDeviation.valueCodeableConcept:valueCodeableConcept">
       <path value="MedicationAdministration.extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
     </element>
     <element id="MedicationAdministration.identifier">
       <path value="MedicationAdministration.identifier" />
