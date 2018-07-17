@@ -1,0 +1,88 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.2.4.3.11.60.103.11.3--20110902000000"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+        <profile value="http://hl7.org/fhir/3.0/StructureDefinition/ValueSet"/>
+    </meta>
+    <url value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.3--20110902000000"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://art-decor.org/ns/oids/vs"/>
+        <value value="2.16.840.1.113883.2.4.3.11.60.103.11.3"/>
+    </identifier>
+    <version value="2011-09-02T00:00:00"/>
+    <name value="NHGTable14v7-ContactType"/>
+    <title value="NHG tabel 14v7 - ContactType"/>
+    <status value="active"/>
+    <experimental value="false"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="T 070 317 3450"/>
+        </telecom>
+        <telecom>
+            <system value="fax"/>
+            <value value="F 070 320 74 37"/>
+        </telecom>
+    </contact>
+    <description value="Type of encounter"/>
+    <immutable value="false"/>
+    <compose>
+        <include>
+            <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+            <concept>
+                <code value="UNK"/>
+                <display value="Onbekend"/>
+            </concept>
+            <concept>
+                <code value="OTH"/>
+                <display value="Anders"/>
+            </concept>
+        </include>
+        <include>
+            <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-14-contactwijze"/>
+            <concept>
+                <code value="01"/>
+                <display value="visite"/>
+            </concept>
+            <concept>
+                <code value="02"/>
+                <display value="nacht/dienst visite"/>
+            </concept>
+            <concept>
+                <code value="03"/>
+                <display value="consult"/>
+            </concept>
+            <concept>
+                <code value="04"/>
+                <display value="nacht/dienst consult"/>
+            </concept>
+            <concept>
+                <code value="05"/>
+                <display value="telefonisch contact"/>
+            </concept>
+            <concept>
+                <code value="06"/>
+                <display value="nacht/dienst telefonisch consult"/>
+            </concept>
+            <concept>
+                <code value="08"/>
+                <display value="postverwerking"/>
+            </concept>
+            <concept>
+                <code value="09"/>
+                <display value="overleg"/>
+            </concept>
+            <concept>
+                <code value="10"/>
+                <display value="herhaalrecept"/>
+            </concept>
+            <concept>
+                <code value="11"/>
+                <display value="notitie/memo"/>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>
