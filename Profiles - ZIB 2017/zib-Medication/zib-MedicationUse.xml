@@ -87,8 +87,9 @@
         <map value="NL-CM:9.11.22492" />
       </mapping>
     </element>
-    <element id="MedicationStatement.extension:asAgreedIndicator.valueBoolean">
+    <element id="MedicationStatement.extension:asAgreedIndicator.valueBoolean:valueBoolean">
       <path value="MedicationStatement.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
       <example>
         <label value="Example of asAgreed" />
         <valueBoolean value="true" />
@@ -98,11 +99,13 @@
       <path value="MedicationStatement.extension" />
       <sliceName value="prescriber" />
       <short value="Prescriber" />
+      <definition value="The health professional that entered the medication agreement with the patient. " />
       <alias value="Voorschrijver" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/medicationstatement-Prescriber" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/zib-MedicationUse-Prescriber" />
       </type>
       <mapping>
         <identity value="hcim-medicationuse2-v1.0-2017EN" />
@@ -157,6 +160,10 @@
         <map value="mp-dataelement900-22092" />
       </mapping>
     </element>
+    <element id="MedicationStatement.extension:medicationTreament.valueIdentifier:valueIdentifier">
+      <path value="MedicationStatement.extension.valueIdentifier" />
+      <sliceName value="valueIdentifier" />
+    </element>
     <element id="MedicationStatement.extension:copyIndicator">
       <path value="MedicationStatement.extension" />
       <sliceName value="copyIndicator" />
@@ -172,13 +179,16 @@
         <map value="mp-dataelement900-23413" />
       </mapping>
     </element>
+    <element id="MedicationStatement.extension:copyIndicator.valueBoolean:valueBoolean">
+      <path value="MedicationStatement.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+    </element>
     <element id="MedicationStatement.extension:repeatPeriodCyclicalSchedule">
       <path value="MedicationStatement.extension" />
       <sliceName value="repeatPeriodCyclicalSchedule" />
       <label value="HerhaalperiodeCyclischSchema" />
       <short value="RepeatPeriodCyclicalSchedule" />
       <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days.&#xD;&#xA;RepeatPeriodCyclicalSchedule" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -189,6 +199,10 @@
         <map value="NL-CM:9.12.22505" />
       </mapping>
     </element>
+    <element id="MedicationStatement.extension:repeatPeriodCyclicalSchedule.valueDuration:valueDuration">
+      <path value="MedicationStatement.extension.valueDuration" />
+      <sliceName value="valueDuration" />
+    </element>    
     <element id="MedicationStatement.identifier">
       <path value="MedicationStatement.identifier" />
       <slicing>
@@ -258,7 +272,7 @@
         <map value="NL-CM:9.11.21339" />
       </mapping>
     </element>
-    <element id="MedicationStatement.effectivePeriod:effectivePeriod">
+    <element id="MedicationStatement.effective[x]:effectivePeriod">
       <path value="MedicationStatement.effectivePeriod" />
       <sliceName value="effectivePeriod" />
       <short value="PeriodOfUse" />
@@ -282,7 +296,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="MedicationStatement.effectivePeriod:effectivePeriod.extension:Duration">
+    <element id="MedicationStatement.effective[x]:effectivePeriod.extension:Duration">
       <path value="MedicationStatement.effectivePeriod.extension" />
       <sliceName value="Duration" />
       <short value="Duration" />
@@ -294,8 +308,9 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration" />
       </type>
     </element>
-    <element id="MedicationStatement.effectivePeriod:effectivePeriod.extension:Duration.valueDuration">
+    <element id="MedicationStatement.effective[x]:effectivePeriod.extension:Duration.valueDuration:valueDuration">
       <path value="MedicationStatement.effectivePeriod.extension.valueDuration" />
+      <sliceName value="valueDuration" />
       <example>
         <label value="Example of Duration" />
         <valueDuration>
@@ -306,7 +321,7 @@
         </valueDuration>
       </example>
     </element>
-    <element id="MedicationStatement.effectivePeriod:effectivePeriod.start">
+    <element id="MedicationStatement.effective[x]:effectivePeriod.start">
       <path value="MedicationStatement.effectivePeriod.start" />
       <short value="StartDate" />
       <definition value="This is the time at which the agreement was to take effect (or took effect or will take effect). " />
@@ -316,7 +331,7 @@
         <map value="NL-CM:20.3.2" />
       </mapping>
     </element>
-    <element id="MedicationStatement.effectivePeriod:effectivePeriod.end">
+    <element id="MedicationStatement.effective[x]:effectivePeriod.end">
       <path value="MedicationStatement.effectivePeriod.end" />
       <short value="EndDate" />
       <definition value="The time at which the period of use ends (or ended or will end). To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date. " />
@@ -444,6 +459,16 @@
         <identity value="hcim-medicationuse2-v1.0-2017EN" />
         <map value="NL-CM:9.11.22504" />
       </mapping>
+    </element>
+    <element id="MedicationStatement.dosage.dose[x]">
+      <path value="MedicationStatement.dosage.dose[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
   </differential>
 </StructureDefinition>

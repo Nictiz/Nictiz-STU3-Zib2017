@@ -82,27 +82,29 @@
         <map value="NL-CM:9.8.20133" />
       </mapping>
     </element>
-    <element id="MedicationDispense.extension:authoredOn.valueDateTime">
+    <element id="MedicationDispense.extension:authoredOn.valueDateTime:valueDateTime">
       <path value="MedicationDispense.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
     </element>
-    <element id="MedicationDispense.extension:reasonForDispense">
+    <element id="MedicationDispense.extension:agreementReason">
       <path value="MedicationDispense.extension" />
-      <sliceName value="reasonForDispense" />
+      <sliceName value="agreementReason" />
       <short value="AgreementReason" />
       <definition value="Reason for this agreement. This will often be the same reason as the one for the medication agreement. &#xD;&#xA;This field has the option to - if applicable - enter a specific reason for the administration agreement. Examples include: substitution, transfer to GDS, patient request for different product, etc" />
       <alias value="RedenAfspraak" />
       <max value="1" />
       <type>
         <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-ReasonForDispense" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AgreementReason" />
       </type>
       <mapping>
         <identity value="hcim-administrationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.8.22499" />
       </mapping>
     </element>
-    <element id="MedicationDispense.extension:reasonForDispense.valueString">
+    <element id="MedicationDispense.extension:agreementReason.valueString:valueString">
       <path value="MedicationDispense.extension.valueString" />
+      <sliceName value="valueString" />
     </element>
     <element id="MedicationDispense.extension:periodOfUse">
       <path value="MedicationDispense.extension" />
@@ -118,6 +120,10 @@
         <map value="NL-CM:9.8.22660" />
         <comment value="Maps to the &quot;start date&quot; and &quot;end date&quot; portion of the &quot;PeriodOfUse&quot; element " />
       </mapping>
+    </element>
+    <element id="MedicationDispense.extension:periodOfUse.valuePeriod:valuePeriod">
+      <path value="MedicationDispense.extension.valuePeriod" />
+      <sliceName value="valuePeriod" />
     </element>
     <element id="MedicationDispense.extension:usageDuration">
       <path value="MedicationDispense.extension" />
@@ -136,6 +142,10 @@
         <comment value="Maps to the &quot;duration&quot; portion of the &quot;PeriodOfUse&quot; element " />
       </mapping>
     </element>
+    <element id="MedicationDispense.extension:usageDuration.valueDuration:valueDuration">
+      <path value="MedicationDispense.extension.valueDuration" />
+      <sliceName value="valueDuration" />
+    </element>
     <element id="MedicationDispense.extension:additionalInformation">
       <path value="MedicationDispense.extension" />
       <sliceName value="additionalInformation" />
@@ -152,8 +162,9 @@
         <map value="NL-CM:9.8.23284" />
       </mapping>
     </element>
-    <element id="MedicationDispense.extension:additionalInformation.valueCodeableConcept">
+    <element id="MedicationDispense.extension:additionalInformation.valueCodeableConcept:valueCodeableConcept">
       <path value="MedicationDispense.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <example>
         <label value="Example of AdditionalInformation" />
         <valueCodeableConcept>
@@ -188,6 +199,10 @@
         <map value="mp-dataelement900-22092" />
       </mapping>
     </element>
+    <element id="MedicationDispense.extension:medicationTreatment.valueIdentifier:valueIdentifier">
+      <path value="MedicationDispense.extension.valueIdentifier" />
+      <sliceName value="valueIdentifier" />
+    </element>
     <element id="MedicationDispense.extension:copyIndicator">
       <path value="MedicationDispense.extension" />
       <sliceName value="copyIndicator" />
@@ -202,6 +217,10 @@
         <identity value="Medication-Process-v09" />
         <map value="mp-dataelement900-23412" />
       </mapping>
+    </element>
+    <element id="MedicationDispense.extension:copyIndicator.valueBoolean:valueBoolean">
+      <path value="MedicationDispense.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
     </element>
     <element id="MedicationDispense.extension:repeatPeriodCyclicalSchedule">
       <path value="MedicationDispense.extension" />
@@ -218,6 +237,10 @@
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />
         <map value="NL-CM:9.12.22505" />
       </mapping>
+    </element>
+    <element id="MedicationDispense.extension:repeatPeriodCyclicalSchedule.valueDuration:valueDuration">
+      <path value="MedicationDispense.extension.valueDuration" />
+      <sliceName value="valueDuration" />
     </element>
     <element id="MedicationDispense.modifierExtension">
       <path value="MedicationDispense.modifierExtension" />
@@ -243,8 +266,9 @@
         <map value="NL-CM:9.8.22498" />
       </mapping>
     </element>
-    <element id="MedicationDispense.modifierExtension:stopType.valueCodeableConcept">
+    <element id="MedicationDispense.modifierExtension:stopType.valueCodeableConcept:valueCodeableConcept">
       <path value="MedicationDispense.modifierExtension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="required" />
       </binding>
@@ -412,8 +436,6 @@
     </element>
     <element id="MedicationDispense.dosageInstruction">
       <path value="MedicationDispense.dosageInstruction" />
-      <short value="InstructionsForUse" />
-      <alias value="Gebruiksinstructie" />
       <type>
         <code value="Dosage" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-InstructionsForUse" />
@@ -422,16 +444,6 @@
         <identity value="hcim-administrationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.8.22098" />
       </mapping>
-    </element>
-    <element id="MedicationDispense.dosageInstruction.dose[x]">
-      <path value="MedicationDispense.dosageInstruction.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
   </differential>
 </StructureDefinition>

@@ -1,13 +1,13 @@
 <?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-  <id value="zib-AdministrationAgreement-ReasonForDispense" />
+  <id value="zib-AdministrationAgreement-AgreementReason" />
   <meta>
     <versionId value="2" />
     <lastUpdated value="2017-06-08T17:16:42.187+02:00" />
   </meta>
-  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-ReasonForDispense" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AgreementReason" />
   <version value="2.0" />
-  <name value="Zib Reason For Dispense" />
+  <name value="Zib Agreement Reason" />
   <title value="HCIM Reason For Dispense" />
   <status value="draft" />
   <date value="2016-12-12T16:26:52.019+00:00" />
@@ -33,10 +33,11 @@
   <differential>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-ReasonForDispense" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AgreementReason" />
     </element>
-    <element id="Extension.valueString">
+    <element id="Extension.value[x]:valueString">
       <path value="Extension.valueString" />
+      <sliceName value="valueString" />
       <type>
         <code value="string" />
       </type>
