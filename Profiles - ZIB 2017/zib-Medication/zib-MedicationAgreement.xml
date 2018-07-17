@@ -388,6 +388,29 @@
         <comment value="Mapping for agent zib-HealthProfessional (nl-core-practitioner). Element onBehalfOf may carry zib-HealthcareProvider (nl-core-organization)" />
       </mapping>
     </element>
+    <element id="MedicationRequest.requester.extension">
+      <path value="MedicationRequest.requester.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationRequest.requester.extension:requesterRole">
+      <path value="MedicationRequest.requester.extension" />
+      <sliceName value="requesterRole" />
+      <short value="PrescriberRole" />
+      <definition value="Describes the role of the precriber of the MedicationAgreement" />
+      <alias value="voorschrijverrol " />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-RequesterRole" />
+      </type>
+    </element>
     <element id="MedicationRequest.requester.agent">
       <path value="MedicationRequest.requester.agent" />
       <type>
@@ -493,16 +516,6 @@
         <identity value="hcim-medicationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.6.23240" />
       </mapping>
-    </element>
-    <element id="MedicationRequest.dosageInstruction.dose[x]">
-      <path value="MedicationRequest.dosageInstruction.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
   </differential>
 </StructureDefinition>
