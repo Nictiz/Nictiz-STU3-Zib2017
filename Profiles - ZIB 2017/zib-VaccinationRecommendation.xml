@@ -77,6 +77,41 @@
                 <map value="NL-CM:16.1.5"/>
             </mapping>
         </element>
+      <element id="ImmunizationRecommendation..extension:orderStatus">
+        <path value="ImmunizationRecommendation.extension"/>
+        <sliceName value="orderStatus"/>
+        <short value="OrderStatus"/>
+        <definition value="The status of the order / recommendation."/>
+        <alias value="OrderStatus"/>
+        <max value="1"/>
+        <type>
+          <code value="Extension"/>
+          <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation-OrderStatus"/>
+        </type>
+        <mapping>
+          <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
+          <map value="NL-CM:16.1.9"/>
+        </mapping>
+        <mapping>
+          <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
+          <map value="NL-CM:16.1.9"/>
+        </mapping>
+        <mapping>
+          <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
+          <map value="NL-CM:16.1.9"/>
+        </mapping>
+      </element>
+      <element id="ImmunizationRecommendation.extension:orderStatus.valueCodeableConcept">
+        <path value="ImmunizationRecommendation.extension.valueCodeableConcept"/>
+        <binding>
+          <strength value="extensible"/>
+          <description value="OrderStatusCodelist"/>
+          <valueSetReference>
+            <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000"/>
+            <display value="OrderStatusCodelist"/>
+          </valueSetReference>
+        </binding>
+      </element>
         <element id="ImmunizationRecommendation.patient">
             <path value="ImmunizationRecommendation.patient"/>
             <type>
@@ -211,41 +246,7 @@
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="ImmunizationRecommendation.recommendation.forecastStatus.extension:orderStatus">
-            <path value="ImmunizationRecommendation.recommendation.forecastStatus.extension"/>
-            <sliceName value="orderStatus"/>
-            <short value="OrderStatus"/>
-            <definition value="The status of the order / recommendation."/>
-            <alias value="OrderStatus"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification"/>
-            </type>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
-                <map value="NL-CM:16.1.9"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:16.1.9"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
-                <map value="NL-CM:16.1.9"/>
-            </mapping>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.forecastStatus.extension:orderStatus.valueCodeableConcept">
-            <path value="ImmunizationRecommendation.recommendation.forecastStatus.extension.valueCodeableConcept"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="OrderStatusCodelist"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000"/>
-                    <display value="OrderStatusCodelist"/>
-                </valueSetReference>
-            </binding>
-        </element>
+        
         <element id="ImmunizationRecommendation.recommendation.dateCriterion">
             <path value="ImmunizationRecommendation.recommendation.dateCriterion"/>
             <short value="StartDate / EndDate"/>
