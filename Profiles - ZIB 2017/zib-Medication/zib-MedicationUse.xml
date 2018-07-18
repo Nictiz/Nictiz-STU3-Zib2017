@@ -101,8 +101,6 @@
       <short value="Prescriber" />
       <definition value="The health professional that entered the medication agreement with the patient. " />
       <alias value="Voorschrijver" />
-      <min value="0" />
-      <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://hl7.org/fhir/StructureDefinition/zib-MedicationUse-Prescriber" />
@@ -111,10 +109,6 @@
         <identity value="hcim-medicationuse2-v1.0-2017EN" />
         <map value="NL-CM:9.11.23290" />
       </mapping>
-    </element>
-    <element id="MedicationStatement.extension:prescriber.url">
-      <path value="MedicationStatement.extension.url" />
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/medicationstatement-Prescriber" />
     </element>
     <element id="MedicationStatement.extension:author">
       <path value="MedicationStatement.extension" />
@@ -126,21 +120,6 @@
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author" />
-      </type>
-    </element>
-    <element id="MedicationStatement.extension:author.valueReference">
-      <path value="MedicationStatement.extension.valueReference" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
       </type>
     </element>
     <element id="MedicationStatement.extension:medicationTreament">
@@ -202,7 +181,7 @@
     <element id="MedicationStatement.extension:repeatPeriodCyclicalSchedule.valueDuration:valueDuration">
       <path value="MedicationStatement.extension.valueDuration" />
       <sliceName value="valueDuration" />
-    </element>    
+    </element>
     <element id="MedicationStatement.identifier">
       <path value="MedicationStatement.identifier" />
       <slicing>
@@ -372,8 +351,12 @@
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
       </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22424" />
+      </mapping>
     </element>
     <element id="MedicationStatement.subject">
       <path value="MedicationStatement.subject" />
@@ -459,16 +442,6 @@
         <identity value="hcim-medicationuse2-v1.0-2017EN" />
         <map value="NL-CM:9.11.22504" />
       </mapping>
-    </element>
-    <element id="MedicationStatement.dosage.dose[x]">
-      <path value="MedicationStatement.dosage.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
   </differential>
 </StructureDefinition>
