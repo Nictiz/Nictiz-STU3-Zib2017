@@ -146,6 +146,10 @@
             <path value="Observation.related"/>
             <max value="0"/>
         </element>
+        <element id="Observation.component">
+            <path value="Observation.component"/>
+            <max value="2"/>
+        </element>
         <element id="Observation.component.code">
             <path value="Observation.component.code"/>
             <slicing>
@@ -156,7 +160,6 @@
                 <rules value="open"/>
             </slicing>
             <definition value="Journal Entry Subjective sometimes has and journal entry Evaluation often has an ICPC-NL code that qualifies it."/>
-            <max value="2"/>
         </element>
         <element id="Observation.component.code:ICPC_S">
             <path value="Observation.component.code"/>
@@ -184,8 +187,9 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element id="Observation.component:ICPC_E.value[x]:valueCodeableConcept">
+        <element id="Observation.component.value[x]:valueCodeableConcept">
             <path value="Observation.component.valueCodeableConcept"/>
+            <min value="1"/>
             <type>
                 <code value="CodeableConcept"/>
             </type>
