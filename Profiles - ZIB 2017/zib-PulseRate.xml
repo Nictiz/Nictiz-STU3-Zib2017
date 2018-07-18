@@ -19,8 +19,8 @@
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="This profile is derived from the HL7 Vital Signs profile for heart rate in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) Polsfrequentie and to provide extensions for missing concepts."/>
-    <purpose value="Obtaining information on the circulation and heart function by measuring the number of beats per minute and the regularity in artery palpation."/>
+    <description value="This profile is derived from the HL7 Vital Signs profile for pulse rate in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) Polsfrequentie and to provide extensions for missing concepts."/>
+    <purpose value="The pulse rate is expressed in the number of tangible pulsations of an artery per minute, usually the a. radialis, a. carotis or a. femoralis."/>
     <copyright value="CC0"/>
     <fhirVersion value="3.0.1"/>
     <mapping>
@@ -45,6 +45,42 @@
                 <map value="NL-CM:12.7.1"/>
             </mapping>
         </element>
+        <element id="Observation.subject">
+            <path value="Observation.subject"/>
+            <short value="Patient"/>
+            <alias value="Patiënt"/>
+            <min value="1"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+            </type>
+        </element>
+        <element id="Observation.context">
+            <path value="Observation.context"/>
+            <short value="Encounter during which this observation is made"/>
+            <definition value="The encounter during which this journal entry was made."/>
+            <min value="1"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.nl/fhir/StructureDefinition/nl-core-episodeofcare"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter"/>
+            </type>
+        </element>
         <element id="Observation.effective[x]">
             <path value="Observation.effective[x]"/>
             <short value="PulseRateDateTime"/>
@@ -54,6 +90,25 @@
                 <identity value="hcim-pulserate-v3.1-2017EN"/>
                 <map value="NL-CM:12.7.3"/>
             </mapping>
+        </element>
+        <element id="Observation.performer">
+            <path value="Observation.performer"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
+            </type>
         </element>
         <element id="Observation.valueQuantity:valueQuantity">
             <path value="Observation.valueQuantity"/>
