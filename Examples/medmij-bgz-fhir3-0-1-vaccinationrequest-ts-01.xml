@@ -7,6 +7,15 @@
   <meta>
     <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation"/>
   </meta>
+  <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation-OrderStatus">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ActStatus"/>
+        <code value="new"/>
+        <display value="Ordered"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
   <patient>
     <reference value="Patient/medmij-bgz-patient-ts-01"/>
   </patient>
@@ -20,15 +29,11 @@
       </coding>
     </vaccineCode>
     <forecastStatus>
-      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-        <valueCodeableConcept>
-          <coding>
-            <system value="http://hl7.org/fhir/v3/ActStatus"/>
-            <code value="new"/>
-            <display value="Ordered"/>
-          </coding>
-        </valueCodeableConcept>
-      </extension>
+      <coding>
+        <system value="http://hl7.org/fhir/immunization-recommendation-status"/>
+        <code  value="due" />
+        <display value="Due"/>
+      </coding>      
     </forecastStatus>
     <dateCriterion>
       <code>
