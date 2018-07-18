@@ -146,26 +146,23 @@
             <path value="Observation.related"/>
             <max value="0"/>
         </element>
-        <element id="Observation.component">
-            <path value="Observation.component"/>
+        <element id="Observation.component.code">
+            <path value="Observation.component.code"/>
             <slicing>
                 <discriminator>
                     <type value="value"/>
-                    <path value="code.coding.code"/>
+                    <path value="coding.code"/>
                 </discriminator>
                 <rules value="open"/>
             </slicing>
-            <definition value="Journal entry Evaluation often has an ICPC code that qualifies it. Journal enry Subjective sometimes has too."/>
+            <definition value="Journal Entry Subjective sometimes has and journal entry Evaluation often has an ICPC-NL code that qualifies it."/>
             <max value="2"/>
         </element>
-        <element id="Observation.component:ICPC_S">
-            <path value="Observation.component"/>
-            <sliceName value="ICPC_S"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:ICPC_S.code">
+        <element id="Observation.component.code:ICPC_S">
             <path value="Observation.component.code"/>
+            <sliceName value="ICPC_S"/>
             <definition value="ICPC code qualifying journal entry Subjective"/>
+            <max value="1"/>
             <fixedCodeableConcept>
                 <coding>
                     <system value="http://hl7.org/fhir/v3/ActCode"/>
@@ -174,25 +171,11 @@
                 </coding>
             </fixedCodeableConcept>
         </element>
-        <element id="Observation.component:ICPC_S.value[x]:valueCodeableConcept">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <fixedCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/sid/icpc-1-nl"/>
-                </coding>
-            </fixedCodeableConcept>
-        </element>
-        <element id="Observation.component:ICPC_E">
-            <path value="Observation.component"/>
-            <sliceName value="ICPC_E"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:ICPC_E.code">
+        <element id="Observation.component.code:ICPC_E">
             <path value="Observation.component.code"/>
+            <sliceName value="ICPC_E"/>
             <definition value="ICPC code qualifying journal entry Evaluation"/>
+            <max value="1"/>
             <fixedCodeableConcept>
                 <coding>
                     <system value="http://hl7.org/fhir/v3/ActCode"/>
