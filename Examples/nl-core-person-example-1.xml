@@ -1,0 +1,66 @@
+<?xml-model href="http://hl7.org/fhir/STU3/person.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/person.xsd">
+    <id value="68e4cfaf-302f-48a0-90fe-57bf2ddb9e8e"/>
+    <meta>
+        <versionId value="1"/>
+        <lastUpdated value="2018-06-06T14:07:59.978+00:00"/>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-person"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <ol>
+                <li>Person Henk de Haas (male), work phone 0612345990, work email dehaas@work.com, official address Straatweg 12bII 1200AA Amsterdam, is connected to patient record nl-core-patient-example-1</li>
+            </ol>
+        </div>
+    </text>
+    <name>
+        <family value="de Haas">
+            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+                <valueString value="de "/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                <valueString value="Haas"/>
+            </extension>
+        </family>
+        <given value="Henk"/>
+    </name>
+    <telecom>
+        <system value="phone"/>
+        <value value="0612345990"/>
+        <use value="work"/>
+    </telecom>
+    <telecom>
+        <system value="email"/>
+        <value value="dehaas@work.com"/>
+        <use value="work"/>
+    </telecom>
+    <gender value="male"/>
+    <address>
+        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+            <valueBoolean value="true"/>
+        </extension>
+        <use value="home"/>
+        <type value="both"/>
+        <line value="Straatweg 12bII">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                <valueString value="Straatweg"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                <valueString value="12"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+                <valueString value="bII"/>
+            </extension>
+        </line>
+        <city value="Woonplaats"/>
+        <district value="Amsterdam"/>
+        <postalCode value="1200AA"/>
+        <country value="NLD"/>
+    </address>
+    <link>
+        <target>
+            <reference value="Patient/nl-core-patient-example-1"/>
+        </target>
+    </link>
+</Person>

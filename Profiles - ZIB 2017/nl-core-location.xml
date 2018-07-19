@@ -1,0 +1,109 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="nl-core-location" />
+  <meta>
+    <lastUpdated value="2017-04-24T16:03:41.969+02:00" />
+  </meta>
+  <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
+  <name value="nl-core-location" />
+  <title value="nl-core-location" />
+  <status value="active" />
+  <date value="2017-04-24T15:43:00.0480766+02:00" />
+  <publisher value="HL7 Netherlands" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A Location resource as defined for the Dutch realm" />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
+    <name value="HCIM Patient-v2.0.1(2015EN)" />
+    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Location" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Location" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Location">
+      <path value="Location" />
+    </element>
+    <element id="Location.telecom">
+      <path value="Location.telecom" />
+      <short value="ContactInformation" />
+      <alias value="Contactgegevens" />
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.5" />
+      </mapping>
+    </element>
+    <element id="Location.telecom.system">
+      <path value="Location.telecom.system" />
+      <min value="1" />
+    </element>
+    <element id="Location.telecom.value">
+      <path value="Location.telecom.value" />
+      <short value="TelephoneNumber / E-mailAddress" />
+      <alias value="Telefoonnummer" />
+      <alias value="EmailAdres" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.23" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.20" />
+      </mapping>
+    </element>
+    <element id="Location.telecom.use">
+      <path value="Location.telecom.use" />
+      <short value="NumberType / E-mailAddressType" />
+      <alias value="NummerSoort" />
+      <alias value="EmailSoort" />
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.22" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.19" />
+      </mapping>
+    </element>
+    <element id="Location.address">
+      <path value="Location.address" />
+      <short value="AddressInformation" />
+      <alias value="Adresgegevens" />
+      <type>
+        <code value="Address" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address" />
+      </type>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.4" />
+      </mapping>
+    </element>
+    <element id="Location.managingOrganization">
+      <path value="Location.managingOrganization" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="Location.partOf">
+      <path value="Location.partOf" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
