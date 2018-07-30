@@ -114,28 +114,32 @@
     </element>
     <element id="Consent.category:livingWill">
       <path value="Consent.category" />
+      <sliceName value="livingWill" />
       <short value="Living will and advance directive record" />
       <definition value="Category snomed code used for indexing/retrieval of LivingWills" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Consent.category:livingWill">
+    <element id="Consent.category:livingWill.coding">
       <path value="Consent.category.coding" />
-      <sliceName value="livingWill" />
+      <definition value="A reference to a code defined by a terminology system. " />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Consent.category:livingWill.system">
+    <element id="Consent.category:livingWill.coding.system">
       <path value="Consent.category.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Consent.category:livingWill.code">
+    <element id="Consent.category:livingWill.coding.code">
       <path value="Consent.category.coding.code" />
       <min value="1" />
       <fixedCode value="11341000146107" />
     </element>
-    <element id="Consent.category:livingWill.display">
+    <element id="Consent.category:livingWill.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Consent.category.coding.display" />
       <fixedString value="Living will and advance directive record (record artifact)" />
     </element>
