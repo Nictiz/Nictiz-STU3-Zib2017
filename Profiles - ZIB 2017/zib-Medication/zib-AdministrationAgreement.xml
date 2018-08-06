@@ -374,16 +374,6 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
       </type>
     </element>
-    <element id="MedicationDispense.supportingInformation">
-      <path value="MedicationDispense.supportingInformation" />
-      <short value="MedicationAgreement" />
-      <definition value="Relationship to the medication agreement on which the administration agreement is based." />
-      <alias value="Medicatieafspraak" />
-      <mapping>
-        <identity value="hcim-administrationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.8.22394" />
-      </mapping>
-    </element>
     <element id="MedicationDispense.performer">
       <path value="MedicationDispense.performer" />
       <short value="Supplier" />
@@ -424,6 +414,20 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
       </type>
+    </element>
+    <element id="MedicationDispense.authorizingPrescription">
+      <path value="MedicationDispense.authorizingPrescription" />
+      <short value="MedicationAgreement" />
+      <definition value="Relationship to the medication agreement on which the administration agreement is based." />
+      <alias value="Medicatieafspraak" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
+      </type>
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.22394" />
+      </mapping>
     </element>
     <element id="MedicationDispense.note">
       <path value="MedicationDispense.note" />
