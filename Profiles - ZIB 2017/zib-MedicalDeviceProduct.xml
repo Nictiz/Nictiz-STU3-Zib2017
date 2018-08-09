@@ -1,5 +1,5 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicalDeviceProduct" />
   <meta>
     <versionId value="3" />
@@ -140,6 +140,10 @@
       <path value="Device.udi.carrierHRF" />
       <short value="ProductID" />
       <definition value="Unique identification of the product, such as the serial number.&#xD;&#xA;&#xD;&#xA;Frequently used coding systems are HIBC and GTIN. If the law requires this to be registered on the basis of a UDI (Unique Device Identifier), the unique identification must consist of a UDI-DI (Device Identifier) and a UDI-PI (Production Identifier(s)). See http://www.gs1.org/healthcare/udi for more information.&#xD;&#xA;&#xD;&#xA;The UDI-DI must be recorded in reference to GS1 GTIN (01) encryptions, with which for example a firm is linked to the product type. The UDI-PI must consist of the following: application identifier (AI); expiration date (17) and serial number (21) and/or batch or lot number (10). " />
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.4" />
+      </mapping>
     </element>
     <element id="Device.type">
       <path value="Device.type" />
