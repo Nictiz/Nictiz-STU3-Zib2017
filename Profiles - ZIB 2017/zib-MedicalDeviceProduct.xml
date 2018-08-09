@@ -73,7 +73,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="type.coding.system" />
+          <path value="type" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -93,46 +93,38 @@
         <map value="NL-CM:10.1.4" />
       </mapping>
     </element>
-    <element id="Device.identifier:GTIN">
+    <element id="Device.identifier:serialNumber">
       <path value="Device.identifier" />
-      <sliceName value="GTIN" />
+      <sliceName value="serialNumber" />
+      <short value="serial number (21) part of the UDI" />
       <max value="1" />
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.4" />
+        <comment value="serial number (21) part of the UDI" />
+      </mapping>
     </element>
-    <element id="Device.identifier:GTIN.system">
-      <path value="Device.identifier.system" />
-      <short value=" Global Trade Item Number System" />
-      <fixedUri value="urn:oid:1.3.160" />
+    <element id="Device.identifier:serialNumber.type.coding.system">
+      <path value="Device.identifier.type.coding.system" />
+      <fixedUri value="http://hl7.org/fhir/identifier-type" />
     </element>
-    <element id="Device.identifier:GTIN.value">
-      <path value="Device.identifier.value" />
-      <binding>
-        <strength value="extensible" />
-        <description value="Global Trade Item Number (GTIN)" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.3--20171231000000" />
-          <display value="ProductIDCodelijst" />
-        </valueSetReference>
-      </binding>
+    <element id="Device.identifier:serialNumber.type.coding.code">
+      <path value="Device.identifier.type.coding.code" />
+      <fixedCode value="SNO" />
     </element>
-    <element id="Device.identifier:HIBC">
-      <path value="Device.identifier" />
-      <sliceName value="HIBC" />
-      <max value="1" />
+    <element id="Device.udi.deviceIdentifier">
+      <path value="Device.udi.deviceIdentifier" />
+      <short value="application identifier (AI) (01) part of the udi" />
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:10.1.4" />
+        <comment value="application identifier (AI) (01) part of the udi" />
+      </mapping>
     </element>
-    <element id="Device.identifier:HIBC.system">
-      <path value="Device.identifier.system" />
-      <fixedUri value="urn:oid:2.16.840.1.113883.6.40" />
-    </element>
-    <element id="Device.identifier:HIBC.value">
-      <path value="Device.identifier.value" />
-      <binding>
-        <strength value="extensible" />
-        <description value="Health Industry Bar Code (HIBC)" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.5--20171231000000" />
-          <display value="HIBCProductIDCodelist" />
-        </valueSetReference>
-      </binding>
+    <element id="Device.udi.carrierHRF">
+      <path value="Device.udi.carrierHRF" />
+      <short value="ProductID" />
+      <definition value="Unique identification of the product, such as the serial number.&#xD;&#xA;&#xD;&#xA;Frequently used coding systems are HIBC and GTIN. If the law requires this to be registered on the basis of a UDI (Unique Device Identifier), the unique identification must consist of a UDI-DI (Device Identifier) and a UDI-PI (Production Identifier(s)). See http://www.gs1.org/healthcare/udi for more information.&#xD;&#xA;&#xD;&#xA;The UDI-DI must be recorded in reference to GS1 GTIN (01) encryptions, with which for example a firm is linked to the product type. The UDI-PI must consist of the following: application identifier (AI); expiration date (17) and serial number (21) and/or batch or lot number (10). " />
     </element>
     <element id="Device.type">
       <path value="Device.type" />
@@ -178,6 +170,24 @@
       <mapping>
         <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
         <map value="NL-CM:13.1.29" />
+      </mapping>
+    </element>
+    <element id="Device.lotNumber">
+      <path value="Device.lotNumber" />
+      <short value="batch or lot number (10) part of the UDI" />
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.4" />
+        <comment value="batch or lot number (10) part of the UDI" />
+      </mapping>
+    </element>
+    <element id="Device.expirationDate">
+      <path value="Device.expirationDate" />
+      <short value="expiration date (17) part of the UDI" />
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.4" />
+        <comment value="expiration date (17) part of the UDI" />
       </mapping>
     </element>
     <element id="Device.patient">
