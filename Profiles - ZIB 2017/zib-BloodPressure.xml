@@ -41,7 +41,7 @@
     <kind value="resource"/>
     <abstract value="false"/>
     <type value="Observation"/>
-    <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/bp"/>
+    <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-VitalSigns"/>
     <derivation value="constraint"/>
     <differential>
         <element id="Observation">
@@ -160,6 +160,10 @@
                     <type value="value"/>
                     <path value="code.coding.code"/>
                 </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code.coding.system"/>
+                </discriminator>
                 <ordered value="false"/>
                 <rules value="open"/>
             </slicing>
@@ -170,12 +174,44 @@
             <min value="1"/>
             <max value="1"/>
         </element>
+        <element id="Observation.component:SystolicBP.code">
+            <path value="Observation.component.code"/>
+            <comment value="additional codes that translate or map to this code are allowed. For example a more granular LOINC code or code that is used locally in a system."/>
+        </element>
+        <element id="Observation.component:SystolicBP.code.coding">
+            <path value="Observation.component.code.coding"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <ordered value="false"/>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.component:SystolicBP.code.coding:SBPCode">
+            <path value="Observation.component.code.coding"/>
+            <sliceName value="SBPCode"/>
+            <definition value="Systolic Blood Pressure."/>
+        </element>
+        <element id="Observation.component:SystolicBP.code.coding:SBPCode.system">
+            <path value="Observation.component.code.coding.system"/>
+            <fixedUri value="http://loinc.org"/>
+        </element>
+        <element id="Observation.component:SystolicBP.code.coding:SBPCode.code">
+            <path value="Observation.component.code.coding.code"/>
+            <fixedCode value="8480-6"/>
+        </element>
         <element id="Observation.component:SystolicBP.valueQuantity">
             <path value="Observation.component.valueQuantity"/>
             <short value="SystolicBloodPressure recorded with UCUM"/>
             <definition value="The highest (peak) systematic arterial blood pressure - measured in the contraction stage or systole of the cardiac cycle."/>
             <alias value="SystolischeBloeddruk"/>
             <min value="1"/>
+            <type>
+                <code value="Quantity"/>
+            </type>
             <mapping>
                 <identity value="hcim-bloodpressure-v1.2-2015EN"/>
                 <map value="NL-CM:12.4.2"/>
@@ -189,16 +225,21 @@
                 <map value="NL-CM:12.4.2"/>
             </mapping>
         </element>
+        <element id="Observation.component:SystolicBP.valueQuantity.code">
+            <path value="Observation.component.valueQuantity.code"/>
+            <fixedCode value="mm[Hg]"/>
+        </element>
         <element id="Observation.component:DiastolicBP">
             <path value="Observation.component"/>
             <sliceName value="DiastolicBP"/>
             <min value="1"/>
             <max value="1"/>
         </element>
-        <element id="Observation.component:DiastolicBP.valueQuantity">
-            <path value="Observation.component.valueQuantity"/>
+        <element id="Observation.component:DiastolicBP.code">
+            <path value="Observation.component.code"/>
             <short value="DiastolicBloodPressure recorded with UCUM"/>
             <definition value="The lowest systematic arterial blood pressure - measured in the relaxation stage or diastole of the cardiac cycle."/>
+            <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system."/>
             <alias value="DiastolischeBloeddruk"/>
             <min value="1"/>
             <mapping>
@@ -213,6 +254,41 @@
                 <identity value="hcim-bloodpressure-v3.1-2017EN"/>
                 <map value="NL-CM:12.4.3"/>
             </mapping>
+        </element>
+        <element id="Observation.component:DiastolicBP.code.coding">
+            <path value="Observation.component.code.coding"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <ordered value="false"/>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.component:DiastolicBP.code.coding:DBPCode">
+            <path value="Observation.component.code.coding"/>
+            <sliceName value="DBPCode"/>
+            <definition value="Diastolic Blood Pressure."/>
+        </element>
+        <element id="Observation.component:DiastolicBP.code.coding:DBPCode.system">
+            <path value="Observation.component.code.coding.system"/>
+            <fixedUri value="http://loinc.org"/>
+        </element>
+        <element id="Observation.component:DiastolicBP.code.coding:DBPCode.code">
+            <path value="Observation.component.code.coding.code"/>
+            <fixedCode value="8462-4"/>
+        </element>
+        <element id="Observation.component:DiastolicBP.valueQuantity">
+            <path value="Observation.component.valueQuantity"/>
+            <type>
+                <code value="Quantity"/>
+            </type>
+        </element>
+        <element id="Observation.component:DiastolicBP.valueQuantity.code">
+            <path value="Observation.component.valueQuantity.code"/>
+            <fixedCode value="mm[Hg]"/>
         </element>
         <element id="Observation.component:AverageBloodPressure">
             <path value="Observation.component"/>
