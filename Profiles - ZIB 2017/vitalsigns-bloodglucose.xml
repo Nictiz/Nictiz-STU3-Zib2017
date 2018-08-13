@@ -59,7 +59,7 @@
                 <key value="bg-1"/>
                 <severity value="error"/>
                 <human value="Observation.code SHALL have at least one coding based on LOINC"/>
-                <expression value="coding(system = 'http://loinc.org').exists()"/>
+                <expression value="coding.exists(system = 'http://loinc.org')"/>
                 <xpath value="f:coding[f:system/@value = 'http://loinc.org']"/>
             </constraint>
         </element>
