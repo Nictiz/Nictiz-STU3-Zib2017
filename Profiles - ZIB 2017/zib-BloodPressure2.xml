@@ -186,32 +186,7 @@
             <path value="Observation.component.code.coding.code"/>
             <fixedCode value="8480-6"/>
         </element>
-        <!--<element id="Observation.component:SystolicBP.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <ordered value="false"/>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:SystolicBP.code.coding:SBPCode">
-            <path value="Observation.component.code.coding"/>
-            <sliceName value="SBPCode"/>
-            <definition value="Systolic Blood Pressure."/>
-        </element>
-        <element id="Observation.component:SystolicBP.code.coding:SBPCode.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.component:SystolicBP.code.coding:SBPCode.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="8480-6"/>
-        </element>
--->        <element id="Observation.component:SystolicBP.valueQuantity">
+        <element id="Observation.component:SystolicBP.valueQuantity">
             <path value="Observation.component.valueQuantity"/>
             <short value="SystolicBloodPressure recorded with UCUM"/>
             <definition value="The highest (peak) systematic arterial blood pressure - measured in the contraction stage or systole of the cardiac cycle."/>
@@ -263,23 +238,6 @@
                 <map value="NL-CM:12.4.3"/>
             </mapping>
         </element>
-        <element id="Observation.component:DiastolicBP.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <ordered value="false"/>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:DiastolicBP.code.coding:DBPCode">
-            <path value="Observation.component.code.coding"/>
-            <sliceName value="DBPCode"/>
-            <definition value="Diastolic Blood Pressure."/>
-        </element>
         <element id="Observation.component:DiastolicBP.code.coding:DBPCode.system">
             <path value="Observation.component.code.coding.system"/>
             <fixedUri value="http://loinc.org"/>
@@ -298,141 +256,6 @@
             <path value="Observation.component.valueQuantity.code"/>
             <fixedCode value="mm[Hg]"/>
         </element>
-        <element id="Observation.component:AverageBloodPressure">
-            <path value="Observation.component"/>
-            <sliceName value="AverageBloodPressure"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressure.code">
-            <path value="Observation.component.code"/>
-            <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system."/>
-        </element>
-        <element id="Observation.component:AverageBloodPressure.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <ordered value="false"/>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressure.code.coding:ABPCodeLOINC">
-            <path value="Observation.component.code.coding"/>
-            <sliceName value="ABPCodeLOINC"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressure.code.coding:ABPCodeLOINC.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressure.code.coding:ABPCodeLOINC.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="8478-0"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressure.code.coding:ABPCodeSNOMED">
-            <path value="Observation.component.code.coding"/>
-            <sliceName value="ABPCodeSNOMED"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressure.code.coding:ABPCodeSNOMED.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressure.code.coding:ABPCodeSNOMED.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="6797001"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressure.valueQuantity:valueQuantity">
-            <path value="Observation.component.valueQuantity"/>
-            <short value="AverageBloodPressure recorded with UCUM"/>
-            <definition value="Average blood pressure during one cycle of the heart contracting and relaxing.&#xD;&#xA;Estimated based on systolic and diastolic blood pressure. This estimate is unreliable in cases of circulatory disorders. This value can only be reliably determined when invasive blood pressure is measured."/>
-            <alias value="GemiddeldeBloeddruk"/>
-            <type>
-                <code value="Quantity"/>
-            </type>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.4"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.4"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.4"/>
-            </mapping>
-        </element>
-        <element id="Observation.component:AverageBloodPressure.valueQuantity:valueQuantity.code">
-            <path value="Observation.component.valueQuantity.code"/>
-            <fixedCode value="mm[Hg]"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint">
-            <path value="Observation.component"/>
-            <sliceName value="diastolicEndpoint"/>
-            <short value="DiastolicEndpoint"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint.code">
-            <path value="Observation.component.code"/>
-            <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system."/>
-            <alias value="Component Test"/>
-            <alias value="Component Name"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <ordered value="false"/>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint.code.coding:DiastolicEndpointCode">
-            <path value="Observation.component.code.coding"/>
-            <sliceName value="DiastolicEndpointCode"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint.code.coding:DiastolicEndpointCode.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint.code.coding:DiastolicEndpointCode.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="85549003"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint.valueCodeableConcept">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <short value="DiastolicEndpoint"/>
-            <definition value="Registration of the Korotkoff sound used to measure diastolic pressure with the auscultatory method."/>
-            <alias value="DiastolischEindpunt"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <binding>
-                <strength value="extensible"/>
-                <description value="DiastolischEindpuntCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.2--20171231000000"/>
-                    <display value="DiastolischEindpuntCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.8"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.8"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.8"/>
-            </mapping>
-        </element>
         <element id="Observation.component:cuffType">
             <path value="Observation.component"/>
             <sliceName value="cuffType"/>
@@ -444,22 +267,6 @@
             <alias value="Component Test"/>
             <alias value="Component Name"/>
         </element>
-        <element id="Observation.component:cuffType.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <ordered value="false"/>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:cuffType.code.coding:CuffTypeCodeLOINC">
-            <path value="Observation.component.code.coding"/>
-            <sliceName value="CuffTypeCodeLOINC"/>
-        </element>
         <element id="Observation.component:cuffType.code.coding:CuffTypeCodeLOINC.system">
             <path value="Observation.component.code.coding.system"/>
             <fixedUri value="http://loinc.org"/>
@@ -467,18 +274,6 @@
         <element id="Observation.component:cuffType.code.coding:CuffTypeCodeLOINC.code">
             <path value="Observation.component.code.coding.code"/>
             <fixedCode value="8358-4"/>
-        </element>
-        <element id="Observation.component:cuffType.code.coding:CuffTypeCodeSNOMED">
-            <path value="Observation.component.code.coding"/>
-            <sliceName value="CuffTypeCodeSNOMED"/>
-        </element>
-        <element id="Observation.component:cuffType.code.coding:CuffTypeCodeSNOMED.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.component:cuffType.code.coding:CuffTypeCodeSNOMED.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="70665002"/>
         </element>
         <element id="Observation.component:cuffType.valueCodeableConcept:valueCodeableConcept">
             <path value="Observation.component.valueCodeableConcept"/>
@@ -516,36 +311,6 @@
         </element>
         <element id="Observation.component:position.code">
             <path value="Observation.component.code"/>
-        </element>
-        <element id="Observation.component:position.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <ordered value="false"/>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:position.code.coding:BodyPositionSNOMED">
-            <path value="Observation.component.code.coding"/>
-            <sliceName value="BodyPositionSNOMED"/>
-            <short value="Body position"/>
-            <definition value="Body position for blood pressure measurement"/>
-        </element>
-        <element id="Observation.component:position.code.coding:bodyPositionSNOMED.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.component:position.code.coding:bodyPositionSNOMED.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="424724000"/>
-        </element>
-        <element id="Observation.component:position.code.coding:BodyPositionLOINC">
-            <path value="Observation.component.code.coding"/>
-            <sliceName value="BodyPositionLOINC"/>
         </element>
         <element id="Observation.component:position.code.coding:BodyPositionLOINC.system">
             <path value="Observation.component.code.coding.system"/>
