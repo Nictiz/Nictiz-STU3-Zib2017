@@ -20,7 +20,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB)  nl.zorg.MedicatieAfspraak version 1.0, year 2017." />
+  <description value="This profile is based on Medicatieproces V9.0.6 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAgreement version 1.0.1, year 2017. A medication agreement is a prescriber’s proposal for a patient to use medication. An agreement to discontinue the use of medication is also a medication agreement." />
   <purpose value="The goal of the medication agreement is to provide insight into the agreements reached between the prescriber and the patient on the use of medication." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -202,6 +202,23 @@
     <element id="MedicationRequest.extension:repeatPeriodCyclicalSchedule.valueDuration:valueDuration">
       <path value="MedicationRequest.extension.valueDuration" />
       <sliceName value="valueDuration" />
+    </element>
+    <element id="MedicationRequest.extension:basedOnAgreementOrUse">
+      <path value="MedicationRequest.extension" />
+      <sliceName value="basedOnAgreementOrUse" />
+      <short value="Based On Agreement Or Use" />
+      <definition value="Reference to a medication agreement that has been aborted or canceled. &#xD;&#xA;Or&#xD;&#xA;In case a medication agreement isn't available, a reference to an administration agreement or medication use on which the medication agreement is based." />
+      <alias value="Relatie naar afspraak of gebruik" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse" />
+      </type>
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="mp-dataelement900-23238" />
+      </mapping>
     </element>
     <element id="MedicationRequest.modifierExtension">
       <path value="MedicationRequest.modifierExtension" />
@@ -404,7 +421,6 @@
       <short value="PrescriberRole" />
       <definition value="Describes the role of the precriber of the MedicationAgreement" />
       <alias value="voorschrijverrol " />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -516,6 +532,16 @@
         <identity value="hcim-medicationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.6.23240" />
       </mapping>
+    </element>
+    <element id="MedicationRequest.dosageInstruction.dose[x]">
+      <path value="MedicationRequest.dosageInstruction.dose[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
   </differential>
 </StructureDefinition>

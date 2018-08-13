@@ -20,7 +20,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB)  nl.zorg.MedicatieGebruik version 1.0, year 2017.&#xD;&#xA;&#xD;&#xA;MedicationUse is a statement on the historic, current or intended use of a certain medicine." />
+  <description value="This profile is based on Medicatieproces V9.0.6 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationUse version 1.0.1, year 2017.&#xD;&#xA;&#xD;&#xA;MedicationUse is a statement on the historic, current or intended use of a certain medicine." />
   <purpose value="The goal of the medication use is to provide insight into the patient’s pattern of use." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -365,6 +365,50 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
     </element>
+    <element id="MedicationStatement.derivedFrom">
+      <path value="MedicationStatement.derivedFrom" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="item.reference.resolve()" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationStatement.derivedFrom:relatedAgreement">
+      <path value="MedicationStatement.derivedFrom" />
+      <sliceName value="relatedAgreement" />
+      <short value="Related Agreement" />
+      <definition value="A reference to a medication or dispense request that have been the medication usage has been based on." />
+      <alias value="Gerelateerde afspraak" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
+      </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22402" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.derivedFrom:relatedDispense">
+      <path value="MedicationStatement.derivedFrom" />
+      <sliceName value="relatedDispense" />
+      <short value="Related Dispense" />
+      <definition value="A reference to the dispense that has provided the basis for indicating use." />
+      <alias value="Gerelateerde verstrekking" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense" />
+      </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value=" mp-dataelement900-22404" />
+      </mapping>
+    </element>
     <element id="MedicationStatement.taken">
       <path value="MedicationStatement.taken" />
       <short value="UseIndicator" />
@@ -442,6 +486,16 @@
         <identity value="hcim-medicationuse2-v1.0-2017EN" />
         <map value="NL-CM:9.11.22504" />
       </mapping>
+    </element>
+    <element id="MedicationStatement.dosage.dose[x]">
+      <path value="MedicationStatement.dosage.dose[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
   </differential>
 </StructureDefinition>
