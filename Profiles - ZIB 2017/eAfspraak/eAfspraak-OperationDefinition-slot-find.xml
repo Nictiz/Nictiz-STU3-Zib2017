@@ -1,0 +1,101 @@
+<?xml-model href="http://hl7.org/fhir/STU3/operationdefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/operationdefinition.xsd">
+    <url value="http://nictiz.nl/fhir/OperationDefinition/eAfspraken-slot-find"/>
+    <name value="Slot Find"/>
+    <status value="draft"/>
+    <kind value="operation"/>
+    <date value="2018-02-19"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description
+        value="This operation fetches available free slots with optional parameters, such as date/time range, location, specialty.  The server determines which open slots to expose to the application for use in creating new appointments.  If neither a start or end date is given then the maximum period as defined by local business rules and starting from when the operation was transacted will be used.   The actors practitioner, organization and location further refine the search.   If more than one actor type is present, the response will contain slots with *all* of these actors (i.e, this is a logical &#39;AND&#39;).  if an actor type is repeated, the response will contain slots with *any* of these actors (i.e. this is a logical  &#39;OR&#39; and  does not drive a joint appointment with multiple practitioners. locations or organizations).  &#xA;&#xA; Note that all input parameters are simple types allowing either the &#39;GET&#39;  or the &#39;POST&#39; syntax to be used to initiate the interaction.  Examples of both are shown below. &#xA;&#xA; **This operation is heavily influenced by the operation defined in the [US Argonaut project](https://argonautproject.github.io/scheduling/OperationDefinition-slot-prefetch.html)**"/>
+    <code value="find"/>
+    <comment value="It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with the patient(s), or determine whether the context has the rights to the nominated patient(s), if there is one.  Specifying the relationship between the context, a user and patient records is outside the scope of this specification"/>
+    <resource value="Slot"/>
+    <system value="false"/>
+    <type value="true"/>
+    <instance value="false"/>
+    <parameter>
+        <name value="start"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation value="The period of time that should be checked for free slots. If no start date is provided,  all available slots prior to the end date are in scope (subject to limits imposed by local business rules)."/>
+        <type value="dateTime"/>
+    </parameter>
+    <parameter>
+        <name value="end"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation value="The period of time that should be checked for appointment availability. If no end date is provided, all available slots after the start date are in scope (subject to limits imposed by local business rules)."/>
+        <type value="dateTime"/>
+    </parameter>
+    <parameter>
+        <name value="practitioner"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="*"/>
+        <documentation value="Identifier for one or more practitioners"/>
+        <type value="Identifier"/>
+    </parameter>
+    <parameter>
+        <name value="specialty-agb"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="*"/>
+        <documentation value="Code for a certain specialty defined by AGB"/>
+        <type value="CodeableConcept"/>
+        <binding>
+            <strength value="extensible"/>
+            <valueSetReference>
+                <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.7--20150401000000"/>
+            </valueSetReference>
+        </binding>
+    </parameter>
+    <parameter>
+        <name value="specialty-uzi"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="*"/>
+        <documentation value="Code for a certain specialty defined by UZI"/>
+        <type value="CodeableConcept"/>
+        <binding>
+            <strength value="extensible"/>
+            <valueSetReference>
+                <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.6--20150401000000"/>
+            </valueSetReference>
+        </binding>
+    </parameter>
+    <parameter>
+        <name value="organization"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation value="Identifier for a specific organization"/>
+        <type value="Identifier"/>
+    </parameter>
+    <parameter>
+        <name value="location"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="*"/>
+        <documentation value="The location indentifier of a specific health care provider location"/>
+        <type value="Identifier"/>
+    </parameter>
+    <parameter>
+        <name value="return"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation value="An Bundle of type `searchset` with entries of proposed Slot resources and may also contain an [OperationOutcome](http://hl7.org/fhir/stu3/operationoutcome.html) with errors, warnings or information as a result of processing the operation - e.g., an informational notice that the returned slots are not within the requested start and end times.  An empty bundle means no available slots based on inputs"/>
+        <type value="Bundle"/>
+    </parameter>
+</OperationDefinition>
