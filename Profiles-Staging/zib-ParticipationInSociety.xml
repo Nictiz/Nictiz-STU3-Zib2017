@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-ParticipationInSociety" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-ParticipationInSociety" />
+  <version value="1.0" />
+  <name value="Zib ParticipationInSociety" />
+  <title value="HCIM ParticipationInSociety" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="ParticipationInSocietyas defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017.&#xD;&#xA;&#xD;&#xA;Participation in society pertains to the patient’s initiative to participate in social activities in daily life, such as practicing a profession and hobbies. Participation in society also describes the patient’s social network." />
+  <purpose value="The information on the participation can help to provide insight in to what extent the patient’s health problems affect their daily activities, or whether the problems lead to social isolation and in which area they need support." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-participationinsociety-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/ParticipationInSociety-v3.1(2017EN)" />
+    <name value="HCIM ParticipationInSociety-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="ParticipationInSociety" />
+      <definition value="Root concept of the ParticipationInSociety information model. This root concept contains all data elements of the ParticipationInSociety information model." />
+      <alias value="ParticipatieInMaatschappij" />
+      <mapping>
+        <identity value="hcim-participationinsociety-v3.1-2017EN" />
+        <map value="NL-CM:18.6.1" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:ParticipationInSocietyCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="ParticipationInSocietyCode" />
+    </element>
+    <element id="Observation.code.coding:ParticipationInSocietyCode.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:ParticipationInSocietyCode.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="314845004" />
+    </element>
+    <element id="Observation.code.coding:ParticipationInSocietyCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <fixedString value="Patient participation status" />
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comment on the participation in society. " />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-participationinsociety-v3.1-2017EN" />
+        <map value="NL-CM:18.6.5" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:SociaalNetwerk">
+      <path value="Observation.component" />
+      <sliceName value="SociaalNetwerk" />
+      <alias value="SocialNetwork" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:SociaalNetwerk.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:SociaalNetwerk.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="365469004" />
+    </element>
+    <element id="Observation.component:SociaalNetwerk.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Household,family and support network finding" />
+    </element>
+    <element id="Observation.component:SociaalNetwerk.value[x]:valueString">
+      <path value="Observation.component.valueString" />
+      <sliceName value="valueString" />
+      <short value="SocialNetwork" />
+      <definition value="A description of the patient’s social network, such as family, neighbors and friends." />
+      <alias value="SociaalNetwerk" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="hcim-participationinsociety-v3.1-2017EN" />
+        <map value="NL-CM:18.6.2" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Hobby">
+      <path value="Observation.component" />
+      <sliceName value="Hobby" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Hobby.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:Hobby.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="40508100" />
+    </element>
+    <element id="Observation.component:Hobby.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Leisure behavior" />
+    </element>
+    <element id="Observation.component:Hobby.value[x]:valueString">
+      <path value="Observation.component.valueString" />
+      <sliceName value="valueString" />
+      <short value="Hobby" />
+      <definition value="An activity the patient enjoys doing in their free time." />
+      <alias value="Vrijetijdsbesteding" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="hcim-participationinsociety-v3.1-2017EN" />
+        <map value="NL-CM:18.6.3" />
+      </mapping>
+    </element>
+    <element id="Observation.component:WorkSituation">
+      <path value="Observation.component" />
+      <sliceName value="WorkSituation" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:WorkSituation.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:WorkSituation.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="364703007" />
+    </element>
+    <element id="Observation.component:WorkSituation.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Employment detail" />
+    </element>
+    <element id="Observation.component:WorkSituation.value[x]:valueString">
+      <path value="Observation.component.valueString" />
+      <sliceName value="valueString" />
+      <short value="WorkSituation" />
+      <definition value="WorkSituation describes the extent to which and in what way the patient participates in the workforce. Work is meant in the broadest sense of the word: activities that contribute to the person themselves, their environment or society. This includes both paid and unpaid work." />
+      <alias value="Arbeidssituatie" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="hcim-participationinsociety-v3.1-2017EN" />
+        <map value="NL-CM:18.6.4" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
