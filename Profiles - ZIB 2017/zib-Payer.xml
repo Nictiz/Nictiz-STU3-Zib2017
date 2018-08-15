@@ -101,6 +101,21 @@
         <map value="NL-CM:1.1.15" />
       </mapping>
     </element>
+    <element id="Coverage.policyHolder">
+      <path value="Coverage.policyHolder" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient-organization" />
+      </type>
+    </element>
     <element id="Coverage.subscriber">
       <path value="Coverage.subscriber" />
       <type>
@@ -129,6 +144,13 @@
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.6" />
       </mapping>
+    </element>
+    <element id="Coverage.beneficiary">
+      <path value="Coverage.beneficiary" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
     </element>
     <element id="Coverage.period.start">
       <path value="Coverage.period.start" />
@@ -261,6 +283,10 @@
         <map value="NL-CM:1.1.9" />
       </mapping>
     </element>
+    <element id="Coverage.payor.extension:bankInformation.extension:BankName.valueString:valueString">
+      <path value="Coverage.payor.extension.extension.valueString" />
+      <sliceName value="valueString" />
+    </element>
     <element id="Coverage.payor.extension:bankInformation.extension:AccountNumber">
       <path value="Coverage.payor.extension.extension" />
       <sliceName value="AccountNumber" />
@@ -280,6 +306,10 @@
         <map value="NL-CM:1.1.11" />
       </mapping>
     </element>
+    <element id="Coverage.payor.extension:bankInformation.extension:AccountNumber.valueString:valueString">
+      <path value="Coverage.payor.extension.extension.valueString" />
+      <sliceName value="valueString" />
+    </element>
     <element id="Coverage.payor.extension:bankInformation.extension:Bankcode">
       <path value="Coverage.payor.extension.extension" />
       <sliceName value="Bankcode" />
@@ -298,6 +328,10 @@
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.10" />
       </mapping>
+    </element>
+    <element id="Coverage.payor.extension:bankInformation.extension:Bankcode.valueString:valueString">
+      <path value="Coverage.payor.extension.extension.valueString" />
+      <sliceName value="valueString" />
     </element>
     <element id="Coverage.payor.extension:bankInformation.url">
       <path value="Coverage.payor.extension.url" />
