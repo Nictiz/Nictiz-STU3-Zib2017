@@ -1,22 +1,22 @@
 <?xml-model href="http://hl7.org/fhir/STU3/appointment.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <Appointment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/appointment.xsd" >
-  <id value="eAfspraken-kwalification-2"/>
+  <id value="eAfspraak-kwalification-3"/>
   <meta>
-    <profile value="http://nictiz.nl/fhir/StructureDefinition/eAfspraken-Appointment"/>
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment"/>
   </meta>
-  <extension url="http://nictiz.nl/fhir/StructureDefinition/eAfspraken-Appointment-PatientInstructions">
-    <valueString value="Sportschoenen mee"/>
+  <extension url="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment-PatientInstructions">
+    <valueString value="Nuchter"/>
   </extension>
   <identifier>
     <system value="http://example-xis.org/fhir/appointmentID"/>
-    <value value="0000000002"/>
+    <value value="0000000003"/>
   </identifier>
   <status value="booked"/>
   <specialty>
     <coding>
       <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
-      <code value="0408"/>
-      <display value="Fysiotherapeuten, sportfysiotherapie"/>
+      <code value="0360"/>
+      <display value="Medisch specialisten, radiologie"/>
     </coding>
   </specialty>
   <appointmentType>
@@ -26,27 +26,27 @@
       <display value="Ambulatory"/>
     </coding>
   </appointmentType>
-  <description value="Fysiotherapie Controle afspraak"/>
-  <start value="2018-07-12T10:30:00+01:00"/>
-  <end value="2018-07-12T11:00:00+01:00"/>
+  <description value="CT-scan"/>
+  <start value="2018-06-20T09:30:00+01:00"/>
+  <end value="2018-06-20T09:45:00+01:00"/>
   <participant>
     <actor>
-      <reference value="Patient/example-eAfspraken-kwalificatie1"/>
+      <reference value="Patient/example-eAfspraak-kwalificatie1"/>
       <display value="Alex XXX_Verweij"/>
     </actor>
     <status value="accepted"/>
   </participant>
   <participant>
     <actor>
-      <reference value="Practitioner/example-eAfspraken-kwalificatie2"/>
-      <display value="B. Kneder"/>
+      <reference value="Practitioner/example-eAfspraak-kwalificatie3"/>
+      <display value="F. Kiek"/>
     </actor>
     <status value="accepted"/>
   </participant>
   <participant>
     <actor>
-      <reference value="Location/example-eAfspraken-kwalificatie3"/>
-      <display value="Fysiotherapie Kneder"/>
+      <reference value="Location/example-eAfspraak-kwalificatie1"/>
+      <display value="Oost vleugel"/>
     </actor>
     <status  value="accepted"/>
   </participant>
