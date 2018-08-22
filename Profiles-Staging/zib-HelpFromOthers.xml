@@ -37,14 +37,90 @@
         <map value="NL-CM:3.2.1" />
       </mapping>
     </element>
+    <element id="CarePlan.category">
+      <path value="CarePlan.category" />
+      <max value="1" />
+    </element>
+    <element id="CarePlan.category.coding">
+      <path value="CarePlan.category.coding" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.category.coding.system">
+      <path value="CarePlan.category.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="CarePlan.category.coding.code">
+      <path value="CarePlan.category.coding.code" />
+      <min value="1" />
+      <fixedCode value="243114000" />
+    </element>
+    <element id="CarePlan.subject">
+      <path value="CarePlan.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+    </element>
+    <element id="CarePlan.activity.detail.category">
+      <path value="CarePlan.activity.detail.category" />
+      <alias value="SoortHulp" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CarePlanActivityCategory" />
+        </extension>
+        <strength value="extensible" />
+        <description value="SoortHulpCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.2.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-helpfromothers-v3.0-2017EN" />
+        <map value="NL-CM:3.2.9" />
+      </mapping>
+    </element>
     <element id="CarePlan.activity.detail.code">
       <path value="CarePlan.activity.detail.code" />
       <short value="Nature" />
       <definition value="The nature of the help/support provided to the patient." />
       <alias value="Aard" />
+      <type>
+        <code value="CodeableConcept" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/CodeableConcept" />
+      </type>
+    </element>
+    <element id="CarePlan.activity.detail.code.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="CarePlan.activity.detail.code.text" />
       <mapping>
         <identity value="hcim-helpfromothers-v3.0-2017EN" />
         <map value="NL-CM:3.2.3" />
+      </mapping>
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x]:scheduledString">
+      <path value="CarePlan.activity.detail.scheduledString" />
+      <sliceName value="scheduledString" />
+      <code>
+        <system value="http://snomed.info/sct" />
+        <code value="260866001" />
+        <display value="Pattern of frequency" />
+      </code>
+      <short value="Frequency" />
+      <definition value="The frequency of the provided support, e.g. daily/weekly." />
+      <alias value="Frequentie" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="hcim-helpfromothers-v3.0-2017EN" />
+        <map value="NL-CM:3.2.2" />
       </mapping>
     </element>
     <element id="CarePlan.activity.detail.performer">
@@ -83,6 +159,21 @@
       <mapping>
         <identity value="hcim-helpfromothers-v3.0-2017EN" />
         <map value="NL-CM:3.2.8" />
+      </mapping>
+    </element>
+    <element id="CarePlan.activity.detail.description">
+      <path value="CarePlan.activity.detail.description" />
+      <code>
+        <system value="http://loinc.org" />
+        <code value="48767-8" />
+        <display value="Annotation comment" />
+      </code>
+      <short value="Comment" />
+      <definition value="A comment on the help/support the patient receives from others." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-helpfromothers-v3.0-2017EN" />
+        <map value="NL-CM:3.2.4" />
       </mapping>
     </element>
   </differential>
