@@ -100,14 +100,15 @@
             <definition value="Often just a dateTime for Vital Signs."/>
             <alias value="Meestal slechts een datum/tijd voor Vital Signs"/>
             <min value="1"/>
-            <condition value="vs-1"/>
+            <!-- https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=17717&start=0 -->
+            <!--<condition value="vs-1"/>
             <constraint>
                 <key value="vs-1"/>
                 <severity value="error"/>
                 <human value="Datetime must be at least to day."/>
                 <expression value="($this as dateTime).toString().length() &gt;= 8"/>
                 <xpath value="f:matches(effectiveDateTime,/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)"/>
-            </constraint>
+            </constraint>-->
             <mustSupport value="true"/>
         </element>
         <element id="Observation.performer">
