@@ -183,26 +183,6 @@
       <path value="MedicationRequest.extension.valueBoolean" />
       <sliceName value="valueBoolean" />
     </element>
-    <element id="MedicationRequest.extension:repeatPeriodCyclicalSchedule">
-      <path value="MedicationRequest.extension" />
-      <sliceName value="repeatPeriodCyclicalSchedule" />
-      <label value="HerhaalperiodeCyclischSchema" />
-      <short value="RepeatPeriodCyclicalSchedule" />
-      <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days.&#xD;&#xA;RepeatPeriodCyclicalSchedule" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-RepeatPeriodCyclicalSchedule" />
-      </type>
-      <mapping>
-        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
-        <map value="NL-CM:9.12.22505" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.extension:repeatPeriodCyclicalSchedule.valueDuration:valueDuration">
-      <path value="MedicationRequest.extension.valueDuration" />
-      <sliceName value="valueDuration" />
-    </element>
     <element id="MedicationRequest.extension:basedOnAgreementOrUse">
       <path value="MedicationRequest.extension" />
       <sliceName value="basedOnAgreementOrUse" />
@@ -247,6 +227,22 @@
       <binding>
         <strength value="required" />
       </binding>
+    </element>
+    <element id="MedicationRequest.modifierExtension:repeatPeriodCyclicalSchedule">
+      <path value="MedicationRequest.modifierExtension" />
+      <sliceName value="repeatPeriodCyclicalSchedule" />
+      <label value="HerhaalperiodeCyclischSchema" />
+      <short value="RepeatPeriodCyclicalSchedule" />
+      <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days.&#xD;&#xA;RepeatPeriodCyclicalSchedule" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-RepeatPeriodCyclicalSchedule" />
+      </type>
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.22505" />
+      </mapping>
     </element>
     <element id="MedicationRequest.identifier">
       <path value="MedicationRequest.identifier" />
@@ -535,6 +531,16 @@
         <identity value="hcim-medicationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.6.23240" />
       </mapping>
+    </element>
+    <element id="MedicationRequest.dosageInstruction.dose[x]">
+      <path value="MedicationRequest.dosageInstruction.dose[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
   </differential>
 </StructureDefinition>

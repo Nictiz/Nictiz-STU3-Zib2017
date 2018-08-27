@@ -162,8 +162,18 @@
       <path value="MedicationStatement.extension.valueBoolean" />
       <sliceName value="valueBoolean" />
     </element>
-    <element id="MedicationStatement.extension:repeatPeriodCyclicalSchedule">
-      <path value="MedicationStatement.extension" />
+    <element id="MedicationStatement.modifierExtension">
+      <path value="MedicationStatement.modifierExtension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationStatement.modifierExtension:repeatPeriodCyclicalSchedule">
+      <path value="MedicationStatement.modifierExtension" />
       <sliceName value="repeatPeriodCyclicalSchedule" />
       <label value="HerhaalperiodeCyclischSchema" />
       <short value="RepeatPeriodCyclicalSchedule" />
@@ -177,10 +187,6 @@
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />
         <map value="NL-CM:9.12.22505" />
       </mapping>
-    </element>
-    <element id="MedicationStatement.extension:repeatPeriodCyclicalSchedule.valueDuration:valueDuration">
-      <path value="MedicationStatement.extension.valueDuration" />
-      <sliceName value="valueDuration" />
     </element>
     <element id="MedicationStatement.identifier">
       <path value="MedicationStatement.identifier" />
@@ -486,16 +492,6 @@
         <identity value="hcim-medicationuse2-v1.0-2017EN" />
         <map value="NL-CM:9.11.22504" />
       </mapping>
-    </element>
-    <element id="MedicationStatement.dosage.dose[x]">
-      <path value="MedicationStatement.dosage.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
   </differential>
 </StructureDefinition>
