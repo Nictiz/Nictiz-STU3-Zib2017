@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-FreedomRestrictingMeasures" />
+  <url value="http://example.org/fhir/StructureDefinition/zib-FreedomrestrictingMeasures-legalStatus" />
+  <version value="1.0" />
+  <name value="zib FreedomRestrictingMeasures-legalStatus" />
+  <title value="HCIM FreedomrestrictingMeasures" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="FreedomRestrictingMeasures as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1. A freedom restricting measures include an legal situation that applies to the patient during the intervention." />
+  <purpose value="Implementing medical restraints is risky and can result in damage to the patient if they are not carefully implemented. Nurses fulfil an important role in identifying risks, observing the effect of the restraints and any changes to the policy in terms of medical restraints. Recording all information on the measures is of major importance for insight into decision-making, implementing, monitoring and evaluating the measures. In the event of a transfer to the next facility, the proper preparations can be taken to safely continue the care and to limit the risks to the patient and their environment." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/FreedomRestrictingMeasures-v3.1(2017EN)" />
+    <name value="HCIM FreedomRestrictingMeasures-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Procedure" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="LegallyCapable" />
+      <min value="1" />
+      <max value="1" />
+      <constraint>
+        <key value="ext-1" />
+        <severity value="error" />
+        <human value="Must have either extensions or value[x], not both" />
+        <expression value="extension.exists() != value.exists()" />
+        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
+      </constraint>
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://example.org/fhir/StructureDefinition/zib-FreedomrestrictingMeasures-legalStatus" />
+    </element>
+    <element id="Extension.value[x]:valueCodeableConcept">
+      <path value="Extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <code>
+        <system value="http://snomed.info/sct" />
+        <code value="303186005" />
+        <display value="Legal status of patient" />
+      </code>
+      <short value="LegalStatus" />
+      <definition value="The legal situation that applies to the patient during the intervention. The code of the legal status is based on the Vektis/AZR code list COD232-VEKT Legal Status." />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="The legal situation that applies to the patient during the intervention. The code of the legal status is based on the Vektis/AZR code list COD232-VEKT Legal Status. " />
+        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.2--20171231000000" />
+      </binding>
+    </element>
+    <element id="Extension.value[x]:valueCodeableConcept.coding">
+      <path value="Extension.valueCodeableConcept.coding" />
+      <alias value="JuridischeStatus" />
+      <mapping>
+        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+        <map value="NL-CM:14.3.2" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
