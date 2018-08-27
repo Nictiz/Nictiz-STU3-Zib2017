@@ -40,23 +40,97 @@
         <map value="NL-CM:14.3.1" />
       </mapping>
     </element>
+    <element id="Procedure.extension">
+      <path value="Procedure.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Procedure.extension:legalStatus">
+      <path value="Procedure.extension" />
+      <sliceName value="legalStatus" />
+      <short value="LegalStatus" />
+      <definition value="The legal situation that applies to the patient during the intervention. The code of the legal status is based on the Vektis/AZR code list COD232-VEKT Legal Status. " />
+      <alias value="JuridischeStatus" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://example.org/fhir/StructureDefinition/zib-FreedomrestrictingMeasures-legalStatus" />
+      </type>
+      <mapping>
+        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+        <map value="NL-CM:14.3.2" />
+      </mapping>
+    </element>
     <element id="Procedure.category">
       <path value="Procedure.category" />
       <short value="SoortInterventie" />
       <definition value="The type of restraint describes the medical restraints." />
       <alias value="SoortInterventie" />
       <min value="1" />
+      <fixedCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="225317005" />
+          <display value="Restriction of movement" />
+        </coding>
+      </fixedCodeableConcept>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureCategory" />
         </extension>
         <strength value="extensible" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.4--20171231000000" />
       </binding>
       <mapping>
         <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
         <map value="NL-CM:14.3.6" />
       </mapping>
+    </element>
+    <element id="Procedure.category.coding">
+      <path value="Procedure.category.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+        <map value="NL-CM:14.3.6" />
+      </mapping>
+    </element>
+    <element id="Procedure.category.coding:TypeOfIntervention">
+      <path value="Procedure.category.coding" />
+      <sliceName value="TypeOfIntervention" />
+      <binding>
+        <strength value="extensible" />
+        <description value="TypeOfInterventionCodelist" />
+        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.3--20171231000000" />
+      </binding>
+    </element>
+    <element id="Procedure.category.coding:TypeOfIntervention.system">
+      <path value="Procedure.category.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Procedure.category.coding:TypeOfIntervention.code">
+      <path value="Procedure.category.coding.code" />
+      <min value="1" />
+      <fixedCode value="225317005" />
+    </element>
+    <element id="Procedure.category.coding:TypeOfIntervention.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Procedure.category.coding.display" />
+      <fixedString value="Restriction of movement" />
     </element>
     <element id="Procedure.code">
       <path value="Procedure.code" />
@@ -64,11 +138,14 @@
     </element>
     <element id="Procedure.code.coding">
       <path value="Procedure.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <min value="1" />
-    </element>
-    <element id="Procedure.code.coding.system">
-      <path value="Procedure.code.coding.system" />
-      <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Procedure.code.coding.code">
       <path value="Procedure.code.coding.code" />
@@ -80,6 +157,26 @@
       </extension>
       <path value="Procedure.code.coding.display" />
       <fixedString value="Restriction of movement" />
+    </element>
+    <element id="Procedure.code.coding:TypeOfInterventionCode">
+      <path value="Procedure.code.coding" />
+      <sliceName value="TypeOfInterventionCode" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="TypeOfInterventionCodelist" />
+        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.3--20171231000000" />
+      </binding>
+    </element>
+    <element id="Procedure.code.coding:ArgusTypeOfInterventionCode">
+      <path value="Procedure.code.coding" />
+      <sliceName value="ArgusTypeOfInterventionCode" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ArgusTypeOfInterventionCodelist" />
+        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.4--20171231000000" />
+      </binding>
     </element>
     <element id="Procedure.subject">
       <path value="Procedure.subject" />
