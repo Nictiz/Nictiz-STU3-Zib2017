@@ -209,8 +209,6 @@
       <short value="Based On Agreement Or Use" />
       <definition value="Reference to a medication agreement that has been aborted or canceled. &#xD;&#xA;Or&#xD;&#xA;In case a medication agreement isn't available, a reference to an administration agreement or medication use on which the medication agreement is based." />
       <alias value="Relatie naar afspraak of gebruik" />
-      <min value="0" />
-      <max value="*" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse" />
@@ -426,6 +424,11 @@
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-RequesterRole" />
       </type>
+      <mapping>
+        <identity value="hcim-medicationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.6.1030" />
+        <comment value="Use this element to define the requester's specialty" />
+      </mapping>
     </element>
     <element id="MedicationRequest.requester.agent">
       <path value="MedicationRequest.requester.agent" />
@@ -532,16 +535,6 @@
         <identity value="hcim-medicationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.6.23240" />
       </mapping>
-    </element>
-    <element id="MedicationRequest.dosageInstruction.dose[x]">
-      <path value="MedicationRequest.dosageInstruction.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
   </differential>
 </StructureDefinition>
