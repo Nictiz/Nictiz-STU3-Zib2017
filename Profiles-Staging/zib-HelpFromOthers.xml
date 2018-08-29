@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <url value="http://example.org/fhir/StructureDefinition/MyCarePlan" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HelpFromOthers" />
   <name value="Zib HelpFromOthers" />
   <title value="HCIM HelpFromOthers" />
   <status value="draft" />
@@ -81,6 +81,7 @@
         <description value="SoortHulpCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.2.1--20171231000000" />
+          <display value="SoortHulpCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -111,11 +112,6 @@
     <element id="CarePlan.activity.detail.scheduled[x]:scheduledString">
       <path value="CarePlan.activity.detail.scheduledString" />
       <sliceName value="scheduledString" />
-      <code>
-        <system value="http://snomed.info/sct" />
-        <code value="260866001" />
-        <display value="Pattern of frequency" />
-      </code>
       <short value="Frequency" />
       <definition value="The frequency of the provided support, e.g. daily/weekly." />
       <alias value="Frequentie" />
@@ -167,11 +163,6 @@
     </element>
     <element id="CarePlan.activity.detail.description">
       <path value="CarePlan.activity.detail.description" />
-      <code>
-        <system value="http://loinc.org" />
-        <code value="48767-8" />
-        <display value="Annotation comment" />
-      </code>
       <short value="Comment" />
       <definition value="A comment on the help/support the patient receives from others." />
       <alias value="Toelichting" />
