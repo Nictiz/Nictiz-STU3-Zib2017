@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ffa1ef65-c2f2-40af-851e-49ba417c6a73" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2017-05-03T18:10:49.287+02:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LanguageProficiency" />
+  <version value="1.0" />
+  <name value="Zib LanguageProficiency" />
+  <title value="HCIM LanguageProficiency" />
+  <status value="active" />
+  <date value="2017-02-17T16:43:55.3245828+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Extension to the nl core patient, which is used for the 'LanguageProficiency' as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1 to provide information on linguistic proficiency is the ability to express oneself in a certain language and understand statements made in that language. This includes both oral and written communication." />
+  <purpose value="Patients who are not fluent in the language of communication often have trouble asking for help and understanding the aids. Recording and communicating language problems offers other health professionals this knowledge. This informs them of any possible communication problems.         Furthermore, you can record whether the patient is fluent in another language, so that a translator can be called in to communicate with the patient if needed." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Consent" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="LanguageProficiency" />
+      <definition value="Container of the LanguageProficiency concept. This container contains all data elements of the LanguageProficiency concept." />
+      <alias value="Taalvaardigheid" />
+      <isModifier value="false" />
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Extension.extension:LanguageControlListening">
+      <path value="Extension.extension" />
+      <sliceName value="LanguageControlListening" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:LanguageControlListening.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="LanguageControlListening" />
+    </element>
+    <element id="Extension.extension:LanguageControlListening.value[x]:valueCodeableConcept">
+      <path value="Extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="LanguageControlListening" />
+      <definition value="The ability to understand spoken text in the language in question." />
+      <alias value="TaalvaardigheidBegrijpen" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="preferred" />
+        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.12.3--20171231000000" />
+      </binding>
+    </element>
+    <element id="Extension.extension:LanguageControlSpeaking">
+      <path value="Extension.extension" />
+      <sliceName value="LanguageControlSpeaking" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:LanguageControlSpeaking.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="LanguageControlSpeaking" />
+    </element>
+    <element id="Extension.extension:LanguageControlSpeaking.value[x]:valueCodeableConcept">
+      <path value="Extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <alias value="TaalvaardigheidSpreken" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="preferred" />
+        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.12.5--20171231000000" />
+      </binding>
+    </element>
+    <element id="Extension.extension:LanguageControlReading">
+      <path value="Extension.extension" />
+      <sliceName value="LanguageControlReading" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:LanguageControlReading.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="LanguageControlReading" />
+    </element>
+    <element id="Extension.extension:LanguageControlReading.value[x]:valueCodeableConcept">
+      <path value="Extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="LanguageControlReading" />
+      <definition value="The ability to understand written text in he language in question." />
+      <alias value="TaalvaardigheidLezen" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="preferred" />
+        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.12.4--20171231000000" />
+      </binding>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
