@@ -35,23 +35,66 @@
     <element id="Extension">
       <path value="Extension" />
       <short value="LegallyCapable" />
+      <definition value="Indicator stating whether the patient is deemed capable of overseeing the consequences of a certain procedure, situation or decision. " />
       <min value="1" />
       <max value="1" />
-      <constraint>
-        <key value="ext-1" />
-        <severity value="error" />
-        <human value="Must have either extensions or value[x], not both" />
-        <expression value="extension.exists() != value.exists()" />
-        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Extension.extension:LegallyCapable">
+      <path value="Extension.extension" />
+      <sliceName value="LegallyCapable" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:LegallyCapable.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="LegallyCapable" />
+    </element>
+    <element id="Extension.extension:LegallyCapable.value[x]:valueBoolean">
+      <path value="Extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+      <short value="LegallyCapable" />
+      <definition value="Indicator stating whether the patient is deemed capable of overseeing the consequences of a certain procedure, situation or decision. " />
+      <alias value="Wilsbekwaam" />
+      <type>
+        <code value="boolean" />
+      </type>
+    </element>
+    <element id="Extension.extension:LegallyCapableComment">
+      <path value="Extension.extension" />
+      <sliceName value="LegallyCapableComment" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:LegallyCapableComment.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="LegallyCapableComment" />
+    </element>
+    <element id="Extension.extension:LegallyCapableComment.value[x]:valueString">
+      <path value="Extension.extension.valueString" />
+      <sliceName value="valueString" />
+      <short value="LegallyCapableComment" />
+      <definition value="Comment on the decisions which the patient is legally capable of making. " />
+      <alias value="WilsbekwaamToelichting" />
+      <type>
+        <code value="string" />
+      </type>
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://example.org/fhir/StructureDefinition/LegallyCapable" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
     </element>
   </differential>
 </StructureDefinition>
