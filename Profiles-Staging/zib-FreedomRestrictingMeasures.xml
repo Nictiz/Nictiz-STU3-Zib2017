@@ -54,10 +54,11 @@
       <path value="Procedure.extension" />
       <sliceName value="legalStatus" />
       <short value="LegalStatus" />
+      <definition value="The legal situation that applies to the patient during the intervention." />
       <alias value="JuridischeStatus" />
       <type>
         <code value="Extension" />
-        <profile value="http://example.org/fhir/StructureDefinition/patient-legalstatus" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/patient-legalstatus" />
       </type>
       <mapping>
         <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
@@ -69,20 +70,48 @@
       <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.2--20171231000000" />
-        </valueSetReference>
+        <description value="LegalStatusCodelist" />
       </binding>
+      <mapping>
+        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+        <map value="NL-CM:14.3.2 " />
+      </mapping>
     </element>
     <element id="Procedure.extension:legallyCapable">
       <path value="Procedure.extension" />
       <sliceName value="legallyCapable" />
-      <definition value="Indicator stating whether the patient is deemed capable of overseeing the consequences of a certain procedure, situation or decision." />
+      <definition value="Nurses fulfil an important role in identifying risks, observing the effect of the restraints and any changes to the policy in terms of medical treatment/procedures. " />
       <alias value="Wilsbekwaam" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/LegallyCapable" />
       </type>
+    </element>
+    <element id="Procedure.extension:legallyCapable.extension:LegallyCapableIndicator">
+      <path value="Procedure.extension.extension" />
+      <sliceName value="LegallyCapableIndicator" />
+      <short value="Indicator stating whether the patient is deemed capable of overseeing the consequences of a certain procedure, situation or decision." />
+    </element>
+    <element id="Procedure.extension:legallyCapable.extension:LegallyCapableIndicator.valueBoolean:valueBoolean">
+      <path value="Procedure.extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+      <mapping>
+        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+        <map value="NL-CM:14.3.3" />
+      </mapping>
+    </element>
+    <element id="Procedure.extension:legallyCapable.extension:LegallyCapableComment">
+      <path value="Procedure.extension.extension" />
+      <sliceName value="LegallyCapableComment" />
+      <short value="Comment on the decisions which the patient is legally capable of making." />
+    </element>
+    <element id="Procedure.extension:legallyCapable.extension:LegallyCapableComment.valueString:valueString">
+      <path value="Procedure.extension.extension.valueString" />
+      <sliceName value="valueString" />
+      <mapping>
+        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+        <map value="NL-CM:14.3.4" />
+      </mapping>
     </element>
     <element id="Procedure.extension:permission">
       <path value="Procedure.extension" />
@@ -115,6 +144,7 @@
       <sliceName value="ArgusPermissionCode" />
       <binding>
         <strength value="extensible" />
+        <description value="ArgusPermissionCodelist" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.5--20171231000000" />
         </valueSetReference>
@@ -125,6 +155,7 @@
       <sliceName value="PermissionCode" />
       <binding>
         <strength value="extensible" />
+        <description value="PermissionCodelist" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.1--20171231000000" />
         </valueSetReference>
