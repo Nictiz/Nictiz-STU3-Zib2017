@@ -734,15 +734,10 @@
     </element>
     <element id="Patient.communication">
       <path value="Patient.communication" />
-      <code>
-        <system value="http://snomed.info/sct" />
-        <code value="286361000" />
-        <display value="Ability to use language (observable entity)" />
-      </code>
       <alias value="Taalvaardigheid" />
     </element>
-    <element id="Patient.communication.language.extension">
-      <path value="Patient.communication.language.extension" />
+    <element id="Patient.communication.extension">
+      <path value="Patient.communication.extension" />
       <slicing>
         <discriminator>
           <type value="value" />
@@ -751,90 +746,21 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Patient.communication.language.extension:languageControl">
-      <path value="Patient.communication.language.extension" />
-      <sliceName value="languageControl" />
-      <short value="Comment" />
-      <max value="1" />
+    <element id="Patient.communication.extension:languageProficiency">
+      <path value="Patient.communication.extension" />
+      <sliceName value="languageProficiency" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LanguageProficiency-Control" />
       </type>
-      <binding>
-        <strength value="extensible" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.12.3--20171231000000" />
-      </binding>
     </element>
-    <element id="Patient.communication.language.extension:languageControl.extension:LanguageControlListening">
-      <path value="Patient.communication.language.extension.extension" />
-      <sliceName value="LanguageControlListening" />
-    </element>
-    <element id="Patient.communication.language.extension:languageControl.extension:LanguageControlListening.valueCodeableConcept:valueCodeableConcept">
-      <path value="Patient.communication.language.extension.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <binding>
-        <strength value="extensible" />
-      </binding>
-      <mapping>
-        <identity value="hicm-languageproficieny-v3.1-2017EN" />
-        <map value="NL-CM:7.12.6 " />
-      </mapping>
-    </element>
-    <element id="Patient.communication.language.extension:languageControl.extension:LanguageControlSpeaking">
-      <path value="Patient.communication.language.extension.extension" />
-      <sliceName value="LanguageControlSpeaking" />
-    </element>
-    <element id="Patient.communication.language.extension:languageControl.extension:LanguageControlSpeaking.valueCodeableConcept:valueCodeableConcept">
-      <path value="Patient.communication.language.extension.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <binding>
-        <strength value="extensible" />
-      </binding>
-      <mapping>
-        <identity value="hcim-languageproficiency-v3.1-2017EN" />
-        <map value="NL-CM:7.12.7 " />
-      </mapping>
-    </element>
-    <element id="Patient.communication.language.extension:languageControl.extension:LanguageControlReading">
-      <path value="Patient.communication.language.extension.extension" />
-      <sliceName value="LanguageControlReading" />
-    </element>
-    <element id="Patient.communication.language.extension:languageControl.extension:LanguageControlReading.valueCodeableConcept:valueCodeableConcept">
-      <path value="Patient.communication.language.extension.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <binding>
-        <strength value="extensible" />
-      </binding>
-      <mapping>
-        <identity value="hicm-languageproficieny-v3.1-2017EN" />
-        <map value="NL-CM:7.12.8" />
-      </mapping>
-    </element>
-    <element id="Patient.communication.language.extension:LanguageComment">
-      <path value="Patient.communication.language.extension" />
-      <sliceName value="LanguageComment" />
-      <max value="1" />
+    <element id="Patient.communication.extension:comment">
+      <path value="Patient.communication.extension" />
+      <sliceName value="comment" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LanguageProficiency-Comment" />
       </type>
-    </element>
-    <element id="Patient.communication.language.extension:LanguageComment.extension:LanguageComment">
-      <path value="Patient.communication.language.extension.extension" />
-      <sliceName value="LanguageComment" />
-      <code>
-        <system value="http://loinc.org" />
-        <code value="48767-8" />
-        <display value="Annotation comment" />
-      </code>
-    </element>
-    <element id="Patient.communication.language.extension:LanguageComment.extension:LanguageComment.valueString:valueString">
-      <path value="Patient.communication.language.extension.extension.valueString" />
-      <sliceName value="valueString" />
-      <mapping>
-        <identity value="hicm-languageproficieny-v3.1-2017EN" />
-        <map value="NL-CM:7.12.5" />
-      </mapping>
     </element>
     <element id="Patient.generalPractitioner">
       <path value="Patient.generalPractitioner" />
