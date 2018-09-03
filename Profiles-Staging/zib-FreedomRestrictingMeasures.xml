@@ -57,7 +57,7 @@
       <alias value="JuridischeStatus" />
       <type>
         <code value="Extension" />
-        <profile value="http://example.org/fhir/StructureDefinition/zib-FreedomrestrictingMeasures-legalStatus" />
+        <profile value="http://example.org/fhir/StructureDefinition/patient-legalstatus" />
       </type>
       <mapping>
         <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
@@ -69,6 +69,9 @@
       <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.2--20171231000000" />
+        </valueSetReference>
       </binding>
     </element>
     <element id="Procedure.extension:legallyCapable">
@@ -78,32 +81,8 @@
       <alias value="Wilsbekwaam" />
       <type>
         <code value="Extension" />
-        <profile value="http://example.org/fhir/StructureDefinition/LegallyCapable" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/LegallyCapable" />
       </type>
-    </element>
-    <element id="Procedure.extension:legallyCapable.extension:LegallyCapable">
-      <path value="Procedure.extension.extension" />
-      <sliceName value="LegallyCapable" />
-    </element>
-    <element id="Procedure.extension:legallyCapable.extension:LegallyCapable.valueBoolean:valueBoolean">
-      <path value="Procedure.extension.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
-      <mapping>
-        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
-        <map value="NL-CM:14.3.3" />
-      </mapping>
-    </element>
-    <element id="Procedure.extension:legallyCapable.extension:LegallyCapableComment">
-      <path value="Procedure.extension.extension" />
-      <sliceName value="LegallyCapableComment" />
-    </element>
-    <element id="Procedure.extension:legallyCapable.extension:LegallyCapableComment.valueString:valueString">
-      <path value="Procedure.extension.extension.valueString" />
-      <sliceName value="valueString" />
-      <mapping>
-        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
-        <map value="NL-CM:14.3.4" />
-      </mapping>
     </element>
     <element id="Procedure.extension:permission">
       <path value="Procedure.extension" />
@@ -136,7 +115,9 @@
       <sliceName value="ArgusPermissionCode" />
       <binding>
         <strength value="extensible" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.5--20171231000000" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.5--20171231000000" />
+        </valueSetReference>
       </binding>
     </element>
     <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:PermissionCode">
@@ -144,7 +125,9 @@
       <sliceName value="PermissionCode" />
       <binding>
         <strength value="extensible" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.1--20171231000000" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.1--20171231000000" />
+        </valueSetReference>
       </binding>
     </element>
     <element id="Procedure.category">
@@ -189,6 +172,8 @@
     <element id="Procedure.category.coding:TypeOfIntervention">
       <path value="Procedure.category.coding" />
       <sliceName value="TypeOfIntervention" />
+      <min value="1" />
+      <max value="1" />
       <binding>
         <strength value="extensible" />
         <description value="TypeOfInterventionCodelist" />
