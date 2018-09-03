@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-familysituation-linvingathomeindicator" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LinvingAtHomeIndicator" />
+  <version value="1.0" />
+  <name value="Zib FamilySituation-LinvingAtHomeIndicator" />
+  <title value="HCIM FamilySituation LinvingAtHomeIndicator" />
+  <status value="active" />
+  <date value="2018-09-03T16:43:55.3245828+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An extension on the Observation profile for FamilySituation, as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.0, release 2017. The extension provides an indication stating whether the child lives at home." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Observation.component" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://example.org/fhir/StructureDefinition/MyExtension" />
+    </element>
+    <element id="Extension.value[x]:valueBoolean">
+      <path value="Extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+      <code>
+        <system value="http://snomed.info/sct" />
+        <code value="224137008" />
+        <display value="Lives with parents (finding)" />
+      </code>
+      <short value="LivingAtHome" />
+      <definition value="An indication stating whether the child lives at home." />
+      <alias value="Inwonend" />
+      <type>
+        <code value="boolean" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
