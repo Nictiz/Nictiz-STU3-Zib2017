@@ -31,9 +31,11 @@
         </code>
         <valueCodeableConcept>
             <coding>
+                <system value="http://snomed.info/sct"/>
                 <code value="160756002"/>
-                <display value="Woont samen met familie"/>
+                <display value="Lives with relatives"/>
             </coding>
+            <text value="Woont samen met familie"/>
         </valueCodeableConcept>
     </component> 
     <component>
@@ -58,7 +60,9 @@
                 <display value="Number of children living at home (observable entity)"/>
             </coding>
         </code>
-        <valueString value="2"/>            
+        <valueQuantity >
+            <value value="2"/>
+        </valueQuantity>          
     </component>
     <component>
         <!-- careResponsibility -->
@@ -72,8 +76,8 @@
         <valueString value="Heeft zorg voor vader die in huis woont. "/>
     </component>
     <component>
-        <!-- child -->
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LivingAtHomeIndicator">
+        <!-- child #1 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LinvingAtHomeIndicator">
             <valueBoolean value="true"/>
         </extension>
         <code>
@@ -84,5 +88,33 @@
             </coding>
         </code>
         <valueDateTime value="2009-08-02"/>
+    </component>
+    <component>
+        <!-- child #2 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LinvingAtHomeIndicator">
+            <valueBoolean value="true"/>
+        </extension>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="67822003"/>
+                <display value="Child"/>
+            </coding>
+        </code>
+        <valueDateTime value="2011-04-02"/>
+    </component>
+    <component>
+        <!-- child #3 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LinvingAtHomeIndicator">
+            <valueBoolean value="false"/>
+        </extension>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="67822003"/>
+                <display value="Child"/>
+            </coding>
+        </code>
+        <valueDateTime value="2006-04-02"/>
     </component>
 </Observation>
