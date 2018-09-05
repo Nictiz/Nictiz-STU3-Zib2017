@@ -7,7 +7,7 @@
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LanguageProficiency-Comment" />
   <version value="1.0" />
-  <name value="Zib LanguageProficiency-Comment" />
+  <name value="Zib-LanguageProficiency-Comment" />
   <title value="HCIM LanguageProficiency" />
   <status value="active" />
   <date value="2017-02-17T16:43:55.3245828+01:00" />
@@ -20,7 +20,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="Extension to the nl core patient, which is used for the 'LanguageProficiency' as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1 to provide information on linguistic proficiency is the ability to express oneself in a certain language and understand statements made in that language. This includes both oral and written communication." />
+  <description value="This extension adds one concepts from 'LanguageProficiency' as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1 to the nl-core-patient profile.  This concept regards a comment field about the linguistic proficiency of the patient." />
   <purpose value="Patients who are not fluent in the language of communication often have trouble asking for help and understanding the aids. Recording and communicating language problems offers other health professionals this knowledge. This informs them of any possible communication problems.         Furthermore, you can record whether the patient is fluent in another language, so that a translator can be called in to communicate with the patient if needed." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -37,41 +37,15 @@
       <short value="LanguageProficiencyComment" />
       <definition value="A comment on the linguistic proficiency." />
       <alias value="Toelichting" />
-      <isModifier value="false" />
     </element>
-    <element id="Extension.extension">
-      <path value="Extension.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Extension.extension:LanguageComment">
-      <path value="Extension.extension" />
-      <sliceName value="LanguageComment" />
-      <definition value="A comment on the linguistic proficiency." />
-      <max value="1" />
-    </element>
-    <element id="Extension.extension:LanguageComment.url">
-      <path value="Extension.extension.url" />
-      <fixedUri value="LanguageComment" />
-    </element>
-    <element id="Extension.extension:LanguageComment.value[x]:valueString">
-      <path value="Extension.extension.valueString" />
+    <element id="Extension.value[x]:valueString">
+      <path value="Extension.valueString" />
       <sliceName value="valueString" />
       <short value="LanguageComment" />
       <definition value="A comment on the linguistic proficiency." />
-      <alias value="Toelichting" />
       <type>
         <code value="string" />
       </type>
-    </element>
-    <element id="Extension.value[x]">
-      <path value="Extension.value[x]" />
-      <max value="0" />
     </element>
   </differential>
 </StructureDefinition>

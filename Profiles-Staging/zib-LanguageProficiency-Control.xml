@@ -20,7 +20,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="Extension to the nl core patient, which is used for the 'LanguageProficiency' as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1 to provide information on linguistic proficiency is the ability to express oneself in a certain language and understand statements made in that language. This includes both oral and written communication." />
+  <description value="This extension adds three concepts from 'LanguageProficiency' as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1 to the nl-core-patient profile. These concepts provide information on linguistic proficiency of the patient." />
   <purpose value="Patients who are not fluent in the language of communication often have trouble asking for help and understanding the aids. Recording and communicating language problems offers other health professionals this knowledge. This informs them of any possible communication problems.         Furthermore, you can record whether the patient is fluent in another language, so that a translator can be called in to communicate with the patient if needed." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -52,6 +52,9 @@
     <element id="Extension.extension:LanguageControlListening">
       <path value="Extension.extension" />
       <sliceName value="LanguageControlListening" />
+      <short value="LanguageControlListening" />
+      <definition value="The ability to understand spoken text in the language in question." />
+      <alias value="TaalvaardigheidBegrijpen" />
       <max value="1" />
     </element>
     <element id="Extension.extension:LanguageControlListening.url">
@@ -78,6 +81,9 @@
     <element id="Extension.extension:LanguageControlSpeaking">
       <path value="Extension.extension" />
       <sliceName value="LanguageControlSpeaking" />
+      <short value="LanguageControlSpeaking" />
+      <definition value="The ability to express oneself in spoken language." />
+      <alias value="TaalvaardigheidSpreken" />
       <max value="1" />
     </element>
     <element id="Extension.extension:LanguageControlSpeaking.url">
@@ -87,6 +93,8 @@
     <element id="Extension.extension:LanguageControlSpeaking.value[x]:valueCodeableConcept">
       <path value="Extension.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
+      <short value="LanguageControlSpeaking" />
+      <definition value="The ability to express oneself in spoken language." />
       <alias value="TaalvaardigheidSpreken" />
       <type>
         <code value="CodeableConcept" />
@@ -102,6 +110,9 @@
     <element id="Extension.extension:LanguageControlReading">
       <path value="Extension.extension" />
       <sliceName value="LanguageControlReading" />
+      <short value="LanguageControlReading" />
+      <definition value="The ability to understand written text in he language in question." />
+      <alias value="TaalvaardigheidLezen" />
       <max value="1" />
     </element>
     <element id="Extension.extension:LanguageControlReading.url">

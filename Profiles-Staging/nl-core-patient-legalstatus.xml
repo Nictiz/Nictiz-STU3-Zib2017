@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="patient-legalstatus" />
-  <url value="http://example.org/fhir/StructureDefinition/patient-legalstatus" />
+  <id value="nl-core-patient-legalstatus" />
+  <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient-legalstatus" />
   <version value="1.0" />
-  <name value="patient-legalstatus" />
+  <name value="nl-core-patient-legalstatus" />
   <title value="Patient LegalSatus" />
   <status value="draft" />
   <publisher value="Nictiz" />
@@ -21,7 +21,8 @@
   <kind value="resource" />
   <abstract value="false" />
   <contextType value="resource" />
-  <context value="*" />
+  <context value="Patient" />
+  <context value="Procedure" />
   <type value="Extension" />
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
@@ -30,11 +31,11 @@
       <path value="Extension" />
       <short value="legalStatus" />
       <definition value="The legal situation that applies to the patient during the intervention. The code of the legal status is based on the Vektis/AZR code list COD232-VEKT Legal Status. " />
-      <max value="1" />
+      <max value="2" />
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="http://example.org/fhir/StructureDefinition/zib-FreedomrestrictingMeasures-legalStatus" />
+      <fixedUri value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient-legalstatus" />
     </element>
     <element id="Extension.value[x]:valueCodeableConcept">
       <path value="Extension.valueCodeableConcept" />
@@ -42,7 +43,7 @@
       <code>
         <system value="http://snomed.info/sct" />
         <code value="303186005" />
-        <display value="Legal status of patient" />
+        <display value="Legal status of patient (observable entity)" />
       </code>
       <short value="LegalStatus" />
       <definition value="The legal situation that applies to the patient during the intervention. The code of the legal status is based on the Vektis/AZR code list COD232-VEKT Legal Status." />
