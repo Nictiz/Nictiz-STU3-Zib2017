@@ -134,6 +134,17 @@
     <name value="HCIM ContactInformation-v1.0(2017EN)" />
     <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
   </mapping>
+  <mapping>
+    <identity value="hcim-languageproficiency-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/LanguageProficiency-v3.1(2017EN)" />
+    <name value="HCIM LanguageProficiency-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/FreedomRestrictingMeasures-v3.1(2017EN)" />
+    <name value="HCIM FreedomRestrictingMeasures-v3.1(2017EN)" />
+    <comment value="Concerns only LegalStatus concept. This will become an independent information model as of release 2018 of the HCIMs." />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Patient" />
@@ -208,6 +219,26 @@
         <identity value="hcim-nationality-v3.0-2017EN" />
         <map value="NL-CM:7.6.3" />
       </mapping>
+    </element>
+    <element id="Patient.extension:legalStatus">
+      <path value="Patient.extension" />
+      <sliceName value="legalStatus" />
+      <comment value="The concept LegalStatus of the Zib FreedomRestrictingMeasures plays an importand role in the context of mental healthcare (GGZ). This concept will become an independent Zib with the next release of Zibs (2018 release).  &#xD;&#xA;&#xD;&#xA;The LegalStatus concept and bound valueset will be split in two: legalstatus and representative. These concept are currently captured in one valueset. It is possible to have a legalstatus AND a representative. Therefore, we allow this extension to have a cardinality of 0..2." />
+      <type>
+        <code value="Extension" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient-legalstatus" />
+      </type>
+      <mapping>
+        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+        <map value="NL-CM:14.3.2" />
+      </mapping>
+    </element>
+    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept">
+      <path value="Patient.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+      </binding>
     </element>
     <element id="Patient.identifier">
       <path value="Patient.identifier" />
@@ -735,6 +766,10 @@
     <element id="Patient.communication">
       <path value="Patient.communication" />
       <alias value="Taalvaardigheid" />
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.1" />
+      </mapping>
     </element>
     <element id="Patient.communication.extension">
       <path value="Patient.communication.extension" />
@@ -754,6 +789,30 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LanguageProficiency-Control" />
       </type>
     </element>
+    <element id="Patient.communication.extension:languageProficiency.extension:LanguageControlListening">
+      <path value="Patient.communication.extension.extension" />
+      <sliceName value="LanguageControlListening" />
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.6" />
+      </mapping>
+    </element>
+    <element id="Patient.communication.extension:languageProficiency.extension:LanguageControlSpeaking">
+      <path value="Patient.communication.extension.extension" />
+      <sliceName value="LanguageControlSpeaking" />
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.7" />
+      </mapping>
+    </element>
+    <element id="Patient.communication.extension:languageProficiency.extension:LanguageControlReading">
+      <path value="Patient.communication.extension.extension" />
+      <sliceName value="LanguageControlReading" />
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.6" />
+      </mapping>
+    </element>
     <element id="Patient.communication.extension:comment">
       <path value="Patient.communication.extension" />
       <sliceName value="comment" />
@@ -761,6 +820,20 @@
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LanguageProficiency-Comment" />
       </type>
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.5" />
+      </mapping>
+    </element>
+    <element id="Patient.communication.language">
+      <path value="Patient.communication.language" />
+      <short value="CommunicationLanguage" />
+      <definition value="The language of communication&#xD;&#xA;&#xD;&#xA;The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-EN&quot; for England English." />
+      <alias value="CommunicatieTaal" />
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.3" />
+      </mapping>
     </element>
     <element id="Patient.generalPractitioner">
       <path value="Patient.generalPractitioner" />
