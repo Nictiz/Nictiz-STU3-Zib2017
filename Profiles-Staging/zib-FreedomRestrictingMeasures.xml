@@ -58,7 +58,7 @@
       <alias value="JuridischeStatus" />
       <type>
         <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/patient-legalstatus" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient-legalstatus" />
       </type>
       <mapping>
         <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
@@ -70,31 +70,22 @@
       <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
-        <description value="LegalStatusCodelist" />
       </binding>
-      <mapping>
-        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
-        <map value="NL-CM:14.3.2 " />
-      </mapping>
     </element>
     <element id="Procedure.extension:legallyCapable">
       <path value="Procedure.extension" />
       <sliceName value="legallyCapable" />
-      <definition value="Nurses fulfil an important role in identifying risks, observing the effect of the restraints and any changes to the policy in terms of medical treatment/procedures. " />
-      <alias value="Wilsbekwaam" />
       <type>
         <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/LegallyCapable" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures-LegallyCapable" />
       </type>
     </element>
     <element id="Procedure.extension:legallyCapable.extension:LegallyCapableIndicator">
       <path value="Procedure.extension.extension" />
       <sliceName value="LegallyCapableIndicator" />
-      <short value="Indicator stating whether the patient is deemed capable of overseeing the consequences of a certain procedure, situation or decision." />
-    </element>
-    <element id="Procedure.extension:legallyCapable.extension:LegallyCapableIndicator.valueBoolean:valueBoolean">
-      <path value="Procedure.extension.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
+      <short value="LegallyCapableIndicator" />
+      <definition value="Indicator stating whether the patient is deemed capable of overseeing the consequences of a certain procedure, situation or decision. " />
+      <alias value="Wilsbekwaam" />
       <mapping>
         <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
         <map value="NL-CM:14.3.3" />
@@ -103,11 +94,7 @@
     <element id="Procedure.extension:legallyCapable.extension:LegallyCapableComment">
       <path value="Procedure.extension.extension" />
       <sliceName value="LegallyCapableComment" />
-      <short value="Comment on the decisions which the patient is legally capable of making." />
-    </element>
-    <element id="Procedure.extension:legallyCapable.extension:LegallyCapableComment.valueString:valueString">
-      <path value="Procedure.extension.extension.valueString" />
-      <sliceName value="valueString" />
+      <alias value="WilsbekwaamToelichting" />
       <mapping>
         <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
         <map value="NL-CM:14.3.4" />
@@ -116,14 +103,11 @@
     <element id="Procedure.extension:permission">
       <path value="Procedure.extension" />
       <sliceName value="permission" />
+      <definition value="The permission given to the health professional(s) by the patient or legal representative to implement medical restraints." />
       <type>
         <code value="Extension" />
-        <profile value="http://example.org/fhir/StructureDefinition/zib-FreedomrestrictingMeasures-permission" />
+        <profile value="http://example.org/fhir/StructureDefinition/zib-FreedomrestrictingMeasures-Permission" />
       </type>
-    </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept">
-      <path value="Procedure.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
       <mapping>
         <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
         <map value="NL-CM:14.3.7" />
@@ -158,28 +142,13 @@
         <description value="PermissionCodelist" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.1--20171231000000" />
+          <display value="PermissionCodelist" />
         </valueSetReference>
       </binding>
     </element>
     <element id="Procedure.category">
       <path value="Procedure.category" />
-      <short value="SoortInterventie" />
-      <definition value="The type of restraint describes the medical restraints." />
-      <alias value="SoortInterventie" />
       <min value="1" />
-      <fixedCodeableConcept>
-        <coding>
-          <system value="http://snomed.info/sct" />
-          <code value="225317005" />
-          <display value="Restriction of movement" />
-        </coding>
-      </fixedCodeableConcept>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ProcedureCategory" />
-        </extension>
-        <strength value="extensible" />
-      </binding>
       <mapping>
         <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
         <map value="NL-CM:14.3.6" />
@@ -200,37 +169,36 @@
         <map value="NL-CM:14.3.6" />
       </mapping>
     </element>
-    <element id="Procedure.category.coding:TypeOfIntervention">
+    <element id="Procedure.category.coding:FreedomRestrictingMeasuresCode">
       <path value="Procedure.category.coding" />
-      <sliceName value="TypeOfIntervention" />
+      <sliceName value="FreedomRestrictingMeasuresCode" />
       <min value="1" />
       <max value="1" />
-      <binding>
-        <strength value="extensible" />
-        <description value="TypeOfInterventionCodelist" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.3--20171231000000" />
-      </binding>
     </element>
-    <element id="Procedure.category.coding:TypeOfIntervention.system">
+    <element id="Procedure.category.coding:FreedomRestrictingMeasuresCode.system">
       <path value="Procedure.category.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Procedure.category.coding:TypeOfIntervention.code">
+    <element id="Procedure.category.coding:FreedomRestrictingMeasuresCode.code">
       <path value="Procedure.category.coding.code" />
       <min value="1" />
-      <fixedCode value="225317005" />
+      <fixedCode value="225214000" />
     </element>
-    <element id="Procedure.category.coding:TypeOfIntervention.display">
+    <element id="Procedure.category.coding:FreedomRestrictingMeasuresCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
       <path value="Procedure.category.coding.display" />
-      <fixedString value="Restriction of movement" />
+      <fixedString value="Procedures relating to control, restraint, seclusion and segregation (procedure)" />
     </element>
     <element id="Procedure.code">
       <path value="Procedure.code" />
       <min value="1" />
+      <mapping>
+        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+        <map value="NL-CM:14.3.6" />
+      </mapping>
     </element>
     <element id="Procedure.code.coding">
       <path value="Procedure.code.coding" />
@@ -261,8 +229,19 @@
       <binding>
         <strength value="extensible" />
         <description value="TypeOfInterventionCodelist" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.3--20171231000000" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.3--20171231000000" />
+          <display value="TypeOfInterventionCodelist" />
+        </valueSetReference>
       </binding>
+    </element>
+    <element id="Procedure.code.coding:TypeOfInterventionCode.system">
+      <path value="Procedure.code.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Procedure.code.coding:TypeOfInterventionCode.code">
+      <path value="Procedure.code.coding.code" />
+      <min value="1" />
     </element>
     <element id="Procedure.code.coding:ArgusTypeOfInterventionCode">
       <path value="Procedure.code.coding" />
@@ -271,8 +250,19 @@
       <binding>
         <strength value="extensible" />
         <description value="ArgusTypeOfInterventionCodelist" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.4--20171231000000" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.4--20171231000000" />
+          <display value="ArgusTypeOfInterventionCodelist"/>
+        </valueSetReference>
       </binding>
+    </element>
+    <element id="Procedure.code.coding:ArgusTypeOfInterventionCode.system">
+      <path value="Procedure.code.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Procedure.code.coding:ArgusTypeOfInterventionCode.code">
+      <path value="Procedure.code.coding.code" />
+      <min value="1" />
     </element>
     <element id="Procedure.subject">
       <path value="Procedure.subject" />
