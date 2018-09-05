@@ -99,6 +99,25 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
       </type>
     </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
       <short value="Comment" />
@@ -376,17 +395,10 @@
     <element id="Observation.component:child.extension:livingAtHome">
       <path value="Observation.component.extension" />
       <sliceName value="livingAtHome" />
-      <short value="LivingAtHome" />
-      <definition value="An indication stating whether the child lives at home." />
-      <alias value="Inwonend" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LinvingAtHomeIndicator" />
       </type>
-    </element>
-    <element id="Observation.component:child.extension:livingAtHome.valueBoolean:valueBoolean">
-      <path value="Observation.component.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
       <mapping>
         <identity value="hcim-familysituation-v3.0-2017EN" />
         <map value="NL-CM:7.13.5" />
