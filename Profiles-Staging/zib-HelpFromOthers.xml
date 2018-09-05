@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-HelpFromOthers" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HelpFromOthers" />
   <name value="Zib HelpFromOthers" />
   <title value="HCIM HelpFromOthers" />
@@ -13,8 +14,8 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="There are often multiple people or parties involved in the care for a patient with a disorder or disability, particularly in the event of home care. Their efforts enable the patient to function more or less independently. This includes not only caregivers, but also professional help such as that offered by home care organizations, nurses, aids and helpers. Current doctors and staff from the facility to which a patient is admitted do not fall under this concept." />
-  <purpose value="Information on help from others can provide a good estimate of the availability of the care required by the patient. If this care is not sufficiently available, measures can be taken to facilitate the required care.     This plays a particularly important role in for example discharges from the hospital or from a nursing home." />
+  <description value="HelpFromOthers as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.0, release 2017.&#xD;&#xA;&#xD;&#xA;There are often multiple people or parties involved in the care for a patient with a disorder or disability, particularly in the event of home care. Their efforts enable the patient to function more or less independently. This includes not only caregivers, but also professional help such as that offered by home care organizations, nurses, aids and helpers. Current doctors and staff from the facility to which a patient is admitted do not fall under this concept." />
+  <purpose value="Information on help from others can provide a good estimate of the availability of the care required by the patient. If this care is not sufficiently available, measures can be taken to facilitate the required care. This plays a particularly important role in for example discharges from the hospital or from a nursing home." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -39,10 +40,12 @@
     </element>
     <element id="CarePlan.intent">
       <path value="CarePlan.intent" />
+      <comment value="Although the Zib is not really a (care)plan, this resources falls almost completly inline with the Zib. From the 4 possible codes here plan comes closest. Therefore this element is fixed to plan." />
       <fixedCode value="plan" />
     </element>
     <element id="CarePlan.category">
       <path value="CarePlan.category" />
+      <min value="1" />
       <max value="1" />
     </element>
     <element id="CarePlan.category.coding">
@@ -59,6 +62,13 @@
       <min value="1" />
       <fixedCode value="243114000" />
     </element>
+    <element id="CarePlan.category.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="CarePlan.category.coding.display" />
+      <fixedString value="Supportive care" />
+    </element>
     <element id="CarePlan.subject">
       <path value="CarePlan.subject" />
       <type>
@@ -72,6 +82,8 @@
     </element>
     <element id="CarePlan.activity.detail.category">
       <path value="CarePlan.activity.detail.category" />
+      <short value="TypeOfHelp" />
+      <definition value=" The type of help offered by the person in question." />
       <alias value="SoortHulp" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -161,8 +173,8 @@
         <map value="NL-CM:3.2.8" />
       </mapping>
     </element>
-    <element id="CarePlan.activity.detail.description">
-      <path value="CarePlan.activity.detail.description" />
+    <element id="CarePlan.note">
+      <path value="CarePlan.note" />
       <short value="Comment" />
       <definition value="A comment on the help/support the patient receives from others." />
       <alias value="Toelichting" />
