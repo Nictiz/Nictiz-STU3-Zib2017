@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-FamilySituationChild-RelatedPerson" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson" />
+  <version value="1.0" />
+  <name value="Zib FamilySituationChild-RelatedPerson" />
+  <title value="HCIM FamilySituationChild RelatedPerson" />
+  <status value="active" />
+  <date value="2018-09-03T16:43:55.3245828+01:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An extension on the Observation profile for FamilySituationChild, as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 1.1, release 2017. The extension provides a reference to a RelatedPerson for more extensive information on the related persons of the family situation of the patient child." />
+  <purpose value="Need to reference to a relatedpersons in an Observation context." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Observation.component" />
+  <context value="Observation" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://example.org/fhir/StructureDefinition/MyExtension" />
+    </element>
+    <element id="Extension.value[x]:valueReference">
+      <path value="Extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
