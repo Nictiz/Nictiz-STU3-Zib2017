@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="zib-familysituationchild-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild"/>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+        <valueReference>
+            <reference value="RelatedPerson/example-parent-1"/>
+        </valueReference>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+        <valueReference>
+            <reference value="RelatedPerson/example-parent-2"/>
+        </valueReference>
+    </extension>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="55801000146105"/>
+            <display value="Finding of family details and household composition of child (finding)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/example"/>
+    </subject>
+    <effectiveDateTime value="2018-08-12"/>
+    <performer>
+        <reference value="Practitioner/example" />
+    </performer>
+    <comment value="Patient heeft vaak ruzie met de moeder."/>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="224130005"/>
+                <display value="Household composition (observable entity)"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="224139006"/>
+                <display value="Lives with mother"/>
+            </coding>
+            <text value="Woont bij moeder"/>
+        </valueCodeableConcept>
+    </component> 
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="224095004"/>
+                <display value="Number of siblings (observable entity)"/>
+            </coding>
+        </code>
+        <valueQuantity>
+            <value value="2" />
+        </valueQuantity>
+    </component>
+    <component>
+        <!-- child #1 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+            <valueReference>
+                <reference value="RelatedPerson/example-child-1"/>
+            </valueReference>
+        </extension>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="67822003"/>
+                <display value="Child"/>
+            </coding>
+        </code>
+        <valueDateTime value="2018-06-02"/>
+    </component>
+    <component>
+        <!-- sibbling #1 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+            <valueReference>
+                <reference value="RelatedPerson/example-sibling-1"/>
+            </valueReference>
+        </extension>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="375005"/>
+                <display value="Sibling (person)"/>
+            </coding>
+        </code>
+        <valueDateTime value="2009-12-20"/>
+    </component>
+    <component>
+        <!-- sibbling #2 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+            <valueReference>
+                <reference value="RelatedPerson/example-sibling-2"/>
+            </valueReference>
+        </extension>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="375005"/>
+                <display value="Sibling (person)"/>
+            </coding>
+        </code>
+        <valueDateTime value="2013-02-03"/>
+    </component>
+</Observation>
+
