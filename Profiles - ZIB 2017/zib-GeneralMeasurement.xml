@@ -1,161 +1,166 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="zib-GeneralMeasurement"/>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement"/>
-    <version value="1.0"/>
-    <name value="Zib GeneralMeasurement"/>
-    <title value="HCIM General Measurement"/>
-    <status value="draft"/>
-    <date value="2018-06-14"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="General Measurment as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) GeneralMeasurment version 3.0, release 2017.&#xD;&#xA;&#xD;&#xA;A general measurement determines the result of a measurement or determination made for a patient. The information model is used to record the measurement results for which no specific information models have yet been formulated. The information model is not intended for laboratory determinations to be carried out on the material taken from the patient."/>
-    <purpose value="The measurement and documentation of physiological observations are an important tool for evaluating a patient’s condition. This information model offers the option to record various relevant measurement values."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-generalmeasurment-v3.0-2017EN"/>
-        <uri value="https://zibs.nl/wiki/GeneralMeasurement-v3.0(2017EN)"/>
-        <name value="HCIM GeneralMeasurement-v3.0(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-            <short value="GeneralMeasurement"/>
-            <definition value="Root concept of the GeneralMeasurement information model. This root concept contains all data elements of the GeneralMeasurement information model.&#xD;&#xA;"/>
-            <alias value="MeetUitslag"/>
-            <mapping>
-                <identity value="hcim-generalmeasurment-v3.0-2017EN"/>
-                <map value="NL-CM:13.3.1"/>
-            </mapping>
-        </element>
-        <element id="Observation.status">
-            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-                <valueString value="default: final"/>
-            </extension>
-            <path value="Observation.status"/>
-            <short value="ResultStatus"/>
-            <definition value="The status of the total measurement.&#xD;&#xA;"/>
-            <alias value="ResultaatStatus"/>
-            <mapping>
-                <identity value="hcim-generalmeasurment-v3.0-2017EN"/>
-                <map value="NL-CM:13.3.3"/>
-            </mapping>
-        </element>
-        <element id="Observation.code">
-            <path value="Observation.code"/>
-            <short value="Investigation"/>
-            <definition value="A general measurement can contain multiple components. This concept contains the name and code of the entire measurement. &#xD;&#xA;"/>
-            <alias value="Onderzoek"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="ObservationCode"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="SNOMED CT all concepts"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.3--20171231000000"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-generalmeasurment-v3.0-2017EN"/>
-                <map value="NL-CM:13.3.2"/>
-            </mapping>
-        </element>
-        <element id="Observation.effective[x]">
-            <path value="Observation.effective[x]"/>
-            <definition value="ResultDateTime&#xD;&#xA;"/>
-            <alias value="UitslagDatumTijd"/>
-            <mapping>
-                <identity value="hcim-generalmeasurment-v3.0-2017EN"/>
-                <map value="NL-CM:13.3.9"/>
-            </mapping>
-        </element>
-        <element id="Observation.value[x]">
-            <path value="Observation.value[x]"/>
-            <definition value="The result of the measurement. Depending on the type of measurement, the result will consist of a value with a unit or a coded value (ordinal or nominal) or of a textual result.&#xD;&#xA;"/>
-            <mapping>
-                <identity value="hcim-generalmeasurment-v3.0-2017EN"/>
-                <map value="NL-CM:13.3.7"/>
-            </mapping>
-        </element>
-        <element id="Observation.comment">
-            <path value="Observation.comment"/>
-            <short value="Comment"/>
-            <definition value="Comments such as an interpretation or advice accompanying the result.&#xD;&#xA;"/>
-            <alias value="Toelichting"/>
-            <mapping>
-                <identity value="hcim-generalmeasurment-v3.0-2017EN"/>
-                <map value="NL-CM:13.3.4"/>
-            </mapping>
-        </element>
-        <element id="Observation.method">
-            <path value="Observation.method"/>
-            <short value="MeasuringMethod"/>
-            <definition value="The test method used to obtain the result.&#xD;&#xA;"/>
-            <alias value="Meetmethode"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="ObservationMethod"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="SNOMED CT - all concepts"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.4--20171231000000"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-generalmeasurment-v3.0-2017EN"/>
-                <map value="NL-CM:13.3.8"/>
-            </mapping>
-        </element>
-        <element id="Observation.component">
-            <path value="Observation.component"/>
-            <short value="MeasurementResult"/>
-            <definition value="Container of the MeasurementResult concept. This container contains all data elements of the MeasurementResult concept."/>
-            <alias value="MeetUitslag"/>
-        </element>
-        <element id="Observation.component.code">
-            <path value="Observation.component.code"/>
-            <short value="MeasurementName"/>
-            <definition value="Description (name and code) of the measurement.&#xD;&#xA;"/>
-            <alias value="MetingNaam"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="ObservationCode"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="SNOMED CT - all values"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.2--20171231000000"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-generalmeasurment-v3.0-2017EN"/>
-                <map value="NL-CM:13.3.6"/>
-            </mapping>
-        </element>
-        <element id="Observation.component.value[x]">
-            <path value="Observation.component.value[x]"/>
-            <short value="ResultValue"/>
-            <definition value="The result of the measurement. Depending on the type of measurement, the result will consist of a value with a unit or a coded value (ordinal or nominal) or of a textual result.&#xD;&#xA;"/>
-            <alias value="UitslagWaarde"/>
-            <mapping>
-                <identity value="hcim-generalmeasurment-v3.0-2017EN"/>
-                <map value="NL-CM:13.3.7"/>
-            </mapping>
-        </element>
-    </differential>
+  <id value="zib-GeneralMeasurement" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
+  <version value="1.0" />
+  <name value="Zib GeneralMeasurement" />
+  <title value="HCIM General Measurement" />
+  <status value="draft" />
+  <date value="2018-06-14" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="General Measurment as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) GeneralMeasurment version 3.0, release 2017.&#xD;&#xA;&#xD;&#xA;A general measurement determines the result of a measurement or determination made for a patient. The information model is used to record the measurement results for which no specific information models have yet been formulated. The information model is not intended for laboratory determinations to be carried out on the material taken from the patient." />
+  <purpose value="The measurement and documentation of physiological observations are an important tool for evaluating a patient’s condition. This information model offers the option to record various relevant measurement values." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-generalmeasurment-v3.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/GeneralMeasurement-v3.0(2017EN)" />
+    <name value="HCIM GeneralMeasurement-v3.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="GeneralMeasurement" />
+      <definition value="Root concept of the GeneralMeasurement information model. This root concept contains all data elements of the GeneralMeasurement information model.&#xD;&#xA;" />
+      <alias value="MeetUitslag" />
+      <mapping>
+        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
+        <map value="NL-CM:13.3.1" />
+      </mapping>
+    </element>
+    <element id="Observation.status">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
+        <valueString value="default: final" />
+      </extension>
+      <path value="Observation.status" />
+      <short value="ResultStatus" />
+      <definition value="The status of the total measurement.&#xD;&#xA;" />
+      <alias value="ResultaatStatus" />
+      <mapping>
+        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
+        <map value="NL-CM:13.3.3" />
+      </mapping>
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <short value="Investigation | MeasurementName" />
+      <definition value="A general measurement can contain multiple components. This concept contains the name and code of the entire measurement. &#xD;&#xA;" />
+      <alias value="Onderzoek" />
+      <alias value="MetingNaam" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationCode" />
+        </extension>
+        <strength value="extensible" />
+        <description value="SNOMED CT all concepts" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.3--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
+        <map value="NL-CM:13.3.2" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
+        <map value="NL-CM:13.3.6" />
+      </mapping>
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
+      <definition value="ResultDateTime&#xD;&#xA;" />
+      <alias value="UitslagDatumTijd" />
+      <mapping>
+        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
+        <map value="NL-CM:13.3.9" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]" />
+      <definition value="The result of the measurement. Depending on the type of measurement, the result will consist of a value with a unit or a coded value (ordinal or nominal) or of a textual result.&#xD;&#xA;" />
+      <mapping>
+        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
+        <map value="NL-CM:13.3.7" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comments such as an interpretation or advice accompanying the result.&#xD;&#xA;" />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
+        <map value="NL-CM:13.3.4" />
+      </mapping>
+    </element>
+    <element id="Observation.method">
+      <path value="Observation.method" />
+      <short value="MeasuringMethod" />
+      <definition value="The test method used to obtain the result.&#xD;&#xA;" />
+      <alias value="Meetmethode" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationMethod" />
+        </extension>
+        <strength value="extensible" />
+        <description value="SNOMED CT - all concepts" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.4--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
+        <map value="NL-CM:13.3.8" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <short value="MeasurementResult" />
+      <definition value="Container of the MeasurementResult concept. This container contains all data elements of the MeasurementResult concept." />
+      <alias value="MeetUitslag" />
+    </element>
+    <element id="Observation.component.code">
+      <path value="Observation.component.code" />
+      <short value="MeasurementName" />
+      <definition value="Description (name and code) of the measurement.&#xD;&#xA;" />
+      <alias value="MetingNaam" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationCode" />
+        </extension>
+        <strength value="extensible" />
+        <description value="SNOMED CT - all values" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.2--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
+        <map value="NL-CM:13.3.6" />
+      </mapping>
+    </element>
+    <element id="Observation.component.value[x]">
+      <path value="Observation.component.value[x]" />
+      <short value="ResultValue" />
+      <definition value="The result of the measurement. Depending on the type of measurement, the result will consist of a value with a unit or a coded value (ordinal or nominal) or of a textual result.&#xD;&#xA;" />
+      <alias value="UitslagWaarde" />
+      <mapping>
+        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
+        <map value="NL-CM:13.3.7" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>
