@@ -68,9 +68,22 @@
     <element id="Procedure.extension:legalStatus.valueCodeableConcept:valueCodeableConcept">
       <path value="Procedure.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
+      <min value="1" />
       <binding>
         <strength value="extensible" />
       </binding>
+    </element>
+    <element id="Procedure.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding">
+      <path value="Procedure.extension.valueCodeableConcept.coding" />
+      <min value="1" />
+    </element>
+    <element id="Procedure.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.system">
+      <path value="Procedure.extension.valueCodeableConcept.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Procedure.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.code">
+      <path value="Procedure.extension.valueCodeableConcept.coding.code" />
+      <min value="1" />
     </element>
     <element id="Procedure.extension:legallyCapable">
       <path value="Procedure.extension" />
@@ -112,6 +125,11 @@
         <map value="NL-CM:14.3.7" />
       </mapping>
     </element>
+    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept">
+      <path value="Procedure.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <min value="1" />
+    </element>
     <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding">
       <path value="Procedure.extension.valueCodeableConcept.coding" />
       <slicing>
@@ -121,6 +139,7 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:ArgusPermissionCode">
       <path value="Procedure.extension.valueCodeableConcept.coding" />

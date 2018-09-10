@@ -29,15 +29,6 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CarePlan" />
   <derivation value="constraint" />
   <differential>
-    <element id="CarePlan">
-      <path value="CarePlan" />
-      <short value="HelpFromOthers" />
-      <alias value="HulpVanAnderen" />
-      <mapping>
-        <identity value="hcim-helpfromothers-v3.0-2017EN" />
-        <map value="NL-CM:3.2.1" />
-      </mapping>
-    </element>
     <element id="CarePlan.intent">
       <path value="CarePlan.intent" />
       <comment value="Although the Zib is not really a (care)plan, this resources falls almost completly inline with the Zib. From the 4 possible codes here plan comes closest. Therefore this element is fixed to plan." />
@@ -50,19 +41,32 @@
     </element>
     <element id="CarePlan.category.coding">
       <path value="CarePlan.category.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <min value="1" />
     </element>
-    <element id="CarePlan.category.coding.system">
+    <element id="CarePlan.category.coding:HelpFromOthersCode">
+      <path value="CarePlan.category.coding" />
+      <sliceName value="HelpFromOthersCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="CarePlan.category.coding:HelpFromOthersCode.system">
       <path value="CarePlan.category.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="CarePlan.category.coding.code">
+    <element id="CarePlan.category.coding:HelpFromOthersCode.code">
       <path value="CarePlan.category.coding.code" />
       <min value="1" />
       <fixedCode value="243114000" />
     </element>
-    <element id="CarePlan.category.coding.display">
+    <element id="CarePlan.category.coding:HelpFromOthersCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
@@ -79,6 +83,15 @@
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
       </type>
+    </element>
+    <element id="CarePlan.activity">
+      <path value="CarePlan.activity" />
+      <short value="HelpFromOthers" />
+      <alias value="HulpVanAnderen" />
+      <mapping>
+        <identity value="hcim-helpfromothers-v3.0-2017EN" />
+        <map value="NL-CM:3.2.1" />
+      </mapping>
     </element>
     <element id="CarePlan.activity.detail.category">
       <path value="CarePlan.activity.detail.category" />
@@ -173,8 +186,8 @@
         <map value="NL-CM:3.2.8" />
       </mapping>
     </element>
-    <element id="CarePlan.note">
-      <path value="CarePlan.note" />
+    <element id="CarePlan.activity.detail.description">
+      <path value="CarePlan.activity.detail.description" />
       <short value="Comment" />
       <definition value="A comment on the help/support the patient receives from others." />
       <alias value="Toelichting" />
