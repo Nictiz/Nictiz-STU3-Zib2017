@@ -40,31 +40,6 @@
         <map value="NL-CM:7.16.1" />
       </mapping>
     </element>
-    <element id="Observation.extension">
-      <path value="Observation.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Observation.extension:parentCarer">
-      <path value="Observation.extension" />
-      <sliceName value="parentCarer" />
-      <short value="ParentCarer" />
-      <definition value="Person who has taken on the role of the child's caregiver in the family situation involved. This could be a parent or other family member." />
-      <alias value="OuderVerzorger" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson" />
-      </type>
-      <mapping>
-        <identity value="hcim-familysituationchild-v1.1-2017EN" />
-        <map value="NL-CM:7.16.3" />
-      </mapping>
-    </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
       <slicing>
@@ -287,6 +262,71 @@
         <map value="NL-CM:7.16.7" />
       </mapping>
     </element>
+    <element id="Observation.component:parentCarer">
+      <path value="Observation.component" />
+      <sliceName value="parentCarer" />
+      <short value="ParentCarer" />
+    </element>
+    <element id="Observation.component:parentCarer.extension">
+      <path value="Observation.component.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:parentCarer.extension:parentCarer">
+      <path value="Observation.component.extension" />
+      <sliceName value="parentCarer" />
+      <short value="ParentCarer" />
+      <definition value="Person who has taken on the role of the child's caregiver in the family situation involved. This could be a parent or other family member." />
+      <alias value="OuderVerzorger" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson" />
+      </type>
+      <mapping>
+        <identity value="hcim-familysituationchild-v1.1-2017EN" />
+        <map value="NL-CM:7.16.3" />
+      </mapping>
+    </element>
+    <element id="Observation.component:parentCarer.code.coding">
+      <path value="Observation.component.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.component:parentCarer.code.coding:ParentCode">
+      <path value="Observation.component.code.coding" />
+      <sliceName value="ParentCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:parentCarer.code.coding:ParentCode.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:parentCarer.code.coding:ParentCode.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="40683002" />
+    </element>
+    <element id="Observation.component:parentCarer.code.coding:ParentCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Parent (person)" />
+    </element>
     <element id="Observation.component:child">
       <path value="Observation.component" />
       <sliceName value="child" />
@@ -314,6 +354,7 @@
       <short value="ContactPerson" />
       <definition value="Child of the child receiving care." />
       <alias value="ContactPersoon" />
+      <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson" />
@@ -398,6 +439,7 @@
       <short value="ContactPerson" />
       <definition value="Sister or brother, which is also part of concerning household. This includes not only biological siblings, but also half, step, foster and adoptive siblings." />
       <alias value="Contactpersoon" />
+      <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson" />
