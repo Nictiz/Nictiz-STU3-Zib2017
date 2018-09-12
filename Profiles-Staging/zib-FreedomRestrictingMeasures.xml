@@ -58,7 +58,7 @@
       <alias value="JuridischeStatus" />
       <type>
         <code value="Extension" />
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient-legalstatus" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-patient-legalstatus" />
       </type>
       <mapping>
         <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
@@ -152,6 +152,14 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:ArgusPermissionCode.system">
+      <path value="Procedure.extension.valueCodeableConcept.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:ArgusPermissionCode.code">
+      <path value="Procedure.extension.valueCodeableConcept.coding.code" />
+      <min value="1" />
+    </element>
     <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:PermissionCode">
       <path value="Procedure.extension.valueCodeableConcept.coding" />
       <sliceName value="PermissionCode" />
@@ -163,6 +171,14 @@
           <display value="PermissionCodelist" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:PermissionCode.system">
+      <path value="Procedure.extension.valueCodeableConcept.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:PermissionCode.code">
+      <path value="Procedure.extension.valueCodeableConcept.coding.code" />
+      <min value="1" />
     </element>
     <element id="Procedure.category">
       <path value="Procedure.category" />
