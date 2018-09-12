@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="patient-proficiency" />
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1" />
+  </extension>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/patient-proficiency" />
+  <name value="proficiency" />
+  <title value="proficiency" />
+  <status value="draft" />
+  <date value="2018-09-12T06:16:24+00:00" />
+  <publisher value="HL7" />
+  <description value="Proficiency level of the communication.&#xD;&#xA;Extension is mocked from the offical HL7 core extension in R4 FHIR build specification at 12-09-2018." />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Patient.communication" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Proficiency level of the communication" />
+      <definition value="Proficiency level of the communication." />
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Extension.extension:level">
+      <path value="Extension.extension" />
+      <sliceName value="level" />
+      <short value="The proficiency level of the communication" />
+      <definition value="How well the patient can communicate this communication (good, poor, etc.)." />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:level.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="level" />
+    </element>
+    <element id="Extension.extension:level.value[x]:valueCoding">
+      <path value="Extension.extension.valueCoding" />
+      <sliceName value="valueCoding" />
+      <type>
+        <code value="Coding" />
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProficiencyLevel" />
+        </extension>
+        <strength value="preferred" />
+        <description value="The proficiency level for the communication." />
+        <valueSetReference>
+          <reference value="http://terminology.hl7.org/ValueSet/v3-LanguageAbilityProficiency" />
+          <display value="TaalvaardigheidBegrijpenCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Extension.extension:type">
+      <path value="Extension.extension" />
+      <sliceName value="type" />
+      <short value="The proficiency type of the communication" />
+      <definition value="What type of communication for the proficiency (spoken, written, etc.)." />
+    </element>
+    <element id="Extension.extension:type.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="type" />
+    </element>
+    <element id="Extension.extension:type.value[x]:valueCoding">
+      <path value="Extension.extension.valueCoding" />
+      <sliceName value="valueCoding" />
+      <type>
+        <code value="Coding" />
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="proficiencyType" />
+        </extension>
+        <strength value="preferred" />
+        <description value="The proficiency type for the communication." />
+        <valueSetReference>
+          <reference value="http://terminology.hl7.org/ValueSet/v3-LanguageAbilityMode" />
+          <display value="TaalvaardigheidBegrijpenCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/patient-proficiency" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
