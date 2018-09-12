@@ -6,7 +6,7 @@
   <meta>
     <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
   </meta>
-  <extension url="http://nictiz.nl/fhir/StructureDefinition/nl-core-patient-legalstatus">
+  <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-patient-legalstatus">
     <valueCodeableConcept>
       <coding>
         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.2.14.3.2"/>
@@ -151,50 +151,6 @@
       <country value="Nederland"/>
     </address>
   </contact>
-  <communication>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-LanguageProficiency-Control">
-      <extension url="LanguageProficiency-Control">
-        <extension url="LanguageControlListening">
-          <valueCodeableConcept>
-            <coding>
-              <system value="urn:oid:2.16.840.1.113883.5.61"/>
-              <code value="G"/>
-              <display value="Goed"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
-      </extension>
-      <extension url="LanguageControlSpeaking">
-        <valueCodeableConcept>
-          <coding>
-            <system value="urn:oid:2.16.840.1.113883.5.61"/>
-            <code value="F"/>
-            <display value="Redelijk"/>
-          </coding>
-        </valueCodeableConcept>
-      </extension>
-      <extension url="LanguageControlReading">
-        <valueCodeableConcept>
-          <coding>
-            <system value="urn:oid:2.16.840.1.113883.5.61"/>
-            <code value="G"/>
-            <display value="Goed"/>
-          </coding>
-        </valueCodeableConcept>
-      </extension>
-    </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-LanguageProficiency-Comment">
-      <valueString value="Bij gesprek met arts zoon uitnodigen voor vertalen"/>
-    </extension>
-    <language>
-        <coding>
-          <system value="urn:ietf:bcp:47"/>
-          <code value="nl-NL"/>
-          <display value="Dutch (Netherlands)"/>
-        </coding>
-    </language>
-    <preferred value="true"/>
-  </communication>
   <generalPractitioner>
     <reference value="Practioner/medmij-bgz-healthcareprovider-ts-02"/>
     <display value="Vaste Huisarts 1"/>

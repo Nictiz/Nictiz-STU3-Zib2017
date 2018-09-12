@@ -143,38 +143,51 @@
     </address>
   </contact>
   <communication>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-LanguageProficiency-Control">
-      <extension url="LanguageProficiency-Control">
-        <extension url="LanguageControlListening">
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/patient-proficiency">
+      <extension url="languageProficiency">
+        <extension url="level">
           <valueCodeableConcept>
             <coding>
-              <system value="urn:oid:2.16.840.1.113883.5.61"/>
-              <code value="G"/>
-              <display value="Goed"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityProficiency"/>
+              <code value="p"/>
+              <display value="Poor"/>
             </coding>
           </valueCodeableConcept>
         </extension>
       </extension>
-      <extension url="LanguageControlSpeaking">
+      <extension url="type">
         <valueCodeableConcept>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.5.61"/>
-            <code value="F"/>
-            <display value="Redelijk"/>
-          </coding>
-        </valueCodeableConcept>
-      </extension>
-      <extension url="LanguageControlReading">
-        <valueCodeableConcept>
-          <coding>
-            <system value="urn:oid:2.16.840.1.113883.5.61"/>
-            <code value="G"/>
-            <display value="Goed"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityMode"/>
+            <code value="ESGN"/>
+            <display value="Expressed signed"/>
           </coding>
         </valueCodeableConcept>
       </extension>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-LanguageProficiency-Comment">
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/patient-proficiency">
+      <extension url="languageProficiency">
+        <extension url="level">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityProficiency"/>
+              <code value="p"/>
+              <display value="Poor"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+      </extension>
+      <extension url="type">
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityMode"/>
+            <code value="ESP"/>
+            <display value="Expressed spoken"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
       <valueString value="Bij gesprek met arts zoon uitnodigen voor vertalen"/>
     </extension>
     <language>

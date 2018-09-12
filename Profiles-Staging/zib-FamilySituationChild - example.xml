@@ -7,16 +7,6 @@
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild"/>
     </meta>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
-        <valueReference>
-            <reference value="RelatedPerson/example-parent-1"/>
-        </valueReference>
-    </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
-        <valueReference>
-            <reference value="RelatedPerson/example-parent-2"/>
-        </valueReference>
-    </extension>
     <status value="final"/>
     <code>
         <coding>
@@ -61,6 +51,36 @@
         <valueQuantity>
             <value value="2" />
         </valueQuantity>
+    </component>
+    <component>
+        <!-- parent #1 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+            <valueReference>
+                <reference value="RelatedPerson/example-parent-1"/>
+            </valueReference>
+        </extension>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="40683002"/>
+                <display value="Parent (person)"/>
+            </coding>
+        </code>
+    </component>
+    <component>
+        <!-- parent #2 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+            <valueReference>
+                <reference value="RelatedPerson/example-parent-2"/>
+            </valueReference>
+        </extension>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="40683002"/>
+                <display value="Parent (person)"/>
+            </coding>
+        </code>
     </component>
     <component>
         <!-- child #1 -->
