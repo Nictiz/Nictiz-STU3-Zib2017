@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="zib-generalmeasurement-example" />
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement"/>
+    </meta>
+    <status value="final"/>
+    <!-- MeasurementName -->
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="11021000146103"/>
+            <display value="Score list delirium (record artifact)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/example"/>
+    </subject>
+    <!-- ResultDateTime -->
+    <effectiveDateTime value="2018-09-10"/>
+    <!-- ResultValue -->
+    <valueQuantity>
+        <value value="7"/>
+    </valueQuantity>
+    <!-- Comment -->
+    <comment value="Waarschijnlijk delier"/>   
+    <!-- MeasuringMethod -->
+    <method>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="1234"/>
+        </coding>
+    </method>
+</Observation>

@@ -103,7 +103,7 @@
       <alias value="Voorschrijver" />
       <type>
         <code value="Extension" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/zib-MedicationUse-Prescriber" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Prescriber" />
       </type>
       <mapping>
         <identity value="hcim-medicationuse2-v1.0-2017EN" />
@@ -162,8 +162,18 @@
       <path value="MedicationStatement.extension.valueBoolean" />
       <sliceName value="valueBoolean" />
     </element>
-    <element id="MedicationStatement.extension:repeatPeriodCyclicalSchedule">
-      <path value="MedicationStatement.extension" />
+    <element id="MedicationStatement.modifierExtension">
+      <path value="MedicationStatement.modifierExtension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationStatement.modifierExtension:repeatPeriodCyclicalSchedule">
+      <path value="MedicationStatement.modifierExtension" />
       <sliceName value="repeatPeriodCyclicalSchedule" />
       <label value="HerhaalperiodeCyclischSchema" />
       <short value="RepeatPeriodCyclicalSchedule" />
@@ -177,10 +187,6 @@
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />
         <map value="NL-CM:9.12.22505" />
       </mapping>
-    </element>
-    <element id="MedicationStatement.extension:repeatPeriodCyclicalSchedule.valueDuration:valueDuration">
-      <path value="MedicationStatement.extension.valueDuration" />
-      <sliceName value="valueDuration" />
     </element>
     <element id="MedicationStatement.identifier">
       <path value="MedicationStatement.identifier" />
@@ -223,7 +229,7 @@
     </element>
     <element id="MedicationStatement.category.coding:MedicationUseCode">
       <path value="MedicationStatement.category.coding" />
-      <sliceName value="MedicationUseCode" />
+      <sliceName value="medicationUseCode" />
       <short value="MedicationUseCode" />
       <definition value="Category code used for indexing/retrieval of the ZIB MedicationUse. The system and code are stated in the Medication Process v09." />
     </element>
@@ -486,16 +492,6 @@
         <identity value="hcim-medicationuse2-v1.0-2017EN" />
         <map value="NL-CM:9.11.22504" />
       </mapping>
-    </element>
-    <element id="MedicationStatement.dosage.dose[x]">
-      <path value="MedicationStatement.dosage.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
   </differential>
 </StructureDefinition>

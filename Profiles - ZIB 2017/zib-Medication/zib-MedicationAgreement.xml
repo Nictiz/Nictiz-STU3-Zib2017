@@ -183,34 +183,12 @@
       <path value="MedicationRequest.extension.valueBoolean" />
       <sliceName value="valueBoolean" />
     </element>
-    <element id="MedicationRequest.extension:repeatPeriodCyclicalSchedule">
-      <path value="MedicationRequest.extension" />
-      <sliceName value="repeatPeriodCyclicalSchedule" />
-      <label value="HerhaalperiodeCyclischSchema" />
-      <short value="RepeatPeriodCyclicalSchedule" />
-      <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days.&#xD;&#xA;RepeatPeriodCyclicalSchedule" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-RepeatPeriodCyclicalSchedule" />
-      </type>
-      <mapping>
-        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
-        <map value="NL-CM:9.12.22505" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.extension:repeatPeriodCyclicalSchedule.valueDuration:valueDuration">
-      <path value="MedicationRequest.extension.valueDuration" />
-      <sliceName value="valueDuration" />
-    </element>
     <element id="MedicationRequest.extension:basedOnAgreementOrUse">
       <path value="MedicationRequest.extension" />
       <sliceName value="basedOnAgreementOrUse" />
       <short value="Based On Agreement Or Use" />
       <definition value="Reference to a medication agreement that has been aborted or canceled. &#xD;&#xA;Or&#xD;&#xA;In case a medication agreement isn't available, a reference to an administration agreement or medication use on which the medication agreement is based." />
       <alias value="Relatie naar afspraak of gebruik" />
-      <min value="0" />
-      <max value="*" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse" />
@@ -249,6 +227,22 @@
       <binding>
         <strength value="required" />
       </binding>
+    </element>
+    <element id="MedicationRequest.modifierExtension:repeatPeriodCyclicalSchedule">
+      <path value="MedicationRequest.modifierExtension" />
+      <sliceName value="repeatPeriodCyclicalSchedule" />
+      <label value="HerhaalperiodeCyclischSchema" />
+      <short value="RepeatPeriodCyclicalSchedule" />
+      <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days.&#xD;&#xA;RepeatPeriodCyclicalSchedule" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-RepeatPeriodCyclicalSchedule" />
+      </type>
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.22505" />
+      </mapping>
     </element>
     <element id="MedicationRequest.identifier">
       <path value="MedicationRequest.identifier" />
@@ -295,7 +289,7 @@
     </element>
     <element id="MedicationRequest.category.coding:MedicationAgreementCode">
       <path value="MedicationRequest.category.coding" />
-      <sliceName value="MedicationAgreementCode" />
+      <sliceName value="medicationAgreementCode" />
       <short value="MedicationAgreementCode" />
       <definition value="Category code used for indexing/retrieval of the ZIB MedicationAgreeement. The snomed code is stated in the Medication Process v09." />
     </element>
@@ -426,6 +420,11 @@
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-RequesterRole" />
       </type>
+      <mapping>
+        <identity value="hcim-medicationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.6.1030" />
+        <comment value="Use this element to define the requester's specialty" />
+      </mapping>
     </element>
     <element id="MedicationRequest.requester.agent">
       <path value="MedicationRequest.requester.agent" />

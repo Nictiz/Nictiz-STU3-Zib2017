@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="zib-familysituation-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation"/>
+    </meta>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="365470003"/>
+            <display value="Finding of family details and household composition (finding)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/example"/>
+    </subject>
+    <effectiveDateTime value="2018-08-10"/>
+    <comment value="Beide inwonende kinderen zijn zeer zelfstandig."/>
+    <component>
+        <!-- familyComposition -->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="224130005"/>
+                <display value="Household composition (observable entity)"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="160756002"/>
+                <display value="Lives with relatives"/>
+            </coding>
+            <text value="Woont samen met familie"/>
+        </valueCodeableConcept>
+    </component> 
+    <component>
+        <!-- numberOfChildren -->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="224118004"/>
+                <display value="Number of offspring"/>
+            </coding>
+        </code>
+        <valueQuantity >
+            <value value="3"/>
+        </valueQuantity>
+    </component>
+    <component>
+        <!-- numberOfChildrenLivingAtHome -->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="55811000146107"/>
+                <display value="Number of children living at home (observable entity)"/>
+            </coding>
+        </code>
+        <valueQuantity >
+            <value value="2"/>
+        </valueQuantity>          
+    </component>
+    <component>
+        <!-- careResponsibility -->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="406192005"/>
+                <display value="Caregiver behavior (observable entity)"/>
+            </coding>
+        </code>
+        <valueString value="Heeft zorg voor vader die in huis woont. "/>
+    </component>
+    <component>
+        <!-- child #1 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LinvingAtHomeIndicator">
+            <valueBoolean value="true"/>
+        </extension>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="67822003"/>
+                <display value="Child"/>
+            </coding>
+        </code>
+        <valueDateTime value="2009-08-02"/>
+    </component>
+    <component>
+        <!-- child #2 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LinvingAtHomeIndicator">
+            <valueBoolean value="true"/>
+        </extension>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="67822003"/>
+                <display value="Child"/>
+            </coding>
+        </code>
+        <valueDateTime value="2011-04-02"/>
+    </component>
+    <component>
+        <!-- child #3 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LinvingAtHomeIndicator">
+            <valueBoolean value="false"/>
+        </extension>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="67822003"/>
+                <display value="Child"/>
+            </coding>
+        </code>
+        <valueDateTime value="2006-04-02"/>
+    </component>
+</Observation>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-FreedomrestrictingMeasures-Permission" />
+  <url value="http://example.org/fhir/StructureDefinition/zib-FreedomrestrictingMeasures-Permission" />
+  <version value="1.0" />
+  <name value="zib FreedomRestrictingMeasures-Permission" />
+  <title value="HCIM FreedomrestrictingMeasures" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This extension adds one concept from FreedomRestrictingMeasures as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, namely Permission, to the Procedure resource. The extention holds information wether permission is given to the health professional(s) by the patient or legal representative to implement medical restraints." />
+  <purpose value="Implementing medical restraints is risky and can result in damage to the patient if they are not carefully implemented. Nurses fulfil an important role in identifying risks, observing the effect of the restraints and any changes to the policy in terms of medical restraints. Recording all information on the measures is of major importance for insight into decision-making, implementing, monitoring and evaluating the measures. In the event of a transfer to the next facility, the proper preparations can be taken to safely continue the care and to limit the risks to the patient and their environment." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/FreedomRestrictingMeasures-v3.1(2017EN)" />
+    <name value="HCIM FreedomRestrictingMeasures-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Procedure" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Permission" />
+      <definition value="The permission given to the health professional(s) by the patient or legal representative to implement medical restraints." />
+      <alias value="Toestemming" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://example.org/fhir/StructureDefinition/zib-FreedomrestrictingMeasures-Permission" />
+    </element>
+    <element id="Extension.value[x]:valueCodeableConcept">
+      <path value="Extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Permission" />
+      <definition value="The legal situation that applies to the patient during the intervention. The code of the legal status is based on the Vektis/AZR code list COD232-VEKT Legal Status." />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -6,7 +6,7 @@
     <lastUpdated value="2018-02-26T11:47:38.968+01:00" />
   </meta>
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-  <version value="2.0" />
+  <version value="2.1" />
   <name value="nl core patient" />
   <title value="nl-core-patient" />
   <status value="draft" />
@@ -19,7 +19,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A Patient resource as defined by the Dutch Health and Care Information models or HCIM (Dutch: Zorginformatiebouwsteen or ZIB) Patient, with additions from the HCIMs Nationality, MaritalStatus, ContactPerson, HealthProfessional and HealthcareProvider (HCIM releases 2015, 2016 and 2017)" />
+  <description value="A Patient resource as defined by the Dutch Health and Care Information models or HCIM (Dutch: Zorginformatiebouwsteen or ZIB) Patient, with additions from the HCIMs Nationality, MaritalStatus, ContactPerson, LanguageProficiency, HealthProfessional and HealthcareProvider (HCIM releases 2015, 2016 and 2017)" />
   <purpose value="Patient. Tracking a patient is the center of the healthcare process. Names and addresses are also in compliance with HL7 V3 Basic Components." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -134,6 +134,17 @@
     <name value="HCIM ContactInformation-v1.0(2017EN)" />
     <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
   </mapping>
+  <mapping>
+    <identity value="hcim-languageproficiency-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/LanguageProficiency-v3.1(2017EN)" />
+    <name value="HCIM LanguageProficiency-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/FreedomRestrictingMeasures-v3.1(2017EN)" />
+    <name value="HCIM FreedomRestrictingMeasures-v3.1(2017EN)" />
+    <comment value="Concerns only LegalStatus concept. This will become an independent information model as of release 2018 of the HCIMs." />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Patient" />
@@ -208,6 +219,39 @@
         <identity value="hcim-nationality-v3.0-2017EN" />
         <map value="NL-CM:7.6.3" />
       </mapping>
+    </element>
+    <element id="Patient.extension:legalStatus">
+      <path value="Patient.extension" />
+      <sliceName value="legalStatus" />
+      <comment value="The concept LegalStatus of the HCIM FreedomRestrictingMeasures plays an importand role in the context of mental healthcare (GGZ). This concept will become an independent HCIM with the next release of HCIM (2018 release).  &#xD;&#xA;&#xD;&#xA;The LegalStatus concept and associated valueset will be split in two: legalstatus and guardianship. These concept are currently captured in one valueset. It is possible to have a legalstatus AND a representative. Therefore, we allow this extension to have a cardinality of 0..2." />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-patient-legalstatus" />
+      </type>
+      <mapping>
+        <identity value="hcim-freedomrestrictingmeasures-v3.1-2017EN" />
+        <map value="NL-CM:14.3.2" />
+      </mapping>
+    </element>
+    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept">
+      <path value="Patient.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <min value="1" />
+      <binding>
+        <strength value="extensible" />
+      </binding>
+    </element>
+    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding">
+      <path value="Patient.extension.valueCodeableConcept.coding" />
+      <min value="1" />
+    </element>
+    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.system">
+      <path value="Patient.extension.valueCodeableConcept.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.code">
+      <path value="Patient.extension.valueCodeableConcept.coding.code" />
+      <min value="1" />
     </element>
     <element id="Patient.identifier">
       <path value="Patient.identifier" />
@@ -730,6 +774,96 @@
       <mapping>
         <identity value="hcim-contactperson-v3.1-2017EN" />
         <map value="NL-CM:3.1.5" />
+      </mapping>
+    </element>
+    <element id="Patient.communication">
+      <path value="Patient.communication" />
+      <alias value="Taalvaardigheid" />
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.1" />
+      </mapping>
+    </element>
+    <element id="Patient.communication.extension">
+      <path value="Patient.communication.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Patient.communication.extension:languageProficiency">
+      <path value="Patient.communication.extension" />
+      <sliceName value="languageProficiency" />
+      <comment value="A mocked offical HL7 core extension from the R4 FHIR specification is used as extension. This extension is used to capture the three ZIB concepts: LanguageControlListening, LanguageControlSpeaking, LanguageControlReading." />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/patient-proficiency" />
+      </type>
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.6" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.7" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.8" />
+      </mapping>
+    </element>
+    <element id="Patient.communication.extension:languageProficiency.extension:level">
+      <path value="Patient.communication.extension.extension" />
+      <sliceName value="level" />
+    </element>
+    <element id="Patient.communication.extension:languageProficiency.extension:level.valueCoding:valueCoding">
+      <path value="Patient.communication.extension.extension.valueCoding" />
+      <sliceName value="valueCoding" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProficiencyLevel" />
+        </extension>
+        <strength value="extensible" />
+      </binding>
+    </element>
+    <element id="Patient.communication.extension:languageProficiency.extension:type">
+      <path value="Patient.communication.extension.extension" />
+      <sliceName value="type" />
+    </element>
+    <element id="Patient.communication.extension:languageProficiency.extension:type.valueCoding:valueCoding">
+      <path value="Patient.communication.extension.extension.valueCoding" />
+      <sliceName value="valueCoding" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="proficiencyType" />
+        </extension>
+        <strength value="extensible" />
+      </binding>
+    </element>
+    <element id="Patient.communication.extension:comment">
+      <path value="Patient.communication.extension" />
+      <sliceName value="comment" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/Comment" />
+      </type>
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.5" />
+      </mapping>
+    </element>
+    <element id="Patient.communication.language">
+      <path value="Patient.communication.language" />
+      <short value="CommunicationLanguage" />
+      <definition value="The language of communication. &#xD;&#xA;&#xD;&#xA;The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-EN&quot; for England English." />
+      <comment value="The FHIR valueset http://hl7.org/fhir/valueset-languages.html is used instead of the ZIB valueset  CommunicationLanguageCodelist. The FHIR valueset uses the codesystem urn:ietf:bcp:47 which includes the ISO-639-2 alpha codesystem used by the ZIB valueset." />
+      <alias value="CommunicatieTaal" />
+      <mapping>
+        <identity value="hcim-languageproficiency-v3.1-2017EN" />
+        <map value="NL-CM:7.12.3" />
       </mapping>
     </element>
     <element id="Patient.generalPractitioner">

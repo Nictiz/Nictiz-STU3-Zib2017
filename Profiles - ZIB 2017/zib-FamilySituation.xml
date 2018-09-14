@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-FamilySituation" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation" />
+  <version value="1.0" />
+  <name value="Zib FamilySituation" />
+  <title value="HCIM FamilySituation" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="FamilySituation defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.0, release 2017.&#xD;&#xA;&#xD;&#xA;Traditionally, a family is defined as a group of people of one or more adults who carry responsibility for caring for and raising one or more children.     Currently, the term is used more broadly for all forms of cohabitation which form a recognizable social unit, of people who are or who are not related and who have long-lasting, affective bonds and provide each other with support and care." />
+  <purpose value="Information on the patient’s family situation is important in determining the extent to which the patient receives and can receive care and support. For example, the age of the patient’s children partially determines whether they can play a role in caregiving.     It is also important to know whether the patient needs support for daycare and/or care for dependent family members.     Situations in which this information is important include for example being discharged from the hospital or nursing home." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-familysituation-v3.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/FamilySituation-v3.0(2017EN)" />
+    <name value="HCIM FamilySituation-v3.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="FamilySituation" />
+      <definition value="Root concept of the FamilySituation information model. This concept contains all data elements of the FamilySituation information model." />
+      <alias value="Gezinssituatie" />
+      <mapping>
+        <identity value="hcim-familysituation-v3.0-2017EN" />
+        <map value="NL-CM:7.13.1" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:FamilySituationCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="familySituationCode" />
+      <short value="FamilySituationCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:FamilySituationCode.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:FamilySituationCode.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="365470003" />
+    </element>
+    <element id="Observation.code.coding:FamilySituationCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <fixedString value="Finding of family details and household composition (finding)" />
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
+      </type>
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="A comment on the family situation." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-familysituation-v3.0-2017EN" />
+        <map value="NL-CM:7.13.6" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:familyComposition">
+      <path value="Observation.component" />
+      <sliceName value="familyComposition" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:familyComposition.code.coding">
+      <path value="Observation.component.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.component:familyComposition.code.coding:FamilyCompositionCode">
+      <path value="Observation.component.code.coding" />
+      <sliceName value="familyCompositionCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:familyComposition.code.coding:FamilyCompositionCode.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:familyComposition.code.coding:FamilyCompositionCode.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="224130005" />
+    </element>
+    <element id="Observation.component:familyComposition.code.coding:FamilyCompositionCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Household composition (observable entity)" />
+    </element>
+    <element id="Observation.component:familyComposition.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="FamilyComposition" />
+      <definition value="The family composition describes the patient’s home situation and the form of cohabitation. Care for family members who depend on the patient is described in the Care Responsibility concept.&#xD;&#xA;Family members who can provide the patient with care as a caregiver are entered as a caregiver in the HelpFromOthers information model. Because of KOPP policy (Kinderen van Ouders met Psychiatrische Problemen, or Children of Parents with Psychiatric Problems) mental healthcare facilities require a record stating whether there are children in the family. This means that in a mental healthcare situation, the number of children (living at home) must be recorded, with information per individual child or as a total number." />
+      <alias value="Gezinssamenstelling" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of FamilyComposition" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="408821002" />
+            <display value="Lives with partner" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="The family composition describes the patient’s home situation and the form of cohabitation. A family can consist of one or more people. " />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.13.1--20171231000000" />
+          <display value="FamilyCompositionCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-familysituation-v3.0-2017EN" />
+        <map value="NL-CM:7.13.8" />
+      </mapping>
+    </element>
+    <element id="Observation.component:numberOfChildren">
+      <path value="Observation.component" />
+      <sliceName value="numberOfChildren" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:numberOfChildren.code.coding">
+      <path value="Observation.component.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.component:numberOfChildren.code.coding:NumberOfChildrenCode">
+      <path value="Observation.component.code.coding" />
+      <sliceName value="numberOfChildrenCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:numberOfChildren.code.coding:NumberOfChildrenCode.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:numberOfChildren.code.coding:NumberOfChildrenCode.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="224118004" />
+    </element>
+    <element id="Observation.component:numberOfChildren.code.coding:NumberOfChildrenCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Number of offspring (observable entity)" />
+    </element>
+    <element id="Observation.component:numberOfChildren.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Number of offspring" />
+      <definition value="The number of children the patient has. Children in the context of this information model include step children, foster children, biological and adopted children." />
+      <alias value="AantalKinderen" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="hcim-familysituation-v3.0-2017EN" />
+        <map value="NL-CM:7.13.2" />
+      </mapping>
+    </element>
+    <element id="Observation.component:numberOfChildrenLivingAtHome">
+      <path value="Observation.component" />
+      <sliceName value="numberOfChildrenLivingAtHome" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding">
+      <path value="Observation.component.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:NumberOfChildrenLivingAtHomeCode">
+      <path value="Observation.component.code.coding" />
+      <sliceName value="numberOfChildrenLivingAtHomeCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:NumberOfChildrenLivingAtHomeCode.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:NumberOfChildrenLivingAtHomeCode.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="55811000146107" />
+    </element>
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:NumberOfChildrenLivingAtHomeCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Number of children living at home (observable entity)" />
+    </element>
+    <element id="Observation.component:numberOfChildrenLivingAtHome.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="NumberOfChildrenLivingAtHome" />
+      <definition value="The number of children living at home with the patient." />
+      <alias value="AantalKinderenInwonend" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="hcim-familysituation-v3.0-2017EN" />
+        <map value="NL-CM:7.13.9" />
+      </mapping>
+    </element>
+    <element id="Observation.component:careResponsibility">
+      <path value="Observation.component" />
+      <sliceName value="careResponsibility" />
+    </element>
+    <element id="Observation.component:careResponsibility.code.coding">
+      <path value="Observation.component.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.component:careResponsibility.code.coding:CareResponsibilityCode">
+      <path value="Observation.component.code.coding" />
+      <sliceName value="careResponsibilityCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:careResponsibility.code.coding:CareResponsibilityCode.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:careResponsibility.code.coding:CareResponsibilityCode.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="406192005" />
+    </element>
+    <element id="Observation.component:careResponsibility.code.coding:CareResponsibilityCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Caregiver behavior (observable entity)" />
+    </element>
+    <element id="Observation.component:careResponsibility.value[x]:valueString">
+      <path value="Observation.component.valueString" />
+      <sliceName value="valueString" />
+      <short value="CareResponsibility" />
+      <definition value="The activities the patient carries out to care for a dependent family member." />
+      <alias value="Zorgtaak" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="hcim-familysituation-v3.0-2017EN" />
+        <map value="NL-CM:7.13.10" />
+      </mapping>
+    </element>
+    <element id="Observation.component:child">
+      <path value="Observation.component" />
+      <sliceName value="child" />
+      <definition value="Child container that provides information on the age and livingsituation of each child of the patient." />
+      <mapping>
+        <identity value="hcim-familysituation-v3.0-2017EN" />
+        <map value="NL-CM:7.13.3" />
+      </mapping>
+    </element>
+    <element id="Observation.component:child.extension">
+      <path value="Observation.component.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:child.extension:livingAtHome">
+      <path value="Observation.component.extension" />
+      <sliceName value="livingAtHome" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LinvingAtHomeIndicator" />
+      </type>
+      <mapping>
+        <identity value="hcim-familysituation-v3.0-2017EN" />
+        <map value="NL-CM:7.13.5" />
+      </mapping>
+    </element>
+    <element id="Observation.component:child.code.coding">
+      <path value="Observation.component.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.component:child.code.coding:ChildCode">
+      <path value="Observation.component.code.coding" />
+      <sliceName value="childCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:child.code.coding:ChildCode.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:child.code.coding:ChildCode.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="67822003" />
+    </element>
+    <element id="Observation.component:child.code.coding:ChildCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Child (person)" />
+    </element>
+    <element id="Observation.component:child.value[x]:valueDateTime">
+      <path value="Observation.component.valueDateTime" />
+      <sliceName value="valueDateTime" />
+      <short value="DateOfBirth" />
+      <definition value="The child’s date of birth." />
+      <alias value="Geboortedatum" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="hcim-familysituation-v3.0-2017EN" />
+        <map value="NL-CM:7.13.4" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
