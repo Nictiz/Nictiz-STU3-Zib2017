@@ -135,48 +135,49 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="system" />
+          <path value="code" />
         </discriminator>
         <rules value="open" />
       </slicing>
       <min value="1" />
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:argusPermissionCode">
+    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:ArgusPermissionCode">
       <path value="Procedure.extension.valueCodeableConcept.coding" />
-      <sliceName value="argusPermissionCode" />
+      <sliceName value="ArgusPermissionCode" />
+      <max value="1" />
       <binding>
         <strength value="extensible" />
-        <description value="ArgusPermissionCodelist" />
+        <description value="ArgusInstemmingCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.5--20171231000000" />
         </valueSetReference>
       </binding>
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:argusPermissionCode.system">
+    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:ArgusPermissionCode.system">
       <path value="Procedure.extension.valueCodeableConcept.coding.system" />
       <min value="1" />
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:argusPermissionCode.code">
+    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:ArgusPermissionCode.code">
       <path value="Procedure.extension.valueCodeableConcept.coding.code" />
       <min value="1" />
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:permissionCode">
+    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:PermissionCode">
       <path value="Procedure.extension.valueCodeableConcept.coding" />
-      <sliceName value="permissionCode" />
+      <sliceName value="PermissionCode" />
+      <max value="1" />
       <binding>
         <strength value="extensible" />
-        <description value="PermissionCodelist" />
+        <description value="ToestemmingCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.1--20171231000000" />
-          <display value="PermissionCodelist" />
         </valueSetReference>
       </binding>
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:permissionCode.system">
+    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:PermissionCode.system">
       <path value="Procedure.extension.valueCodeableConcept.coding.system" />
       <min value="1" />
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:permissionCode.code">
+    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:PermissionCode.code">
       <path value="Procedure.extension.valueCodeableConcept.coding.code" />
       <min value="1" />
     </element>
