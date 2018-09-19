@@ -50,13 +50,15 @@
             <path value="Encounter"/>
             <short value="Encounter"/>
             <alias value="Contact"/>
-            <constraint>
+            <!-- This constraint is too strict. There are more ways to express the ReasonContact[Probleem | Procedure DeviatingResult] than just reason or diagnosis.
+                Secondly: the HCIM is too strict because primary care consultation may, but do not necessarily work that way. -->
+            <!--<constraint>
                 <key value="hcim-contact-1"/>
                 <severity value="warning"/>
                 <human value="There is either a textual representation of the encounter reason or reference to a condition or procedure that indicated the encounter"/>
                 <expression value="reason.text.empty().not() or diagnosis.condition.empty().not()"/>
                 <xpath value="not(exists(f:reason.text)) or not(exists(f:diagnosis.condition))"/>
-            </constraint>
+            </constraint>-->
             <mapping>
                 <identity value="hcim-encounter-v1.2-2015EN"/>
                 <map value="NL-CM:15.1.1"/>
