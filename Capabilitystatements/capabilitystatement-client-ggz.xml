@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CapabilityStatement>
-    <url value="http://nictiz.nl/fhir/CapabilityStatement/GGZ-clientcapabilities" />
+<?xml-model href="http://hl7.org/fhir/STU3/capabilitystatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
+    <url value="http://nictiz.nl/fhir/CapabilityStatement/ggz-clientcapabilities" />
     <version value="1.0" />
     <name value="GGZClient" />
     <status value="active" />
@@ -14,9 +15,7 @@
             <use value="work" />
         </telecom>
     </contact>
-    <!-- *** -->
-    <description value="This CapabilityStatement describes the minimal requirements for a client to retrieve the "Basisgegevens GGZ" based the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB), release 2017." />
-    <!-- *** -->
+    <description value="This CapabilityStatement describes the minimal requirements for a client to retrieve the 'Basisgegevens GGZ' based the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB), release 2017." />
     <copyright value="CC0" />
     <kind value="requirements" />
     <fhirVersion value="3.0.1" />
@@ -27,13 +26,25 @@
         <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
     </profile>
     <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-careteam" />
+    </profile>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+    </profile>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+    </profile>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+    </profile>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+    </profile>    
+    <profile>
         <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation" />
     </profile>
     <profile>
         <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild" />
-    </profile>
-    <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-MaritalStatus" />
     </profile>
     <profile>
         <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-ParticipationInSociety" />
@@ -48,19 +59,79 @@
         <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures" />
     </profile> 
     <profile>
-        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-careteam" />
-    </profile
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer" />
+    </profile> 
     <profile>
-        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-    </profile
-
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective" />
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FunctionalOrMentalStatus" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-LivingSituation" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-DrugUse" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-AlcoholUse" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-TobaccoUse" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-DispenseRequest" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure" />
+    </profile> 
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult" />
+    </profile> 
     <rest>
         <mode value="client" />
+        <resource>
+            <type value="Patient"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchInclude value="general-practitioner"/>
+            <searchParam>
+                <name value="identifier"/>
+                <type value="token"/>
+            </searchParam>
+        </resource>
         <resource>
             <type value="Observation" />
             <interaction>
                 <code value="search-type" />
             </interaction>
+            <searchInclude value="related-target"/>
+            <searchInclude value="specimen"/>
             <searchParam>
                 <name value="patient" />
                 <type value="reference" />
@@ -73,58 +144,44 @@
                 <name value="code" />
                 <type value="token" />
             </searchParam>
+        </resource>
+        <resource>
+            <type value="DiagnosticReport" />
+            <interaction>
+                <code value="search-type" />
+            </interaction>
             <searchParam>
-                <name value="component-code" />
-                <type value="token" />
+                <name value="patient" />
+                <type value="reference" />
             </searchParam>
             <searchParam>
-                <name value="component-value-concept" />
-                <type value="token" />
-            </searchParam>
-            <searchParam>
-                <name value="component-value-quantity" />
-                <type value="token" />
-            </searchParam>
-            <searchParam>
-                <name value="code-value-string" />
-                <type value="token" />
-            </searchParam>
-            <searchParam>
-                <name value="code-value-date" />
-                <type value="token" />
-            </searchParam>
-            <searchParam>
-                <name value="Observation:performer:Practitioner,Patient,Organization,RelatedPerson" />
-                <type value="token" />
-            </searchParam>
-            <!-- *** familySituationChild / parentCarer -->
-            <searchParam>
-                <name value="Observation:parentCarer:RelatedPerson" /> <!-- *** nl-core-relatedperson -->
-                <type value="token" />
-            </searchParam>
-            <!-- *** familySituationChild / sibling -->
-            <searchParam>
-                <name value="Observation:sibling:RelatedPerson" /> <!-- *** nl-core-relatedperson -->
+                <name value="code" />
                 <type value="token" />
             </searchParam>
         </resource>
         <resource>
-            <type value="Patient" />
+            <type value="Coverage"/>
             <interaction>
-                <code value="search-type" />
+                <code value="search-type"/>
             </interaction>
+            <searchInclude value="payor"/>
             <searchParam>
-                <name value="legalStatus" />
-                <type value="token" />
+                <name value="subscriber"/>
+                <type value="reference"/>
             </searchParam>
-            <type value="Patient" />
+        </resource>
+        <resource>
+            <type value="Consent"/>
             <interaction>
-                <code value="search-type" />
+                <code value="search-type"/>
             </interaction>
-            <searchInclude value="Patient:communication" />
             <searchParam>
-                <name value="languageProficiency" />
-                <type value="token" />
+                <name value="patient"/>
+                <type value="reference"/>
+            </searchParam>
+            <searchParam>
+                <name value="category"/>
+                <type value="token"/>
             </searchParam>
         </resource>
         <resource>
@@ -138,10 +195,6 @@
             </searchParam>
             <searchParam>
                 <name value="category" />
-                <type value="token" />
-            </searchParam>
-            <searchParam>
-                <name value="code" />
                 <type value="token" />
             </searchParam>
         </resource>
@@ -164,22 +217,78 @@
             <interaction>
                 <code value="search-type" />
             </interaction>
-            <searchInclude value="CareTeam:member:Practitioner,RelatedPerson,Organization,Patient,CareTeam" />
+            <searchInclude value="participant" />
             <searchParam>
                 <name value="patient" />
                 <type value="reference" />
             </searchParam>
+        </resource>
+        <resource>
+            <type value="MedicationStatement"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchInclude value="medication"/>
             <searchParam>
-                <name value="context" />
-                <type value="reference" />
+                <name value="status"/>
+                <type value="token"/>
             </searchParam>
             <searchParam>
-                <name value="participant" />
-                <type value="reference" />
+                <name value="category"/>
+                <type value="token"/>
+            </searchParam>
+        </resource>
+        <resource>
+            <type value="MedicationRequest"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchInclude value="medication"/>
+            <searchParam>
+                <name value="patient"/>
+                <type value="reference"/>
             </searchParam>
             <searchParam>
-                <name value="member" />
-                <type value="reference" />
+                <name value="status"/>
+                <type value="token"/>
+            </searchParam>
+            <searchParam>
+                <name value="category"/>
+                <type value="token"/>
+            </searchParam>
+        </resource>
+        <resource>
+            <type value="MedicationDispense"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchInclude value="medication"/>
+            <searchParam>
+                <name value="patient"/>
+                <type value="reference"/>
+            </searchParam>
+            <searchParam>
+                <name value="status"/>
+                <type value="token"/>
+            </searchParam>
+            <searchParam>
+                <name value="category"/>
+                <type value="token"/>
+            </searchParam>
+        </resource>
+        <resource>
+            <type value="MedicationAdministration"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchInclude value="medication"/>
+            <searchParam>
+                <name value="patient"/>
+                <type value="reference"/>
+            </searchParam>
+            <searchParam>
+                <name value="category"/>
+                <type value="token"/>
             </searchParam>
         </resource>
         <operation>
