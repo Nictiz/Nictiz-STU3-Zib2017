@@ -1,0 +1,58 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
+    <id value="78226a67-b28e-43fb-8c78-0758823d06a2"/>
+    <meta>
+        <versionId value="1"/>
+        <lastUpdated value="2018-08-19T12:18:39.6788994+02:00"/>
+    </meta>
+    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Practitioner"/>
+    <version value="2.0"/>
+    <name value="Zib MedicalDevice Practitioner"/>
+    <title value="HCIM MedicalDevice Practitioner"/>
+    <status value="draft"/>
+    <date value="2018-08-19T12:18:39.6788994+02:00"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The healthprofessional involved in the indication for use of the medical device as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) 'MedischHulpmiddel' version 1.0."/>
+    <purpose value="To record who is involved in the indication for use of the medical device. This extension is used because currently there is no reference to a Practitioner resource for this supporting information"/>
+    <copyright value="CC0"/>
+    <fhirVersion value="3.0.1"/>
+    <kind value="primitive-type"/>
+    <abstract value="false"/>
+    <contextType value="resource"/>
+    <context value="DeviceUseStatement"/>
+    <type value="Extension"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Extension">
+            <path value="Extension"/>
+        </element>
+        <element id="Extension.extension">
+            <path value="Extension.extension"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="Extension.url">
+            <path value="Extension.url"/>
+            <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Practitioner"/>
+        </element>
+        <element id="Extension.valueReference">
+            <path value="Extension.valueReference"/>
+            <short value="HealthProfessional"/>
+            <definition value="The healthcare provider involved in the indication for use of the medical device implant."/>
+            <alias value="Zorgverlener"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>
