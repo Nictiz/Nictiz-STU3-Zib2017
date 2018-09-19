@@ -3,14 +3,14 @@
     <id value="zib-Dispense"/>
     <meta>
         <versionId value="7"/>
-        <lastUpdated value="2018-08-19T12:18:39.6788994+02:00"/>
+        <lastUpdated value="2018-09-18T16:39:05.96+00:00"/>
     </meta>
     <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense"/>
-    <version value="2.0.1"/>
+    <version value="2.0.2"/>
     <name value="Zib Dispense"/>
     <title value="HCIM Dispense"/>
     <status value="draft"/>
-    <date value="2018-08-19T12:18:39.6788994+02:00"/>
+    <date value="2018-09-18T16:39:05.96+00:00"/>
     <publisher value="Nictiz"/>
     <contact>
         <name value="Nictiz"/>
@@ -163,18 +163,12 @@
         </element>
         <element id="MedicationDispense.identifier">
             <path value="MedicationDispense.identifier"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="MedicationDispense.identifier:DispenseIdentifier">
-            <path value="MedicationDispense.identifier"/>
-            <sliceName value="DispenseIdentifier"/>
-            <max value="1"/>
+            <short value="DispenseIdentifier"/>
+            <alias value="VerstrekkingIdentificatie"/>
+            <mapping>
+                <identity value="Medication-Process-v09"/>
+                <map value="mp-dataelement900-20271"/>
+            </mapping>
         </element>
         <element id="MedicationDispense.partOf">
             <path value="MedicationDispense.partOf"/>

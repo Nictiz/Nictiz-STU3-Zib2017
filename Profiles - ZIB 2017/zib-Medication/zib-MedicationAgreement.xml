@@ -3,14 +3,14 @@
   <id value="zib-MedicationAgreement" />
   <meta>
     <versionId value="6" />
-    <lastUpdated value="2017-12-14T13:51:40.78+01:00" />
+      <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
-  <version value="2.0" />
+  <version value="2.0.1" />
   <name value="Zib MedicationAgreement" />
   <title value="HCIM MedicationAgreement" />
   <status value="draft" />
-  <date value="2016-12-12T16:41:08.39+00:00" />
+    <date value="2018-09-18T16:39:05.96+00:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -246,18 +246,12 @@
     </element>
     <element id="MedicationRequest.identifier">
       <path value="MedicationRequest.identifier" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="MedicationRequest.identifier:MedicationAgreementIdentifier">
-      <path value="MedicationRequest.identifier" />
-      <sliceName value="MedicationAgreementIdentifier" />
-      <max value="1" />
+        <short value="MedicationAgreementIdentifier"/>
+        <alias value="MedicatieafspraakIdentificatie"/>
+        <mapping>
+            <identity value="Medication-Process-v09"/>
+            <map value="mp-dataelement900-19758"/>
+        </mapping>
     </element>
     <element id="MedicationRequest.status">
       <path value="MedicationRequest.status" />

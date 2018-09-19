@@ -3,14 +3,14 @@
   <id value="zib-AdministrationAgreement" />
   <meta>
     <versionId value="3" />
-    <lastUpdated value="2017-12-06T15:16:05.282+01:00" />
+      <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
-  <version value="2.0" />
+  <version value="2.0.1" />
   <name value="Zib AdministrationAgreement" />
   <title value="HCIM AdministrationAgreement" />
   <status value="draft" />
-  <date value="2016-12-12T16:39:05.96+00:00" />
+  <date value="2018-09-18T16:39:05.96+00:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -266,19 +266,13 @@
       </mapping>
     </element>
     <element id="MedicationDispense.identifier">
-      <path value="MedicationDispense.identifier" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="MedicationDispense.identifier:AdministrationAgreementIdentifier">
-      <path value="MedicationDispense.identifier" />
-      <sliceName value="AdministrationAgreementIdentifier" />
-      <max value="1" />
+       <path value="MedicationDispense.identifier"/>
+       <short value="MedicationAdministrationIdentifier"/>
+       <alias value="ToedieningsafspraakIdentificatie"/>
+       <mapping>
+         <identity value="Medication-Process-v09"/>
+         <map value="mp-dataelement900-20134"/>
+       </mapping>
     </element>
     <element id="MedicationDispense.status">
       <path value="MedicationDispense.status" />

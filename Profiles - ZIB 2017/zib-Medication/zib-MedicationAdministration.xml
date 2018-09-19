@@ -3,14 +3,14 @@
   <id value="zib-MedicationAdministration" />
   <meta>
     <versionId value="4" />
-    <lastUpdated value="2017-12-07T16:33:49.467+01:00" />
+      <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration" />
-  <version value="2.0" />
+  <version value="2.0.1" />
   <name value="Zib MedicationAdministration" />
   <title value="HCIM MedicationAdministration" />
   <status value="draft" />
-  <date value="2016-12-12T16:52:03.83+00:00" />
+    <date value="2018-09-18T16:39:05.96+00:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -189,18 +189,12 @@
     </element>
     <element id="MedicationAdministration.identifier">
       <path value="MedicationAdministration.identifier" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="MedicationAdministration.identifier:MedicationAdministrationIdentifier">
-      <path value="MedicationAdministration.identifier" />
-      <sliceName value="MedicationAdministrationIdentifier" />
-      <max value="1" />
+        <short value="MedicationAdministrationIdentifier"/>
+        <alias value="MedicatietoedieningIdentificatie"/>
+        <mapping>
+            <identity value="Medication-Process-v09"/>
+            <map value="mp-dataelement900-23036"/>
+        </mapping>
     </element>
     <element id="MedicationAdministration.status">
       <path value="MedicationAdministration.status" />
