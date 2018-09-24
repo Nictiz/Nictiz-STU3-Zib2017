@@ -6,7 +6,7 @@
         <lastUpdated value="2018-08-19T12:18:39.6788994+02:00"/>
     </meta>
     <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure"/>
-    <version value="2.0.1"/>
+    <version value="2.0.2"/>
     <name value="Zib Procedure"/>
     <title value="HCIM Procedure"/>
     <status value="draft"/>
@@ -125,13 +125,13 @@
         </element>
         <element id="Procedure.basedOn:requester">
             <path value="Procedure.basedOn"/>
-            <sliceName value="requester"/>
-            <short value="Requester"/>
-            <definition value="The healthcare provider who requested the procedure. The requester information is located ProcedureRequest.requester."/>
-            <alias value="Aanvrager"/>
+            <sliceName value="request"/>
+            <short value="ProcedureRequest"/>
+            <definition value="The ProcedureRequest that contains the details of the request for this procedure, including the requester information located at ProcedureRequest.requester."/>
+            <comment value="The ProcedureRequest resource is used to capture the healthcare provider who requested the procedure as stated in the HCIM Procedure." />
             <type>
                 <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/ProcedureRequest"/>
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-ProcedureRequest"/>
             </type>
             <mapping>
                 <identity value="hcim-procedurefortransfer-v1.2-2015EN"/>
