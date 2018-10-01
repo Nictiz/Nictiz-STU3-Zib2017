@@ -3,14 +3,14 @@
   <id value="zib-MedicationUse" />
   <meta>
     <versionId value="8" />
-      <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
+    <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse" />
-  <version value="2.0.1" />
+  <version value="2.1.1" />
   <name value="Zib MedicationUse" />
   <title value="HCIM MedicationUse" />
   <status value="draft" />
-    <date value="2018-09-18T16:39:05.96+00:00" />
+  <date value="2018-09-18T16:39:05.96+00:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -221,27 +221,25 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="MedicationStatement.category.coding:MedicationUseCode">
+    <element id="MedicationStatement.category.coding:medicationUseCode">
       <path value="MedicationStatement.category.coding" />
       <sliceName value="medicationUseCode" />
       <short value="MedicationUseCode" />
       <definition value="Category code used for indexing/retrieval of the ZIB MedicationUse. The system and code are stated in the Medication Process v09." />
     </element>
-    <element id="MedicationStatement.category.coding:MedicationUseCode.system">
+    <element id="MedicationStatement.category.coding:medicationUseCode.system">
       <path value="MedicationStatement.category.coding.system" />
       <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3" />
     </element>
-    <element id="MedicationStatement.category.coding:MedicationUseCode.code">
+    <element id="MedicationStatement.category.coding:medicationUseCode.code">
       <path value="MedicationStatement.category.coding.code" />
       <fixedCode value="6" />
     </element>
-    <element id="MedicationStatement.medication[x]">
-      <path value="MedicationStatement.medication[x]" />
+    <element id="MedicationStatement.medication[x]:medicationReference">
+      <path value="MedicationStatement.medicationReference" />
+      <sliceName value="medicationReference" />
       <short value="ProductUsed" />
       <alias value="Gebruiksproduct" />
-      <type>
-        <code value="CodeableConcept" />
-      </type>
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product" />
@@ -406,7 +404,7 @@
       </type>
       <mapping>
         <identity value="Medication-Process-v09" />
-        <map value=" mp-dataelement900-22404" />
+        <map value="mp-dataelement900-22404" />
       </mapping>
     </element>
     <element id="MedicationStatement.taken">

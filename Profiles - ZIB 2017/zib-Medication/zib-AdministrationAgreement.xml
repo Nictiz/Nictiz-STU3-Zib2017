@@ -3,10 +3,10 @@
   <id value="zib-AdministrationAgreement" />
   <meta>
     <versionId value="3" />
-      <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
+    <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
-  <version value="2.0.1" />
+  <version value="2.1.1" />
   <name value="Zib AdministrationAgreement" />
   <title value="HCIM AdministrationAgreement" />
   <status value="draft" />
@@ -298,37 +298,35 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="MedicationDispense.category.coding:AdministrationAgreementCode">
+    <element id="MedicationDispense.category.coding:administrationAgreementCode">
       <path value="MedicationDispense.category.coding" />
       <sliceName value="administrationAgreementCode" />
       <short value="AdministrationAgreementCode" />
       <definition value="Category snomed code used for indexing/retrieval of the ZIB AdministrationAgremeent. The snomed code 422037009 for this resource is stated in the Medication Process v09." />
       <max value="1" />
     </element>
-    <element id="MedicationDispense.category.coding:AdministrationAgreementCode.system">
+    <element id="MedicationDispense.category.coding:administrationAgreementCode.system">
       <path value="MedicationDispense.category.coding.system" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="MedicationDispense.category.coding:AdministrationAgreementCode.code">
+    <element id="MedicationDispense.category.coding:administrationAgreementCode.code">
       <path value="MedicationDispense.category.coding.code" />
       <fixedCode value="422037009" />
     </element>
-    <element id="MedicationDispense.category.coding:AdministrationAgreementCode.display">
+    <element id="MedicationDispense.category.coding:administrationAgreementCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
       <path value="MedicationDispense.category.coding.display" />
       <fixedString value="Provider medication administration instructions (procedure)" />
     </element>
-    <element id="MedicationDispense.medication[x]">
-      <path value="MedicationDispense.medication[x]" />
+    <element id="MedicationDispense.medication[x]:medicationReference">
+      <path value="MedicationDispense.medicationReference" />
+      <sliceName value="medicationReference" />
       <short value="MedicineForAdministrationAgreement" />
       <definition value="Medicine in the AdministrationAgreement." />
       <alias value="GeneesmiddelBijToedieningsAfspraak" />
       <alias value="Product" />
-      <type>
-        <code value="CodeableConcept" />
-      </type>
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product" />

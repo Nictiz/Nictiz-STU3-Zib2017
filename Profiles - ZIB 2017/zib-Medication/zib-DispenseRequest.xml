@@ -3,14 +3,14 @@
   <id value="zib-DispenseRequest" />
   <meta>
     <versionId value="3" />
-      <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
+    <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-DispenseRequest" />
-  <version value="2.0.1" />
+  <version value="2.1.1" />
   <name value="Zib DispenseRequest" />
   <title value="HCIM DispenseRequest" />
   <status value="draft" />
-    <date value="2018-09-18T16:39:05.96+00:00" />
+  <date value="2018-09-18T16:39:05.96+00:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -174,17 +174,15 @@
       <path value="MedicationRequest.category.coding.code" />
       <fixedCode value="52711000146108" />
     </element>
-    <element id="MedicationRequest.medication[x]">
-      <path value="MedicationRequest.medication[x]" />
+    <element id="MedicationRequest.medication[x]:medicationReference">
+      <path value="MedicationRequest.medicationReference" />
+      <sliceName value="medicationReference" />
       <short value="MedicineToBeDispensed" />
       <definition value="The medicine to be dispensed." />
       <alias value="Geneesmiddel" />
       <alias value="Product" />
       <alias value="Medicatie" />
       <alias value="TeVerstrekkenGeneesmiddel" />
-      <type>
-        <code value="CodeableConcept" />
-      </type>
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product" />

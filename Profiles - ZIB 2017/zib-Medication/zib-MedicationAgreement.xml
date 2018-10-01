@@ -3,14 +3,14 @@
   <id value="zib-MedicationAgreement" />
   <meta>
     <versionId value="6" />
-      <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
+    <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
-  <version value="2.0.1" />
+  <version value="2.1.1" />
   <name value="Zib MedicationAgreement" />
   <title value="HCIM MedicationAgreement" />
   <status value="draft" />
-    <date value="2018-09-18T16:39:05.96+00:00" />
+  <date value="2018-09-18T16:39:05.96+00:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -218,7 +218,7 @@
       </type>
       <mapping>
         <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value=" NL-CM:9.6.19954" />
+        <map value="NL-CM:9.6.19954" />
       </mapping>
     </element>
     <element id="MedicationRequest.modifierExtension:stopType.valueCodeableConcept:valueCodeableConcept">
@@ -226,6 +226,10 @@
       <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="required" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.19--20160617101300"/>
+          <display value="StopType"/>
+        </valueSetReference>
       </binding>
     </element>
     <element id="MedicationRequest.modifierExtension:repeatPeriodCyclicalSchedule">
@@ -281,35 +285,33 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="MedicationRequest.category.coding:MedicationAgreementCode">
+    <element id="MedicationRequest.category.coding:medicationAgreementCode">
       <path value="MedicationRequest.category.coding" />
       <sliceName value="medicationAgreementCode" />
       <short value="MedicationAgreementCode" />
       <definition value="Category code used for indexing/retrieval of the ZIB MedicationAgreeement. The snomed code is stated in the Medication Process v09." />
     </element>
-    <element id="MedicationRequest.category.coding:MedicationAgreementCode.system">
+    <element id="MedicationRequest.category.coding:medicationAgreementCode.system">
       <path value="MedicationRequest.category.coding.system" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="MedicationRequest.category.coding:MedicationAgreementCode.code">
+    <element id="MedicationRequest.category.coding:medicationAgreementCode.code">
       <path value="MedicationRequest.category.coding.code" />
       <fixedCode value="16076005" />
     </element>
-    <element id="MedicationRequest.category.coding:MedicationAgreementCode.display">
+    <element id="MedicationRequest.category.coding:medicationAgreementCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
       <path value="MedicationRequest.category.coding.display" />
       <fixedString value="Prescription (procedure)" />
     </element>
-    <element id="MedicationRequest.medication[x]">
-      <path value="MedicationRequest.medication[x]" />
+    <element id="MedicationRequest.medication[x]:medicationReference">
+      <path value="MedicationRequest.medicationReference" />
+      <sliceName value="medicationReference" />
       <short value="AgreedMedicine" />
       <definition value="The medicine agreed upon to be used." />
       <alias value="Afgesprokengeneesmiddel" />
-      <type>
-        <code value="CodeableConcept" />
-      </type>
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product" />
@@ -408,7 +410,7 @@
       <sliceName value="requesterRole" />
       <short value="PrescriberRole" />
       <definition value="Describes the role of the precriber of the MedicationAgreement" />
-      <alias value="voorschrijverrol " />
+      <alias value="voorschrijverrol" />
       <max value="1" />
       <type>
         <code value="Extension" />
