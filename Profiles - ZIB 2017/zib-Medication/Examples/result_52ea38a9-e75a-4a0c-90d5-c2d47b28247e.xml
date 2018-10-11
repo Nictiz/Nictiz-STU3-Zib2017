@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/bundle.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Bundle xmlns="http://hl7.org/fhir"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/bundle.xsd">
+   <type value="searchset"/>
+   <total value="11"/>
+   <entry>
+      <fullUrl value="urn:uuid:D2A224F7-CD66-11E8-7830-28F10E481D92"/>
+      <resource>
+         <Patient>
+            <meta>
+               <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+            </meta>
+            <identifier>
+               <system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
+               <value value="999911478"/>
+            </identifier>
+            <name>
+               <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
+                  <valueCode value="NL1"/>
+               </extension>
+               <family value="XXX_Bals">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                     <valueString value="XXX_Bals"/>
+                  </extension>
+               </family>
+               <given value="A">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                     <valueCode value="IN"/>
+                  </extension>
+               </given>
+            </name>
+            <gender value="male"/>
+            <birthDate value="1964-08-02"/>
+         </Patient>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:oid:2.16.528.1.1007.3.1.000001111"/>
+      <resource>
+         <Practitioner>
+            <meta>
+               <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+            </meta>
+            <identifier>
+               <system value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"/>
+               <value value="000001111"/>
+            </identifier>
+            <name>
+               <family value="van Pulver">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+                     <valueString value="van"/>
+                  </extension>
+                  <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                     <valueString value="Pulver"/>
+                  </extension>
+               </family>
+               <given value="Peter">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                     <valueCode value="BR"/>
+                  </extension>
+               </given>
+            </name>
+         </Practitioner>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:oid:2.16.528.1.1007.3.3.00001111"/>
+      <resource>
+         <Organization>
+            <meta>
+               <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+            </meta>
+            <identifier>
+               <system value="http://fhir.nl/fhir/NamingSystem/ura"/>
+               <value value="00001111"/>
+            </identifier>
+            <name value="Huisartsenpraktijk Pulver &amp; Partners"/>
+         </Organization>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:D2A226DE-CD66-11E8-7830-28F10E481D92"/>
+      <resource>
+         <PractitionerRole>
+            <meta>
+               <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+            </meta>
+            <practitioner>
+               <reference value="urn:oid:2.16.528.1.1007.3.1.000001111"/>
+               <display value="Peter van Pulver"/>
+            </practitioner>
+            <organization>
+               <reference value="urn:oid:2.16.528.1.1007.3.3.00001111"/>
+               <display value="Huisartsenpraktijk Pulver &amp; Partners"/>
+            </organization>
+            <specialty>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+                  <code value="0100"/>
+               </coding>
+               <text value="Huisartsen, niet nader gespecificeerd"/>
+            </specialty>
+         </PractitionerRole>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:D2A226CB-CD66-11E8-7830-28F10E481D92"/>
+      <resource>
+         <Medication>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product"/>
+            </meta>
+            <code>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.10"/>
+                  <code value="17469"/>
+               </coding>
+               <text value="IBUPROFEN PCH TABLET 600MG"/>
+            </code>
+         </Medication>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:D2A238B7-CD66-11E8-7830-28F10E481D92"/>
+      <resource>
+         <Medication>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product"/>
+            </meta>
+            <code>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.10"/>
+                  <code value="81442"/>
+               </coding>
+               <text value="PARACETAMOL SANDOZ TABLET 1000MG"/>
+            </code>
+         </Medication>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:D2A238E6-CD66-11E8-7830-28F10E481D92"/>
+      <resource>
+         <Medication>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product"/>
+            </meta>
+            <code>
+               <text value="OTRIVIN NEUSALLERGIE AZELASTINE NEUSSPRAY 1MG/ML"/>
+            </code>
+         </Medication>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:D2A226C7-CD66-11E8-7830-28F10E481D92"/>
+      <resource>
+         <MedicationStatement>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse"/>
+            </meta>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Prescriber">
+               <extension url="agent">
+                  <valueReference>
+                     <reference value="urn:uuid:D2A226DE-CD66-11E8-7830-28F10E481D92"/>
+                     <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+                  </valueReference>
+               </extension>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author">
+               <valueReference>
+                  <reference value="urn:uuid:D2A224F7-CD66-11E8-7830-28F10E481D92"/>
+                  <display value="A XXX_Bals"/>
+               </valueReference>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+               <valueIdentifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+                  <value value="MBH_T2.2_P2_1"/>
+               </valueIdentifier>
+            </extension>
+            <identifier>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
+               <value value="MBH_T2.2_P2_1_MGB2"/>
+            </identifier>
+            <status value="active"/>
+            <category>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3"/>
+                  <code value="6"/>
+                  <display value="Medicatiegebruik"/>
+               </coding>
+               <text value="Medicatiegebruik"/>
+            </category>
+            <medicationReference>
+               <reference value="urn:uuid:D2A226CB-CD66-11E8-7830-28F10E481D92"/>
+               <display value="IBUPROFEN PCH TABLET 600MG"/>
+            </medicationReference>
+            <effectivePeriod>
+               <start value="2018-09-18T08:00:00+02:00"/>
+               <end value="2018-09-20T21:00:00+02:00"/>
+            </effectivePeriod>
+            <dateAsserted value="2018-09-20T21:00:00+02:00"/>
+            <subject>
+               <reference value="urn:uuid:D2A224F7-CD66-11E8-7830-28F10E481D92"/>
+               <display value="A XXX_Bals"/>
+            </subject>
+            <derivedFrom>
+               <identifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+                  <value value="MBH_T2.2_P2_1_MA1"/>
+               </identifier>
+               <display value="relatie naar medicatieafspraak"/>
+            </derivedFrom>
+            <taken value="y"/>
+            <dosage>
+               <sequence value="1"/>
+               <text value="Vanaf 18 sep 2018, t/m 20 sep 2018, 1 maal per dag 1 stuk, oraal"/>
+               <timing>
+                  <repeat>
+                     <frequency value="1"/>
+                     <period value="1"/>
+                     <periodUnit value="d"/>
+                  </repeat>
+               </timing>
+               <route>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                     <code value="9"/>
+                  </coding>
+                  <text value="oraal"/>
+               </route>
+               <doseQuantity>
+                  <value value="1"/>
+                  <unit value="stuk"/>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                  <code value="245"/>
+               </doseQuantity>
+            </dosage>
+         </MedicationStatement>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:D2A226F0-CD66-11E8-7830-28F10E481D92"/>
+      <resource>
+         <MedicationStatement>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse"/>
+            </meta>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-AsAgreedIndicator">
+               <valueBoolean value="false"/>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Prescriber">
+               <extension url="agent">
+                  <valueReference>
+                     <reference value="urn:uuid:D2A226DE-CD66-11E8-7830-28F10E481D92"/>
+                     <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+                  </valueReference>
+               </extension>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author">
+               <valueReference>
+                  <reference value="urn:uuid:D2A224F7-CD66-11E8-7830-28F10E481D92"/>
+                  <display value="A XXX_Bals"/>
+               </valueReference>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+               <valueIdentifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+                  <value value="MBH_T2.2_P2_1"/>
+               </valueIdentifier>
+            </extension>
+            <identifier>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
+               <value value="MBH_T2.2_P2_1_MGB1"/>
+            </identifier>
+            <status value="active"/>
+            <category>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3"/>
+                  <code value="6"/>
+                  <display value="Medicatiegebruik"/>
+               </coding>
+               <text value="Medicatiegebruik"/>
+            </category>
+            <medicationReference>
+               <reference value="urn:uuid:D2A226CB-CD66-11E8-7830-28F10E481D92"/>
+               <display value="IBUPROFEN PCH TABLET 600MG"/>
+            </medicationReference>
+            <effectivePeriod>
+               <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration">
+                  <valueDuration>
+                     <value value="1"/>
+                     <unit value="dag"/>
+                     <system value="http://unitsofmeasure.org"/>
+                     <code value="d"/>
+                  </valueDuration>
+               </extension>
+               <start value="2018-09-17T12:20:00+02:00"/>
+            </effectivePeriod>
+            <dateAsserted value="2018-09-20T08:50:00+02:00"/>
+            <subject>
+               <reference value="urn:uuid:D2A224F7-CD66-11E8-7830-28F10E481D92"/>
+               <display value="A XXX_Bals"/>
+            </subject>
+            <derivedFrom>
+               <identifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+                  <value value="MBH_T2.2_P2_1_MA1"/>
+               </identifier>
+               <display value="relatie naar medicatieafspraak"/>
+            </derivedFrom>
+            <taken value="y"/>
+            <dosage>
+               <sequence value="1"/>
+               <text value="Vanaf 17 sep 2018, gedurende 1 dag, 2 maal per dag 1 stuk, oraal"/>
+               <timing>
+                  <repeat>
+                     <frequency value="2"/>
+                     <period value="1"/>
+                     <periodUnit value="d"/>
+                  </repeat>
+               </timing>
+               <route>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                     <code value="9"/>
+                  </coding>
+                  <text value="oraal"/>
+               </route>
+               <doseQuantity>
+                  <value value="1"/>
+                  <unit value="stuk"/>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                  <code value="245"/>
+               </doseQuantity>
+            </dosage>
+         </MedicationStatement>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:D2A238B2-CD66-11E8-7830-28F10E481D92"/>
+      <resource>
+         <MedicationStatement>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse"/>
+            </meta>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-AsAgreedIndicator">
+               <valueBoolean value="true"/>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Prescriber">
+               <extension url="agent">
+                  <valueReference>
+                     <reference value="urn:uuid:D2A226DE-CD66-11E8-7830-28F10E481D92"/>
+                     <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+                  </valueReference>
+               </extension>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author">
+               <valueReference>
+                  <reference value="urn:uuid:D2A224F7-CD66-11E8-7830-28F10E481D92"/>
+                  <display value="A XXX_Bals"/>
+               </valueReference>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+               <valueIdentifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+                  <value value="MBH_T2.2_P2_2"/>
+               </valueIdentifier>
+            </extension>
+            <identifier>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
+               <value value="MBH_T2.2_P2_2_MGB_1"/>
+            </identifier>
+            <status value="active"/>
+            <category>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3"/>
+                  <code value="6"/>
+                  <display value="Medicatiegebruik"/>
+               </coding>
+               <text value="Medicatiegebruik"/>
+            </category>
+            <medicationReference>
+               <reference value="urn:uuid:D2A238B7-CD66-11E8-7830-28F10E481D92"/>
+               <display value="PARACETAMOL SANDOZ TABLET 1000MG"/>
+            </medicationReference>
+            <effectivePeriod>
+               <start value="2018-09-17T00:00:00+02:00"/>
+               <end value="2018-09-27T00:00:00+02:00"/>
+            </effectivePeriod>
+            <dateAsserted value="2018-09-20T08:00:00+02:00"/>
+            <subject>
+               <reference value="urn:uuid:D2A224F7-CD66-11E8-7830-28F10E481D92"/>
+               <display value="A XXX_Bals"/>
+            </subject>
+            <derivedFrom>
+               <identifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+                  <value value="MBH_T2.2_P2_2_MA_1"/>
+               </identifier>
+               <display value="relatie naar medicatieafspraak"/>
+            </derivedFrom>
+            <taken value="y"/>
+            <dosage>
+               <sequence value="1"/>
+               <text value="Vanaf 17 sep 2018, t/m 27 sep, 1 maal daags 1 stuk, oraal"/>
+               <timing>
+                  <repeat>
+                     <frequency value="1"/>
+                     <period value="1"/>
+                     <periodUnit value="d"/>
+                  </repeat>
+               </timing>
+               <asNeededCodeableConcept>
+                  <coding>
+                     <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-25-gebruiksvoorschrift#aanvullend-numeriek"/>
+                     <code value="1022"/>
+                     <display value="bij een aanval"/>
+                  </coding>
+               </asNeededCodeableConcept>
+               <route>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                     <code value="9"/>
+                  </coding>
+                  <text value="oraal"/>
+               </route>
+               <doseQuantity>
+                  <value value="1"/>
+                  <unit value="stuk"/>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                  <code value="245"/>
+               </doseQuantity>
+            </dosage>
+         </MedicationStatement>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:D2A238E2-CD66-11E8-7830-28F10E481D92"/>
+      <resource>
+         <MedicationStatement>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse"/>
+            </meta>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author">
+               <valueReference>
+                  <reference value="urn:uuid:D2A224F7-CD66-11E8-7830-28F10E481D92"/>
+                  <display value="A XXX_Bals"/>
+               </valueReference>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+               <valueIdentifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+                  <value value="MBH_T2.2_P2_4"/>
+               </valueIdentifier>
+            </extension>
+            <identifier>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
+               <value value="MBH_T2.2_P2_4_MGB1"/>
+            </identifier>
+            <status value="active"/>
+            <category>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3"/>
+                  <code value="6"/>
+                  <display value="Medicatiegebruik"/>
+               </coding>
+               <text value="Medicatiegebruik"/>
+            </category>
+            <medicationReference>
+               <reference value="urn:uuid:D2A238E6-CD66-11E8-7830-28F10E481D92"/>
+               <display value="OTRIVIN NEUSALLERGIE AZELASTINE NEUSSPRAY 1MG/ML"/>
+            </medicationReference>
+            <effectivePeriod>
+               <start value="2018-09-15T10:00:00+02:00"/>
+               <end value="2018-09-20T21:00:00+02:00"/>
+            </effectivePeriod>
+            <dateAsserted value="2018-09-10T21:00:00+02:00"/>
+            <subject>
+               <reference value="urn:uuid:D2A224F7-CD66-11E8-7830-28F10E481D92"/>
+               <display value="A XXX_Bals"/>
+            </subject>
+            <taken value="y"/>
+         </MedicationStatement>
+      </resource>
+   </entry>
+</Bundle>

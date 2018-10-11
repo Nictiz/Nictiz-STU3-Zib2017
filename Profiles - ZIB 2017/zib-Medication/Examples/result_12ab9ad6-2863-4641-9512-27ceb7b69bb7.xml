@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/bundle.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Bundle xmlns="http://hl7.org/fhir"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/bundle.xsd">
+   <type value="searchset"/>
+   <total value="15"/>
+   <entry>
+      <fullUrl value="urn:uuid:B7F89537-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <Patient>
+            <meta>
+               <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+            </meta>
+            <identifier>
+               <system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
+               <value value="999911466"/>
+            </identifier>
+            <name>
+               <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
+                  <valueCode value="NL1"/>
+               </extension>
+               <family value="XXX_Herweijer">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                     <valueString value="XXX_Herweijer"/>
+                  </extension>
+               </family>
+               <given value="A">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                     <valueCode value="IN"/>
+                  </extension>
+               </given>
+            </name>
+            <gender value="female"/>
+            <birthDate value="1964-08-02"/>
+         </Patient>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:oid:2.16.528.1.1007.3.1.000001111"/>
+      <resource>
+         <Practitioner>
+            <meta>
+               <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+            </meta>
+            <identifier>
+               <system value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"/>
+               <value value="000001111"/>
+            </identifier>
+            <name>
+               <family value="van Pulver">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+                     <valueString value="van"/>
+                  </extension>
+                  <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                     <valueString value="Pulver"/>
+                  </extension>
+               </family>
+               <given value="Peter">
+                  <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                     <valueCode value="BR"/>
+                  </extension>
+               </given>
+            </name>
+         </Practitioner>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:oid:2.16.528.1.1007.3.3.00001111"/>
+      <resource>
+         <Organization>
+            <meta>
+               <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+            </meta>
+            <identifier>
+               <system value="http://fhir.nl/fhir/NamingSystem/ura"/>
+               <value value="00001111"/>
+            </identifier>
+            <name value="Huisartsenpraktijk Pulver &amp; Partners"/>
+         </Organization>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F89709-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <PractitionerRole>
+            <meta>
+               <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+            </meta>
+            <practitioner>
+               <reference value="urn:oid:2.16.528.1.1007.3.1.000001111"/>
+               <display value="Peter van Pulver"/>
+            </practitioner>
+            <organization>
+               <reference value="urn:oid:2.16.528.1.1007.3.3.00001111"/>
+               <display value="Huisartsenpraktijk Pulver &amp; Partners"/>
+            </organization>
+            <specialty>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+                  <code value="0100"/>
+               </coding>
+               <text value="Huisartsen, niet nader gespecificeerd"/>
+            </specialty>
+         </PractitionerRole>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F89718-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <Medication>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product"/>
+            </meta>
+            <code>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.10"/>
+                  <code value="17469"/>
+               </coding>
+               <text value="IBUPROFEN PCH TABLET 600MG"/>
+            </code>
+         </Medication>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F89741-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <Medication>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product"/>
+            </meta>
+            <code>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.7"/>
+                  <code value="17469"/>
+               </coding>
+               <text value="IBUPROFEN PCH TABLET 600MG"/>
+            </code>
+         </Medication>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F8A8FC-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <Medication>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product"/>
+            </meta>
+            <code>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.10"/>
+                  <code value="81442"/>
+               </coding>
+               <text value="PARACETAMOL SANDOZ TABLET 1000MG"/>
+            </code>
+         </Medication>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F8A972-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <Medication>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product"/>
+            </meta>
+            <code>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.10"/>
+                  <code value="76333"/>
+               </coding>
+               <text value="HYDROCHLOORTHIAZIDE TABLET 12,5MG"/>
+            </code>
+         </Medication>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F89706-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <MedicationRequest>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
+            </meta>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration">
+               <valueDuration>
+                  <value value="1"/>
+                  <unit value="week"/>
+                  <system value="http://unitsofmeasure.org"/>
+                  <code value="wk"/>
+               </valueDuration>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+               <valueIdentifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+                  <value value="MBH_T2.2_P1_1"/>
+               </valueIdentifier>
+            </extension>
+            <identifier>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+               <value value="MBH_T2.2_P1_1_MA1"/>
+            </identifier>
+            <intent value="order"/>
+            <category>
+               <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="16076005"/>
+                  <display value="Prescription (procedure)"/>
+               </coding>
+               <text value="Medicatieafspraak"/>
+            </category>
+            <medicationReference>
+               <reference value="urn:uuid:B7F89718-CD66-11E8-1563-28F10E481D92"/>
+               <display value="IBUPROFEN PCH TABLET 600MG"/>
+            </medicationReference>
+            <subject>
+               <reference value="urn:uuid:B7F89537-CD66-11E8-1563-28F10E481D92"/>
+               <display value="A XXX_Herweijer"/>
+            </subject>
+            <authoredOn value="2018-09-17T11:25:00+02:00"/>
+            <requester>
+               <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-RequesterRole">
+                  <valueReference>
+                     <reference value="urn:uuid:B7F89709-CD66-11E8-1563-28F10E481D92"/>
+                     <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+                  </valueReference>
+               </extension>
+               <agent>
+                  <reference value="urn:oid:2.16.528.1.1007.3.1.000001111"/>
+                  <display value="Peter van Pulver"/>
+               </agent>
+            </requester>
+            <dosageInstruction>
+               <sequence value="1"/>
+               <text value="Vanaf 17 sep 2018, gedurende 1 week, 1 maal per dag 1 stuk, oraal"/>
+               <timing>
+                  <repeat>
+                     <frequency value="1"/>
+                     <period value="1"/>
+                     <periodUnit value="d"/>
+                  </repeat>
+               </timing>
+               <route>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                     <code value="9"/>
+                  </coding>
+                  <text value="Oraal"/>
+               </route>
+               <doseQuantity>
+                  <value value="1"/>
+                  <unit value="stuk"/>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                  <code value="245"/>
+               </doseQuantity>
+            </dosageInstruction>
+         </MedicationRequest>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F8972C-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <MedicationRequest>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
+            </meta>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+               <valueIdentifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+                  <value value="MBH_T2.2_P1_1"/>
+               </valueIdentifier>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse">
+               <valueReference>
+                  <identifier>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+                     <value value="MBH_T2.2_P1_1_MA1"/>
+                  </identifier>
+                  <display value="relatie naar medicatieafspraak: MBH_T2.2_P1_1_MA1 || 2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+               </valueReference>
+            </extension>
+            <modifierExtension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-StopType">
+               <valueCodeableConcept>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.1"/>
+                     <code value="1"/>
+                  </coding>
+                  <text value="Onderbreking"/>
+               </valueCodeableConcept>
+            </modifierExtension>
+            <identifier>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+               <value value="MBH_T2.2_P1_1_MA2"/>
+            </identifier>
+            <intent value="order"/>
+            <category>
+               <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="16076005"/>
+                  <display value="Prescription (procedure)"/>
+               </coding>
+               <text value="Medicatieafspraak"/>
+            </category>
+            <medicationReference>
+               <reference value="urn:uuid:B7F89741-CD66-11E8-1563-28F10E481D92"/>
+               <display value="IBUPROFEN PCH TABLET 600MG"/>
+            </medicationReference>
+            <subject>
+               <reference value="urn:uuid:B7F89537-CD66-11E8-1563-28F10E481D92"/>
+               <display value="A XXX_Herweijer"/>
+            </subject>
+            <authoredOn value="2018-09-20T09:00:00+02:00"/>
+            <requester>
+               <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-RequesterRole">
+                  <valueReference>
+                     <reference value="urn:uuid:B7F89709-CD66-11E8-1563-28F10E481D92"/>
+                     <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+                  </valueReference>
+               </extension>
+               <agent>
+                  <reference value="urn:oid:2.16.528.1.1007.3.1.000001111"/>
+                  <display value="Peter van Pulver"/>
+               </agent>
+            </requester>
+            <reasonCode>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.2"/>
+                  <code value="15"/>
+               </coding>
+               <text value="Geplande procedure"/>
+            </reasonCode>
+            <dosageInstruction>
+               <sequence value="1"/>
+               <text value="Vanaf 17 sep 2018, t/m 20 sep, 1 maal per dag 1 stuk, oraal"/>
+               <timing>
+                  <repeat>
+                     <frequency value="1"/>
+                     <period value="1"/>
+                     <periodUnit value="d"/>
+                  </repeat>
+               </timing>
+               <route>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                     <code value="9"/>
+                  </coding>
+                  <text value="Oraal"/>
+               </route>
+               <doseQuantity>
+                  <value value="1"/>
+                  <unit value="stuk"/>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                  <code value="245"/>
+               </doseQuantity>
+            </dosageInstruction>
+         </MedicationRequest>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F89757-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <MedicationRequest>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
+            </meta>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+               <valueIdentifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+                  <value value="MBH_T2.2_P1_2"/>
+               </valueIdentifier>
+            </extension>
+            <identifier>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+               <value value="MBH_T2.2_P1_2_MA_1"/>
+            </identifier>
+            <intent value="order"/>
+            <category>
+               <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="16076005"/>
+                  <display value="Prescription (procedure)"/>
+               </coding>
+               <text value="Medicatieafspraak"/>
+            </category>
+            <medicationReference>
+               <reference value="urn:uuid:B7F8A8FC-CD66-11E8-1563-28F10E481D92"/>
+               <display value="PARACETAMOL SANDOZ TABLET 1000MG"/>
+            </medicationReference>
+            <subject>
+               <reference value="urn:uuid:B7F89537-CD66-11E8-1563-28F10E481D92"/>
+               <display value="A XXX_Herweijer"/>
+            </subject>
+            <authoredOn value="2018-09-17T11:20:00+02:00"/>
+            <requester>
+               <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-RequesterRole">
+                  <valueReference>
+                     <reference value="urn:uuid:B7F89709-CD66-11E8-1563-28F10E481D92"/>
+                     <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+                  </valueReference>
+               </extension>
+               <agent>
+                  <reference value="urn:oid:2.16.528.1.1007.3.1.000001111"/>
+                  <display value="Peter van Pulver"/>
+               </agent>
+            </requester>
+            <dosageInstruction>
+               <sequence value="1"/>
+               <text value="Vanaf 17 sep 2018, t/m 27 sep, 1 maal daags 1 stuk, oraal"/>
+               <timing>
+                  <repeat>
+                     <frequency value="1"/>
+                     <period value="1"/>
+                     <periodUnit value="d"/>
+                  </repeat>
+               </timing>
+               <route>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                     <code value="9"/>
+                  </coding>
+                  <text value="Oraal"/>
+               </route>
+               <doseQuantity>
+                  <value value="1"/>
+                  <unit value="stuk"/>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                  <code value="245"/>
+               </doseQuantity>
+            </dosageInstruction>
+         </MedicationRequest>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F8A910-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <MedicationRequest>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
+            </meta>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+               <valueIdentifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+                  <value value="MBH_T2.2_P1_2"/>
+               </valueIdentifier>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse">
+               <valueReference>
+                  <identifier>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+                     <value value="MBH_T2.2_P1_2_MA_1"/>
+                  </identifier>
+                  <display value="relatie naar medicatieafspraak: MBH_T2.2_P1_2_MA_1 || 2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+               </valueReference>
+            </extension>
+            <modifierExtension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-StopType">
+               <valueCodeableConcept>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.1"/>
+                     <code value="2"/>
+                  </coding>
+                  <text value="Staking"/>
+               </valueCodeableConcept>
+            </modifierExtension>
+            <identifier>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+               <value value="MBH_T2.2_P1_2_MA_2"/>
+            </identifier>
+            <intent value="order"/>
+            <category>
+               <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="16076005"/>
+                  <display value="Prescription (procedure)"/>
+               </coding>
+               <text value="Medicatieafspraak"/>
+            </category>
+            <medicationReference>
+               <reference value="urn:uuid:B7F8A8FC-CD66-11E8-1563-28F10E481D92"/>
+               <display value="PARACETAMOL SANDOZ TABLET 1000MG"/>
+            </medicationReference>
+            <subject>
+               <reference value="urn:uuid:B7F89537-CD66-11E8-1563-28F10E481D92"/>
+               <display value="A XXX_Herweijer"/>
+            </subject>
+            <authoredOn value="2018-09-20T11:20:00+02:00"/>
+            <requester>
+               <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-RequesterRole">
+                  <valueReference>
+                     <reference value="urn:uuid:B7F89709-CD66-11E8-1563-28F10E481D92"/>
+                     <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+                  </valueReference>
+               </extension>
+               <agent>
+                  <reference value="urn:oid:2.16.528.1.1007.3.1.000001111"/>
+                  <display value="Peter van Pulver"/>
+               </agent>
+            </requester>
+            <dosageInstruction>
+               <sequence value="1"/>
+               <text value="Vanaf 17 sep 2018, t/m 20 sep, 1 maal daags 1 stuk, oraal"/>
+               <timing>
+                  <repeat>
+                     <frequency value="1"/>
+                     <period value="1"/>
+                     <periodUnit value="d"/>
+                  </repeat>
+               </timing>
+               <route>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                     <code value="9"/>
+                  </coding>
+                  <text value="Oraal"/>
+               </route>
+               <doseQuantity>
+                  <value value="1"/>
+                  <unit value="stuk"/>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                  <code value="245"/>
+               </doseQuantity>
+            </dosageInstruction>
+         </MedicationRequest>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F8A938-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <MedicationRequest>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
+            </meta>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+               <valueIdentifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+                  <value value="MBH_T2.2_P1_2"/>
+               </valueIdentifier>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse">
+               <valueReference>
+                  <identifier>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+                     <value value="MBH_T2.2_P1_2_MA_2"/>
+                  </identifier>
+                  <display value="relatie naar medicatieafspraak: MBH_T2.2_P1_2_MA_2 || 2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+               </valueReference>
+            </extension>
+            <identifier>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+               <value value="MBH_T2.2_P1_2_MA_3"/>
+            </identifier>
+            <intent value="order"/>
+            <category>
+               <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="16076005"/>
+                  <display value="Prescription (procedure)"/>
+               </coding>
+               <text value="Medicatieafspraak"/>
+            </category>
+            <medicationReference>
+               <reference value="urn:uuid:B7F8A8FC-CD66-11E8-1563-28F10E481D92"/>
+               <display value="PARACETAMOL SANDOZ TABLET 1000MG"/>
+            </medicationReference>
+            <subject>
+               <reference value="urn:uuid:B7F89537-CD66-11E8-1563-28F10E481D92"/>
+               <display value="A XXX_Herweijer"/>
+            </subject>
+            <authoredOn value="2018-09-20T11:20:00+02:00"/>
+            <requester>
+               <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-RequesterRole">
+                  <valueReference>
+                     <reference value="urn:uuid:B7F89709-CD66-11E8-1563-28F10E481D92"/>
+                     <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+                  </valueReference>
+               </extension>
+               <agent>
+                  <reference value="urn:oid:2.16.528.1.1007.3.1.000001111"/>
+                  <display value="Peter van Pulver"/>
+               </agent>
+            </requester>
+            <reasonCode>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.2"/>
+                  <code value="5"/>
+               </coding>
+               <text value="Geen of onvoldoende effect"/>
+            </reasonCode>
+            <dosageInstruction>
+               <sequence value="1"/>
+               <text value="Vanaf 20 sep, t/m 27 sep, 3 maal daags 1 stuk, oraal"/>
+               <timing>
+                  <repeat>
+                     <frequency value="3"/>
+                     <period value="1"/>
+                     <periodUnit value="d"/>
+                  </repeat>
+               </timing>
+               <route>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                     <code value="9"/>
+                  </coding>
+                  <text value="oraal"/>
+               </route>
+               <doseQuantity>
+                  <value value="1"/>
+                  <unit value="stuk"/>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                  <code value="245"/>
+               </doseQuantity>
+            </dosageInstruction>
+         </MedicationRequest>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F8A961-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <MedicationRequest>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
+            </meta>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+               <valueIdentifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+                  <value value="MBH_T2.2_P1_3"/>
+               </valueIdentifier>
+            </extension>
+            <identifier>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+               <value value="MBH_T2.2_P1_3_MA1"/>
+            </identifier>
+            <intent value="order"/>
+            <category>
+               <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="16076005"/>
+                  <display value="Prescription (procedure)"/>
+               </coding>
+               <text value="Medicatieafspraak"/>
+            </category>
+            <medicationReference>
+               <reference value="urn:uuid:B7F8A972-CD66-11E8-1563-28F10E481D92"/>
+               <display value="HYDROCHLOORTHIAZIDE TABLET 12,5MG"/>
+            </medicationReference>
+            <subject>
+               <reference value="urn:uuid:B7F89537-CD66-11E8-1563-28F10E481D92"/>
+               <display value="A XXX_Herweijer"/>
+            </subject>
+            <authoredOn value="2018-08-21T11:00:00+02:00"/>
+            <requester>
+               <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-RequesterRole">
+                  <valueReference>
+                     <reference value="urn:uuid:B7F89709-CD66-11E8-1563-28F10E481D92"/>
+                     <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+                  </valueReference>
+               </extension>
+               <agent>
+                  <reference value="urn:oid:2.16.528.1.1007.3.1.000001111"/>
+                  <display value="Peter van Pulver"/>
+               </agent>
+            </requester>
+            <dosageInstruction>
+               <sequence value="1"/>
+               <text value="Vanaf 21 aug 2018, voor onbepaalde tijd, 1 maal per dag 1 stuk, oraal"/>
+               <timing>
+                  <repeat>
+                     <frequency value="1"/>
+                     <period value="1"/>
+                     <periodUnit value="d"/>
+                  </repeat>
+               </timing>
+               <route>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                     <code value="9"/>
+                  </coding>
+                  <text value="Oraal"/>
+               </route>
+               <doseQuantity>
+                  <value value="1"/>
+                  <unit value="stuk"/>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                  <code value="245"/>
+               </doseQuantity>
+            </dosageInstruction>
+         </MedicationRequest>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:B7F8A986-CD66-11E8-1563-28F10E481D92"/>
+      <resource>
+         <MedicationRequest>
+            <meta>
+               <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
+            </meta>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+               <valueIdentifier>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+                  <value value="MBH_T2.2_P1_3"/>
+               </valueIdentifier>
+            </extension>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse">
+               <valueReference>
+                  <identifier>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+                     <value value="MBH_T2.2_P1_3_MA1"/>
+                  </identifier>
+                  <display value="relatie naar medicatieafspraak: MBH_T2.2_P1_3_MA1 || 2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+               </valueReference>
+            </extension>
+            <modifierExtension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-StopType">
+               <valueCodeableConcept>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.1"/>
+                     <code value="2"/>
+                  </coding>
+                  <text value="Staking"/>
+               </valueCodeableConcept>
+            </modifierExtension>
+            <identifier>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+               <value value="MBH_T2.2_P1_3_MA2"/>
+            </identifier>
+            <intent value="order"/>
+            <category>
+               <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="16076005"/>
+                  <display value="Prescription (procedure)"/>
+               </coding>
+               <text value="Medicatieafspraak"/>
+            </category>
+            <medicationReference>
+               <reference value="urn:uuid:B7F8A972-CD66-11E8-1563-28F10E481D92"/>
+               <display value="HYDROCHLOORTHIAZIDE TABLET 12,5MG"/>
+            </medicationReference>
+            <subject>
+               <reference value="urn:uuid:B7F89537-CD66-11E8-1563-28F10E481D92"/>
+               <display value="A XXX_Herweijer"/>
+            </subject>
+            <authoredOn value="2018-09-20T11:00:00+02:00"/>
+            <requester>
+               <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-RequesterRole">
+                  <valueReference>
+                     <reference value="urn:uuid:B7F89709-CD66-11E8-1563-28F10E481D92"/>
+                     <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+                  </valueReference>
+               </extension>
+               <agent>
+                  <reference value="urn:oid:2.16.528.1.1007.3.1.000001111"/>
+                  <display value="Peter van Pulver"/>
+               </agent>
+            </requester>
+            <reasonCode>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.2"/>
+                  <code value="7"/>
+               </coding>
+               <text value="(Mogelijke) bijwerking"/>
+            </reasonCode>
+            <dosageInstruction>
+               <sequence value="1"/>
+               <text value="Vanaf 21 aug, t/m 20 sep, 1 maal daags 1 stuk, oraal"/>
+               <timing>
+                  <repeat>
+                     <frequency value="1"/>
+                     <period value="1"/>
+                     <periodUnit value="d"/>
+                  </repeat>
+               </timing>
+               <route>
+                  <coding>
+                     <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                     <code value="9"/>
+                  </coding>
+                  <text value="oraal"/>
+               </route>
+               <doseQuantity>
+                  <value value="1"/>
+                  <unit value="stuk"/>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                  <code value="245"/>
+               </doseQuantity>
+            </dosageInstruction>
+         </MedicationRequest>
+      </resource>
+   </entry>
+</Bundle>
