@@ -351,7 +351,24 @@
         <element id="Patient.telecom">
             <path value="Patient.telecom"/>
             <short value="ContactInformation"/>
+            <definition value="A contact detail for the individual. Note that there is no support for multiple use values like 'mobile business'."/>
             <alias value="Contactgegevens"/>
+            <example>
+                <label value="Mobile phone number"/>
+                <valueContactPoint>
+                    <system value="phone"/>
+                    <value value="+31611234567"/>
+                    <use value="mobile"/>
+                </valueContactPoint>
+            </example>
+            <example>
+                <label value="Private email address"/>
+                <valueContactPoint>
+                    <system value="email"/>
+                    <value value="giesput@myweb.nl"/>
+                    <use value="home"/>
+                </valueContactPoint>
+            </example>
             <mapping>
                 <identity value="hcim-patient-v2.0.1-2015EN"/>
                 <map value="NL-CM:0.1.5"/>
@@ -380,6 +397,10 @@
         <element id="Patient.telecom.system">
             <path value="Patient.telecom.system"/>
             <min value="1"/>
+            <mapping>
+                <identity value="hcim-contactinformation-v1.0-2017EN"/>
+                <map value="NL-CM:20.6.5"/>
+            </mapping>
         </element>
         <element id="Patient.telecom.value">
             <path value="Patient.telecom.value"/>
@@ -436,6 +457,10 @@
             <mapping>
                 <identity value="hcim-patient-v3.0-2016EN"/>
                 <map value="NL-CM:0.1.19"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v1.0-2017EN"/>
+                <map value="NL-CM:20.6.5"/>
             </mapping>
             <mapping>
                 <identity value="hcim-contactinformation-v1.0-2017EN"/>
@@ -712,6 +737,10 @@
         <element id="Patient.contact.telecom.system">
             <path value="Patient.contact.telecom.system"/>
             <min value="1"/>
+            <mapping>
+                <identity value="hcim-contactinformation-v1.0-2017EN"/>
+                <map value="NL-CM:20.6.5"/>
+            </mapping>
         </element>
         <element id="Patient.contact.telecom.value">
             <path value="Patient.contact.telecom.value"/>
@@ -772,6 +801,14 @@
             <mapping>
                 <identity value="hcim-patient-v3.1-2017EN"/>
                 <map value="NL-CM:0.1.19"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v1.0-2017EN"/>
+                <map value="NL-CM:20.6.5"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v1.0-2017EN"/>
+                <map value="NL-CM:20.6.8"/>
             </mapping>
         </element>
         <element id="Patient.contact.address">
