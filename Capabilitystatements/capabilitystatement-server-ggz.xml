@@ -1,104 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://hl7.org/fhir/STU3/capabilitystatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
-    <url value="http://nictiz.nl/fhir/CapabilityStatement/ggz-servercapabilities" />
-    <version value="1.0" />
-    <name value="GGZServer" />
-    <status value="draft" />
-    <date value="2018-09-20" />
-    <publisher value="Nictiz" />
+    <url value="http://nictiz.nl/fhir/CapabilityStatement/ggz-servercapabilities"/>
+    <version value="1.0"/>
+    <name value="GGZServer"/>
+    <status value="draft"/>
+    <date value="2018-09-20"/>
+    <publisher value="Nictiz"/>
     <contact>
-        <name value="Nictiz" />
+        <name value="Nictiz"/>
         <telecom>
-            <system value="email" />
-            <value value="info@nictiz.nl" />
-            <use value="work" />
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
         </telecom>
     </contact>
-    <description value="This CapabilityStatement describes the minimal requirements for a server to expose GGZ information based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB), release 2017." />
-    <copyright value="CC0" />
-    <kind value="requirements" />
-    <fhirVersion value="3.0.1" />
-    <acceptUnknown value="both" />
-    <format value="xml" />
-    <format value="json" />
+    <description value="This CapabilityStatement describes the minimal requirements for a server to expose GGZ information based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB), release 2017."/>
+    <copyright value="CC0"/>
+    <kind value="requirements"/>
+    <fhirVersion value="3.0.1"/>
+    <acceptUnknown value="both"/>
+    <format value="xml"/>
+    <format value="json"/>
     <profile>
-        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+        <display value="nl-core-patient"/>
     </profile>
     <profile>
-        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-careteam" />
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-careteam"/>
+        <display value="nl-core-careteam"/>
     </profile>
     <profile>
-        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
+        <display value="nl-core-relatedperson"/>
     </profile>
     <profile>
-        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+        <display value="nl-core-practitioner"/>
     </profile>
     <profile>
         <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+        <display value="nl-core-practitionerrole"/>
     </profile>
     <profile>
-        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-    </profile>    
-    <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation" />
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+        <display value="nl-core-organization"/>
     </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild" />
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation"/>
+        <display value="zib-FamilySituation"/>
     </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-ParticipationInSociety" />
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild"/>
+        <display value="zib-FamilySituationChild"/>
     </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-HelpFromOthers" />
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-ParticipationInSociety"/>
+        <display value="zib-ParticipationInSociety"/>
     </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-HelpFromOthers"/>
+        <display value="zib-HelpFromOthers"/>
     </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures" />
-    </profile> 
-    <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer" />
-    </profile> 
-    <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective" />
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement"/>
+        <display value="zib-GeneralMeasurement"/>
     </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective" />
-    </profile> 
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures"/>
+        <display value="zib-FreedomRestrictingMeasures"/>
+    </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures" />
-    </profile> 
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer"/>
+        <display value="zib-Payer"/>
+    </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FunctionalOrMentalStatus" />
-    </profile> 
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective"/>
+        <display value="zib-TreatmentDirective"/>
+    </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
-    </profile> 
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective"/>
+        <display value="zib-AdvanceDirective"/>
+    </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-LivingSituation" />
-    </profile> 
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures"/>
+        <display value="zib-FreedomRestrictingMeasures"/>
+    </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
-    </profile> 
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-FunctionalOrMentalStatus"/>
+        <display value="zib-FunctionalOrMentalStatus"/>
+    </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense" />
-    </profile> 
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
+        <display value="zib-Problem"/>
+    </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-DispenseRequest" />
-    </profile> 
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-LivingSituation"/>
+        <display value="zib-LivingSituation"/>
+    </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation" />
-    </profile> 
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement"/>
+        <display value="zib-AdministrationAgreement"/>
+    </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure" />
-    </profile> 
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense"/>
+        <display value="zib-Dispense"/>
+    </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult" />
-    </profile> 
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-DispenseRequest"/>
+        <display value="zib-DispenseRequest"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation"/>
+        <display value="zib-LaboratoryTestResult-Observation"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure"/>
+        <display value="zib-Procedure"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult"/>
+        <display value="zib-TextResult"/>
+    </profile>
     <rest>
-        <mode value="server" />
+        <mode value="server"/>
         <resource>
             <type value="Patient"/>
             <interaction>
@@ -111,37 +136,37 @@
             </searchParam>
         </resource>
         <resource>
-            <type value="Observation" />
+            <type value="Observation"/>
             <interaction>
-                <code value="search-type" />
+                <code value="search-type"/>
             </interaction>
             <searchInclude value="related-target"/>
             <searchInclude value="specimen"/>
             <searchParam>
-                <name value="patient" />
-                <type value="reference" />
+                <name value="patient"/>
+                <type value="reference"/>
             </searchParam>
             <searchParam>
-                <name value="category" />
-                <type value="token" />
+                <name value="category"/>
+                <type value="token"/>
             </searchParam>
             <searchParam>
-                <name value="code" />
-                <type value="token" />
+                <name value="code"/>
+                <type value="token"/>
             </searchParam>
         </resource>
         <resource>
-            <type value="DiagnosticReport" />
+            <type value="DiagnosticReport"/>
             <interaction>
-                <code value="search-type" />
+                <code value="search-type"/>
             </interaction>
             <searchParam>
-                <name value="patient" />
-                <type value="reference" />
+                <name value="patient"/>
+                <type value="reference"/>
             </searchParam>
             <searchParam>
-                <name value="code" />
-                <type value="token" />
+                <name value="code"/>
+                <type value="token"/>
             </searchParam>
         </resource>
         <resource>
@@ -170,48 +195,49 @@
             </searchParam>
         </resource>
         <resource>
-            <type value="Procedure" />
+            <type value="Procedure"/>
             <interaction>
-                <code value="search-type" />
+                <code value="search-type"/>
             </interaction>
             <searchParam>
-                <name value="patient" />
-                <type value="reference" />
+                <name value="patient"/>
+                <type value="reference"/>
             </searchParam>
             <searchParam>
-                <name value="category" />
-                <type value="token" />
+                <name value="category"/>
+                <type value="token"/>
             </searchParam>
         </resource>
         <resource>
-            <type value="CarePlan" />
+            <type value="CarePlan"/>
             <interaction>
-                <code value="search-type" />
+                <code value="search-type"/>
             </interaction>
             <searchParam>
-                <name value="patient" />
-                <type value="reference" />
+                <name value="patient"/>
+                <type value="reference"/>
             </searchParam>
             <searchParam>
-                <name value="category" />
-                <type value="token" />
+                <name value="category"/>
+                <type value="token"/>
             </searchParam>
         </resource>
         <resource>
-            <type value="CareTeam" />
+            <type value="CareTeam"/>
             <interaction>
-                <code value="search-type" />
+                <code value="search-type"/>
             </interaction>
-            <searchInclude value="participant" />
+            <searchInclude value="participant"/>
             <searchParam>
-                <name value="patient" />
-                <type value="reference" />
+                <name value="patient"/>
+                <type value="reference"/>
             </searchParam>
         </resource>
         <operation>
-            <name value="Last N Observations Query" />
+            <name value="Last N Observations Query"/>
             <definition>
-                <reference value="http://hl7.org/fhir/OperationDefinition/Observation-lastn" />
+                <reference value="http://hl7.org/fhir/OperationDefinition/Observation-lastn"/>
+                <display value="Observation-lastn"/>
             </definition>
         </operation>
     </rest>

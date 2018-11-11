@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd"
-    xmlns="http://hl7.org/fhir">
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd" xmlns="http://hl7.org/fhir">
     <id value="zib-familysituationchild-example"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild"/>
@@ -16,11 +14,13 @@
         </coding>
     </code>
     <subject>
-        <reference value="Patient/example"/>
+        <reference value="Patient/nl-core-patient-example-1"/>
+        <display value="Irma Jongeneel-de Haas"/>
     </subject>
     <effectiveDateTime value="2018-08-12"/>
     <performer>
-        <reference value="Practitioner/example" />
+        <reference value="Practitioner/nl-core-practitioner-example-1"/>
+        <display value="Henk de Vries"/>
     </performer>
     <comment value="Patient heeft vaak ruzie met de moeder."/>
     <component>
@@ -39,7 +39,7 @@
             </coding>
             <text value="Woont bij moeder"/>
         </valueCodeableConcept>
-    </component> 
+    </component>
     <component>
         <code>
             <coding>
@@ -49,7 +49,7 @@
             </coding>
         </code>
         <valueQuantity>
-            <value value="2" />
+            <value value="2"/>
         </valueQuantity>
     </component>
     <component>
@@ -57,6 +57,7 @@
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
                 <reference value="RelatedPerson/example-parent-1"/>
+                <display value="Parent 1"/>
             </valueReference>
         </extension>
         <code>
@@ -72,6 +73,7 @@
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
                 <reference value="RelatedPerson/example-parent-2"/>
+                <display value="Parent 2 "/>
             </valueReference>
         </extension>
         <code>
@@ -87,6 +89,7 @@
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
                 <reference value="RelatedPerson/example-child-1"/>
+                <display value="Child 1"/>
             </valueReference>
         </extension>
         <code>
@@ -103,6 +106,7 @@
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
                 <reference value="RelatedPerson/example-sibling-1"/>
+                <display value="Sibling 1"/>
             </valueReference>
         </extension>
         <code>
@@ -115,10 +119,11 @@
         <valueDateTime value="2009-12-20"/>
     </component>
     <component>
-        <!-- sibbling #2 -->
+        <!-- sibling #2 -->
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
                 <reference value="RelatedPerson/example-sibling-2"/>
+                <display value="Sibling 2"/>
             </valueReference>
         </extension>
         <code>
@@ -131,4 +136,3 @@
         <valueDateTime value="2013-02-03"/>
     </component>
 </Observation>
-

@@ -1,343 +1,345 @@
 <?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-  <id value="zib-LaboratoryTestResult-Specimen" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2016-11-11T12:24:01.174+00:00" />
-  </meta>
-  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Specimen" />
-  <version value="2.0" />
-  <name value="Zib LaboratoryTestResult Specimen" />
-  <title value="HCIM LaboratoryTestResult Specimen" />
-  <status value="draft" />
-  <date value="2016-11-11T12:24:01.174+00:00" />
-  <publisher value="Nictiz" />
-  <contact>
-    <name value="Nictiz" />
-    <telecom>
-      <system value="email" />
-      <value value="info@nictiz.nl" />
-      <use value="work" />
-    </telecom>
-  </contact>
-  <description value="The Specimen details from the LaboratoryTestResult as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 4.1, release 2017." />
-  <copyright value="CC0" />
-  <fhirVersion value="3.0.1" />
-  <mapping>
-    <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
-    <uri value="https://zibs.nl/wiki/LaboratoryTestResultForTransfer-v1.2.2(2015EN)" />
-    <name value="HCIM LaboratoryTestResultForTransfer-v1.2.2(2015EN)" />
-  </mapping>
-  <mapping>
-    <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
-    <uri value="https://zibs.nl/wiki/LaboratoryTestResultForTransfer-v3.0(2016EN)" />
-    <name value="HCIM LaboratoryTestResultForTransfer-v3.0(2016EN)" />
-  </mapping>
-  <mapping>
-    <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-    <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)" />
-    <name value="HCIM LaboratoryTestResultForTransfer-v4.1(2017EN)" />
-  </mapping>
-  <kind value="resource" />
-  <abstract value="false" />
-  <type value="Specimen" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Specimen" />
-  <derivation value="constraint" />
-  <differential>
-    <element id="Specimen">
-      <path value="Specimen" />
-      <short value="Specimen" />
-      <definition value="A sample to be used for analysis. The HCIM LaboratoryTestResult only contains Specimen details at container and collection level. It is not prohibited, rather expected that other details will be present too." />
-      <alias value="Monster" />
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
-        <map value="NL-CM:13.1.2" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
-        <map value="NL-CM:13.1.2" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.2" />
-      </mapping>
-    </element>
-    <element id="Specimen.identifier">
-      <path value="Specimen.identifier" />
-      <short value="SpecimenId" />
-      <definition value="Identification number of the material obtained, as a reference for inquiries to the source organization. In a transmural setting, this number will consist of a specimen number including the identification of the issuing organization, to be unique outside of the borders of an organization." />
-      <alias value="Monsternummer" />
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
-        <map value="NL-CM:13.1.15" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
-        <map value="NL-CM:13.1.15" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.15" />
-      </mapping>
-    </element>
-    <element id="Specimen.type">
-      <path value="Specimen.type" />
-      <short value="SpecimenMaterial" />
-      <definition value="SpecimenMaterial describes the material obtained. If the LOINC test code also implicitly describes a material, this element may not conflict with the description. If desired, this component can provide a more detailed description of the material: LOINC codes only contain the materials at a main level. &#xD;&#xA;This is in line with the agreements made in the IHE/Nictiz program e-Lab. &#xD;&#xA; &#xD;&#xA;If the test is carried out on derived material (such as plasma), this element will still contain the material drawn (in this case, blood). In this case, the LOINC code will generally refer to plasma." />
-      <alias value="Monstermateriaal" />
-      <binding>
-        <strength value="extensible" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.6--20171231000000" />
-          <display value="MonstermateriaalCodelijst" />
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
-        <map value="NL-CM:13.1.16" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
-        <map value="NL-CM:13.1.16" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.16" />
-      </mapping>
-    </element>
-    <element id="Specimen.subject">
-      <path value="Specimen.subject" />
-      <short value="SpecimenSource / Microorganism" />
-      <definition value="If the material is not collected directly from the patient but comes from a patient-related object, e.g. a cathetertip, this source of material can be recorded here.&#xD;&#xA;&#xD;&#xA;In particular in microbiological determinations the subject of the test is an isolate of certain microorganism rather then a material. This concept provides the ability to capture information about this microorganism." />
-      <alias value="Microorganisme" />
-      <alias value="BronMonster" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance" />
-      </type>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.29" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.22" />
-      </mapping>
-    </element>
-    <element id="Specimen.receivedTime">
-      <path value="Specimen.receivedTime" />
-      <short value="ReceivedDateTime" />
-      <definition value="Date and time that the material is handed over at the laboratory or specimen collection center. This is the issue with material that is collected by the patient himself." />
-      <alias value="AannameDatumTijd" />
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.25" />
-      </mapping>
-    </element>
-    <element id="Specimen.collection.collected[x]">
-      <path value="Specimen.collection.collected[x]" />
-      <short value="CollectionDateTime" />
-      <definition value="Time at which the material was collected.&#xD;&#xA;&#xD;&#xA;If the material has not been collected at a single point in time but over a certain period, this period can be captured in this concept. An example is 24 hour urine." />
-      <alias value="AfnameDatumTijd" />
-      <alias value="CollectionPeriod" />
-      <alias value="Verzamelperiode" />
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
-        <map value="NL-CM:13.1.17" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
-        <map value="NL-CM:13.1.17" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.17" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.24" />
-      </mapping>
-    </element>
-    <element id="Specimen.collection.quantity">
-      <path value="Specimen.collection.quantity" />
-      <short value="CollectedVolume" />
-      <definition value="Total volume of the collected material. If it is necessary to determine the absolute amount of a particular substance in the collected material, the volume thereof must be given." />
-      <alias value="Verzamelvolume" />
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.23" />
-      </mapping>
-    </element>
-    <element id="Specimen.collection.method">
-      <path value="Specimen.collection.method" />
-      <short value="CollectionMethod" />
-      <definition value="If relevant for the results, the method of obtaining the specimen can be entered as well." />
-      <alias value="Afnameprocedure" />
-      <binding>
-        <strength value="extensible" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.2--20171231000000" />
-          <display value="AfnameprocedureCodelijst" />
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
-        <map value="NL-CM:13.1.18" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
-        <map value="NL-CM:13.1.18" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.18" />
-      </mapping>
-    </element>
-    <element id="Specimen.collection.bodySite">
-      <path value="Specimen.collection.bodySite" />
-      <short value="AnatomicalLocation" />
-      <definition value="Anatomic location where the material is collected, e.g. elbow." />
-      <alias value="AnatomischeLocatie" />
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite" />
-        </extension>
-        <strength value="extensible" />
-        <description value="SpecimenAnatomicalLocationCodelist" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.11--20171231000000" />
-          <display value="SpecimenAnatomicalLocationCodelist" />
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.26" />
-      </mapping>
-    </element>
-    <element id="Specimen.collection.bodySite.extension">
-      <path value="Specimen.collection.bodySite.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Specimen.collection.bodySite.extension:laterality">
-      <path value="Specimen.collection.bodySite.extension" />
-      <sliceName value="laterality" />
-      <short value="Laterality" />
-      <definition value="Laterality adds information about body side to the anatomic location, e.g. left" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
-      </type>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.27" />
-      </mapping>
-    </element>
-    <element id="Specimen.collection.bodySite.extension:laterality.valueCodeableConcept">
-      <path value="Specimen.collection.bodySite.extension.valueCodeableConcept" />
-      <binding>
-        <strength value="extensible" />
-        <description value="LateralityCodelist" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.12--20171231000000" />
-          <display value="LateralityCodelist" />
-        </valueSetReference>
-      </binding>
-    </element>
-    <element id="Specimen.collection.bodySite.extension:morphology">
-      <path value="Specimen.collection.bodySite.extension" />
-      <sliceName value="morphology" />
-      <short value="Morphology" />
-      <definition value="Morphology describes morphological abnormalities of the anatomical location where the material is taken, for example wound, ulcer." />
-      <alias value="Morfologie" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Morphology" />
-      </type>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.28" />
-      </mapping>
-    </element>
-    <element id="Specimen.collection.bodySite.extension:morphology.valueCodeableConcept">
-      <path value="Specimen.collection.bodySite.extension.valueCodeableConcept" />
-      <binding>
-        <strength value="extensible" />
-        <description value="MorphologyCodelist" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.13--20171231000000" />
-        </valueSetReference>
-      </binding>
-    </element>
-    <element id="Specimen.container">
-      <path value="Specimen.container" />
-      <short value="SpecimenContainer" />
-      <alias value="Monstercontainer" />
-    </element>
-    <element id="Specimen.container.identifier">
-      <path value="Specimen.container.identifier" />
-      <short value="SpecimenNumberExtension" />
-      <definition value="The specimen number extension is used when the collected material is distributed from the original tube or container across multiple tubes. In combination with the specimen Id the extension yield a unique identification of the tube or container" />
-      <alias value="Monstervolgnummer" />
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.20" />
-      </mapping>
-    </element>
-    <element id="Specimen.container.type">
-      <path value="Specimen.container.type" />
-      <short value="ContainerType" />
-      <definition value="Container type describes the envelope in which the material is collected or sent. Examples include blood tubes, transport container, possibly including culture medium." />
-      <alias value="Containertype" />
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SpecimenContainerType" />
-        </extension>
-        <strength value="extensible" />
-        <description value="ContainerTypeCodelist" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.9--20171231000000" />
-          <display value="ContainerTypeCodelist" />
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.21" />
-      </mapping>
-    </element>
-    <element id="Specimen.note">
-      <path value="Specimen.note" />
-      <short value="Comment" />
-      <alias value="Toelichting" />
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
-        <map value="NL-CM:13.1.19" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
-        <map value="NL-CM:13.1.19" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
-        <map value="NL-CM:13.1.19" />
-      </mapping>
-    </element>
-  </differential>
+    <id value="zib-LaboratoryTestResult-Specimen"/>
+    <meta>
+        <versionId value="1"/>
+        <lastUpdated value="2016-11-11T12:24:01.174+00:00"/>
+    </meta>
+    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Specimen"/>
+    <version value="2.0"/>
+    <name value="Zib LaboratoryTestResult Specimen"/>
+    <title value="HCIM LaboratoryTestResult Specimen"/>
+    <status value="draft"/>
+    <date value="2016-11-11T12:24:01.174+00:00"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="The Specimen details from the LaboratoryTestResult as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 4.1, release 2017."/>
+    <copyright value="CC0"/>
+    <fhirVersion value="3.0.1"/>
+    <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
+        <uri value="https://zibs.nl/wiki/LaboratoryTestResultForTransfer-v1.2.2(2015EN)"/>
+        <name value="HCIM LaboratoryTestResultForTransfer-v1.2.2(2015EN)"/>
+    </mapping>
+    <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
+        <uri value="https://zibs.nl/wiki/LaboratoryTestResultForTransfer-v3.0(2016EN)"/>
+        <name value="HCIM LaboratoryTestResultForTransfer-v3.0(2016EN)"/>
+    </mapping>
+    <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+        <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)"/>
+        <name value="HCIM LaboratoryTestResultForTransfer-v4.1(2017EN)"/>
+    </mapping>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="Specimen"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Specimen">
+            <path value="Specimen"/>
+            <short value="Specimen"/>
+            <definition value="A sample to be used for analysis. The HCIM LaboratoryTestResult only contains Specimen details at container and collection level. It is not prohibited, rather expected that other details will be present too."/>
+            <alias value="Monster"/>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
+                <map value="NL-CM:13.1.2"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
+                <map value="NL-CM:13.1.2"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.2"/>
+            </mapping>
+        </element>
+        <element id="Specimen.identifier">
+            <path value="Specimen.identifier"/>
+            <short value="SpecimenId"/>
+            <definition value="Identification number of the material obtained, as a reference for inquiries to the source organization. In a transmural setting, this number will consist of a specimen number including the identification of the issuing organization, to be unique outside of the borders of an organization."/>
+            <alias value="Monsternummer"/>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
+                <map value="NL-CM:13.1.15"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
+                <map value="NL-CM:13.1.15"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.15"/>
+            </mapping>
+        </element>
+        <element id="Specimen.type">
+            <path value="Specimen.type"/>
+            <short value="SpecimenMaterial"/>
+            <definition
+                value="SpecimenMaterial describes the material obtained. If the LOINC test code also implicitly describes a material, this element may not conflict with the description. If desired, this component can provide a more detailed description of the material: LOINC codes only contain the materials at a main level. &#xD;&#xA;This is in line with the agreements made in the IHE/Nictiz program e-Lab. &#xD;&#xA; &#xD;&#xA;If the test is carried out on derived material (such as plasma), this element will still contain the material drawn (in this case, blood). In this case, the LOINC code will generally refer to plasma."/>
+            <alias value="Monstermateriaal"/>
+            <binding>
+                <strength value="extensible"/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.6--20171231000000"/>
+                    <display value="MonstermateriaalCodelijst"/>
+                </valueSetReference>
+            </binding>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
+                <map value="NL-CM:13.1.16"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
+                <map value="NL-CM:13.1.16"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.16"/>
+            </mapping>
+        </element>
+        <element id="Specimen.subject">
+            <path value="Specimen.subject"/>
+            <short value="SpecimenSource / Microorganism"/>
+            <definition value="If the material is not collected directly from the patient but comes from a patient-related object, e.g. a cathetertip, this source of material can be recorded here.&#xD;&#xA;&#xD;&#xA;In particular in microbiological determinations the subject of the test is an isolate of certain microorganism rather then a material. This concept provides the ability to capture information about this microorganism."/>
+            <alias value="Microorganisme"/>
+            <alias value="BronMonster"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
+            </type>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+            </type>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.29"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.22"/>
+            </mapping>
+        </element>
+        <element id="Specimen.receivedTime">
+            <path value="Specimen.receivedTime"/>
+            <short value="ReceivedDateTime"/>
+            <definition value="Date and time that the material is handed over at the laboratory or specimen collection center. This is the issue with material that is collected by the patient himself."/>
+            <alias value="AannameDatumTijd"/>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.25"/>
+            </mapping>
+        </element>
+        <element id="Specimen.collection.collected[x]">
+            <path value="Specimen.collection.collected[x]"/>
+            <short value="CollectionDateTime"/>
+            <definition value="Time at which the material was collected.&#xD;&#xA;&#xD;&#xA;If the material has not been collected at a single point in time but over a certain period, this period can be captured in this concept. An example is 24 hour urine."/>
+            <alias value="AfnameDatumTijd"/>
+            <alias value="CollectionPeriod"/>
+            <alias value="Verzamelperiode"/>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
+                <map value="NL-CM:13.1.17"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
+                <map value="NL-CM:13.1.17"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.17"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.24"/>
+            </mapping>
+        </element>
+        <element id="Specimen.collection.quantity">
+            <path value="Specimen.collection.quantity"/>
+            <short value="CollectedVolume"/>
+            <definition value="Total volume of the collected material. If it is necessary to determine the absolute amount of a particular substance in the collected material, the volume thereof must be given."/>
+            <alias value="Verzamelvolume"/>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.23"/>
+            </mapping>
+        </element>
+        <element id="Specimen.collection.method">
+            <path value="Specimen.collection.method"/>
+            <short value="CollectionMethod"/>
+            <definition value="If relevant for the results, the method of obtaining the specimen can be entered as well."/>
+            <alias value="Afnameprocedure"/>
+            <binding>
+                <strength value="extensible"/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.2--20171231000000"/>
+                    <display value="AfnameprocedureCodelijst"/>
+                </valueSetReference>
+            </binding>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
+                <map value="NL-CM:13.1.18"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
+                <map value="NL-CM:13.1.18"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.18"/>
+            </mapping>
+        </element>
+        <element id="Specimen.collection.bodySite">
+            <path value="Specimen.collection.bodySite"/>
+            <short value="AnatomicalLocation"/>
+            <definition value="Anatomic location where the material is collected, e.g. elbow."/>
+            <alias value="AnatomischeLocatie"/>
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="BodySite"/>
+                </extension>
+                <strength value="extensible"/>
+                <description value="SpecimenAnatomicalLocationCodelist"/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.11--20171231000000"/>
+                    <display value="SpecimenAnatomicalLocationCodelist"/>
+                </valueSetReference>
+            </binding>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.26"/>
+            </mapping>
+        </element>
+        <element id="Specimen.collection.bodySite.extension">
+            <path value="Specimen.collection.bodySite.extension"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="url"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Specimen.collection.bodySite.extension:laterality">
+            <path value="Specimen.collection.bodySite.extension"/>
+            <sliceName value="laterality"/>
+            <short value="Laterality"/>
+            <definition value="Laterality adds information about body side to the anatomic location, e.g. left"/>
+            <type>
+                <code value="Extension"/>
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier"/>
+            </type>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.27"/>
+            </mapping>
+        </element>
+        <element id="Specimen.collection.bodySite.extension:laterality.valueCodeableConcept">
+            <path value="Specimen.collection.bodySite.extension.valueCodeableConcept"/>
+            <binding>
+                <strength value="extensible"/>
+                <description value="LateralityCodelist"/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.12--20171231000000"/>
+                    <display value="LateralityCodelist"/>
+                </valueSetReference>
+            </binding>
+        </element>
+        <element id="Specimen.collection.bodySite.extension:morphology">
+            <path value="Specimen.collection.bodySite.extension"/>
+            <sliceName value="morphology"/>
+            <short value="Morphology"/>
+            <definition value="Morphology describes morphological abnormalities of the anatomical location where the material is taken, for example wound, ulcer."/>
+            <alias value="Morfologie"/>
+            <type>
+                <code value="Extension"/>
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Morphology"/>
+            </type>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.28"/>
+            </mapping>
+        </element>
+        <element id="Specimen.collection.bodySite.extension:morphology.valueCodeableConcept">
+            <path value="Specimen.collection.bodySite.extension.valueCodeableConcept"/>
+            <binding>
+                <strength value="extensible"/>
+                <description value="MorphologyCodelist"/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.13--20171231000000"/>
+                    <display value="MorfologieCodelijst"/>
+                </valueSetReference>
+            </binding>
+        </element>
+        <element id="Specimen.container">
+            <path value="Specimen.container"/>
+            <short value="SpecimenContainer"/>
+            <alias value="Monstercontainer"/>
+        </element>
+        <element id="Specimen.container.identifier">
+            <path value="Specimen.container.identifier"/>
+            <short value="SpecimenNumberExtension"/>
+            <definition value="The specimen number extension is used when the collected material is distributed from the original tube or container across multiple tubes. In combination with the specimen Id the extension yield a unique identification of the tube or container"/>
+            <alias value="Monstervolgnummer"/>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.20"/>
+            </mapping>
+        </element>
+        <element id="Specimen.container.type">
+            <path value="Specimen.container.type"/>
+            <short value="ContainerType"/>
+            <definition value="Container type describes the envelope in which the material is collected or sent. Examples include blood tubes, transport container, possibly including culture medium."/>
+            <alias value="Containertype"/>
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="SpecimenContainerType"/>
+                </extension>
+                <strength value="extensible"/>
+                <description value="ContainerTypeCodelist"/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.9--20171231000000"/>
+                    <display value="ContainerTypeCodelist"/>
+                </valueSetReference>
+            </binding>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.21"/>
+            </mapping>
+        </element>
+        <element id="Specimen.note">
+            <path value="Specimen.note"/>
+            <short value="Comment"/>
+            <alias value="Toelichting"/>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
+                <map value="NL-CM:13.1.19"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
+                <map value="NL-CM:13.1.19"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
+                <map value="NL-CM:13.1.19"/>
+            </mapping>
+        </element>
+    </differential>
 </StructureDefinition>
