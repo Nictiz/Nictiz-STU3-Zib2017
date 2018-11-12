@@ -179,8 +179,9 @@
                 <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
             </type>
         </element>
-        <element id="Observation.value[x]">
+        <element id="Observation.value[x]:valueCodeableConcept">
             <path value="Observation.valueCodeableConcept"/>
+            <sliceName value="valueCodeableConcept"/>
             <short value="TobaccoUseStatus"/>
             <definition value="The status of the patient’s tobacco use."/>
             <alias value="TabakGebruikStatus"/>
@@ -262,8 +263,9 @@
             <path value="Observation.component.code.coding.display"/>
             <fixedString value="Type of tobacco used (observable entity)"/>
         </element>
-        <element id="Observation.component:TypeOfTobaccoUsed.value[x]">
+        <element id="Observation.component:TypeOfTobaccoUsed.value[x]:valueCodeableConcept">
             <path value="Observation.component.valueCodeableConcept"/>
+            <sliceName value="valueCodeableConcept"/>
             <short value="TypeOfTobaccoUsed"/>
             <definition value="Type of tobacco the patient uses."/>
             <alias value="SoortTabakGebruik"/>
@@ -316,8 +318,9 @@
             <path value="Observation.component.code.coding.display"/>
             <fixedString value="Tobacco smoking consumption (observable entity)"/>
         </element>
-        <element id="Observation.component:Amount.value[x]">
+        <element id="Observation.component:Amount.value[x]:valueQuantity">
             <path value="Observation.component.valueQuantity"/>
+            <sliceName value="valueQuantity"/>
             <short value="Amount"/>
             <definition value="The number of cigarettes, cigars or grams of rolling tobacco consumed per day, week, month or year."/>
             <alias value="Hoeveelheid"/>
@@ -371,8 +374,9 @@
             <path value="Observation.component.code.coding.display"/>
             <fixedString value="Cigarette pack-years (observable entity)"/>
         </element>
-        <element id="Observation.component:PackYears.value[x]">
+        <element id="Observation.component:PackYears.value[x]:valueQuantity">
             <path value="Observation.component.valueQuantity"/>
+            <sliceName value="valueQuantity"/>
             <short value="PackYears"/>
             <definition
                 value="The pack year is a measure for smokers’ exposure to tobacco smoke. The calculation is not included in the model. It is entered in the EPD and/or during the anamnesis and is only entered if known. This should not be calculated based on the other values in this clinical information model.&#xD;&#xA;&#xD;&#xA;The unit indicating the smoker’s total exposure to tobacco smoke. For cigarettes, this is calculated using the number of smoked packs of cigarettes per day (one pack = 20 cigarettes) times the number of years of smoking. For other forms of tobacco, this is usually converted to an equivalent cigarette consumption. Often, only the number of pack years is estimated."/>
@@ -392,6 +396,16 @@
                 <identity value="hcim-tobaccouse-v3.1-2017EN"/>
                 <map value="NL-CM:7.2.7"/>
             </mapping>
+        </element>
+        <element id="Observation.component:PackYears.value[x]:valueQuantity.system">
+            <path value="Observation.component.valueQuantity.system"/>
+            <min value="1"/>
+            <fixedUri value="http://unitsofmeasure.org"/>
+        </element>
+        <element id="Observation.component:PackYears.value[x]:valueQuantity.code">
+            <path value="Observation.component.valueQuantity.code"/>
+            <min value="1"/>
+            <fixedCode value="{PackYears}"/>
         </element>
     </differential>
 </StructureDefinition>
