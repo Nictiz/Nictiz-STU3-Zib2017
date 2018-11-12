@@ -1,18 +1,17 @@
 <ValueSet xmlns="http://hl7.org/fhir">
-    <id value="2.16.840.1.113883.2.4.3.11.60.40.2.9.3.2--20150401000000"/>
+    <id value="2.16.840.1.113883.2.4.3.11.60.40.2.9.13.3--20171231000000"/>
     <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-      <!--<profile value="http://hl7.org/fhir/3.0/StructureDefinition/ValueSet"/>-->
+        <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/><!--<profile value="http://hl7.org/fhir/3.0/StructureDefinition/ValueSet"/>-->
     </meta>
-    <url value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.3.2--20150401000000"/>
+    <url value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.13.3--20171231000000"/>
     <identifier>
         <use value="official"/>
         <system value="http://art-decor.org/ns/oids/vs"/>
-        <value value="2.16.840.1.113883.2.4.3.11.60.40.2.9.3.2"/>
+        <value value="2.16.840.1.113883.2.4.3.11.60.40.2.9.13.3"/>
     </identifier>
-    <version value="2015-04-01T00:00:00"/>
-    <name value="MedicatieToedieningRedenVanNietToedienenCodelijst"/>
-    <title value="MedicatieToedieningRedenVanNietToedienenCodelijst"/>
+    <version value="2017-12-31T00:00:00"/>
+    <name value="MedicatieToedieningRedenVanAfwijkenCodelijst"/>
+    <title value="MedicatieToedieningRedenVanAfwijkenCodelijst"/>
     <status value="active"/>
     <experimental value="false"/>
     <publisher value="Registratie aan de bron"/>
@@ -27,11 +26,11 @@
             <value value="https://www.zibs.nl"/>
         </telecom>
     </contact>
-    <description value="MedicatieToedieningRedenVanNietToedienenCodelijst"/>
+    <description value="MedicatieToedieningRedenVanAfwijkenCodelijst"/>
     <immutable value="false"/>
     <compose>
         <include>
-            <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+            <system value="urn:oid:2.16.840.1.113883.5.1008"/>
             <concept>
                 <code value="NI"/>
                 <display value="No information"/>
@@ -47,7 +46,7 @@
             </concept>
         </include>
         <include>
-            <system value="http://hl7.org/fhir/v3/ActReason"/>
+            <system value="urn:oid:2.16.840.1.113883.5.8"/>
             <concept>
                 <code value="DISCONT"/>
                 <display value="Product discontinued"/>
@@ -110,7 +109,7 @@
                         <code value="preferred"/>
                         <display value="preferred"/>
                     </use>
-                    <value value="Voorschrift is gestopt"/>
+                    <value value="Medicatieafspraak is gestopt"/>
                 </designation>
             </concept>
         </include>
