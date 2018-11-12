@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/capabilitystatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
+  <url value="http://nictiz.nl/fhir/CapabilityStatement/pdfa-clientcapabilities" />
+  <version value="1.0" />
+  <name value="PDFAClient" />
+  <status value="active" />
+  <date value="2017-09-25" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This CapabilityStatement describes the minimal requirements for a client to retrieve and send PDFA documents. The requirements are based on the IHE technical framework supplement for Mobile access to Health Documents (MHD)." />
+  <copyright value="CC0" />
+  <kind value="requirements" />
+  <fhirVersion value="3.0.1" />
+  <acceptUnknown value="both" />
+  <format value="xml" />
+  <format value="json" />
+  <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+  </profile>
+  <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+  </profile>
+  <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+  </profile>
+  <profile>
+    <reference value="http://ihe.net/fhir/StructureDefinition/IHE.MHD.DocumentManifest" />
+  </profile>
+  <profile>
+    <reference value="http://ihe.net/fhir/StructureDefinition/IHE.MHD.Query.Comprehensive.DocumentReference" />
+  </profile>
+  <profile>
+    <reference value="http://ihe.net/fhir/StructureDefinition/IHE.MHD.Query.Minimal.DocumentReference" />
+  </profile>
+  <profile>
+    <reference value="http://ihe.net/fhir/StructureDefinition/IHE.MHD.List" />
+  </profile>
+  <rest>
+    <mode value="client" />
+     <resource>
+      <type value="DocumentManifest" />
+      <interaction>
+        <code value="search-type" />
+      </interaction>
+      <searchParam>
+        <name value="patient" />
+        <type value="reference" />
+      </searchParam>
+      <searchParam>
+        <name value="created" />
+        <type value="date" />
+      </searchParam>
+      <searchParam>
+        <name value="author" />
+        <type value="reference" />
+      </searchParam>
+      <searchParam>
+        <name value="type" />
+        <type value="token" />
+      </searchParam>
+      <searchParam>
+        <name value="source" />
+        <type value="uri" />
+      </searchParam>
+      <searchParam>
+        <name value="status" />
+        <type value="token" />
+      </searchParam>
+    </resource>
+    <resource>
+      <type value="DocumentReference" />
+      <interaction>
+        <code value="search-type" />
+      </interaction>
+      <searchParam>
+        <name value="patient" />
+        <type value="reference" />
+      </searchParam>
+      <searchParam>
+        <name value="status" />
+        <type value="token" />
+      </searchParam>
+      <searchParam>
+        <name value="indexed" />
+        <type value="date" />
+      </searchParam>
+      <searchParam>
+        <name value="author" />
+        <type value="reference" />
+      </searchParam>
+      <searchParam>
+        <name value="class" />
+        <type value="token" />
+      </searchParam>
+      <searchParam>
+        <name value="type" />
+        <type value="token" />
+      </searchParam>
+      <searchParam>
+        <name value="setting" />
+        <type value="token" />
+      </searchParam>
+      <searchParam>
+        <name value="period" />
+        <type value="date" />
+      </searchParam>
+      <searchParam>
+        <name value="facility" />
+        <type value="token" />
+      </searchParam>
+      <searchParam>
+        <name value="event" />
+        <type value="token" />
+      </searchParam>
+      <searchParam>
+        <name value="securityLabel" />
+        <type value="token" />
+      </searchParam>
+      <searchParam>
+        <name value="format" />
+        <type value="token" />
+      </searchParam>
+      <searchParam>
+        <name value="related-id" />
+        <type value="token" />
+      </searchParam>
+    </resource>
+    <resource>
+      <type value="Binary"/>
+      <interaction>
+        <code value="read"/>
+      </interaction>
+    </resource>
+  </rest>
+</CapabilityStatement>
