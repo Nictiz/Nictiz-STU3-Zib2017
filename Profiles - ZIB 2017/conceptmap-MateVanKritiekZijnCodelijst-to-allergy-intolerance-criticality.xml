@@ -1,0 +1,63 @@
+<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+    <url value="http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality"/>
+    <version value="2.0"/>
+    <name value="MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality"/>
+    <title value="HCIM MateVanKritiekZijnCodelijst to allergy-intolerance-criticality"/>
+    <status value="active"/>
+    <date value="2018-11-12T10:27:28.0292377+01:00"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="Maps the HCIM AllergyIntolerance release 2017 terminology for AllergyCriticalExtent to the FHIR STU3 terminology"/>
+    <purpose value="To aid in mapping from ZIB AllergyIntolerance value set MateVanKritiekZijnCodelijst to FHIR STU3 AllergyIntolerance criticality"/>
+    <copyright value="CC0"/>
+    <sourceUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.4--20171231000000"/>
+    <targetUri value="http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality"/>
+    <group>
+        <source value="http://snomed.info/sct"/>
+        <target value="http://hl7.org/fhir/allergy-intolerance-criticality"/>
+        <element>
+            <code value="62482003"/>
+            <display value="Low"/>
+            <target>
+                <code value="low"/>
+                <display value="Low"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="255508009"/>
+            <display value="Medium"/>
+            <target>
+                <code value="high"/>
+                <display value="High"/>
+                <equivalence value="wider"/>
+            </target>
+        </element>
+        <element>
+            <code value="75540009"/>
+            <display value="High"/>
+            <target>
+                <code value="high"/>
+                <display value="High"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="399166001"/>
+            <display value="Fatal"/>
+            <target>
+                <code value="high"/>
+                <display value="High"/>
+                <equivalence value="wider"/>
+            </target>
+        </element>
+    </group>
+</ConceptMap>

@@ -1,0 +1,76 @@
+<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+    <url value="http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status"/>
+    <version value="2.0"/>
+    <name value="AllergieStatusCodelijst-to-allergy-status"/>
+    <title value="HCIM AllergieStatusCodelijst to allergy status"/>
+    <status value="active"/>
+    <date value="2018-11-12T10:27:28.0292377+01:00"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="Maps the HCIM AllergyIntolerance release 2017 terminology for AllergyStatus to the FHIR STU3 terminology"/>
+    <purpose value="To aid in mapping from HCIM AllergyIntolerance value set AllergieStatusCodelijst to FHIR STU3 AllergyIntolerance clinicalStatus and verificationStatus"/>
+    <copyright value="CC0"/>
+    <sourceUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.3--20171231000000"/>
+    <!--<targetUri value="http://hl7.org/fhir/ValueSet/allergy-clinical-status"/>-->
+    <!--<targetUri value="http://hl7.org/fhir/ValueSet/allergy-verification-status"/>-->
+    <group>
+        <source value="http://hl7.org/fhir/v3/ActStatus"/>
+        <target value="http://hl7.org/fhir/reaction-event-certainty"/>
+        <element>
+            <code value="active"/>
+            <display value="active"/>
+            <target>
+                <code value="active"/>
+                <display value="Active"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="obsolete"/>
+            <display value="obsolete"/>
+            <target>
+                <code value="inactive"/>
+                <display value="Inactive"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="completed"/>
+            <display value="Completed"/>
+            <target>
+                <code value="resolved"/>
+                <display value="Resolved"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="nullified"/>
+            <display value="Nullified"/>
+            <target>
+                <equivalence value="unmatched"/>
+                <comment value="Nullified means 'entered in error'. There is no mapping for that in the AllergyIntolerance.clinicalStatus. Use AllergyIntolerance.verificationStatus = entered-in-error."/>
+            </target>
+        </element>
+    </group>
+    <group>
+        <source value="http://hl7.org/fhir/v3/ActStatus"/>
+        <target value="http://hl7.org/fhir/allergy-verification-status"/>
+        <element>
+            <code value="nullified"/>
+            <display value="Nullified"/>
+            <target>
+                <code value="entered-in-error"/>
+                <display value="Entered in error"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+    </group>
+</ConceptMap>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+  <url value="http://nictiz.nl/fhir/ConceptMap/ErnstCodelijst-to-AllergyIntoleranceSeverity"/>
+  <version value="2.0"/>
+  <name value="ErnstCodelijst-to-AllergyIntoleranceSeverity"/>
+  <title value="HCIM ErnstCodelijst to AllergyIntoleranceSeverity"/>
+  <status value="active"/>
+  <date value="2018-11-12T10:27:28.0292377+01:00"/>
+  <publisher value="Nictiz"/>
+  <contact>
+    <name value="Nictiz"/>
+    <telecom>
+      <system value="email"/>
+      <value value="info@nictiz.nl"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="Maps the HCIM AllgergyIntolerance release 2017 terminology for the concept Serverty to the FHIR STU3 terminology binded at AllergyIntolerance.reaction.severity"/>
+  <purpose value="To aid in mapping from HCIM AllgergyIntolerance value set ErnstCodelijst to FHIR STU3 AllergyIntolerance.reaction.severity"/>
+  <copyright value="CC0"/>
+  <sourceUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.6--20171231000000"/>
+  <targetUri value="http://hl7.org/fhir/ValueSet/reaction-event-severity"/>
+  <group>
+    <source value="urn:oid:2.16.840.1.113883.2.4.15.20"/>
+    <target value="http://hl7.org/fhir/reaction-event-severity"/>
+    <targetVersion value="http://hl7.org/fhir/reaction-event-severity version 3.0.1"/>
+    <element>
+      <code value="MILD"/>
+      <display value="Mild"/>
+      <target>
+        <code value="mild"/>
+        <display value="Mild"/>
+        <equivalence value="equal"/>
+      </target>
+    </element>
+    <element>
+      <code value="MOD"/>
+      <display value="Moderate"/>
+      <target>
+        <code value="moderate"/>
+        <display value="Moderate"/>
+        <equivalence value="equal"/>
+      </target>
+    </element>    
+    <element>
+      <code value="SEV"/>
+      <display value="Severe"/>
+      <target>
+        <code value="severe"/>
+        <display value="Severe"/>
+        <equivalence value="equal"/>
+      </target>
+    </element>   
+  </group>
+</ConceptMap>
+
+
+
