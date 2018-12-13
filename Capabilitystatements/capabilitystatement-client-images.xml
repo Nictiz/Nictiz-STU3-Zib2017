@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/capabilitystatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
+  <url value="http://nictiz.nl/fhir/CapabilityStatement/image-clientcapabilities" />
+  <version value="0.1" />
+  <name value="ImageClient" />
+  <status value="draft" />
+  <date value="2018-12-13" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This CapabilityStatement describes the minimal requirements for a client to send images. The requirements are influenced by the IHE technical framework supplement for Mobile access to Health Documents (MHD)." />
+  <copyright value="CC0" />
+  <kind value="requirements" />
+  <fhirVersion value="3.0.1" />
+  <acceptUnknown value="both" />
+  <format value="xml" />
+  <format value="json" />
+  <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+  </profile>
+  <!-- More profiles will be listed -->
+  <rest>
+    <mode value="client" />
+    <resource>
+      <type value="Bundle" />
+      <interaction>
+        <code value="create" />
+      </interaction>
+    </resource>
+    <resource>
+      <type value="Media" />
+      <interaction>
+        <code value="create" />
+      </interaction>
+    </resource>
+    <resource>
+      <type value="Binary"/>
+      <interaction>
+        <code value="create"/>
+      </interaction>
+    </resource>
+    <resource>
+      <type value="Patient" />
+      <interaction>
+        <code value="create" />
+      </interaction>
+    </resource>
+    <interaction>
+      <code value="transaction"/>
+    </interaction>
+  </rest>
+</CapabilityStatement>
