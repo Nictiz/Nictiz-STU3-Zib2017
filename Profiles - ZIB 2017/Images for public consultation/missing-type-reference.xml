@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
+  <version value="0.1.0" />
+  <name value="Missing Type Reference" />
+  <title value="Missing Type Reference" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This extenstion adds another Reference to the Reference datatype to reference the appropiate Resource type. These missing types are corrected in a higher version of FHIR." />
+  <purpose value="There is a known limitation in some of the FHIR STU3 resources where the appropriate reference type is not available. Examples include PractitionerRole which is missing from Encounter.participant (prevents proper context of the attending physician) and Patient which is missing from Media.operator (prevents patient-generated Media). In such cases, an extension will contain the reference of the appropriate type. This leads to slight duplication: the original Reference.display will be duplicated into the Reference.extension.valueReference.display. Systems that do not know about the extension would thus still have access to the regular Reference.display." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="datatype" />
+  <context value="Reference" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
+    </element>
+    <element id="Extension.value[x]:valueReference">
+      <path value="Extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
