@@ -2,7 +2,7 @@
 <?xml-model href="http://hl7.org/fhir/STU3/capabilitystatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
   <url value="http://nictiz.nl/fhir/CapabilityStatement/image-servercapabilities" />
-  <version value="0.1" />
+  <version value="0.2" />
   <name value="ImageServer" />
   <status value="draft" />
   <date value="2018-12-13" />
@@ -25,7 +25,18 @@
   <profile>
     <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
   </profile>
-  <!-- More profiles will be listed -->
+  <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-parctitioner" />
+  </profile>
+  <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+  </profile>
+  <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+  </profile>
+  <profile>
+    <reference value="http://nictiz.nl/fhir/StructureDefinition/images-Media" />
+  </profile>
   <rest>
     <mode value="server" />
     <resource>
