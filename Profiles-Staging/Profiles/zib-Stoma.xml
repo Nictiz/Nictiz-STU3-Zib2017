@@ -1,0 +1,244 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="zib-Stoma" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Stoma" />
+  <version value="1.0.0" />
+  <name value="Zib Stoma" />
+  <title value="HCIM Stoma" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Stoma is defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.2, release 2017.&#xD;&#xA;&#xD;&#xA;A stoma is an unnatural, surgically created opening connecting a body cavity with the outside world. A stoma is created e.g. as an exit opening for feces or urine in the event that they cannot leave the body naturally. In the case of a tracheostomy, the stoma is intended to facilitate breathing if that is no longer possible via the oral, nasal and throat cavity." />
+  <purpose value="Information on present stomas is recorded to inform other health professionals. This information is of importance in determining the care required for the patient. In a transfer situation, the information offers the option to realize continuity of care by organizing specific expertise and materials in advance, for example." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-stoma-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/Stoma-v3.2(2017EN)" />
+    <name value="HCIM Stoma-v3.2(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="Stoma" />
+      <definition value="Root concept of the Stoma information model. This concept contains all data elements of the Stoma information model." />
+      <alias value="Stoma" />
+      <mapping>
+        <identity value="hcim-stoma-v3.2-2017EN" />
+        <map value="NL-CM:5.2.1" />
+      </mapping>
+    </element>
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.extension:StomaMaterial">
+      <path value="Observation.extension" />
+      <sliceName value="StomaMaterial" />
+      <short value="StomaMaterial::MedicalDevice" />
+      <definition value="Stoma material describes the medical aids used, such as a skin plate (the adhesive part around the stoma), the stoma pouch (to catch the stoma output) and other stoma aids for caring for the stoma. For tracheostomies, it also describes aids such as voice prostheses and stoma filters.&#xD;&#xA;&#xD;&#xA;Catheters inserted through the stoma such as tracheal cannulas are not described in this concept. These aids must be modeled in a higher information model describing the catheter and referring to the stoma." />
+      <alias value="StomaMateriaal:: MedischHulpmiddel" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice" />
+      </type>
+      <mapping>
+        <identity value="hcim-stoma-v3.2-2017EN" />
+        <map value="NL-CM:5.2.3" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:AlcoholUseCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="stomaCode" />
+    </element>
+    <element id="Observation.code.coding:AlcoholUseCode.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:AlcoholUseCode.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="245857005" />
+    </element>
+    <element id="Observation.code.coding:AlcoholUseCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <fixedString value="Stoma (morphologic abnormality)" />
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <short value="CreationDate" />
+      <definition value="The date on which the stoma was created in the patient. A vague date, such as only the year, is permitted." />
+      <alias value="AanlegDatum" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="hcim-stoma-v3.2-2017EN" />
+        <map value="NL-CM:5.2.5" />
+      </mapping>
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+    <element id="Observation.value[x]">
+      <path value="Observation.valueCodeableConcept" />
+      <short value="Stoma type" />
+      <definition value="Stoma type indicates which body cavity the stoma is in and the kind of stoma used." />
+      <alias value="StomaType" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Zib example of double-barrelled colostomy" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="261072008" />
+            <display value="double-barrelled colostomy" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationCode" />
+        </extension>
+        <strength value="extensible" />
+        <description value="Stoma type code list" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.5.2.1--20171231000000" />
+          <display value="StomaTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-stoma-v3.2-2017EN" />
+        <map value="NL-CM:5.2.2" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="A comment on the stoma." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-stoma-v3.2-2017EN" />
+        <map value="NL-CM:5.2.7" />
+      </mapping>
+    </element>
+    <element id="Observation.bodySite">
+      <path value="Observation.bodySite" />
+      <short value="AnatomicalLocation" />
+      <definition value="Anatomical location of the stoma on the patient." />
+      <alias value="AnatomischeLocatie" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite" />
+        </extension>
+        <strength value="extensible" />
+        <description value="Codes describing anatomical locations for a stoma" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.5.2.2--20171231000000" />
+          <display value="StomaAnatomischeLocatieCodelijst"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-stoma-v3.2-2017EN" />
+        <map value="NL-CM:5.2.4" />
+      </mapping>
+    </element>
+    <element id="Observation.bodySite.extension">
+      <path value="Observation.bodySite.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.bodySite.extension:Laterality">
+      <path value="Observation.bodySite.extension" />
+      <sliceName value="Laterality" />
+      <short value="Laterality" />
+      <alias value="Lateraliteit" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
+      </type>
+      <mapping>
+        <identity value="hcim-stoma-v3.2-2017EN" />
+        <map value="NL-CM:5.2.8" />
+      </mapping>
+    </element>
+    <element id="Observation.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
+      <path value="Observation.bodySite.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="StomaLateralityCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.5.2.3--20171231000000" />
+          <display value="StomaLateralityCodelist" />
+        </valueSetReference>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,262 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine" />
+  <version value="1.0" />
+  <name value="Zib Infusion-LumenOrLine" />
+  <title value="HCIM Infusion-LumenOrLine" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Lumen and/or line information about the infusion as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or zib) 'Infusion', modeled as a complex extension." />
+  <purpose value="To provide information about the lumens and/or lines in an infusion. Currently, there is no field avaiblable in a DeviceUseStatement resource for this information, hence the reason for this extension." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="DeviceUseStatement" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="LumenOrLine" />
+      <definition value="Container of the LumenOrLine concept. This container contains all data elements of the LumenOrLine concept.&#xD;&#xA;&#xD;&#xA;Central lines can contain one or more lumens; peripheral infusions do not have lumens and only have one line." />
+      <alias value="LumenOfLijn" />
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Extension.extension:LineStatus">
+      <path value="Extension.extension" />
+      <sliceName value="LineStatus" />
+      <short value="LineStatus" />
+      <definition value="LineStatus is used to indicate whether it is a running infusion, whether it has been capped, or has been fitted with a heparin lock, etc." />
+      <alias value="LijnStatus" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:LineStatus.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="LineStatus" />
+    </element>
+    <element id="Extension.extension:LineStatus.value[x]:valueCodeableConcept">
+      <path value="Extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="preferred" />
+        <description value="LineStatusCodeList" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.2.3--20171231000000" />
+          <display value="LineStatusCodeList" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Extension.extension:LumenLocation">
+      <path value="Extension.extension" />
+      <sliceName value="LumenLocation" />
+      <short value="LumenLocation" />
+      <definition value="For central venous catheters with multiple lumens, LumenLocation indicates the relative position of the lumen with respect to the insertion opening." />
+      <alias value="LumenLocatie" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:LumenLocation.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="LumenLocation" />
+    </element>
+    <element id="Extension.extension:LumenLocation.value[x]:valueCodeableConcept">
+      <path value="Extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="preferred" />
+        <description value="LumenLocationCodeList" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.2.2--20171231000000" />
+          <display value="LumenLocationCodeList" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Extension.extension:LockFluid">
+      <path value="Extension.extension" />
+      <sliceName value="LockFluid" />
+      <short value="LockFluid" />
+      <definition value="The description of the fluid used as an anticoagulation lock, such as heparin." />
+      <alias value="SlotVloeistof" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:LockFluid.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="LockFluid" />
+    </element>
+    <element id="Extension.extension:LockFluid.value[x]:valueReference">
+      <path value="Extension.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration" />
+      </type>
+    </element>
+    <element id="Extension.extension:AdministeringSystem">
+      <path value="Extension.extension" />
+      <sliceName value="AdministeringSystem" />
+      <short value="AdministeringSystem" />
+      <definition value="The administering system contains the entire system making the fluid run from the infusion bag via the cannula/catheter to the patient. This also includes any three-way valves/connecting joints used." />
+      <alias value="ToedieningsSysteem" />
+    </element>
+    <element id="Extension.extension:AdministeringSystem.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="AdministeringSystem" />
+    </element>
+    <element id="Extension.extension:AdministeringSystem.value[x]:valueReference">
+      <path value="Extension.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-InfusionAdministeringSystem" />
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+      <type>
+        <code value="base64Binary" />
+      </type>
+      <type>
+        <code value="boolean" />
+      </type>
+      <type>
+        <code value="code" />
+      </type>
+      <type>
+        <code value="date" />
+      </type>
+      <type>
+        <code value="dateTime" />
+      </type>
+      <type>
+        <code value="decimal" />
+      </type>
+      <type>
+        <code value="id" />
+      </type>
+      <type>
+        <code value="instant" />
+      </type>
+      <type>
+        <code value="integer" />
+      </type>
+      <type>
+        <code value="markdown" />
+      </type>
+      <type>
+        <code value="oid" />
+      </type>
+      <type>
+        <code value="positiveInt" />
+      </type>
+      <type>
+        <code value="string" />
+      </type>
+      <type>
+        <code value="time" />
+      </type>
+      <type>
+        <code value="unsignedInt" />
+      </type>
+      <type>
+        <code value="uri" />
+      </type>
+      <type>
+        <code value="Address" />
+      </type>
+      <type>
+        <code value="Age" />
+      </type>
+      <type>
+        <code value="Annotation" />
+      </type>
+      <type>
+        <code value="Attachment" />
+      </type>
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <type>
+        <code value="Coding" />
+      </type>
+      <type>
+        <code value="ContactPoint" />
+      </type>
+      <type>
+        <code value="Count" />
+      </type>
+      <type>
+        <code value="Distance" />
+      </type>
+      <type>
+        <code value="Duration" />
+      </type>
+      <type>
+        <code value="HumanName" />
+      </type>
+      <type>
+        <code value="Identifier" />
+      </type>
+      <type>
+        <code value="Money" />
+      </type>
+      <type>
+        <code value="Period" />
+      </type>
+      <type>
+        <code value="Quantity" />
+      </type>
+      <type>
+        <code value="Range" />
+      </type>
+      <type>
+        <code value="Ratio" />
+      </type>
+      <type>
+        <code value="Reference" />
+      </type>
+      <type>
+        <code value="SampledData" />
+      </type>
+      <type>
+        <code value="Signature" />
+      </type>
+      <type>
+        <code value="Timing" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

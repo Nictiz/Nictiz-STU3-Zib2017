@@ -1,0 +1,47 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention-Interval" />
+  <version value="1.0.0" />
+  <name value="Zib NursingIntervention Interval" />
+  <title value="HCIM NursingIntervention Interval" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The interval data for the nursing intervention or procedure based on a Quantity datatype as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or zib) 'NursingIntervention' version 3.1." />
+  <purpose value="To provide interval information for the nursing intervention or procedure. Currently, there is no field avaiblable in a Procedure resource for this information, hence the reason for this extension." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Procedure" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Interval" />
+      <definition value="The interval data for the nursing intervention or procedure." />
+      <alias value="Interval" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention-Interval" />
+    </element>
+    <element id="Extension.value[x]:valueQuantity">
+      <path value="Extension.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <type>
+        <code value="Quantity" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

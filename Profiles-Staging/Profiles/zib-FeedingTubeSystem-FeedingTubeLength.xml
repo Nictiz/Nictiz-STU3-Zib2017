@@ -1,0 +1,47 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-FeedingTubeLength" />
+  <version value="1.0.0" />
+  <name value="Zib FeedingTubeSystem FeedingTubeLength" />
+  <title value="HCIM FeedingTubeSystem FeedingTubeLength" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The length of a feeding tube in a feeding tube system based on a Quantity datatype as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or zib) 'FeedingTubeSystem'." />
+  <purpose value="To provide information about the length of the feeding tube in a feeding tube system. Currently, there is no field avaiblable in a DeviceUseStatement resource for this information, hence the reason for this extension." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="DeviceUseStatement" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="FeedingTubeLength" />
+      <definition value="The input length of the feeding tube in cm for the patient in question as determined by formulas based on for example the NEX i.e. nosepoint-earlobe-xyphoid distance (adults) or body length (children)." />
+      <alias value="SondeLengte" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-FeedingTubeLength" />
+    </element>
+    <element id="Extension.value[x]:valueQuantity">
+      <path value="Extension.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <type>
+        <code value="Quantity" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,55 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="zib-FeedingTubeSystem-Product" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-Product" />
+  <version value="1.0.0" />
+  <name value="Zib FeedingTubeSystem Product" />
+  <title value="HCIM FeedingTubeSystem Product" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This resource is part of FeedingTubeSystem as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.2, release 2017.&#xD;&#xA;" />
+  <purpose value="The purpose of a feeding tube is usually to administer food and/or medication. &#xD;&#xA;Information on present feeding tubes is recorded to inform other health professionals. This information is of importance in determining the care required for the patient and in safely administering medication. In a transfer situation, the information offers the option to realize continuity of care by organizing specific expertise and materials in advance, for example." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/FeedingTubeSystem-v3.2(2017EN)" />
+    <name value="HCIM FeedingTubeSystem-v3.2(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Device" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Device">
+      <path value="Device" />
+      <definition value="A description of the type of feeding tube based on the location where it was inserted and the position of the tip of the tube." />
+    </element>
+    <element id="Device.type">
+      <path value="Device.type" />
+      <short value="ProductType" />
+      <alias value="ProductType" />
+      <binding>
+        <strength value="extensible" />
+        <description value="The code of the type of feeding tube product." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.3.1--20171231000000" />
+          <display value="ProductTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
+        <map value="NL-CM:10.1.3" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

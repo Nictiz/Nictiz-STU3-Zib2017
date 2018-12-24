@@ -1,0 +1,110 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="zib-FeedingTubeSystem" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem" />
+  <version value="1.0.0" />
+  <name value="Zib FeedingTubeSystem" />
+  <title value="HCIM FeedingTubeSystem" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A feeding tube is a special catheter used to:&#xD;&#xA;* administer liquid food to people who are incapable of oral intake of food or liquid,&#xD;&#xA;* administer medication,&#xD;&#xA;* drain (siphon) or pump out gastric juice.&#xD;&#xA;&#xD;&#xA;There are different ways to place a feeding tube. A feeding tube can be inserted through the nose, in the stomach or in the intestines (duodenum, jejunum). &#xD;&#xA;&#xD;&#xA;Percutaneous endoscopic gastrostomy (PEG) is a technique in which a feeding tube is placed into the stomach through the abdominal wall. This thin tube (PEG tube) is used to feed a patient who is incapable of oral food intake for a prolonged period of time." />
+  <purpose value="The purpose of a feeding tube is usually to administer food and/or medication. &#xD;&#xA;Information on present feeding tubes is recorded to inform other health professionals. This information is of importance in determining the care required for the patient and in safely administering medication. In a transfer situation, the information offers the option to realize continuity of care by organizing specific expertise and materials in advance, for example." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/FeedingTubeSystem-v3.2(2017EN)" />
+    <name value="HCIM FeedingTubeSystem-v3.2(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DeviceUseStatement" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DeviceUseStatement">
+      <path value="DeviceUseStatement" />
+      <short value="FeedingTubeSystem" />
+      <definition value="FeedingTube describes the presence of a feeding tube. If this is the case, the date of placement and insertion location can be described in addition to the type of feeding tube. Furthermore, it offers the option to record identification information of the feeding tube if desired." />
+      <comment value="The HCIM FeedingTubeSystem is represented in a DeviceUseStatement that has additional elements not covered in the 'root' HCIM such as the date of placement and insertion locations. The reference (NL-CM:10.3.2) toward another DeviceUseStatement to describe the presense of a feeding tube is ommited. This should be described within this DeviceUseStatement, which has a mandatory reference to a Device profile to capture the FeedingTube ProductType."/>
+      <alias value="SondeSysteem" />
+      <mapping>
+        <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
+        <map value="NL-CM:10.3.1" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
+        <map value="NL-CM:10.3.2" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:FeedingTubeLength">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="FeedingTubeLength" />
+      <short value="FeedingTubeLength" />
+      <alias value="SondeLengte" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-FeedingTubeLength" />
+      </type>
+      <mapping>
+        <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
+        <map value="NL-CM:10.3.8" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:EnteralNutrition">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="EnteralNutrition" />
+      <short value="EnteralNutrition" />
+      <alias value="SondeVoeding" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-EnteralNutrition" />
+      </type>
+      <mapping>
+        <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
+        <map value="NL-CM:10.3.3" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:MedicalDevice">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="MedicalDevice" />
+      <short value="MedicalDevice" />
+      <definition value="A description of aids required to use the feeding tube, such as an enteral feeding pump or a vacuum pump in the event of draining fluid." />
+      <alias value="MedischHulpmiddel" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice" />
+      </type>
+      <mapping>
+        <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
+        <map value="NL-CM:10.3.7" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.device">
+      <path value="DeviceUseStatement.device" />
+      <comment value="Reference to a derived MedicalDevice Product (Device) profile to caputure the ProductType (NL-CM:10.1.3)."/>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-Product" />
+      </type>
+    </element>
+    <element id="DeviceUseStatement.note.text">
+      <path value="DeviceUseStatement.note.text" />
+      <short value="Comment"/>
+      <definition value="A comment on the feeding tube." />
+      <alias value="Toelichting"/>
+      <mapping>
+        <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
+        <map value="NL-CM:10.3.6" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

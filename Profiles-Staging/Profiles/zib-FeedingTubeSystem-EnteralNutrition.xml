@@ -1,0 +1,48 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-EnteralNutrition" />
+  <version value="1.0.0" />
+  <name value="Zib FeedingTubeSystem EnteralNutrition" />
+  <title value="HCIM FeedingTubeSystem EnteralNutrition" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Information about the enteral nutrition in a feeding tube system based on a reference as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or zib) 'FeedingTubeSystem'." />
+  <purpose value="To provide information about the enteral nutrition in a feeding tube system. Currently, there is no field avaiblable in a DeviceUseStatement resource for this information, hence the reason for this extension." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="DeviceUseStatement" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="EnteralNutrition" />
+      <definition value="The description of the fluid administered through the feeding tube and the dose administered, as given in the medication prescription.&#xD;&#xA;&#xD;&#xA;Though most cases involve food being administered through the feeding tube, medication is often administered through these tubes as well." />
+      <alias value="SondeVoeding" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-EnteralNutrition" />
+    </element>
+    <element id="Extension.value[x]:valueReference">
+      <path value="Extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

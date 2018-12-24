@@ -1,0 +1,77 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-InfusionAdministeringSystem" />
+  <version value="1.0.0" />
+  <name value="Zib Infusion AdministeringSystem" />
+  <title value="HCIM Infusion AdministeringSystem" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This resource is part of Infusion as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.2, release 2017.&#xD;&#xA;&#xD;&#xA;The administering system contains the entire system making the fluid run from the infusion bag via the cannula/catheter to the patient. This also includes any three-way valves/connecting joints used." />
+  <purpose value="The purpose of an infusion is usually to administer fluid and/or medication. &#xD;&#xA;Information on present infusions is recorded to inform other health professionals. This information is of importance in determining the care required for the patient and in safely administering medication. In a transfer situation, the information offers the option to realize continuity of care by organizing specific expertise and materials in advance, for example." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-infusion-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/Infusion-v3.2(2017EN)" />
+    <name value="HCIM Infusion-v3.2(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="MedicationAdministration" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="MedicationAdministration">
+      <path value="MedicationAdministration" />
+      <mapping>
+        <identity value="hcim-infusion-v3.2-2017EN" />
+        <map value="NL-CM:10.2.2" />
+      </mapping>
+    </element>
+    <element id="MedicationAdministration.device.extension">
+      <path value="MedicationAdministration.device.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationAdministration.device.extension:Peripheral">
+      <path value="MedicationAdministration.device.extension" />
+      <sliceName value="Peripheral" />
+      <short value="Peripheral::MedicalDevice" />
+      <definition value="A description of medical devices required for administering the infusion fluid and placing the catheter, such as a volumetric infusion pump, syringe and infusion bag." />
+      <alias value="Randapparaat::MedischHulpmiddel" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice" />
+      </type>
+      <mapping>
+        <identity value="hcim-infusion-v3.2-2017EN" />
+        <map value="NL-CM:10.2.6" />
+      </mapping>
+    </element>
+    <element id="MedicationAdministration.note.text">
+      <path value="MedicationAdministration.note.text" />
+      <short value="AdministeringSystemComment" />
+      <definition value="A comment on the administering system." />
+      <alias value="ToedieningsSysteemToelichting" />
+      <mapping>
+        <identity value="hcim-infusion-v3.2-2017EN" />
+        <map value="NL-CM:10.2.12" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

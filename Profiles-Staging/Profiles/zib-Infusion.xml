@@ -1,0 +1,132 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="zib-Infusion"/>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion" />
+  <version value="1.0.0" />
+  <name value="Zib Infusion" />
+  <title value="HCIM Infusion" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A feeding tube is a special catheter used to:&#xD;&#xA;* administer liquid food to people who are incapable of oral intake of food or liquid,&#xD;&#xA;* administer medication,&#xD;&#xA;* drain (siphon) or pump out gastric juice.&#xD;&#xA;&#xD;&#xA;There are different ways to place a feeding tube. A feeding tube can be inserted through the nose, in the stomach or in the intestines (duodenum, jejunum). &#xD;&#xA;&#xD;&#xA;Percutaneous endoscopic gastrostomy (PEG) is a technique in which a feeding tube is placed into the stomach through the abdominal wall. This thin tube (PEG tube) is used to feed a patient who is incapable of oral food intake for a prolonged period of time." />
+  <purpose value="The purpose of an infusion is usually to administer fluid and/or medication. &#xD;&#xA;Information on present infusions is recorded to inform other health professionals. This information is of importance in determining the care required for the patient and in safely administering medication. In a transfer situation, the information offers the option to realize continuity of care by organizing specific expertise and materials in advance, for example." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-infusion-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/Infusion-v3.2(2017EN)" />
+    <name value="HCIM Infusion-v3.2(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DeviceUseStatement" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DeviceUseStatement">
+      <path value="DeviceUseStatement" />
+      <short value="FeedingTubeSystem" />
+      <definition value="FeedingTube describes the presence of a feeding tube. If this is the case, the date of placement and insertion location can be described in addition to the type of feeding tube. Furthermore, it offers the option to record identification information of the feeding tube if desired." />
+      <alias value="SondeSysteem" />
+      <mapping>
+        <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
+        <map value="NL-CM:10.3.2" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:LumenOrLine">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="LumenOrLine" />
+      <short value="LumenOrLine" />
+      <definition value="Container of the LumenOrLine concept. This container contains all data elements of the LumenOrLine concept.&#xD;&#xA;Central lines can contain one or more lumens; peripheral infusions do not have lumens and only have one line." />
+      <alias value="LumenOfLijn" />
+      <min value="1" />
+      <max value="3" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine" />
+      </type>
+      <mapping>
+        <identity value="hcim-infusion-v3.2-2017EN" />
+        <map value="NL-CM:10.2.10" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:LumenOrLine.extension:LineStatus">
+      <path value="DeviceUseStatement.extension.extension" />
+      <sliceName value="LineStatus" />
+      <mapping>
+        <identity value="hcim-infusion-v3.2-2017EN" />
+        <map value="NL-CM:10.2.9" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:LumenOrLine.extension:LineStatus.valueCodeableConcept:valueCodeableConcept">
+      <path value="DeviceUseStatement.extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="LineStatusCodeList" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.2.3--20171231000000" />
+          <display value="LineStatusCodeList" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="DeviceUseStatement.extension:LumenOrLine.extension:LumenLocation">
+      <path value="DeviceUseStatement.extension.extension" />
+      <sliceName value="LumenLocation" />
+      <mapping>
+        <identity value="hcim-infusion-v3.2-2017EN" />
+        <map value="NL-CM:10.2.11" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:LumenOrLine.extension:LumenLocation.valueCodeableConcept:valueCodeableConcept">
+      <path value="DeviceUseStatement.extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="LumenLocationCodeList" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.2.2--20171231000000" />
+          <display value="LumenLocationCodeList" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="DeviceUseStatement.extension:LumenOrLine.extension:LockFluid">
+      <path value="DeviceUseStatement.extension.extension" />
+      <sliceName value="LockFluid" />
+      <mapping>
+        <identity value="hcim-infusion-v3.2-2017EN" />
+        <map value="NL-CM:10.2.13" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:LumenOrLine.extension:AdministeringSystem">
+      <path value="DeviceUseStatement.extension.extension" />
+      <sliceName value="AdministeringSystem" />
+      <mapping>
+        <identity value="hcim-infusion-v3.2-2017EN" />
+        <map value="NL-CM:10.2.7" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.device">
+      <path value="DeviceUseStatement.device" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-Product" />
+      </type>
+    </element>
+    <element id="DeviceUseStatement.note.text">
+      <path value="DeviceUseStatement.note.text" />
+      <definition value="A comment on the infusion." />
+      <mapping>
+        <identity value="hcim-infusion-v3.2-2017EN" />
+        <map value="NL-CM:10.2.8" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
