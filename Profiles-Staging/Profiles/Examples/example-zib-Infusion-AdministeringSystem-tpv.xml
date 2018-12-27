@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/medicationadministration.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationadministration.xsd" xmlns="http://hl7.org/fhir">
+    <id value="infusionfluid-tpv-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-AdministeringSystem"/>
+    </meta>
+    <status value="in-progress"/>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="18629005"/>
+            <display value="Administration of drug or medicament (procedure)"/>
+        </coding>
+    </category>
+    <medicationReference>
+        <reference value="Medication/76333-2-16-830-1-112183-2-4-4-10"/>
+        <display value="Tipranavir (TPV)"/>
+    </medicationReference>
+    <subject>
+        <reference value="Patient/example"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <effectivePeriod>
+        <start value="2014-11-30"/>
+    </effectivePeriod>
+    <device>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
+            <valueReference>
+                <reference value="DeviceUseStatement/infuuspomp"/>
+                <display value="Infuuspomp"/>
+            </valueReference>
+        </extension>
+        <!-- Or use direct reference to Device when no meta data about the use of the device is required.  -->
+        <reference value="Device/infuuspomp"/>
+        <display value="Infuuspomp"/>
+    </device>
+    <dosage>
+        <text value="1 liter per 24 uur"/>
+        <rateRatio>
+            <numerator>
+                <value value="1000"/>
+                <unit value="milliliter"/>
+                <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                <code value="233"/>
+            </numerator>
+            <denominator>
+                <value value="24"/>
+                <unit value="uur"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="h"/>
+            </denominator>
+        </rateRatio>
+    </dosage>
+</MedicationAdministration>
