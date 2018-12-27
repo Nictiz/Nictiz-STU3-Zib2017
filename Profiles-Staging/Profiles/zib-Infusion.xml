@@ -1,6 +1,6 @@
 <?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-  <id value="zib-Infusion"/>
+  <id value="zib-Infusion" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion" />
   <version value="1.0.0" />
   <name value="Zib Infusion" />
@@ -40,12 +40,26 @@
         <map value="NL-CM:10.3.2" />
       </mapping>
     </element>
+    <element id="DeviceUseStatement.extension:HealthcareProvider">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="HealthcareProvider" />
+    </element>
+    <element id="DeviceUseStatement.extension:HealthcareProvider.valueReference:valueReference">
+      <path value="DeviceUseStatement.extension.valueReference" />
+      <sliceName value="valueReference" />
+    </element>
+    <element id="DeviceUseStatement.extension:HealthProfessional">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="HealthProfessional" />
+    </element>
+    <element id="DeviceUseStatement.extension:HealthProfessional.valueReference:valueReference">
+      <path value="DeviceUseStatement.extension.valueReference" />
+      <sliceName value="valueReference" />
+    </element>
     <element id="DeviceUseStatement.extension:LumenOrLine">
       <path value="DeviceUseStatement.extension" />
       <sliceName value="LumenOrLine" />
-      <short value="LumenOrLine" />
       <definition value="Container of the LumenOrLine concept. This container contains all data elements of the LumenOrLine concept.&#xD;&#xA;Central lines can contain one or more lumens; peripheral infusions do not have lumens and only have one line." />
-      <alias value="LumenOfLijn" />
       <min value="1" />
       <max value="3" />
       <type>
@@ -70,11 +84,6 @@
       <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
-        <description value="LineStatusCodeList" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.2.3--20171231000000" />
-          <display value="LineStatusCodeList" />
-        </valueSetReference>
       </binding>
     </element>
     <element id="DeviceUseStatement.extension:LumenOrLine.extension:LumenLocation">
@@ -90,11 +99,6 @@
       <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
-        <description value="LumenLocationCodeList" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.2.2--20171231000000" />
-          <display value="LumenLocationCodeList" />
-        </valueSetReference>
       </binding>
     </element>
     <element id="DeviceUseStatement.extension:LumenOrLine.extension:LockFluid">
@@ -113,12 +117,36 @@
         <map value="NL-CM:10.2.7" />
       </mapping>
     </element>
+    <element id="DeviceUseStatement.extension:LumenOrLine.extension:AdministeringSystem.valueReference:valueReference">
+      <path value="DeviceUseStatement.extension.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-AdministeringSystem" />
+      </type>
+    </element>
     <element id="DeviceUseStatement.device">
       <path value="DeviceUseStatement.device" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-Product" />
       </type>
+    </element>
+    <element id="DeviceUseStatement.indication.extension:indication_Problem">
+      <path value="DeviceUseStatement.indication.extension" />
+      <sliceName value="indication_Problem" />
+    </element>
+    <element id="DeviceUseStatement.indication.extension:indication_Problem.valueReference:valueReference">
+      <path value="DeviceUseStatement.indication.extension.valueReference" />
+      <sliceName value="valueReference" />
+    </element>
+    <element id="DeviceUseStatement.bodySite.extension:Laterality">
+      <path value="DeviceUseStatement.bodySite.extension" />
+      <sliceName value="Laterality" />
+    </element>
+    <element id="DeviceUseStatement.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
+      <path value="DeviceUseStatement.bodySite.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
     </element>
     <element id="DeviceUseStatement.note.text">
       <path value="DeviceUseStatement.note.text" />

@@ -1,6 +1,6 @@
 <?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-  <id value="zib-Infusion-Product"/>
+  <id value="zib-Infusion-Product" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-Product" />
   <version value="1.0.0" />
   <name value="Zib Infusion Product" />
@@ -37,11 +37,12 @@
     <element id="Device.type">
       <path value="Device.type" />
       <definition value="A description of the type of cannula/catheter." />
+      <comment value="If no cannula/catherer is present, or no information is available the HCIM Infusion root concept SNOMED CT code and display shall be used: 19923001 - Catheter, device (physical object)." />
       <binding>
         <strength value="extensible" />
         <description value="The code of the type of infusion product." />
         <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.2.1" />
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.2.1--20171231000000" />
           <display value="ProductTypeCodelijst" />
         </valueSetReference>
       </binding>
