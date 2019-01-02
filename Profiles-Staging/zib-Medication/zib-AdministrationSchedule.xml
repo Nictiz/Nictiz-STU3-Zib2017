@@ -1,0 +1,185 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="zib-AdministrationSchedule" />
+  <meta>
+    <versionId value="5" />
+    <lastUpdated value="2017-10-26T14:41:16.5+02:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationSchedule" />
+  <version value="2.0" />
+  <name value="Zib AdministrationSchedule" />
+  <title value="HCIM AdministrationSchedule" />
+  <status value="active" />
+  <date value="2016-12-12T16:58:13.365+00:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Profile based on Medicatieproces V9.0.6. The frequency indicates the number of dose moments per time unit, usually per day. If this frequency is included, then the Interval will not have been included. Usually, frequency comprises both amount and time unit (3 times a day), but it can occur without the time unit (single use).       In that case, a reasonable distribution over the day is expected, but exact times are not given. This is left to the patient. It is the most common manner of extramural prescription. In the case of Baxter packs and intramural care, such a prescription is used to draw up a (location-specific) outline for distribution times (logistics).       The time unit of the frequency must be the same as how it is indicated in the textual description of the dose.            Example:       for a '2x a day...' dose:      amount = 2      time unit = 'day'.           for a '3x a week...' dose:      amount = 3      time unit = 'week'." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/InstructionsForUse-v1.0(2017EN)" />
+    <name value="HCIM InstructionsForUse-v1.0(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-range-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/Range-v1.0(2017EN)" />
+    <name value="HCIM Part Range-v1.0(2017EN)" />
+  </mapping>
+  <kind value="primitive-type" />
+  <abstract value="false" />
+  <type value="Timing" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Timing" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Timing">
+      <path value="Timing" />
+      <short value="AdministeringSchedule" />
+      <definition value="Specifications of the times at which the medication is to be administered. This is indicated as follows: &#xD;&#xA;Time(s) (16:00) or indications (“before meals”) at which the medication is to be taken each day.&#xD;&#xA;A specific number of times the medication is to be taken each day (&quot;3x a day&quot;), indicated with the frequency&#xD;&#xA;A time interval between consecutive doses (“Every 2 hours”, “every 3 days”), indicated with the word Interval.&#xD;&#xA;Combined periods with an interval and duration (“1 daily for three out of four weeks: the pill schedule”)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;If a certain medication is not to be taken daily, the aforementioned can be combined with daily indications: &#xD;&#xA;One or more week days on which the medication is to be administered (e.g. “Monday, Wednesday, Friday”)&#xD;&#xA;”3x a week”, “2x a month”.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;The specified administration “infinite” is automatically to be repeated until: &#xD;&#xA;The end date and time has been reached&#xD;&#xA;The total administration duration has been reached (14 days)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;A specific amount of administrations has been reached (“20 doses”, “one-time only”), to be entered in the NumberOfDoses concept." />
+      <alias value="Toedieningsschema" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19948" />
+      </mapping>
+    </element>
+    <element id="Timing.repeat.extension">
+      <path value="Timing.repeat.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Timing.repeat.extension:exact">
+      <path value="Timing.repeat.extension" />
+      <sliceName value="exact" />
+      <short value="exact" />
+      <definition value="If true, indicates that the specified times, frequencies, periods are expected to be adhered to as precisely as possible. If false, indicates that a typical degree of variability based on institutional and/or patient convenience is acceptable.&#xD;&#xA;Use on data type: Timing.repeat&#xD;&#xA;&#xD;&#xA;" />
+      <comment value="For MP: In practice, this means that when you define a frequency (3x a day) this flag should false, but when you define an interval (every 8 hours) you set this flag to true." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/timing-exact" />
+      </type>
+    </element>
+    <element id="Timing.repeat.bounds[x]">
+      <path value="Timing.repeat.bounds[x]" />
+      <short value="DoseDuration" />
+      <definition value="The intended time duration for these dosing instructions." />
+      <alias value="Doseerduur" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.22506" />
+      </mapping>
+    </element>
+    <element id="Timing.repeat.duration">
+      <path value="Timing.repeat.duration" />
+      <short value="Duration of administration" />
+      <definition value="Defines the amount of time during which medication is being administered. This is used especially in the context of administering liquids.  " />
+      <alias value="Toedieninsgduur" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.23141" />
+      </mapping>
+    </element>
+    <element id="Timing.repeat.durationUnit">
+      <path value="Timing.repeat.durationUnit" />
+      <short value="Duration unit of administration" />
+      <definition value="Defines the unit for the amount of time during which medication is being administered. This is used especially in the context of administering liquids. " />
+      <alias value="Toedieninsgduur" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.23141" />
+      </mapping>
+    </element>
+    <element id="Timing.repeat.frequency">
+      <path value="Timing.repeat.frequency" />
+      <short value="Frequency" />
+      <definition value="The frequency indicates the number of dose moments per time unit, usually per day. If this frequency is included, then the Interval will not have been included. Usually, frequency comprises both amount and time unit (3 times a day), but it can occur without the time unit (single use).          In that case, a reasonable distribution over the day is expected, but exact times are not given. This is left to the patient. It is the most common manner of extramural prescription. In the case of Baxter packs and intramural care, such a prescription is used to draw up a (location-specific) outline for distribution times (logistics).          The time unit of the frequency must be the same as how it is indicated in the textual description of the dose.                   Example:          for a '2x a day...' dose:         amount = 2         time unit = 'day'.                          for a '3x a week...' dose:         amount = 3         time unit = 'week'." />
+      <alias value="frequentie" />
+      <alias value="frequentie vaste waarde" />
+      <alias value="frequentie min" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19949" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-range-v1.0-2017EN" />
+        <map value="  NL-CM:20.1.2" />
+        <comment value="Minimal frequency" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-range-v1.0-2017EN" />
+        <map value="NL-CM:20.1.4" />
+        <comment value="Nominal frequency:  This element can not be used in combination with a minimum and maximum value" />
+      </mapping>
+    </element>
+    <element id="Timing.repeat.frequencyMax">
+      <path value="Timing.repeat.frequencyMax" />
+      <short value="maximumValue" />
+      <definition value="If present, indicates that the frequency is a range - so to repeat between [frequency (min)] and [frequencyMax] times within the period or period range." />
+      <alias value="maximumWaarde" />
+      <mapping>
+        <identity value="hcim-range-v1.0-2017EN" />
+        <map value="NL-CM:20.1.3" />
+      </mapping>
+    </element>
+    <element id="Timing.repeat.period">
+      <path value="Timing.repeat.period" />
+      <short value="Interval" />
+      <definition value="Interval indicates the time between dose times. If this is included, then the &lt;i&gt;Frequency &lt;/i&gt;will not have been included. &#xD;&#xA; &#xD;&#xA;Examples: every 4 hours, every 3 weeks. &#xD;&#xA;&#xD;&#xA;The times can now be chosen freely, but distribution throughout the day is more precise, and the interval between times is important (e.g. in the case of antibiotics) &#xD;&#xA;In the case of Baxter packs and intramural care, such a prescription is used to draw up a (location-specific) outline for distribution times (logistics)" />
+      <alias value="Interval" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19949" />
+        <comment value="When frequency is used, set &quot;exact&quot; to false" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19950" />
+        <comment value="When interval is used, set &quot;exact&quot; to true" />
+      </mapping>
+    </element>
+    <element id="Timing.repeat.dayOfWeek">
+      <path value="Timing.repeat.dayOfWeek" />
+      <short value="WeekDay" />
+      <definition value="WeekDay indicates a pattern of doses on fixed week days." />
+      <alias value="Weekdagen" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19952" />
+      </mapping>
+    </element>
+    <element id="Timing.repeat.timeOfDay">
+      <path value="Timing.repeat.timeOfDay" />
+      <short value="AdministrationTime" />
+      <definition value="The time of administration is a specific time of day (on the clock). This time usually isn’t (intended to be) exact. There can be multiple administering times in one day.         The ideal time of administration can also be entered as a time of day (morning, afternoon, evening, night-time). The administration time is then to be left empty, and the time of day can be entered in the TimeOfDay concept." />
+      <alias value="Toedientijd" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19951" />
+      </mapping>
+    </element>
+    <element id="Timing.repeat.when">
+      <path value="Timing.repeat.when" />
+      <short value="TimeOfDay" />
+      <definition value="Time of day: morning, afternoon, evening, night." />
+      <comment value="Time of day: morning, afternoon, evening, night. A ConceptMap (http://nictiz.nl/fhir/ConceptMap/DagdeelCodelijst-to-EventTiming) is available that maps TimeOfDayCodelist to the EventTiming valueset." />
+      <alias value="Dagdeel" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19953" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
