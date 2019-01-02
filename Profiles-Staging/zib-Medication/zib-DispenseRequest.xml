@@ -1,12 +1,12 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-DispenseRequest" />
   <meta>
     <versionId value="3" />
     <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-DispenseRequest" />
-  <version value="2.1.1" />
+  <version value="2.2.0" />
   <name value="Zib DispenseRequest" />
   <title value="HCIM DispenseRequest" />
   <status value="active" />
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="This profile is based on Medicatieproces V9.0.6 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) DispenseRequest version 1.0.1, year 2017. The dispense request is the request of a prescriber to the pharmacist to dispense medication(s) to the patient to support current medication agreements. The prescriber asks them to dispense a certain amount of medicine or to dispense medicine(s) for a period of use." />
-  <purpose value="The goal of the dispense request is for the pharmacist to supply the medicine so the patient has a sufficient amount."/>
+  <purpose value="The goal of the dispense request is for the pharmacist to supply the medicine so the patient has a sufficient amount." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -135,12 +135,12 @@
     </element>
     <element id="MedicationRequest.identifier">
       <path value="MedicationRequest.identifier" />
-        <short value="DispenseRequestIdentifier"/>
-        <alias value="VerstrekkingsverzoekIdentificatie"/>
-        <mapping>
-            <identity value="Medication-Process-v09"/>
-            <map value="mp-dataelement900-22003"/>
-        </mapping>
+      <short value="DispenseRequestIdentifier" />
+      <alias value="VerstrekkingsverzoekIdentificatie" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22003" />
+      </mapping>
     </element>
     <element id="MedicationRequest.intent">
       <path value="MedicationRequest.intent" />
@@ -226,6 +226,7 @@
     </element>
     <element id="MedicationRequest.requester.agent">
       <path value="MedicationRequest.requester.agent" />
+      <comment value="The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
@@ -247,6 +248,34 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
       </type>
     </element>
+    <element id="MedicationRequest.requester.agent.extension">
+      <path value="MedicationRequest.requester.agent.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationRequest.requester.agent.extension:practitionerRole-R4">
+      <path value="MedicationRequest.requester.agent.extension" />
+      <sliceName value="practitionerRole-R4" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
+      </type>
+    </element>
+    <element id="MedicationRequest.requester.agent.extension:practitionerRole-R4.valueReference:valueReference">
+      <path value="MedicationRequest.requester.agent.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+      </type>
+    </element>
     <element id="MedicationRequest.requester.onBehalfOf">
       <path value="MedicationRequest.requester.onBehalfOf" />
       <type>
@@ -259,6 +288,34 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+    </element>
+    <element id="MedicationRequest.recorder.extension">
+      <path value="MedicationRequest.recorder.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationRequest.recorder.extension:practitionerRole-R4">
+      <path value="MedicationRequest.recorder.extension" />
+      <sliceName value="practitionerRole-R4" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
+      </type>
+    </element>
+    <element id="MedicationRequest.recorder.extension:practitionerRole-R4.valueReference:valueReference">
+      <path value="MedicationRequest.recorder.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
       </type>
     </element>
     <element id="MedicationRequest.note">
