@@ -20,7 +20,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on Medicatieproces V9.0.6 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAgreement version 1.0.1, year 2017. A medication agreement is a prescriber’s proposal for a patient to use medication. An agreement to discontinue the use of medication is also a medication agreement." />
+  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAgreement version 1.0.1, year 2017. A medication agreement is a prescriber’s proposal for a patient to use medication. An agreement to discontinue the use of medication is also a medication agreement." />
   <purpose value="The goal of the medication agreement is to provide insight into the agreements reached between the prescriber and the patient on the use of medication." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -331,6 +331,25 @@
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
       </type>
+    </element>
+    <element id="MedicationRequest.context">
+      <path value="MedicationRequest.context" />
+      <comment value="References to 'Ketenzorg Contactmoment' and 'Ketenzorg Episode'." />
+      <alias value="Relaties Ketenzorg" />
+      <alias value="Identificatie Contactmoment" />
+      <alias value="Identificatie Episode" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+      </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-24024" />
+      </mapping>
     </element>
     <element id="MedicationRequest.supportingInformation">
       <path value="MedicationRequest.supportingInformation" />
