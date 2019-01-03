@@ -6,7 +6,7 @@
         <lastUpdated value="2018-02-20T12:56:38.08+01:00"/>
     </meta>
     <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname"/>
-    <version value="2.0"/>
+    <version value="2.0.1"/>
     <name value="nl core humanname"/>
     <title value="nl-core-humanname"/>
     <status value="active"/>
@@ -271,20 +271,24 @@
             <path value="HumanName.given"/>
             <short value="Given"/>
             <definition value="Note that in order to mark the type of a given name, that you use the FHIR standard extension for ISO 21090 EN Qualifiers. Examples include call me name (Dutch: roepnaam) and initials. Each initial is expected to be delimited by a dot."/>
+            <comment value="To be conformant to the Zib for NameInformation, at least the following qualifiers SHALL be supported: BR, IN and CL. The qualifier 'BR' maps to the Zib concept FirstNames, 'IN' maps to Initials and 'CL' to GivenName."/>
             <alias value="Voornamen"/>
             <alias value="Initialen"/>
             <alias value="Roepnaam"/>
             <mapping>
                 <identity value="hcim-nameinformation-v2.0.1-2015EN"/>
                 <map value="NL-CM:0.1.26"/>
+                <comment value="Qualifier 'BR'"/>
             </mapping>
             <mapping>
                 <identity value="hcim-nameinformation-v2.0.1-2015EN"/>
                 <map value="NL-CM:0.1.35"/>
+                <comment value="Qualifier 'IN'"/>
             </mapping>
             <mapping>
                 <identity value="hcim-nameinformation-v2.0.1-2015EN"/>
                 <map value="NL-CM:0.1.27"/>
+                <comment value="Qualifier 'CL'"/>
             </mapping>
             <mapping>
                 <identity value="BRP"/>
@@ -293,26 +297,32 @@
             <mapping>
                 <identity value="hcim-nameinformation-v3.0-2016EN"/>
                 <map value="NL-CM:0.1.26"/>
+                <comment value="Qualifier 'BR'"/>
             </mapping>
             <mapping>
                 <identity value="hcim-nameinformation-v3.0-2016EN"/>
                 <map value="NL-CM:0.1.35"/>
+                <comment value="Qualifier 'IN'"/>
             </mapping>
             <mapping>
                 <identity value="hcim-nameinformation-v3.0-2016EN"/>
                 <map value="NL-CM:0.1.27"/>
+                <comment value="Qualifier 'CL'"/>
             </mapping>
             <mapping>
                 <identity value="hcim-nameinformation-v1.0.1-2017EN"/>
                 <map value="NL-CM:20.4.4"/>
+                <comment value="Qualifier 'BR'"/>
             </mapping>
             <mapping>
                 <identity value="hcim-nameinformation-v1.0.1-2017EN"/>
                 <map value="NL-CM:20.4.5"/>
+                <comment value="Qualifier 'IN'"/>
             </mapping>
             <mapping>
                 <identity value="hcim-nameinformation-v1.0.1-2017EN"/>
                 <map value="NL-CM:20.4.6"/>
+                <comment value="Qualifier 'CL'"/>
             </mapping>
         </element>
         <element id="HumanName.given.extension">
