@@ -1,41 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <url value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
-  <version value="0.1.0" />
-  <name value="Missing Type Reference" />
-  <title value="Missing Type Reference" />
-  <status value="draft" />
-  <publisher value="Nictiz" />
-  <contact>
-    <name value="Nictiz" />
-    <telecom>
-      <system value="email" />
-      <value value="info@nictiz.nl" />
-      <use value="work" />
-    </telecom>
-  </contact>
-  <description value="This extenstion adds another Reference to the Reference datatype to reference the appropiate Resource type. These missing types are corrected in a higher version of FHIR." />
-  <purpose value="There is a known limitation in some of the FHIR STU3 resources where the appropriate reference type is not available. Examples include PractitionerRole which is missing from Encounter.participant (prevents proper context of the attending physician) and Patient which is missing from Media.operator (prevents patient-generated Media). In such cases, an extension will contain the reference of the appropriate type. This leads to slight duplication: the original Reference.display will be duplicated into the Reference.extension.valueReference.display. Systems that do not know about the extension would thus still have access to the regular Reference.display." />
-  <copyright value="CC0" />
-  <fhirVersion value="3.0.1" />
-  <kind value="complex-type" />
-  <abstract value="false" />
-  <contextType value="datatype" />
-  <context value="Reference" />
-  <type value="Extension" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
-  <derivation value="constraint" />
-  <differential>
-    <element id="Extension.url">
-      <path value="Extension.url" />
-      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
-    </element>
-    <element id="Extension.value[x]:valueReference">
-      <path value="Extension.valueReference" />
-      <sliceName value="valueReference" />
-      <type>
-        <code value="Reference" />
-      </type>
-    </element>
-  </differential>
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+    <id value="a04df0e3-cd49-4cb2-84e8-ad147f692e94"/>
+    <meta>
+        <versionId value="2"/>
+        <lastUpdated value="2019-01-07T12:25:34.473+00:00"/>
+    </meta>
+    <url value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference"/>
+    <version value="1.0.0"/>
+    <name value="Missing Type Reference"/>
+    <title value="Missing Type Reference"/>
+    <status value="draft"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This extension adds a Reference type to the Reference datatype it extends."/>
+    <purpose value="There is a known limitation in some of the FHIR resources where the appropriate reference type is not available. Examples include PractitionerRole which is missing from Encounter.participant (prevents proper context of the attending physician) and Patient which is missing from Media.operator (prevents patient-generated Media). In such cases, an extension will contain the reference of the appropriate type. This leads to slight duplication: the original Reference.display will be duplicated into the Reference.extension.valueReference.display. Systems that do not know about the extension would thus still have access to the regular Reference.display."/>
+    <copyright value="CC0"/>
+    <fhirVersion value="3.0.1"/>
+    <kind value="complex-type"/>
+    <abstract value="false"/>
+    <contextType value="datatype"/>
+    <context value="Reference"/>
+    <type value="Extension"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Extension">
+            <path value="Extension"/>
+        </element>
+        <element id="Extension.extension">
+            <path value="Extension.extension"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="Extension.url">
+            <path value="Extension.url"/>
+            <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference"/>
+        </element>
+        <element id="Extension.value[x]:valueReference">
+            <path value="Extension.valueReference"/>
+            <sliceName value="valueReference"/>
+            <min value="1"/>
+            <type>
+                <code value="Reference"/>
+            </type>
+        </element>
+    </differential>
 </StructureDefinition>
