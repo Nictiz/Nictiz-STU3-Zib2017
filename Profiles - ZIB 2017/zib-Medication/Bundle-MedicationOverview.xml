@@ -2,13 +2,13 @@
 <StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
   <id value="Bundle-MedicationOverview" />
   <meta>
-    <lastUpdated value="2017-12-07T15:37:42.957+01:00" />
+    <lastUpdated value="2019-01-28T15:37:42.957+01:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/Bundle-MedicationOverview" />
-  <version value="2.0" />
+  <version value="2.0.1" />
   <name value="Medication Overview response structure" />
   <status value="active" />
-  <date value="2017-12-04T17:07:30.44+01:00" />
+  <date value="2019-01-28T17:07:30.44+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -37,6 +37,10 @@
     <element id="Bundle.type">
       <path value="Bundle.type" />
       <fixedCode value="searchset" />
+    </element>
+    <element id="Bundle.total">
+      <path value="Bundle.total"/>
+      <comment value="The total value contains the number of matching HCIMs: MedicationUsage, AdministrationAgreement and MedicationAgreement. Other included resources, such as Medication resources, are not included in the total."/>
     </element>
     <element id="Bundle.entry">
       <path value="Bundle.entry" />
