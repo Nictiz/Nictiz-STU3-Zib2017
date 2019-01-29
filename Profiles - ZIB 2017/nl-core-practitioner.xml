@@ -1,294 +1,321 @@
 <?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-  <id value="nl-core-practitioner" />
-  <meta>
-    <versionId value="9" />
-    <lastUpdated value="2018-02-20T16:18:28.815+01:00" />
-  </meta>
-  <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-  <version value="2.0" />
-  <name value="nl core practitioner" />
-  <title value="nl-core-practitioner" />
-  <status value="active" />
-  <publisher value="HL7 Netherlands" />
-  <contact>
-    <name value="Nictiz" />
-    <telecom>
-      <system value="email" />
-      <value value="info@nictiz.nl" />
-      <use value="work" />
-    </telecom>
-  </contact>
-  <description value="Functional requirements taken from Health and Care Information models (Zorginformatiebouwsteen) HealthProfessional v3.2 (release 2017). Names and addresses are also in compliance with HL7 V3 Basic Components." />
-  <purpose value="The purpose of this information model is documenting the identity of people providing healthcare. For health professionals, information must be sufficiently complete for reference and auditing: if known, the name is mandatory. If an identification number is given such as a UZI or AGB number, the name and number have to match." />
-  <copyright value="CC0" />
-  <fhirVersion value="3.0.1" />
-  <mapping>
-    <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-    <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)" />
-    <name value="HCIM HealthProfessional-v1.2.1(2015EN)" />
-  </mapping>
-  <mapping>
-    <identity value="hcim-healthprofessional-v3.0-2016EN" />
-    <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)" />
-    <name value="HCIM HealthProfessional-v3.0(2016EN)" />
-  </mapping>
-  <mapping>
-    <identity value="hcim-healthprofessional-v3.2-2017EN" />
-    <uri value="https://zibs.nl/wiki/HealthProfessional-v3.2(2017EN)" />
-    <name value="HCIM HealthProfessional-v3.2(2017EN)" />
-  </mapping>
-  <mapping>
-    <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-    <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
-    <name value="HCIM Patient-v2.0.1(2015EN)" />
-    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs" />
-  </mapping>
-  <mapping>
-    <identity value="hcim-contactinformation-v3.0-2016EN" />
-    <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
-    <name value="HCIM Patient-v3.0(2016EN)" />
-    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs" />
-  </mapping>
-  <mapping>
-    <identity value="hcim-contactinformation-v1.0-2017EN" />
-    <uri value="https://zibs.nl/wiki/ContactInformation-v1.0(2017EN)" />
-    <name value="HCIM ContactInformation-v1.0(2017EN)" />
-    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
-  </mapping>
-  <kind value="resource" />
-  <abstract value="false" />
-  <type value="Practitioner" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
-  <derivation value="constraint" />
-  <differential>
-    <element id="Practitioner">
-      <path value="Practitioner" />
-      <short value="HealthcareProvider" />
-      <alias value="Zorgverlener" />
-      <mapping>
+    <id value="nl-core-practitioner" />
+    <meta>
+        <versionId value="9" />
+        <lastUpdated value="2018-02-20T16:18:28.815+01:00" />
+    </meta>
+    <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+    <version value="2.0" />
+    <name value="nl core practitioner" />
+    <title value="nl-core-practitioner" />
+    <status value="active" />
+    <publisher value="HL7 Netherlands" />
+    <contact>
+        <name value="Nictiz" />
+        <telecom>
+            <system value="email" />
+            <value value="info@nictiz.nl" />
+            <use value="work" />
+        </telecom>
+    </contact>
+    <description value="Functional requirements taken from Health and Care Information models (Zorginformatiebouwsteen) HealthProfessional v3.2 (release 2017). Names and addresses are also in compliance with HL7 V3 Basic Components." />
+    <purpose value="The purpose of this information model is documenting the identity of people providing healthcare. For health professionals, information must be sufficiently complete for reference and auditing: if known, the name is mandatory. If an identification number is given such as a UZI or AGB number, the name and number have to match." />
+    <copyright value="CC0" />
+    <fhirVersion value="3.0.1" />
+    <mapping>
         <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-        <map value="NL-CM:17.1.1" />
-      </mapping>
-      <mapping>
+        <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)" />
+        <name value="HCIM HealthProfessional-v1.2.1(2015EN)" />
+    </mapping>
+    <mapping>
         <identity value="hcim-healthprofessional-v3.0-2016EN" />
-        <map value="NL-CM:17.1.1" />
-      </mapping>
-      <mapping>
+        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)" />
+        <name value="HCIM HealthProfessional-v3.0(2016EN)" />
+    </mapping>
+    <mapping>
         <identity value="hcim-healthprofessional-v3.2-2017EN" />
-        <map value="NL-CM:17.1.1" />
-      </mapping>
-    </element>
-    <element id="Practitioner.identifier">
-      <path value="Practitioner.identifier" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <short value="HealthProfessionalIdentificationNumber" />
-      <definition value="The healthcare provider identification number is a number that uniquely identifies the healthcare provider.  &#xD;&#xA;&#xD;&#xA;The following numbers are used in the Netherlands:  &#xD;&#xA;1. UZI Health Professionals. Identification of health professionals (people) in the Dutch healthcare industry. &#xD;&#xA;2. VEKTIS AGB-Z. Identifies health professionals and healthcare organizations &#xD;&#xA;3. BIG-ID. The ID of the health professional listed in the BIG Register.  &#xD;&#xA;&#xD;&#xA;This information is not readily available for foreign health professionals." />
-      <alias value="ZorgverlenerIdentificatieNummer" />
-      <mapping>
-        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-        <map value="NL-CM:17.1.2" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-healthprofessional-v3.0-2016EN" />
-        <map value="NL-CM:17.1.2" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-healthprofessional-v3.2-2017EN" />
-        <map value="NL-CM:17.1.2" />
-      </mapping>
-    </element>
-    <element id="Practitioner.identifier:UZI">
-      <path value="Practitioner.identifier" />
-      <sliceName value="UZI" />
-      <short value="UZI" />
-      <definition value="Unieke Zorgverlener Identificatie (Dutch physician identification number)" />
-      <alias value="UZI" />
-      <max value="1" />
-    </element>
-    <element id="Practitioner.identifier:UZI.system">
-      <path value="Practitioner.identifier.system" />
-      <min value="1" />
-      <fixedUri value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers" />
-    </element>
-    <element id="Practitioner.identifier:UZI.value">
-      <path value="Practitioner.identifier.value" />
-      <min value="1" />
-      <example>
-        <label value="Example" />
-        <valueString value="01011234" />
-      </example>
-    </element>
-    <element id="Practitioner.identifier:AGB">
-      <path value="Practitioner.identifier" />
-      <sliceName value="AGB" />
-      <short value="AGB" />
-      <alias value="AGB" />
-      <max value="1" />
-    </element>
-    <element id="Practitioner.identifier:AGB.system">
-      <path value="Practitioner.identifier.system" />
-      <min value="1" />
-      <fixedUri value="http://fhir.nl/fhir/NamingSystem/agb-z" />
-    </element>
-    <element id="Practitioner.identifier:AGB.value">
-      <path value="Practitioner.identifier.value" />
-      <min value="1" />
-      <example>
-        <label value="Example" />
-        <valueString value="123456" />
-      </example>
-    </element>
-    <element id="Practitioner.identifier:BIG">
-      <path value="Practitioner.identifier" />
-      <sliceName value="BIG" />
-      <short value="BIG" />
-      <alias value="BIG" />
-      <max value="1" />
-    </element>
-    <element id="Practitioner.identifier:BIG.system">
-      <path value="Practitioner.identifier.system" />
-      <min value="1" />
-      <fixedUri value="http://fhir.nl/fhir/NamingSystem/big" />
-    </element>
-    <element id="Practitioner.identifier:BIG.value">
-      <path value="Practitioner.identifier.value" />
-      <min value="1" />
-      <example>
-        <label value="Example" />
-        <valueString value="12345678" />
-      </example>
-    </element>
-    <element id="Practitioner.name">
-      <path value="Practitioner.name" />
-      <short value="NameInformation" />
-      <definition value="Health professional’s full name. If a health professional identification number is entered, it will be the name as listed in UZI, AGB or by the healthcare center." />
-      <alias value="ZorgverlenerNaam" />
-      <type>
-        <code value="HumanName" />
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname" />
-      </type>
-      <mapping>
-        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-        <map value="NL-CM:17.1.3" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-healthprofessional-v3.0-2016EN" />
-        <map value="NL-CM:17.1.3" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-healthprofessional-v3.2-2017EN" />
-        <map value="NL-CM:17.1.3" />
-      </mapping>
-    </element>
-    <element id="Practitioner.telecom">
-      <path value="Practitioner.telecom" />
-      <short value="ContactInformation" />
-      <alias value="Contactgegevens" />
-      <mapping>
-        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-        <map value="NL-CM:17.1.8" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-healthprofessional-v3.0-2016EN" />
-        <map value="NL-CM:17.1.8" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-healthprofessional-v3.2-2017EN" />
-        <map value="NL-CM:17.1.8" />
-      </mapping>
-    </element>
-    <element id="Practitioner.telecom.system">
-      <path value="Practitioner.telecom.system" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.telecom.value">
-      <path value="Practitioner.telecom.value" />
-      <short value="TelephoneNumber / E-mailAddress" />
-      <alias value="Telefoonnummer" />
-      <alias value="EmailAdres" />
-      <min value="1" />
-      <mapping>
+        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.2(2017EN)" />
+        <name value="HCIM HealthProfessional-v3.2(2017EN)" />
+    </mapping>
+    <mapping>
         <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.23" />
-      </mapping>
-      <mapping>
+        <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
+        <name value="HCIM Patient-v2.0.1(2015EN)" />
+        <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs" />
+    </mapping>
+    <mapping>
         <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.23" />
-      </mapping>
-      <mapping>
+        <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
+        <name value="HCIM Patient-v3.0(2016EN)" />
+        <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs" />
+    </mapping>
+    <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.4" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.20" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.20" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.7" />
-      </mapping>
-    </element>
-    <element id="Practitioner.telecom.use">
-      <path value="Practitioner.telecom.use" />
-      <short value="NumberType / E-mailAddressType" />
-      <alias value="NummerSoort" />
-      <alias value="EmailSoort" />
-      <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.22" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.22" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.8" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.19" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.19" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.6" />
-      </mapping>
-    </element>
-    <element id="Practitioner.address">
-      <path value="Practitioner.address" />
-      <short value="AddressInformation" />
-      <alias value="Adresgegevens" />
-      <type>
-        <code value="Address" />
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address" />
-      </type>
-      <mapping>
-        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-        <map value="NL-CM:17.1.7" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-healthprofessional-v3.0-2016EN" />
-        <map value="NL-CM:17.1.7" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-healthprofessional-v3.2-2017EN" />
-        <map value="NL-CM:17.1.7" />
-      </mapping>
-    </element>
-  </differential>
+        <uri value="https://zibs.nl/wiki/ContactInformation-v1.0(2017EN)" />
+        <name value="HCIM ContactInformation-v1.0(2017EN)" />
+        <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
+    </mapping>
+    <kind value="resource" />
+    <abstract value="false" />
+    <type value="Practitioner" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="Practitioner">
+            <path value="Practitioner" />
+            <short value="HealthcareProvider" />
+            <alias value="Zorgverlener" />
+            <mapping>
+                <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+                <map value="NL-CM:17.1.1" />
+                <comment value="HealthcareProvider"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-healthprofessional-v3.0-2016EN" />
+                <map value="NL-CM:17.1.1" />
+                <comment value="HealthcareProvider"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-healthprofessional-v3.2-2017EN" />
+                <map value="NL-CM:17.1.1" />
+                <comment value="HealthProfessional"/>
+            </mapping>
+        </element>
+        <element id="Practitioner.identifier">
+            <path value="Practitioner.identifier" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="system" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+            <short value="HealthProfessionalIdentificationNumber" />
+            <definition value="The healthcare provider identification number is a number that uniquely identifies the healthcare provider.  &#xD;&#xA;&#xD;&#xA;The following numbers are used in the Netherlands:  &#xD;&#xA;1. UZI Health Professionals. Identification of health professionals (people) in the Dutch healthcare industry. &#xD;&#xA;2. VEKTIS AGB-Z. Identifies health professionals and healthcare organizations &#xD;&#xA;3. BIG-ID. The ID of the health professional listed in the BIG Register.  &#xD;&#xA;&#xD;&#xA;This information is not readily available for foreign health professionals." />
+            <alias value="ZorgverlenerIdentificatieNummer" />
+            <mapping>
+                <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+                <map value="NL-CM:17.1.2" />
+                <comment value="HealthcareProviderIdentificationNumber"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-healthprofessional-v3.0-2016EN" />
+                <map value="NL-CM:17.1.2" />
+                <comment value="HealthcareProviderIdentificationNumber"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-healthprofessional-v3.2-2017EN" />
+                <map value="NL-CM:17.1.2" />
+                <comment value="HealthProfessionalIdentificationNumber"/>
+            </mapping>
+        </element>
+        <element id="Practitioner.identifier:UZI">
+            <path value="Practitioner.identifier" />
+            <sliceName value="UZI" />
+            <short value="UZI" />
+            <definition value="Unieke Zorgverlener Identificatie (Dutch physician identification number)" />
+            <alias value="UZI" />
+            <max value="1" />
+        </element>
+        <element id="Practitioner.identifier:UZI.system">
+            <path value="Practitioner.identifier.system" />
+            <min value="1" />
+            <fixedUri value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers" />
+        </element>
+        <element id="Practitioner.identifier:UZI.value">
+            <path value="Practitioner.identifier.value" />
+            <min value="1" />
+            <example>
+                <label value="Example" />
+                <valueString value="01011234" />
+            </example>
+        </element>
+        <element id="Practitioner.identifier:AGB">
+            <path value="Practitioner.identifier" />
+            <sliceName value="AGB" />
+            <short value="AGB" />
+            <alias value="AGB" />
+            <max value="1" />
+        </element>
+        <element id="Practitioner.identifier:AGB.system">
+            <path value="Practitioner.identifier.system" />
+            <min value="1" />
+            <fixedUri value="http://fhir.nl/fhir/NamingSystem/agb-z" />
+        </element>
+        <element id="Practitioner.identifier:AGB.value">
+            <path value="Practitioner.identifier.value" />
+            <min value="1" />
+            <example>
+                <label value="Example" />
+                <valueString value="123456" />
+            </example>
+        </element>
+        <element id="Practitioner.identifier:BIG">
+            <path value="Practitioner.identifier" />
+            <sliceName value="BIG" />
+            <short value="BIG" />
+            <alias value="BIG" />
+            <max value="1" />
+        </element>
+        <element id="Practitioner.identifier:BIG.system">
+            <path value="Practitioner.identifier.system" />
+            <min value="1" />
+            <fixedUri value="http://fhir.nl/fhir/NamingSystem/big" />
+        </element>
+        <element id="Practitioner.identifier:BIG.value">
+            <path value="Practitioner.identifier.value" />
+            <min value="1" />
+            <example>
+                <label value="Example" />
+                <valueString value="12345678" />
+            </example>
+        </element>
+        <element id="Practitioner.name">
+            <path value="Practitioner.name" />
+            <short value="NameInformation" />
+            <definition value="Health professional’s full name. If a health professional identification number is entered, it will be the name as listed in UZI, AGB or by the healthcare center." />
+            <alias value="ZorgverlenerNaam" />
+            <type>
+                <code value="HumanName" />
+                <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname" />
+            </type>
+            <mapping>
+                <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+                <map value="NL-CM:17.1.3" />
+                <comment value="HealthcareProviderName"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-healthprofessional-v3.0-2016EN" />
+                <map value="NL-CM:17.1.3" />
+                <comment value="HealthcareProviderName"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-healthprofessional-v3.2-2017EN" />
+                <map value="NL-CM:17.1.3" />
+                <comment value="NameInformation"/>
+            </mapping>
+        </element>
+        <element id="Practitioner.telecom">
+            <path value="Practitioner.telecom" />
+            <short value="ContactInformation" />
+            <alias value="Contactgegevens" />
+            <mapping>
+                <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+                <map value="NL-CM:17.1.8" />
+                <comment value="TelephoneE-mail"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-healthprofessional-v3.0-2016EN" />
+                <map value="NL-CM:17.1.8" />
+                <comment value="TelephoneE-mail"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-healthprofessional-v3.2-2017EN" />
+                <map value="NL-CM:17.1.8" />
+                <comment value="ContactInformation"/>
+            </mapping>
+        </element>
+        <element id="Practitioner.telecom.system">
+            <path value="Practitioner.telecom.system" />
+            <min value="1" />
+        </element>
+        <element id="Practitioner.telecom.value">
+            <path value="Practitioner.telecom.value" />
+            <short value="TelephoneNumber / E-mailAddress" />
+            <alias value="Telefoonnummer" />
+            <alias value="EmailAdres" />
+            <min value="1" />
+            <mapping>
+                <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+                <map value="NL-CM:0.1.23" />
+                <comment value="TelephoneNumber"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v3.0-2016EN" />
+                <map value="NL-CM:0.1.23" />
+                <comment value="TelephoneNumber"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v1.0-2017EN" />
+                <map value="NL-CM:20.6.4" />
+                <comment value="TelephoneNumber"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+                <map value="NL-CM:0.1.20" />
+                <comment value="E-mailAddress"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v3.0-2016EN" />
+                <map value="NL-CM:0.1.20" />
+                <comment value="E-mailAddress"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v1.0-2017EN" />
+                <map value="NL-CM:20.6.7" />
+                <comment value="EmailAddress"/>
+            </mapping>
+        </element>
+        <element id="Practitioner.telecom.use">
+            <path value="Practitioner.telecom.use" />
+            <short value="NumberType / E-mailAddressType" />
+            <alias value="NummerSoort" />
+            <alias value="EmailSoort" />
+            <mapping>
+                <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+                <map value="NL-CM:0.1.22" />
+                <comment value="NumberType"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v3.0-2016EN" />
+                <map value="NL-CM:0.1.22" />
+                <comment value="NumberType"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v1.0-2017EN" />
+                <map value="NL-CM:20.6.8" />
+                <comment value="EmailAddressType"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+                <map value="NL-CM:0.1.19" />
+                <comment value="E-mailAddressType"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v3.0-2016EN" />
+                <map value="NL-CM:0.1.19" />
+                <comment value="E-mailAddressType"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-contactinformation-v1.0-2017EN" />
+                <map value="NL-CM:20.6.6" />
+                <comment value="NumberType"/>
+            </mapping>
+        </element>
+        <element id="Practitioner.address">
+            <path value="Practitioner.address" />
+            <short value="AddressInformation" />
+            <alias value="Adresgegevens" />
+            <type>
+                <code value="Address" />
+                <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address" />
+            </type>
+            <mapping>
+                <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+                <map value="NL-CM:17.1.7" />
+                <comment value="Address"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-healthprofessional-v3.0-2016EN" />
+                <map value="NL-CM:17.1.7" />
+                <comment value="Address"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-healthprofessional-v3.2-2017EN" />
+                <map value="NL-CM:17.1.7" />
+                <comment value="AddressInformation"/>
+            </mapping>
+        </element>
+    </differential>
 </StructureDefinition>
