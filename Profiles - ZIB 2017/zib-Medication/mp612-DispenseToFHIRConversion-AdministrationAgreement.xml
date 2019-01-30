@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="mp612-dispensetofhirconversion-administrationagreement" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-AdministrationAgreement" />
+  <version value="1.0.0" />
+  <name value="MP612 DispenseToFHIRConversion AdministrationAgreement" />
+  <title value="MP612 DispenseToFHIRConversion AdministrationAgreement" />
+  <status value="draft" />
+  <date value="2019-02-01" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is based on Medicatieproces V9.0.6 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAdministration version 1.0.1, year 2017.&amp;#xD;&amp;#xA;A dispense is the delivery of an amount of medicine to the patient, their administrator or their representative." />
+  <purpose value="This profile defines the FHIR response for HCIM AdministrationAgreement of a Medicationproces V6.12 request on the LSP." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="Medication-Process-v09" />
+    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20181220T121121/tr-2.16.840.1.113883.2.4.3.11.60.20.77.4.162-2018-11-29T135611.html" />
+    <name value="Medication Process v09 - verstrekkingenvertaling" />
+    <comment value="Language of Medication Process is Dutch." />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="MedicationDispense" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="MedicationDispense">
+      <path value="MedicationDispense" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-20132" />
+        <comment value="Toedieningsafspraak" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:authoredOn">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="authoredOn" />
+      <min value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-20133" />
+        <comment value="Afspraakdatum" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:agreementReason">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="agreementReason" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.extension:periodOfUse">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="periodOfUse" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22660" />
+        <comment value="Gebruiksperiode" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:usageDuration">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="usageDuration" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22660" />
+        <comment value="Maps naar &quot;Gebruikdsduur&quot; binnen het &quot;Gebruiksperiode&quot; concept" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:additionalInformation">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="additionalInformation" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.extension:medicationTreatment">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="medicationTreatment" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.extension:copyIndicator">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="copyIndicator" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.modifierExtension:stopType">
+      <path value="MedicationDispense.modifierExtension" />
+      <sliceName value="stopType" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.modifierExtension:repeatPeriodCyclicalSchedule">
+      <path value="MedicationDispense.modifierExtension" />
+      <sliceName value="repeatPeriodCyclicalSchedule" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22622" />
+        <comment value="Herhaalperiode cyclisch schema" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.identifier">
+      <path value="MedicationDispense.identifier" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.partOf">
+      <path value="MedicationDispense.partOf" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.status">
+      <path value="MedicationDispense.status" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.category.coding">
+      <path value="MedicationDispense.category.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationDispense.category.coding:administrationAgreementCode">
+      <path value="MedicationDispense.category.coding" />
+      <sliceName value="administrationAgreementCode" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.category.coding:administrationAgreementCode.system">
+      <path value="MedicationDispense.category.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.category.coding:administrationAgreementCode.code">
+      <path value="MedicationDispense.category.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.category.coding:administrationAgreementCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="MedicationDispense.category.coding.display" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.medicationReference:medicationReference">
+      <path value="MedicationDispense.medicationReference" />
+      <sliceName value="medicationReference" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-20237" />
+        <comment value="Geneesmiddel bij toedieningsafspraak" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.subject">
+      <path value="MedicationDispense.subject" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-Patient" />
+      </type>
+    </element>
+    <element id="MedicationDispense.context">
+      <path value="MedicationDispense.context" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.supportingInformation">
+      <path value="MedicationDispense.supportingInformation" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer">
+      <path value="MedicationDispense.performer" />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22097" />
+        <comment value="Verstrekker" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.performer.actor">
+      <path value="MedicationDispense.performer.actor" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-Organization" />
+      </type>
+    </element>
+    <element id="MedicationDispense.performer.onBehalfOf">
+      <path value="MedicationDispense.performer.onBehalfOf" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.authorizingPrescription">
+      <path value="MedicationDispense.authorizingPrescription" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.type">
+      <path value="MedicationDispense.type" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.quantity">
+      <path value="MedicationDispense.quantity" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.daysSupply">
+      <path value="MedicationDispense.daysSupply" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.whenPrepared">
+      <path value="MedicationDispense.whenPrepared" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.whenHandedOver">
+      <path value="MedicationDispense.whenHandedOver" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.destination">
+      <path value="MedicationDispense.destination" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.receiver">
+      <path value="MedicationDispense.receiver" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.note">
+      <path value="MedicationDispense.note" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.dosageInstruction">
+      <path value="MedicationDispense.dosageInstruction" />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22098" />
+        <comment value="Gebruiksinstructie" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.sequence">
+      <path value="MedicationDispense.dosageInstruction.sequence" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22624" />
+        <comment value="Volgnummer" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.text">
+      <path value="MedicationDispense.dosageInstruction.text" />
+      <min value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22619" />
+        <comment value="Omschrijving" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.additionalInstruction">
+      <path value="MedicationDispense.dosageInstruction.additionalInstruction" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22621" />
+        <comment value="Aanvullende instructie" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.patientInstruction">
+      <path value="MedicationDispense.dosageInstruction.patientInstruction" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.dosageInstruction.timing">
+      <path value="MedicationDispense.dosageInstruction.timing" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22631" />
+        <comment value="Toedieningsschema" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.timing.repeat.extension:exact">
+      <path value="MedicationDispense.dosageInstruction.timing.repeat.extension" />
+      <sliceName value="exact" />
+    </element>
+    <element id="MedicationDispense.dosageInstruction.timing.repeat.extension:exact.valueBoolean:valueBoolean">
+      <path value="MedicationDispense.dosageInstruction.timing.repeat.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+    </element>
+    <element id="MedicationDispense.dosageInstruction.timing.repeat.bounds[x]">
+      <path value="MedicationDispense.dosageInstruction.timing.repeat.bounds[x]" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22625" />
+        <comment value="Doseerduur" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.timing.repeat.frequency">
+      <path value="MedicationDispense.dosageInstruction.timing.repeat.frequency" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22632" />
+        <comment value="Frequentie" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.timing.repeat.period">
+      <path value="MedicationDispense.dosageInstruction.timing.repeat.period" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22632" />
+        <comment value="When frequency is used, set &quot;exact&quot; to false" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.timing.repeat.periodUnit">
+      <path value="MedicationDispense.dosageInstruction.timing.repeat.periodUnit" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22634 " />
+        <comment value="Tijdseenheid" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.timing.repeat.timeOfDay">
+      <path value="MedicationDispense.dosageInstruction.timing.repeat.timeOfDay" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22636" />
+        <comment value="Toedientijd" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.asNeededCodeableConcept:asNeededCodeableConcept">
+      <path value="MedicationDispense.dosageInstruction.asNeededCodeableConcept" />
+      <sliceName value="asNeededCodeableConcept" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22639" />
+        <comment value="Zo nodig" />
+      </mapping>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22640" />
+        <comment value="Criterium" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.site">
+      <path value="MedicationDispense.dosageInstruction.site" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.dosageInstruction.route">
+      <path value="MedicationDispense.dosageInstruction.route" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22620" />
+        <comment value="Toedieningsweg" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.dose[x]">
+      <path value="MedicationDispense.dosageInstruction.dose[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22627" />
+        <comment value="Keerdosis" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.maxDosePerPeriod">
+      <path value="MedicationDispense.dosageInstruction.maxDosePerPeriod" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22643" />
+        <comment value="Maximale dosering" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction.maxDosePerAdministration">
+      <path value="MedicationDispense.dosageInstruction.maxDosePerAdministration" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.dosageInstruction.maxDosePerLifetime">
+      <path value="MedicationDispense.dosageInstruction.maxDosePerLifetime" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.substitution">
+      <path value="MedicationDispense.substitution" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.detectedIssue">
+      <path value="MedicationDispense.detectedIssue" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.notDone">
+      <path value="MedicationDispense.notDone" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.notDoneReason[x]">
+      <path value="MedicationDispense.notDoneReason[x]" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.eventHistory">
+      <path value="MedicationDispense.eventHistory" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
