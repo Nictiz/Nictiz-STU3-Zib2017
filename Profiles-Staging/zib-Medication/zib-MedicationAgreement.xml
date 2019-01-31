@@ -1,588 +1,608 @@
-<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="zib-MedicationAgreement" />
-  <meta>
-    <versionId value="6" />
-    <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
-  </meta>
-  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
-  <version value="2.2.0" />
-  <name value="Zib MedicationAgreement" />
-  <title value="HCIM MedicationAgreement" />
-  <status value="active" />
-  <date value="2018-09-18T16:39:05.96+00:00" />
-  <publisher value="Nictiz" />
-  <contact>
-    <name value="Nictiz" />
-    <telecom>
-      <system value="email" />
-      <value value="info@nictiz.nl" />
-      <use value="work" />
-    </telecom>
-  </contact>
-  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAgreement version 1.0.1, year 2017. A medication agreement is a prescriber’s proposal for a patient to use medication. An agreement to discontinue the use of medication is also a medication agreement." />
-  <purpose value="The goal of the medication agreement is to provide insight into the agreements reached between the prescriber and the patient on the use of medication." />
-  <copyright value="CC0" />
-  <fhirVersion value="3.0.1" />
-  <mapping>
-    <identity value="hcim-medicationagreement-v1.0-2017EN" />
-    <uri value="https://zibs.nl/wiki/MedicationAgreement-v1.0(2017EN)" />
-    <name value="HCIM MedicationAgreement-v1.0(2017EN)" />
-  </mapping>
-  <mapping>
-    <identity value="Medication-Process-v09" />
-    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20170829T141253/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
-    <name value="Medication Process v09" />
-    <comment value="Language of Medication Process is Dutch." />
-  </mapping>
-  <mapping>
-    <identity value="hcim-instructionsforuse-v1.0-2017EN" />
-    <uri value="https://zibs.nl/wiki/InstructionsForUse-v1.0(2017EN)" />
-    <name value="HCIM InstructionsForUse-v1.0(2017EN)" />
-  </mapping>
-  <kind value="resource" />
-  <abstract value="false" />
-  <type value="MedicationRequest" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationRequest" />
-  <derivation value="constraint" />
-  <differential>
-    <element id="MedicationRequest">
-      <path value="MedicationRequest" />
-      <short value="MedicationAgreement" />
-      <definition value="A medication agreement is a prescriber’s proposal for a patient to use medication. An agreement to discontinue the use of medication is also a medication agreement." />
-      <alias value="Medicatieafspraak" />
-      <mapping>
+    <id value="zib-MedicationAgreement" />
+    <meta>
+        <versionId value="6" />
+        <lastUpdated value="2018-09-18T16:39:05.96+00:00" />
+    </meta>
+    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
+    <version value="2.2.0" />
+    <name value="Zib MedicationAgreement" />
+    <title value="HCIM MedicationAgreement" />
+    <status value="active" />
+    <date value="2018-09-18T16:39:05.96+00:00" />
+    <publisher value="Nictiz" />
+    <contact>
+        <name value="Nictiz" />
+        <telecom>
+            <system value="email" />
+            <value value="info@nictiz.nl" />
+            <use value="work" />
+        </telecom>
+    </contact>
+    <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAgreement version 1.0.1, year 2017. A medication agreement is a prescriber’s proposal for a patient to use medication. An agreement to discontinue the use of medication is also a medication agreement." />
+    <purpose value="The goal of the medication agreement is to provide insight into the agreements reached between the prescriber and the patient on the use of medication." />
+    <copyright value="CC0" />
+    <fhirVersion value="3.0.1" />
+    <mapping>
         <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.9580" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.extension">
-      <path value="MedicationRequest.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="MedicationRequest.extension:periodOfUse">
-      <path value="MedicationRequest.extension" />
-      <sliceName value="periodOfUse" />
-      <short value="PeriodOfUse" />
-      <definition value="Start date: This is the time at which the agreement was to take effect (or took effect or will take effect). This is the time at which the instructions for use in this agreement start. In the case of an agreement to discontinue use, this is the start date of the original medication agreement. The end date indicates from when the medication is to be discontinued. &#xD;&#xA;&#xD;&#xA;End date: The time at which the period of use ends (or ended or will end). In the case of an agreement to discontinue use, this is the time at which the medication is to be discontinued. To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date.&#xD;&#xA;&#xD;&#xA;With medication for an indefinite period only a start date is indicated." />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.19936" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.extension:periodOfUse.valuePeriod:valuePeriod">
-      <path value="MedicationRequest.extension.valuePeriod" />
-      <sliceName value="valuePeriod" />
-    </element>
-    <element id="MedicationRequest.extension:usageDuration">
-      <path value="MedicationRequest.extension" />
-      <sliceName value="usageDuration" />
-      <short value="Duration" />
-      <definition value="Duration: The intended duration of use. E.g. 5 days or 8 weeks. It is not allowed to indicate the duration in months, because different months have a variable duration in days." />
-      <alias value="Duur" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.19936" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.extension:usageDuration.valueDuration:valueDuration">
-      <path value="MedicationRequest.extension.valueDuration" />
-      <sliceName value="valueDuration" />
-    </element>
-    <element id="MedicationRequest.extension:additionalInformation">
-      <path value="MedicationRequest.extension" />
-      <sliceName value="additionalInformation" />
-      <short value="MedicationAgreementAdditionalInformation" />
-      <definition value="Additional information includes details on the structure of the agreement made that are relevant for pharmacovigilance and fulfillment by the pharmacist. This can be used e.g. to indicate that there was a conscious decision to deviate from the norm or that the agreement is to be structured in a certain way." />
-      <comment value="When choosing a medicine, you can deviate from what is expected or from what the standard is. For example, when the hospital uses a different formulary than the community pharmacy. For reasons of efficiency, for example, one gastric acid inhibitor has been chosen in the hospital: pantoprazole.&#xD;&#xA;Upon admission, a patient with omeprazole is converted to pantoprazole for the duration of the stay. When discharged, the patient goes back to omeprazole.&#xD;&#xA;It is clear that something can go wrong here and that the patient takes both omeprazole and pantoprazole when there is no intervention. In the hospital's medication agreement for pantoprazole a remark can be made about the deviation so that it is clear that pantoprazole is the substitute for omeprazole or that it should be used in addition to omeprazole.&#xD;&#xA;Another example are the half strengths. The hospital sometimes stocks tablets with half the strength of the normal trade preparation (own production). Where the patient enters the hospital on 25 mg chlortalidone, half a tablet once a day, he receives 12.5 mg intramural chlortalidone, one tablet once a day. Then the nursing does not have to break tablets in this case. Here there is a risk that the patient will use the 25 mg again at home, but then a whole tablet at a time in stead of half a tablet. By means of an explanation in the medication agreement (Additional information) of the last chlortalidone 25 mg, it can be indicated whether this has been a intended increase." />
-      <alias value="MedicatieafspraakAanvullendeInformatie" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-AdditionalInformation" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.23283" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.extension:additionalInformation.valueCodeableConcept:valueCodeableConcept">
-      <path value="MedicationRequest.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <example>
-        <label value="Example of MedicationAgreementAdditionalInformation" />
-        <valueCodeableConcept>
-          <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.3.2050" />
-            <code value="1" />
-            <display value="Bewust hoge dosering" />
-          </coding>
-        </valueCodeableConcept>
-      </example>
-      <binding>
-        <strength value="extensible" />
-        <description value="MedicatieafspraakAanvullendeInformatieCodelijst" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.6.3--20171231000000" />
-          <display value="MedicatieafspraakAanvullendeInformatieCodelijst" />
-        </valueSetReference>
-      </binding>
-    </element>
-    <element id="MedicationRequest.extension:medicationTreatment">
-      <path value="MedicationRequest.extension" />
-      <sliceName value="medicationTreatment" />
-      <short value="Medication Treatment" />
-      <definition value="This extension is to describe which overarching medication treatment this information is part of. This is done by the use of an identifier of that medication treatment." />
-      <comment value="No HCIM concept is available for this element. Therefore a mapping to the relevant element Medication Process data element is provided." />
-      <alias value="Medicamenteuze behandeling" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment" />
-      </type>
-      <mapping>
+        <uri value="https://zibs.nl/wiki/MedicationAgreement-v1.0(2017EN)" />
+        <name value="HCIM MedicationAgreement-v1.0(2017EN)" />
+    </mapping>
+    <mapping>
         <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22092" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.extension:medicationTreatment.valueIdentifier:valueIdentifier">
-      <path value="MedicationRequest.extension.valueIdentifier" />
-      <sliceName value="valueIdentifier" />
-    </element>
-    <element id="MedicationRequest.extension:copyIndicator">
-      <path value="MedicationRequest.extension" />
-      <sliceName value="copyIndicator" />
-      <short value="copy indicator" />
-      <alias value="kopie indicator" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-CopyIndicator" />
-      </type>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-23411" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.extension:copyIndicator.valueBoolean:valueBoolean">
-      <path value="MedicationRequest.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
-    </element>
-    <element id="MedicationRequest.extension:basedOnAgreementOrUse">
-      <path value="MedicationRequest.extension" />
-      <sliceName value="basedOnAgreementOrUse" />
-      <short value="Based On Agreement Or Use" />
-      <definition value="Reference to a medication agreement that has been aborted or canceled. &#xD;&#xA;Or&#xD;&#xA;In case a medication agreement isn't available, a reference to an administration agreement or medication use on which the medication agreement is based." />
-      <alias value="Relatie naar afspraak of gebruik" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse" />
-      </type>
-      <mapping>
+        <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20170829T141253/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
+        <name value="Medication Process v09" />
+        <comment value="Language of Medication Process is Dutch." />
+    </mapping>
+    <mapping>
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />
-        <map value="mp-dataelement900-23238" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.modifierExtension">
-      <path value="MedicationRequest.modifierExtension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="MedicationRequest.modifierExtension:stopType">
-      <path value="MedicationRequest.modifierExtension" />
-      <sliceName value="stopType" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-StopType" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.19954" />
-      </mapping>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-19954" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.modifierExtension:stopType.valueCodeableConcept:valueCodeableConcept">
-      <path value="MedicationRequest.modifierExtension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <binding>
-        <strength value="required" />
-      </binding>
-    </element>
-    <element id="MedicationRequest.modifierExtension:repeatPeriodCyclicalSchedule">
-      <path value="MedicationRequest.modifierExtension" />
-      <sliceName value="repeatPeriodCyclicalSchedule" />
-      <label value="HerhaalperiodeCyclischSchema" />
-      <short value="RepeatPeriodCyclicalSchedule" />
-      <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days.&#xD;&#xA;RepeatPeriodCyclicalSchedule" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-RepeatPeriodCyclicalSchedule" />
-      </type>
-      <mapping>
-        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
-        <map value="NL-CM:9.12.22505" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.identifier">
-      <path value="MedicationRequest.identifier" />
-      <short value="MedicationAgreementIdentifier" />
-      <alias value="MedicatieafspraakIdentificatie" />
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-19758" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.status">
-      <path value="MedicationRequest.status" />
-      <short value="CanceledIndicator" />
-      <definition value="A code specifying the current state of the order. Generally this will be active or completed state." />
-      <alias value="GeannuleerdIndicator" />
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.23033" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.intent">
-      <path value="MedicationRequest.intent" />
-      <fixedCode value="order" />
-    </element>
-    <element id="MedicationRequest.category">
-      <path value="MedicationRequest.category" />
-      <min value="1" />
-    </element>
-    <element id="MedicationRequest.category.coding">
-      <path value="MedicationRequest.category.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="MedicationRequest.category.coding:medicationAgreementCode">
-      <path value="MedicationRequest.category.coding" />
-      <sliceName value="medicationAgreementCode" />
-      <short value="MedicationAgreementCode" />
-      <definition value="Category code used for indexing/retrieval of the ZIB MedicationAgreeement. The snomed code is stated in the Medication Process v09." />
-    </element>
-    <element id="MedicationRequest.category.coding:medicationAgreementCode.system">
-      <path value="MedicationRequest.category.coding.system" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="MedicationRequest.category.coding:medicationAgreementCode.code">
-      <path value="MedicationRequest.category.coding.code" />
-      <fixedCode value="16076005" />
-    </element>
-    <element id="MedicationRequest.category.coding:medicationAgreementCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="MedicationRequest.category.coding.display" />
-      <fixedString value="Prescription (procedure)" />
-    </element>
-    <element id="MedicationRequest.medication[x]:medicationReference">
-      <path value="MedicationRequest.medicationReference" />
-      <sliceName value="medicationReference" />
-      <short value="AgreedMedicine" />
-      <definition value="The medicine agreed upon to be used." />
-      <alias value="Afgesprokengeneesmiddel" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.19925" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.subject">
-      <path value="MedicationRequest.subject" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
-      </type>
-    </element>
-    <element id="MedicationRequest.context">
-      <path value="MedicationRequest.context" />
-      <comment value="References to 'Ketenzorg Contactmoment' and 'Ketenzorg Episode'." />
-      <alias value="Relaties Ketenzorg" />
-      <alias value="Identificatie Contactmoment" />
-      <alias value="Identificatie Episode" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
-      </type>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-24024" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.supportingInformation">
-      <path value="MedicationRequest.supportingInformation" />
-      <slicing>
-        <discriminator>
-          <type value="profile" />
-          <path value="reference.resolve()" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="MedicationRequest.supportingInformation:BodyWeight">
-      <path value="MedicationRequest.supportingInformation" />
-      <sliceName value="BodyWeight" />
-      <short value="MedicationAgreementAdditionalInformation: BodyWeight" />
-      <definition value="Weight the dose is based on, relevant to this agreement." />
-      <alias value="Lichaamsgewicht" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyWeight" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.23028" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.supportingInformation:BodyHeight">
-      <path value="MedicationRequest.supportingInformation" />
-      <sliceName value="BodyHeight" />
-      <short value="MedicationAgreementAdditionalInformation: BodyHeight" />
-      <definition value="Height the dose is based on, relevant to this agreement." />
-      <alias value="Lichaamslengte" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyHeight" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.23023" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.authoredOn">
-      <path value="MedicationRequest.authoredOn" />
-      <short value="MedicationAgreementDateTime" />
-      <definition value="The time at which the agreement was made. &#xD;&#xA; &#xD;&#xA;Appointment date + time are required (order of the appointments must be clear in cases with multiple appointments on one day)" />
-      <alias value="Afspraakdatum" />
-      <min value="1" />
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.19757" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.requester">
-      <path value="MedicationRequest.requester" />
-      <short value="Prescriber" />
-      <definition value="The health professional that entered the medication agreement with the patient." />
-      <comment value="Note that in FHIR STU3, there is an agent Reference type PractitionerRole missing. PractitionerRole, contrary to Practitioner, allows for specialism and organization. This issue has been fixed in FHIR R4. For FHIR STU3, you can use the missing-type-reference extension on requester.agent." />
-      <alias value="Voorschrijver" />
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.1030" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.requester.agent">
-      <path value="MedicationRequest.requester.agent" />
-      <comment value="The health professional's speciality, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
-      </type>
-    </element>
-    <element id="MedicationRequest.requester.agent.extension">
-      <path value="MedicationRequest.requester.agent.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="MedicationRequest.requester.agent.extension:practitionerRole-R4">
-      <path value="MedicationRequest.requester.agent.extension" />
-      <sliceName value="practitionerRole-R4" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
-      </type>
-    </element>
-    <element id="MedicationRequest.requester.agent.extension:practitionerRole-R4.valueReference:valueReference">
-      <path value="MedicationRequest.requester.agent.extension.valueReference" />
-      <sliceName value="valueReference" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
-      </type>
-    </element>
-    <element id="MedicationRequest.requester.onBehalfOf">
-      <path value="MedicationRequest.requester.onBehalfOf" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
-    </element>
-    <element id="MedicationRequest.recorder">
-      <path value="MedicationRequest.recorder" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-    </element>
-    <element id="MedicationRequest.recorder.extension">
-      <path value="MedicationRequest.recorder.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="MedicationRequest.recorder.extension:practitionerRole-R4">
-      <path value="MedicationRequest.recorder.extension" />
-      <sliceName value="practitionerRole-R4" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
-      </type>
-    </element>
-    <element id="MedicationRequest.recorder.extension:practitionerRole-R4.valueReference:valueReference">
-      <path value="MedicationRequest.recorder.extension.valueReference" />
-      <sliceName value="valueReference" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
-      </type>
-    </element>
-    <element id="MedicationRequest.reasonCode">
-      <path value="MedicationRequest.reasonCode" />
-      <short value="MedicationAgreementReason" />
-      <definition value="Reason for this agreement. This can be the reason to start, change or stop the medication treatment." />
-      <alias value="RedenMedicatieafspraak" />
-      <example>
-        <label value="Example of MedicationAgreementReason" />
-        <valueCodeableConcept>
-          <coding>
-            <system value="urn:oid: 2.16.840.1.113883.6.96" />
-            <code value="305335007" />
-            <display value="Admission to establishment (procedure)" />
-          </coding>
-        </valueCodeableConcept>
-      </example>
-      <binding>
-        <strength value="extensible" />
-        <description value="RedenMedicatieAfspraak" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.6.2--20171231000000" />
-          <display value="RedenMedicatieafspraak" />
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.22094" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.reasonReference">
-      <path value="MedicationRequest.reasonReference" />
-      <short value="PrescriptionReason" />
-      <definition value="The medical reason for the prescription or for use of the medication. This can be used to enter a medical indication which was the direct cause for prescription or for use of the medication in question. &#xD;&#xA;&#xD;&#xA;It can concern every type of problem (or condition) of the patient, almost all diagnoses, complaints or symptoms. &#xD;&#xA;&#xD;&#xA;Please note: The BST401T file of the G standard contains a “special reference” to indicate that “exchange of the reason for prescription is essential”." />
-      <alias value="RedenVanVoorschrijven" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.23133" />
-        <comment value="Mapping for zib-Problem" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.note">
-      <path value="MedicationRequest.note" />
-      <short value="Comment" />
-      <definition value="Explanation for the medication agreement. &#xD;&#xA; &#xD;&#xA;This explanation can contain e.g. information on why a prescriber makes a medication agreement that deviates from the norm." />
-      <alias value="Toelichting" />
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.22273" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.dosageInstruction">
-      <path value="MedicationRequest.dosageInstruction" />
-      <definition value="Instructions for the use of the medication, e.g. dose and route of administration" />
-      <type>
-        <code value="Dosage" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-InstructionsForUse" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.23240" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.dosageInstruction.dose[x]">
-      <path value="MedicationRequest.dosageInstruction.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-  </differential>
+        <uri value="https://zibs.nl/wiki/InstructionsForUse-v1.0(2017EN)" />
+        <name value="HCIM InstructionsForUse-v1.0(2017EN)" />
+    </mapping>
+    <kind value="resource" />
+    <abstract value="false" />
+    <type value="MedicationRequest" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationRequest" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="MedicationRequest">
+            <path value="MedicationRequest" />
+            <short value="MedicationAgreement" />
+            <definition value="A medication agreement is a prescriber’s proposal for a patient to use medication. An agreement to discontinue the use of medication is also a medication agreement." />
+            <alias value="Medicatieafspraak" />
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.9580" />
+                <comment value="MedicationAgreement"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.extension">
+            <path value="MedicationRequest.extension" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="url" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+        </element>
+        <element id="MedicationRequest.extension:periodOfUse">
+            <path value="MedicationRequest.extension" />
+            <sliceName value="periodOfUse" />
+            <short value="PeriodOfUse" />
+            <definition value="Start date: This is the time at which the agreement was to take effect (or took effect or will take effect). This is the time at which the instructions for use in this agreement start. In the case of an agreement to discontinue use, this is the start date of the original medication agreement. The end date indicates from when the medication is to be discontinued. &#xD;&#xA;&#xD;&#xA;End date: The time at which the period of use ends (or ended or will end). In the case of an agreement to discontinue use, this is the time at which the medication is to be discontinued. To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date.&#xD;&#xA;&#xD;&#xA;With medication for an indefinite period only a start date is indicated." />
+            <max value="1" />
+            <type>
+                <code value="Extension" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse" />
+            </type>
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.19936" />
+                <comment value="PeriodOfUse"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.extension:periodOfUse.valuePeriod:valuePeriod">
+            <path value="MedicationRequest.extension.valuePeriod" />
+            <sliceName value="valuePeriod" />
+        </element>
+        <element id="MedicationRequest.extension:usageDuration">
+            <path value="MedicationRequest.extension" />
+            <sliceName value="usageDuration" />
+            <short value="Duration" />
+            <definition value="Duration: The intended duration of use. E.g. 5 days or 8 weeks. It is not allowed to indicate the duration in months, because different months have a variable duration in days." />
+            <alias value="Duur" />
+            <max value="1" />
+            <type>
+                <code value="Extension" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration" />
+            </type>
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.19936" />
+                <comment value="PeriodOfUse"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.extension:usageDuration.valueDuration:valueDuration">
+            <path value="MedicationRequest.extension.valueDuration" />
+            <sliceName value="valueDuration" />
+        </element>
+        <element id="MedicationRequest.extension:additionalInformation">
+            <path value="MedicationRequest.extension" />
+            <sliceName value="additionalInformation" />
+            <short value="MedicationAgreementAdditionalInformation" />
+            <definition value="Additional information includes details on the structure of the agreement made that are relevant for pharmacovigilance and fulfillment by the pharmacist. This can be used e.g. to indicate that there was a conscious decision to deviate from the norm or that the agreement is to be structured in a certain way." />
+            <comment value="When choosing a medicine, you can deviate from what is expected or from what the standard is. For example, when the hospital uses a different formulary than the community pharmacy. For reasons of efficiency, for example, one gastric acid inhibitor has been chosen in the hospital: pantoprazole.&#xD;&#xA;Upon admission, a patient with omeprazole is converted to pantoprazole for the duration of the stay. When discharged, the patient goes back to omeprazole.&#xD;&#xA;It is clear that something can go wrong here and that the patient takes both omeprazole and pantoprazole when there is no intervention. In the hospital's medication agreement for pantoprazole a remark can be made about the deviation so that it is clear that pantoprazole is the substitute for omeprazole or that it should be used in addition to omeprazole.&#xD;&#xA;Another example are the half strengths. The hospital sometimes stocks tablets with half the strength of the normal trade preparation (own production). Where the patient enters the hospital on 25 mg chlortalidone, half a tablet once a day, he receives 12.5 mg intramural chlortalidone, one tablet once a day. Then the nursing does not have to break tablets in this case. Here there is a risk that the patient will use the 25 mg again at home, but then a whole tablet at a time in stead of half a tablet. By means of an explanation in the medication agreement (Additional information) of the last chlortalidone 25 mg, it can be indicated whether this has been a intended increase." />
+            <alias value="MedicatieafspraakAanvullendeInformatie" />
+            <type>
+                <code value="Extension" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-AdditionalInformation" />
+            </type>
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.23283" />
+                <comment value="MedicationAgreementAdditionalInformation"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.extension:additionalInformation.valueCodeableConcept:valueCodeableConcept">
+            <path value="MedicationRequest.extension.valueCodeableConcept" />
+            <sliceName value="valueCodeableConcept" />
+            <example>
+                <label value="Example of MedicationAgreementAdditionalInformation" />
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.3.2050" />
+                        <code value="1" />
+                        <display value="Bewust hoge dosering" />
+                    </coding>
+                </valueCodeableConcept>
+            </example>
+            <binding>
+                <strength value="extensible" />
+                <description value="MedicatieafspraakAanvullendeInformatieCodelijst" />
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.6.3--20171231000000" />
+                    <display value="MedicatieafspraakAanvullendeInformatieCodelijst" />
+                </valueSetReference>
+            </binding>
+        </element>
+        <element id="MedicationRequest.extension:medicationTreatment">
+            <path value="MedicationRequest.extension" />
+            <sliceName value="medicationTreatment" />
+            <short value="Medication Treatment" />
+            <definition value="This extension is to describe which overarching medication treatment this information is part of. This is done by the use of an identifier of that medication treatment." />
+            <comment value="No HCIM concept is available for this element. Therefore a mapping to the relevant element Medication Process data element is provided." />
+            <alias value="Medicamenteuze behandeling" />
+            <max value="1" />
+            <type>
+                <code value="Extension" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment" />
+            </type>
+            <mapping>
+                <identity value="Medication-Process-v09" />
+                <map value="mp-dataelement900-22092" />
+                <comment value="Medicamenteuze behandeling"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.extension:medicationTreatment.valueIdentifier:valueIdentifier">
+            <path value="MedicationRequest.extension.valueIdentifier" />
+            <sliceName value="valueIdentifier" />
+        </element>
+        <element id="MedicationRequest.extension:copyIndicator">
+            <path value="MedicationRequest.extension" />
+            <sliceName value="copyIndicator" />
+            <short value="copy indicator" />
+            <alias value="kopie indicator" />
+            <max value="1" />
+            <type>
+                <code value="Extension" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-CopyIndicator" />
+            </type>
+            <mapping>
+                <identity value="Medication-Process-v09" />
+                <map value="mp-dataelement900-23411" />
+                <comment value="Kopie Indicator"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.extension:copyIndicator.valueBoolean:valueBoolean">
+            <path value="MedicationRequest.extension.valueBoolean" />
+            <sliceName value="valueBoolean" />
+        </element>
+        <element id="MedicationRequest.extension:basedOnAgreementOrUse">
+            <path value="MedicationRequest.extension" />
+            <sliceName value="basedOnAgreementOrUse" />
+            <short value="Based On Agreement Or Use" />
+            <definition value="Reference to a medication agreement that has been aborted or canceled. &#xD;&#xA;Or&#xD;&#xA;In case a medication agreement isn't available, a reference to an administration agreement or medication use on which the medication agreement is based." />
+            <alias value="Relatie naar afspraak of gebruik" />
+            <type>
+                <code value="Extension" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse" />
+            </type>
+            <mapping>
+                <identity value="Medication-Process-v09"/>
+                <map value="mp-dataelement900-23238" />
+                <comment value="Relatie naar afspraak of gebruik"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.modifierExtension">
+            <path value="MedicationRequest.modifierExtension" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="url" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+        </element>
+        <element id="MedicationRequest.modifierExtension:stopType">
+            <path value="MedicationRequest.modifierExtension" />
+            <sliceName value="stopType" />
+            <max value="1" />
+            <type>
+                <code value="Extension" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-StopType" />
+            </type>
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.19954" />
+                <comment value="MedicationAgreementStopType"/>
+            </mapping>
+            <mapping>
+                <identity value="Medication-Process-v09" />
+                <map value="mp-dataelement900-19954" />
+                <comment value="Stoptype"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.modifierExtension:stopType.valueCodeableConcept:valueCodeableConcept">
+            <path value="MedicationRequest.modifierExtension.valueCodeableConcept" />
+            <sliceName value="valueCodeableConcept" />
+            <binding>
+                <strength value="required" />
+            </binding>
+        </element>
+        <element id="MedicationRequest.modifierExtension:repeatPeriodCyclicalSchedule">
+            <path value="MedicationRequest.modifierExtension" />
+            <sliceName value="repeatPeriodCyclicalSchedule" />
+            <label value="HerhaalperiodeCyclischSchema" />
+            <short value="RepeatPeriodCyclicalSchedule" />
+            <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days.&#xD;&#xA;RepeatPeriodCyclicalSchedule" />
+            <max value="1" />
+            <type>
+                <code value="Extension" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-RepeatPeriodCyclicalSchedule" />
+            </type>
+            <mapping>
+                <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+                <map value="NL-CM:9.12.22505" />
+                <comment value="RepeatPeriodCyclicalSchedule"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.identifier">
+            <path value="MedicationRequest.identifier" />
+            <short value="MedicationAgreementIdentifier" />
+            <alias value="MedicatieafspraakIdentificatie" />
+            <mapping>
+                <identity value="Medication-Process-v09" />
+                <map value="mp-dataelement900-19758" />
+                <comment value="Identificatie"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.status">
+            <path value="MedicationRequest.status" />
+            <short value="CanceledIndicator" />
+            <definition value="A code specifying the current state of the order. Generally this will be active or completed state." />
+            <alias value="GeannuleerdIndicator" />
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.23033" />
+                <comment value="CanceledIndicator"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.intent">
+            <path value="MedicationRequest.intent" />
+            <fixedCode value="order" />
+        </element>
+        <element id="MedicationRequest.category">
+            <path value="MedicationRequest.category" />
+            <min value="1" />
+        </element>
+        <element id="MedicationRequest.category.coding">
+            <path value="MedicationRequest.category.coding" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="code" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+        </element>
+        <element id="MedicationRequest.category.coding:medicationAgreementCode">
+            <path value="MedicationRequest.category.coding" />
+            <sliceName value="medicationAgreementCode" />
+            <short value="MedicationAgreementCode" />
+            <definition value="Category code used for indexing/retrieval of the ZIB MedicationAgreeement. The snomed code is stated in the Medication Process v09." />
+        </element>
+        <element id="MedicationRequest.category.coding:medicationAgreementCode.system">
+            <path value="MedicationRequest.category.coding.system" />
+            <fixedUri value="http://snomed.info/sct" />
+        </element>
+        <element id="MedicationRequest.category.coding:medicationAgreementCode.code">
+            <path value="MedicationRequest.category.coding.code" />
+            <fixedCode value="16076005" />
+        </element>
+        <element id="MedicationRequest.category.coding:medicationAgreementCode.display">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+                <valueBoolean value="true" />
+            </extension>
+            <path value="MedicationRequest.category.coding.display" />
+            <fixedString value="Prescription (procedure)" />
+        </element>
+        <element id="MedicationRequest.medication[x]:medicationReference">
+            <path value="MedicationRequest.medicationReference" />
+            <sliceName value="medicationReference" />
+            <short value="AgreedMedicine" />
+            <definition value="The medicine agreed upon to be used." />
+            <alias value="Afgesprokengeneesmiddel" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product" />
+            </type>
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.19925" />
+                <comment value="AgreedMedicine"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.subject">
+            <path value="MedicationRequest.subject" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+            </type>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+            </type>
+        </element>
+        <element id="MedicationRequest.context">
+            <path value="MedicationRequest.context" />
+            <comment value="References to 'Ketenzorg Contactmoment' and 'Ketenzorg Episode'." />
+            <alias value="Relaties Ketenzorg" />
+            <alias value="Identificatie Contactmoment" />
+            <alias value="Identificatie Episode" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
+            </type>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+            </type>
+            <mapping>
+                <identity value="Medication-Process-v09" />
+                <map value="mp-dataelement900-24024" />
+                <comment value="Relaties ketenzorg"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.supportingInformation">
+            <path value="MedicationRequest.supportingInformation" />
+            <slicing>
+                <discriminator>
+                    <type value="profile" />
+                    <path value="reference.resolve()" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+        </element>
+        <element id="MedicationRequest.supportingInformation:BodyWeight">
+            <path value="MedicationRequest.supportingInformation" />
+            <sliceName value="BodyWeight" />
+            <short value="MedicationAgreementAdditionalInformation: BodyWeight" />
+            <definition value="Weight the dose is based on, relevant to this agreement." />
+            <alias value="Lichaamsgewicht" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyWeight" />
+            </type>
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.23028" />
+                <comment value="BodyWeight"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.supportingInformation:BodyHeight">
+            <path value="MedicationRequest.supportingInformation" />
+            <sliceName value="BodyHeight" />
+            <short value="MedicationAgreementAdditionalInformation: BodyHeight" />
+            <definition value="Height the dose is based on, relevant to this agreement." />
+            <alias value="Lichaamslengte" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyHeight" />
+            </type>
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.23023" />
+                <comment value="BodyHeight"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.authoredOn">
+            <path value="MedicationRequest.authoredOn" />
+            <short value="MedicationAgreementDateTime" />
+            <definition value="The time at which the agreement was made. &#xD;&#xA; &#xD;&#xA;Appointment date + time are required (order of the appointments must be clear in cases with multiple appointments on one day)" />
+            <alias value="Afspraakdatum" />
+            <min value="1" />
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.19757" />
+                <comment value="MedicationAgreementDateTime"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.requester">
+            <path value="MedicationRequest.requester" />
+            <short value="Prescriber" />
+            <definition value="The health professional that entered the medication agreement with the patient." />
+            <comment value="Note that in FHIR STU3, there is an agent Reference type PractitionerRole missing. PractitionerRole, contrary to Practitioner, allows for specialism and organization. This issue has been fixed in FHIR R4. For FHIR STU3, you can use the missing-type-reference extension on requester.agent." />
+            <alias value="Voorschrijver" />
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.1030" />
+                <comment value="Prescriber"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.requester.agent">
+            <path value="MedicationRequest.requester.agent" />
+            <comment value="The health professional's speciality, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+            </type>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+            </type>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+            </type>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+            </type>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+            </type>
+        </element>
+        <element id="MedicationRequest.requester.agent.extension">
+            <path value="MedicationRequest.requester.agent.extension" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="url" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+        </element>
+        <element id="MedicationRequest.requester.agent.extension:practitionerRole-R4">
+            <path value="MedicationRequest.requester.agent.extension" />
+            <sliceName value="practitionerRole-R4" />
+            <max value="1" />
+            <type>
+                <code value="Extension" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
+            </type>
+        </element>
+        <element id="MedicationRequest.requester.agent.extension:practitionerRole-R4.valueReference:valueReference">
+            <path value="MedicationRequest.requester.agent.extension.valueReference" />
+            <sliceName value="valueReference" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+            </type>
+        </element>
+        <element id="MedicationRequest.requester.onBehalfOf">
+            <path value="MedicationRequest.requester.onBehalfOf" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+            </type>
+        </element>
+        <element id="MedicationRequest.recorder">
+            <path value="MedicationRequest.recorder" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+            </type>
+        </element>
+        <element id="MedicationRequest.recorder.extension">
+            <path value="MedicationRequest.recorder.extension" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="url" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+        </element>
+        <element id="MedicationRequest.recorder.extension:practitionerRole-R4">
+            <path value="MedicationRequest.recorder.extension" />
+            <sliceName value="practitionerRole-R4" />
+            <max value="1" />
+            <type>
+                <code value="Extension" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
+            </type>
+        </element>
+        <element id="MedicationRequest.recorder.extension:practitionerRole-R4.valueReference:valueReference">
+            <path value="MedicationRequest.recorder.extension.valueReference" />
+            <sliceName value="valueReference" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+            </type>
+        </element>
+        <element id="MedicationRequest.reasonCode">
+            <path value="MedicationRequest.reasonCode" />
+            <short value="MedicationAgreementReason" />
+            <definition value="Reason for this agreement. This can be the reason to start, change or stop the medication treatment." />
+            <alias value="RedenMedicatieafspraak" />
+            <example>
+                <label value="Example of MedicationAgreementReason" />
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid: 2.16.840.1.113883.6.96" />
+                        <code value="305335007" />
+                        <display value="Admission to establishment (procedure)" />
+                    </coding>
+                </valueCodeableConcept>
+            </example>
+            <binding>
+                <strength value="extensible" />
+                <description value="RedenMedicatieAfspraak" />
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.6.2--20171231000000" />
+                    <display value="RedenMedicatieafspraak" />
+                </valueSetReference>
+            </binding>
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.22094" />
+                <comment value="ReasonMedicationAgreement"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.reasonReference">
+            <path value="MedicationRequest.reasonReference" />
+            <short value="PrescriptionReason" />
+            <definition value="The medical reason for the prescription or for use of the medication. This can be used to enter a medical indication which was the direct cause for prescription or for use of the medication in question. &#xD;&#xA;&#xD;&#xA;It can concern every type of problem (or condition) of the patient, almost all diagnoses, complaints or symptoms. &#xD;&#xA;&#xD;&#xA;Please note: The BST401T file of the G standard contains a “special reference” to indicate that “exchange of the reason for prescription is essential”." />
+            <alias value="RedenVanVoorschrijven" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
+            </type>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+            </type>
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.23133" />
+                <comment value="PrescriptionReason. Mapping for zib-Problem"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.note">
+            <path value="MedicationRequest.note" />
+            <short value="Comment" />
+            <definition value="Explanation for the medication agreement. &#xD;&#xA; &#xD;&#xA;This explanation can contain e.g. information on why a prescriber makes a medication agreement that deviates from the norm." />
+            <alias value="Toelichting" />
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.22273" />
+                <comment value="Comment"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.dosageInstruction">
+            <path value="MedicationRequest.dosageInstruction" />
+            <definition value="Instructions for the use of the medication, e.g. dose and route of administration" />
+            <type>
+                <code value="Dosage" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-InstructionsForUse" />
+            </type>
+            <mapping>
+                <identity value="hcim-medicationagreement-v1.0-2017EN" />
+                <map value="NL-CM:9.6.23240" />
+                <comment value="InstructionsForUse"/>
+            </mapping>
+        </element>
+        <element id="MedicationRequest.dosageInstruction.dose[x]">
+            <path value="MedicationRequest.dosageInstruction.dose[x]" />
+            <slicing>
+                <discriminator>
+                    <type value="type" />
+                    <path value="$this" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+        </element>
+    </differential>
 </StructureDefinition>
