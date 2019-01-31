@@ -16,7 +16,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on Medicatieproces V9.0.6 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationDispense version 2.0, year 2017.&amp;#xD;&amp;#xA;A dispense is the delivery of an amount of medicine to the patient, their administrator or their representative." />
+  <description value="This profile is derived from the profile of the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationDispense. release 2017." />
   <purpose value="This profile defines the FHIR response for HCIM Dispense of a Medicationproces V6.12 request on the LSP." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -133,6 +133,10 @@
     <element id="MedicationDispense.medicationReference:medicationReference">
       <path value="MedicationDispense.medicationReference" />
       <sliceName value="medicationReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-Product" />
+      </type>
       <mapping>
         <identity value="Medication-Process-v09-verstrekkingenvertaling" />
         <map value="mp-dataelement900-22259" />
