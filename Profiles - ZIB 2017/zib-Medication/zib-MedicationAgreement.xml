@@ -54,6 +54,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.9580"/>
+                <comment value="MedicationAgreement"/>
             </mapping>
         </element>
         <element id="MedicationRequest.extension">
@@ -80,6 +81,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.19936"/>
+                <comment value="PeriodOfUse"/>
             </mapping>
         </element>
         <element id="MedicationRequest.extension:periodOfUse.valuePeriod:valuePeriod">
@@ -100,6 +102,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.19936"/>
+                <comment value="PeriodOfUse"/>
             </mapping>
         </element>
         <element id="MedicationRequest.extension:usageDuration.valueDuration:valueDuration">
@@ -121,6 +124,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.23283"/>
+                <comment value="MedicationAgreementAdditionalInformation"/>
             </mapping>
         </element>
         <element id="MedicationRequest.extension:additionalInformation.valueCodeableConcept:valueCodeableConcept">
@@ -160,6 +164,7 @@
             <mapping>
                 <identity value="Medication-Process-v09"/>
                 <map value="mp-dataelement900-22092"/>
+                <comment value="Medicamenteuze behandeling"/>
             </mapping>
         </element>
         <element id="MedicationRequest.extension:medicationTreatment.valueIdentifier:valueIdentifier">
@@ -179,6 +184,7 @@
             <mapping>
                 <identity value="Medication-Process-v09"/>
                 <map value="mp-dataelement900-23411"/>
+                <comment value="Kopie Indicator"/>
             </mapping>
         </element>
         <element id="MedicationRequest.extension:copyIndicator.valueBoolean:valueBoolean">
@@ -196,8 +202,9 @@
                 <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse"/>
             </type>
             <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
+                <identity value="Medication-Process-v09"/>
                 <map value="mp-dataelement900-23238"/>
+                <comment value="Relatie naar afspraak of gebruik"/>
             </mapping>
         </element>
         <element id="MedicationRequest.modifierExtension">
@@ -221,10 +228,12 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.19954"/>
+                <comment value="MedicationAgreementStopType"/>
             </mapping>
             <mapping>
                 <identity value="Medication-Process-v09"/>
                 <map value="mp-dataelement900-19954"/>
+                <comment value="Stoptype"/>
             </mapping>
         </element>
         <element id="MedicationRequest.modifierExtension:stopType.valueCodeableConcept:valueCodeableConcept">
@@ -252,6 +261,7 @@
             <mapping>
                 <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
                 <map value="NL-CM:9.12.22505"/>
+                <comment value="RepeatPeriodCyclicalSchedule"/>
             </mapping>
         </element>
         <element id="MedicationRequest.identifier">
@@ -261,6 +271,7 @@
             <mapping>
                 <identity value="Medication-Process-v09"/>
                 <map value="mp-dataelement900-19758"/>
+                <comment value="Identificatie"/>
             </mapping>
         </element>
         <element id="MedicationRequest.status">
@@ -271,6 +282,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.23033"/>
+                <comment value="CanceledIndicator"/>
             </mapping>
         </element>
         <element id="MedicationRequest.intent">
@@ -325,6 +337,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.19925"/>
+                <comment value="AgreedMedicine"/>
             </mapping>
         </element>
         <element id="MedicationRequest.subject">
@@ -361,6 +374,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.23028"/>
+                <comment value="BodyWeight"/>
             </mapping>
         </element>
         <element id="MedicationRequest.supportingInformation:BodyHeight">
@@ -376,6 +390,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.23023"/>
+                <comment value="BodyHeight"/>
             </mapping>
         </element>
         <element id="MedicationRequest.authoredOn">
@@ -387,6 +402,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.19757"/>
+                <comment value="MedicationAgreementDateTime"/>
             </mapping>
         </element>
         <element id="MedicationRequest.requester">
@@ -398,7 +414,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.1030"/>
-                <comment value="Mapping for agent zib-HealthProfessional (nl-core-practitioner). Element onBehalfOf may carry zib-HealthcareProvider (nl-core-organization)"/>
+                <comment value="Prescriber. Mapping for agent zib-HealthProfessional (nl-core-practitioner). Element onBehalfOf may carry zib-HealthcareProvider (nl-core-organization)"/>
             </mapping>
         </element>
         <element id="MedicationRequest.requester.extension">
@@ -425,7 +441,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.1030"/>
-                <comment value="Use this element to define the requester's specialty"/>
+                <comment value="Prescriber. Use this element to define the requester's specialty"/>
             </mapping>
         </element>
         <element id="MedicationRequest.requester.agent">
@@ -491,6 +507,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.22094"/>
+                <comment value="ReasonMedicationAgreement"/>
             </mapping>
         </element>
         <element id="MedicationRequest.reasonReference">
@@ -509,7 +526,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.23133"/>
-                <comment value="Mapping for zib-Problem"/>
+                <comment value="PrescriptionReason. Mapping for zib-Problem"/>
             </mapping>
         </element>
         <element id="MedicationRequest.note">
@@ -520,6 +537,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.22273"/>
+                <comment value="Comment"/>
             </mapping>
         </element>
         <element id="MedicationRequest.dosageInstruction">
@@ -532,6 +550,7 @@
             <mapping>
                 <identity value="hcim-medicationagreement-v1.0-2017EN"/>
                 <map value="NL-CM:9.6.23240"/>
+                <comment value="InstructionsForUse"/>
             </mapping>
         </element>
         <element id="MedicationRequest.dosageInstruction.dose[x]">

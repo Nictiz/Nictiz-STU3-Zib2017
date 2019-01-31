@@ -1,322 +1,350 @@
-<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="zib-Encounter" />
-  <meta>
-    <versionId value="4" />
-    <lastUpdated value="2018-02-28T17:26:54.056+01:00" />
-  </meta>
-  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
-  <version value="2.1.0" />
-  <name value="Zib Encounter" />
-  <title value="HCIM Encounter" />
-  <status value="active" />
-  <date value="2017-01-11T11:13:44.7293811+01:00" />
-  <publisher value="Nictiz" />
-  <contact>
-    <name value="Nictiz" />
-    <telecom>
-      <system value="email" />
-      <value value="info@nictiz.nl" />
-      <use value="work" />
-    </telecom>
-  </contact>
-  <description value="Contact as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1.&#xD;&#xA;&#xD;&#xA;A contact is any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions.&#xD;&#xA;&#xD;&#xA;Contacts can be visits to the general practitioner or other practices, home visits, admissions (in hospitals, nursing homes or care homes, psychiatric institutions or convalescent homes) or other relevant contacts. This only includes past contacts. Future contacts can be documented in the PlannedCareActivity information model." />
-  <purpose value="Contacts can be recorded to provide insight on the interactions that have taken place between the patient and healthcare professional and in which context these took place." />
-  <copyright value="CC0" />
-  <fhirVersion value="3.0.1" />
-  <mapping>
-    <identity value="hcim-encounter-v1.2-2015EN" />
-    <uri value="https://zibs.nl/wiki/Encounter-v1.2(2015EN)" />
-    <name value="HCIM Encounter-v1.2(2015EN)" />
-  </mapping>
-  <mapping>
-    <identity value="hcim-encounter-v3.0-2016EN" />
-    <uri value="https://zibs.nl/wiki/Encounter-v3.0(2016EN)" />
-    <name value="HCIM Encounter-v3.0(2016EN)" />
-  </mapping>
-  <mapping>
-    <identity value="hcim-encounter-v3.1-2017EN" />
-    <uri value="https://zibs.nl/wiki/Encounter-v3.1(2017EN)" />
-    <name value="HCIM Encounter-v3.1(2017EN)" />
-  </mapping>
-  <kind value="resource" />
-  <abstract value="false" />
-  <type value="Encounter" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Encounter" />
-  <derivation value="constraint" />
-  <differential>
-    <element id="Encounter">
-      <path value="Encounter" />
-      <short value="Encounter" />
-      <alias value="Contact" />
-      <mapping>
+    <id value="zib-Encounter" />
+    <meta>
+        <versionId value="4" />
+        <lastUpdated value="2018-02-28T17:26:54.056+01:00" />
+    </meta>
+    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
+    <version value="2.1.0" />
+    <name value="Zib Encounter" />
+    <title value="HCIM Encounter" />
+    <status value="active" />
+    <date value="2017-01-11T11:13:44.7293811+01:00" />
+    <publisher value="Nictiz" />
+    <contact>
+        <name value="Nictiz" />
+        <telecom>
+            <system value="email" />
+            <value value="info@nictiz.nl" />
+            <use value="work" />
+        </telecom>
+    </contact>
+    <description value="Contact as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1.&#xD;&#xA;&#xD;&#xA;A contact is any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions.&#xD;&#xA;&#xD;&#xA;Contacts can be visits to the general practitioner or other practices, home visits, admissions (in hospitals, nursing homes or care homes, psychiatric institutions or convalescent homes) or other relevant contacts. This only includes past contacts. Future contacts can be documented in the PlannedCareActivity information model." />
+    <purpose value="Contacts can be recorded to provide insight on the interactions that have taken place between the patient and healthcare professional and in which context these took place." />
+    <copyright value="CC0" />
+    <fhirVersion value="3.0.1" />
+    <mapping>
         <identity value="hcim-encounter-v1.2-2015EN" />
-        <map value="NL-CM:15.1.1" />
-      </mapping>
-      <mapping>
+        <uri value="https://zibs.nl/wiki/Encounter-v1.2(2015EN)" />
+        <name value="HCIM Encounter-v1.2(2015EN)" />
+    </mapping>
+    <mapping>
         <identity value="hcim-encounter-v3.0-2016EN" />
-        <map value="NL-CM:15.1.1" />
-      </mapping>
-      <mapping>
+        <uri value="https://zibs.nl/wiki/Encounter-v3.0(2016EN)" />
+        <name value="HCIM Encounter-v3.0(2016EN)" />
+    </mapping>
+    <mapping>
         <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.1" />
-      </mapping>
-    </element>
-    <element id="Encounter.class">
-      <path value="Encounter.class" />
-      <short value="ContactType" />
-      <definition value="The type of contact." />
-      <alias value="ContactType" />
-      <min value="1" />
-      <mapping>
-        <identity value="hcim-encounter-v1.2-2015EN" />
-        <map value="NL-CM:15.1.2" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.0-2016EN" />
-        <map value="NL-CM:15.1.2" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.2" />
-      </mapping>
-    </element>
-    <element id="Encounter.subject">
-      <path value="Encounter.subject" />
-      <min value="1" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-    </element>
-    <element id="Encounter.episodeOfCare">
-      <path value="Encounter.episodeOfCare" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
-      </type>
-    </element>
-    <element id="Encounter.participant.individual">
-      <path value="Encounter.participant.individual" />
-      <short value="ContactWith" />
-      <definition value="The health professional with whom the contact took place. The specialty and role of the health professional can be entered in the HealthProfessional information model." />
-      <comment value="The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile. The missing-type-reference extension on participant.individual can be used to reference the PractitionerRole Resource." />
-      <alias value="ContactMet" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-      <mapping>
-        <identity value="hcim-encounter-v1.2-2015EN" />
-        <map value="NL-CM:15.1.7" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.0-2016EN" />
-        <map value="NL-CM:15.1.7" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.7" />
-      </mapping>
-    </element>
-    <element id="Encounter.participant.individual.extension">
-      <path value="Encounter.participant.individual.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Encounter.participant.individual.extension:practitionerRole-R4">
-      <path value="Encounter.participant.individual.extension" />
-      <sliceName value="practitionerRole-R4" />
-      <min value="0" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
-      </type>
-    </element>
-    <element id="Encounter.participant.individual.extension:practitionerRole-R4.valueReference:valueReference">
-      <path value="Encounter.participant.individual.extension.valueReference" />
-      <sliceName value="valueReference" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
-      </type>
-    </element>
-    <element id="Encounter.period.start">
-      <path value="Encounter.period.start" />
-      <short value="StartDateTime" />
-      <definition value="The date and time at which the contact took place." />
-      <alias value="BeginDatumTijd" />
-      <min value="1" />
-      <mapping>
-        <identity value="hcim-encounter-v1.2-2015EN" />
-        <map value="NL-CM:15.1.3" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.0-2016EN" />
-        <map value="NL-CM:15.1.3" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.3" />
-      </mapping>
-    </element>
-    <element id="Encounter.period.end">
-      <path value="Encounter.period.end" />
-      <short value="EndDateTime" />
-      <definition value="The date and time at which the contact ended. If the contact takes place over a period of time, this indicates the end of the period, in the case of an admission, for example.&#xD;&#xA;&#xD;&#xA;If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time." />
-      <alias value="EindDatumTijd" />
-      <mapping>
-        <identity value="hcim-encounter-v1.2-2015EN" />
-        <map value="NL-CM:15.1.4" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.0-2016EN" />
-        <map value="NL-CM:15.1.4" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.4" />
-      </mapping>
-    </element>
-    <element id="Encounter.reason">
-      <path value="Encounter.reason" />
-      <short value="DeviatingResult" />
-      <definition value="A deviating result which serves as the reason for the contact." />
-      <alias value="AfwijkendeUitslag" />
-    </element>
-    <element id="Encounter.reason.text">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Encounter.reason.text" />
-      <short value="DeviatingResult" />
-      <definition value="A deviating result which serves as the reason for the contact." />
-      <alias value="AfwijkendeUitslag" />
-      <mapping>
-        <identity value="hcim-encounter-v1.2-2015EN" />
-        <map value="NL-CM:15.1.12" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.0-2016EN" />
-        <map value="NL-CM:15.1.12" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.12" />
-      </mapping>
-    </element>
-    <element id="Encounter.diagnosis.condition">
-      <path value="Encounter.diagnosis.condition" />
-      <short value="ContactReason" />
-      <definition value="The problem that led to the contact or the procedure carried out during the contact.&#xD;&#xA;&#xD;&#xA;Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure." />
-      <alias value="Probleem" />
-      <alias value="Procedure" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
-      </type>
-      <mapping>
-        <identity value="hcim-encounter-v1.2-2015EN" />
-        <map value="NL-CM:15.1.6" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.0-2016EN" />
-        <map value="NL-CM:15.1.6" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.6" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v1.2-2015EN" />
-        <map value="NL-CM:15.1.11" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.0-2016EN" />
-        <map value="NL-CM:15.1.11" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.11" />
-      </mapping>
-    </element>
-    <element id="Encounter.hospitalization.admitSource">
-      <path value="Encounter.hospitalization.admitSource" />
-      <short value="Origin" />
-      <definition value="Location from which the patient came before the encounter. In most cases this will only be used when the patient is admitted." />
-      <alias value="Herkomst" />
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdmitSource" />
-        </extension>
-        <strength value="extensible" />
-        <description value="HerkomstCodelijst" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.15.1.2--20171231000000" />
-          <display value="HerkomstCodelijst" />
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.14" />
-      </mapping>
-    </element>
-    <element id="Encounter.hospitalization.dischargeDisposition">
-      <path value="Encounter.hospitalization.dischargeDisposition" />
-      <short value="Destination" />
-      <definition value="Location to which the patient will go after the encounter. In most cases this will only be used when the patient is discharged." />
-      <alias value="Bestemming" />
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DischargeDisp" />
-        </extension>
-        <strength value="extensible" />
-        <description value="BestemmingCodelijst" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.15.1.3--20171231000000" />
-          <display value="BestemmingCodelijst" />
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.16" />
-      </mapping>
-    </element>
-    <element id="Encounter.serviceProvider">
-      <path value="Encounter.serviceProvider" />
-      <short value="Location" />
-      <definition value="The physical location at which the contact took place." />
-      <alias value="Locatie" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
-      <mapping>
-        <identity value="hcim-encounter-v1.2-2015EN" />
-        <map value="NL-CM:15.1.8" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.0-2016EN" />
-        <map value="NL-CM:15.1.8" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.8" />
-      </mapping>
-    </element>
-  </differential>
+        <uri value="https://zibs.nl/wiki/Encounter-v3.1(2017EN)" />
+        <name value="HCIM Encounter-v3.1(2017EN)" />
+    </mapping>
+    <kind value="resource" />
+    <abstract value="false" />
+    <type value="Encounter" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Encounter" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="Encounter">
+            <path value="Encounter" />
+            <short value="Encounter" />
+            <alias value="Contact" />
+            <mapping>
+                <identity value="hcim-encounter-v1.2-2015EN" />
+                <map value="NL-CM:15.1.1" />
+                <comment value="Contact"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.0-2016EN" />
+                <map value="NL-CM:15.1.1" />
+                <comment value="Contact"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.1-2017EN" />
+                <map value="NL-CM:15.1.1" />
+                <comment value="Encounter"/>
+            </mapping>
+        </element>
+        <element id="Encounter.class">
+            <path value="Encounter.class" />
+            <short value="ContactType" />
+            <definition value="The type of contact." />
+            <alias value="ContactType" />
+            <min value="1" />
+            <mapping>
+                <identity value="hcim-encounter-v1.2-2015EN" />
+                <map value="NL-CM:15.1.2" />
+                <comment value="ContactType"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.0-2016EN" />
+                <map value="NL-CM:15.1.2" />
+                <comment value="ContactType"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.1-2017EN" />
+                <map value="NL-CM:15.1.2" />
+                <comment value="ContactType"/>
+            </mapping>
+        </element>
+        <element id="Encounter.subject">
+            <path value="Encounter.subject" />
+            <min value="1" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+            </type>
+        </element>
+        <element id="Encounter.episodeOfCare">
+            <path value="Encounter.episodeOfCare" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+            </type>
+        </element>
+        <element id="Encounter.participant.individual">
+            <path value="Encounter.participant.individual" />
+            <short value="ContactWith" />
+            <definition value="The health professional with whom the contact took place. The specialty and role of the health professional can be entered in the HealthProfessional information model." />
+            <comment value="The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile. The missing-type-reference extension on participant.individual can be used to reference the PractitionerRole Resource." />
+            <alias value="ContactMet" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+            </type>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+            </type>
+            <mapping>
+                <identity value="hcim-encounter-v1.2-2015EN" />
+                <map value="NL-CM:15.1.7" />
+                <comment value="ContactWith"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.0-2016EN" />
+                <map value="NL-CM:15.1.7" />
+                <comment value="ContactWith"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.1-2017EN" />
+                <map value="NL-CM:15.1.7" />
+                <comment value="ContactWith"/>
+            </mapping>
+        </element>
+        <element id="Encounter.participant.individual.extension">
+            <path value="Encounter.participant.individual.extension" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="url" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+        </element>
+        <element id="Encounter.participant.individual.extension:practitionerRole-R4">
+            <path value="Encounter.participant.individual.extension" />
+            <sliceName value="practitionerRole-R4" />
+            <min value="0" />
+            <max value="1" />
+            <type>
+                <code value="Extension" />
+                <profile value="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference" />
+            </type>
+        </element>
+        <element id="Encounter.participant.individual.extension:practitionerRole-R4.valueReference:valueReference">
+            <path value="Encounter.participant.individual.extension.valueReference" />
+            <sliceName value="valueReference" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+            </type>
+        </element>
+        <element id="Encounter.period.start">
+            <path value="Encounter.period.start" />
+            <short value="StartDateTime" />
+            <definition value="The date and time at which the contact took place." />
+            <alias value="BeginDatumTijd" />
+            <min value="1" />
+            <mapping>
+                <identity value="hcim-encounter-v1.2-2015EN" />
+                <map value="NL-CM:15.1.3" />
+                <comment value="StartDateTime"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.0-2016EN" />
+                <map value="NL-CM:15.1.3" />
+                <comment value="StartDateTime"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.1-2017EN" />
+                <map value="NL-CM:15.1.3" />
+                <comment value="StartDateTime"/>
+            </mapping>
+        </element>
+        <element id="Encounter.period.end">
+            <path value="Encounter.period.end" />
+            <short value="EndDateTime" />
+            <definition value="The date and time at which the contact ended. If the contact takes place over a period of time, this indicates the end of the period, in the case of an admission, for example.&#xD;&#xA;&#xD;&#xA;If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time." />
+            <alias value="EindDatumTijd" />
+            <mapping>
+                <identity value="hcim-encounter-v1.2-2015EN" />
+                <map value="NL-CM:15.1.4" />
+                <comment value="EndDateTime"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.0-2016EN" />
+                <map value="NL-CM:15.1.4" />
+                <comment value="EndDateTime"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.1-2017EN" />
+                <map value="NL-CM:15.1.4" />
+                <comment value="EndDateTime"/>
+            </mapping>
+        </element>
+        <element id="Encounter.reason">
+            <path value="Encounter.reason" />
+            <short value="DeviatingResult" />
+            <definition value="A deviating result which serves as the reason for the contact." />
+            <alias value="AfwijkendeUitslag" />
+        </element>
+        <element id="Encounter.reason.text">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+                <valueBoolean value="true" />
+            </extension>
+            <path value="Encounter.reason.text" />
+            <short value="DeviatingResult" />
+            <definition value="A deviating result which serves as the reason for the contact." />
+            <alias value="AfwijkendeUitslag" />
+            <mapping>
+                <identity value="hcim-encounter-v1.2-2015EN" />
+                <map value="NL-CM:15.1.12" />
+                <comment value="DeviatingResult"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.0-2016EN" />
+                <map value="NL-CM:15.1.12" />
+                <comment value="DeviatingResult"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.1-2017EN" />
+                <map value="NL-CM:15.1.12" />
+                <comment value="DeviatingResult"/>
+            </mapping>
+        </element>
+        <element id="Encounter.diagnosis.condition">
+            <path value="Encounter.diagnosis.condition" />
+            <short value="ContactReason" />
+            <definition value="The problem that led to the contact or the procedure carried out during the contact.&#xD;&#xA;&#xD;&#xA;Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure." />
+            <alias value="Probleem" />
+            <alias value="Procedure" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure" />
+            </type>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+            </type>
+            <mapping>
+                <identity value="hcim-encounter-v1.2-2015EN" />
+                <map value="NL-CM:15.1.6" />
+                <comment value="Problem"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.0-2016EN" />
+                <map value="NL-CM:15.1.6" />
+                <comment value="Problem"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.1-2017EN" />
+                <map value="NL-CM:15.1.6" />
+                <comment value="Problem"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v1.2-2015EN" />
+                <map value="NL-CM:15.1.11" />
+                <comment value="Procedure"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.0-2016EN" />
+                <map value="NL-CM:15.1.11" />
+                <comment value="Procedure"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.1-2017EN" />
+                <map value="NL-CM:15.1.11" />
+                <comment value="Procedure"/>
+            </mapping>
+        </element>
+        <element id="Encounter.hospitalization.admitSource">
+            <path value="Encounter.hospitalization.admitSource" />
+            <short value="Origin" />
+            <definition value="Location from which the patient came before the encounter. In most cases this will only be used when the patient is admitted." />
+            <alias value="Herkomst" />
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="AdmitSource" />
+                </extension>
+                <strength value="extensible" />
+                <description value="HerkomstCodelijst" />
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.15.1.2--20171231000000" />
+                    <display value="HerkomstCodelijst" />
+                </valueSetReference>
+            </binding>
+            <mapping>
+                <identity value="hcim-encounter-v3.1-2017EN" />
+                <map value="NL-CM:15.1.14" />
+                <comment value="Origin"/>
+            </mapping>
+        </element>
+        <element id="Encounter.hospitalization.dischargeDisposition">
+            <path value="Encounter.hospitalization.dischargeDisposition" />
+            <short value="Destination" />
+            <definition value="Location to which the patient will go after the encounter. In most cases this will only be used when the patient is discharged." />
+            <alias value="Bestemming" />
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="DischargeDisp" />
+                </extension>
+                <strength value="extensible" />
+                <description value="BestemmingCodelijst" />
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.15.1.3--20171231000000" />
+                    <display value="BestemmingCodelijst" />
+                </valueSetReference>
+            </binding>
+            <mapping>
+                <identity value="hcim-encounter-v3.1-2017EN" />
+                <map value="NL-CM:15.1.16" />
+                <comment value="Destination"/>
+            </mapping>
+        </element>
+        <element id="Encounter.serviceProvider">
+            <path value="Encounter.serviceProvider" />
+            <short value="Location" />
+            <definition value="The physical location at which the contact took place." />
+            <alias value="Locatie" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+            </type>
+            <mapping>
+                <identity value="hcim-encounter-v1.2-2015EN" />
+                <map value="NL-CM:15.1.8" />
+                <comment value="Location"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.0-2016EN" />
+                <map value="NL-CM:15.1.8" />
+                <comment value="Location"/>
+            </mapping>
+            <mapping>
+                <identity value="hcim-encounter-v3.1-2017EN" />
+                <map value="NL-CM:15.1.8" />
+                <comment value="Location"/>
+            </mapping>
+        </element>
+    </differential>
 </StructureDefinition>

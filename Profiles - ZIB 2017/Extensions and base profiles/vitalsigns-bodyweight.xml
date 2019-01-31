@@ -1,10 +1,6 @@
 <?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
     <id value="vitalsigns-bodyweight"/>
-    <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
-    </text>
     <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
         <valueMarkdown value="####Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **'29463-7'**&#xD;    -   Other additional codes are allowed - e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;2.  `Observation.valueQuantity.code` = **'kg', 'g', or '[lb_av]'**"/>
     </extension>
@@ -46,6 +42,7 @@
             <mapping>
                 <identity value="hcim-bodyweight-v3.1-2017EN"/>
                 <map value="NL-CM:12.1.1"/>
+                <comment value="BodyWeight"/>
             </mapping>
         </element>
         <element id="Observation.code">
