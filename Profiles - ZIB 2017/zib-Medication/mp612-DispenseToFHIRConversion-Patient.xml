@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="mp612-dispensetofhirconversion-patient" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-Patient" />
+  <name value="MP612 DispenseToFHIRConversion Patient" />
+  <title value="MP612 DispenseToFHIRConversion Patient" />
+  <status value="active" />
+  <date value="2019-02-01" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is derived from the profile of the Dutch Health and Care Information model (Dutch: Zorginformatiebouwsteen or ZIB) Patient, release 2017" />
+  <purpose value="This profile defines the FHIR response for HCIM Patient of a Medicationproces V6.12 request on the LSP." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="Medication-Process-v09" />
+    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20181220T121121/tr-2.16.840.1.113883.2.4.3.11.60.20.77.4.162-2018-11-29T135611.html" />
+    <name value="Medication Process v09 - verstrekkingenvertaling" />
+    <comment value="Language of Medication Process is Dutch." />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Patient" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Patient">
+      <path value="Patient" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-19798" />
+        <comment value="Patient" />
+      </mapping>
+    </element>
+    <element id="Patient.extension:preferredPharmacy">
+      <path value="Patient.extension" />
+      <sliceName value="preferredPharmacy" />
+      <max value="0" />
+    </element>
+    <element id="Patient.extension:nationality">
+      <path value="Patient.extension" />
+      <sliceName value="nationality" />
+      <max value="0" />
+    </element>
+    <element id="Patient.extension:legalStatus">
+      <path value="Patient.extension" />
+      <sliceName value="legalStatus" />
+      <max value="0" />
+    </element>
+    <element id="Patient.active">
+      <path value="Patient.active" />
+      <max value="0" />
+    </element>
+    <element id="Patient.name">
+      <path value="Patient.name" />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-19799" />
+        <comment value="Naamgegevens" />
+      </mapping>
+    </element>
+    <element id="Patient.telecom">
+      <path value="Patient.telecom" />
+      <max value="0" />
+    </element>
+    <element id="Patient.gender">
+      <path value="Patient.gender" />
+      <min value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-19831" />
+        <comment value="Geslacht" />
+      </mapping>
+    </element>
+    <element id="Patient.birthDate">
+      <path value="Patient.birthDate" />
+      <min value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-19830" />
+        <comment value="Geboortedatum" />
+      </mapping>
+    </element>
+    <element id="Patient.deceased[x]">
+      <path value="Patient.deceased[x]" />
+      <max value="0" />
+    </element>
+    <element id="Patient.address">
+      <path value="Patient.address" />
+      <max value="0" />
+    </element>
+    <element id="Patient.address.extension:official">
+      <path value="Patient.address.extension" />
+      <sliceName value="official" />
+    </element>
+    <element id="Patient.address.extension:official.valueBoolean:valueBoolean">
+      <path value="Patient.address.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+    </element>
+    <element id="Patient.maritalStatus">
+      <path value="Patient.maritalStatus" />
+      <max value="0" />
+    </element>
+    <element id="Patient.multipleBirth[x]:multipleBirthBoolean">
+      <path value="Patient.multipleBirthBoolean" />
+      <sliceName value="multipleBirthBoolean" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-19832" />
+        <comment value="MeerlingIndicator" />
+      </mapping>
+    </element>
+    <element id="Patient.photo">
+      <path value="Patient.photo" />
+      <max value="0" />
+    </element>
+    <element id="Patient.contact">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Contact" />
+      </extension>
+      <path value="Patient.contact" />
+      <max value="0" />
+    </element>
+    <element id="Patient.animal">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Animal" />
+      </extension>
+      <path value="Patient.animal" />
+      <max value="0" />
+    </element>
+    <element id="Patient.communication">
+      <path value="Patient.communication" />
+      <max value="0" />
+    </element>
+    <element id="Patient.generalPractitioner">
+      <path value="Patient.generalPractitioner" />
+      <max value="0" />
+    </element>
+    <element id="Patient.managingOrganization">
+      <path value="Patient.managingOrganization" />
+      <max value="0" />
+    </element>
+    <element id="Patient.link">
+      <path value="Patient.link" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
