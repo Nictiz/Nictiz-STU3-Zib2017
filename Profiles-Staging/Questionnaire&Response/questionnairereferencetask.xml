@@ -1,5 +1,5 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/StructureDefinition/QuestionnaireReferenceTask" />
   <name value="QuestionnaireReferenceTask" />
   <status value="draft" />
@@ -10,9 +10,8 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Task" />
   <derivation value="constraint" />
   <differential>
-    <element id="Task.definition[x]:definitionUri">
-      <path value="Task.definitionUri" />
-      <sliceName value="definitionUri" />
+    <element id="Task.definition[x]">
+      <path value="Task.definition[x]" />
       <short value="Consulting questionnaire reference" />
       <definition value="A reference to a formal or informal definition of the task. &#xD;&#xA;The task (to consult the questionnaire reference on behave to fullfil the questionnaire) &#xD;&#xA;has its definined by questionnaire profile." />
       <alias value="Raadplegen verwijzing naar vragenlijst" />
@@ -20,6 +19,14 @@
       <type>
         <code value="uri" />
       </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-questionnaire" />
+      </type>
+    </element>
+    <element id="Task.status">
+      <path value="Task.status" />
+      <definition value="The current status of the task. By consulting the questionnaire reference the value of status is &quot;requested&quot;. Once the task of consulting the questionnaire reference is fullfield, the value of status is &quot;complited&quot;." />
     </element>
     <element id="Task.code.coding.system">
       <path value="Task.code.coding.system" />
