@@ -1,0 +1,120 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/CapabilityStatement/Questionnaire-clientcapabilities" />
+  <name value="ClientQuestionnaire" />
+  <status value="draft" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="CapabilityStatement" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="CapabilityStatement.url">
+      <path value="CapabilityStatement.url" />
+      <fixedUri value="http://nictiz.nl/fhir/CapabilityStatement/Questionnaire-clientcapabilities" />
+    </element>
+    <element id="CapabilityStatement.version">
+      <path value="CapabilityStatement.version" />
+      <fixedString value="1.0" />
+    </element>
+    <element id="CapabilityStatement.name">
+      <path value="CapabilityStatement.name" />
+      <fixedString value="ClientQuestionnaire" />
+    </element>
+    <element id="CapabilityStatement.status">
+      <path value="CapabilityStatement.status" />
+      <fixedCode value="draft " />
+    </element>
+    <element id="CapabilityStatement.date">
+      <path value="CapabilityStatement.date" />
+      <fixedDateTime value="2019-02-08" />
+    </element>
+    <element id="CapabilityStatement.publisher">
+      <path value="CapabilityStatement.publisher" />
+      <fixedString value="Nictiz" />
+    </element>
+    <element id="CapabilityStatement.contact.telecom.system">
+      <path value="CapabilityStatement.contact.telecom.system" />
+      <fixedCode value="email" />
+    </element>
+    <element id="CapabilityStatement.contact.telecom.value">
+      <path value="CapabilityStatement.contact.telecom.value" />
+      <fixedString value="info@nictiz.nl" />
+    </element>
+    <element id="CapabilityStatement.contact.telecom.use">
+      <path value="CapabilityStatement.contact.telecom.use" />
+      <fixedCode value="work" />
+    </element>
+    <element id="CapabilityStatement.description">
+      <path value="CapabilityStatement.description" />
+      <fixedMarkdown value="This CapabilityStatement describes the minimal requirements for a client to retrieve questionnaire form." />
+    </element>
+    <element id="CapabilityStatement.copyright">
+      <path value="CapabilityStatement.copyright" />
+      <fixedMarkdown value="CC0" />
+    </element>
+    <element id="CapabilityStatement.kind">
+      <path value="CapabilityStatement.kind" />
+      <fixedCode value="requirements" />
+    </element>
+    <element id="CapabilityStatement.fhirVersion">
+      <path value="CapabilityStatement.fhirVersion" />
+      <fixedId value="3.0.1" />
+    </element>
+    <element id="CapabilityStatement.acceptUnknown">
+      <path value="CapabilityStatement.acceptUnknown" />
+      <fixedCode value="both" />
+    </element>
+    <element id="CapabilityStatement.format">
+      <path value="CapabilityStatement.format" />
+      <fixedCode value="xml" />
+    </element>
+    <element id="CapabilityStatement.profile.reference">
+      <path value="CapabilityStatement.profile.reference" />
+      <fixedString value="http://fhir.nl/fhir/StructureDefinition/nl-core-questionnaire" />
+    </element>
+    <element id="CapabilityStatement.profile.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="CapabilityStatement.profile.display" />
+      <fixedString value="nl-core-patient" />
+    </element>
+    <element id="CapabilityStatement.rest.mode">
+      <path value="CapabilityStatement.rest.mode" />
+      <fixedCode value="client" />
+    </element>
+    <element id="CapabilityStatement.rest.resource.type">
+      <path value="CapabilityStatement.rest.resource.type" />
+      <fixedCode value="Questionnaire" />
+    </element>
+    <element id="CapabilityStatement.rest.resource.interaction.code">
+      <path value="CapabilityStatement.rest.resource.interaction.code" />
+      <fixedCode value="search-type" />
+    </element>
+    <element id="CapabilityStatement.rest.searchParam.name">
+      <path value="CapabilityStatement.rest.searchParam.name" />
+      <fixedString value="patient" />
+    </element>
+    <element id="CapabilityStatement.rest.searchParam.type">
+      <path value="CapabilityStatement.rest.searchParam.type" />
+      <fixedCode value="reference" />
+    </element>
+    <element id="CapabilityStatement.rest.operation.name">
+      <path value="CapabilityStatement.rest.operation.name" />
+      <fixedString value="Retrive Questionnaire" />
+    </element>
+    <element id="CapabilityStatement.rest.operation.definition.reference">
+      <path value="CapabilityStatement.rest.operation.definition.reference" />
+      <fixedString value="http://hl7.org/fhir/OperationDefinition/Questionnaire-everything" />
+    </element>
+    <element id="CapabilityStatement.rest.operation.definition.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="CapabilityStatement.rest.operation.definition.display" />
+      <fixedString value="Questionnaire-everything" />
+    </element>
+  </differential>
+</StructureDefinition>
