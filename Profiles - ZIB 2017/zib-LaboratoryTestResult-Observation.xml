@@ -86,7 +86,12 @@
             <path value="Observation.basedOn"/>
             <short value="Fulfills plan, proposal or order including requester information."/>
             <definition value="A plan, proposal or order that is fulfilled in whole or in part by this event."/>
-            <comment value="Requester information should be captured and exchanged in the resource referenced by basedOn. Requester is the healthcare provider and/or organization where or by whom the LaboratoryTestResult was requested."/>
+            <comment value="Requester information should be captured and exchanged in the resource ProcedureRequest referenced by basedOn. Requester is the healthcare provider and/or organization where or by whom the LaboratoryTestResult was requested. There are a few required elements in ProcedureRequest
+                - ProcedureRequest.status (use fixed value &quot;active&quot;, unless you know what the actual value is)
+                - ProcedureRequest.intent (use fixed value &quot;order&quot;, unless you know what the actual value is)
+                - ProcedureRequest.code (use extension http://hl7.org/fhir/STU3/extension-iso21090-nullflavor.html met valueCode UNK, unless you know what the actual value is)
+                - ProcedureRequest.subject (equal to Observation.subject)
+                - ProcedureRequest.requester.agent (contains the requesting HealthProfessional)"/>
             <alias value="Aanvrager"/>
             <mapping>
                 <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
