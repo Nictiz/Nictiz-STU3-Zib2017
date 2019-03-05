@@ -2,15 +2,15 @@
 <StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
     <id value="zib-Procedure"/>
     <meta>
-        <versionId value="2"/>
-        <lastUpdated value="2019-01-28T17:17:39.6788994+02:00"/>
+        <versionId value="1"/>
+        <lastUpdated value="2018-08-19T12:18:39.6788994+02:00"/>
     </meta>
     <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure"/>
-    <version value="2.0.3"/>
+    <version value="2.0.2"/>
     <name value="Zib Procedure"/>
     <title value="HCIM Procedure"/>
     <status value="active"/>
-    <date value="2019-01-28T17:17:39.6788994+02:00"/>
+    <date value="2018-08-19T12:18:39.6788994+02:00"/>
     <publisher value="Nictiz"/>
     <contact>
         <name value="Nictiz"/>
@@ -99,12 +99,8 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/procedure-method"/>
             </type>
         </element>
-        <element id="Procedure.extension:procedureMethod.url">
-            <path value="Procedure.extension.url"/>
-            <fixedUri value="http://hl7.org/fhir/StructureDefinition/procedure-method"/>
-        </element>
-        <element id="Procedure.extension:procedureMethod.value[x]">
-            <path value="Procedure.extension.value[x]"/>
+        <element id="Procedure.extension:procedureMethod.valueCodeableConcept">
+            <path value="Procedure.extension.valueCodeableConcept"/>
             <short value="ProcedureMethod"/>
             <definition value="The method or technique that was used to perform the procedure, e.g. approach, lavage, pressuring, ets."/>
             <alias value="VerrichtingMethode"/>
@@ -132,9 +128,9 @@
                 <rules value="open"/>
             </slicing>
         </element>
-        <element id="Procedure.basedOn:Request">
+        <element id="Procedure.basedOn:requester">
             <path value="Procedure.basedOn"/>
-            <sliceName value="Request"/>
+            <sliceName value="request"/>
             <short value="ProcedureRequest"/>
             <definition value="The ProcedureRequest that contains the details of the request for this procedure, including the requester information located at ProcedureRequest.requester."/>
             <comment value="The ProcedureRequest resource is used to capture the healthcare provider who requested the procedure as stated in the HCIM Procedure."/>
@@ -145,17 +141,17 @@
             <mapping>
                 <identity value="hcim-procedurefortransfer-v1.2-2015EN"/>
                 <map value="NL-CM:14.1.10"/>
-                <comment value="Requester::HealthProfessional"/>
+                <comment value="RequestedBy"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedurefortransfer-v3.0-2016EN"/>
                 <map value="NL-CM:14.1.10"/>
-                <comment value="Requester::HealthProfessional"/>
+                <comment value="RequestedBy"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedure-v4.1-2017EN"/>
                 <map value="NL-CM:14.1.10"/>
-                <comment value="Requester::HealthProfessional"/>
+                <comment value="Requester"/>
             </mapping>
         </element>
         <element id="Procedure.category">
@@ -175,26 +171,18 @@
         </element>
         <element id="Procedure.code">
             <path value="Procedure.code"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Procedure.code.coding">
-            <path value="Procedure.code.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="coding.system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
             <short value="ProcedureType"/>
             <definition value="The name of the procedure.&#xD;&#xA;&#xD;&#xA;As of 1 January 2013, all procedures in the primary process have to be documented with CBV codes. To meet this requirement, the DHD procedure thesaurus (CBV procedures set) is used to code procedures. It is possible that in addition to the CBV procedures set, the NIC will be used for nurse procedures and that a “coded value set” will be introduced for paramedic procedures."/>
             <alias value="VerrichtingType"/>
+            <min value="1"/>
+            <binding>
+                <strength value="extensible"/>
+                <description value="The name of the procedure using the Verrichtingenthesaurus DHD."/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.1.2--20171231000000"/>
+                    <display value="VerrichtingTypeCodelijst"/>
+                </valueSetReference>
+            </binding>
             <mapping>
                 <identity value="hcim-procedurefortransfer-v1.2-2015EN"/>
                 <map value="NL-CM:14.1.4"/>
@@ -211,21 +199,6 @@
                 <comment value="ProcedureType"/>
             </mapping>
         </element>
-        <element id="Procedure.code.coding:VerrichtingTypeCodelijst">
-            <path value="Procedure.code.coding"/>
-            <sliceName value="VerrichtingTypeCodelijst"/>
-            <short value="ProcedureType"/>
-            <definition value="DHD procedure thesaurus"/>
-            <alias value="VerrichtingType"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="The name of the procedure using the Verrichtingenthesaurus DHD."/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.1.2--20171231000000"/>
-                    <display value="VerrichtingTypeCodelijst"/>
-                </valueSetReference>
-            </binding>
-        </element>
         <element id="Procedure.subject">
             <path value="Procedure.subject"/>
             <type>
@@ -237,14 +210,13 @@
                 <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
             </type>
         </element>
-        <element id="Procedure.performed[x]:performedPeriod">
+        <element id="Procedure.performedPeriod">
             <path value="Procedure.performedPeriod"/>
-            <sliceName value="performedPeriod"/>
             <type>
                 <code value="Period"/>
             </type>
         </element>
-        <element id="Procedure.performed[x]:performedPeriod.start">
+        <element id="Procedure.performedPeriod.start">
             <path value="Procedure.performedPeriod.start"/>
             <short value="ProcedureStartDate"/>
             <definition value="The start date (and if possible start time) of the procedure. A ‘vague’ date, such as only the year, is permitted.&#xD;&#xA;The element offers the option to indicate the start of the period of a series of related procedures."/>
@@ -265,7 +237,7 @@
                 <comment value="ProcedureStartDate"/>
             </mapping>
         </element>
-        <element id="Procedure.performed[x]:performedPeriod.end">
+        <element id="Procedure.performedPeriod.end">
             <path value="Procedure.performedPeriod.end"/>
             <short value="ProcedureEndDate"/>
             <definition value="The end date (and if possible end time) of the procedure. A ‘vague’ date, such as only the year, is permitted.&#xD;&#xA;The element offers the option to indicate the end of the period of a series of related procedures."/>
@@ -305,17 +277,17 @@
             <mapping>
                 <identity value="hcim-procedurefortransfer-v1.2-2015EN"/>
                 <map value="NL-CM:14.1.6"/>
-                <comment value="Performer::HealthProfessional"/>
+                <comment value="CarriedOutBy"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedurefortransfer-v3.0-2016EN"/>
                 <map value="NL-CM:14.1.6"/>
-                <comment value="Performer::HealthProfessional"/>
+                <comment value="CarriedOutBy"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedure-v4.1-2017EN"/>
                 <map value="NL-CM:14.1.6"/>
-                <comment value="Performer::HealthProfessional"/>
+                <comment value="Performer"/>
             </mapping>
         </element>
         <element id="Procedure.performer:healthProfessional.actor">
@@ -335,17 +307,17 @@
             <mapping>
                 <identity value="hcim-procedurefortransfer-v1.2-2015EN"/>
                 <map value="NL-CM:14.1.5"/>
-                <comment value="Location::HealthcareProvider"/>
+                <comment value="Location"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedurefortransfer-v3.0-2016EN"/>
                 <map value="NL-CM:14.1.5"/>
-                <comment value="Location::HealthcareProvider"/>
+                <comment value="Location"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedure-v4.1-2017EN"/>
                 <map value="NL-CM:14.1.5"/>
-                <comment value="Location::HealthcareProvider"/>
+                <comment value="Location"/>
             </mapping>
         </element>
         <element id="Procedure.performer:healthcareProvider.actor">
@@ -367,17 +339,17 @@
             <mapping>
                 <identity value="hcim-procedurefortransfer-v1.2-2015EN"/>
                 <map value="NL-CM:14.1.9"/>
-                <comment value="Indication::Problem"/>
+                <comment value="Indication"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedurefortransfer-v3.0-2016EN"/>
                 <map value="NL-CM:14.1.9"/>
-                <comment value="Indication::Problem"/>
+                <comment value="Indication"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedure-v4.1-2017EN"/>
                 <map value="NL-CM:14.1.9"/>
-                <comment value="Indication::Problem"/>
+                <comment value="Indication"/>
             </mapping>
         </element>
         <element id="Procedure.bodySite">
@@ -396,12 +368,12 @@
             <mapping>
                 <identity value="hcim-procedurefortransfer-v1.2-2015EN"/>
                 <map value="NL-CM:14.1.8"/>
-                <comment value="ProcedureAnatomicalLocation"/>
+                <comment value="AnatomicalLocationOfTheProcedure"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedurefortransfer-v3.0-2016EN"/>
                 <map value="NL-CM:14.1.8"/>
-                <comment value="ProcedureAnatomicalLocation"/>
+                <comment value="AnatomicalLocationOfTheProcedure"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedure-v4.1-2017EN"/>
@@ -430,9 +402,8 @@
                 <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier"/>
             </type>
         </element>
-        <element id="Procedure.bodySite.extension:ProcedureLaterality.valueCodeableConcept:valueCodeableConcept">
+        <element id="Procedure.bodySite.extension:ProcedureLaterality.valueCodeableConcept">
             <path value="Procedure.bodySite.extension.valueCodeableConcept"/>
-            <sliceName value="valueCodeableConcept"/>
             <binding>
                 <strength value="extensible"/>
                 <description value="ProcedureLateralityCodelist"/>
@@ -483,12 +454,12 @@
             <mapping>
                 <identity value="hcim-procedurefortransfer-v1.2-2015EN"/>
                 <map value="NL-CM:14.1.7"/>
-                <comment value="MedicalDevice"/>
+                <comment value="Product"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedurefortransfer-v3.0-2016EN"/>
                 <map value="NL-CM:14.1.7"/>
-                <comment value="MedicalDevice"/>
+                <comment value="Product"/>
             </mapping>
             <mapping>
                 <identity value="hcim-procedure-v4.1-2017EN"/>

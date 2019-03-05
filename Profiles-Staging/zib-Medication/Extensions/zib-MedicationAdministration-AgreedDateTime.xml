@@ -1,0 +1,48 @@
+<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+  <id value="zib-MedicationAdministration-AgreedDateTime" />
+  <meta>
+    <lastUpdated value="2017-06-08T17:19:04.007+02:00" />
+  </meta>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-AgreedDateTime" />
+  <version value="2.0" />
+  <name value="Zib AgreedDateTime" />
+  <title value="HCIM AgreedDateTime" />
+  <status value="active" />
+  <date value="2017-06-08T15:28:47.0782827+02:00" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Date and time in the medication or administration agreement to which this administration pertains. Since multiple times can be indicated in one medication/administration agreement, this can be used to identify the agreed time in the event of e.g. early administration or a late administration." />
+  <purpose value="To identify if the event time is an early or late administration." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="MedicationAdministration" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-AgreedDateTime" />
+    </element>
+    <element id="Extension.valueDateTime">
+      <path value="Extension.valueDateTime" />
+      <type>
+        <code value="dateTime" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
