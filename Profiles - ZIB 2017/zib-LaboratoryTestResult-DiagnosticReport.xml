@@ -1,335 +1,372 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-LaboratoryTestResult-DiagnosticReport"/>
-    <meta>
-        <versionId value="1"/>
-        <lastUpdated value="2017-12-20T12:41:09.272+01:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport"/>
-    <version value="2.0"/>
-    <name value="Zib LaboratoryTestResult DiagnosticReport"/>
-    <title value="HCIM LaboratoryTestResult DiagnosticReport"/>
-    <status value="active"/>
-    <date value="2016-11-11T12:24:22.445+00:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="A LaboratoryTestResult as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB)  version 4.1, release 2017."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/LaboratoryTestResultForTransfer-v1.2.2(2015EN)"/>
-        <name value="HCIM LaboratoryTestResultForTransfer-v1.2.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/LaboratoryTestResultForTransfer-v3.0(2016EN)"/>
-        <name value="HCIM LaboratoryTestResultForTransfer-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)"/>
-        <name value="HCIM LaboratoryTestResultForTransfer-v4.1(2017EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN"/>
-        <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)"/>
-        <name value="HCIM BasicElements-v1.0(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="DiagnosticReport"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="DiagnosticReport">
-            <path value="DiagnosticReport"/>
-            <short value="LaboratoryTestResult"/>
-            <definition
-                value="The findings and interpretation of diagnostic tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports. &#xD;&#xA;The HCIM LaboratoryResult also supports simple and more complex situations. For a simple result there will be a single LaboratoryTestResult.LaboratoryTest.TestName in Observation.code and no LaboratoryTestresult.Test. For a more complex situation there will be a LaboratoryTestResult.Test and any number of related LaboratoryTestResult.LaboratoryTest, e.g. parts of a panel or battery. Each related LaboratoryTest shall be conveyed in Observation.related or Observation.component. The deciding factor in choosing between related or component is: does the observation have use as independent observation (Observation.related) or is the observation only relevant in the context of its parent (Observation.component).&#xD;&#xA;Note that (textual) reports on individual (panels of) observations, like conclusions, go into a different resource DiagnosticReport. The DiagnosticReport then contains the references to the Observation resources it concerns."/>
-            <alias value="LaboratoriumUitslag"/>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
-                <map value="NL-CM:13.1.1"/>
-                <comment value="LaboratoryTestResult"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:13.1.1"/>
-                <comment value="LaboratoryTestResult"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
-                <map value="NL-CM:13.1.1"/>
-                <comment value="LaboratoryTestResult"/>
-            </mapping>
-        </element>
-        <element id="DiagnosticReport.identifier">
-            <path value="DiagnosticReport.identifier"/>
-            <short value="Identifier"/>
-            <alias value="Identificatie"/>
-            <mapping>
-                <identity value="hcim-basicelements-v1.0-2017EN"/>
-                <map value="NL-CM:0.0.6"/>
-                <comment value="IdentificationNumber"/>
-            </mapping>
-        </element>
-        <element id="DiagnosticReport.basedOn">
-            <path value="DiagnosticReport.basedOn"/>
-            <short value="Fulfills plan, proposal or order including requester information."/>
-            <comment value="Requester information should be captured and exchanged in the resource referenced by basedOn. Requester is the healthcare provider and/or organization where or by whom the LaboratoryTestResult was requested."/>
-            <alias value="Aanvrager"/>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
-                <map value="NL-CM:13.1.34"/>
-                <comment value="Contains Requester::HealthProfessional"/>
-            </mapping>
-        </element>
-        <element id="DiagnosticReport.status">
-            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-                <valueString value="default: final"/>
-            </extension>
-            <path value="DiagnosticReport.status"/>
-            <short value="ResultStatus"/>
-            <alias value="ResultaatStatus"/>
-        </element>
-        <element id="DiagnosticReport.status.extension">
-            <path value="DiagnosticReport.status.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="DiagnosticReport.status.extension:ResultStatus">
-            <path value="DiagnosticReport.status.extension"/>
-            <sliceName value="ResultStatus"/>
-            <short value="Provides the specific HCIM code for ResultStatus"/>
-            <definition value="Defines a more specific value to a code. Especially useful for FHIRs required ValueSets."/>
-            <alias value="ResultaatStatus"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification"/>
-            </type>
-            <binding>
-                <strength value="extensible"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.8--20171231000000"/>
-                    <display value="ResultaatStatusCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
-                <map value="NL-CM:13.1.6"/>
-                <comment value="ResultStatus"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:13.1.6"/>
-                <comment value="ResultStatus"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
-                <map value="NL-CM:13.1.6"/>
-                <comment value="ResultStatus"/>
-            </mapping>
-        </element>
-        <element id="DiagnosticReport.category">
-            <path value="DiagnosticReport.category"/>
-            <min value="1"/>
-        </element>
-        <element id="DiagnosticReport.category.coding">
-            <path value="DiagnosticReport.category.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="2"/>
-        </element>
-        <element id="DiagnosticReport.category.coding:LaboratoryTestResultCode">
-            <path value="DiagnosticReport.category.coding"/>
-            <sliceName value="laboratoryTestResultCode"/>
-            <short value="LaboratoryTestResultCode"/>
-            <definition value="Category code used for indexing/retrieval of the ZIB LaboratoryTestResult. The system and code and display values are fixed."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="DiagnosticReport.category.coding:LaboratoryTestResultCode.system">
-            <path value="DiagnosticReport.category.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="DiagnosticReport.category.coding:LaboratoryTestResultCode.code">
-            <path value="DiagnosticReport.category.coding.code"/>
-            <fixedCode value="4241000179101"/>
-        </element>
-        <element id="DiagnosticReport.category.coding:LaboratoryTestResultCode.display">
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="DiagnosticReport.category.coding.display"/>
-            <fixedString value="Laboratory report (record artifact)"/>
-        </element>
-        <element id="DiagnosticReport.category.coding:ResultType">
-            <path value="DiagnosticReport.category.coding"/>
-            <sliceName value="resultType"/>
-            <short value="ResultType"/>
-            <definition value="The type of result defines the laboratory specialty under which the test is categorized."/>
-            <alias value="ResultaatType"/>
-            <min value="1"/>
-            <max value="1"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="ResultaatTypeCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.1--20171231000000"/>
-                    <display value="ResultaatTypeCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
-                <map value="NL-CM:13.1.7"/>
-                <comment value="ResultType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:13.1.7"/>
-                <comment value="ResultType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
-                <map value="NL-CM:13.1.7"/>
-                <comment value="ResultType"/>
-            </mapping>
-        </element>
-        <element id="DiagnosticReport.code">
-            <path value="DiagnosticReport.code"/>
-            <short value="PanelOrBattery"/>
-            <definition value="For laboratory tests comprising multiple subtests and often requested together as a whole, this concept contains the name of the compound request (often indicated as a ‘panel’, ‘battery’ or ‘cluster’). Examples include: blood gases and EBV serology."/>
-            <alias value="Onderzoek"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="PanelOrBatteryCodelist"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.5--20171231000000"/>
-                    <display value="OnderzoekCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
-                <map value="NL-CM:13.1.4"/>
-                <comment value="Test"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:13.1.4"/>
-                <comment value="Test"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
-                <map value="NL-CM:13.1.4"/>
-                <comment value="PanelOrBattery"/>
-            </mapping>
-        </element>
-        <element id="DiagnosticReport.subject">
-            <path value="DiagnosticReport.subject"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <mapping>
-                <identity value="hcim-basicelements-v1.0-2017EN"/>
-                <map value="NL-CM:0.0.11"/>
-                <comment value="Subject"/>
-            </mapping>
-        </element>
-        <element id="DiagnosticReport.specimen">
-            <path value="DiagnosticReport.specimen"/>
-            <short value="Specimen"/>
-            <alias value="Monster"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Specimen"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Isolate"/>
-            </type>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
-                <map value="NL-CM:13.1.2"/>
-                <comment value="Specimen"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:13.1.2"/>
-                <comment value="Specimen"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
-                <map value="NL-CM:13.1.2"/>
-                <comment value="Specimen"/>
-            </mapping>
-        </element>
-        <element id="DiagnosticReport.result">
-            <path value="DiagnosticReport.result"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation"/>
-            </type>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
-                <map value="NL-CM:13.1.3"/>
-                <comment value="LaboratoryTest"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:13.1.3"/>
-                <comment value="LaboratoryTest"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
-                <map value="NL-CM:13.1.3"/>
-                <comment value="LaboratoryTest"/>
-            </mapping>
-        </element>
-        <element id="DiagnosticReport.conclusion">
-            <path value="DiagnosticReport.conclusion"/>
-            <short value="ResultInterpretation and/or Comment"/>
-            <definition value="Concise and clinically contextualized impression / summary of the diagnostic report.&#xD;&#xA;Comments, such as a textual interpretation or advice accompanying the result, for example."/>
-            <alias value="UitslagInterpretatie en/of Toelichting"/>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN"/>
-                <map value="NL-CM:13.1.5"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:13.1.5"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
-                <map value="NL-CM:13.1.5"/>
-                <comment value="Comment"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN"/>
-                <map value="NL-CM:13.1.32"/>
-                <comment value="ResultInterpretation"/>
-            </mapping>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-LaboratoryTestResult-DiagnosticReport" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport" />
+  <version value="2.0.0" />
+  <name value="Zib LaboratoryTestResult DiagnosticReport" />
+  <title value="HCIM LaboratoryTestResult DiagnosticReport" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A LaboratoryTestResult as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB)  version 4.1, release 2017." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/LaboratoryTestResultForTransfer-v1.2.2(2015EN)" />
+    <name value="HCIM LaboratoryTestResultForTransfer-v1.2.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/LaboratoryTestResultForTransfer-v3.0(2016EN)" />
+    <name value="HCIM LaboratoryTestResultForTransfer-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)" />
+    <name value="HCIM LaboratoryTestResultForTransfer-v4.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DiagnosticReport" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DiagnosticReport">
+      <path value="DiagnosticReport" />
+      <short value="LaboratoryTestResult" />
+      <definition
+        value="The findings and interpretation of diagnostic tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports. &#xD;&#xA;The HCIM LaboratoryResult also supports simple and more complex situations. For a simple result there will be a single LaboratoryTestResult.LaboratoryTest.TestName in Observation.code and no LaboratoryTestresult.Test. For a more complex situation there will be a LaboratoryTestResult.Test and any number of related LaboratoryTestResult.LaboratoryTest, e.g. parts of a panel or battery. Each related LaboratoryTest shall be conveyed in Observation.related or Observation.component. The deciding factor in choosing between related or component is: does the observation have use as independent observation (Observation.related) or is the observation only relevant in the context of its parent (Observation.component).&#xD;&#xA;Note that (textual) reports on individual (panels of) observations, like conclusions, go into a different resource DiagnosticReport. The DiagnosticReport then contains the references to the Observation resources it concerns." />
+      <alias value="LaboratoriumUitslag" />
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
+        <map value="NL-CM:13.1.1" />
+        <comment value="LaboratoryTestResult" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.1.1" />
+        <comment value="LaboratoryTestResult" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:13.1.1" />
+        <comment value="LaboratoryTestResult" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.identifier">
+      <path value="DiagnosticReport.identifier" />
+      <short value="Identifier" />
+      <alias value="Identificatie" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.basedOn">
+      <path value="DiagnosticReport.basedOn" />
+      <short value="Fulfills plan, proposal or order including requester information." />
+      <comment value="Requester information should be captured and exchanged in the resource referenced by basedOn. Requester is the healthcare provider and/or organization where or by whom the LaboratoryTestResult was requested." />
+      <alias value="Aanvrager" />
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:13.1.34" />
+        <comment value="Contains Requester::HealthProfessional" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.status">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
+        <valueString value="default: final" />
+      </extension>
+      <path value="DiagnosticReport.status" />
+      <short value="ResultStatus" />
+      <alias value="ResultaatStatus" />
+    </element>
+    <element id="DiagnosticReport.status.extension">
+      <path value="DiagnosticReport.status.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DiagnosticReport.status.extension:ResultStatus">
+      <path value="DiagnosticReport.status.extension" />
+      <sliceName value="ResultStatus" />
+      <short value="Provides the specific HCIM code for ResultStatus" />
+      <definition value="Defines a more specific value to a code. Especially useful for FHIRs required ValueSets." />
+      <alias value="ResultaatStatus" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.8--20171231000000" />
+          <display value="ResultaatStatusCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
+        <map value="NL-CM:13.1.6" />
+        <comment value="ResultStatus" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.1.6" />
+        <comment value="ResultStatus" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:13.1.6" />
+        <comment value="ResultStatus" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.category">
+      <path value="DiagnosticReport.category" />
+      <min value="1" />
+    </element>
+    <element id="DiagnosticReport.category.coding">
+      <path value="DiagnosticReport.category.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="2" />
+    </element>
+    <element id="DiagnosticReport.category.coding:laboratoryTestResultCode">
+      <path value="DiagnosticReport.category.coding" />
+      <sliceName value="laboratoryTestResultCode" />
+      <short value="LaboratoryTestResultCode" />
+      <definition value="Category code used for indexing/retrieval of the ZIB LaboratoryTestResult. The system and code and display values are fixed." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="DiagnosticReport.category.coding:laboratoryTestResultCode.system">
+      <path value="DiagnosticReport.category.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="DiagnosticReport.category.coding:laboratoryTestResultCode.code">
+      <path value="DiagnosticReport.category.coding.code" />
+      <fixedCode value="4241000179101" />
+    </element>
+    <element id="DiagnosticReport.category.coding:laboratoryTestResultCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="DiagnosticReport.category.coding.display" />
+      <fixedString value="Laboratory report (record artifact)" />
+    </element>
+    <element id="DiagnosticReport.category.coding:resultType">
+      <path value="DiagnosticReport.category.coding" />
+      <sliceName value="resultType" />
+      <short value="ResultType" />
+      <definition value="The type of result defines the laboratory specialty under which the test is categorized." />
+      <alias value="ResultaatType" />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ResultaatTypeCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.1--20171231000000" />
+          <display value="ResultaatTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
+        <map value="NL-CM:13.1.7" />
+        <comment value="ResultType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.1.7" />
+        <comment value="ResultType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:13.1.7" />
+        <comment value="ResultType" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.code">
+      <path value="DiagnosticReport.code" />
+      <short value="PanelOrBattery" />
+      <definition value="For laboratory tests comprising multiple subtests and often requested together as a whole, this concept contains the name of the compound request (often indicated as a ‘panel’, ‘battery’ or ‘cluster’). Examples include: blood gases and EBV serology." />
+      <alias value="Onderzoek" />
+      <binding>
+        <strength value="extensible" />
+        <description value="PanelOrBatteryCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.5--20171231000000" />
+          <display value="OnderzoekCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
+        <map value="NL-CM:13.1.4" />
+        <comment value="Test" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.1.4" />
+        <comment value="Test" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:13.1.4" />
+        <comment value="PanelOrBattery" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.subject">
+      <path value="DiagnosticReport.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.context">
+      <path value="DiagnosticReport.context" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-encounter" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
+      </type>
+    </element>
+    <element id="DiagnosticReport.effective[x]">
+      <path value="DiagnosticReport.effective[x]" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.performer">
+      <path value="DiagnosticReport.performer" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.performer.actor">
+      <path value="DiagnosticReport.performer.actor" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+    </element>
+    <element id="DiagnosticReport.specimen">
+      <path value="DiagnosticReport.specimen" />
+      <short value="Specimen" />
+      <alias value="Monster" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Specimen" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Isolate" />
+      </type>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
+        <map value="NL-CM:13.1.2" />
+        <comment value="Specimen" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.1.2" />
+        <comment value="Specimen" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:13.1.2" />
+        <comment value="Specimen" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.result">
+      <path value="DiagnosticReport.result" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation" />
+      </type>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
+        <map value="NL-CM:13.1.3" />
+        <comment value="LaboratoryTest" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.1.3" />
+        <comment value="LaboratoryTest" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:13.1.3" />
+        <comment value="LaboratoryTest" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.conclusion">
+      <path value="DiagnosticReport.conclusion" />
+      <short value="ResultInterpretation and/or Comment" />
+      <definition value="Concise and clinically contextualized impression / summary of the diagnostic report.&#xD;&#xA;Comments, such as a textual interpretation or advice accompanying the result, for example." />
+      <alias value="UitslagInterpretatie en/of Toelichting" />
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
+        <map value="NL-CM:13.1.5" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:13.1.5" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:13.1.5" />
+        <comment value="Comment" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <map value="NL-CM:13.1.32" />
+        <comment value="ResultInterpretation" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

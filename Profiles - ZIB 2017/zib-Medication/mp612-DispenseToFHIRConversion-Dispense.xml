@@ -6,7 +6,6 @@
   <name value="MP612 DispenseToFHIRConversion Dispense" />
   <title value="MP612 DispenseToFHIRConversion Dispense" />
   <status value="draft" />
-  <date value="2019-02-01" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -73,12 +72,6 @@
     <element id="MedicationDispense.extension:medicationTreatment">
       <path value="MedicationDispense.extension" />
       <sliceName value="medicationTreatment" />
-      <min value="1" />
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22092 " />
-        <comment value="Medicamenteuze behandeling" />
-      </mapping>
     </element>
     <element id="MedicationDispense.extension:medicationTreatment.valueIdentifier:valueIdentifier">
       <path value="MedicationDispense.extension.valueIdentifier" />
@@ -188,6 +181,10 @@
     </element>
     <element id="MedicationDispense.authorizingPrescription">
       <path value="MedicationDispense.authorizingPrescription" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-AdministrationAgreement" />
+      </type>
       <mapping>
         <identity value="Medication-Process-v09" />
         <map value="mp-dataelement900-22396" />

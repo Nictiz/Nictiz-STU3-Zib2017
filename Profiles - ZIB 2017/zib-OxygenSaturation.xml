@@ -1,15 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-OxygenSaturation" />
-  <meta>
-    <lastUpdated value="2017-09-08T12:44:22.73+02:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-OxygenSaturation" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib OxygenSaturation" />
   <title value="HCIM OxygenSaturation" />
   <status value="active" />
-  <date value="2017-09-06T12:02:17.702+02:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -38,6 +34,11 @@
     <uri value="https://zibs.nl/wiki/O2Saturation-v3.1(2017EN)" />
     <name value="HCIM O2Saturation-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
@@ -47,23 +48,39 @@
     <element id="Observation">
       <path value="Observation" />
       <short value="Oxygen Saturation" />
-      <definition value="This profile defines  how to represent Oxygen Saturation observations in FHIR using a standard LOINC code and UCUM units of measure.&#xD;&#xA;&#xD;&#xA;Arterial oxygen saturation, also referred to as saturation, is an indicator for the amount of oxygen bound to the hemoglobin in the red blood cells of the arteries. The measurement is usually carried out as a transcutaneous measurement with a blood oxygen monitor or pulse oximeter. The saturation level is expressed as a percentage and should be over 95% in healthy people." />
+      <definition value="This profile defines how to represent Oxygen Saturation observations in FHIR using a standard LOINC code and UCUM units of measure.&#xD;&#xA;&#xD;&#xA;Arterial oxygen saturation, also referred to as saturation, is an indicator for the amount of oxygen bound to the hemoglobin in the red blood cells of the arteries. The measurement is usually carried out as a transcutaneous measurement with a blood oxygen monitor or pulse oximeter. The saturation level is expressed as a percentage and should be over 95% in healthy people." />
       <alias value="O2Saturatie" />
       <mapping>
         <identity value="hcim-o2saturation-v1.2-2015EN" />
         <map value="NL-CM:12.10.1" />
-      <comment value="oxygenation, saturation, SpO2"/>
-            </mapping>
+        <comment value="oxygenation, saturation, SpO2"/>
+      </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.0-2016EN" />
         <map value="NL-CM:12.10.1" />
-      <comment value="oxygenation, saturation, SpO2"/>
-            </mapping>
+        <comment value="oxygenation, saturation, SpO2"/>
+      </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.1-2017EN" />
         <map value="NL-CM:12.10.1" />
-      <comment value="O2Saturation"/>
-            </mapping>
+        <comment value="O2Saturation"/>
+      </mapping>
+    </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]" />
@@ -73,39 +90,53 @@
       <mapping>
         <identity value="hcim-o2saturation-v1.2-2015EN" />
         <map value="NL-CM:12.10.3" />
-      <comment value="O2SaturationDateTime"/>
-            </mapping>
+        <comment value="O2SaturationDateTime"/>
+      </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.0-2016EN" />
         <map value="NL-CM:12.10.3" />
-      <comment value="O2SaturationDateTime"/>
-            </mapping>
+        <comment value="O2SaturationDateTime"/>
+      </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.1-2017EN" />
         <map value="NL-CM:12.10.3" />
-      <comment value="O2SaturationDateTime"/>
-            </mapping>
+        <comment value="O2SaturationDateTime"/>
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
     </element>
-    <element id="Observation.valueQuantity">
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Observation.valueQuantity:valueQuantity">
       <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
       <short value="SpO2Value recorded with UCUM" />
       <definition value="The element contains the value of the indirect, peripheral measured O2 saturation.&#xD;&#xA;The O2 saturation gives a percentage expressing the extent to which the blood’s hemoglobin is saturated with oxygen, the ratio of oxygen-saturated hemoglobin to hemoglobin. The measurement is done in places where sufficient light can get through the skin, such as a finger, toe or earlobe." />
       <alias value="SpO2Waarde" />
       <mapping>
         <identity value="hcim-o2saturation-v1.2-2015EN" />
         <map value="NL-CM:12.10.2" />
-      <comment value="SpO2Value"/>
-            </mapping>
+        <comment value="SpO2Value"/>
+      </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.0-2016EN" />
         <map value="NL-CM:12.10.2" />
-      <comment value="SpO2Value"/>
-            </mapping>
+        <comment value="SpO2Value"/>
+      </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.1-2017EN" />
         <map value="NL-CM:12.10.2" />
-      <comment value="SpO2Value"/>
-            </mapping>
+        <comment value="SpO2Value"/>
+      </mapping>
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
@@ -115,18 +146,18 @@
       <mapping>
         <identity value="hcim-o2saturation-v1.2-2015EN" />
         <map value="NL-CM:12.10.4" />
-      <comment value="Explanation"/>
-            </mapping>
+        <comment value="Explanation"/>
+      </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.0-2016EN" />
         <map value="NL-CM:12.10.4" />
-      <comment value="Explanation"/>
-            </mapping>
+        <comment value="Explanation"/>
+      </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.1-2017EN" />
         <map value="NL-CM:12.10.4" />
-      <comment value="Comment"/>
-            </mapping>
+        <comment value="Comment"/>
+      </mapping>
     </element>
     <element id="Observation.component">
       <path value="Observation.component" />
@@ -135,6 +166,11 @@
           <type value="value" />
           <path value="code.coding.code" />
         </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.system" />
+        </discriminator>
+        <ordered value="false" />
         <rules value="open" />
       </slicing>
     </element>
@@ -144,29 +180,19 @@
     </element>
     <element id="Observation.component:extraOxygenAdministration.code.coding">
       <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
+      <min value="1" />
     </element>
-    <element id="Observation.component:extraOxygenAdministration.code.coding:ExtraOxygenAdministrationCode">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="ExtraOxygenAdministrationCode" />
-      <max value="1"/>
-    </element>
-    <element id="Observation.component:extraOxygenAdministration.code.coding:ExtraOxygenAdministrationCode.system">
+    <element id="Observation.component:extraOxygenAdministration.code.coding.system">
       <path value="Observation.component.code.coding.system" />
       <fixedUri value="http://loinc.org" />
     </element>
-    <element id="Observation.component:extraOxygenAdministration.code.coding:ExtraOxygenAdministrationCode.code">
+    <element id="Observation.component:extraOxygenAdministration.code.coding.code">
       <path value="Observation.component.code.coding.code" />
       <fixedCode value="74206-4" />
     </element>
-    <element id="Observation.component:extraOxygenAdministration.valueCodeableConcept">
+    <element id="Observation.component:extraOxygenAdministration.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <short value="ExtraOxygenAdministration" />
       <definition value="Indication stating whether the measurement was done in a situation in which extra oxygen was administered." />
       <alias value="ExtraZuurstofToediening" />
@@ -184,18 +210,18 @@
       <mapping>
         <identity value="hcim-o2saturation-v1.2-2015EN" />
         <map value="NL-CM:12.10.5" />
-      <comment value="ExtraOxygenAdministration"/>
-            </mapping>
+        <comment value="ExtraOxygenAdministration"/>
+      </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.0-2016EN" />
         <map value="NL-CM:12.10.5" />
-      <comment value="ExtraOxygenAdministration"/>
-            </mapping>
+        <comment value="ExtraOxygenAdministration"/>
+      </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.1-2017EN" />
         <map value="NL-CM:12.10.5" />
-      <comment value="ExtraOxygenAdministration"/>
-            </mapping>
+        <comment value="ExtraOxygenAdministration"/>
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>

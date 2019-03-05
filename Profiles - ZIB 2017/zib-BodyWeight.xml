@@ -1,195 +1,227 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-BodyWeight"/>
-    <meta>
-        <lastUpdated value="2017-09-08T12:47:03.193+02:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyWeight"/>
-    <version value="2.0"/>
-    <name value="Zib BodyWeight"/>
-    <title value="HCIM BodyWeight"/>
-    <status value="active"/>
-    <date value="2017-09-06T12:02:17.702+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="This profile is derived from the HL7 Vital Signs profile for BodyWeight in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) BodyWeight v3.1, release 2017, and to provide extensions for missing concepts."/>
-    <purpose value="Early detection of deviating body weight is an important task in preventive healthcare. A patient being clearly overweight or underweight can be a symptom of other, underlying problems. Early detection also means an earlier start to treatment."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-bodyweight-v1.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/BodyWeight-v1.2(2015EN)"/>
-        <name value="HCIM BodyWeight-v1.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-bodyweight-v3.0-2015EN"/>
-        <uri value="https://zibs.nl/wiki/BodyWeight-v1.2(2016EN)"/>
-        <name value="HCIM BodyWeight-v3.0(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-bodyweight-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/BodyWeight-v3.1(2017EN)"/>
-        <name value="HCIM BodyWeight-v3.1(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/bodyweight"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-            <short value="BodyWeight"/>
-            <alias value="Lichaamsgewicht"/>
-            <mapping>
-                <identity value="hcim-bodyweight-v1.2-2015EN"/>
-                <map value="NL-CM:12.1.1"/>
-                <comment value="BodyWeight"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyweight-v3.0-2015EN"/>
-                <map value="NL-CM:12.1.1"/>
-                <comment value="BodyWeight"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyweight-v3.1-2017EN"/>
-                <map value="NL-CM:12.1.1"/>
-                <comment value="BodyWeight"/>
-            </mapping>
-        </element>
-        <element id="Observation.effective[x]">
-            <path value="Observation.effective[x]"/>
-            <short value="WeightDateTime"/>
-            <definition value="Date and (if possible) time that the weight was measured or estimated."/>
-            <alias value="GewichtDatumTijd"/>
-            <mapping>
-                <identity value="hcim-bodyweight-v1.2-2015EN"/>
-                <map value="NL-CM:12.1.4"/>
-                <comment value="WeightDateTime"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyweight-v3.0-2015EN"/>
-                <map value="NL-CM:12.1.4"/>
-                <comment value="WeightDateTime"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyweight-v3.1-2017EN"/>
-                <map value="NL-CM:12.1.4"/>
-                <comment value="WeightDateTime"/>
-            </mapping>
-        </element>
-        <element id="Observation.valueQuantity">
-            <path value="Observation.valueQuantity"/>
-            <short value="WeightValue"/>
-            <definition value="The patient’s body weight. Body weight is expressed in kilograms (kg). For infants under 3kg, body weight is often expressed in grams.&#xD;&#xA;This concept can also be used to determine an estimated body weight in the event that measuring the exact body weight is not possible - such as for example weighing a resistant child, or in the case of having to estimate the weight of an unborn child."/>
-            <alias value="GewichtWaarde"/>
-            <min value="1"/>
-            <mapping>
-                <identity value="hcim-bodyweight-v1.2-2015EN"/>
-                <map value="NL-CM:12.1.2"/>
-                <comment value="WeightValue"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyweight-v3.0-2015EN"/>
-                <map value="NL-CM:12.1.2"/>
-                <comment value="WeightValue"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyweight-v3.1-2017EN"/>
-                <map value="NL-CM:12.1.2"/>
-                <comment value="WeightValue"/>
-            </mapping>
-        </element>
-        <element id="Observation.comment">
-            <path value="Observation.comment"/>
-            <short value="Comment"/>
-            <definition value="Comment on the weight measurement, such as any problems or factors that may influence body weight at that time, such as timing within the menstrual cycle, timing of recent bowel movement or a note on any amputations."/>
-            <alias value="Toelichting"/>
-            <mapping>
-                <identity value="hcim-bodyweight-v1.2-2015EN"/>
-                <map value="NL-CM:12.1.3"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyweight-v3.0-2015EN"/>
-                <map value="NL-CM:12.1.3"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyweight-v3.1-2017EN"/>
-                <map value="NL-CM:12.1.3"/>
-                <comment value="Comment"/>
-            </mapping>
-        </element>
-        <element id="Observation.component">
-            <path value="Observation.component"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code.coding.code"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code.coding.system"/>
-                </discriminator>
-                <ordered value="false"/>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Observation.component:clothing">
-            <path value="Observation.component"/>
-            <sliceName value="clothing"/>
-        </element>
-        <element id="Observation.component:clothing.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:clothing.code.coding:ClothingCode.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.component:clothing.code.coding:ClothingCode.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="8352-7"/>
-        </element>
-        <element id="Observation.component:clothing.valueCodeableConcept:valueCodeableConcept">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <short value="Clothing"/>
-            <definition value="The clothes the patient was wearing at the time of the measurement."/>
-            <alias value="Kleding"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <binding>
-                <strength value="extensible"/>
-                <description value="KledingCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.1.1--20171231000000"/>
-                    <display value="KledingCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-bodyweight-v1.2-2015EN"/>
-                <map value="NL-CM:12.1.5"/>
-                <comment value="Clothing"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyweight-v3.0-2015EN"/>
-                <map value="NL-CM:12.1.5"/>
-                <comment value="Clothing"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyweight-v3.1-2017EN"/>
-                <map value="NL-CM:12.1.5"/>
-                <comment value="Clothing"/>
-            </mapping>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-BodyWeight" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyWeight" />
+  <version value="2.0.0" />
+  <name value="Zib BodyWeight" />
+  <title value="HCIM BodyWeight" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is derived from the HL7 Vital Signs profile for BodyWeight in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) BodyWeight v3.1, release 2017, and to provide extensions for missing concepts." />
+  <purpose value="Early detection of deviating body weight is an important task in preventive healthcare. A patient being clearly overweight or underweight can be a symptom of other, underlying problems. Early detection also means an earlier start to treatment." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-bodyweight-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/BodyWeight-v1.2(2015EN)" />
+    <name value="HCIM BodyWeight-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-bodyweight-v3.0-2015EN" />
+    <uri value="https://zibs.nl/wiki/BodyWeight-v1.2(2016EN)" />
+    <name value="HCIM BodyWeight-v3.0(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-bodyweight-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/BodyWeight-v3.1(2017EN)" />
+    <name value="HCIM BodyWeight-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/bodyweight" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="BodyWeight" />
+      <alias value="Lichaamsgewicht" />
+      <mapping>
+        <identity value="hcim-bodyweight-v1.2-2015EN" />
+        <map value="NL-CM:12.1.1" />
+        <comment value="BodyWeight" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyweight-v3.0-2015EN" />
+        <map value="NL-CM:12.1.1" />
+        <comment value="BodyWeight" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyweight-v3.1-2017EN" />
+        <map value="NL-CM:12.1.1" />
+        <comment value="BodyWeight" />
+      </mapping>
+    </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
+      <short value="WeightDateTime" />
+      <definition value="Date and (if possible) time that the weight was measured or estimated." />
+      <alias value="GewichtDatumTijd" />
+      <mapping>
+        <identity value="hcim-bodyweight-v1.2-2015EN" />
+        <map value="NL-CM:12.1.4" />
+        <comment value="WeightDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyweight-v3.0-2015EN" />
+        <map value="NL-CM:12.1.4" />
+        <comment value="WeightDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyweight-v3.1-2017EN" />
+        <map value="NL-CM:12.1.4" />
+        <comment value="WeightDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Observation.valueQuantity:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="WeightValue" />
+      <definition value="The patient’s body weight. Body weight is expressed in kilograms (kg). For infants under 3kg, body weight is often expressed in grams.&#xD;&#xA;This concept can also be used to determine an estimated body weight in the event that measuring the exact body weight is not possible - such as for example weighing a resistant child, or in the case of having to estimate the weight of an unborn child." />
+      <alias value="GewichtWaarde" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-bodyweight-v1.2-2015EN" />
+        <map value="NL-CM:12.1.2" />
+        <comment value="WeightValue" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyweight-v3.0-2015EN" />
+        <map value="NL-CM:12.1.2" />
+        <comment value="WeightValue" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyweight-v3.1-2017EN" />
+        <map value="NL-CM:12.1.2" />
+        <comment value="WeightValue" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comment on the weight measurement, such as any problems or factors that may influence body weight at that time, such as timing within the menstrual cycle, timing of recent bowel movement or a note on any amputations." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-bodyweight-v1.2-2015EN" />
+        <map value="NL-CM:12.1.3" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyweight-v3.0-2015EN" />
+        <map value="NL-CM:12.1.3" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyweight-v3.1-2017EN" />
+        <map value="NL-CM:12.1.3" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.system" />
+        </discriminator>
+        <ordered value="false" />
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:clothing">
+      <path value="Observation.component" />
+      <sliceName value="clothing" />
+    </element>
+    <element id="Observation.component:clothing.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:clothing.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.component:clothing.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="8352-7" />
+    </element>
+    <element id="Observation.component:clothing.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Clothing" />
+      <definition value="The clothes the patient was wearing at the time of the measurement." />
+      <alias value="Kleding" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="KledingCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.1.1--20171231000000" />
+          <display value="KledingCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-bodyweight-v1.2-2015EN" />
+        <map value="NL-CM:12.1.5" />
+        <comment value="Clothing" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyweight-v3.0-2015EN" />
+        <map value="NL-CM:12.1.5" />
+        <comment value="Clothing" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyweight-v3.1-2017EN" />
+        <map value="NL-CM:12.1.5" />
+        <comment value="Clothing" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

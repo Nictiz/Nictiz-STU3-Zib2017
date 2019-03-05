@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AlcoholUse" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2018-02-12T17:11:40.567+01:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AlcoholUse" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib AlcoholUse" />
   <title value="HCIM AlcoholUse" />
   <status value="active" />
-  <date value="2017-01-04T10:27:28.0292377+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -39,6 +34,11 @@
     <uri value="https://zibs.nl/wiki/AlcoholUse-v3.1(2017EN)" />
     <name value="HCIM AlcoholUse-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
@@ -66,6 +66,14 @@
         <comment value="AlcoholUse" />
       </mapping>
     </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
       <slicing>
@@ -76,19 +84,20 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Observation.code.coding:AlcoholUseCode">
+    <element id="Observation.code.coding:alcoholUseCode">
       <path value="Observation.code.coding" />
       <sliceName value="alcoholUseCode" />
+      <short value="AlcoholUseCode" />
     </element>
-    <element id="Observation.code.coding:AlcoholUseCode.system">
+    <element id="Observation.code.coding:alcoholUseCode.system">
       <path value="Observation.code.coding.system" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.code.coding:AlcoholUseCode.code">
+    <element id="Observation.code.coding:alcoholUseCode.code">
       <path value="Observation.code.coding.code" />
       <fixedCode value="228273003" />
     </element>
-    <element id="Observation.code.coding:AlcoholUseCode.display">
+    <element id="Observation.code.coding:alcoholUseCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
@@ -108,27 +117,38 @@
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
       </type>
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
     </element>
-    <element id="Observation.effective[x]">
+    <element id="Observation.effective[x]:effectivePeriod">
       <path value="Observation.effectivePeriod" />
+      <sliceName value="effectivePeriod" />
       <type>
         <code value="Period" />
       </type>
       <example>
-        <label value="Example of an effecitvePeriod" />
+        <label value="Example of an effectivePeriod" />
         <valuePeriod>
           <start value="1975" />
           <end value="2012-02-28" />
         </valuePeriod>
       </example>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
     </element>
-    <element id="Observation.effectivePeriod.start">
+    <element id="Observation.effective[x]:effectivePeriod.start">
       <path value="Observation.effectivePeriod.start" />
       <short value="Startdate" />
       <definition value="The date on which the patient started using alcohol." />
@@ -149,7 +169,7 @@
         <comment value="StartDate" />
       </mapping>
     </element>
-    <element id="Observation.effectivePeriod.end">
+    <element id="Observation.effective[x]:effectivePeriod.end">
       <path value="Observation.effectivePeriod.end" />
       <short value="StopDate" />
       <definition value="The date on which the patient stopped consuming alcohol.&#xD;&#xA;If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time." />
@@ -188,9 +208,15 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
     </element>
-    <element id="Observation.value[x]">
+    <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <short value="AlcoholUseStatus" />
       <definition value="The status of the patient’s alcohol use." />
       <alias value="AlcoholGebruikStatus" />
@@ -199,7 +225,7 @@
         <code value="CodeableConcept" />
       </type>
       <example>
-        <label value="Dutch example of instance" />
+        <label value="Example of AlcoholUseStatus" />
         <valueCodeableConcept>
           <coding>
             <system value="http://snomed.info/sct" />
@@ -238,7 +264,7 @@
       <definition value="Relevant comment on the alcohol consumption." />
       <alias value="Toelichting" />
       <example>
-        <label value="Dutch example instance of element" />
+        <label value="Example of Comment" />
         <valueString value="consumptie alcohol alleen in het weekend" />
       </example>
       <mapping>
@@ -267,7 +293,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Observation.component.Amount">
+    <element id="Observation.component:Amount">
       <path value="Observation.component" />
       <sliceName value="Amount" />
       <max value="1" />
@@ -287,8 +313,9 @@
       <path value="Observation.component.code.coding.display" />
       <fixedString value="Alcohol intake (observable entity)" />
     </element>
-    <element id="Observation.component:Amount.value[x]">
+    <element id="Observation.component:Amount.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
       <short value="Amount" />
       <definition value="The extent of the patient’s alcohol use in units of alcohol per time period defined in UCUM {glasses}/wk where wk (week) may be any reasonable time unit like d (day), wk (week), mo (month) or a (annum/year)" />
       <alias value="Hoeveelheid" />

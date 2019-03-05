@@ -1,7 +1,8 @@
-﻿<StructureDefinition xmlns="http://hl7.org/fhir">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-FamilySituation" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation" />
-  <version value="1.0" />
+  <version value="1.0.0" />
   <name value="Zib FamilySituation" />
   <title value="HCIM FamilySituation" />
   <status value="active" />
@@ -23,6 +24,11 @@
     <uri value="https://zibs.nl/wiki/FamilySituation-v3.0(2017EN)" />
     <name value="HCIM FamilySituation-v3.0(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
@@ -40,6 +46,14 @@
         <comment value="FamilySituation" />
       </mapping>
     </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
       <slicing>
@@ -51,24 +65,24 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.code.coding:FamilySituationCode">
+    <element id="Observation.code.coding:familySituationCode">
       <path value="Observation.code.coding" />
       <sliceName value="familySituationCode" />
       <short value="FamilySituationCode" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.code.coding:FamilySituationCode.system">
+    <element id="Observation.code.coding:familySituationCode.system">
       <path value="Observation.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.code.coding:FamilySituationCode.code">
+    <element id="Observation.code.coding:familySituationCode.code">
       <path value="Observation.code.coding.code" />
       <min value="1" />
       <fixedCode value="365470003" />
     </element>
-    <element id="Observation.code.coding:FamilySituationCode.display">
+    <element id="Observation.code.coding:familySituationCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
@@ -92,12 +106,36 @@
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Observation.context">
+      <path value="Observation.context" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-encounter" />
       </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
+      </type>
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
     </element>
     <element id="Observation.performer">
       <path value="Observation.performer" />
@@ -117,6 +155,11 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
@@ -155,23 +198,23 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.component:familyComposition.code.coding:FamilyCompositionCode">
+    <element id="Observation.component:familyComposition.code.coding:familyCompositionCode">
       <path value="Observation.component.code.coding" />
       <sliceName value="familyCompositionCode" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.component:familyComposition.code.coding:FamilyCompositionCode.system">
+    <element id="Observation.component:familyComposition.code.coding:familyCompositionCode.system">
       <path value="Observation.component.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:familyComposition.code.coding:FamilyCompositionCode.code">
+    <element id="Observation.component:familyComposition.code.coding:familyCompositionCode.code">
       <path value="Observation.component.code.coding.code" />
       <min value="1" />
       <fixedCode value="224130005" />
     </element>
-    <element id="Observation.component:familyComposition.code.coding:FamilyCompositionCode.display">
+    <element id="Observation.component:familyComposition.code.coding:familyCompositionCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
@@ -199,7 +242,7 @@
       </example>
       <binding>
         <strength value="extensible" />
-        <description value="The family composition describes the patient’s home situation and the form of cohabitation. A family can consist of one or more people. " />
+        <description value="The family composition describes the patient’s home situation and the form of cohabitation. A family can consist of one or more people." />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.13.1--20171231000000" />
           <display value="FamilyCompositionCodelijst" />
@@ -227,21 +270,23 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.component:numberOfChildren.code.coding:NumberOfChildrenCode">
+    <element id="Observation.component:numberOfChildren.code.coding:numberOfChildrenCode">
       <path value="Observation.component.code.coding" />
       <sliceName value="numberOfChildrenCode" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.component:numberOfChildren.code.coding:NumberOfChildrenCode.system">
+    <element id="Observation.component:numberOfChildren.code.coding:numberOfChildrenCode.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:numberOfChildren.code.coding:NumberOfChildrenCode.code">
+    <element id="Observation.component:numberOfChildren.code.coding:numberOfChildrenCode.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="224118004" />
     </element>
-    <element id="Observation.component:numberOfChildren.code.coding:NumberOfChildrenCode.display">
+    <element id="Observation.component:numberOfChildren.code.coding:numberOfChildrenCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
@@ -251,7 +296,7 @@
     <element id="Observation.component:numberOfChildren.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
       <sliceName value="valueQuantity" />
-      <short value="Number of offspring" />
+      <short value="NumberOfOffspring" />
       <definition value="The number of children the patient has. Children in the context of this information model include step children, foster children, biological and adopted children." />
       <alias value="AantalKinderen" />
       <type>
@@ -287,23 +332,23 @@
       <path value="Observation.component.code.coding.code" />
       <min value="1" />
     </element>
-    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:NumberOfChildrenLivingAtHomeCode">
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:numberOfChildrenLivingAtHomeCode">
       <path value="Observation.component.code.coding" />
       <sliceName value="numberOfChildrenLivingAtHomeCode" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:NumberOfChildrenLivingAtHomeCode.system">
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:numberOfChildrenLivingAtHomeCode.system">
       <path value="Observation.component.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:NumberOfChildrenLivingAtHomeCode.code">
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:numberOfChildrenLivingAtHomeCode.code">
       <path value="Observation.component.code.coding.code" />
       <min value="1" />
       <fixedCode value="55811000146107" />
     </element>
-    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:NumberOfChildrenLivingAtHomeCode.display">
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:numberOfChildrenLivingAtHomeCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
@@ -340,23 +385,23 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.component:careResponsibility.code.coding:CareResponsibilityCode">
+    <element id="Observation.component:careResponsibility.code.coding:careResponsibilityCode">
       <path value="Observation.component.code.coding" />
       <sliceName value="careResponsibilityCode" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.component:careResponsibility.code.coding:CareResponsibilityCode.system">
+    <element id="Observation.component:careResponsibility.code.coding:careResponsibilityCode.system">
       <path value="Observation.component.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:careResponsibility.code.coding:CareResponsibilityCode.code">
+    <element id="Observation.component:careResponsibility.code.coding:careResponsibilityCode.code">
       <path value="Observation.component.code.coding.code" />
       <min value="1" />
       <fixedCode value="406192005" />
     </element>
-    <element id="Observation.component:careResponsibility.code.coding:CareResponsibilityCode.display">
+    <element id="Observation.component:careResponsibility.code.coding:careResponsibilityCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
@@ -422,23 +467,23 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.component:child.code.coding:ChildCode">
+    <element id="Observation.component:child.code.coding:childCode">
       <path value="Observation.component.code.coding" />
       <sliceName value="childCode" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.component:child.code.coding:ChildCode.system">
+    <element id="Observation.component:child.code.coding:childCode.system">
       <path value="Observation.component.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:child.code.coding:ChildCode.code">
+    <element id="Observation.component:child.code.coding:childCode.code">
       <path value="Observation.component.code.coding.code" />
       <min value="1" />
       <fixedCode value="67822003" />
     </element>
-    <element id="Observation.component:child.code.coding:ChildCode.display">
+    <element id="Observation.component:child.code.coding:childCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>

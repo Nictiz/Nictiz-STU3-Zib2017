@@ -1,5 +1,5 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-NursingIntervention" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention" />
   <version value="1.0.0" />
@@ -25,6 +25,11 @@
     <uri value="https://zibs.nl/wiki/NursingIntervention-v3.1(2017EN)" />
     <name value="HCIM NursingIntervention-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Procedure" />
@@ -38,8 +43,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.1" />
-      <comment value="NursingIntervention"/>
-            </mapping>
+        <comment value="NursingIntervention"/>
+      </mapping>
     </element>
     <element id="Procedure.extension">
       <path value="Procedure.extension" />
@@ -65,8 +70,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.14" />
-      <comment value="TreatmentObjective"/>
-            </mapping>
+        <comment value="TreatmentObjective"/>
+      </mapping>
     </element>
     <element id="Procedure.extension:TreatmentObjective.valueReference:valueReference">
       <path value="Procedure.extension.valueReference" />
@@ -89,8 +94,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.4" />
-      <comment value="Frequency"/>
-            </mapping>
+        <comment value="Frequency"/>
+      </mapping>
     </element>
     <element id="Procedure.extension:Frequency.valueTiming:valueTiming">
       <path value="Procedure.extension.valueTiming" />
@@ -99,9 +104,7 @@
     <element id="Procedure.extension:Interval">
       <path value="Procedure.extension" />
       <sliceName value="Interval" />
-      <short value="Interval" />
       <definition value="Interval indicates the time between planned procedures.&#xD;&#xA;When entering an interval, the focus is on the time between the consecutive procedures, such as in the treatment of a wound, for example. The exact times are of lesser importance." />
-      <alias value="Interval" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -110,8 +113,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.3" />
-      <comment value="Interval"/>
-            </mapping>
+        <comment value="Interval"/>
+      </mapping>
     </element>
     <element id="Procedure.extension:Instruction">
       <path value="Procedure.extension" />
@@ -119,7 +122,6 @@
       <short value="Instruction" />
       <definition value="Instructions for performing the nursing action. This is particularly at issue when the action is performed by the patient himself or by a caregiver." />
       <alias value="Instructie" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -128,8 +130,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.18" />
-      <comment value="Instruction"/>
-            </mapping>
+        <comment value="Instruction"/>
+      </mapping>
     </element>
     <element id="Procedure.extension:Requester">
       <path value="Procedure.extension" />
@@ -144,8 +146,16 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.8" />
-      <comment value="Requester"/>
-            </mapping>
+        <comment value="Requester"/>
+      </mapping>
+    </element>
+    <element id="Procedure.identifier">
+      <path value="Procedure.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
     </element>
     <element id="Procedure.category">
       <path value="Procedure.category" />
@@ -161,21 +171,21 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Procedure.category.coding:NursingInterventionCode">
+    <element id="Procedure.category.coding:nursingInterventionCode">
       <path value="Procedure.category.coding" />
       <sliceName value="nursingInterventionCode" />
       <short value="NursingInterventionCode" />
       <definition value="Category snomed code used for indexing/retrieval of the HCIM NursingIntervention." />
     </element>
-    <element id="Procedure.category.coding:NursingInterventionCode.system">
+    <element id="Procedure.category.coding:nursingInterventionCode.system">
       <path value="Procedure.category.coding.system" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Procedure.category.coding:NursingInterventionCode.code">
+    <element id="Procedure.category.coding:nursingInterventionCode.code">
       <path value="Procedure.category.coding.code" />
       <fixedCode value="9632001" />
     </element>
-    <element id="Procedure.category.coding:NursingInterventionCode.display">
+    <element id="Procedure.category.coding:nursingInterventionCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
@@ -191,8 +201,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.2" />
-      <comment value="Intervention"/>
-            </mapping>
+        <comment value="Intervention"/>
+      </mapping>
     </element>
     <element id="Procedure.code.coding">
       <path value="Procedure.code.coding" />
@@ -238,6 +248,11 @@
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
     </element>
     <element id="Procedure.performed[x]:performedPeriod">
       <path value="Procedure.performedPeriod" />
@@ -245,6 +260,11 @@
       <type>
         <code value="Period" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
     </element>
     <element id="Procedure.performed[x]:performedPeriod.start">
       <path value="Procedure.performedPeriod.start" />
@@ -254,8 +274,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.11" />
-      <comment value="ProcedureStartDateTime"/>
-            </mapping>
+        <comment value="ProcedureStartDateTime"/>
+      </mapping>
     </element>
     <element id="Procedure.performed[x]:performedPeriod.end">
       <path value="Procedure.performedPeriod.end" />
@@ -265,8 +285,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.12" />
-      <comment value="ProcedureEndDateTime"/>
-            </mapping>
+        <comment value="ProcedureEndDateTime"/>
+      </mapping>
     </element>
     <element id="Procedure.performer">
       <path value="Procedure.performer" />
@@ -277,8 +297,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.15" />
-      <comment value="Performer"/>
-            </mapping>
+        <comment value="Performer"/>
+      </mapping>
     </element>
     <element id="Procedure.performer.actor">
       <path value="Procedure.performer.actor" />
@@ -299,18 +319,18 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.7" />
-      <comment value="HealthcareProvider"/>
-            </mapping>
+        <comment value="HealthcareProvider"/>
+      </mapping>
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.16" />
-      <comment value="Caregiver"/>
-            </mapping>
+        <comment value="Caregiver"/>
+      </mapping>
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.17" />
-      <comment value="Patient"/>
-            </mapping>
+        <comment value="Patient"/>
+      </mapping>
     </element>
     <element id="Procedure.reasonReference">
       <path value="Procedure.reasonReference" />
@@ -328,8 +348,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.6" />
-      <comment value="Indication"/>
-            </mapping>
+        <comment value="Indication"/>
+      </mapping>
     </element>
     <element id="Procedure.note.text">
       <path value="Procedure.note.text" />
@@ -339,8 +359,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.5" />
-      <comment value="Comment"/>
-            </mapping>
+        <comment value="Comment"/>
+      </mapping>
     </element>
     <element id="Procedure.usedReference.extension">
       <path value="Procedure.usedReference.extension" />
@@ -364,8 +384,8 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.13" />
-      <comment value="MedicalDevice"/>
-            </mapping>
+        <comment value="MedicalDevice"/>
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>

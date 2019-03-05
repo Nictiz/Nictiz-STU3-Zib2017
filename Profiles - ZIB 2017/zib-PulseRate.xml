@@ -1,139 +1,104 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-PulseRate"/>
-    <meta>
-        <lastUpdated value="2018-07-18T12:02:17.702+02:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-PulseRate"/>
-    <version value="1.0"/>
-    <name value="Zib-PulseRate"/>
-    <title value="HCIM PulseRate"/>
-    <status value="active"/>
-    <date value="2018-07-18T12:02:17.702+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="This profile is derived from the HL7 Vital Signs profile for pulse rate in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) PulseRate, version 3.1 and to provide extensions for missing concepts."/>
-    <purpose value="The pulse rate is expressed in the number of tangible pulsations of an artery per minute, usually the a. radialis, a. carotis or a. femoralis."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-pulserate-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/PulseRate-v3.1(2017EN)"/>
-        <name value="HCIM PulseRate-v3.1(2017EN)"/>
-        <comment value="Known issue: due to missing terminology, there's no component mapping for NL-CM:12.7.5 (https://bits.nictiz.nl/projects/ZIB/issues/ZIB-689)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-            <short value="PulseRate"/>
-            <definition value="This profile defines how to represent pulse rate observations in FHIR using a standard LOINC code and UCUM units of measure.&#xD;&#xA;The element contains the value of the pulse rate measured. The pulse rate is expressed in the number of tangible pulsations of an artery per minute, usually the a. radialis, a. carotis or a. femoralis."/>
-            <alias value="Polsfrequentie"/>
-            <mapping>
-                <identity value="hcim-pulserate-v3.1-2017EN"/>
-                <map value="NL-CM:12.7.1"/>
-                <comment value="PulseRate"/>
-            </mapping>
-        </element>
-        <element id="Observation.subject">
-            <path value="Observation.subject"/>
-            <short value="Patient"/>
-            <alias value="Patiënt"/>
-            <min value="1"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-        </element>
-        <element id="Observation.context">
-            <path value="Observation.context"/>
-            <short value="Encounter during which this observation is made"/>
-            <definition value="The encounter during which this journal entry was made."/>
-            <min value="1"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.nl/fhir/StructureDefinition/nl-core-episodeofcare"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter"/>
-            </type>
-        </element>
-        <element id="Observation.effective[x]">
-            <path value="Observation.effective[x]"/>
-            <short value="PulseRateDateTime"/>
-            <definition value="Date and time of the pulse frequency measurement."/>
-            <alias value="PolsfrequentieDatumTijd"/>
-            <mapping>
-                <identity value="hcim-pulserate-v3.1-2017EN"/>
-                <map value="NL-CM:12.7.3"/>
-                <comment value="PulseRateDateTime"/>
-            </mapping>
-        </element>
-        <element id="Observation.performer">
-            <path value="Observation.performer"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-            </type>
-        </element>
-        <element id="Observation.valueQuantity:valueQuantity">
-            <path value="Observation.valueQuantity"/>
-            <short value="PulseRateValue"/>
-            <definition value="The pulse frequency measured as the number of tangible pulsations of an artery per minute."/>
-            <alias value="PolsfrequentieWaarde"/>
-            <min value="1"/>
-            <mapping>
-                <identity value="hcim-pulserate-v3.1-2017EN"/>
-                <map value="NL-CM:12.7.2"/>
-                <comment value="PulseRateValue"/>
-            </mapping>
-        </element>
-        <element id="Observation.comment">
-            <path value="Observation.comment"/>
-            <short value="Explanation"/>
-            <definition value="Explanation of any problems or factors that may influence the measurement. Further explanation can be provided here as well."/>
-            <alias value="Toelichting"/>
-            <mapping>
-                <identity value="hcim-pulserate-v3.1-2017EN"/>
-                <map value="NL-CM:12.7.4"/>
-                <comment value="Comment"/>
-            </mapping>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-PulseRate" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-PulseRate" />
+  <version value="1.0.0" />
+  <name value="Zib PulseRate" />
+  <title value="HCIM PulseRate" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is derived from the HL7 Vital Signs profile for pulse rate in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) PulseRate, version 3.1 and to provide extensions for missing concepts." />
+  <purpose value="The pulse rate is expressed in the number of tangible pulsations of an artery per minute, usually the a. radialis, a. carotis or a. femoralis." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-pulserate-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/PulseRate-v3.1(2017EN)" />
+    <name value="HCIM PulseRate-v3.1(2017EN)" />
+    <comment value="Known issue: due to missing terminology, there's no component mapping for NL-CM:12.7.5 (https://bits.nictiz.nl/projects/ZIB/issues/ZIB-689)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="PulseRate" />
+      <definition value="This profile defines how to represent pulse rate observations in FHIR using a standard LOINC code and UCUM units of measure.&#xD;&#xA;The element contains the value of the pulse rate measured. The pulse rate is expressed in the number of tangible pulsations of an artery per minute, usually the a. radialis, a. carotis or a. femoralis." />
+      <alias value="Polsfrequentie" />
+      <mapping>
+        <identity value="hcim-pulserate-v3.1-2017EN" />
+        <map value="NL-CM:12.7.1" />
+        <comment value="PulseRate" />
+      </mapping>
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <short value="Patient" />
+      <alias value="Patiënt" />
+    </element>
+    <element id="Observation.context">
+      <path value="Observation.context" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-encounter" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
+      </type>
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
+      <short value="PulseRateDateTime" />
+      <definition value="Date and time of the pulse frequency measurement." />
+      <alias value="PolsfrequentieDatumTijd" />
+      <mapping>
+        <identity value="hcim-pulserate-v3.1-2017EN" />
+        <map value="NL-CM:12.7.3" />
+        <comment value="PulseRateDateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]" />
+      <short value="PulseRateValue" />
+      <definition value="The pulse frequency measured as the number of tangible pulsations of an artery per minute." />
+      <alias value="PolsfrequentieWaarde" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-pulserate-v3.1-2017EN" />
+        <map value="NL-CM:12.7.2" />
+        <comment value="PulseRateValue" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Explanation" />
+      <definition value="Explanation of any problems or factors that may influence the measurement. Further explanation can be provided here as well." />
+      <mapping>
+        <identity value="hcim-pulserate-v3.1-2017EN" />
+        <map value="NL-CM:12.7.4" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

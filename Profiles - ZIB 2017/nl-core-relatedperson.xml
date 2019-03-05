@@ -1,390 +1,427 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="nl-core-relatedperson"/>
-    <meta>
-        <versionId value="4"/>
-        <lastUpdated value="2018-02-26T16:12:12.61+01:00"/>
-    </meta>
-    <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-    <version value="2.0"/>
-    <name value="nl core relatedperson"/>
-    <title value="nl-core-relatedperson"/>
-    <status value="active"/>
-    <publisher value="HL7 Netherlands"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description
-        value="A RelatedPerson resource as defined by the Dutch Health and Care Information models or HCIM (Dutch: Zorginformatiebouwsteen or ZIB) ContactPersoon version 3.1 (Release 2017). The HCIM ContactPerson is meant to deal with both related persons and contacts. This profile targets instantiations of the HCIM ContactPerson who are related persons. An HCIM ContactPerson who is a contact for a patient, belongs in Patient.contact. If a person is both a related person and a contact person, then some data duplication is inevitable. This may or may not be resolved in a future version of the Patient/RelatedPerson resources."/>
-    <purpose value="Recording relevant information to identify the contacts."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-contactperson-v1.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/ContactPerson-v1.2(2015EN)"/>
-        <name value="HCIM ContactPerson-v1.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-contactperson-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/ContactPerson-v3.0(2016EN)"/>
-        <name value="HCIM ContactPerson-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-contactperson-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/ContactPerson-v3.1(2017EN)"/>
-        <name value="HCIM ContactPerson-v3.1(2017EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN"/>
-        <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)"/>
-        <name value="HCIM Patient-v2.0.1(2015EN)"/>
-        <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-contactinformation-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)"/>
-        <name value="HCIM Patient-v3.0(2016EN)"/>
-        <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs."/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN"/>
-        <uri value="https://zibs.nl/wiki/ContactInformation-v1.0(2017EN)"/>
-        <name value="HCIM ContactInformation-v1.0(2017EN)"/>
-        <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs."/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-payer-v1.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/Payer-v1.2(2015EN)"/>
-        <name value="HCIM Payer-v1.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-payer-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/Payer-v3.0(2016EN)"/>
-        <name value="HCIM Payer-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-payer-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/Payer-v3.1(2017EN)"/>
-        <name value="HCIM Payer-v3.1(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="RelatedPerson"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="RelatedPerson">
-            <path value="RelatedPerson"/>
-            <mapping>
-                <identity value="hcim-contactperson-v1.2-2015EN"/>
-                <map value="NL-CM:3.1.1"/>
-                <comment value="Contact"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.0-2016EN"/>
-                <map value="NL-CM:3.1.1"/>
-                <comment value="Contact"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.1-2017EN"/>
-                <map value="NL-CM:3.1.1"/>
-                <comment value="Contact"/>
-            </mapping>
-        </element>
-        <element id="RelatedPerson.extension">
-            <path value="RelatedPerson.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="RelatedPerson.extension:role">
-            <path value="RelatedPerson.extension"/>
-            <sliceName value="role"/>
-            <short value="Role"/>
-            <definition value="Defines the role of the contact in relation to the patient."/>
-            <alias value="Rol"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role"/>
-            </type>
-            <mapping>
-                <identity value="hcim-contactperson-v1.2-2015EN"/>
-                <map value="NL-CM:3.1.2"/>
-                <comment value="Role"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.0-2016EN"/>
-                <map value="NL-CM:3.1.2"/>
-                <comment value="Role"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.1-2017EN"/>
-                <map value="NL-CM:3.1.2"/>
-                <comment value="Role"/>
-            </mapping>
-        </element>
-        <element id="RelatedPerson.extension:role.valueCodeableConcept">
-            <path value="RelatedPerson.extension.valueCodeableConcept"/>
-            <binding>
-                <strength value="extensible"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20171231000000"/>
-                    <display value="RolCodelijst"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="RelatedPerson.patient">
-            <path value="RelatedPerson.patient"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-        </element>
-        <element id="RelatedPerson.relationship">
-            <path value="RelatedPerson.relationship"/>
-            <short value="Relationship"/>
-            <definition value="Defines the contact’s familial relationship to the patient."/>
-            <alias value="Relatie"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="PatientRelationshipType"/>
-                </extension>
-                <strength value="extensible"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.1--20171231000000"/>
-                    <display value="RelatieCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-contactperson-v1.2-2015EN"/>
-                <map value="NL-CM:3.1.3"/>
-                <comment value="Relationship"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.0-2016EN"/>
-                <map value="NL-CM:3.1.3"/>
-                <comment value="Relationship"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.1-2017EN"/>
-                <map value="NL-CM:3.1.3"/>
-                <comment value="Relationship"/>
-            </mapping>
-        </element>
-        <element id="RelatedPerson.name">
-            <path value="RelatedPerson.name"/>
-            <short value="NameInformation"/>
-            <definition value="Full name of the contact."/>
-            <alias value="Naamgegevens"/>
-            <type>
-                <code value="HumanName"/>
-                <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname"/>
-            </type>
-            <mapping>
-                <identity value="hcim-contactperson-v1.2-2015EN"/>
-                <map value="NL-CM:3.1.4"/>
-                <comment value="Name"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.0-2016EN"/>
-                <map value="NL-CM:3.1.4"/>
-                <comment value="Name"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.1-2017EN"/>
-                <map value="NL-CM:3.1.4"/>
-                <comment value="NameInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v1.2-2015EN"/>
-                <map value="NL-CM:1.1.5"/>
-                <comment value="PayerName"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.0-2016EN"/>
-                <map value="NL-CM:1.1.5"/>
-                <comment value="PayerName"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.1-2017EN"/>
-                <map value="NL-CM:1.1.5"/>
-                <comment value="PayerName"/>
-            </mapping>
-        </element>
-        <element id="RelatedPerson.telecom">
-            <path value="RelatedPerson.telecom"/>
-            <short value="ContactInformation"/>
-            <alias value="Contactgegevens"/>
-            <mapping>
-                <identity value="hcim-contactperson-v1.2-2015EN"/>
-                <map value="NL-CM:3.1.6"/>
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.0-2016EN"/>
-                <map value="NL-CM:3.1.6"/>
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.1-2017EN"/>
-                <map value="NL-CM:3.1.6"/>
-                <comment value="ContactInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.5"/>
-                <comment value="ContactInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.5"/>
-                <comment value="ContactInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN"/>
-                <map value="NL-CM:20.6.4"/>
-                <comment value="TelephoneNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v1.2-2015EN"/>
-                <map value="NL-CM:1.1.12"/>
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.0-2016EN"/>
-                <map value="NL-CM:1.1.12"/>
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.1-2017EN"/>
-                <map value="NL-CM:1.1.12"/>
-                <comment value="ContactInformation"/>
-            </mapping>
-        </element>
-        <element id="RelatedPerson.telecom.system">
-            <path value="RelatedPerson.telecom.system"/>
-            <min value="1"/>
-        </element>
-        <element id="RelatedPerson.telecom.value">
-            <path value="RelatedPerson.telecom.value"/>
-            <short value="TelephoneNumber / E-mailAddress"/>
-            <alias value="Telefoonnummer"/>
-            <alias value="EmailAdres"/>
-            <min value="1"/>
-            <mapping>
-                <identity value="hcim-contactinformation-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.23"/>
-                <comment value="TelephoneNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.23"/>
-                <comment value="TelephoneNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN"/>
-                <map value="NL-CM:20.6.4"/>
-                <comment value="TelephoneNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.20"/>
-                <comment value="E-mailAddress"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.20"/>
-                <comment value="E-mailAddress"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN"/>
-                <map value="NL-CM:20.6.7"/>
-                <comment value="EmailAddress"/>
-            </mapping>
-        </element>
-        <element id="RelatedPerson.telecom.use">
-            <path value="RelatedPerson.telecom.use"/>
-            <short value="NumberType / E-mailAddressType"/>
-            <alias value="NummerSoort"/>
-            <alias value="EmailSoort"/>
-            <mapping>
-                <identity value="hcim-contactinformation-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.22"/>
-                <comment value="NumberType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.22"/>
-                <comment value="NumberType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN"/>
-                <map value="NL-CM:20.6.8"/>
-                <comment value="EmailAddressType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.19"/>
-                <comment value="E-mailAddressType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.19"/>
-                <comment value="E-mailAddressType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN"/>
-                <map value="NL-CM:20.6.6"/>
-                <comment value="NumberType"/>
-            </mapping>
-        </element>
-        <element id="RelatedPerson.address">
-            <path value="RelatedPerson.address"/>
-            <short value="AddressInformation"/>
-            <alias value="Adresgegevens"/>
-            <type>
-                <code value="Address"/>
-                <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address"/>
-            </type>
-            <mapping>
-                <identity value="hcim-contactperson-v1.2-2015EN"/>
-                <map value="NL-CM:3.1.5"/>
-                <comment value="Address"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.0-2016EN"/>
-                <map value="NL-CM:3.1.5"/>
-                <comment value="Address"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.1-2017EN"/>
-                <map value="NL-CM:3.1.5"/>
-                <comment value="AddressInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v1.2-2015EN"/>
-                <map value="NL-CM:1.1.17"/>
-                <comment value="Address"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.0-2016EN"/>
-                <map value="NL-CM:1.1.17"/>
-                <comment value="Address"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.1-2017EN"/>
-                <map value="NL-CM:1.1.17"/>
-                <comment value="AddressInformation"/>
-            </mapping>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="nl-core-relatedperson" />
+  <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+  <version value="2.0.0" />
+  <name value="nl core relatedperson" />
+  <title value="nl-core-relatedperson" />
+  <status value="active" />
+  <publisher value="HL7 Netherlands" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A RelatedPerson resource as defined by the Dutch Health and Care Information models or HCIM (Dutch: Zorginformatiebouwsteen or ZIB) ContactPersoon version 3.1 (Release 2017). The HCIM ContactPerson is meant to deal with both related persons and contacts. This profile targets instantiations of the HCIM ContactPerson who are related persons. An HCIM ContactPerson who is a contact for a patient, belongs in Patient.contact. If a person is both a related person and a contact person, then some data duplication is inevitable. This may or may not be resolved in a future version of the Patient/RelatedPerson resources." />
+  <purpose value="Recording relevant information to identify the contacts." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-contactperson-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/ContactPerson-v1.2(2015EN)" />
+    <name value="HCIM ContactPerson-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactperson-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/ContactPerson-v3.0(2016EN)" />
+    <name value="HCIM ContactPerson-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactperson-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/ContactPerson-v3.1(2017EN)" />
+    <name value="HCIM ContactPerson-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
+    <name value="HCIM Patient-v2.0.1(2015EN)" />
+    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactinformation-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
+    <name value="HCIM Patient-v3.0(2016EN)" />
+    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactinformation-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/ContactInformation-v1.0(2017EN)" />
+    <name value="HCIM ContactInformation-v1.0(2017EN)" />
+    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
+  </mapping>
+  <mapping>
+    <identity value="hcim-payer-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/Payer-v1.2(2015EN)" />
+    <name value="HCIM Payer-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-payer-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Payer-v3.0(2016EN)" />
+    <name value="HCIM Payer-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-payer-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Payer-v3.1(2017EN)" />
+    <name value="HCIM Payer-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="RelatedPerson" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="RelatedPerson">
+      <path value="RelatedPerson" />
+      <mapping>
+        <identity value="hcim-contactperson-v1.2-2015EN" />
+        <map value="NL-CM:3.1.1" />
+        <comment value="Contact" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.0-2016EN" />
+        <map value="NL-CM:3.1.1" />
+        <comment value="Contact" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.1-2017EN" />
+        <map value="NL-CM:3.1.1" />
+        <comment value="Contact" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.5" />
+        <comment value="RelatedPersonAsInformationSource::ContactPerson" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.10" />
+        <comment value="RelatedPersonAsAuthor::ContactPerson" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.13" />
+        <comment value="RelatedPersonAsSubject::ContactPerson" />
+      </mapping>
+    </element>
+    <element id="RelatedPerson.extension">
+      <path value="RelatedPerson.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="RelatedPerson.extension:role">
+      <path value="RelatedPerson.extension" />
+      <sliceName value="role" />
+      <short value="Role" />
+      <definition value="Defines the role of the contact in relation to the patient." />
+      <alias value="Rol" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role" />
+      </type>
+      <mapping>
+        <identity value="hcim-contactperson-v1.2-2015EN" />
+        <map value="NL-CM:3.1.2" />
+        <comment value="Role" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.0-2016EN" />
+        <map value="NL-CM:3.1.2" />
+        <comment value="Role" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.1-2017EN" />
+        <map value="NL-CM:3.1.2" />
+        <comment value="Role" />
+      </mapping>
+    </element>
+    <element id="RelatedPerson.extension:role.valueCodeableConcept:valueCodeableConcept">
+      <path value="RelatedPerson.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20171231000000" />
+          <display value="RolCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="RelatedPerson.identifier">
+      <path value="RelatedPerson.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="RelatedPerson.patient">
+      <path value="RelatedPerson.patient" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="RelatedPerson.relationship">
+      <path value="RelatedPerson.relationship" />
+      <short value="Relationship" />
+      <definition value="Defines the contact’s familial relationship to the patient." />
+      <alias value="Relatie" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PatientRelationshipType" />
+        </extension>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.1--20171231000000" />
+          <display value="RelatieCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-contactperson-v1.2-2015EN" />
+        <map value="NL-CM:3.1.3" />
+        <comment value="Relationship" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.0-2016EN" />
+        <map value="NL-CM:3.1.3" />
+        <comment value="Relationship" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.1-2017EN" />
+        <map value="NL-CM:3.1.3" />
+        <comment value="Relationship" />
+      </mapping>
+    </element>
+    <element id="RelatedPerson.name">
+      <path value="RelatedPerson.name" />
+      <short value="NameInformation" />
+      <definition value="Full name of the contact." />
+      <alias value="Naamgegevens" />
+      <type>
+        <code value="HumanName" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname" />
+      </type>
+      <mapping>
+        <identity value="hcim-contactperson-v1.2-2015EN" />
+        <map value="NL-CM:3.1.4" />
+        <comment value="Name" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.0-2016EN" />
+        <map value="NL-CM:3.1.4" />
+        <comment value="Name" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.1-2017EN" />
+        <map value="NL-CM:3.1.4" />
+        <comment value="NameInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v1.2-2015EN" />
+        <map value="NL-CM:1.1.5" />
+        <comment value="PayerName" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.0-2016EN" />
+        <map value="NL-CM:1.1.5" />
+        <comment value="PayerName" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.1-2017EN" />
+        <map value="NL-CM:1.1.5" />
+        <comment value="PayerName" />
+      </mapping>
+    </element>
+    <element id="RelatedPerson.telecom">
+      <path value="RelatedPerson.telecom" />
+      <short value="ContactInformation" />
+      <alias value="Contactgegevens" />
+      <mapping>
+        <identity value="hcim-contactperson-v1.2-2015EN" />
+        <map value="NL-CM:3.1.6" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.0-2016EN" />
+        <map value="NL-CM:3.1.6" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.1-2017EN" />
+        <map value="NL-CM:3.1.6" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.5" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.5" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.4" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v1.2-2015EN" />
+        <map value="NL-CM:1.1.12" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.0-2016EN" />
+        <map value="NL-CM:1.1.12" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.1-2017EN" />
+        <map value="NL-CM:1.1.12" />
+        <comment value="ContactInformation" />
+      </mapping>
+    </element>
+    <element id="RelatedPerson.telecom.system">
+      <path value="RelatedPerson.telecom.system" />
+      <min value="1" />
+    </element>
+    <element id="RelatedPerson.telecom.value">
+      <path value="RelatedPerson.telecom.value" />
+      <short value="TelephoneNumber / E-mailAddress" />
+      <alias value="Telefoonnummer" />
+      <alias value="EmailAdres" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.23" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.23" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.4" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.20" />
+        <comment value="E-mailAddress" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.20" />
+        <comment value="E-mailAddress" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.7" />
+        <comment value="EmailAddress" />
+      </mapping>
+    </element>
+    <element id="RelatedPerson.telecom.use">
+      <path value="RelatedPerson.telecom.use" />
+      <short value="NumberType / E-mailAddressType" />
+      <alias value="NummerSoort" />
+      <alias value="EmailSoort" />
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.22" />
+        <comment value="NumberType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.22" />
+        <comment value="NumberType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.8" />
+        <comment value="EmailAddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.19" />
+        <comment value="E-mailAddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.19" />
+        <comment value="E-mailAddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.6" />
+        <comment value="NumberType" />
+      </mapping>
+    </element>
+    <element id="RelatedPerson.address">
+      <path value="RelatedPerson.address" />
+      <short value="AddressInformation" />
+      <alias value="Adresgegevens" />
+      <type>
+        <code value="Address" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address" />
+      </type>
+      <mapping>
+        <identity value="hcim-contactperson-v1.2-2015EN" />
+        <map value="NL-CM:3.1.5" />
+        <comment value="Address" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.0-2016EN" />
+        <map value="NL-CM:3.1.5" />
+        <comment value="Address" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.1-2017EN" />
+        <map value="NL-CM:3.1.5" />
+        <comment value="AddressInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v1.2-2015EN" />
+        <map value="NL-CM:1.1.17" />
+        <comment value="Address" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.0-2016EN" />
+        <map value="NL-CM:1.1.17" />
+        <comment value="Address" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.1-2017EN" />
+        <map value="NL-CM:1.1.17" />
+        <comment value="AddressInformation" />
+      </mapping>
+    </element>
+    <element id="RelatedPerson.period">
+      <path value="RelatedPerson.period" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

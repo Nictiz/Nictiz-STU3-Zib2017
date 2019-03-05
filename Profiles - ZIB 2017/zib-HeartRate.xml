@@ -1,15 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-HeartRate" />
-  <meta>
-    <lastUpdated value="2017-09-11T09:35:57.691+02:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HeartRate" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib HeartRate" />
   <title value="HCIM HeartRate" />
   <status value="active" />
-  <date value="2017-09-06T12:02:17.702+02:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -20,7 +16,7 @@
     </telecom>
   </contact>
   <description value="This profile is derived from the HL7 Vital Signs profile for heart rate in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) Heartrate v3.1, release 2017, and to provide extensions for missing concepts." />
-  <purpose value="Obtaining information on circulation and heart function by measuring the heartbeat. " />
+  <purpose value="Obtaining information on circulation and heart function by measuring the heartbeat." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -38,6 +34,11 @@
     <uri value="https://zibs.nl/wiki/HeartRate-v3.1(2017EN)" />
     <name value="HCIM HeartRate-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
@@ -54,6 +55,65 @@
         <map value="NL-CM:12.3.1" />
         <comment value="HeartFrequency" />
       </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.0-2016EN" />
+        <map value="NL-CM:12.3.1" />
+        <comment value="HeartRate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.1-2017EN" />
+        <map value="NL-CM:12.3.1" />
+        <comment value="HeartRate" />
+      </mapping>
+    </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <short value="Patient" />
+      <alias value="Patiënt" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Observation.context">
+      <path value="Observation.context" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-encounter" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
+      </type>
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]" />
@@ -75,9 +135,39 @@
         <map value="NL-CM:12.3.4" />
         <comment value="HeartRateDateTime" />
       </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
     </element>
-    <element id="Observation.valueQuantity">
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Observation.valueQuantity:valueQuantity">
       <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
       <short value="HeartRateValue" />
       <definition value="The heart frequency measured as the number of heartbeats per minute." />
       <alias value="HartfrequentieWaarde" />
@@ -179,6 +269,10 @@
         <map value="NL-CM:12.3.6" />
         <comment value="HeartRateMeasurementMethod" />
       </mapping>
+    </element>
+    <element id="Observation.component.valueQuantity:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
     </element>
   </differential>
 </StructureDefinition>

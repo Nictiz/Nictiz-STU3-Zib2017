@@ -1,454 +1,470 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-AdministrationAgreement"/>
-    <meta>
-        <versionId value="3"/>
-        <lastUpdated value="2018-09-18T16:39:05.96+00:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement"/>
-    <version value="2.1.1"/>
-    <name value="Zib AdministrationAgreement"/>
-    <title value="HCIM AdministrationAgreement"/>
-    <status value="active"/>
-    <date value="2018-09-18T16:39:05.96+00:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="This profile is based on the Dutch Health and Care Information (HCIM) models (Dutch: Zorginformatiebouwsteen or ZIB) nl.zorg.Toedieningsafspraak version 1.0, year 2017."/>
-    <purpose value="The goal of the administration agreement is to provide insight into the concrete instructions for administration/use of medication."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-        <uri value="https://zibs.nl/wiki/AdministrationAgreement-v1.0(2017EN)"/>
-        <name value="HCIM AdministrationAgreement-v1.0(2017EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="Medication-Process-v09"/>
-        <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20170829T141253/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html"/>
-        <name value="Medication Process v09"/>
-        <comment value="Language of Medication Process is Dutch."/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-        <uri value="https://zibs.nl/wiki/InstructionsForUse-v1.0(2017EN)"/>
-        <name value="HCIM InstructionsForUse-v1.0(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="MedicationDispense"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="MedicationDispense">
-            <path value="MedicationDispense"/>
-            <short value="AdministrationAgreement"/>
-            <definition value="An administration agreement is the use (or administering) instructions from the pharmacist to the patient (or their representative or administrator), whereby a medication agreement is structured at a concrete level."/>
-            <alias value="Toedieningsafspraak"/>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.20132"/>
-                <comment value="AdministrationAgreement"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.extension">
-            <path value="MedicationDispense.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="MedicationDispense.extension:authoredOn">
-            <path value="MedicationDispense.extension"/>
-            <sliceName value="authoredOn"/>
-            <short value="AdministrationAgreementDateTime"/>
-            <definition value="The time at which the agreement was made."/>
-            <alias value="ToedieningsafspraakDatumTijd"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AuthoredOn"/>
-            </type>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.20133"/>
-                <comment value="AdministrationAgreementDateTime"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.extension:authoredOn.valueDateTime:valueDateTime">
-            <path value="MedicationDispense.extension.valueDateTime"/>
-            <sliceName value="valueDateTime"/>
-        </element>
-        <element id="MedicationDispense.extension:agreementReason">
-            <path value="MedicationDispense.extension"/>
-            <sliceName value="agreementReason"/>
-            <short value="AgreementReason"/>
-            <definition value="Reason for this agreement. This will often be the same reason as the one for the medication agreement. &#xD;&#xA;This field has the option to - if applicable - enter a specific reason for the administration agreement. Examples include: substitution, transfer to GDS, patient request for different product, etc"/>
-            <alias value="RedenAfspraak"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AgreementReason"/>
-            </type>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.22499"/>
-                <comment value="AgreementReason"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.extension:periodOfUse">
-            <path value="MedicationDispense.extension"/>
-            <sliceName value="periodOfUse"/>
-            <short value="PeriodOfUse"/>
-            <definition
-                value="Start date: This is the time at which the agreement was to take effect (or took effect or will take effect). This is the time at which the instructions for use in this agreement start. In the case of an agreement to discontinue use, this is the start date of the original administration agreement. The end date indicates from when the medication is to be discontinued.&#xD;&#xA;&#xD;&#xA;End date: The time at which the period of use ends (or ended or will end). In the case of an agreement to discontinue use, this is the time at which the medication is to be discontinued. To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date.&#xD;&#xA;&#xD;&#xA;With medication for an indefinite period only a start date is indicated."/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse"/>
-            </type>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.22660"/>
-                <comment value="Maps to the &quot;start date&quot; and &quot;end date&quot; portion of the &quot;PeriodOfUse&quot; element "/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.extension:periodOfUse.valuePeriod:valuePeriod">
-            <path value="MedicationDispense.extension.valuePeriod"/>
-            <sliceName value="valuePeriod"/>
-        </element>
-        <element id="MedicationDispense.extension:usageDuration">
-            <path value="MedicationDispense.extension"/>
-            <sliceName value="usageDuration"/>
-            <short value="Duration"/>
-            <definition value="The intended duration of use. E.g. 5 days or 8 weeks. It is not allowed to indicate the duration in months, because different months have a variable duration in days."/>
-            <alias value="Gebruiksduur"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration"/>
-            </type>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.22660"/>
-                <comment value="Maps to the &quot;duration&quot; portion of the &quot;PeriodOfUse&quot; element "/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.extension:usageDuration.valueDuration:valueDuration">
-            <path value="MedicationDispense.extension.valueDuration"/>
-            <sliceName value="valueDuration"/>
-        </element>
-        <element id="MedicationDispense.extension:additionalInformation">
-            <path value="MedicationDispense.extension"/>
-            <sliceName value="additionalInformation"/>
-            <short value="AdministrationAgreementAdditionalInformation"/>
-            <definition value="Additional information includes details on the structure of the agreement made. &#xD;&#xA;&#xD;&#xA;This element mainly contains information that until now has been structured with ZZ rules. The medication-related topics that are now supported by the ZZ rules are best supported with a system functionality. A process has been started for this by Z-index/KNMP. For now, the following list will be used. This list will be replaced by a thesaurus in the G standard at a later stage."/>
-            <alias value="ToedieningsafspraakAanvullendeInformatie"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-AdditionalInformation"/>
-            </type>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.23284"/>
-                <comment value="AdministrationAgreementAdditionalInformation"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.extension:additionalInformation.valueCodeableConcept:valueCodeableConcept">
-            <path value="MedicationDispense.extension.valueCodeableConcept"/>
-            <sliceName value="valueCodeableConcept"/>
-            <example>
-                <label value="Example of AdditionalInformation"/>
-                <valueCodeableConcept>
-                    <coding>
-                        <code value="4"/>
-                        <display value="Medicatieafspraak gewijzigd: dosering"/>
-                    </coding>
-                </valueCodeableConcept>
-            </example>
-            <binding>
-                <strength value="extensible"/>
-                <description value="AdministrationAgreementAdditionalInformation"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.8.2--20171231000000"/>
-                    <display value="ToedieningsafspraakAanvullendeInformatieCodelijst"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="MedicationDispense.extension:medicationTreatment">
-            <path value="MedicationDispense.extension"/>
-            <sliceName value="medicationTreatment"/>
-            <short value="Medication Treatment"/>
-            <definition value="This extension is to describe which overarching medication treatment this information is part of. This is done by the use of an identifier of that medication treatment."/>
-            <comment value="No HCIM concept is available for this element. Therefore a mapping to the relevant element Medication Process data element is provided."/>
-            <alias value="Medicamenteuze behandeling"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment"/>
-            </type>
-            <mapping>
-                <identity value="Medication-Process-v09"/>
-                <map value="mp-dataelement900-22092"/>
-                <comment value="Medicamenteuze behandeling"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.extension:medicationTreatment.valueIdentifier:valueIdentifier">
-            <path value="MedicationDispense.extension.valueIdentifier"/>
-            <sliceName value="valueIdentifier"/>
-        </element>
-        <element id="MedicationDispense.extension:copyIndicator">
-            <path value="MedicationDispense.extension"/>
-            <sliceName value="copyIndicator"/>
-            <short value="copy indicator"/>
-            <alias value="kopie indicator"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-CopyIndicator"/>
-            </type>
-            <mapping>
-                <identity value="Medication-Process-v09"/>
-                <map value="mp-dataelement900-23412"/>
-                <comment value="Kopie Indicator"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.extension:copyIndicator.valueBoolean:valueBoolean">
-            <path value="MedicationDispense.extension.valueBoolean"/>
-            <sliceName value="valueBoolean"/>
-        </element>
-        <element id="MedicationDispense.modifierExtension">
-            <path value="MedicationDispense.modifierExtension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="MedicationDispense.modifierExtension:stopType">
-            <path value="MedicationDispense.modifierExtension"/>
-            <sliceName value="stopType"/>
-            <short value="AdministrationAgreementStopType"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-StopType"/>
-            </type>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.22498"/>
-                <comment value="AdministrationAgreementStopType"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.modifierExtension:stopType.valueCodeableConcept:valueCodeableConcept">
-            <path value="MedicationDispense.modifierExtension.valueCodeableConcept"/>
-            <sliceName value="valueCodeableConcept"/>
-            <binding>
-                <strength value="required"/>
-            </binding>
-        </element>
-        <element id="MedicationDispense.modifierExtension:repeatPeriodCyclicalSchedule">
-            <path value="MedicationDispense.modifierExtension"/>
-            <sliceName value="repeatPeriodCyclicalSchedule"/>
-            <label value="HerhaalperiodeCyclischSchema"/>
-            <short value="RepeatPeriodCyclicalSchedule"/>
-            <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days.&#xD;&#xA;RepeatPeriodCyclicalSchedule"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-RepeatPeriodCyclicalSchedule"/>
-            </type>
-            <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-                <map value="NL-CM:9.12.22505"/>
-                <comment value="RepeatPeriodCyclicalSchedule"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.identifier">
-            <path value="MedicationDispense.identifier"/>
-            <short value="MedicationAdministrationIdentifier"/>
-            <alias value="ToedieningsafspraakIdentificatie"/>
-            <mapping>
-                <identity value="Medication-Process-v09"/>
-                <map value="mp-dataelement900-20134"/>
-                <comment value="Identificatie"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.status">
-            <path value="MedicationDispense.status"/>
-            <short value="CanceledIndicator"/>
-            <definition value="In the event of an error correction, the value of this element shall be 'entered-in-error'."/>
-            <alias value="GeannuleerdIndicator"/>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.23034"/>
-                <comment value="CanceledIndicator"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.category">
-            <path value="MedicationDispense.category"/>
-            <min value="1"/>
-        </element>
-        <element id="MedicationDispense.category.coding">
-            <path value="MedicationDispense.category.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="MedicationDispense.category.coding:administrationAgreementCode">
-            <path value="MedicationDispense.category.coding"/>
-            <sliceName value="administrationAgreementCode"/>
-            <short value="AdministrationAgreementCode"/>
-            <definition value="Category snomed code used for indexing/retrieval of the ZIB AdministrationAgremeent. The snomed code 422037009 for this resource is stated in the Medication Process v09."/>
-            <max value="1"/>
-        </element>
-        <element id="MedicationDispense.category.coding:administrationAgreementCode.system">
-            <path value="MedicationDispense.category.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="MedicationDispense.category.coding:administrationAgreementCode.code">
-            <path value="MedicationDispense.category.coding.code"/>
-            <fixedCode value="422037009"/>
-        </element>
-        <element id="MedicationDispense.category.coding:administrationAgreementCode.display">
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="MedicationDispense.category.coding.display"/>
-            <fixedString value="Provider medication administration instructions (procedure)"/>
-        </element>
-        <element id="MedicationDispense.medication[x]:medicationReference">
-            <path value="MedicationDispense.medicationReference"/>
-            <sliceName value="medicationReference"/>
-            <short value="MedicineForAdministrationAgreement"/>
-            <definition value="Medicine in the AdministrationAgreement."/>
-            <alias value="GeneesmiddelBijToedieningsAfspraak"/>
-            <alias value="Product"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product"/>
-            </type>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.20237"/>
-                <comment value="MedicineForAdministrationAgreement"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.subject">
-            <path value="MedicationDispense.subject"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-            </type>
-        </element>
-        <element id="MedicationDispense.context">
-            <path value="MedicationDispense.context"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare"/>
-            </type>
-        </element>
-        <element id="MedicationDispense.performer">
-            <path value="MedicationDispense.performer"/>
-            <short value="Supplier"/>
-            <definition value="The supplier (pharmacist) that entered the administration agreement."/>
-            <alias value="Verstrekker"/>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.22097"/>
-                <comment value="Supplier. For MP: Use a reference to an nl-core-organization using the actor.reference element"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.performer.actor">
-            <path value="MedicationDispense.performer.actor"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-            </type>
-        </element>
-        <element id="MedicationDispense.performer.onBehalfOf">
-            <path value="MedicationDispense.performer.onBehalfOf"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-        </element>
-        <element id="MedicationDispense.authorizingPrescription">
-            <path value="MedicationDispense.authorizingPrescription"/>
-            <short value="MedicationAgreement"/>
-            <definition value="Relationship to the medication agreement on which the administration agreement is based."/>
-            <alias value="Medicatieafspraak"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
-            </type>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.22394"/>
-                <comment value="MedicationAgreement"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.note">
-            <path value="MedicationDispense.note"/>
-            <short value="Comment"/>
-            <definition value="Comments on the administration agreement."/>
-            <alias value="Toelichting"/>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.22275"/>
-                <comment value="Comment"/>
-            </mapping>
-        </element>
-        <element id="MedicationDispense.dosageInstruction">
-            <path value="MedicationDispense.dosageInstruction"/>
-            <type>
-                <code value="Dosage"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-InstructionsForUse"/>
-            </type>
-            <mapping>
-                <identity value="hcim-administrationagreement-v1.0-2017EN"/>
-                <map value="NL-CM:9.8.22098"/>
-                <comment value="InstructionsForUse"/>
-            </mapping>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-AdministrationAgreement" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
+  <version value="2.1.1" />
+  <name value="Zib AdministrationAgreement" />
+  <title value="HCIM AdministrationAgreement" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is based on the Dutch Health and Care Information (HCIM) models (Dutch: Zorginformatiebouwsteen or ZIB) nl.zorg.Toedieningsafspraak version 1.0, year 2017." />
+  <purpose value="The goal of the administration agreement is to provide insight into the concrete instructions for administration/use of medication." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-administrationagreement-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/AdministrationAgreement-v1.0(2017EN)" />
+    <name value="HCIM AdministrationAgreement-v1.0(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="Medication-Process-v09" />
+    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20170829T141253/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
+    <name value="Medication Process v09" />
+    <comment value="Language of Medication Process is Dutch." />
+  </mapping>
+  <mapping>
+    <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/InstructionsForUse-v1.0(2017EN)" />
+    <name value="HCIM InstructionsForUse-v1.0(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="MedicationDispense" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationDispense" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="MedicationDispense">
+      <path value="MedicationDispense" />
+      <short value="AdministrationAgreement" />
+      <definition value="An administration agreement is the use (or administering) instructions from the pharmacist to the patient (or their representative or administrator), whereby a medication agreement is structured at a concrete level." />
+      <alias value="Toedieningsafspraak" />
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.20132" />
+        <comment value="AdministrationAgreement" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension">
+      <path value="MedicationDispense.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationDispense.extension:authoredOn">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="authoredOn" />
+      <short value="AdministrationAgreementDateTime" />
+      <definition value="The time at which the agreement was made." />
+      <alias value="ToedieningsafspraakDatumTijd" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AuthoredOn" />
+      </type>
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.20133" />
+        <comment value="AdministrationAgreementDateTime" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:authoredOn.valueDateTime:valueDateTime">
+      <path value="MedicationDispense.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
+    </element>
+    <element id="MedicationDispense.extension:agreementReason">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="agreementReason" />
+      <short value="AgreementReason" />
+      <definition value="Reason for this agreement. This will often be the same reason as the one for the medication agreement. &#xD;&#xA;This field has the option to - if applicable - enter a specific reason for the administration agreement. Examples include: substitution, transfer to GDS, patient request for different product, etc" />
+      <alias value="RedenAfspraak" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AgreementReason" />
+      </type>
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.22499" />
+        <comment value="AgreementReason" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:periodOfUse">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="periodOfUse" />
+      <short value="PeriodOfUse" />
+      <definition
+        value="Start date: This is the time at which the agreement was to take effect (or took effect or will take effect). This is the time at which the instructions for use in this agreement start. In the case of an agreement to discontinue use, this is the start date of the original administration agreement. The end date indicates from when the medication is to be discontinued.&#xD;&#xA;&#xD;&#xA;End date: The time at which the period of use ends (or ended or will end). In the case of an agreement to discontinue use, this is the time at which the medication is to be discontinued. To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date.&#xD;&#xA;&#xD;&#xA;With medication for an indefinite period only a start date is indicated." />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse" />
+      </type>
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.22660" />
+        <comment value="Maps to the &quot;start date&quot; and &quot;end date&quot; portion of the &quot;PeriodOfUse&quot; element" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:periodOfUse.valuePeriod:valuePeriod">
+      <path value="MedicationDispense.extension.valuePeriod" />
+      <sliceName value="valuePeriod" />
+    </element>
+    <element id="MedicationDispense.extension:usageDuration">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="usageDuration" />
+      <short value="Duration" />
+      <definition value="The intended duration of use. E.g. 5 days or 8 weeks. It is not allowed to indicate the duration in months, because different months have a variable duration in days." />
+      <alias value="Gebruiksduur" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration" />
+      </type>
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.22660" />
+        <comment value="Maps to the &quot;duration&quot; portion of the &quot;PeriodOfUse&quot; element" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:usageDuration.valueDuration:valueDuration">
+      <path value="MedicationDispense.extension.valueDuration" />
+      <sliceName value="valueDuration" />
+    </element>
+    <element id="MedicationDispense.extension:additionalInformation">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="additionalInformation" />
+      <short value="AdministrationAgreementAdditionalInformation" />
+      <definition value="Additional information includes details on the structure of the agreement made. &#xD;&#xA;&#xD;&#xA;This element mainly contains information that until now has been structured with ZZ rules. The medication-related topics that are now supported by the ZZ rules are best supported with a system functionality. A process has been started for this by Z-index/KNMP. For now, the following list will be used. This list will be replaced by a thesaurus in the G standard at a later stage." />
+      <alias value="ToedieningsafspraakAanvullendeInformatie" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-AdditionalInformation" />
+      </type>
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.23284" />
+        <comment value="AdministrationAgreementAdditionalInformation" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:additionalInformation.valueCodeableConcept:valueCodeableConcept">
+      <path value="MedicationDispense.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <example>
+        <label value="Example of AdditionalInformation" />
+        <valueCodeableConcept>
+          <coding>
+            <code value="4" />
+            <display value="Medicatieafspraak gewijzigd: dosering" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="AdministrationAgreementAdditionalInformation" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.8.2--20171231000000" />
+          <display value="ToedieningsafspraakAanvullendeInformatieCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="MedicationDispense.extension:medicationTreatment">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="medicationTreatment" />
+      <short value="Medication Treatment" />
+      <definition value="This extension is to describe which overarching medication treatment this information is part of. This is done by the use of an identifier of that medication treatment." />
+      <comment value="No HCIM concept is available for this element. Therefore a mapping to the relevant element Medication Process data element is provided." />
+      <alias value="Medicamenteuze behandeling" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment" />
+      </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22092" />
+        <comment value="Medicamenteuze behandeling" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:copyIndicator">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="copyIndicator" />
+      <short value="copy indicator" />
+      <alias value="kopie indicator" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-CopyIndicator" />
+      </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-23412" />
+        <comment value="Kopie Indicator" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:copyIndicator.valueBoolean:valueBoolean">
+      <path value="MedicationDispense.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+    </element>
+    <element id="MedicationDispense.modifierExtension">
+      <path value="MedicationDispense.modifierExtension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationDispense.modifierExtension:stopType">
+      <path value="MedicationDispense.modifierExtension" />
+      <sliceName value="stopType" />
+      <short value="AdministrationAgreementStopType" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-StopType" />
+      </type>
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.22498" />
+        <comment value="AdministrationAgreementStopType" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.modifierExtension:stopType.valueCodeableConcept:valueCodeableConcept">
+      <path value="MedicationDispense.modifierExtension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="required" />
+      </binding>
+    </element>
+    <element id="MedicationDispense.modifierExtension:repeatPeriodCyclicalSchedule">
+      <path value="MedicationDispense.modifierExtension" />
+      <sliceName value="repeatPeriodCyclicalSchedule" />
+      <label value="HerhaalperiodeCyclischSchema" />
+      <short value="RepeatPeriodCyclicalSchedule" />
+      <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days.&#xD;&#xA;RepeatPeriodCyclicalSchedule" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-RepeatPeriodCyclicalSchedule" />
+      </type>
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.22505" />
+        <comment value="RepeatPeriodCyclicalSchedule" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.identifier">
+      <path value="MedicationDispense.identifier" />
+      <short value="MedicationAdministrationIdentifier" />
+      <alias value="ToedieningsafspraakIdentificatie" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-20134" />
+        <comment value="Identificatie" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.status">
+      <path value="MedicationDispense.status" />
+      <short value="CanceledIndicator" />
+      <definition value="In the event of an error correction, the value of this element shall be 'entered-in-error'." />
+      <alias value="GeannuleerdIndicator" />
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.23034" />
+        <comment value="CanceledIndicator" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.category">
+      <path value="MedicationDispense.category" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.category.coding">
+      <path value="MedicationDispense.category.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationDispense.category.coding:administrationAgreementCode">
+      <path value="MedicationDispense.category.coding" />
+      <sliceName value="administrationAgreementCode" />
+      <short value="AdministrationAgreementCode" />
+      <definition value="Category snomed code used for indexing/retrieval of the ZIB AdministrationAgremeent. The snomed code 422037009 for this resource is stated in the Medication Process v09." />
+      <max value="1" />
+    </element>
+    <element id="MedicationDispense.category.coding:administrationAgreementCode.system">
+      <path value="MedicationDispense.category.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="MedicationDispense.category.coding:administrationAgreementCode.code">
+      <path value="MedicationDispense.category.coding.code" />
+      <fixedCode value="422037009" />
+    </element>
+    <element id="MedicationDispense.category.coding:administrationAgreementCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="MedicationDispense.category.coding.display" />
+      <fixedString value="Provider medication administration instructions (procedure)" />
+    </element>
+    <element id="MedicationDispense.medication[x]:medicationReference">
+      <path value="MedicationDispense.medicationReference" />
+      <sliceName value="medicationReference" />
+      <short value="MedicineForAdministrationAgreement" />
+      <definition value="Medicine in the AdministrationAgreement." />
+      <alias value="GeneesmiddelBijToedieningsAfspraak" />
+      <alias value="Product" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product" />
+      </type>
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.20237" />
+        <comment value="MedicineForAdministrationAgreement" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.subject">
+      <path value="MedicationDispense.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.context">
+      <path value="MedicationDispense.context" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+      </type>
+    </element>
+    <element id="MedicationDispense.performer">
+      <path value="MedicationDispense.performer" />
+      <short value="Supplier" />
+      <definition value="The supplier (pharmacist) that entered the administration agreement." />
+      <alias value="Verstrekker" />
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.22097" />
+        <comment value="Supplier. For MP: Use a reference to an nl-core-organization using the actor.reference element" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.performer.actor">
+      <path value="MedicationDispense.performer.actor" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+    <element id="MedicationDispense.performer.onBehalfOf">
+      <path value="MedicationDispense.performer.onBehalfOf" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="MedicationDispense.authorizingPrescription">
+      <path value="MedicationDispense.authorizingPrescription" />
+      <short value="MedicationAgreement" />
+      <definition value="Relationship to the medication agreement on which the administration agreement is based." />
+      <alias value="Medicatieafspraak" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
+      </type>
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.22394" />
+        <comment value="MedicationAgreement" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.note">
+      <path value="MedicationDispense.note" />
+      <short value="Comment" />
+      <definition value="Comments on the administration agreement." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.22275" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction">
+      <path value="MedicationDispense.dosageInstruction" />
+      <type>
+        <code value="Dosage" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-InstructionsForUse" />
+      </type>
+      <mapping>
+        <identity value="hcim-administrationagreement-v1.0-2017EN" />
+        <map value="NL-CM:9.8.22098" />
+        <comment value="InstructionsForUse" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

@@ -1,184 +1,268 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-BodyHeight"/>
-    <meta>
-        <lastUpdated value="2017-09-07T12:35:53.053+02:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyHeight"/>
-    <version value="2.0"/>
-    <name value="Zib BodyHeight"/>
-    <title value="HCIM BodyHeight"/>
-    <status value="active"/>
-    <date value="2017-09-06T14:03:02.813+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="This profile is derived from the HL7 Vital Signs profile for BodyLenght in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) BodyHeight v3.1, release 2017, and to provide extensions for missing concepts."/>
-    <purpose value="Body height is used for various reasons, including to measure growth, such as in babies, children or adolescents, to calculate body surface area, to for example calculate the correct amount of medication, or in combination with body weight to calculate the Body Mass Index. Height is also used to determine a person’s nutritional state."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-bodyheight-v1.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/BodyHeight-v1.2(2015EN)"/>
-        <name value="HCIM BodyHeight-v1.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-bodyheight-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/BodyHeight-v3.0(2016EN)"/>
-        <name value="HCIM BodyHeight-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-bodyheight-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/BodyHeight-v3.1(2017EN)"/>
-        <name value="HCIM BodyHeight-v3.1(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/bodyheight"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-            <short value="BodyHeight"/>
-            <alias value="Lichaamslengte"/>
-            <mapping>
-                <identity value="hcim-bodyheight-v1.2-2015EN"/>
-                <map value="NL-CM:12.2.1"/>
-                <comment value="BodyHeight"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyheight-v3.0-2016EN"/>
-                <map value="NL-CM:12.2.1"/>
-                <comment value="BodyHeight"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyheight-v3.1-2017EN"/>
-                <map value="NL-CM:12.2.1"/>
-                <comment value="BodyHeight"/>
-            </mapping>
-        </element>
-        <element id="Observation.code">
-            <path value="Observation.code"/>
-            <definition value="Loinc code is used to specify the position of the body height measurement."/>
-            <mapping>
-                <identity value="hcim-bodyheight-v1.2-2015EN"/>
-                <map value="NL-CM:12.2.5"/>
-                <comment value="Position"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyheight-v3.0-2016EN"/>
-                <map value="NL-CM:12.2.5"/>
-                <comment value="Position"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyheight-v3.1-2017EN"/>
-                <map value="NL-CM:12.2.5"/>
-                <comment value="Position"/>
-            </mapping>
-        </element>
-        <element id="Observation.code.coding:BodyHeightCodeStanding">
-            <path value="Observation.code.coding"/>
-            <sliceName value="bodyHeightCodeStanding"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:BodyHeightCodeStanding.system">
-            <path value="Observation.code.coding.system"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.code.coding:BodyHeightCodeStanding.code">
-            <path value="Observation.code.coding.code"/>
-            <fixedCode value="8308-9"/>
-        </element>
-        <element id="Observation.code.coding:BodyHeightCodeLying">
-            <path value="Observation.code.coding"/>
-            <sliceName value="bodyHeightCodeLying"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:BodyHeightCodeLying.system">
-            <path value="Observation.code.coding.system"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.code.coding:BodyHeightCodeLying.code">
-            <path value="Observation.code.coding.code"/>
-            <fixedCode value="8306-3"/>
-        </element>
-        <element id="Observation.effective[x]">
-            <path value="Observation.effective[x]"/>
-            <short value="HeightDateTime"/>
-            <definition value="Date and if possible time of body height measurement."/>
-            <alias value="LengteDatumTijd"/>
-            <mapping>
-                <identity value="hcim-bodyheight-v1.2-2015EN"/>
-                <map value="NL-CM:12.2.4"/>
-                <comment value="HeightDateTime"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyheight-v3.0-2016EN"/>
-                <map value="NL-CM:12.2.4"/>
-                <comment value="HeightDateTime"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyheight-v3.1-2017EN"/>
-                <map value="NL-CM:12.2.4"/>
-                <comment value="HeightDateTime"/>
-            </mapping>
-        </element>
-        <element id="Observation.valueQuantity">
-            <path value="Observation.valueQuantity"/>
-            <short value="HeightValue recorded with UCUM"/>
-            <definition value="The element contains the value of the measured body height.&#xD;&#xA;Body height is the height of the human body from heel to scalp, generally measured when standing. Body height is measured in a stretched, horizontal position for very small children or patients that are unable to stand."/>
-            <alias value="LengteWaarde"/>
-            <min value="1"/>
-            <mapping>
-                <identity value="hcim-bodyheight-v1.2-2015EN"/>
-                <map value="NL-CM:12.2.2"/>
-                <comment value="HeightValue"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyheight-v3.0-2016EN"/>
-                <map value="NL-CM:12.2.2"/>
-                <comment value="HeightValue"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyheight-v3.1-2017EN"/>
-                <map value="NL-CM:12.2.2"/>
-                <comment value="HeightValue"/>
-            </mapping>
-        </element>
-        <element id="Observation.comment">
-            <path value="Observation.comment"/>
-            <short value="Comment"/>
-            <definition value="Comment on the body height measurement."/>
-            <alias value="Toelichting"/>
-            <mapping>
-                <identity value="hcim-bodyheight-v1.2-2015EN"/>
-                <map value="NL-CM:12.2.3"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyheight-v3.0-2016EN"/>
-                <map value="NL-CM:12.2.3"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodyheight-v3.1-2017EN"/>
-                <map value="NL-CM:12.2.3"/>
-                <comment value="Comment"/>
-            </mapping>
-        </element>
-        <element id="Observation.device">
-            <path value="Observation.device"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
-            </type>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-BodyHeight" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyHeight" />
+  <version value="2.0.0" />
+  <name value="Zib BodyHeight" />
+  <title value="HCIM BodyHeight" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is derived from the HL7 Vital Signs profile for BodyLenght in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) BodyHeight v3.1, release 2017, and to provide extensions for missing concepts." />
+  <purpose value="Body height is used for various reasons, including to measure growth, such as in babies, children or adolescents, to calculate body surface area, to for example calculate the correct amount of medication, or in combination with body weight to calculate the Body Mass Index. Height is also used to determine a person’s nutritional state." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-bodyheight-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/BodyHeight-v1.2(2015EN)" />
+    <name value="HCIM BodyHeight-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-bodyheight-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/BodyHeight-v3.0(2016EN)" />
+    <name value="HCIM BodyHeight-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-bodyheight-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/BodyHeight-v3.1(2017EN)" />
+    <name value="HCIM BodyHeight-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/bodyheight" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="BodyHeight" />
+      <alias value="Lichaamslengte" />
+      <mapping>
+        <identity value="hcim-bodyheight-v1.2-2015EN" />
+        <map value="NL-CM:12.2.1" />
+        <comment value="BodyHeight" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyheight-v3.0-2016EN" />
+        <map value="NL-CM:12.2.1" />
+        <comment value="BodyHeight" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyheight-v3.1-2017EN" />
+        <map value="NL-CM:12.2.1" />
+        <comment value="BodyHeight" />
+      </mapping>
+    </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <definition value="Loinc code is used to specify the position of the body height measurement." />
+      <mapping>
+        <identity value="hcim-bodyheight-v1.2-2015EN" />
+        <map value="NL-CM:12.2.5" />
+        <comment value="Position" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyheight-v3.0-2016EN" />
+        <map value="NL-CM:12.2.5" />
+        <comment value="Position" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyheight-v3.1-2017EN" />
+        <map value="NL-CM:12.2.5" />
+        <comment value="Position" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding:bodyHeightCodeStanding">
+      <path value="Observation.code.coding" />
+      <sliceName value="bodyHeightCodeStanding" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:bodyHeightCodeStanding.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.code.coding:bodyHeightCodeStanding.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="8308-9" />
+    </element>
+    <element id="Observation.code.coding:bodyHeightCodeLying">
+      <path value="Observation.code.coding" />
+      <sliceName value="bodyHeightCodeLying" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:bodyHeightCodeLying.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.code.coding:bodyHeightCodeLying.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="8306-3" />
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <short value="Patient" />
+      <alias value="Patiënt" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Observation.context">
+      <path value="Observation.context" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-encounter" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
+      </type>
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
+      <short value="HeightDateTime" />
+      <definition value="Date and if possible time of body height measurement." />
+      <alias value="LengteDatumTijd" />
+      <mapping>
+        <identity value="hcim-bodyheight-v1.2-2015EN" />
+        <map value="NL-CM:12.2.4" />
+        <comment value="HeightDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyheight-v3.0-2016EN" />
+        <map value="NL-CM:12.2.4" />
+        <comment value="HeightDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyheight-v3.1-2017EN" />
+        <map value="NL-CM:12.2.4" />
+        <comment value="HeightDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Observation.valueQuantity:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="HeightValue recorded with UCUM" />
+      <definition value="The element contains the value of the measured body height.&#xD;&#xA;Body height is the height of the human body from heel to scalp, generally measured when standing. Body height is measured in a stretched, horizontal position for very small children or patients that are unable to stand." />
+      <alias value="LengteWaarde" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-bodyheight-v1.2-2015EN" />
+        <map value="NL-CM:12.2.2" />
+        <comment value="HeightValue" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyheight-v3.0-2016EN" />
+        <map value="NL-CM:12.2.2" />
+        <comment value="HeightValue" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyheight-v3.1-2017EN" />
+        <map value="NL-CM:12.2.2" />
+        <comment value="HeightValue" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comment on the body height measurement." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-bodyheight-v1.2-2015EN" />
+        <map value="NL-CM:12.2.3" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyheight-v3.0-2016EN" />
+        <map value="NL-CM:12.2.3" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodyheight-v3.1-2017EN" />
+        <map value="NL-CM:12.2.3" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.device">
+      <path value="Observation.device" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+    </element>
+    <element id="Observation.component.valueQuantity:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+    </element>
+  </differential>
 </StructureDefinition>

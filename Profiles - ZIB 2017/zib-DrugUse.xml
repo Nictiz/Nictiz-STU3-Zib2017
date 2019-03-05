@@ -1,429 +1,457 @@
-﻿<StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="zib-DrugUse"/>
-    <meta>
-        <versionId value="1"/>
-        <lastUpdated value="2018-02-14T13:14:04.955+01:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-DrugUse"/>
-    <version value="2.0"/>
-    <name value="Zib DrugUse"/>
-    <title value="HCIM DrugUse"/>
-    <status value="active"/>
-    <date value="2017-01-06T14:29:34.8735644+01:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description
-        value="DrugUse as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.2, release 2017.&#xD;&#xA;&#xD;&#xA;Drugs (or: narcotics, amphetamines, intoxicants, highs, hallucinogenics, illegal substances or dope) is a collective term for drugs and chemical substances with a more or less ‘drugging' (anesthetic, boosting and/or hallucinogenic) effect and which can lead to addiction. Drug [Online] Available at: nl.Wikipedia.org/wiki/drug [Accessed: 11 February 2015].&#xD;&#xA;&#xD;&#xA;This information model describes the information asked of the patient about their drug use."/>
-    <purpose value="Documenting and sharing registration of the drug use, as described in the concept."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-druguse-v1.2.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/DrugUse-v1.2.2(2015EN)"/>
-        <name value="HCIM DrugUse-v1.2.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-druguse-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/DrugUse-v3.0(2016EN)"/>
-        <name value="HCIM DrugUse-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-druguse-v3.2-2017EN"/>
-        <uri value="https://zibs.nl/wiki/DrugUse-v3.2(2017EN)"/>
-        <name value="HCIM DrugUse-v3.2(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-            <short value="DrugUse"/>
-            <definition value="Root concept of the DrugUse information model. This concept contains all data elements of the DrugUse information model."/>
-            <alias value="DrugsGebruik"/>
-            <mapping>
-                <identity value="hcim-druguse-v1.2.2-2015EN"/>
-                <map value="NL-CM:7.4.1"/>
-                <comment value="DrugUse"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.0-2016EN"/>
-                <map value="NL-CM:7.4.1"/>
-                <comment value="DrugUse"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.2-2017EN"/>
-                <map value="NL-CM:7.4.1"/>
-                <comment value="DrugUse"/>
-            </mapping>
-        </element>
-        <element id="Observation.code.coding">
-            <path value="Observation.code.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Observation.code.coding:DrugUseCode">
-            <path value="Observation.code.coding"/>
-            <sliceName value="drugUseCode"/>
-            <short value="DrugUseCode"/>
-        </element>
-        <element id="Observation.code.coding:DrugUseCode.system">
-            <path value="Observation.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.code.coding:DrugUseCode.code">
-            <path value="Observation.code.coding.code"/>
-            <fixedCode value="228366006"/>
-        </element>
-        <element id="Observation.code.coding:DrugUseCode.display">
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="Observation.code.coding.display"/>
-            <fixedString value="Finding relating to drug misuse behavior (finding)"/>
-        </element>
-        <element id="Observation.subject">
-            <path value="Observation.subject"/>
-            <min value="1"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-        </element>
-        <element id="Observation.effective[x]:effectivePeriod">
-            <path value="Observation.effectivePeriod"/>
-            <sliceName value="effectivePeriod"/>
-            <type>
-                <code value="Period"/>
-            </type>
-        </element>
-        <element id="Observation.effective[x]:effectivePeriod.start">
-            <path value="Observation.effectivePeriod.start"/>
-            <short value="StartDate"/>
-            <definition value="The date on which the patient started using."/>
-            <alias value="StartDatum"/>
-            <mapping>
-                <identity value="hcim-druguse-v1.2.2-2015EN"/>
-                <map value="NL-CM:7.4.6"/>
-                <comment value="StartDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.0-2016EN"/>
-                <map value="NL-CM:7.4.6"/>
-                <comment value="StartDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.2-2017EN"/>
-                <map value="NL-CM:7.4.6"/>
-                <comment value="StartDate"/>
-            </mapping>
-        </element>
-        <element id="Observation.effective[x]:effectivePeriod.end">
-            <path value="Observation.effectivePeriod.end"/>
-            <short value="StopDate"/>
-            <definition value="The date on which the patient quit using.&#xD;&#xA;If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."/>
-            <alias value="StopDatum"/>
-            <mapping>
-                <identity value="hcim-druguse-v1.2.2-2015EN"/>
-                <map value="NL-CM:7.4.7"/>
-                <comment value="StopDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.0-2016EN"/>
-                <map value="NL-CM:7.4.7"/>
-                <comment value="StopDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.2-2017EN"/>
-                <map value="NL-CM:7.4.7"/>
-                <comment value="StopDate"/>
-            </mapping>
-        </element>
-        <element id="Observation.performer">
-            <path value="Observation.performer"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-            </type>
-        </element>
-        <element id="Observation.value[x]">
-            <path value="Observation.valueCodeableConcept"/>
-            <short value="DrugUseStatus"/>
-            <definition value="Indication stating whether there was any drug use in the past or present."/>
-            <alias value="DrugGebruikStatus"/>
-            <min value="1"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <example>
-                <label value="Example of DrugsUseStatus"/>
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://snomed.info/sct"/>
-                        <code value="44870007"/>
-                        <display value="Misused drugs in past"/>
-                    </coding>
-                </valueCodeableConcept>
-            </example>
-            <binding>
-                <strength value="extensible"/>
-                <description value="Indication stating whether there was any drug use in the past or present."/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.4.2--20171231000000"/>
-                    <display value="DrugGebruikStatusCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-druguse-v1.2.2-2015EN"/>
-                <map value="NL-CM:7.4.3"/>
-                <comment value="DrugUseStatus"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.0-2016EN"/>
-                <map value="NL-CM:7.4.3"/>
-                <comment value="DrugUseStatus"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.2-2017EN"/>
-                <map value="NL-CM:7.4.3"/>
-                <comment value="DrugUseStatus"/>
-            </mapping>
-        </element>
-        <element id="Observation.comment">
-            <path value="Observation.comment"/>
-            <short value="Comment"/>
-            <definition value="Relevant comment on the drug use."/>
-            <alias value="Toelichting"/>
-            <mapping>
-                <identity value="hcim-druguse-v1.2.2-2015EN"/>
-                <map value="NL-CM:7.4.9"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.0-2016EN"/>
-                <map value="NL-CM:7.4.9"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.2-2017EN"/>
-                <map value="NL-CM:7.4.9"/>
-                <comment value="Comment"/>
-            </mapping>
-        </element>
-        <element id="Observation.component">
-            <path value="Observation.component"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code.coding.code"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Observation.component:DrugOrMedicationType">
-            <path value="Observation.component"/>
-            <sliceName value="DrugOrMedicationType"/>
-            <definition value="Some observations have multiple component observations. These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations."/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:DrugOrMedicationType.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.component:DrugOrMedicationType.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="410942007"/>
-        </element>
-        <element id="Observation.component:DrugOrMedicationType.code.coding.display">
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="Observation.component.code.coding.display"/>
-            <fixedString value="Drug or medicament (substance)"/>
-        </element>
-        <element id="Observation.component:DrugOrMedicationType.value[x]">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <short value="DrugOrMedicationType"/>
-            <definition value="Type of drug used by the patient. The 'DrugOrMedicationTypeCodelist is extensible. If the drug in question is not on the codelist, the list can be extended with a code from the SNOMED CT hierarchy 'Substance; &lt;105590001' or if necessary from the hierarchy 'Pharmaceutical/biologic product; &lt; 373873005'."/>
-            <alias value="DrugsOfGeneesmiddelSoort"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <example>
-                <label value="Example of TypeofDrugOrMedication"/>
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://snomed.info/sct"/>
-                        <code value="373464007"/>
-                        <display value="Ketamine"/>
-                    </coding>
-                </valueCodeableConcept>
-            </example>
-            <binding>
-                <strength value="extensible"/>
-                <description value="Type of drug used by the patient."/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.4.1--20171231000000"/>
-                    <display value="DrugsOfGeneesmiddelSoortCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-druguse-v1.2.2-2015EN"/>
-                <map value="NL-CM:7.4.2"/>
-                <comment value="TypeOfDrugOrMedication"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.0-2016EN"/>
-                <map value="NL-CM:7.4.2"/>
-                <comment value="TypeOfDrugOrMedication"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.2-2017EN"/>
-                <map value="NL-CM:7.4.2"/>
-                <comment value="DrugOrMedicationType"/>
-            </mapping>
-        </element>
-        <element id="Observation.component:RouteOfAdministration">
-            <path value="Observation.component"/>
-            <sliceName value="RouteOfAdministration"/>
-        </element>
-        <element id="Observation.component:RouteOfAdministration.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.component:RouteOfAdministration.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="410675002"/>
-        </element>
-        <element id="Observation.component:RouteOfAdministration.code.coding.display">
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="Observation.component.code.coding.display"/>
-            <fixedString value="Route of administration (attribute)"/>
-        </element>
-        <element id="Observation.component:RouteOfAdministration.value[x]">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <short value="RouteOfAdministration"/>
-            <definition value="The way the drugs are used."/>
-            <alias value="Toedieningsweg"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <example>
-                <label value="Example of RouteOfAdministration"/>
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="2.16.840.1.113883.2.4.4.9"/>
-                        <code value="6"/>
-                        <display value="NASAAL"/>
-                    </coding>
-                </valueCodeableConcept>
-            </example>
-            <binding>
-                <strength value="extensible"/>
-                <description value="The way the drugs are used."/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.4.3--20171231000000"/>
-                    <display value="ToedieningswegCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-druguse-v1.2.2-2015EN"/>
-                <map value="NL-CM:7.4.4"/>
-                <comment value="RouteOfAdministration"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.0-2016EN"/>
-                <map value="NL-CM:7.4.4"/>
-                <comment value="Toedieningsweg"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.2-2017EN"/>
-                <map value="NL-CM:7.4.4"/>
-                <comment value="RouteOfAdministration"/>
-            </mapping>
-        </element>
-        <element id="Observation.component:Amount">
-            <path value="Observation.component"/>
-            <sliceName value="Amount"/>
-        </element>
-        <element id="Observation.component:Amount.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.component:Amount.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="228390007"/>
-        </element>
-        <element id="Observation.component:Amount.code.coding.display">
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="Observation.component.code.coding.display"/>
-            <fixedString value="Frequency of drug misuse (observable entity)"/>
-        </element>
-        <element id="Observation.component:Amount.value[x]">
-            <path value="Observation.component.valueQuantity"/>
-            <short value="Amount"/>
-            <definition value="The number of units (pills, joints, shots etc.) per day, week, month or year or the frequency of use."/>
-            <alias value="Hoeveelheid"/>
-            <type>
-                <code value="Quantity"/>
-            </type>
-            <mapping>
-                <identity value="hcim-druguse-v1.2.2-2015EN"/>
-                <map value="NL-CM:7.4.8"/>
-                <comment value="Amount"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.0-2016EN"/>
-                <map value="NL-CM:7.4.8"/>
-                <comment value="Amount"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-druguse-v3.2-2017EN"/>
-                <map value="NL-CM:7.4.8"/>
-                <comment value="Amount"/>
-            </mapping>
-        </element>
-    </differential>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-DrugUse" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-DrugUse" />
+  <version value="2.0.0" />
+  <name value="Zib DrugUse" />
+  <title value="HCIM DrugUse" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description
+    value="DrugUse as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.2, release 2017.&#xD;&#xA;&#xD;&#xA;Drugs (or: narcotics, amphetamines, intoxicants, highs, hallucinogenics, illegal substances or dope) is a collective term for drugs and chemical substances with a more or less ‘drugging' (anesthetic, boosting and/or hallucinogenic) effect and which can lead to addiction. Drug [Online] Available at: nl.Wikipedia.org/wiki/drug [Accessed: 11 February 2015].&#xD;&#xA;&#xD;&#xA;This information model describes the information asked of the patient about their drug use." />
+  <purpose value="Documenting and sharing registration of the drug use, as described in the concept." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-druguse-v1.2.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/DrugUse-v1.2.2(2015EN)" />
+    <name value="HCIM DrugUse-v1.2.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-druguse-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/DrugUse-v3.0(2016EN)" />
+    <name value="HCIM DrugUse-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-druguse-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/DrugUse-v3.2(2017EN)" />
+    <name value="HCIM DrugUse-v3.2(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="DrugUse" />
+      <definition value="Root concept of the DrugUse information model. This concept contains all data elements of the DrugUse information model." />
+      <alias value="DrugsGebruik" />
+      <mapping>
+        <identity value="hcim-druguse-v1.2.2-2015EN" />
+        <map value="NL-CM:7.4.1" />
+        <comment value="DrugUse" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.0-2016EN" />
+        <map value="NL-CM:7.4.1" />
+        <comment value="DrugUse" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.2-2017EN" />
+        <map value="NL-CM:7.4.1" />
+        <comment value="DrugUse" />
+      </mapping>
+    </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:drugUseCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="drugUseCode" />
+      <short value="DrugUseCode" />
+    </element>
+    <element id="Observation.code.coding:drugUseCode.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:drugUseCode.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="228366006" />
+    </element>
+    <element id="Observation.code.coding:drugUseCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <fixedString value="Finding relating to drug misuse behavior (finding)" />
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Observation.effective[x]:effectivePeriod">
+      <path value="Observation.effectivePeriod" />
+      <sliceName value="effectivePeriod" />
+      <type>
+        <code value="Period" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.effective[x]:effectivePeriod.start">
+      <path value="Observation.effectivePeriod.start" />
+      <short value="StartDate" />
+      <definition value="The date on which the patient started using drugs." />
+      <alias value="StartDatum" />
+      <mapping>
+        <identity value="hcim-druguse-v1.2.2-2015EN" />
+        <map value="NL-CM:7.4.6" />
+        <comment value="StartDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.0-2016EN" />
+        <map value="NL-CM:7.4.6" />
+        <comment value="StartDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.2-2017EN" />
+        <map value="NL-CM:7.4.6" />
+        <comment value="StartDate" />
+      </mapping>
+    </element>
+    <element id="Observation.effective[x]:effectivePeriod.end">
+      <path value="Observation.effectivePeriod.end" />
+      <short value="StopDate" />
+      <definition value="The date on which the patient quit using drugs.&#xD;&#xA;If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time." />
+      <alias value="StopDatum" />
+      <mapping>
+        <identity value="hcim-druguse-v1.2.2-2015EN" />
+        <map value="NL-CM:7.4.7" />
+        <comment value="StopDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.0-2016EN" />
+        <map value="NL-CM:7.4.7" />
+        <comment value="StopDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.2-2017EN" />
+        <map value="NL-CM:7.4.7" />
+        <comment value="StopDate" />
+      </mapping>
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueCodeableConcept">
+      <path value="Observation.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="DrugUseStatus" />
+      <definition value="Indication stating whether there was any drug use in the past or present." />
+      <alias value="DrugGebruikStatus" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of DrugsUseStatus" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="44870007" />
+            <display value="Misused drugs in past" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="Indication stating whether there was any drug use in the past or present." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.4.2--20171231000000" />
+          <display value="DrugGebruikStatusCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-druguse-v1.2.2-2015EN" />
+        <map value="NL-CM:7.4.3" />
+        <comment value="DrugUseStatus" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.0-2016EN" />
+        <map value="NL-CM:7.4.3" />
+        <comment value="DrugUseStatus" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.2-2017EN" />
+        <map value="NL-CM:7.4.3" />
+        <comment value="DrugUseStatus" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Relevant comment on the drug use." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-druguse-v1.2.2-2015EN" />
+        <map value="NL-CM:7.4.9" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.0-2016EN" />
+        <map value="NL-CM:7.4.9" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.2-2017EN" />
+        <map value="NL-CM:7.4.9" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:DrugOrMedicationType">
+      <path value="Observation.component" />
+      <sliceName value="DrugOrMedicationType" />
+      <definition value="Some observations have multiple component observations. These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations." />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:DrugOrMedicationType.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:DrugOrMedicationType.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="410942007" />
+    </element>
+    <element id="Observation.component:DrugOrMedicationType.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Drug or medicament (substance)" />
+    </element>
+    <element id="Observation.component:DrugOrMedicationType.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="DrugOrMedicationType" />
+      <definition value="Type of drug used by the patient. The 'DrugOrMedicationTypeCodelist is extensible. If the drug in question is not on the codelist, the list can be extended with a code from the SNOMED CT hierarchy 'Substance; &lt;105590001' or if necessary from the hierarchy 'Pharmaceutical/biologic product; &lt; 373873005'." />
+      <alias value="DrugsOfGeneesmiddelSoort" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of TypeofDrugOrMedication" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="373464007" />
+            <display value="Ketamine" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="Type of drug used by the patient." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.4.1--20171231000000" />
+          <display value="DrugsOfGeneesmiddelSoortCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-druguse-v1.2.2-2015EN" />
+        <map value="NL-CM:7.4.2" />
+        <comment value="TypeOfDrugOrMedication" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.0-2016EN" />
+        <map value="NL-CM:7.4.2" />
+        <comment value="TypeOfDrugOrMedication" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.2-2017EN" />
+        <map value="NL-CM:7.4.2" />
+        <comment value="DrugOrMedicationType" />
+      </mapping>
+    </element>
+    <element id="Observation.component:RouteOfAdministration">
+      <path value="Observation.component" />
+      <sliceName value="RouteOfAdministration" />
+    </element>
+    <element id="Observation.component:RouteOfAdministration.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:RouteOfAdministration.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="410675002" />
+    </element>
+    <element id="Observation.component:RouteOfAdministration.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Route of administration (attribute)" />
+    </element>
+    <element id="Observation.component:RouteOfAdministration.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="RouteOfAdministration" />
+      <definition value="The way the drugs are used." />
+      <alias value="Toedieningsweg" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of RouteOfAdministration" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="2.16.840.1.113883.2.4.4.9" />
+            <code value="6" />
+            <display value="NASAAL" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="The way the drugs are used." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.4.3--20171231000000" />
+          <display value="ToedieningswegCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-druguse-v1.2.2-2015EN" />
+        <map value="NL-CM:7.4.4" />
+        <comment value="RouteOfAdministration" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.0-2016EN" />
+        <map value="NL-CM:7.4.4" />
+        <comment value="Toedieningsweg" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.2-2017EN" />
+        <map value="NL-CM:7.4.4" />
+        <comment value="RouteOfAdministration" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Amount">
+      <path value="Observation.component" />
+      <sliceName value="Amount" />
+    </element>
+    <element id="Observation.component:Amount.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:Amount.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="228390007" />
+    </element>
+    <element id="Observation.component:Amount.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <fixedString value="Frequency of drug misuse (observable entity)" />
+    </element>
+    <element id="Observation.component:Amount.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Amount" />
+      <definition value="The number of units (pills, joints, shots etc.) per day, week, month or year or the frequency of use." />
+      <alias value="Hoeveelheid" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="hcim-druguse-v1.2.2-2015EN" />
+        <map value="NL-CM:7.4.8" />
+        <comment value="Amount" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.0-2016EN" />
+        <map value="NL-CM:7.4.8" />
+        <comment value="Amount" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-druguse-v3.2-2017EN" />
+        <map value="NL-CM:7.4.8" />
+        <comment value="Amount" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

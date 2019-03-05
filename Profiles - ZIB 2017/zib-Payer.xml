@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Payer" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2017-02-22T10:32:09.079+00:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib Payer" />
   <title value="HCIM Payer" />
   <status value="active" />
-  <date value="2017-01-16T17:02:59.6109232+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -39,6 +34,11 @@
     <uri value="https://zibs.nl/wiki/Payer-v3.1(2017EN)" />
     <name value="HCIM Payer-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Coverage" />
@@ -48,38 +48,37 @@
     <element id="Coverage">
       <path value="Coverage" />
       <short value="Coverage" />
-      <definition value="Financial instrument which may be used to reimburse or pay for health care products and services. " />
       <alias value="Verzekering" />
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.8" />
-      <comment value="Insurance"/>
-            </mapping>
+        <comment value="Insurance"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.8" />
-      <comment value="Insurance"/>
-            </mapping>
+        <comment value="Insurance"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.8" />
-      <comment value="Insurance"/>
-            </mapping>
+        <comment value="Insurance"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.1" />
-      <comment value="Payer"/>
-            </mapping>
+        <comment value="Payer"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.1" />
-      <comment value="Payer"/>
-            </mapping>
+        <comment value="Payer"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.1" />
-      <comment value="Payer"/>
-            </mapping>
+        <comment value="Payer"/>
+      </mapping>
     </element>
     <element id="Coverage.type">
       <path value="Coverage.type" />
@@ -97,18 +96,18 @@
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.15" />
-      <comment value="InsuranceType"/>
-            </mapping>
+        <comment value="InsuranceType"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.15" />
-      <comment value="InsuranceType"/>
-            </mapping>
+        <comment value="InsuranceType"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.15" />
-      <comment value="InsuranceType"/>
-            </mapping>
+        <comment value="InsuranceType"/>
+      </mapping>
     </element>
     <element id="Coverage.policyHolder">
       <path value="Coverage.policyHolder" />
@@ -144,18 +143,18 @@
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.6" />
-      <comment value="InsurantNumber"/>
-            </mapping>
+        <comment value="InsurantNumber"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.6" />
-      <comment value="InsurantNumber"/>
-            </mapping>
+        <comment value="InsurantNumber"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.6" />
-      <comment value="InsurantNumber"/>
-            </mapping>
+        <comment value="InsurantNumber"/>
+      </mapping>
     </element>
     <element id="Coverage.beneficiary">
       <path value="Coverage.beneficiary" />
@@ -163,6 +162,19 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Coverage.period">
+      <path value="Coverage.period" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
     </element>
     <element id="Coverage.period.start">
       <path value="Coverage.period.start" />
@@ -172,18 +184,18 @@
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.13" />
-      <comment value="StartDateTime"/>
-            </mapping>
+        <comment value="StartDateTime"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.13" />
-      <comment value="StartDateTime"/>
-            </mapping>
+        <comment value="StartDateTime"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.13" />
-      <comment value="StartDateTime"/>
-            </mapping>
+        <comment value="StartDateTime"/>
+      </mapping>
     </element>
     <element id="Coverage.period.end">
       <path value="Coverage.period.end" />
@@ -194,18 +206,18 @@
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.14" />
-      <comment value="EndDateTime"/>
-            </mapping>
+        <comment value="EndDateTime"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.14" />
-      <comment value="EndDateTime"/>
-            </mapping>
+        <comment value="EndDateTime"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.14" />
-      <comment value="EndDateTime"/>
-            </mapping>
+        <comment value="EndDateTime"/>
+      </mapping>
     </element>
     <element id="Coverage.payor">
       <path value="Coverage.payor" />
@@ -233,13 +245,13 @@
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.2" />
-      <comment value="PayerPerson"/>
-            </mapping>
+        <comment value="PayerPerson"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.2" />
-      <comment value="PayerPerson"/>
-            </mapping>
+        <comment value="PayerPerson"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.3" />
@@ -248,13 +260,13 @@
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.3" />
-      <comment value="InsuranceCompany"/>
-            </mapping>
+        <comment value="InsuranceCompany"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.3" />
-      <comment value="InsuranceCompany"/>
-            </mapping>
+        <comment value="InsuranceCompany"/>
+      </mapping>
     </element>
     <element id="Coverage.payor.extension">
       <path value="Coverage.payor.extension" />
@@ -276,18 +288,18 @@
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.4" />
-      <comment value="BankInformation"/>
-            </mapping>
+        <comment value="BankInformation"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.4" />
-      <comment value="BankInformation"/>
-            </mapping>
+        <comment value="BankInformation"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.4" />
-      <comment value="BankInformation"/>
-            </mapping>
+        <comment value="BankInformation"/>
+      </mapping>
     </element>
     <element id="Coverage.payor.extension:bankInformation.extension:BankName">
       <path value="Coverage.payor.extension.extension" />
@@ -298,18 +310,18 @@
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.9" />
-      <comment value="BankName"/>
-            </mapping>
+        <comment value="BankName"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.9" />
-      <comment value="BankName"/>
-            </mapping>
+        <comment value="BankName"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.9" />
-      <comment value="BankName"/>
-            </mapping>
+        <comment value="BankName"/>
+      </mapping>
     </element>
     <element id="Coverage.payor.extension:bankInformation.extension:BankName.valueString:valueString">
       <path value="Coverage.payor.extension.extension.valueString" />
@@ -324,18 +336,18 @@
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.11" />
-      <comment value="AccountNumber"/>
-            </mapping>
+        <comment value="AccountNumber"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.11" />
-      <comment value="AccountNumber"/>
-            </mapping>
+        <comment value="AccountNumber"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.11" />
-      <comment value="AccountNumber"/>
-            </mapping>
+        <comment value="AccountNumber"/>
+      </mapping>
     </element>
     <element id="Coverage.payor.extension:bankInformation.extension:AccountNumber.valueString:valueString">
       <path value="Coverage.payor.extension.extension.valueString" />
@@ -350,18 +362,18 @@
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.10" />
-      <comment value="BankCode"/>
-            </mapping>
+        <comment value="BankCode"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.10" />
-      <comment value="BankCode"/>
-            </mapping>
+        <comment value="BankCode"/>
+      </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.10" />
-      <comment value="BankCode"/>
-            </mapping>
+        <comment value="BankCode"/>
+      </mapping>
     </element>
     <element id="Coverage.payor.extension:bankInformation.extension:Bankcode.valueString:valueString">
       <path value="Coverage.payor.extension.extension.valueString" />

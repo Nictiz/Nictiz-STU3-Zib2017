@@ -1,331 +1,367 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-MedicalDeviceRequest"/>
-    <meta>
-        <lastUpdated value="2017-09-29T16:38:50.243+02:00"/>
-    </meta>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-        <valueCode value="oo"/>
-    </extension>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceRequest"/>
-    <version value="2.0"/>
-    <name value="Zib MedicalDevice Request"/>
-    <title value="HCIM MedicalDevice Request"/>
-    <status value="active"/>
-    <date value="2017-05-22T13:24:34.1255241+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="MedicalDevice Request as defined by the Dutch Health and Care Information model for PlannedCareActivity (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017."/>
-    <purpose
-        value="Recording planned appointments, referrals, treatments, diagnostic procedures, open orders and orders of which the results are not yet known gives every recipient, user or healthcare facility insight in the planned healthcare for this patient. This can prevent situations in which diagnostics and treatment can conflict with each other.&#xD;&#xA;This will give the recipient the option to place an order, cancel the order or act in any other way in accordance with their own policy.&#xD;&#xA;For orders that do not yet have results, the recipient is informed of the fact that potentially relevant results will be made available (which have to be requested)."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
-        <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v1.2.1(2015EN)"/>
-        <name value="HCIM PlannedCareActivityForTransfer-v1.2.1(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.0(2016EN)"/>
-        <name value="HCIM PlannedCareActivityForTransfer-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.1(2017EN)"/>
-        <name value="HCIM PlannedCareActivityForTransfer-v3.1(2017EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-medicaldevice-v1.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/MedicalDevice-v1.2(2015EN)"/>
-        <name value="HCIM MedicalDevice-v1.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-medicaldevice-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/MedicalDevice-v3.0(2016EN)"/>
-        <name value="HCIM MedicalDevice-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-medicaldevice-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/MedicalDevice-v3.1(2017EN)"/>
-        <name value="HCIM MedicalDevice-v3.1(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="DeviceRequest"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="DeviceRequest">
-            <path value="DeviceRequest"/>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
-                <map value="NL-CM:16.1.7"/>
-                <comment value="MedicalAid"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:16.1.7"/>
-                <comment value="MedicalAid"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
-                <map value="NL-CM:16.1.7"/>
-                <comment value="MedicalDevice"/>
-            </mapping>
-        </element>
-        <element id="DeviceRequest.status.extension">
-            <path value="DeviceRequest.status.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="DeviceRequest.status.extension:orderStatus">
-            <path value="DeviceRequest.status.extension"/>
-            <sliceName value="orderStatus"/>
-            <short value="OrderStatus"/>
-            <definition value="The status of the order. "/>
-            <alias value="OrderStatus"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification"/>
-            </type>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
-                <map value="NL-CM:16.1.9"/>
-                <comment value="OrderStatus"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:16.1.9"/>
-                <comment value="OrderStatus"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
-                <map value="NL-CM:16.1.9"/>
-                <comment value="OrderStatus"/>
-            </mapping>
-        </element>
-        <element id="DeviceRequest.status.extension:orderStatus.valueCodeableConcept">
-            <path value="DeviceRequest.status.extension.valueCodeableConcept"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="The status of the order."/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000"/>
-                    <display value="OrderStatusCodelist"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="DeviceRequest.code[x]">
-            <path value="DeviceRequest.code[x]"/>
-            <short value="ProductType"/>
-            <definition value="The code of the type of product."/>
-            <alias value="ProductType"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
-            </type>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="DeviceRequestCode"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="ProductTypeCodelist"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.1--20171231000000"/>
-                    <display value="ProductTypeCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-medicaldevice-v1.2-2015EN"/>
-                <map value="NL-CM:10.1.3"/>
-                <comment value="ProductType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.0-2016EN"/>
-                <map value="NL-CM:10.1.3"/>
-                <comment value="ProductType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.1-2017EN"/>
-                <map value="NL-CM:10.1.3"/>
-                <comment value="ProductType"/>
-            </mapping>
-        </element>
-        <element id="DeviceRequest.subject">
-            <path value="DeviceRequest.subject"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
-            </type>
-        </element>
-        <element id="DeviceRequest.occurrence[x]">
-            <path value="DeviceRequest.occurrence[x]"/>
-            <slicing>
-                <discriminator>
-                    <type value="type"/>
-                    <path value="$this"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="DeviceRequest.occurrence[x]:occurrencePeriod">
-            <path value="DeviceRequest.occurrence[x]"/>
-            <sliceName value="occurrencePeriod"/>
-            <type>
-                <code value="Period"/>
-            </type>
-        </element>
-        <element id="DeviceRequest.occurrence[x]:occurrencePeriod.start">
-            <path value="DeviceRequest.occurrence[x].start"/>
-            <short value="StartDate"/>
-            <definition value="Planned or requested date. Clinical reminders can be used to indicate from when the procedure can take place. A vague date (such as only the month and year) is permitted."/>
-            <alias value="BeginDatum"/>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
-                <map value="NL-CM:16.1.10"/>
-                <comment value="StartDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:16.1.10"/>
-                <comment value="StartDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
-                <map value="NL-CM:16.1.10"/>
-                <comment value="StartDate"/>
-            </mapping>
-        </element>
-        <element id="DeviceRequest.occurrence[x]:occurrencePeriod.end">
-            <path value="DeviceRequest.occurrence[x].end"/>
-            <short value="EndDate"/>
-            <definition value="The planned end date of the procedure can be included as well if needed. Depending on the type of procedure, this can also be used to indicate before which time it has to have been completed."/>
-            <alias value="EindDatum"/>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
-                <map value="NL-CM:16.1.11"/>
-                <comment value="EndDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:16.1.11"/>
-                <comment value="EndDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
-                <map value="NL-CM:16.1.11"/>
-                <comment value="EndDate"/>
-            </mapping>
-        </element>
-        <element id="DeviceRequest.occurrence[x]:occurrenceDateTime">
-            <path value="DeviceRequest.occurrence[x]"/>
-            <sliceName value="occurrenceDateTime"/>
-            <type>
-                <code value="dateTime"/>
-            </type>
-        </element>
-        <element id="DeviceRequest.occurrence[x]:occurrenceTiming">
-            <path value="DeviceRequest.occurrence[x]"/>
-            <sliceName value="occurrenceTiming"/>
-            <type>
-                <code value="Timing"/>
-            </type>
-        </element>
-        <element id="DeviceRequest.requester.agent">
-            <path value="DeviceRequest.requester.agent"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-        </element>
-        <element id="DeviceRequest.requester.onBehalfOf">
-            <path value="DeviceRequest.requester.onBehalfOf"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-        </element>
-        <element id="DeviceRequest.performer">
-            <path value="DeviceRequest.performer"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-healthcareservice"/>
-            </type>
-        </element>
-        <element id="DeviceRequest.note.author[x]">
-            <path value="DeviceRequest.note.author[x]"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-            </type>
-            <type>
-                <code value="string"/>
-            </type>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-MedicalDeviceRequest" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceRequest" />
+  <version value="2.0.0" />
+  <name value="Zib MedicalDevice Request" />
+  <title value="HCIM MedicalDevice Request" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="MedicalDevice Request as defined by the Dutch Health and Care Information model for PlannedCareActivity (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017." />
+  <purpose
+    value="Recording planned appointments, referrals, treatments, diagnostic procedures, open orders and orders of which the results are not yet known gives every recipient, user or healthcare facility insight in the planned healthcare for this patient. This can prevent situations in which diagnostics and treatment can conflict with each other.&#xD;&#xA;This will give the recipient the option to place an order, cancel the order or act in any other way in accordance with their own policy.&#xD;&#xA;For orders that do not yet have results, the recipient is informed of the fact that potentially relevant results will be made available (which have to be requested)." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v1.2.1(2015EN)" />
+    <name value="HCIM PlannedCareActivityForTransfer-v1.2.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.0(2016EN)" />
+    <name value="HCIM PlannedCareActivityForTransfer-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.1(2017EN)" />
+    <name value="HCIM PlannedCareActivityForTransfer-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-medicaldevice-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/MedicalDevice-v1.2(2015EN)" />
+    <name value="HCIM MedicalDevice-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-medicaldevice-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/MedicalDevice-v3.0(2016EN)" />
+    <name value="HCIM MedicalDevice-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-medicaldevice-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/MedicalDevice-v3.1(2017EN)" />
+    <name value="HCIM MedicalDevice-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DeviceRequest" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DeviceRequest" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DeviceRequest">
+      <path value="DeviceRequest" />
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.7" />
+        <comment value="MedicalAid" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.7" />
+        <comment value="MedicalAid" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.7" />
+        <comment value="MedicalDevice" />
+      </mapping>
+    </element>
+    <element id="DeviceRequest.identifier">
+      <path value="DeviceRequest.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="DeviceRequest.status.extension">
+      <path value="DeviceRequest.status.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DeviceRequest.status.extension:orderStatus">
+      <path value="DeviceRequest.status.extension" />
+      <sliceName value="orderStatus" />
+      <short value="OrderStatus" />
+      <definition value="The status of the order." />
+      <alias value="OrderStatus" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.9" />
+        <comment value="OrderStatus" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.9" />
+        <comment value="OrderStatus" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.9" />
+        <comment value="OrderStatus" />
+      </mapping>
+    </element>
+    <element id="DeviceRequest.status.extension:orderStatus.valueCodeableConcept:valueCodeableConcept">
+      <path value="DeviceRequest.status.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="The status of the order." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000" />
+          <display value="OrderStatusCodelist" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="DeviceRequest.code[x]">
+      <path value="DeviceRequest.code[x]" />
+      <short value="ProductType" />
+      <definition value="The code of the type of product." />
+      <alias value="ProductType" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceRequestCode" />
+        </extension>
+        <strength value="extensible" />
+        <description value="ProductTypeCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.1--20171231000000" />
+          <display value="ProductTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.3" />
+        <comment value="ProductType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.3" />
+        <comment value="ProductType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.3" />
+        <comment value="ProductType" />
+      </mapping>
+    </element>
+    <element id="DeviceRequest.subject">
+      <path value="DeviceRequest.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="DeviceRequest.context">
+      <path value="DeviceRequest.context" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+      </type>
+    </element>
+    <element id="DeviceRequest.occurrence[x]">
+      <path value="DeviceRequest.occurrence[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="DeviceRequest.occurrence[x]:occurrencePeriod">
+      <path value="DeviceRequest.occurrence[x]" />
+      <sliceName value="occurrencePeriod" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+    <element id="DeviceRequest.occurrence[x]:occurrencePeriod.start">
+      <path value="DeviceRequest.occurrence[x].start" />
+      <short value="StartDate" />
+      <definition value="Planned or requested date. Clinical reminders can be used to indicate from when the procedure can take place. A vague date (such as only the month and year) is permitted." />
+      <alias value="BeginDatum" />
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.10" />
+        <comment value="StartDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.10" />
+        <comment value="StartDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.10" />
+        <comment value="StartDate" />
+      </mapping>
+    </element>
+    <element id="DeviceRequest.occurrence[x]:occurrencePeriod.end">
+      <path value="DeviceRequest.occurrence[x].end" />
+      <short value="EndDate" />
+      <definition value="The planned end date of the procedure can be included as well if needed. Depending on the type of procedure, this can also be used to indicate before which time it has to have been completed." />
+      <alias value="EindDatum" />
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.11" />
+        <comment value="EndDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.11" />
+        <comment value="EndDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.11" />
+        <comment value="EndDate" />
+      </mapping>
+    </element>
+    <element id="DeviceRequest.occurrence[x]:occurrenceDateTime">
+      <path value="DeviceRequest.occurrence[x]" />
+      <sliceName value="occurrenceDateTime" />
+      <type>
+        <code value="dateTime" />
+      </type>
+    </element>
+    <element id="DeviceRequest.occurrence[x]:occurrenceTiming">
+      <path value="DeviceRequest.occurrence[x]" />
+      <sliceName value="occurrenceTiming" />
+      <type>
+        <code value="Timing" />
+      </type>
+    </element>
+    <element id="DeviceRequest.requester">
+      <path value="DeviceRequest.requester" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="DeviceRequest.requester.agent">
+      <path value="DeviceRequest.requester.agent" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="DeviceRequest.requester.onBehalfOf">
+      <path value="DeviceRequest.requester.onBehalfOf" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="DeviceRequest.performer">
+      <path value="DeviceRequest.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-healthcareservice" />
+      </type>
+    </element>
+    <element id="DeviceRequest.note.author[x]">
+      <path value="DeviceRequest.note.author[x]" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

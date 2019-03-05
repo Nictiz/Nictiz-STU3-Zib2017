@@ -1,15 +1,11 @@
-﻿<StructureDefinition xmlns="http://hl7.org/fhir">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicalDeviceProduct" />
-  <meta>
-    <versionId value="3" />
-    <lastUpdated value="2018-03-07T17:10:17.76+01:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib MedicalDevice Product" />
   <title value="HCIM MedicalDevice Product" />
   <status value="active" />
-  <date value="2017-01-13T11:58:48.3888108+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -42,6 +38,11 @@
     <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
     <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)" />
     <name value="HCIM LaboratoryTestResultForTransfer-v4.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -97,6 +98,11 @@
         <map value="NL-CM:10.1.4" />
         <comment value="ProductID" />
       </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
     </element>
     <element id="Device.identifier:serialNumber">
       <path value="Device.identifier" />
@@ -144,7 +150,7 @@
     <element id="Device.udi.carrierHRF">
       <path value="Device.udi.carrierHRF" />
       <short value="ProductID" />
-      <definition value="Unique identification of the product, such as the serial number.&#xD;&#xA;&#xD;&#xA;Frequently used coding systems are HIBC and GTIN. If the law requires this to be registered on the basis of a UDI (Unique Device Identifier), the unique identification must consist of a UDI-DI (Device Identifier) and a UDI-PI (Production Identifier(s)). See http://www.gs1.org/healthcare/udi for more information.&#xD;&#xA;&#xD;&#xA;The UDI-DI must be recorded in reference to GS1 GTIN (01) encryptions, with which for example a firm is linked to the product type. The UDI-PI must consist of the following: application identifier (AI); expiration date (17) and serial number (21) and/or batch or lot number (10). " />
+      <definition value="Unique identification of the product, such as the serial number.&#xD;&#xA;&#xD;&#xA;Frequently used coding systems are HIBC and GTIN. If the law requires this to be registered on the basis of a UDI (Unique Device Identifier), the unique identification must consist of a UDI-DI (Device Identifier) and a UDI-PI (Production Identifier(s)). See http://www.gs1.org/healthcare/udi for more information.&#xD;&#xA;&#xD;&#xA;The UDI-DI must be recorded in reference to GS1 GTIN (01) encryptions, with which for example a firm is linked to the product type. The UDI-PI must consist of the following: application identifier (AI); expiration date (17) and serial number (21) and/or batch or lot number (10)." />
       <mapping>
         <identity value="hcim-medicaldevice-v3.1-2017EN" />
         <map value="NL-CM:10.1.4" />
@@ -193,7 +199,6 @@
         <valueBoolean value="true" />
       </extension>
       <path value="Device.type.text" />
-      <definition value="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.&#xD;&#xA;" />
       <comment value="For LaboratoryTestResult.Specimen.SpecimenSource a device may be recoreded as a subject of the Specimen. Fore example If the material is not collected directly from the patient but comes from a patient-related object, e.g. a cathetertip. This source of material can be recorded here." />
       <mapping>
         <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
@@ -225,12 +230,41 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Device.owner">
+      <path value="Device.owner" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="Device.location">
+      <path value="Device.location" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
+      </type>
     </element>
     <element id="Device.note.text">
       <path value="Device.note.text" />
       <short value="ProductDescription" />
       <definition value="Textual description of the product." />
       <alias value="ProductOmschrijving" />
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.13" />
+        <comment value="ProductDescription" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.13" />
+        <comment value="ProductDescription" />
+      </mapping>
       <mapping>
         <identity value="hcim-medicaldevice-v3.1-2017EN" />
         <map value="NL-CM:10.1.13" />

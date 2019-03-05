@@ -1,5 +1,5 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-FeedingTubeSystem" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem" />
   <version value="1.0.0" />
@@ -50,8 +50,6 @@
     <element id="DeviceUseStatement.extension:FeedingTubeLength">
       <path value="DeviceUseStatement.extension" />
       <sliceName value="FeedingTubeLength" />
-      <short value="FeedingTubeLength" />
-      <alias value="SondeLengte" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-FeedingTubeLength" />
@@ -65,8 +63,6 @@
     <element id="DeviceUseStatement.extension:EnteralNutrition">
       <path value="DeviceUseStatement.extension" />
       <sliceName value="EnteralNutrition" />
-      <short value="EnteralNutrition" />
-      <alias value="SondeVoeding" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-EnteralNutrition" />
@@ -103,9 +99,7 @@
     </element>
     <element id="DeviceUseStatement.note.text">
       <path value="DeviceUseStatement.note.text" />
-      <short value="Comment"/>
       <definition value="A comment on the feeding tube." />
-      <alias value="Toelichting"/>
       <mapping>
         <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
         <map value="NL-CM:10.3.6" />

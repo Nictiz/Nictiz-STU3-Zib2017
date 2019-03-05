@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-ProcedureRequest" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2017-09-29T16:15:04.388+02:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-ProcedureRequest" />
   <version value="2.0.1" />
   <name value="Zib ProcedureRequest" />
   <title value="HCIM ProcedureRequest" />
   <status value="active" />
-  <date value="2017-05-17T13:30:03.2275207+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -69,6 +64,11 @@
     <uri value="https://zibs.nl/wiki/NursingIntervention-v3.1(2017EN)" />
     <name value="HCIM NursingIntervention-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="ProcedureRequest" />
@@ -106,6 +106,14 @@
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:16.1.12" />
         <comment value="NursingProcedure" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.identifier">
+      <path value="ProcedureRequest.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
       </mapping>
     </element>
     <element id="ProcedureRequest.status.extension">
@@ -203,6 +211,11 @@
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
     </element>
     <element id="ProcedureRequest.context">
       <path value="ProcedureRequest.context" />
@@ -224,6 +237,11 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
     </element>
     <element id="ProcedureRequest.occurrence[x]:occurrenceDateTime">
       <path value="ProcedureRequest.occurrence[x]" />
@@ -332,6 +350,14 @@
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.3" />
         <comment value="Interval" />
+      </mapping>
+    </element>
+    <element id="ProcedureRequest.requester">
+      <path value="ProcedureRequest.requester" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
       </mapping>
     </element>
     <element id="ProcedureRequest.requester.agent">

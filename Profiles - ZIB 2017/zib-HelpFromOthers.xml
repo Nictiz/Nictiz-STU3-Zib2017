@@ -1,6 +1,8 @@
-﻿<StructureDefinition xmlns="http://hl7.org/fhir">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-HelpFromOthers" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HelpFromOthers" />
+  <version value="2.0.0" />
   <name value="Zib HelpFromOthers" />
   <title value="HCIM HelpFromOthers" />
   <status value="active" />
@@ -22,12 +24,25 @@
     <uri value="https://zibs.nl/wiki/HelpFromOthers-v3.0(2017EN)" />
     <name value="HCIM HelpFromOthers-v3.0(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="CarePlan" />
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CarePlan" />
   <derivation value="constraint" />
   <differential>
+    <element id="CarePlan.identifier">
+      <path value="CarePlan.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
     <element id="CarePlan.intent">
       <path value="CarePlan.intent" />
       <short value="plan" />
@@ -50,23 +65,23 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="CarePlan.category.coding:HelpFromOthersCode">
+    <element id="CarePlan.category.coding:helpFromOthersCode">
       <path value="CarePlan.category.coding" />
       <sliceName value="helpFromOthersCode" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="CarePlan.category.coding:HelpFromOthersCode.system">
+    <element id="CarePlan.category.coding:helpFromOthersCode.system">
       <path value="CarePlan.category.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="CarePlan.category.coding:HelpFromOthersCode.code">
+    <element id="CarePlan.category.coding:helpFromOthersCode.code">
       <path value="CarePlan.category.coding.code" />
       <min value="1" />
       <fixedCode value="243114000" />
     </element>
-    <element id="CarePlan.category.coding:HelpFromOthersCode.display">
+    <element id="CarePlan.category.coding:helpFromOthersCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
@@ -83,6 +98,57 @@
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="CarePlan.context">
+      <path value="CarePlan.context" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+      </type>
+    </element>
+    <element id="CarePlan.author">
+      <path value="CarePlan.author" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-careteam" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="CarePlan.careTeam">
+      <path value="CarePlan.careTeam" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-careteam" />
+      </type>
     </element>
     <element id="CarePlan.activity">
       <path value="CarePlan.activity" />
@@ -97,7 +163,7 @@
     <element id="CarePlan.activity.detail.category">
       <path value="CarePlan.activity.detail.category" />
       <short value="TypeOfHelp" />
-      <definition value=" The type of help offered by the person in question." />
+      <definition value="The type of help offered by the person in question." />
       <alias value="SoortHulp" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -151,7 +217,7 @@
     <element id="CarePlan.activity.detail.performer">
       <path value="CarePlan.activity.detail.performer" />
       <short value="Aid" />
-      <definition value="An aid can be a health professional such as nurses, carers and helpers but also a caregiver or healthcare provider such as a home care organization.&#xD;&#xA;Either a reference to details of the health professional involved in the patient’s care, the details of the caregiver involved in the patient’s support or the details of the organization the health professional/aid works for in the event that it is not entered as a person. " />
+      <definition value="An aid can be a health professional such as nurses, carers and helpers but also a caregiver or healthcare provider such as a home care organization.&#xD;&#xA;Either a reference to details of the health professional involved in the patient’s care, the details of the caregiver involved in the patient’s support or the details of the organization the health professional/aid works for in the event that it is not entered as a person." />
       <alias value="Hulpverlener" />
       <alias value="Zorgverlener" />
       <alias value="Mantelzorger" />

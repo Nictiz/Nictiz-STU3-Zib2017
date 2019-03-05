@@ -1,585 +1,614 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-TreatmentDirective"/>
-    <meta>
-        <lastUpdated value="2017-09-29T16:50:06.012+02:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective"/>
-    <version value="2.0.1"/>
-    <name value="Zib TreatmentDirective"/>
-    <title value="HCIM TreatmentDirective"/>
-    <status value="active"/>
-    <date value="2017-05-03T12:18:39.6788994+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="TreatmentDirective as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1. A treatment instruction includes an agreed constraint in the treatment based on the oral or written living will of the patient."/>
-    <purpose value="A good overview of the patient’s wishes is important. A healthcare provider can use the living will to discuss the existing wishes with the persons involved and to incorporate these wishes in their own policy. A concise, orderly list is of particular importance in acute care situations."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-        <uri value="https://zibs.nl/wiki/TreatmentDirective-v1.0.1(2015EN)"/>
-        <name value="HCIM TreatmentDirective-v1.0.1(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/TreatmentDirective-v3.0(2016EN)"/>
-        <name value="HCIM TreatmentDirective-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/TreatmentDirective-v3.1(2017EN)"/>
-        <name value="HCIM TreatmentDirective-v3.1(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Consent"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Consent"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Consent">
-            <path value="Consent"/>
-            <short value="TreatmentDirective"/>
-            <alias value="BehandelAanwijzing"/>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.1"/>
-                <comment value="TreatmentInstruction"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.1"/>
-                <comment value="TreatmentInstruction"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.1"/>
-                <comment value="TreatmentDirective"/>
-            </mapping>
-        </element>
-        <element id="Consent.extension">
-            <path value="Consent.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Consent.extension:verification">
-            <path value="Consent.extension"/>
-            <sliceName value="verification"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification"/>
-            </type>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.8"/>
-                <comment value="Verification"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.8"/>
-                <comment value="Verification"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.8"/>
-                <comment value="Verification"/>
-            </mapping>
-        </element>
-        <element id="Consent.extension:verification.extension:Verified">
-            <path value="Consent.extension.extension"/>
-            <sliceName value="Verified"/>
-            <short value="Verified"/>
-            <alias value="Geverifieerd"/>
-            <min value="1"/>
-            <max value="1"/>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.9"/>
-                <comment value="Verified"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.9"/>
-                <comment value="Verified"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.9"/>
-                <comment value="Verified"/>
-            </mapping>
-        </element>
-        <element id="Consent.extension:verification.extension:Verified.valueBoolean">
-            <path value="Consent.extension.extension.valueBoolean"/>
-        </element>
-        <element id="Consent.extension:verification.extension:VerifiedWith">
-            <path value="Consent.extension.extension"/>
-            <sliceName value="VerifiedWith"/>
-            <short value="VerifiedWith"/>
-            <alias value="GeverifieerdBij"/>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.11"/>
-                <comment value="VerifiedWith"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.11"/>
-                <comment value="VerifiedWith"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.11"/>
-                <comment value="VerifiedWith"/>
-            </mapping>
-        </element>
-        <element id="Consent.extension:verification.extension:VerifiedWith.valueCodeableConcept">
-            <path value="Consent.extension.extension.valueCodeableConcept"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="The person with whom the treatment instruction was discussed and verified."/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.1.4--20171231000000"/>
-                    <display value="GeverifieerdBijCodelijst"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="Consent.extension:verification.extension:VerificationDate">
-            <path value="Consent.extension.extension"/>
-            <sliceName value="VerificationDate"/>
-            <short value="VerificationDate"/>
-            <alias value="VerificatieDatum"/>
-            <max value="1"/>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.10"/>
-                <comment value="VerificationDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.10"/>
-                <comment value="VerificationDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.10"/>
-                <comment value="VerificationDate"/>
-            </mapping>
-        </element>
-        <element id="Consent.extension:verification.extension:VerificationDate.valueDateTime">
-            <path value="Consent.extension.extension.valueDateTime"/>
-        </element>
-        <element id="Consent.extension:verification.url">
-            <path value="Consent.extension.url"/>
-            <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification"/>
-        </element>
-        <element id="Consent.extension:comment">
-            <path value="Consent.extension"/>
-            <sliceName value="comment"/>
-            <short value="Comment"/>
-            <definition value="Comments on the treatment instruction such as a written description of an end date which can be indicated as a date (“until discharge from hospital”)."/>
-            <alias value="Toelichting"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/Comment"/>
-            </type>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.15"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.15"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.15"/>
-                <comment value="Comment"/>
-            </mapping>
-        </element>
-        <element id="Consent.extension:comment.valueString">
-            <path value="Consent.extension.valueString"/>
-        </element>
-        <element id="Consent.extension:treatment">
-            <path value="Consent.extension"/>
-            <sliceName value="treatment"/>
-            <short value="Treatment"/>
-            <definition value="The medical treatment to which the treatment instruction applies."/>
-            <alias value="Behandeling"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment"/>
-            </type>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.3"/>
-                <comment value="Treatment"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.3"/>
-                <comment value="Treatment"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.3"/>
-                <comment value="Treatment"/>
-            </mapping>
-        </element>
-        <element id="Consent.extension:treatment.valueCodeableConcept">
-            <path value="Consent.extension.valueCodeableConcept"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="The medical treatment to which the treatment instruction applies."/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.1.1--20171231000000"/>
-                    <display value="TreatmentCodelist"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="Consent.modifierExtension">
-            <path value="Consent.modifierExtension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Consent.modifierExtension:treatmentPermitted">
-            <path value="Consent.modifierExtension"/>
-            <sliceName value="treatmentPermitted"/>
-            <short value="TreatmentPermitted"/>
-            <definition value="Indication of permission for the treatment, no permission for the treatment, or permission for the treatment with constraints."/>
-            <comment value="If the value of the element NL-CM:2.1.4 TreatmentPermitted is YES_BUT/JA_MAAR, then the value of NL-CM:2.1.5 Restrictions is expected under Consent.except."/>
-            <alias value="BehandelingToegestaan"/>
-            <min value="1"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-TreatmentPermitted"/>
-            </type>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.4"/>
-                <comment value="TreatmentPermitted"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.4"/>
-                <comment value="TreatmentPermitted"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.4"/>
-                <comment value="TreatmentPermitted"/>
-            </mapping>
-        </element>
-        <element id="Consent.modifierExtension:treatmentPermitted.valueCodeableConcept">
-            <path value="Consent.modifierExtension.valueCodeableConcept"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="Indication of permission for the treatment, no permission for the treatment, or permission for the treatment with constraints."/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.1.2--20171231000000"/>
-                    <display value="TreatmentPermittedCodelist"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="Consent.status">
-            <path value="Consent.status"/>
-            <comment value="The HCIM treatmentDirective is not explicit on its intention. The expectation however is that any instantation of a TreatmentDirective is &quot;active&quot; unless stated otherwise."/>
-        </element>
-        <element id="Consent.category">
-            <path value="Consent.category"/>
-            <min value="1"/>
-        </element>
-        <element id="Consent.category.coding">
-            <path value="Consent.category.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Consent.category.coding:treatmentDirective">
-            <path value="Consent.category.coding"/>
-            <sliceName value="treatmentDirective"/>
-            <definition value="Category snomed code used for indexing/retrieval of TreatmentDirective."/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Consent.category.coding:treatmentDirective.system">
-            <path value="Consent.category.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Consent.category.coding:treatmentDirective.code">
-            <path value="Consent.category.coding.code"/>
-            <min value="1"/>
-            <fixedCode value="11291000146105"/>
-        </element>
-        <element id="Consent.category.coding:treatmentDirective.display">
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="Consent.category.coding.display"/>
-            <fixedString value="Treatment instructions (record artifact)"/>
-        </element>
-        <element id="Consent.patient">
-            <path value="Consent.patient"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-        </element>
-        <element id="Consent.period.start">
-            <path value="Consent.period.start"/>
-            <short value="StartDate"/>
-            <definition value="Date on which the treatment instruction went into effect. A ‘vague’ date, such as only the year, is permitted."/>
-            <alias value="BeginDatum"/>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.6"/>
-                <comment value="StartDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.6"/>
-                <comment value="StartDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.6"/>
-                <comment value="StartDate"/>
-            </mapping>
-        </element>
-        <element id="Consent.period.end">
-            <path value="Consent.period.end"/>
-            <short value="EndDate"/>
-            <definition value="Date on which the treatment instruction ends. A ‘vague’ date, such as only the year, is permitted."/>
-            <alias value="EindDatum"/>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.7"/>
-                <comment value="EndDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.7"/>
-                <comment value="EndDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.7"/>
-                <comment value="EndDate"/>
-            </mapping>
-        </element>
-        <element id="Consent.consentingParty">
-            <path value="Consent.consentingParty"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-        </element>
-        <element id="Consent.actor.reference">
-            <path value="Consent.actor.reference"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-            </type>
-        </element>
-        <element id="Consent.organization">
-            <path value="Consent.organization"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-        </element>
-        <element id="Consent.source[x]">
-            <path value="Consent.source[x]"/>
-            <short value="AdvanceDirective"/>
-            <definition value="A (written) statement in which a person indicates wishes concerning future medical action, in the event that this person is at that point no longer (deemed) capable of taking decisions on the matter."/>
-            <alias value="Wilsverklaring"/>
-            <type>
-                <code value="Attachment"/>
-            </type>
-            <type>
-                <code value="Identifier"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
-            </type>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.14"/>
-                <comment value="LivingWill"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.14"/>
-                <comment value="LivingWill"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.14"/>
-                <comment value="AdvanceDirective"/>
-            </mapping>
-        </element>
-        <element id="Consent.policy.uri">
-            <path value="Consent.policy.uri"/>
-            <example>
-                <label value="General Dutch Law"/>
-                <valueUri value="http://wetten.overheid.nl/"/>
-            </example>
-        </element>
-        <element id="Consent.except">
-            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-                <valueString value="Except"/>
-            </extension>
-            <path value="Consent.except"/>
-            <comment value="If a Consent.except is used in accordance with the HCIM TreatmentDirective, then the only time an except is in order, is when the value of the element NL-CM:2.1.4 TreatmentPermitted is YES_BUT/JA_MAAR."/>
-        </element>
-        <element id="Consent.except.extension">
-            <path value="Consent.except.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Consent.except.extension:restrictions">
-            <path value="Consent.except.extension"/>
-            <sliceName value="restrictions"/>
-            <short value="Restrictions"/>
-            <definition value="The restrictions or specific circumstances that apply to a certain treatment."/>
-            <alias value="Beperkingen"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Restrictions"/>
-            </type>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v1.0.1-2015EN"/>
-                <map value="NL-CM:2.1.5"/>
-                <comment value="Constraints"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.0-2016EN"/>
-                <map value="NL-CM:2.1.5"/>
-                <comment value="Constraints"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-treatmentdirective-v3.1-2017EN"/>
-                <map value="NL-CM:2.1.5"/>
-                <comment value="Restrictions"/>
-            </mapping>
-        </element>
-        <element id="Consent.except.extension:restrictions.valueString">
-            <path value="Consent.except.extension.valueString"/>
-        </element>
-        <element id="Consent.except.type">
-            <path value="Consent.except.type"/>
-            <comment value="If a Consent.except is used in accordance with the HCIM TreatmentDirective and the value of the element NL-CM:2.1.4 TreatmentPermitted is YES_BUT/JA_MAAR, then the value of this element SHALL be &quot;deny&quot;"/>
-        </element>
-        <element id="Consent.except.actor.reference">
-            <path value="Consent.except.actor.reference"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-            </type>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-TreatmentDirective" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective" />
+  <version value="2.0.1" />
+  <name value="Zib TreatmentDirective" />
+  <title value="HCIM TreatmentDirective" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="TreatmentDirective as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1. A treatment instruction includes an agreed constraint in the treatment based on the oral or written living will of the patient." />
+  <purpose value="A good overview of the patient’s wishes is important. A healthcare provider can use the living will to discuss the existing wishes with the persons involved and to incorporate these wishes in their own policy. A concise, orderly list is of particular importance in acute care situations." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/TreatmentDirective-v1.0.1(2015EN)" />
+    <name value="HCIM TreatmentDirective-v1.0.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/TreatmentDirective-v3.0(2016EN)" />
+    <name value="HCIM TreatmentDirective-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/TreatmentDirective-v3.1(2017EN)" />
+    <name value="HCIM TreatmentDirective-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Consent" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Consent" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Consent">
+      <path value="Consent" />
+      <short value="TreatmentDirective" />
+      <alias value="BehandelAanwijzing" />
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.1" />
+        <comment value="TreatmentInstruction" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.1" />
+        <comment value="TreatmentInstruction" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.1" />
+        <comment value="TreatmentDirective" />
+      </mapping>
+    </element>
+    <element id="Consent.extension">
+      <path value="Consent.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Consent.extension:verification">
+      <path value="Consent.extension" />
+      <sliceName value="verification" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification" />
+      </type>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.8" />
+        <comment value="Verification" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.8" />
+        <comment value="Verification" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.8" />
+        <comment value="Verification" />
+      </mapping>
+    </element>
+    <element id="Consent.extension:verification.extension:Verified">
+      <path value="Consent.extension.extension" />
+      <sliceName value="Verified" />
+      <short value="Verified" />
+      <alias value="Geverifieerd" />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.9" />
+        <comment value="Verified" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.9" />
+        <comment value="Verified" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.9" />
+        <comment value="Verified" />
+      </mapping>
+    </element>
+    <element id="Consent.extension:verification.extension:Verified.valueBoolean:valueBoolean">
+      <path value="Consent.extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+    </element>
+    <element id="Consent.extension:verification.extension:VerifiedWith">
+      <path value="Consent.extension.extension" />
+      <sliceName value="VerifiedWith" />
+      <short value="VerifiedWith" />
+      <alias value="GeverifieerdBij" />
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.11" />
+        <comment value="VerifiedWith" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.11" />
+        <comment value="VerifiedWith" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.11" />
+        <comment value="VerifiedWith" />
+      </mapping>
+    </element>
+    <element id="Consent.extension:verification.extension:VerifiedWith.valueCodeableConcept:valueCodeableConcept">
+      <path value="Consent.extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="The person with whom the treatment instruction was discussed and verified." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.1.4--20171231000000" />
+          <display value="GeverifieerdBijCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Consent.extension:verification.extension:VerificationDate">
+      <path value="Consent.extension.extension" />
+      <sliceName value="VerificationDate" />
+      <short value="VerificationDate" />
+      <alias value="VerificatieDatum" />
+      <max value="1" />
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.10" />
+        <comment value="VerificationDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.10" />
+        <comment value="VerificationDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.10" />
+        <comment value="VerificationDate" />
+      </mapping>
+    </element>
+    <element id="Consent.extension:verification.extension:VerificationDate.valueDateTime:valueDateTime">
+      <path value="Consent.extension.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
+    </element>
+    <element id="Consent.extension:verification.url">
+      <path value="Consent.extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification" />
+    </element>
+    <element id="Consent.extension:comment">
+      <path value="Consent.extension" />
+      <sliceName value="comment" />
+      <definition value="Comments on the treatment instruction such as a written description of an end date which can be indicated as a date (“until discharge from hospital”)." />
+      <alias value="Toelichting" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/Comment" />
+      </type>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.15" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.15" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.15" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Consent.extension:treatment">
+      <path value="Consent.extension" />
+      <sliceName value="treatment" />
+      <short value="Treatment" />
+      <definition value="The medical treatment to which the treatment instruction applies." />
+      <alias value="Behandeling" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment" />
+      </type>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.3" />
+        <comment value="Treatment" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.3" />
+        <comment value="Treatment" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.3" />
+        <comment value="Treatment" />
+      </mapping>
+    </element>
+    <element id="Consent.extension:treatment.valueCodeableConcept:valueCodeableConcept">
+      <path value="Consent.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="The medical treatment to which the treatment instruction applies." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.1.1--20171231000000" />
+          <display value="TreatmentCodelist" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Consent.modifierExtension">
+      <path value="Consent.modifierExtension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Consent.modifierExtension:treatmentPermitted">
+      <path value="Consent.modifierExtension" />
+      <sliceName value="treatmentPermitted" />
+      <short value="TreatmentPermitted" />
+      <definition value="Indication of permission for the treatment, no permission for the treatment, or permission for the treatment with constraints." />
+      <comment value="If the value of the element NL-CM:2.1.4 TreatmentPermitted is YES_BUT/JA_MAAR, then the value of NL-CM:2.1.5 Restrictions is expected under Consent.except." />
+      <alias value="BehandelingToegestaan" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-TreatmentPermitted" />
+      </type>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.4" />
+        <comment value="TreatmentPermitted" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.4" />
+        <comment value="TreatmentPermitted" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.4" />
+        <comment value="TreatmentPermitted" />
+      </mapping>
+    </element>
+    <element id="Consent.modifierExtension:treatmentPermitted.valueCodeableConcept:valueCodeableConcept">
+      <path value="Consent.modifierExtension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="Indication of permission for the treatment, no permission for the treatment, or permission for the treatment with constraints." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.2.1.2--20171231000000" />
+          <display value="TreatmentPermittedCodelist" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Consent.identifier">
+      <path value="Consent.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="Consent.status">
+      <path value="Consent.status" />
+      <comment value="The HCIM treatmentDirective is not explicit on its intention. The expectation however is that any instantation of a TreatmentDirective is &quot;active&quot; unless stated otherwise." />
+    </element>
+    <element id="Consent.category">
+      <path value="Consent.category" />
+      <min value="1" />
+    </element>
+    <element id="Consent.category.coding">
+      <path value="Consent.category.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Consent.category.coding:treatmentDirective">
+      <path value="Consent.category.coding" />
+      <sliceName value="treatmentDirective" />
+      <definition value="Category snomed code used for indexing/retrieval of TreatmentDirective." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Consent.category.coding:treatmentDirective.system">
+      <path value="Consent.category.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Consent.category.coding:treatmentDirective.code">
+      <path value="Consent.category.coding.code" />
+      <min value="1" />
+      <fixedCode value="11291000146105" />
+    </element>
+    <element id="Consent.category.coding:treatmentDirective.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Consent.category.coding.display" />
+      <fixedString value="Treatment instructions (record artifact)" />
+    </element>
+    <element id="Consent.patient">
+      <path value="Consent.patient" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Consent.period.start">
+      <path value="Consent.period.start" />
+      <short value="StartDate" />
+      <definition value="Date on which the treatment instruction went into effect. A ‘vague’ date, such as only the year, is permitted." />
+      <alias value="BeginDatum" />
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.6" />
+        <comment value="StartDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.6" />
+        <comment value="StartDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.6" />
+        <comment value="StartDate" />
+      </mapping>
+    </element>
+    <element id="Consent.period.end">
+      <path value="Consent.period.end" />
+      <short value="EndDate" />
+      <definition value="Date on which the treatment instruction ends. A ‘vague’ date, such as only the year, is permitted." />
+      <alias value="EindDatum" />
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.7" />
+        <comment value="EndDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.7" />
+        <comment value="EndDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.7" />
+        <comment value="EndDate" />
+      </mapping>
+    </element>
+    <element id="Consent.dateTime">
+      <path value="Consent.dateTime" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="Consent.consentingParty">
+      <path value="Consent.consentingParty" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Consent.actor.reference">
+      <path value="Consent.actor.reference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+    <element id="Consent.organization">
+      <path value="Consent.organization" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="Consent.source[x]">
+      <path value="Consent.source[x]" />
+      <short value="AdvanceDirective" />
+      <definition value="A (written) statement in which a person indicates wishes concerning future medical action, in the event that this person is at that point no longer (deemed) capable of taking decisions on the matter." />
+      <alias value="Wilsverklaring" />
+      <type>
+        <code value="Attachment" />
+      </type>
+      <type>
+        <code value="Identifier" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" />
+      </type>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="LivingWill" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="LivingWill" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="AdvanceDirective" />
+      </mapping>
+    </element>
+    <element id="Consent.policy.uri">
+      <path value="Consent.policy.uri" />
+      <example>
+        <label value="General Dutch Law" />
+        <valueUri value="http://wetten.overheid.nl/" />
+      </example>
+    </element>
+    <element id="Consent.except">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Except" />
+      </extension>
+      <path value="Consent.except" />
+      <comment value="If a Consent.except is used in accordance with the HCIM TreatmentDirective, then the only time an except is in order, is when the value of the element NL-CM:2.1.4 TreatmentPermitted is YES_BUT/JA_MAAR." />
+    </element>
+    <element id="Consent.except.extension">
+      <path value="Consent.except.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Consent.except.extension:restrictions">
+      <path value="Consent.except.extension" />
+      <sliceName value="restrictions" />
+      <short value="Restrictions" />
+      <definition value="The restrictions or specific circumstances that apply to a certain treatment." />
+      <alias value="Beperkingen" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Restrictions" />
+      </type>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.5" />
+        <comment value="Constraints" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.5" />
+        <comment value="Constraints" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.5" />
+        <comment value="Restrictions" />
+      </mapping>
+    </element>
+    <element id="Consent.except.extension:restrictions.valueString:valueString">
+      <path value="Consent.except.extension.valueString" />
+      <sliceName value="valueString" />
+    </element>
+    <element id="Consent.except.type">
+      <path value="Consent.except.type" />
+      <comment value="If a Consent.except is used in accordance with the HCIM TreatmentDirective and the value of the element NL-CM:2.1.4 TreatmentPermitted is YES_BUT/JA_MAAR, then the value of this element SHALL be &quot;deny&quot;" />
+    </element>
+    <element id="Consent.except.actor.reference">
+      <path value="Consent.except.actor.reference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

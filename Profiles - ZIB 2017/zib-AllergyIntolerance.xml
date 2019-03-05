@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AllergyIntolerance" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2018-03-06T16:54:30.703+01:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib AllergyIntolerance" />
   <title value="HCIM AllergyIntolerance" />
   <status value="active" />
-  <date value="2016-12-09T08:27:09.849+00:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -38,6 +33,11 @@
     <identity value="hcim-allergyintolerance-v3.2-2017EN" />
     <uri value="https://zibs.nl/wiki/AllergyIntolerance-v3.2(2017EN)" />
     <name value="HCIM AllergyIntolerance-v3.2(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -69,6 +69,11 @@
       <path value="AllergyIntolerance.identifier" />
       <short value="Identifier" />
       <alias value="Identificatie" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
     </element>
     <element id="AllergyIntolerance.clinicalStatus.extension">
       <path value="AllergyIntolerance.clinicalStatus.extension" />
@@ -107,8 +112,9 @@
         <comment value="AllergyStatus" />
       </mapping>
     </element>
-    <element id="AllergyIntolerance.clinicalStatus.extension:AllergieStatusCodelijst.valueCodeableConcept">
+    <element id="AllergyIntolerance.clinicalStatus.extension:AllergieStatusCodelijst.valueCodeableConcept:valueCodeableConcept">
       <path value="AllergyIntolerance.clinicalStatus.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
         <description value="AllergieStatusCodelijst" />

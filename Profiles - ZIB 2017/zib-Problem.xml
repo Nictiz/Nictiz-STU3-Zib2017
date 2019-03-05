@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Problem" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2018-02-28T15:38:07.521+01:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib Problem" />
   <title value="HCIM Problem" />
   <status value="active" />
-  <date value="2017-01-11T14:30:21.5094956+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -39,6 +34,11 @@
     <uri value="https://zibs.nl/wiki/Problem-v4.1(2017EN)" />
     <name value="HCIM Problem-v4.1(2017EN)" />
     <comment value="ConcernForTransfer is renamed to Problem with release 2017 of the HCIMs." />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -76,6 +76,14 @@
         <identity value="hcim-problem-v1.2-2017EN" />
         <map value="NL-CM:5.1.1" />
         <comment value="Problem" />
+      </mapping>
+    </element>
+    <element id="Condition.identifier">
+      <path value="Condition.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
       </mapping>
     </element>
     <element id="Condition.clinicalStatus">
@@ -214,8 +222,9 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
       </type>
     </element>
-    <element id="Condition.bodySite.extension:Laterality.value[x]">
+    <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
       <path value="Condition.bodySite.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
         <description value="ProblemLateralityCodelist" />
@@ -236,6 +245,11 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
     </element>
     <element id="Condition.context">
       <path value="Condition.context" />
@@ -243,15 +257,24 @@
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact" />
       </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+      </type>
     </element>
-    <element id="Condition.onsetPeriod:onsetPeriod">
+    <element id="Condition.onset[x]:onsetPeriod">
       <path value="Condition.onsetPeriod" />
       <sliceName value="onsetPeriod" />
       <type>
         <code value="Period" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
     </element>
-    <element id="Condition.onsetPeriod:onsetPeriod.start">
+    <element id="Condition.onset[x]:onsetPeriod.start">
       <path value="Condition.onsetPeriod.start" />
       <short value="ProblemStartDate" />
       <definition value="Start of the disorder to which the problem applies. Especially in symptoms in which it takes longer for the final diagnosis, it is important to know not only the date of the diagnosis, but also how long the patient has had the disorder. A ‘vague’ date, such as only the year or the month and the year, is permitted." />
@@ -272,7 +295,7 @@
         <comment value="ProblemStartDate" />
       </mapping>
     </element>
-    <element id="Condition.onsetPeriod:onsetPeriod.end">
+    <element id="Condition.onset[x]:onsetPeriod.end">
       <path value="Condition.onsetPeriod.end" />
       <short value="ProblemEndDate" />
       <definition value="Date on which the disorder to which the problem applies, is considered not to be present anymore.This datum needs not to be the same as the date of the change in problem status. A ‘vague’ date, such as only the year or the month and the year, is permitted." />
@@ -297,6 +320,11 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.2" />
+        <comment value="InformationSource" />
+      </mapping>
     </element>
     <element id="Condition.note">
       <path value="Condition.note" />

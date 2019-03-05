@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Vaccination" />
-  <meta>
-    <versionId value="3" />
-    <lastUpdated value="2018-03-06T16:58:00.228+01:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Vaccination" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib Vaccination" />
   <title value="HCIM Vaccination" />
   <status value="active" />
-  <date value="2017-01-16T11:38:25.218701+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -39,6 +34,11 @@
     <uri value="https://zibs.nl/wiki/Vaccination-v3.1(2017EN)" />
     <name value="HCIM Vaccination-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Immunization" />
@@ -63,6 +63,14 @@
         <identity value="hcim-vaccination-v3.1-2017EN" />
         <map value="NL-CM:11.1.1" />
         <comment value="Vaccination" />
+      </mapping>
+    </element>
+    <element id="Immunization.identifier">
+      <path value="Immunization.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
       </mapping>
     </element>
     <element id="Immunization.vaccineCode">
@@ -97,7 +105,7 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Immunization.vaccineCode.coding:ProductCodeGPKCodelijst">
+    <element id="Immunization.vaccineCode.coding:productCodeGPKCodelijst">
       <path value="Immunization.vaccineCode.coding" />
       <sliceName value="productCodeGPKCodelijst" />
       <max value="1" />
@@ -110,7 +118,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Immunization.vaccineCode.coding:ProductCodeHPKCodelijst">
+    <element id="Immunization.vaccineCode.coding:productCodeHPKCodelijst">
       <path value="Immunization.vaccineCode.coding" />
       <sliceName value="productCodeHPKCodelijst" />
       <max value="1" />
@@ -123,7 +131,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Immunization.vaccineCode.coding:ProductCodeZICodelijst">
+    <element id="Immunization.vaccineCode.coding:productCodeZICodelijst">
       <path value="Immunization.vaccineCode.coding" />
       <sliceName value="productCodeZICodelijst" />
       <max value="1" />
@@ -136,7 +144,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Immunization.vaccineCode.coding:ProductCodeATCCodelijst">
+    <element id="Immunization.vaccineCode.coding:productCodeATCCodelijst">
       <path value="Immunization.vaccineCode.coding" />
       <sliceName value="productCodeATCCodelijst" />
       <max value="1" />
@@ -149,7 +157,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Immunization.vaccineCode.coding:ProductCodePRKCodelijst">
+    <element id="Immunization.vaccineCode.coding:productCodePRKCodelijst">
       <path value="Immunization.vaccineCode.coding" />
       <sliceName value="productCodePRKCodelijst" />
       <max value="1" />
@@ -162,7 +170,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Immunization.vaccineCode.coding:ProductCodeGTINCodelijst">
+    <element id="Immunization.vaccineCode.coding:productCodeGTINCodelijst">
       <path value="Immunization.vaccineCode.coding" />
       <sliceName value="productCodeGTINCodelijst" />
       <max value="1" />
@@ -174,6 +182,18 @@
           <display value="ProductCodeGTINCodelijst" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Immunization.patient">
+      <path value="Immunization.patient" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
     </element>
     <element id="Immunization.encounter">
       <path value="Immunization.encounter" />
@@ -203,6 +223,26 @@
         <map value="NL-CM:11.1.3" />
         <comment value="VaccinationDate" />
       </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="Immunization.reportOrigin">
+      <path value="Immunization.reportOrigin" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.2" />
+        <comment value="InformationSource" />
+      </mapping>
+    </element>
+    <element id="Immunization.location">
+      <path value="Immunization.location" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
+      </type>
     </element>
     <element id="Immunization.manufacturer">
       <path value="Immunization.manufacturer" />
@@ -231,6 +271,14 @@
         <identity value="hcim-vaccination-v3.1-2017EN" />
         <map value="NL-CM:11.1.4" />
         <comment value="Dose" />
+      </mapping>
+    </element>
+    <element id="Immunization.practitioner">
+      <path value="Immunization.practitioner" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
       </mapping>
     </element>
     <element id="Immunization.practitioner.actor">
