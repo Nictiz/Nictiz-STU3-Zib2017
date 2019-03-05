@@ -1,367 +1,385 @@
-﻿<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="vitalsigns-bloodglucose"/>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/vitalsign-bloodglucose"/>
-    <version value="1.0"/>
-    <name value="Vital Signs BloodGlucose" />
-    <title value="VitalSigns BloodGlucose" />
-    <status value="active"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="This profile represents a single blood glucose self measurement based on the seven-point scale (SMBG)."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-        </element>
-        <element id="Observation.extension">
-            <path value="Observation.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Observation.extension:eventTiming">
-            <path value="Observation.extension"/>
-            <sliceName value="eventTiming"/>
-            <short value="Approximate time of observation"/>
-            <definition value="Regular life events the observation is tied to. This is useful for recording imprecise or &quot;fuzzy&quot; times when the observation occurred.  For example, a blood glucose measurement &quot;after breakfast&quot;.  It is interpreted as relative to the `effectiveTime` element or the `issued` element if `effectiveTime` is absent.  For example the blood glucose measurement could be reported that same day (&quot;today after breakfast&quot;) or some other day (&quot;yesterday after breakfast&quot;)."/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://hl7.org/fhir/StructureDefinition/observation-eventTiming"/>
-            </type>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.extension:eventTiming.url">
-            <path value="Observation.extension.url"/>
-            <fixedUri value="http://hl7.org/fhir/StructureDefinition/observation-eventTiming"/>
-        </element>
-        <element id="Observation.code">
-            <path value="Observation.code"/>
-            <constraint>
-                <key value="bg-1"/>
-                <severity value="error"/>
-                <human value="Observation.code SHALL have at least one coding based on LOINC"/>
-                <expression value="coding.where(system = 'http://loinc.org').exists()"/>
-                <xpath value="f:coding[f:system/@value = 'http://loinc.org']"/>
-            </constraint>
-            <constraint>
-                <key value="bg-2"/>
-                <severity value="error"/>
-                <human value="Observation.code MAY have a maximum of one coding based on NHG Table 45"/>
-                <expression value="coding.where(system = 'https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen').count() &lt;= 1"/>
-                <xpath value="count(f:coding[f:system/@value = 'https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen']) &lt;= 1"/>
-            </constraint>
-        </element>
-        <element id="Observation.code.coding">
-            <path value="Observation.code.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="Observation.code.coding:fastingGlucoseloinc">
-            <path value="Observation.code.coding"/>
-            <sliceName value="fastingGlucoseloinc"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:fastingGlucoseloinc.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.code.coding:fastingGlucoseloinc.code">
-            <path value="Observation.code.coding.code"/>
-            <min value="1"/>
-            <fixedCode value="41604-0"/>
-        </element>
-        <element id="Observation.code.coding:fastingGlucoseloinc.display">
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-            <!-- Work around problem for now: the display is not part of the discriminator and this would be validated without taking the slice into account -->
-            <!--<fixedString value="Fasting Glucose [moles/volume] in capillary blood by Glucometer"/>-->
-        </element>
-        <element id="Observation.code.coding:generalGlucoseloinc">
-            <path value="Observation.code.coding"/>
-            <sliceName value="generalGlucoseloinc"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:generalGlucoseloinc.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.code.coding:generalGlucoseloinc.code">
-            <path value="Observation.code.coding.code"/>
-            <min value="1"/>
-            <fixedCode value="14743-9"/>
-        </element>
-        <element id="Observation.code.coding:generalGlucoseloinc.display">
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-            <!-- Work around problem for now: the display is not part of the discriminator and this would be validated without taking the slice into account -->
-            <!--<fixedString value="Glucose [moles/volume] in capillary blood by Glucometer"/>-->
-        </element>
-        <element id="Observation.code.coding:postMealGlucoseloinc">
-            <path value="Observation.code.coding"/>
-            <sliceName value="postMealGlucoseloinc"/>
-            <min value="0"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:postMealGlucoseloinc.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.code.coding:postMealGlucoseloinc.code">
-            <path value="Observation.code.coding.code"/>
-            <min value="1"/>
-            <fixedCode value="14760-3"/>
-        </element>
-        <element id="Observation.code.coding:postMealGlucoseloinc.display">
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-            <!-- Work around problem for now: the display is not part of the discriminator and this would be validated without taking the slice into account -->
-            <!--<fixedString value="Glucose [Moles/volume] in Capillary blood -\-2 hours post meal"/>-->
-        </element>
-        <!-- Fasting glucose -->
-        <element id="Observation.code.coding:fastingGlucoseNhgtable45">
-            <path value="Observation.code.coding"/>
-            <sliceName value="fastingGlucoseNhgtable45"/>
-            <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to fastingGlucoseloinc"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:fastingGlucoseNhgtable45.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
-        </element>
-        <element id="Observation.code.coding:fastingGlucoseNhgtable45.code">
-            <path value="Observation.code.coding.code"/>
-            <definition value="NHG Table 45 code 382, mnemonic GLUC BC NU, glucose nuchter, draagbare meter"/>
-            <min value="1"/>
-            <fixedCode value="382"/>
-        </element>
-        <element id="Observation.code.coding:fastingGlucoseNhgtable45.display">
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-        </element>
-        <!-- General Glucose portable device -->
-        <element id="Observation.code.coding:generalGlucosePortableDeviceNhgtable45">
-            <path value="Observation.code.coding"/>
-            <sliceName value="generalGlucosePortableDeviceNhgtable45"/>
-            <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to generalGlucoseloinc"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:generalGlucosePortableDeviceNhgtable45.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
-        </element>
-        <element id="Observation.code.coding:generalGlucosePortableDeviceNhgtable45.code">
-            <path value="Observation.code.coding.code"/>
-            <definition value="NHG Table 45 code 3221, mnemonic GDC BC SR, glucose dagcurve (GDC), draagbare meter"/>
-            <min value="1"/>
-            <fixedCode value="3221"/>
-        </element>
-        <element id="Observation.code.coding:generalGlucosePortableDeviceNhgtable45.display">
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-        </element>
-        <!-- General Glucose -->
-        <element id="Observation.code.coding:generalGlucoseNhgtable45">
-            <path value="Observation.code.coding"/>
-            <sliceName value="generalGlucoseNhgtable45"/>
-            <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to generalGlucoseloinc"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:generalGlucoseNhgtable45.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
-        </element>
-        <element id="Observation.code.coding:generalGlucoseNhgtable45.code">
-            <path value="Observation.code.coding.code"/>
-            <definition value="NHG Table 45 code 355, mnemonic GDC B SR, glucose dagcurve (GDC)"/>
-            <min value="1"/>
-            <fixedCode value="355"/>
-        </element>
-        <element id="Observation.code.coding:generalGlucoseNhgtable45.display">
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-        </element>
-        <!-- Post Diner -->
-        <element id="Observation.code.coding:postDinerGlucoseNhgtable45">
-            <path value="Observation.code.coding"/>
-            <sliceName value="postDinerGlucoseNhgtable45"/>
-            <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to postMealGlucoseloinc"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:postDinerGlucoseNhgtable45.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
-        </element>
-        <element id="Observation.code.coding:postDinerGlucoseNhgtable45.code">
-            <path value="Observation.code.coding.code"/>
-            <definition value="NHG Table 45 code 3222, menmonic GLUC BC TA, glucose (dagcurve) 2u na diner, draagb.m"/>
-            <min value="1"/>
-            <fixedCode value="3222"/>
-        </element>
-        <element id="Observation.code.coding:postDinerGlucoseNhgtable45.display">
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-        </element>
-        <!-- Post Lunch -->
-        <element id="Observation.code.coding:postLunchGlucoseNhgtable45">
-            <path value="Observation.code.coding"/>
-            <sliceName value="postLunchGlucoseNhgtable45"/>
-            <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to postMealGlucoseloinc"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:postLunchGlucoseNhgtable45.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
-        </element>
-        <element id="Observation.code.coding:postLunchGlucoseNhgtable45.code">
-            <path value="Observation.code.coding.code"/>
-            <definition value="NHG Table 45 code 3223, menmonic GLUC BC TM, glucose (dagcurve) 2u na lunch, draagb.m"/>
-            <min value="1"/>
-            <fixedCode value="3223"/>
-        </element>
-        <element id="Observation.code.coding:postLunchGlucoseNhgtable45.display">
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-        </element>
-        <!-- Post Breakfast -->
-        <element id="Observation.code.coding:postBreakfastGlucoseNhgtable45">
-            <path value="Observation.code.coding"/>
-            <sliceName value="postBreakfastGlucoseNhgtable45"/>
-            <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to postMealGlucoseloinc"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:postBreakfastGlucoseNhgtable45.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
-        </element>
-        <element id="Observation.code.coding:postBreakfastGlucoseNhgtable45.code">
-            <path value="Observation.code.coding.code"/>
-            <definition value="NHG Table 45 code 3224, menmonic GLUC BC TO, glucose (dagcurve) 2u na ontbijt, drgb.m"/>
-            <min value="1"/>
-            <fixedCode value="3223"/>
-        </element>
-        <element id="Observation.code.coding:postBreakfastGlucoseNhgtable45.display">
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-        </element>
-        <!-- Before Lunch -->
-        <element id="Observation.code.coding:beforeLunchGlucoseNhgtable45">
-            <path value="Observation.code.coding"/>
-            <sliceName value="beforeLunchGlucoseNhgtable45"/>
-            <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to generalGlucoseloinc"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:beforeLunchGlucoseNhgtable45.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
-        </element>
-        <element id="Observation.code.coding:beforeLunchGlucoseNhgtable45.code">
-            <path value="Observation.code.coding.code"/>
-            <definition value="NHG Table 45 code 3225, menmonic GLUC BC TL, glucose (dagcurve) voor de lunch, drgb.m"/>
-            <min value="1"/>
-            <fixedCode value="3225"/>
-        </element>
-        <element id="Observation.code.coding:beforeLunchGlucoseNhgtable45.display">
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-        </element>
-        <!-- Before Night -->
-        <element id="Observation.code.coding:beforeNightGlucoseNhgtable45">
-            <path value="Observation.code.coding"/>
-            <sliceName value="beforeNightGlucoseNhgtable45"/>
-            <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to generalGlucoseloinc"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:beforeNightGlucoseNhgtable45.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
-        </element>
-        <element id="Observation.code.coding:beforeNightGlucoseNhgtable45.code">
-            <path value="Observation.code.coding.code"/>
-            <definition value="NHG Table 45 code 3226, menmonic GLUC BC TN, glucose (dagcurve) voor de nacht, drgb.m"/>
-            <min value="1"/>
-            <fixedCode value="3226"/>
-        </element>
-        <element id="Observation.code.coding:beforeNightGlucoseNhgtable45.display">
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-        </element>
-        <!-- Before Diner -->
-        <element id="Observation.code.coding:beforeDinerGlucoseNhgtable45">
-            <path value="Observation.code.coding"/>
-            <sliceName value="beforeDinerGlucoseNhgtable45"/>
-            <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to generalGlucoseloinc"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:beforeDinerGlucoseNhgtable45.system">
-            <path value="Observation.code.coding.system"/>
-            <min value="1"/>
-            <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
-        </element>
-        <element id="Observation.code.coding:beforeDinerGlucoseNhgtable45.code">
-            <path value="Observation.code.coding.code"/>
-            <definition value="NHG Table 45 code 3227, menmonic GLUC BC TD, glucose (dagcurve)voor het diner, drgb.m"/>
-            <min value="1"/>
-            <fixedCode value="3227"/>
-        </element>
-        <element id="Observation.code.coding:beforeDinerGlucoseNhgtable45.display">
-            <path value="Observation.code.coding.display"/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.value[x]">
-            <path value="Observation.valueQuantity"/>
-            <type>
-                <code value="Quantity"/>
-            </type>
-        </element>
-    </differential>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="vitalsigns-bloodglucose"/>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/vitalsign-bloodglucose"/>
+  <version value="1.0.0" />
+  <name value="Vital Signs BloodGlucose" />
+  <title value="VitalSigns BloodGlucose" />
+  <status value="active"/>
+  <publisher value="Nictiz"/>
+  <contact>
+    <name value="Nictiz"/>
+    <telecom>
+      <system value="email"/>
+      <value value="info@nictiz.nl"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="This profile represents a single blood glucose self measurement based on the seven-point scale (SMBG)."/>
+  <copyright value="CC0"/>
+  <fhirVersion value="3.0.1"/>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Observation"/>
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Observation.extension">
+      <path value="Observation.extension"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="url"/>
+        </discriminator>
+        <rules value="open"/>
+      </slicing>
+    </element>
+    <element id="Observation.extension:eventTiming">
+      <path value="Observation.extension"/>
+      <sliceName value="eventTiming"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/observation-eventTiming"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Observation.extension:eventTiming.extension:code">
+      <path value="Observation.extension.extension" />
+      <sliceName value="code" />
+    </element>
+    <element id="Observation.extension:eventTiming.extension:code.valueCodeableConcept:valueCodeableConcept">
+      <path value="Observation.extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+    </element>
+    <element id="Observation.extension:eventTiming.extension:offset">
+      <path value="Observation.extension.extension" />
+      <sliceName value="offset" />
+    </element>
+    <element id="Observation.extension:eventTiming.extension:offset.valueQuantity:valueQuantity">
+      <path value="Observation.extension.extension.valueQuantity" />
+      <sliceName value="valueQuantity" />
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <constraint>
+        <key value="bg-1"/>
+        <severity value="error"/>
+        <human value="Observation.code SHALL have at least one coding based on LOINC"/>
+        <expression value="coding.where(system = 'http://loinc.org').exists()"/>
+        <xpath value="f:coding[f:system/@value = 'http://loinc.org']"/>
+      </constraint>
+      <constraint>
+        <key value="bg-2"/>
+        <severity value="error"/>
+        <human value="Observation.code MAY have a maximum of one coding based on NHG Table 45"/>
+        <expression value="coding.where(system = 'https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen').count() &lt;= 1"/>
+        <xpath value="count(f:coding[f:system/@value = 'https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen']) &lt;= 1"/>
+      </constraint>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="code"/>
+        </discriminator>
+        <discriminator>
+          <type value="value"/>
+          <path value="system"/>
+        </discriminator>
+        <rules value="open"/>
+      </slicing>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:fastingGlucoseloinc">
+      <path value="Observation.code.coding"/>
+      <sliceName value="fastingGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:fastingGlucoseloinc.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://loinc.org"/>
+    </element>
+    <element id="Observation.code.coding:fastingGlucoseloinc.code">
+      <path value="Observation.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="41604-0"/>
+    </element>
+    <element id="Observation.code.coding:fastingGlucoseloinc.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucoseloinc">
+      <path value="Observation.code.coding"/>
+      <sliceName value="generalGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucoseloinc.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://loinc.org"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucoseloinc.code">
+      <path value="Observation.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="14743-9"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucoseloinc.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:postMealGlucoseloinc">
+      <path value="Observation.code.coding"/>
+      <sliceName value="postMealGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:postMealGlucoseloinc.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://loinc.org"/>
+    </element>
+    <element id="Observation.code.coding:postMealGlucoseloinc.code">
+      <path value="Observation.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="14760-3"/>
+    </element>
+    <element id="Observation.code.coding:postMealGlucoseloinc.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:fastingGlucoseNhgtable45">
+      <path value="Observation.code.coding"/>
+      <sliceName value="fastingGlucoseNhgtable45"/>
+      <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to fastingGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:fastingGlucoseNhgtable45.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
+    </element>
+    <element id="Observation.code.coding:fastingGlucoseNhgtable45.code">
+      <path value="Observation.code.coding.code"/>
+      <definition value="NHG Table 45 code 382, mnemonic GLUC BC NU, glucose nuchter, draagbare meter"/>
+      <min value="1"/>
+      <fixedCode value="382"/>
+    </element>
+    <element id="Observation.code.coding:fastingGlucoseNhgtable45.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucosePortableDeviceNhgtable45">
+      <path value="Observation.code.coding"/>
+      <sliceName value="generalGlucosePortableDeviceNhgtable45"/>
+      <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to generalGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucosePortableDeviceNhgtable45.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucosePortableDeviceNhgtable45.code">
+      <path value="Observation.code.coding.code"/>
+      <definition value="NHG Table 45 code 3221, mnemonic GDC BC SR, glucose dagcurve (GDC), draagbare meter"/>
+      <min value="1"/>
+      <fixedCode value="3221"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucosePortableDeviceNhgtable45.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucoseNhgtable45">
+      <path value="Observation.code.coding"/>
+      <sliceName value="generalGlucoseNhgtable45"/>
+      <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to generalGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucoseNhgtable45.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucoseNhgtable45.code">
+      <path value="Observation.code.coding.code"/>
+      <definition value="NHG Table 45 code 355, mnemonic GDC B SR, glucose dagcurve (GDC)"/>
+      <min value="1"/>
+      <fixedCode value="355"/>
+    </element>
+    <element id="Observation.code.coding:generalGlucoseNhgtable45.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:postDinerGlucoseNhgtable45">
+      <path value="Observation.code.coding"/>
+      <sliceName value="postDinerGlucoseNhgtable45"/>
+      <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to postMealGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:postDinerGlucoseNhgtable45.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
+    </element>
+    <element id="Observation.code.coding:postDinerGlucoseNhgtable45.code">
+      <path value="Observation.code.coding.code"/>
+      <definition value="NHG Table 45 code 3222, menmonic GLUC BC TA, glucose (dagcurve) 2u na diner, draagb.m"/>
+      <min value="1"/>
+      <fixedCode value="3222"/>
+    </element>
+    <element id="Observation.code.coding:postDinerGlucoseNhgtable45.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:postLunchGlucoseNhgtable45">
+      <path value="Observation.code.coding"/>
+      <sliceName value="postLunchGlucoseNhgtable45"/>
+      <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to postMealGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:postLunchGlucoseNhgtable45.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
+    </element>
+    <element id="Observation.code.coding:postLunchGlucoseNhgtable45.code">
+      <path value="Observation.code.coding.code"/>
+      <definition value="NHG Table 45 code 3223, menmonic GLUC BC TM, glucose (dagcurve) 2u na lunch, draagb.m"/>
+      <min value="1"/>
+      <fixedCode value="3223"/>
+    </element>
+    <element id="Observation.code.coding:postLunchGlucoseNhgtable45.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:postBreakfastGlucoseNhgtable45">
+      <path value="Observation.code.coding"/>
+      <sliceName value="postBreakfastGlucoseNhgtable45"/>
+      <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to postMealGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:postBreakfastGlucoseNhgtable45.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
+    </element>
+    <element id="Observation.code.coding:postBreakfastGlucoseNhgtable45.code">
+      <path value="Observation.code.coding.code"/>
+      <definition value="NHG Table 45 code 3224, menmonic GLUC BC TO, glucose (dagcurve) 2u na ontbijt, drgb.m"/>
+      <min value="1"/>
+      <fixedCode value="3223"/>
+    </element>
+    <element id="Observation.code.coding:postBreakfastGlucoseNhgtable45.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:beforeLunchGlucoseNhgtable45">
+      <path value="Observation.code.coding"/>
+      <sliceName value="beforeLunchGlucoseNhgtable45"/>
+      <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to generalGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:beforeLunchGlucoseNhgtable45.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
+    </element>
+    <element id="Observation.code.coding:beforeLunchGlucoseNhgtable45.code">
+      <path value="Observation.code.coding.code"/>
+      <definition value="NHG Table 45 code 3225, menmonic GLUC BC TL, glucose (dagcurve) voor de lunch, drgb.m"/>
+      <min value="1"/>
+      <fixedCode value="3225"/>
+    </element>
+    <element id="Observation.code.coding:beforeLunchGlucoseNhgtable45.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:beforeNightGlucoseNhgtable45">
+      <path value="Observation.code.coding"/>
+      <sliceName value="beforeNightGlucoseNhgtable45"/>
+      <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to generalGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:beforeNightGlucoseNhgtable45.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
+    </element>
+    <element id="Observation.code.coding:beforeNightGlucoseNhgtable45.code">
+      <path value="Observation.code.coding.code"/>
+      <definition value="NHG Table 45 code 3226, menmonic GLUC BC TN, glucose (dagcurve) voor de nacht, drgb.m"/>
+      <min value="1"/>
+      <fixedCode value="3226"/>
+    </element>
+    <element id="Observation.code.coding:beforeNightGlucoseNhgtable45.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.code.coding:beforeDinerGlucoseNhgtable45">
+      <path value="Observation.code.coding"/>
+      <sliceName value="beforeDinerGlucoseNhgtable45"/>
+      <definition value="The mapping of the LOINC code to NHG Table 45 MAY be included for primary care systems as second coding next to generalGlucoseloinc"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:beforeDinerGlucoseNhgtable45.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
+    </element>
+    <element id="Observation.code.coding:beforeDinerGlucoseNhgtable45.code">
+      <path value="Observation.code.coding.code"/>
+      <definition value="NHG Table 45 code 3227, menmonic GLUC BC TD, glucose (dagcurve)voor het diner, drgb.m"/>
+      <min value="1"/>
+      <fixedCode value="3227"/>
+    </element>
+    <element id="Observation.code.coding:beforeDinerGlucoseNhgtable45.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display"/>
+      <min value="1"/>
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.valueQuantity"/>
+      <sliceName value="valueQuantity" />
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

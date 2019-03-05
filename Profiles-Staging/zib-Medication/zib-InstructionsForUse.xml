@@ -1,265 +1,257 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-InstructionsForUse"/>
-    <meta>
-        <lastUpdated value="2017-10-16T16:05:10.557+02:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-InstructionsForUse"/>
-    <version value="2.0"/>
-    <name value="Zib InstructionsForUse"/>
-    <title value="HCIM InstructionsForUse"/>
-    <status value="active"/>
-    <date value="2017-05-18T11:36:21.9737868+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="This profile is based on Medicatieproces V9.0.6 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) InstructionsForUse version 1.1, year 2017. Instructions for the use or administration of the medication, e.g. dose and route of administration. In the event of medication use, this is the pattern of use established by the patient or which the patient followed"/>
-    <purpose value="InstructionsForUse gives an insight into the manner a drug is to be used."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-        <uri value="https://zibs.nl/wiki/InstructionsForUse-v1.0(2017EN)"/>
-        <name value="HCIM InstructionsForUse-v1.0(2017EN)"/>
-    </mapping>
-    <kind value="complex-type"/>
-    <abstract value="false"/>
-    <type value="Dosage"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Dosage"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Dosage">
-            <path value="Dosage"/>
-            <short value="InstructionsForUse"/>
-            <definition value="Instructions for the use of the medication, e.g. dose and route of administration. In the event of medication use, this is the pattern of use established by the patient or which the patient followed"/>
-            <alias value="Gebruiksinstructie"/>
-            <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-                <map value="NL-CM:9.12.22504"/>
-                <comment value="InstructionsForUse"/>
-            </mapping>
-        </element>
-        <element id="Dosage.sequence">
-            <path value="Dosage.sequence"/>
-            <short value="SequenceNumber"/>
-            <definition value="This indicates the sequence of the dosing instructions within the medication agreement."/>
-            <alias value="Volgnummer"/>
-            <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-                <map value="NL-CM:9.12.22503"/>
-                <comment value="SequenceNumber"/>
-            </mapping>
-        </element>
-        <element id="Dosage.text">
-            <path value="Dosage.text"/>
-            <short value="Description"/>
-            <definition value="Textual description of the complete instructions for use including the period of use."/>
-            <alias value="Omschrijving"/>
-            <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-                <map value="NL-CM:9.12.9581"/>
-                <comment value="Description"/>
-            </mapping>
-        </element>
-        <element id="Dosage.additionalInstruction">
-            <path value="Dosage.additionalInstruction"/>
-            <short value="AdditionalInstructions"/>
-            <definition
-                value="The additional instructions contain extra information on the use of or considerations for the current prescription.                                 This can also include all instructions for use. The text can come from the original 'paper' medication prescription, but can also be generated from the coded information.                  This concept may contain more information than what is structurally coded in the information below, but may not conflict with it.                  The instructions may not conflict with other components of the request for administration.                  The instructions can also refer to an existing protocol.                                  The G standard contains many texts that can support this attribute, in for example G standard table 362, which contains texts from the general practitioners’ standard WCIA table 25. If desired, these texts can be used to structure this concept."/>
-            <alias value="AanvullendeInstructie"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="AdditionalInstruction"/>
-                </extension>
-                <strength value="extensible"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.9--20160407000000"/>
-                    <display value="AanvullendeGebruiksinstructie"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-                <map value="NL-CM:9.12.19944"/>
-                <comment value="AdditionalInstructions"/>
-            </mapping>
-        </element>
-        <element id="Dosage.timing">
-            <path value="Dosage.timing"/>
-            <short value="AdministeringSchedule"/>
-            <definition
-                value="Specifications of the times at which the medication is to be administered. This is indicated as follows:                  Time(s) (16:00) or indications (“before meals”) at which the medication is to be taken each day.                 A specific number of times the medication is to be taken each day (“3x a day“), indicated with the frequency                 A time interval between consecutive doses (“Every 2 hours”, “every 3 days”), indicated with the word Interval.                 Combined periods with an interval and duration (“1 daily for three out of four weeks: the pill schedule”)                                                   If a certain medication is not to be taken daily, the aforementioned can be combined with daily indications:                  One or more week days on which the medication is to be administered (e.g. “Monday, Wednesday, Friday”)                 ”3x a week”, “2x a month”.                                                   The specified administration “infinite” is automatically to be repeated until:                  The end date and time has been reached                 The total administration duration has been reached (14 days)                                                   A specific amount of administrations has been reached (“20 doses”, “one-time only”), to be entered in the NumberOfDoses concept."/>
-            <type>
-                <code value="Timing"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationSchedule"/>
-            </type>
-        </element>
-        <element id="Dosage.asNeededCodeableConcept:asNeededCodeableConcept">
-            <path value="Dosage.asNeededCodeableConcept"/>
-            <sliceName value="asNeededCodeableConcept"/>
-            <short value="AsNeeded"/>
-            <definition value="As needed means that the dose is only to be administered under certain conditions.&#xD;&#xA;&#xD;&#xA;"/>
-            <comment
-                value="Using the term 'as needed' or a specific reason (eg 'in case of pain') to use medication leads to ambiguity. It is not always clear whether the whole dose is 'as needed' or only part of the dose. For example: 1x daily 1-2 tablets as needed. This can mean: 1 tablet fixed per day and 1 tablet as needed or, as needed, a maximum of 2 tablets.As needed medication is not included in GDS. In the first situation, 1 tablet comes in the GDS (drug dispensing systems) and 1 tablet is delivered separately. In the second situation there is only separate delivery.The system must make sufficiently clear whether the entire instruction or part of the dose is necessary. The HCIM supports both options described above. "/>
-            <alias value="Zo nodig"/>
-            <alias value="Criterium"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="MedicationAsNeededReason"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="ZonodigCriteriumCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.12.4--20171231000000"/>
-                    <display value="ZonodigCriteriumCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-                <map value="NL-CM:9.12.22512"/>
-                <comment value="AsNeeded"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-                <map value="NL-CM:9.12.19945"/>
-                <comment value="Condition"/>
-            </mapping>
-        </element>
-        <element id="Dosage.route">
-            <path value="Dosage.route"/>
-            <short value="RouteOfAdministration"/>
-            <definition value="The route through which the medication is administered (oral, nasal, intravenous, etc.)"/>
-            <alias value="Toedieningsweg"/>
-            <example>
-                <label value="Example of RouteOfAdministration"/>
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
-                        <code value="oraal"/>
-                        <display value="Oraal"/>
-                    </coding>
-                </valueCodeableConcept>
-            </example>
-            <binding>
-                <strength value="extensible"/>
-                <description value="ToedieningswegCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.12.1--20171231000000"/>
-                    <display value="ToedieningswegCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-                <map value="NL-CM:9.12.19941"/>
-                <comment value="RouteOfAdministration"/>
-            </mapping>
-        </element>
-        <element id="Dosage.dose[x]">
-            <path value="Dosage.dose[x]"/>
-            <slicing>
-                <discriminator>
-                    <type value="type"/>
-                    <path value="$this"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <short value="Dose"/>
-            <definition
-                value="The dose indicates the dose amount per administration. &#xA; &#xA;The dosage is described in the unit accompanying the product; usually, this is just a number of units or doses. Liquids and other divisible products will usually include a unit of volume (preferably &quot;&quot;ml&quot;&quot;). &#xA; &#xA;In many cases, the prescriber will want to indicate the dose in units of weight of the active ingredient.  &#xA; &#xA;If only the ingredient is included and not the product, then the amount of that ingredient will be given. Paracetamol 1000mg is equivalent to 2 Paracetamol 500mg tablets or units. &#xA; &#xA;The dosage is sometimes given as a calculation, in which the patient’s body weight or body surface area is used as a parameter. The calculation is however no more than an aid in reaching a decision. &#xA; &#xA;In the event of constant administration, sometimes the dose is given in addition to the administration speed (infusion rate) (e.g. 20ml in a syringe or 500ml in a bag), but it is often also omitted. &#xA; &#xA;A general dosage recommendation such as ‘Use according to protocol’ or ‘See instructions’ can be sufficient. In that case, no dose is given."/>
-            <alias value="Keerdosis"/>
-            <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-                <map value="NL-CM:9.12.19940"/>
-                <comment value="Dose"/>
-            </mapping>
-        </element>
-        <element id="Dosage.dose[x]:DoseQuantity">
-            <path value="Dosage.dose[x]"/>
-            <sliceName value="DoseQuantity"/>
-            <type>
-                <code value="Quantity"/>
-                <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-            </type>
-            <binding>
-                <strength value="required"/>
-                <description value="GstdTabel902"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.27--20160830202453"/>
-                    <display value="GstdTabel902"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="Dosage.dose[x]:DoseRange">
-            <path value="Dosage.dose[x]"/>
-            <sliceName value="DoseRange"/>
-            <type>
-                <code value="Range"/>
-            </type>
-        </element>
-        <element id="Dosage.dose[x]:DoseRange.low">
-            <path value="Dosage.dose[x].low"/>
-            <binding>
-                <strength value="required"/>
-                <description value="GstdTabel902"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.27--20160830202453"/>
-                    <display value="GstdTabel902"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="Dosage.dose[x]:DoseRange.high">
-            <path value="Dosage.dose[x].high"/>
-            <binding>
-                <strength value="required"/>
-                <description value="GstdTabel902"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.27--20160830202453"/>
-                    <display value="GstdTabel902"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="Dosage.maxDosePerPeriod">
-            <path value="Dosage.maxDosePerPeriod"/>
-            <short value="MaximumDose"/>
-            <definition value="A maximum dose indicates the maximum duration a product can be used with an ‘as needed’ prescription.&#xD;&#xA;&#xD;&#xA;For example:&#xD;&#xA;- Max 6 units per day&#xD;&#xA;- Max 200ml per week"/>
-            <alias value="Maximale dosering"/>
-            <alias value="Maximale dosis (per dag enz.)"/>
-            <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-                <map value="NL-CM:9.12.19946"/>
-                <comment value="MaximumDose"/>
-            </mapping>
-        </element>
-        <element id="Dosage.maxDosePerPeriod.numerator">
-            <path value="Dosage.maxDosePerPeriod.numerator"/>
-            <binding>
-                <strength value="required"/>
-                <description value="GstdTabel902"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.27--20160830202453"/>
-                    <display value="GstdTabel902"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="Dosage.rate[x]">
-            <path value="Dosage.rate[x]"/>
-            <short value="AdministeringSpeed"/>
-            <definition value="The administering speed is used in slow administration of liquid. In practice, the measuring unit is almost always ml/hour.                  Entering an interval (such as 0-10 ml/hour) is also a commonly used option.                                   For example, with an administering speed of 10ml/hour:                  amount = 10,                 dose unit = ml                 time unit = hour"/>
-            <alias value="Toedieningssnelheid"/>
-            <alias value="Inloopsnelheid"/>
-            <mapping>
-                <identity value="hcim-instructionsforuse-v1.0-2017EN"/>
-                <map value="NL-CM:9.12.19942"/>
-                <comment value="AdministeringSpeed"/>
-            </mapping>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-InstructionsForUse" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-InstructionsForUse" />
+  <version value="2.0.0" />
+  <name value="Zib InstructionsForUse" />
+  <title value="HCIM InstructionsForUse" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is based on Medicatieproces V9.0.6 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) InstructionsForUse version 1.1, year 2017. Instructions for the use or administration of the medication, e.g. dose and route of administration. In the event of medication use, this is the pattern of use established by the patient or which the patient followed" />
+  <purpose value="InstructionsForUse gives an insight into the manner a drug is to be used." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/InstructionsForUse-v1.0(2017EN)" />
+    <name value="HCIM InstructionsForUse-v1.0(2017EN)" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <type value="Dosage" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Dosage" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Dosage">
+      <path value="Dosage" />
+      <short value="InstructionsForUse" />
+      <definition value="Instructions for the use of the medication, e.g. dose and route of administration. In the event of medication use, this is the pattern of use established by the patient or which the patient followed" />
+      <alias value="Gebruiksinstructie" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.22504" />
+        <comment value="InstructionsForUse" />
+      </mapping>
+    </element>
+    <element id="Dosage.sequence">
+      <path value="Dosage.sequence" />
+      <short value="SequenceNumber" />
+      <definition value="This indicates the sequence of the dosing instructions within the medication agreement." />
+      <alias value="Volgnummer" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.22503" />
+        <comment value="SequenceNumber" />
+      </mapping>
+    </element>
+    <element id="Dosage.text">
+      <path value="Dosage.text" />
+      <short value="Description" />
+      <definition value="Textual description of the complete instructions for use including the period of use." />
+      <alias value="Omschrijving" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.9581" />
+        <comment value="Description" />
+      </mapping>
+    </element>
+    <element id="Dosage.additionalInstruction">
+      <path value="Dosage.additionalInstruction" />
+      <short value="AdditionalInstructions" />
+      <definition value="The additional instructions contain extra information on the use of or considerations for the current prescription.                                 This can also include all instructions for use. The text can come from the original 'paper' medication prescription, but can also be generated from the coded information.                  This concept may contain more information than what is structurally coded in the information below, but may not conflict with it.                  The instructions may not conflict with other components of the request for administration.                  The instructions can also refer to an existing protocol.                                  The G standard contains many texts that can support this attribute, in for example G standard table 362, which contains texts from the general practitioners’ standard WCIA table 25. If desired, these texts can be used to structure this concept." />
+      <alias value="AanvullendeInstructie" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdditionalInstruction" />
+        </extension>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.9--20160407000000" />
+          <display value="AanvullendeGebruiksinstructie" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19944" />
+        <comment value="AdditionalInstructions" />
+      </mapping>
+    </element>
+    <element id="Dosage.timing">
+      <path value="Dosage.timing" />
+      <definition value="Specifications of the times at which the medication is to be administered. This is indicated as follows:                  Time(s) (16:00) or indications (“before meals”) at which the medication is to be taken each day.                 A specific number of times the medication is to be taken each day (“3x a day“), indicated with the frequency                 A time interval between consecutive doses (“Every 2 hours”, “every 3 days”), indicated with the word Interval.                 Combined periods with an interval and duration (“1 daily for three out of four weeks: the pill schedule”)                                                   If a certain medication is not to be taken daily, the aforementioned can be combined with daily indications:                  One or more week days on which the medication is to be administered (e.g. “Monday, Wednesday, Friday”)                 ”3x a week”, “2x a month”.                                                   The specified administration “infinite” is automatically to be repeated until:                  The end date and time has been reached                 The total administration duration has been reached (14 days)                                                   A specific amount of administrations has been reached (“20 doses”, “one-time only”), to be entered in the NumberOfDoses concept." />
+      <type>
+        <code value="Timing" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationSchedule" />
+      </type>
+    </element>
+    <element id="Dosage.asNeeded[x]:asNeededCodeableConcept">
+      <path value="Dosage.asNeededCodeableConcept" />
+      <sliceName value="asNeededCodeableConcept" />
+      <short value="AsNeeded" />
+      <definition value="As needed means that the dose is only to be administered under certain conditions." />
+      <comment value="Using the term 'as needed' or a specific reason (eg 'in case of pain') to use medication leads to ambiguity. It is not always clear whether the whole dose is 'as needed' or only part of the dose. For example: 1x daily 1-2 tablets as needed. This can mean: 1 tablet fixed per day and 1 tablet as needed or, as needed, a maximum of 2 tablets.As needed medication is not included in GDS. In the first situation, 1 tablet comes in the GDS (drug dispensing systems) and 1 tablet is delivered separately. In the second situation there is only separate delivery.The system must make sufficiently clear whether the entire instruction or part of the dose is necessary. The HCIM supports both options described above." />
+      <alias value="Zo nodig" />
+      <alias value="Criterium" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationAsNeededReason" />
+        </extension>
+        <strength value="extensible" />
+        <description value="ZonodigCriteriumCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.12.4--20171231000000" />
+          <display value="ZonodigCriteriumCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.22512" />
+        <comment value="AsNeeded" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19945" />
+        <comment value="Condition" />
+      </mapping>
+    </element>
+    <element id="Dosage.route">
+      <path value="Dosage.route" />
+      <short value="RouteOfAdministration" />
+      <definition value="The route through which the medication is administered (oral, nasal, intravenous, etc.)" />
+      <alias value="Toedieningsweg" />
+      <example>
+        <label value="Example of RouteOfAdministration" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.4.9" />
+            <code value="oraal" />
+            <display value="Oraal" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="ToedieningswegCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.12.1--20171231000000" />
+          <display value="ToedieningswegCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19941" />
+        <comment value="RouteOfAdministration" />
+      </mapping>
+    </element>
+    <element id="Dosage.dose[x]">
+      <path value="Dosage.dose[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="Dose" />
+      <definition
+        value="The dose indicates the dose amount per administration. &#xA; &#xA;The dosage is described in the unit accompanying the product; usually, this is just a number of units or doses. Liquids and other divisible products will usually include a unit of volume (preferably &quot;&quot;ml&quot;&quot;). &#xA; &#xA;In many cases, the prescriber will want to indicate the dose in units of weight of the active ingredient.  &#xA; &#xA;If only the ingredient is included and not the product, then the amount of that ingredient will be given. Paracetamol 1000mg is equivalent to 2 Paracetamol 500mg tablets or units. &#xA; &#xA;The dosage is sometimes given as a calculation, in which the patient’s body weight or body surface area is used as a parameter. The calculation is however no more than an aid in reaching a decision. &#xA; &#xA;In the event of constant administration, sometimes the dose is given in addition to the administration speed (infusion rate) (e.g. 20ml in a syringe or 500ml in a bag), but it is often also omitted. &#xA; &#xA;A general dosage recommendation such as ‘Use according to protocol’ or ‘See instructions’ can be sufficient. In that case, no dose is given." />
+      <alias value="Keerdosis" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19940" />
+        <comment value="Dose" />
+      </mapping>
+    </element>
+    <element id="Dosage.dose[x]:DoseQuantity">
+      <path value="Dosage.dose[x]" />
+      <sliceName value="DoseQuantity" />
+      <type>
+        <code value="Quantity" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="GstdTabel902" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.27--20160830202453" />
+          <display value="GstdTabel902" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Dosage.dose[x]:DoseRange">
+      <path value="Dosage.dose[x]" />
+      <sliceName value="DoseRange" />
+      <type>
+        <code value="Range" />
+      </type>
+    </element>
+    <element id="Dosage.dose[x]:DoseRange.low">
+      <path value="Dosage.dose[x].low" />
+      <binding>
+        <strength value="required" />
+        <description value="GstdTabel902" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.27--20160830202453" />
+          <display value="GstdTabel902" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Dosage.dose[x]:DoseRange.high">
+      <path value="Dosage.dose[x].high" />
+      <binding>
+        <strength value="required" />
+        <description value="GstdTabel902" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.27--20160830202453" />
+          <display value="GstdTabel902" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Dosage.maxDosePerPeriod">
+      <path value="Dosage.maxDosePerPeriod" />
+      <short value="MaximumDose" />
+      <definition value="A maximum dose indicates the maximum duration a product can be used with an ‘as needed’ prescription.&#xD;&#xA;&#xD;&#xA;For example:&#xD;&#xA;- Max 6 units per day&#xD;&#xA;- Max 200ml per week" />
+      <alias value="Maximale dosering" />
+      <alias value="Maximale dosis (per dag enz.)" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19946" />
+        <comment value="MaximumDose" />
+      </mapping>
+    </element>
+    <element id="Dosage.maxDosePerPeriod.numerator">
+      <path value="Dosage.maxDosePerPeriod.numerator" />
+      <binding>
+        <strength value="required" />
+        <description value="GstdTabel902" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.27--20160830202453" />
+          <display value="GstdTabel902" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Dosage.rate[x]">
+      <path value="Dosage.rate[x]" />
+      <short value="AdministeringSpeed" />
+      <definition value="The administering speed is used in slow administration of liquid. In practice, the measuring unit is almost always ml/hour.                  Entering an interval (such as 0-10 ml/hour) is also a commonly used option.                                   For example, with an administering speed of 10ml/hour:                  amount = 10,                 dose unit = ml                 time unit = hour" />
+      <alias value="Toedieningssnelheid" />
+      <alias value="Inloopsnelheid" />
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.19942" />
+        <comment value="AdministeringSpeed" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

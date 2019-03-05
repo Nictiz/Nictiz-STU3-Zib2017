@@ -1,58 +1,48 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="gp-DiagnosticResult"/>
-    <meta>
-        <lastUpdated value="2018-01-11T11:51:36.392+01:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/gp-DiagnosticResult"/>
-    <version value="2.0"/>
-    <name value="gp DiagnosticResult"/>
-    <title value="gp-DiagnosticResult"/>
-    <status value="active"/>
-    <date value="2018-07-18T13:44:00+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="A laboratory result as defined in the Dutch GP association NHG in the GP-EHR reference model (Dutch: HIS referentiemodel) based on observations of type D in NHG Table 45 Diagnostische bepalingen. A diagnostic test is an objectifiable diagnostic procedure. The result is the outcome of the procedure. Tests include vital signs like blood pressure, weight and lab results like ferro in blood."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-        </element>
-        <element id="Observation.code">
-            <path value="Observation.code"/>
-        </element>
-        <element id="Observation.code.coding">
-            <path value="Observation.code.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Observation.code.coding:NHGTable45">
-            <path value="Observation.code.coding"/>
-            <sliceName value="NHGTable45"/>
-            <definition value="A reference to a code defined by a terminology system. The effective system is the NHG Tabel 45 Diagnostische bepalingen"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.code.coding:NHGTable45.system">
-            <path value="Observation.code.coding.system"/>
-            <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen"/>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="gp-DiagnosticResult" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/gp-DiagnosticResult" />
+  <version value="2.0.0" />
+  <name value="gp DiagnosticResult" />
+  <title value="gp-DiagnosticResult" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A laboratory result as defined in the Dutch GP association NHG in the GP-EHR reference model (Dutch: HIS referentiemodel) based on observations of type D in NHG Table 45 Diagnostische bepalingen. A diagnostic test is an objectifiable diagnostic procedure. The result is the outcome of the procedure. Tests include vital signs like blood pressure, weight and lab results like ferro in blood." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:NHGTable45">
+      <path value="Observation.code.coding" />
+      <sliceName value="NHGTable45" />
+      <definition value="A reference to a code defined by a terminology system. The effective system is the NHG Tabel 45 Diagnostische bepalingen" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:NHGTable45.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen" />
+    </element>
+  </differential>
 </StructureDefinition>

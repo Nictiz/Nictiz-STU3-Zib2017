@@ -1,219 +1,222 @@
-﻿<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="gp-JournalEntry"/>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/gp-JournalEntry"/>
-    <name value="gp-JournalEntry"/>
-    <title value="gp-JournalEntry"/>
-    <status value="active"/>
-    <date value="2018-07-17T15:11:00+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="JournalEntry S-O-A-P (Dutch S-O-E-P) as defined in the NHG HIS Referentiemodel."/>
-    <fhirVersion value="3.0.1"/>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Observation.identifier">
-            <path value="Observation.identifier"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.basedOn">
-            <path value="Observation.basedOn"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.status">
-            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-                <valueString value="default: final"/>
-            </extension>
-            <path value="Observation.status"/>
-            <short value="final"/>
-            <definition value="The status of the journal entry"/>
-            <fixedCode value="final"/>
-        </element>
-        <element id="Observation.code">
-            <path value="Observation.code"/>
-            <short value="NHG SOAP Code"/>
-            <definition value="Subjective, Objective, Evaluation, Plan"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="ObservationCode"/>
-                </extension>
-                <strength value="required"/>
-                <description value="NHG SOAP codes"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.2--20111012000000"/>
-                    <display value="JournaalregelType"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="Observation.subject">
-            <path value="Observation.subject"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-        </element>
-        <element id="Observation.context">
-            <path value="Observation.context"/>
-            <short value="Encounter during which this observation is made"/>
-            <definition value="The encounter during which this journal entry was made."/>
-            <min value="1"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter"/>
-            </type>
-        </element>
-        <element id="Observation.effective[x]">
-            <path value="Observation.effective[x]"/>
-            <definition value="Sending the effective date is recommended, but is otherwise understood to fall in the encounter date range."/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.issued">
-            <path value="Observation.issued"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.performer">
-            <path value="Observation.performer"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-            </type>
-        </element>
-        <element id="Observation.value[x]:valueString">
-            <path value="Observation.valueString"/>
-            <short value="Journal Entry text"/>
-            <definition value="The text as recorded or generated for this journal entry."/>
-            <alias value="Journaalregel tekst"/>
-            <min value="1"/>
-            <type>
-                <code value="string"/>
-            </type>
-        </element>
-        <element id="Observation.dataAbsentReason">
-            <path value="Observation.dataAbsentReason"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.interpretation">
-            <path value="Observation.interpretation"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.comment">
-            <path value="Observation.comment"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.bodySite">
-            <path value="Observation.bodySite"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.method">
-            <path value="Observation.method"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.specimen">
-            <path value="Observation.specimen"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.device">
-            <path value="Observation.device"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.referenceRange">
-            <path value="Observation.referenceRange"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.related">
-            <path value="Observation.related"/>
-            <max value="0"/>
-        </element>
-        <element id="Observation.component">
-            <path value="Observation.component"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code.coding.code"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <definition value="Journal entry Evaluation often has an ICPC code that qualifies it. Journal entry Subjective is sometimes qualified using an ICPC code too."/>
-            <max value="2"/>
-        </element>
-        <element id="Observation.component:ICPC_S">
-            <path value="Observation.component"/>
-            <sliceName value="ICPC_S"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:ICPC_S.code">
-            <path value="Observation.component.code"/>
-            <definition value="ICPC code qualifying journal entry Subjective"/>
-            <fixedCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/ActCode"/>
-                    <code value="ADMDX"/>
-                    <display value="admitting diagnosis"/>
-                </coding>
-            </fixedCodeableConcept>
-        </element>
-        <element id="Observation.component:ICPC_S.value[x]:valueCodeableConcept">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <min value="1"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <fixedCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/sid/icpc-1-nl"/>
-                </coding>
-            </fixedCodeableConcept>
-        </element>
-        <element id="Observation.component:ICPC_E">
-            <path value="Observation.component"/>
-            <sliceName value="ICPC_E"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:ICPC_E.code">
-            <path value="Observation.component.code"/>
-            <definition value="ICPC code qualifying journal entry Evaluation"/>
-            <fixedCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/ActCode"/>
-                    <code value="DISDX"/>
-                    <display value="discharge diagnosis"/>
-                </coding>
-            </fixedCodeableConcept>
-        </element>
-        <element id="Observation.component:ICPC_E.value[x]:valueCodeableConcept">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <min value="1"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <fixedCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/sid/icpc-1-nl"/>
-                </coding>
-            </fixedCodeableConcept>
-        </element>
-    </differential>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="gp-JournalEntry" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/gp-JournalEntry" />
+  <version value="2.0.0" />
+  <name value="gp-JournalEntry" />
+  <title value="gp-JournalEntry" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="JournalEntry S-O-A-P (Dutch S-O-E-P) as defined in the NHG HIS Referentiemodel." />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <max value="1" />
+    </element>
+    <element id="Observation.basedOn">
+      <path value="Observation.basedOn" />
+      <max value="0" />
+    </element>
+    <element id="Observation.status">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
+        <valueString value="default: final" />
+      </extension>
+      <path value="Observation.status" />
+      <short value="final" />
+      <definition value="The status of the journal entry" />
+      <fixedCode value="final" />
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <short value="NHG SOAP Code" />
+      <definition value="Subjective, Objective, Evaluation, Plan" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationCode" />
+        </extension>
+        <strength value="required" />
+        <description value="NHG SOAP codes" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.2--20111012000000" />
+          <display value="JournaalregelType" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+    </element>
+    <element id="Observation.context">
+      <path value="Observation.context" />
+      <short value="Encounter during which this observation is made" />
+      <definition value="The encounter during which this journal entry was made." />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
+      </type>
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
+      <definition value="Sending the effective date is recommended, but is otherwise understood to fall in the encounter date range." />
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.issued">
+      <path value="Observation.issued" />
+      <max value="0" />
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+    <element id="Observation.value[x]:valueString">
+      <path value="Observation.valueString" />
+      <sliceName value="valueString" />
+      <short value="Journal Entry text" />
+      <definition value="The text as recorded or generated for this journal entry." />
+      <alias value="Journaalregel tekst" />
+      <min value="1" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Observation.dataAbsentReason">
+      <path value="Observation.dataAbsentReason" />
+      <max value="0" />
+    </element>
+    <element id="Observation.interpretation">
+      <path value="Observation.interpretation" />
+      <max value="0" />
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <max value="0" />
+    </element>
+    <element id="Observation.bodySite">
+      <path value="Observation.bodySite" />
+      <max value="0" />
+    </element>
+    <element id="Observation.method">
+      <path value="Observation.method" />
+      <max value="0" />
+    </element>
+    <element id="Observation.specimen">
+      <path value="Observation.specimen" />
+      <max value="0" />
+    </element>
+    <element id="Observation.device">
+      <path value="Observation.device" />
+      <max value="0" />
+    </element>
+    <element id="Observation.referenceRange">
+      <path value="Observation.referenceRange" />
+      <max value="0" />
+    </element>
+    <element id="Observation.related">
+      <path value="Observation.related" />
+      <max value="0" />
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="Journal entry Evaluation often has an ICPC code that qualifies it. Journal entry Subjective is sometimes qualified using an ICPC code too." />
+      <max value="2" />
+    </element>
+    <element id="Observation.component:ICPC_S">
+      <path value="Observation.component" />
+      <sliceName value="ICPC_S" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:ICPC_S.code">
+      <path value="Observation.component.code" />
+      <definition value="ICPC code qualifying journal entry Subjective" />
+      <fixedCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ActCode" />
+          <code value="ADMDX" />
+          <display value="admitting diagnosis" />
+        </coding>
+      </fixedCodeableConcept>
+    </element>
+    <element id="Observation.component:ICPC_S.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <fixedCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/sid/icpc-1-nl" />
+        </coding>
+      </fixedCodeableConcept>
+    </element>
+    <element id="Observation.component:ICPC_E">
+      <path value="Observation.component" />
+      <sliceName value="ICPC_E" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:ICPC_E.code">
+      <path value="Observation.component.code" />
+      <definition value="ICPC code qualifying journal entry Evaluation" />
+      <fixedCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ActCode" />
+          <code value="DISDX" />
+          <display value="discharge diagnosis" />
+        </coding>
+      </fixedCodeableConcept>
+    </element>
+    <element id="Observation.component:ICPC_E.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <fixedCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/sid/icpc-1-nl" />
+        </coding>
+      </fixedCodeableConcept>
+    </element>
+  </differential>
 </StructureDefinition>
