@@ -1,72 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="zib-VaccinationRecommendation-OrderStatus"/>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation-OrderStatus"/>
-    <version value="2.0"/>
-    <name value="Zib VaccinationRecommendation OrderStatus"/>
-    <title value="HCIM VaccinationRecommendation OrderStatus"/>
-    <status value="active"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="An extension for Consent based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) Vaccination. This extension provides the status of the vaccination order."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <kind value="complex-type"/>
-    <abstract value="false"/>
-    <contextType value="resource"/>
-    <context value="ImmunizationRecommendation"/>
-    <type value="Extension"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Extension">
-            <path value="Extension"/>
-            <short value="Optional Extensions Element"/>
-            <definition value="Optional Extension Element - found in all resources."/>
-            <base>
-                <path value="Element"/>
-                <min value="0"/>
-                <max value="*"/>
-            </base>
-            <constraint>
-                <key value="ext-1"/>
-                <severity value="error"/>
-                <human value="Must have either extensions or value[x], not both"/>
-                <expression value="extension.exists() != value.exists()"/>
-                <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])"/>
-            </constraint>
-            <mapping>
-                <identity value="rim"/>
-                <map value="N/A"/>
-            </mapping>
-        </element>
-        <element id="Extension.url">
-            <path value="Extension.url"/>
-            <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation-OrderStatus"/>
-        </element>
-        <element id="Extension.value[x]:valueCodeableConcept">
-            <path value="Extension.valueCodeableConcept"/>
-            <sliceName value="valueCodeableConcept"/>
-            <short value="OrderStatus"/>
-            <definition value="The status of the order / recommendation"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <binding>
-                <strength value="preferred"/>
-                <description value="OrderStatusCodelist"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000"/>
-                    <display value="OrderStatusCodelijst"/>
-                </valueSetReference>
-            </binding>
-        </element>
-    </differential>
+  <id value="zib-VaccinationRecommendation-OrderStatus"/>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation-OrderStatus"/>
+  <version value="2.0.0" />
+  <name value="Zib VaccinationRecommendation OrderStatus"/>
+  <title value="HCIM VaccinationRecommendation OrderStatus"/>
+  <status value="active"/>
+  <publisher value="Nictiz"/>
+  <contact>
+    <name value="Nictiz"/>
+    <telecom>
+      <system value="email"/>
+      <value value="info@nictiz.nl"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="An extension for Consent based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) Vaccination. This extension provides the status of the vaccination order."/>
+  <copyright value="CC0"/>
+  <fhirVersion value="3.0.1"/>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <contextType value="resource"/>
+  <context value="ImmunizationRecommendation"/>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation-OrderStatus"/>
+    </element>
+    <element id="Extension.value[x]:valueCodeableConcept">
+      <path value="Extension.valueCodeableConcept"/>
+      <sliceName value="valueCodeableConcept"/>
+      <short value="OrderStatus"/>
+      <definition value="The status of the order / recommendation"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="preferred"/>
+        <description value="OrderStatusCodelist"/>
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000"/>
+          <display value="OrderStatusCodelijst"/>
+        </valueSetReference>
+      </binding>
+    </element>
+  </differential>
 </StructureDefinition>
