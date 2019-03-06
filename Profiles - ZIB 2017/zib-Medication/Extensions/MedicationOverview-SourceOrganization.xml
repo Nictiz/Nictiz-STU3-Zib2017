@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MedicationOverview-OrganizationSource" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/MedicationOverview-SourceOrganization" />
@@ -34,8 +35,9 @@
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/MedicationOverview-SourceOrganization" />
     </element>
-    <element id="Extension.value[x]">
+    <element id="Extension.value[x]:valueReference">
       <path value="Extension.valueReference" />
+      <sliceName value="valueReference" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />

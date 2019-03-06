@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationAdministration-AgreedDateTime" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-AgreedDateTime" />
@@ -26,15 +27,13 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension">
-      <path value="Extension" />
-    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-AgreedDateTime" />
     </element>
-    <element id="Extension.valueDateTime">
+    <element id="Extension.value[x]:valueDateTime">
       <path value="Extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
       <type>
         <code value="dateTime" />
       </type>

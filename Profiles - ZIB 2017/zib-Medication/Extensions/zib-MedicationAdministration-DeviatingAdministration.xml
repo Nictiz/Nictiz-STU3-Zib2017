@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationAdministration-DeviatingAdministration" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-DeviatingAdministration" />
@@ -26,9 +27,6 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension">
-      <path value="Extension" />
-    </element>
     <element id="Extension.extension">
       <path value="Extension.extension" />
       <slicing>
@@ -50,8 +48,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="deviation" />
     </element>
-    <element id="Extension.extension:deviation.valueBoolean">
+    <element id="Extension.extension:deviation.value[x]:valueBoolean">
       <path value="Extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
       <type>
         <code value="boolean" />
       </type>
@@ -67,8 +66,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="reasonForDeviation" />
     </element>
-    <element id="Extension.extension:reasonForDeviation.valueCodeableConcept">
+    <element id="Extension.extension:reasonForDeviation.value[x]:valueCodeableConcept">
       <path value="Extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <type>
         <code value="CodeableConcept" />
       </type>
