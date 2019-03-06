@@ -372,6 +372,7 @@
       <path value="Observation.interpretation" />
       <short value="ResultFlags" />
       <definition value="Attention codes indicating whether the result is above or below certain reference values or interpreting the result otherwise. (Resistent)" />
+      <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/ResultaatVlaggenCodelijst-to-observation-interpretation) is available that maps ResultFlagsCodelist to the observation-interpretation valueset." />
       <alias value="ResultaatVlaggen" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -646,8 +647,17 @@
     <element id="Observation.component.interpretation">
       <path value="Observation.component.interpretation" />
       <short value="ResultFlags" />
-      <definition value="Attention codes indicating whether the result is above or below certain reference values or interpreting the result otherwise.(Resistent)" />
+      <definition value="Attention codes indicating whether the result is above or below certain reference values or interpreting the result otherwise. (Resistent)" />
+      <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/ResultaatVlaggenCodelijst-to-observation-interpretation) is available that maps ResultFlagsCodelist to the observation-interpretation valueset." />
       <alias value="ResultaatVlaggen" />
+      <binding>
+        <strength value="extensible" />
+        <description value="InterpretatieVlaggenCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.7--20171231000000" />
+          <display value="InterpretatieVlaggenCodelijst" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
         <map value="NL-CM:13.1.14" />
