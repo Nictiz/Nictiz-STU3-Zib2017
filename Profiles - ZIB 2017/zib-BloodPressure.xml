@@ -48,8 +48,8 @@
     <element id="Observation">
       <path value="Observation" />
       <short value="BloodPressure" />
-    <definition value="The FHIR BloodPressure profile sets a minimum expectations for the Observation Resource to record, search and fetch the blood pressure associated with a patient." />
-    <alias value="Bloeddruk" />
+      <definition value="The FHIR BloodPressure profile sets a minimum expectations for the Observation Resource to record, search and fetch the blood pressure associated with a patient." />
+      <alias value="Bloeddruk" />
       <mapping>
         <identity value="hcim-bloodpressure-v1.2-2015EN" />
         <map value="NL-CM:12.4.1" />
@@ -114,29 +114,6 @@
         <map value="NL-CM:0.0.7" />
         <comment value="Author" />
       </mapping>
-    </element>
-      <element id="Observation.performer.extension">
-          <path value="Observation.performer.extension" />
-          <slicing>
-              <discriminator>
-                  <type value="value" />
-                  <path value="url" />
-              </discriminator>
-              <rules value="open" />
-          </slicing>
-      </element>
-      <element id="Observation.performer.extension:practitionerrolereference">
-          <path value="Observation.performer.extension" />
-          <sliceName value="practitionerRole" />
-          <max value="1" />
-          <type>
-              <code value="Extension" />
-              <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-          </type>
-      </element>
-    <element id="Observation.valueQuantity:valueQuantity">
-      <path value="Observation.valueQuantity" />
-      <sliceName value="valueQuantity" />
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />

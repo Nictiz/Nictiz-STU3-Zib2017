@@ -49,7 +49,7 @@
       <path value="Observation" />
       <short value="BodyHeight" />
       <definition value="The FHIR BodyHeight profile sets a minimum expectations for the Observation Resource to record, search and fetch the body height associated with a patient." />
-    <alias value="Lichaamslengte" />
+      <alias value="Lichaamslengte" />
       <mapping>
         <identity value="hcim-bodyheight-v1.2-2015EN" />
         <map value="NL-CM:12.2.1" />
@@ -76,10 +76,7 @@
     </element>
     <element id="Observation.code">
       <path value="Observation.code" />
-      <definition value="A LOINC code is used to code this observation and to specify the position of the body height measurement. 
-        The HCIM concept Position has two SNOMED codes that map to LOINC codes for this element, namely:
-        * SNOMED CT code 10904000 - Orthostatic body position (Staande positie) maps to LOINC code 8308-9.
-        * SNOMED CT code 102538003 - Recumbent body position (Liggende positie) maps to LOINC code 8306-3." />
+      <definition value="A LOINC code is used to code this observation and to specify the position of the body height measurement.          The HCIM concept Position has two SNOMED codes that map to LOINC codes for this element, namely:         * SNOMED CT code 10904000 - Orthostatic body position (Staande positie) maps to LOINC code 8308-9.         * SNOMED CT code 102538003 - Recumbent body position (Liggende positie) maps to LOINC code 8306-3." />
       <mapping>
         <identity value="hcim-bodyheight-v1.2-2015EN" />
         <map value="NL-CM:12.2.5" />
@@ -99,8 +96,8 @@
     <element id="Observation.code.coding:bodyHeightCodeStanding">
       <path value="Observation.code.coding" />
       <sliceName value="bodyHeightCodeStanding" />
-      <comment value="SNOMED CT code 10904000 - Orthostatic body position (Staande positie)	maps to this slice with LOINC code 8308-9" />
-    <max value="1" />
+      <comment value="SNOMED CT code 10904000 - Orthostatic body position (Staande positie) maps to this slice with LOINC code 8308-9" />
+      <max value="1" />
     </element>
     <element id="Observation.code.coding:bodyHeightCodeStanding.system">
       <path value="Observation.code.coding.system" />
@@ -113,8 +110,8 @@
     <element id="Observation.code.coding:bodyHeightCodeLying">
       <path value="Observation.code.coding" />
       <sliceName value="bodyHeightCodeLying" />
-      <comment value="SNOMED CT code 102538003 - Recumbent body position	(Liggende positie) maps to this slice with LOINC code 8306-3" />
-    <max value="1" />
+      <comment value="SNOMED CT code 102538003 - Recumbent body position (Liggende positie) maps to this slice with LOINC code 8306-3" />
+      <max value="1" />
     </element>
     <element id="Observation.code.coding:bodyHeightCodeLying.system">
       <path value="Observation.code.coding.system" />
@@ -150,21 +147,6 @@
         <comment value="Subject" />
       </mapping>
     </element>
-    <element id="Observation.context">
-      <path value="Observation.context" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-encounter" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
-      </type>
-    </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]" />
       <short value="HeightDateTime" />
@@ -193,47 +175,12 @@
     </element>
     <element id="Observation.performer">
       <path value="Observation.performer" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.7" />
         <comment value="Author" />
       </mapping>
     </element>
-      <element id="Observation.performer.extension">
-          <path value="Observation.performer.extension" />
-          <slicing>
-              <discriminator>
-                  <type value="value" />
-                  <path value="url" />
-              </discriminator>
-              <rules value="open" />
-          </slicing>
-      </element>
-      <element id="Observation.performer.extension:practitionerrolereference">
-          <path value="Observation.performer.extension" />
-          <sliceName value="practitionerRole" />
-          <max value="1" />
-          <type>
-              <code value="Extension" />
-              <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-          </type>
-      </element>
     <element id="Observation.valueQuantity:valueQuantity">
       <path value="Observation.valueQuantity" />
       <sliceName value="valueQuantity" />
@@ -277,17 +224,6 @@
         <map value="NL-CM:12.2.3" />
         <comment value="Comment" />
       </mapping>
-    </element>
-    <element id="Observation.device">
-      <path value="Observation.device" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
-      </type>
-    </element>
-    <element id="Observation.component.valueQuantity:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
     </element>
   </differential>
 </StructureDefinition>
