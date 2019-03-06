@@ -172,6 +172,21 @@
         <comment value="Patient" />
       </mapping>
       <mapping>
+        <identity value="hcim-payer-v1.2-2015EN" />
+        <map value="NL-CM:1.1.2" />
+        <comment value="PayerPerson" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.0-2016EN" />
+        <map value="NL-CM:1.1.2" />
+        <comment value="PayerPerson" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.1-2017EN" />
+        <map value="NL-CM:1.1.2" />
+        <comment value="PayerPerson" />
+      </mapping>
+      <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.3" />
         <comment value="PatientAsInformationSource::Patient" />
@@ -419,12 +434,12 @@
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.12" />
-        <comment value="TelephoneE-mail" />
+        <comment value="TelephoneEmail::ContactInformation" />
       </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
         <map value="NL-CM:1.1.12" />
-        <comment value="TelephoneE-mail" />
+        <comment value="TelephoneEmail::ContactInformation" />
       </mapping>
       <mapping>
         <identity value="hcim-payer-v3.1-2017EN" />
@@ -438,7 +453,7 @@
       <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
         <map value="NL-CM:20.6.5" />
-        <comment value="TelecomType" />
+        <comment value="TelecomType. Land Line / Mobile = phone | Fax = fax | Email = email | Pager = pager" />
       </mapping>
     </element>
     <element id="Patient.telecom.value">
@@ -465,12 +480,12 @@
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.20" />
-        <comment value="E-mailAddress" />
+        <comment value="EmailAddress" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.20" />
-        <comment value="E-mailAddress" />
+        <comment value="EmailAddress" />
       </mapping>
       <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
@@ -486,37 +501,37 @@
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.22" />
-        <comment value="NumberType" />
+        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.22" />
-        <comment value="NumberType" />
+        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
       </mapping>
       <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
         <map value="NL-CM:20.6.6" />
-        <comment value="NumberType" />
+        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.19" />
-        <comment value="E-mailAddressType" />
+        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.19" />
-        <comment value="E-mailAddressType" />
+        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
       </mapping>
       <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
         <map value="NL-CM:20.6.5" />
-        <comment value="TelecomType" />
+        <comment value="TelecomType. Mobile phone = mobile" />
       </mapping>
       <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
         <map value="NL-CM:20.6.8" />
-        <comment value="EmailAddressType" />
+        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
       </mapping>
     </element>
     <element id="Patient.gender">
@@ -526,17 +541,17 @@
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender" />
+        <comment value="Gender. Use ConceptMap for conversion: http://hl7.org/fhir/STU3/cm-administrative-gender-v3.html" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender" />
+        <comment value="Gender. Use ConceptMap for conversion: http://hl7.org/fhir/STU3/cm-administrative-gender-v3.html" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.1-2017EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender" />
+        <comment value="Gender. Use ConceptMap for conversion: http://hl7.org/fhir/STU3/cm-administrative-gender-v3.html" />
       </mapping>
     </element>
     <element id="Patient.birthDate">
@@ -620,7 +635,7 @@
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.17" />
-        <comment value="Address" />
+        <comment value="AddressInformation" />
       </mapping>
       <mapping>
         <identity value="hcim-payer-v3.0-2016EN" />
@@ -783,12 +798,12 @@
       <mapping>
         <identity value="hcim-contactperson-v1.2-2015EN" />
         <map value="NL-CM:3.1.4" />
-        <comment value="Name" />
+        <comment value="NameInformation" />
       </mapping>
       <mapping>
         <identity value="hcim-contactperson-v3.0-2016EN" />
         <map value="NL-CM:3.1.4" />
-        <comment value="Name" />
+        <comment value="NameInformation" />
       </mapping>
       <mapping>
         <identity value="hcim-contactperson-v3.1-2017EN" />
@@ -804,12 +819,12 @@
       <mapping>
         <identity value="hcim-contactperson-v1.2-2015EN" />
         <map value="NL-CM:3.1.6" />
-        <comment value="TelephoneE-mail" />
+        <comment value="TelephoneEmail::ContactInformation" />
       </mapping>
       <mapping>
         <identity value="hcim-contactperson-v3.0-2016EN" />
         <map value="NL-CM:3.1.6" />
-        <comment value="TelephoneE-mail" />
+        <comment value="TelephoneEmail::ContactInformation" />
       </mapping>
       <mapping>
         <identity value="hcim-contactperson-v3.1-2017EN" />
@@ -823,7 +838,7 @@
       <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
         <map value="NL-CM:20.6.5" />
-        <comment value="TelecomType" />
+        <comment value="TelecomType. Land Line / Mobile = phone | Fax = fax | Email = email | Pager = pager" />
       </mapping>
     </element>
     <element id="Patient.contact.telecom.value">
@@ -850,12 +865,12 @@
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.20" />
-        <comment value="E-mailAddress" />
+        <comment value="EmailAddress" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.20" />
-        <comment value="E-mailAddress" />
+        <comment value="EmailAddress" />
       </mapping>
       <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
@@ -871,37 +886,37 @@
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.22" />
-        <comment value="NumberType" />
+        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.22" />
-        <comment value="NumberType" />
+        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
       </mapping>
       <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
         <map value="NL-CM:20.6.6" />
-        <comment value="NumberType" />
+        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.19" />
-        <comment value="E-mailAddressType" />
+        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.19" />
-        <comment value="E-mailAddressType" />
+        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
       </mapping>
       <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
         <map value="NL-CM:20.6.5" />
-        <comment value="TelecomType" />
+        <comment value="TelecomType. Mobile phone = mobile" />
       </mapping>
       <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
         <map value="NL-CM:20.6.8" />
-        <comment value="EmailAddressType" />
+        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
       </mapping>
     </element>
     <element id="Patient.contact.address">
@@ -915,12 +930,12 @@
       <mapping>
         <identity value="hcim-contactperson-v1.2-2015EN" />
         <map value="NL-CM:3.1.5" />
-        <comment value="Address" />
+        <comment value="AddressInformation" />
       </mapping>
       <mapping>
         <identity value="hcim-contactperson-v3.0-2016EN" />
         <map value="NL-CM:3.1.5" />
-        <comment value="Address" />
+        <comment value="AddressInformation" />
       </mapping>
       <mapping>
         <identity value="hcim-contactperson-v3.1-2017EN" />
@@ -1055,12 +1070,12 @@
       <mapping>
         <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
         <map value="NL-CM:17.1.1" />
-        <comment value="HealthcareProvider" />
+        <comment value="HealthProfessional" />
       </mapping>
       <mapping>
         <identity value="hcim-healthprofessional-v3.0-2016EN" />
         <map value="NL-CM:17.1.1" />
-        <comment value="HealthcareProvider" />
+        <comment value="HealthProfessional" />
       </mapping>
       <mapping>
         <identity value="hcim-healthprofessional-v3.1-2017EN" />
