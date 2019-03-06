@@ -1,5 +1,5 @@
-
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="e7abf192-457d-4410-9533-38caf709cbf6" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Organization" />
   <version value="2.0.0" />
@@ -27,20 +27,13 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension">
-      <path value="Extension" />
-    </element>
-    <element id="Extension.extension">
-      <path value="Extension.extension" />
-      <min value="0" />
-      <max value="0" />
-    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Organization" />
     </element>
-    <element id="Extension.valueReference">
+    <element id="Extension.value[x]:valueReference">
       <path value="Extension.valueReference" />
+      <sliceName value="valueReference" />
       <short value="HealthcareProvider" />
       <definition value="The healthcare provider at which use of the medical aid was initiated or where the device was implanted." />
       <alias value="Zorgaanbieder" />

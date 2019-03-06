@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="episodeofcare-title" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-Title" />
@@ -24,19 +25,13 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension">
-      <path value="Extension" />
-    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <representation value="xmlAttr" />
-      <type>
-        <code value="uri" />
-      </type>
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-Title" />
     </element>
-    <element id="Extension.valueString">
+    <element id="Extension.value[x]:valueString">
       <path value="Extension.valueString" />
+      <sliceName value="valueString" />
       <short value="EpisodeOfCare title string" />
       <definition value="Short string that best sums up what the episode is about" />
       <alias value="Episodetitel" />

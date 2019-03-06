@@ -1,5 +1,5 @@
-
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="78226a67-b28e-43fb-8c78-0758823d06a2" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Practitioner" />
   <version value="2.0.0" />
@@ -27,19 +27,11 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension">
-      <path value="Extension" />
-    </element>
-    <element id="Extension.extension">
-      <path value="Extension.extension" />
-      <min value="0" />
-      <max value="0" />
-    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Practitioner" />
     </element>
-    <element id="Extension.valueReference">
+    <element id="Extension.value[x]">
       <path value="Extension.valueReference" />
       <short value="HealthProfessional" />
       <definition value="The healthcare provider involved in the indication for use of the medical device implant." />

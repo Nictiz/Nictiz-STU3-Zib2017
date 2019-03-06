@@ -1,5 +1,5 @@
-﻿
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ffa1ef65-c2f2-40af-851e-49ba417c6a73" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification" />
   <version value="1.0.0" />
@@ -34,6 +34,16 @@
       <alias value="Verificatie" />
       <isModifier value="false" />
     </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Extension.extension:Verified">
       <path value="Extension.extension" />
       <sliceName value="Verified" />
@@ -42,8 +52,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="Verified" />
     </element>
-    <element id="Extension.extension:Verified.valueBoolean">
+    <element id="Extension.extension:Verified.value[x]:valueBoolean">
       <path value="Extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
       <short value="Verified" />
       <definition value="Indication of the fact that the treatment instruction has been verified with the patient, the patient’s family and/or the patient's authorized representative." />
       <alias value="Geverifieerd" />
@@ -59,8 +70,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="VerifiedWith" />
     </element>
-    <element id="Extension.extension:VerifiedWith.valueCodeableConcept">
+    <element id="Extension.extension:VerifiedWith.value[x]:valueCodeableConcept">
       <path value="Extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <type>
         <code value="CodeableConcept" />
       </type>
@@ -73,8 +85,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="VerificationDate" />
     </element>
-    <element id="Extension.extension:VerificationDate.valueDateTime">
+    <element id="Extension.extension:VerificationDate.value[x]:valueDateTime">
       <path value="Extension.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
       <short value="VerificationDate" />
       <definition value="Date on which the verification with the patient, the patient’s family and/or the patient's authorized representative took place." />
       <alias value="VerificatieDatum" />
@@ -82,7 +95,7 @@
         <code value="dateTime" />
       </type>
     </element>
-    <element id="Extension.value">
+    <element id="Extension.value[x]">
       <path value="Extension.value[x]" />
       <max value="0" />
     </element>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="vitalsigns-bloodglucose" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/vitalsign-bloodglucose" />
@@ -47,6 +47,22 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/observation-eventTiming" />
       </type>
       <mustSupport value="true" />
+    </element>
+    <element id="Observation.extension:eventTiming.extension:code">
+      <path value="Observation.extension.extension" />
+      <sliceName value="code" />
+    </element>
+    <element id="Observation.extension:eventTiming.extension:code.valueCodeableConcept:valueCodeableConcept">
+      <path value="Observation.extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+    </element>
+    <element id="Observation.extension:eventTiming.extension:offset">
+      <path value="Observation.extension.extension" />
+      <sliceName value="offset" />
+    </element>
+    <element id="Observation.extension:eventTiming.extension:offset.valueQuantity:valueQuantity">
+      <path value="Observation.extension.extension.valueQuantity" />
+      <sliceName value="valueQuantity" />
     </element>
     <element id="Observation.code">
       <path value="Observation.code" />

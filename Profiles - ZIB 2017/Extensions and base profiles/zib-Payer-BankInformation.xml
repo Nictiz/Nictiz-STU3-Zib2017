@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Payer-BankInformation" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer-BankInformation" />
@@ -54,8 +55,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="BankName" />
     </element>
-    <element id="Extension.extension:BankName.value[x]">
+    <element id="Extension.extension:BankName.value[x]:valueString">
       <path value="Extension.extension.valueString" />
+      <sliceName value="valueString" />
       <short value="BankName" />
       <definition value="Name of the financial organization." />
       <alias value="BankNaam" />
@@ -73,8 +75,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="AccountNumber" />
     </element>
-    <element id="Extension.extension:AccountNumber.value[x]">
+    <element id="Extension.extension:AccountNumber.value[x]:valueString">
       <path value="Extension.extension.valueString" />
+      <sliceName value="valueString" />
       <short value="AccountNumber" />
       <definition value="The payer’s bank account number at the listed organization. For European countries, this is the IBAN." />
       <alias value="Rekeningnummer" />
@@ -91,8 +94,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="Bankcode" />
     </element>
-    <element id="Extension.extension:Bankcode.value[x]">
+    <element id="Extension.extension:Bankcode.value[x]:valueString">
       <path value="Extension.extension.valueString" />
+      <sliceName value="valueString" />
       <short value="Bankcode" />
       <definition value="Code indicating the bank and branch. For European countries, this is the organization’s BIC or SWIFT code." />
       <alias value="Bankcode" />
