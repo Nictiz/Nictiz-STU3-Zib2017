@@ -108,10 +108,6 @@
         <comment value="RequestDate" />
       </mapping>
     </element>
-    <element id="MedicationDispense.extension:requestDate.valueDateTime:valueDateTime">
-      <path value="MedicationDispense.extension.valueDateTime" />
-      <sliceName value="valueDateTime" />
-    </element>
     <element id="MedicationDispense.extension:additionalInformation">
       <path value="MedicationDispense.extension" />
       <sliceName value="additionalInformation" />
@@ -312,14 +308,14 @@
     <element id="MedicationDispense.performer.actor.extension">
       <path value="MedicationDispense.performer.actor.extension" />
       <slicing>
-         <discriminator>
-           <type value="value" />
-           <path value="url" />
-         </discriminator>
-       <rules value="open" />
-       </slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
-    <element id="MedicationDispense.performer.actor.extension:practitionerrolereference">
+    <element id="MedicationDispense.performer.actor.extension:practitionerRole">
       <path value="MedicationDispense.performer.actor.extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />
@@ -328,14 +324,14 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
     </element>
-        <element id="MedicationDispense.performer.onBehalfOf">
-            <path value="MedicationDispense.performer.onBehalfOf" />
-            <type>
-                <code value="Reference" />
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-            </type>
-        </element>
-        <element id="MedicationDispense.authorizingPrescription">
+    <element id="MedicationDispense.performer.onBehalfOf">
+      <path value="MedicationDispense.performer.onBehalfOf" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="MedicationDispense.authorizingPrescription">
       <path value="MedicationDispense.authorizingPrescription" />
       <short value="DispenseRequest" />
       <definition value="Relationship to the dispense request." />
@@ -429,7 +425,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="MedicationDispense.receiver.extension:practitionerrolereference">
+    <element id="MedicationDispense.receiver.extension:practitionerRole">
       <path value="MedicationDispense.receiver.extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />

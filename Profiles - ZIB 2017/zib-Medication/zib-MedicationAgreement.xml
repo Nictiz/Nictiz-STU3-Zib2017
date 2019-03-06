@@ -71,8 +71,7 @@
       <path value="MedicationRequest.extension" />
       <sliceName value="periodOfUse" />
       <short value="PeriodOfUse" />
-      <definition
-        value="Start date: This is the time at which the agreement was to take effect (or took effect or will take effect). This is the time at which the instructions for use in this agreement start. In the case of an agreement to discontinue use, this is the start date of the original medication agreement. The end date indicates from when the medication is to be discontinued. &#xD;&#xA;&#xD;&#xA;End date: The time at which the period of use ends (or ended or will end). In the case of an agreement to discontinue use, this is the time at which the medication is to be discontinued. To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date.&#xD;&#xA;&#xD;&#xA;With medication for an indefinite period only a start date is indicated." />
+      <definition value="Start date: This is the time at which the agreement was to take effect (or took effect or will take effect). This is the time at which the instructions for use in this agreement start. In the case of an agreement to discontinue use, this is the start date of the original medication agreement. The end date indicates from when the medication is to be discontinued. &#xD;&#xA;&#xD;&#xA;End date: The time at which the period of use ends (or ended or will end). In the case of an agreement to discontinue use, this is the time at which the medication is to be discontinued. To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date.&#xD;&#xA;&#xD;&#xA;With medication for an indefinite period only a start date is indicated." />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -83,10 +82,6 @@
         <map value="NL-CM:9.6.19936" />
         <comment value="PeriodOfUse" />
       </mapping>
-    </element>
-    <element id="MedicationRequest.extension:periodOfUse.valuePeriod:valuePeriod">
-      <path value="MedicationRequest.extension.valuePeriod" />
-      <sliceName value="valuePeriod" />
     </element>
     <element id="MedicationRequest.extension:usageDuration">
       <path value="MedicationRequest.extension" />
@@ -104,10 +99,6 @@
         <map value="NL-CM:9.6.19936" />
         <comment value="PeriodOfUse" />
       </mapping>
-    </element>
-    <element id="MedicationRequest.extension:usageDuration.valueDuration:valueDuration">
-      <path value="MedicationRequest.extension.valueDuration" />
-      <sliceName value="valueDuration" />
     </element>
     <element id="MedicationRequest.extension:additionalInformation">
       <path value="MedicationRequest.extension" />
@@ -166,10 +157,6 @@
         <comment value="Medicamenteuze behandeling" />
       </mapping>
     </element>
-    <element id="MedicationRequest.extension:medicationTreatment.valueIdentifier:valueIdentifier">
-      <path value="MedicationRequest.extension.valueIdentifier" />
-      <sliceName value="valueIdentifier" />
-    </element>
     <element id="MedicationRequest.extension:copyIndicator">
       <path value="MedicationRequest.extension" />
       <sliceName value="copyIndicator" />
@@ -185,10 +172,6 @@
         <map value="mp-dataelement900-23411" />
         <comment value="Kopie Indicator" />
       </mapping>
-    </element>
-    <element id="MedicationRequest.extension:copyIndicator.valueBoolean:valueBoolean">
-      <path value="MedicationRequest.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
     </element>
     <element id="MedicationRequest.extension:basedOnAgreementOrUse">
       <path value="MedicationRequest.extension" />
@@ -481,7 +464,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="MedicationRequest.requester.agent.extension:practitionerrolereference">
+    <element id="MedicationRequest.requester.agent.extension:practitionerRole">
       <path value="MedicationRequest.requester.agent.extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />
@@ -514,7 +497,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="MedicationRequest.recorder.extension:practitionerrolereference">
+    <element id="MedicationRequest.recorder.extension:practitionerRole">
       <path value="MedicationRequest.recorder.extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />
@@ -599,6 +582,24 @@
         <map value="NL-CM:0.0.14" />
         <comment value="DateTime" />
       </mapping>
+    </element>
+    <element id="MedicationRequest.dosageInstruction.timing.repeat.extension:exact">
+      <path value="MedicationRequest.dosageInstruction.timing.repeat.extension" />
+      <sliceName value="exact" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.timing.repeat.extension:exact.valueBoolean:valueBoolean">
+      <path value="MedicationRequest.dosageInstruction.timing.repeat.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.dose[x]">
+      <path value="MedicationRequest.dosageInstruction.dose[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
   </differential>
 </StructureDefinition>

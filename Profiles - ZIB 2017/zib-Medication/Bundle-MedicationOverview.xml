@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Bundle-MedicationOverview" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/Bundle-MedicationOverview" />
@@ -86,32 +87,10 @@
     </element>
     <element id="Bundle.entry:List.resource.entry:AdministrationAgreement.item">
       <path value="Bundle.entry.resource.entry.item" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
-        <aggregation value="bundled" />
-      </type>
       <mapping>
         <identity value="Medication-Overview" />
         <map value="mp-dataelement900-20132" />
         <comment value="Toedieningsafspraak" />
-      </mapping>
-    </element>
-    <element id="Bundle.entry:List.resource.entry:MedicationUsage">
-      <path value="Bundle.entry.resource.entry" />
-      <sliceName value="MedicationUsage" />
-    </element>
-    <element id="Bundle.entry:List.resource.entry:MedicationUsage.item">
-      <path value="Bundle.entry.resource.entry.item" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse" />
-        <aggregation value="bundled" />
-      </type>
-      <mapping>
-        <identity value="Medication-Overview" />
-        <map value="mp-dataelement900-21338" />
-        <comment value="MedicatieGebruik" />
       </mapping>
     </element>
   </differential>

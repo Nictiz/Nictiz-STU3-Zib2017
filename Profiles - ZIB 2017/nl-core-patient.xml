@@ -223,15 +223,9 @@
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-preferred-pharmacy" />
       </type>
     </element>
-    <element id="Patient.extension:preferredPharmacy.valueReference:valueReference">
-      <path value="Patient.extension.valueReference" />
-      <sliceName value="valueReference" />
-    </element>
     <element id="Patient.extension:nationality">
       <path value="Patient.extension" />
       <sliceName value="nationality" />
-      <short value="Nationality" />
-      <definition value="The nationality of the patient." />
       <alias value="Nationaliteit" />
       <type>
         <code value="Extension" />
@@ -260,6 +254,22 @@
         <map value="NL-CM:7.6.3" />
         <comment value="Nationality" />
       </mapping>
+    </element>
+    <element id="Patient.extension:nationality.extension:code">
+      <path value="Patient.extension.extension" />
+      <sliceName value="code" />
+    </element>
+    <element id="Patient.extension:nationality.extension:code.valueCodeableConcept:valueCodeableConcept">
+      <path value="Patient.extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+    </element>
+    <element id="Patient.extension:nationality.extension:period">
+      <path value="Patient.extension.extension" />
+      <sliceName value="period" />
+    </element>
+    <element id="Patient.extension:nationality.extension:period.valuePeriod:valuePeriod">
+      <path value="Patient.extension.extension.valuePeriod" />
+      <sliceName value="valuePeriod" />
     </element>
     <element id="Patient.extension:legalStatus">
       <path value="Patient.extension" />
@@ -352,9 +362,7 @@
     </element>
     <element id="Patient.active">
       <path value="Patient.active" />
-      <definition
-        value="This field determines the status of the 'patient' record in the context of the organization that owns the record. Note that the record is not the medical record, but rather the actual patient 'resource'. Obviously when the patient 'resource' is not active, then by extension his medical record might also be inactive. Patient.active='false' may be used discourage use of the record, but that it is kept beause there is (medical) data attached to it. Another use case is a patient moving to a different GP practice. Patient.active would be 'false' in the system of the previous GP."
-      />
+      <definition value="This field determines the status of the 'patient' record in the context of the organization that owns the record. Note that the record is not the medical record, but rather the actual patient 'resource'. Obviously when the patient 'resource' is not active, then by extension his medical record might also be inactive. Patient.active='false' may be used discourage use of the record, but that it is kept beause there is (medical) data attached to it. Another use case is a patient moving to a different GP practice. Patient.active would be 'false' in the system of the previous GP." />
     </element>
     <element id="Patient.name">
       <path value="Patient.name" />

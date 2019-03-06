@@ -37,8 +37,7 @@
     <element id="Timing">
       <path value="Timing" />
       <short value="AdministeringSchedule" />
-      <definition
-        value="Specifications of the times at which the medication is to be administered. This is indicated as follows: &#xD;&#xA;Time(s) (16:00) or indications (“before meals”) at which the medication is to be taken each day.&#xD;&#xA;A specific number of times the medication is to be taken each day (&quot;3x a day&quot;), indicated with the frequency&#xD;&#xA;A time interval between consecutive doses (“Every 2 hours”, “every 3 days”), indicated with the word Interval.&#xD;&#xA;Combined periods with an interval and duration (“1 daily for three out of four weeks: the pill schedule”)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;If a certain medication is not to be taken daily, the aforementioned can be combined with daily indications: &#xD;&#xA;One or more week days on which the medication is to be administered (e.g. “Monday, Wednesday, Friday”)&#xD;&#xA;”3x a week”, “2x a month”.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;The specified administration “infinite” is automatically to be repeated until: &#xD;&#xA;The end date and time has been reached&#xD;&#xA;The total administration duration has been reached (14 days)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;A specific amount of administrations has been reached (“20 doses”, “one-time only”), to be entered in the NumberOfDoses concept." />
+      <definition value="Specifications of the times at which the medication is to be administered. This is indicated as follows: &#xD;&#xA;Time(s) (16:00) or indications (“before meals”) at which the medication is to be taken each day.&#xD;&#xA;A specific number of times the medication is to be taken each day (&quot;3x a day&quot;), indicated with the frequency&#xD;&#xA;A time interval between consecutive doses (“Every 2 hours”, “every 3 days”), indicated with the word Interval.&#xD;&#xA;Combined periods with an interval and duration (“1 daily for three out of four weeks: the pill schedule”)&#xD;&#xA;&#xD;&#xA;If a certain medication is not to be taken daily, the aforementioned can be combined with daily indications: &#xD;&#xA;One or more week days on which the medication is to be administered (e.g. “Monday, Wednesday, Friday”)&#xD;&#xA;”3x a week”, “2x a month”.&#xD;&#xA;&#xD;&#xA;The specified administration “infinite” is automatically to be repeated until: &#xD;&#xA;The end date and time has been reached&#xD;&#xA;The total administration duration has been reached (14 days)&#xD;&#xA;&#xD;&#xA;A specific amount of administrations has been reached (“20 doses”, “one-time only”), to be entered in the NumberOfDoses concept." />
       <alias value="Toedieningsschema" />
       <mapping>
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />
@@ -66,6 +65,10 @@
         <code value="Extension" />
         <profile value="http://hl7.org/fhir/StructureDefinition/timing-exact" />
       </type>
+    </element>
+    <element id="Timing.repeat.extension:exact.valueBoolean:valueBoolean">
+      <path value="Timing.repeat.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
     </element>
     <element id="Timing.repeat.bounds[x]">
       <path value="Timing.repeat.bounds[x]" />
@@ -144,12 +147,12 @@
       <mapping>
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />
         <map value="NL-CM:9.12.19949" />
-        <comment value="Frequency. When frequency is used, set &#34;exact&#34; to false" />
+        <comment value="Frequency. When frequency is used, set &quot;exact&quot; to false" />
       </mapping>
       <mapping>
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />
         <map value="NL-CM:9.12.19950" />
-        <comment value="Interval. When interval is used, set &#34;exact&#34; to true" />
+        <comment value="Interval. When interval is used, set &quot;exact&quot; to true" />
       </mapping>
     </element>
     <element id="Timing.repeat.periodUnit">
@@ -161,12 +164,12 @@
       <mapping>
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />
         <map value="NL-CM:9.12.19949" />
-        <comment value="Frequency. When frequency is used, set &#34;exact&#34; to false" />
+        <comment value="Frequency. When frequency is used, set &quot;exact&quot; to false" />
       </mapping>
       <mapping>
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />
         <map value="NL-CM:9.12.19950" />
-        <comment value="Interval. When interval is used, set &#34;exact&#34; to true" />
+        <comment value="Interval. When interval is used, set &quot;exact&quot; to true" />
       </mapping>
     </element>
     <element id="Timing.repeat.dayOfWeek">
