@@ -278,74 +278,74 @@
         <comment value="ProcedureEndDate" />
       </mapping>
     </element>
-  <element id="Procedure.performer">
-    <path value="Procedure.performer" />
-    <short value="HealthProfessional | Location::HealthcareProvider" />
-    <definition value="The healthcare professional that carried out the procedure.                  The healthcare center (location) where the procedure was or is carried out." />
-    <comment value="Note: Procedure.location could have been used for mapping the Location::HealthcareProvider. In most anticipated cases this would lead to an empty Location resource except for Location.managingOrganization. For efficiency the mapping has thus been done here. Should a Location::HealthcareProvider with an OrganizationLocation be targeted, then this may be solved using Organization.name 'OrganizationLocation' + Organization.partOf 'HealthcareProvider'" />
-    <alias value="UitgevoerdDoor" />
-    <alias value="Locatie" />
-    <mapping>
-    <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
-    <map value="NL-CM:14.1.6" />
-    <comment value="CarriedOutBy" />
-    </mapping>
-    <mapping>
-    <identity value="hcim-procedurefortransfer-v3.0-2016EN" />
-    <map value="NL-CM:14.1.6" />
-    <comment value="CarriedOutBy" />
-    </mapping>
-    <mapping>
-    <identity value="hcim-procedure-v4.1-2017EN" />
-    <map value="NL-CM:14.1.6" />
-    <comment value="Performer" />
-    </mapping>
-    <mapping>
-    <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
-    <map value="NL-CM:14.1.5" />
-    <comment value="Location" />
-    </mapping>
-    <mapping>
-    <identity value="hcim-procedurefortransfer-v3.0-2016EN" />
-    <map value="NL-CM:14.1.5" />
-    <comment value="Location" />
-    </mapping>
-    <mapping>
-    <identity value="hcim-procedure-v4.1-2017EN" />
-    <map value="NL-CM:14.1.5" />
-    <comment value="Location" />
-    </mapping>
-  </element>
-  <element id="Procedure.performer.actor">
-    <path value="Procedure.performer.actor" />
-    <type>
-    <code value="Reference" />
-    <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-    </type>
-    <type>
-    <code value="Reference" />
-    <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-    </type>
-  </element>
-  <element id="Procedure.performer.actor.extension">
-    <path value="Procedure.performer.actor.extension" />
-    <slicing>
-    <discriminator>
-      <type value="value" />
-      <path value="url" />
-    </discriminator>
-    <rules value="open" />
-    </slicing>
-  </element>
-  <element id="Procedure.performer.actor.extension:practitionerRole">
-    <path value="Procedure.performer.actor.extension" />
-    <sliceName value="practitionerRole" />
-    <max value="1" />
-    <type>
-    <code value="Extension" />
-    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-    </type>
-  </element>
+    <element id="Procedure.performer">
+      <path value="Procedure.performer" />
+      <short value="HealthProfessional | Location::HealthcareProvider" />
+      <definition value="The healthcare professional that carried out the procedure.                  The healthcare center (location) where the procedure was or is carried out." />
+      <comment value="Note: Procedure.location could have been used for mapping the Location::HealthcareProvider. In most anticipated cases this would lead to an empty Location resource except for Location.managingOrganization. For efficiency the mapping has thus been done here. Should a Location::HealthcareProvider with an OrganizationLocation be targeted, then this may be solved using Organization.name 'OrganizationLocation' + Organization.partOf 'HealthcareProvider'" />
+      <alias value="UitgevoerdDoor" />
+      <alias value="Locatie" />
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
+        <map value="NL-CM:14.1.6" />
+        <comment value="CarriedOutBy" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v3.0-2016EN" />
+        <map value="NL-CM:14.1.6" />
+        <comment value="CarriedOutBy" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedure-v4.1-2017EN" />
+        <map value="NL-CM:14.1.6" />
+        <comment value="Performer" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
+        <map value="NL-CM:14.1.5" />
+        <comment value="Location" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedurefortransfer-v3.0-2016EN" />
+        <map value="NL-CM:14.1.5" />
+        <comment value="Location" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-procedure-v4.1-2017EN" />
+        <map value="NL-CM:14.1.5" />
+        <comment value="Location" />
+      </mapping>
+    </element>
+    <element id="Procedure.performer.actor">
+      <path value="Procedure.performer.actor" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="Procedure.performer.actor.extension">
+      <path value="Procedure.performer.actor.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Procedure.performer.actor.extension:practitionerRole">
+      <path value="Procedure.performer.actor.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
     <element id="Procedure.reasonReference">
       <path value="Procedure.reasonReference" />
       <short value="Indication" />

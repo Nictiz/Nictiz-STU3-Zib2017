@@ -5,7 +5,7 @@
   <version value="1.0.0" />
   <name value="Zib Stoma" />
   <title value="HCIM Stoma" />
-    <status value="active" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -166,25 +166,25 @@
       </mapping>
     </element>
     <element id="Observation.performer.extension">
-    <path value="Observation.performer.extension" />
-    <slicing>
-    <discriminator>
-      <type value="value" />
-      <path value="url" />
-    </discriminator>
-    <rules value="open" />
-    </slicing>
-  </element>
-  <element id="Observation.performer.extension:practitionerrolereference">
-    <path value="Observation.performer.extension" />
-    <sliceName value="practitionerRole" />
-    <max value="1" />
-    <type>
-    <code value="Extension" />
-    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-    </type>
-  </element>
-  <element id="Observation.value[x]:valueCodeableConcept">
+      <path value="Observation.performer.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.performer.extension:practitionerRole">
+      <path value="Observation.performer.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+    <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="Stoma type" />

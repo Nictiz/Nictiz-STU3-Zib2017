@@ -307,25 +307,25 @@
       </mapping>
     </element>
     <element id="Immunization.practitioner.actor.extension">
-    <path value="Immunization.practitioner.actor.extension" />
-    <slicing>
-    <discriminator>
-      <type value="value" />
-      <path value="url" />
-    </discriminator>
-    <rules value="open" />
-    </slicing>
-  </element>
-  <element id="Immunization.practitioner.actor.extension:practitionerrolereference">
-    <path value="Immunization.practitioner.actor.extension" />
-    <sliceName value="practitionerRole" />
-    <max value="1" />
-    <type>
-    <code value="Extension" />
-    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-    </type>
-  </element>
-  <element id="Immunization.note">
+      <path value="Immunization.practitioner.actor.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Immunization.practitioner.actor.extension:practitionerRole">
+      <path value="Immunization.practitioner.actor.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+    <element id="Immunization.note">
       <path value="Immunization.note" />
       <mapping>
         <identity value="hcim-vaccination-v1.2-2015EN" />

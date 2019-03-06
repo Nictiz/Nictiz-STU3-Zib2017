@@ -16,8 +16,7 @@
     </telecom>
   </contact>
   <description value="MedicalDevice Request as defined by the Dutch Health and Care Information model for PlannedCareActivity (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017." />
-  <purpose
-    value="Recording planned appointments, referrals, treatments, diagnostic procedures, open orders and orders of which the results are not yet known gives every recipient, user or healthcare facility insight in the planned healthcare for this patient. This can prevent situations in which diagnostics and treatment can conflict with each other.&#xD;&#xA;This will give the recipient the option to place an order, cancel the order or act in any other way in accordance with their own policy.&#xD;&#xA;For orders that do not yet have results, the recipient is informed of the fact that potentially relevant results will be made available (which have to be requested)." />
+  <purpose value="Recording planned appointments, referrals, treatments, diagnostic procedures, open orders and orders of which the results are not yet known gives every recipient, user or healthcare facility insight in the planned healthcare for this patient. This can prevent situations in which diagnostics and treatment can conflict with each other.&#xD;&#xA;This will give the recipient the option to place an order, cancel the order or act in any other way in accordance with their own policy.&#xD;&#xA;For orders that do not yet have results, the recipient is informed of the fact that potentially relevant results will be made available (which have to be requested)." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -321,7 +320,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="DeviceRequest.requester.agent.extension:practitionerrolereference">
+    <element id="DeviceRequest.requester.agent.extension:practitionerRole">
       <path value="DeviceRequest.requester.agent.extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />
@@ -374,7 +373,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="DeviceRequest.performer.extension:practitionerrolereference">
+    <element id="DeviceRequest.performer.extension:practitionerRole">
       <path value="DeviceRequest.performer.extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />
@@ -401,7 +400,7 @@
         <code value="string" />
       </type>
     </element>
-  <element id="DeviceRequest.note.author[x].extension">
+    <element id="DeviceRequest.note.author[x].extension">
       <path value="DeviceRequest.note.author[x].extension" />
       <slicing>
         <discriminator>
@@ -411,7 +410,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="DeviceRequest.note.author[x].extension:practitionerrolereference">
+    <element id="DeviceRequest.note.author[x].extension:practitionerRole">
       <path value="DeviceRequest.note.author[x].extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />

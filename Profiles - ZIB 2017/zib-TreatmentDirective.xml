@@ -121,10 +121,6 @@
         <comment value="Verified" />
       </mapping>
     </element>
-    <element id="Consent.extension:verification.extension:Verified.valueBoolean:valueBoolean">
-      <path value="Consent.extension.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
-    </element>
     <element id="Consent.extension:verification.extension:VerifiedWith">
       <path value="Consent.extension.extension" />
       <sliceName value="VerifiedWith" />
@@ -180,10 +176,6 @@
         <comment value="VerificationDate" />
       </mapping>
     </element>
-    <element id="Consent.extension:verification.extension:VerificationDate.valueDateTime:valueDateTime">
-      <path value="Consent.extension.extension.valueDateTime" />
-      <sliceName value="valueDateTime" />
-    </element>
     <element id="Consent.extension:verification.url">
       <path value="Consent.extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification" />
@@ -191,9 +183,7 @@
     <element id="Consent.extension:comment">
       <path value="Consent.extension" />
       <sliceName value="comment" />
-      <short value="Comment" />
       <definition value="Comments on the treatment instruction such as a written description of an end date which can be indicated as a date (“until discharge from hospital”)." />
-      <alias value="Toelichting" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -451,7 +441,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Consent.consentingParty.extension:practitionerrolereference">
+    <element id="Consent.consentingParty.extension:practitionerRole">
       <path value="Consent.consentingParty.extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />
@@ -501,7 +491,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Consent.actor.reference.extension:practitionerrolereference">
+    <element id="Consent.actor.reference.extension:practitionerRole">
       <path value="Consent.actor.reference.extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />
@@ -610,10 +600,6 @@
         <comment value="Restrictions" />
       </mapping>
     </element>
-    <element id="Consent.except.extension:restrictions.valueString:valueString">
-      <path value="Consent.except.extension.valueString" />
-      <sliceName value="valueString" />
-    </element>
     <element id="Consent.except.type">
       <path value="Consent.except.type" />
       <comment value="If a Consent.except is used in accordance with the HCIM TreatmentDirective and the value of the element NL-CM:2.1.4 TreatmentPermitted is YES_BUT/JA_MAAR, then the value of this element SHALL be &quot;deny&quot;" />
@@ -649,7 +635,7 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
       </type>
     </element>
-  <element id="Consent.except.actor.reference.extension">
+    <element id="Consent.except.actor.reference.extension">
       <path value="Consent.except.actor.reference.extension" />
       <slicing>
         <discriminator>
@@ -659,7 +645,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Consent.except.actor.reference.extension:practitionerrolereference">
+    <element id="Consent.except.actor.reference.extension:practitionerRole">
       <path value="Consent.except.actor.reference.extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />

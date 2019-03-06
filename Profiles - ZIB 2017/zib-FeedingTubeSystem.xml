@@ -5,7 +5,7 @@
   <version value="1.0.0" />
   <name value="Zib FeedingTubeSystem" />
   <title value="HCIM FeedingTubeSystem" />
-    <status value="active" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -47,12 +47,20 @@
         <comment value="FeedingTube" />
       </mapping>
     </element>
+    <element id="DeviceUseStatement.extension">
+      <path value="DeviceUseStatement.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="DeviceUseStatement.extension:FeedingTubeLength">
       <path value="DeviceUseStatement.extension" />
       <sliceName value="FeedingTubeLength" />
-      <short value="FeedingTubeLength" />
-    <alias value="SondeLengte" />
-    <type>
+      <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-FeedingTubeLength" />
       </type>
@@ -65,9 +73,7 @@
     <element id="DeviceUseStatement.extension:EnteralNutrition">
       <path value="DeviceUseStatement.extension" />
       <sliceName value="EnteralNutrition" />
-      <short value="EnteralNutrition" />
-    <alias value="SondeVoeding" />
-    <type>
+      <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-EnteralNutrition" />
       </type>
@@ -100,18 +106,16 @@
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-Product" />
       </type>
-    <mapping>
-      <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
-      <map value="NL-CM:10.1.3" />
-      <comment value="ProductType. HCIM MedicalDevice NL-CM:10.1.3 ProductType is overridden in HCIM FeedingTubeSystem with specific terminology 'SondeTypeCodelijst' (2.16.840.1.113883.2.4.3.11.60.40.2.10.3.1)" />
-    </mapping>
-  </element>
+      <mapping>
+        <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
+        <map value="NL-CM:10.1.3" />
+        <comment value="ProductType. HCIM MedicalDevice NL-CM:10.1.3 ProductType is overridden in HCIM FeedingTubeSystem with specific terminology 'SondeTypeCodelijst' (2.16.840.1.113883.2.4.3.11.60.40.2.10.3.1)" />
+      </mapping>
+    </element>
     <element id="DeviceUseStatement.note.text">
       <path value="DeviceUseStatement.note.text" />
-      <short value="Comment" />
-    <definition value="A comment on the feeding tube." />
-      <alias value="Toelichting" />
-    <mapping>
+      <definition value="A comment on the feeding tube." />
+      <mapping>
         <identity value="hcim-feedingtubesystem-v3.2-2017EN" />
         <map value="NL-CM:10.3.6" />
         <comment value="Comment" />

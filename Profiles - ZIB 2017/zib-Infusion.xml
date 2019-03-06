@@ -5,7 +5,7 @@
   <version value="1.0.0" />
   <name value="Zib Infusion" />
   <title value="HCIM Infusion" />
-    <status value="active" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -45,6 +45,16 @@
         <map value="NL-CM:10.3.2" />
         <comment value="FeedingTube" />
       </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension">
+      <path value="DeviceUseStatement.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
     <element id="DeviceUseStatement.extension:LumenOrLine">
       <path value="DeviceUseStatement.extension" />

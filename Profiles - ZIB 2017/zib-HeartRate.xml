@@ -60,11 +60,6 @@
         <map value="NL-CM:12.3.1" />
         <comment value="HeartRate" />
       </mapping>
-      <mapping>
-        <identity value="hcim-heartrate-v3.1-2017EN" />
-        <map value="NL-CM:12.3.1" />
-        <comment value="HeartRate" />
-      </mapping>
     </element>
     <element id="Observation.identifier">
       <path value="Observation.identifier" />
@@ -100,21 +95,6 @@
         <comment value="Subject" />
       </mapping>
     </element>
-    <element id="Observation.context">
-      <path value="Observation.context" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/nl-core-encounter" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
-      </type>
-    </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]" />
       <short value="HeartRateDateTime" />
@@ -143,47 +123,12 @@
     </element>
     <element id="Observation.performer">
       <path value="Observation.performer" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.7" />
         <comment value="Author" />
       </mapping>
     </element>
-      <element id="Observation.performer.extension">
-          <path value="Observation.performer.extension" />
-          <slicing>
-              <discriminator>
-                  <type value="value" />
-                  <path value="url" />
-              </discriminator>
-              <rules value="open" />
-          </slicing>
-      </element>
-      <element id="Observation.performer.extension:practitionerrolereference">
-          <path value="Observation.performer.extension" />
-          <sliceName value="practitionerRole" />
-          <max value="1" />
-          <type>
-              <code value="Extension" />
-              <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-          </type>
-      </element>
     <element id="Observation.valueQuantity:valueQuantity">
       <path value="Observation.valueQuantity" />
       <sliceName value="valueQuantity" />
@@ -288,10 +233,6 @@
         <map value="NL-CM:12.3.6" />
         <comment value="HeartRateMeasurementMethod" />
       </mapping>
-    </element>
-    <element id="Observation.component.valueQuantity:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
     </element>
   </differential>
 </StructureDefinition>

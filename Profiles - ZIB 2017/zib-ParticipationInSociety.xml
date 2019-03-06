@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-ParticipationInSociety" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-ParticipationInSociety" />
@@ -161,25 +161,25 @@
       </mapping>
     </element>
     <element id="Observation.performer.extension">
-    <path value="Observation.performer.extension" />
-    <slicing>
-    <discriminator>
-      <type value="value" />
-      <path value="url" />
-    </discriminator>
-    <rules value="open" />
-    </slicing>
-  </element>
-  <element id="Observation.performer.extension:practitionerrolereference">
-    <path value="Observation.performer.extension" />
-    <sliceName value="practitionerRole" />
-    <max value="1" />
-    <type>
-    <code value="Extension" />
-    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-    </type>
-  </element>
-  <element id="Observation.comment">
+      <path value="Observation.performer.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.performer.extension:practitionerRole">
+      <path value="Observation.performer.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+    <element id="Observation.comment">
       <path value="Observation.comment" />
       <short value="Comment" />
       <definition value="Comment on the participation in society." />

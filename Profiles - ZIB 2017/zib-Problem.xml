@@ -329,25 +329,25 @@
       </mapping>
     </element>
     <element id="Condition.asserter.extension">
-    <path value="Condition.asserter.extension" />
-    <slicing>
-    <discriminator>
-      <type value="value" />
-      <path value="url" />
-    </discriminator>
-    <rules value="open" />
-    </slicing>
-  </element>
-  <element id="Condition.asserter.extension:practitionerrolereference">
-    <path value="Condition.asserter.extension" />
-    <sliceName value="practitionerRole" />
-    <max value="1" />
-    <type>
-    <code value="Extension" />
-    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-    </type>
-  </element>
-  <element id="Condition.note">
+      <path value="Condition.asserter.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Condition.asserter.extension:practitionerRole">
+      <path value="Condition.asserter.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+    <element id="Condition.note">
       <path value="Condition.note" />
       <short value="Comment" />
       <definition value="Comment by the one who determined or updated the Problem." />

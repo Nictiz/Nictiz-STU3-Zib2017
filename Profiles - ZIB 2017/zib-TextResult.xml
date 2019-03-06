@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-TextResult" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult" />
@@ -35,18 +35,18 @@
     <name value="HCIM TextResult-v4.1(2017EN)" />
   </mapping>
   <mapping>
-  <identity value="hcim-patient-v2.0.1-2015EN" />
-  <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
-  <name value="HCIM Patient-v2.0.1(2015EN)" />
+    <identity value="hcim-patient-v2.0.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
+    <name value="HCIM Patient-v2.0.1(2015EN)" />
   </mapping>
   <mapping>
-  <identity value="hcim-patient-v3.0-2016EN" />
-  <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
-  <name value="HCIM Patient-v3.0(2016EN)" />
+    <identity value="hcim-patient-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
+    <name value="HCIM Patient-v3.0(2016EN)" />
   </mapping>
   <mapping>
-  <identity value="hcim-patient-v3.1-2017EN" />
-  <uri value="https://zibs.nl/wiki/Patient-v3.1(2017EN)" />
+    <identity value="hcim-patient-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v3.1(2017EN)" />
   </mapping>
   <mapping>
     <identity value="hcim-basicelements-v1.0-2017EN" />
@@ -175,21 +175,21 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
-    <mapping>
-    <identity value="hcim-patient-v2.0.1-2015EN" />
-    <map value="NL-CM:0.1.1" />
-    <comment value="Patient" />
-    </mapping>
-    <mapping>
-    <identity value="hcim-patient-v3.0-2016EN" />
-    <map value="NL-CM:0.1.1" />
-    <comment value="Patient" />
-    </mapping>
-    <mapping>
-    <identity value="hcim-patient-v3.1-2017EN" />
-    <map value="NL-CM:0.1.1" />
-    <comment value="Patient" />
-    </mapping>
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.1" />
+        <comment value="Patient" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.1" />
+        <comment value="Patient" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.1-2017EN" />
+        <map value="NL-CM:0.1.1" />
+        <comment value="Patient" />
+      </mapping>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.11" />
@@ -253,25 +253,25 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
       </type>
     </element>
-      <element id="DiagnosticReport.performer.actor.extension">
-          <path value="DiagnosticReport.performer.actor.extension" />
-          <slicing>
-              <discriminator>
-                  <type value="value" />
-                  <path value="url" />
-              </discriminator>
-              <rules value="open" />
-          </slicing>
-      </element>
-      <element id="DiagnosticReport.performer.actor.extension:practitionerrolereference">
-          <path value="DiagnosticReport.performer.actor.extension" />
-          <sliceName value="practitionerRole" />
-          <max value="1" />
-          <type>
-              <code value="Extension" />
-              <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-          </type>
-      </element>
+    <element id="DiagnosticReport.performer.actor.extension">
+      <path value="DiagnosticReport.performer.actor.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DiagnosticReport.performer.actor.extension:practitionerRole">
+      <path value="DiagnosticReport.performer.actor.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
     <element id="DiagnosticReport.conclusion">
       <path value="DiagnosticReport.conclusion" />
       <mapping>
