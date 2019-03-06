@@ -33,7 +33,7 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-VitalSigns" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation">
@@ -47,6 +47,37 @@
         <comment value="PulseRate" />
       </mapping>
     </element>
+    <element id="Observation.code">
+    <path value="Observation.code" />
+    <short value="PulseRate" />
+    <definition value="The element contains the value of the pulse rate measured. The pulse rate is expressed in the number of tangible pulsations of an artery per minute, usually the a. radialis, a. carotis or a. femoralis." />
+    <comment value="additional codes that translate or map to this code are allowed. For example a more granular LOINC code or code that is used locally in a system." />
+    <alias value="Polsfrequentie" />
+  </element>
+  <element id="Observation.code.coding">
+    <path value="Observation.code.coding" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="code" />
+    </discriminator>
+    <ordered value="false" />
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="Observation.code.coding:PulseRate">
+    <path value="Observation.code.coding" />
+    <sliceName value="PulseRate" />
+  </element>
+  <element id="Observation.code.coding:PulseRate.system">
+    <path value="Observation.code.coding.system" />
+    <fixedUri value="http://loinc.org" />
+  </element>
+  <element id="Observation.code.coding:PulseRate.code">
+    <path value="Observation.code.coding.code" />
+    <definition value="Heart rate Peripheral artery by Palpation" />
+    <fixedCode value="8893-0" />
+  </element>
     <element id="Observation.subject">
       <path value="Observation.subject" />
       <short value="Patient" />
@@ -78,9 +109,10 @@
         <comment value="PulseRateDateTime" />
       </mapping>
     </element>
-    <element id="Observation.value[x]">
-      <path value="Observation.value[x]" />
-      <short value="PulseRateValue" />
+    <element id="Observation.valueQuantity:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+    <short value="PulseRateValue" />
       <definition value="The pulse frequency measured as the number of tangible pulsations of an artery per minute." />
       <alias value="PolsfrequentieWaarde" />
       <min value="1" />
@@ -94,11 +126,75 @@
       <path value="Observation.comment" />
       <short value="Explanation" />
       <definition value="Explanation of any problems or factors that may influence the measurement. Further explanation can be provided here as well." />
-      <mapping>
+      <alias value="Toelichting" />
+    <mapping>
         <identity value="hcim-pulserate-v3.1-2017EN" />
         <map value="NL-CM:12.7.4" />
         <comment value="Comment" />
       </mapping>
     </element>
+  <element id="Observation.component">
+    <path value="Observation.component" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="code.coding.code" />
+    </discriminator>
+    <discriminator>
+      <type value="value" />
+      <path value="code.coding.system" />
+    </discriminator>
+    <ordered value="false" />
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="Observation.component:PulseRegularity">
+    <path value="Observation.component" />
+    <sliceName value="PulseRegularity" />
+    <short value="PulseRegularity" />
+    <max value="1" />
+  </element>
+  <element id="Observation.component:PulseRegularity.code">
+    <path value="Observation.component.code" />
+    <comment value="additional codes that translate or map to this code are allowed. For example a more granular LOINC code or code that is used locally in a system." />
+    <alias value="Component Test" />
+    <alias value="Component Name" />
+  </element>
+  <element id="Observation.component:PulseRegularity.code.coding">
+    <path value="Observation.component.code.coding" />
+    <min value="1" />
+  </element>
+  <element id="Observation.component:PulseRegularity.code.coding.system">
+    <path value="Observation.component.code.coding.system" />
+    <fixedUri value="http://loinc.org" />
+  </element>
+  <element id="Observation.component:PulseRegularity.code.coding.code">
+    <path value="Observation.component.code.coding.code" />
+    <definition value="Heart rate rhythm palpation" />
+    <fixedCode value="44969-4" />
+  </element>
+  <element id="Observation.component:PulseRegularity.value[x]:valueCodeableConcept">
+    <path value="Observation.component.valueCodeableConcept" />
+    <sliceName value="valueCodeableConcept" />
+    <short value="PulseRegularity" />
+    <definition value="Regular or irregular rhythm." />
+    <alias value="PolsRegelmatigheid" />
+    <type>
+    <code value="CodeableConcept" />
+    </type>
+    <binding>
+    <strength value="extensible" />
+    <description value="PolsRegelmatigheidCodelijst" />
+    <valueSetReference>
+      <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.7.1--20171231000000" />
+      <display value="PolsRegelmatigheidCodelijst" />
+    </valueSetReference>
+    </binding>
+    <mapping>
+    <identity value="hcim-pulserate-v3.1-2017EN" />
+    <map value="NL-CM:12.7.5" />
+    <comment value="PulseRegularity. See also issue that fixes the missing terminology association: https://bits.nictiz.nl/projects/ZIB/issues/ZIB-689" />
+    </mapping>
+  </element>
   </differential>
 </StructureDefinition>

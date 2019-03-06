@@ -42,7 +42,7 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/heartrate" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/heartrate" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation">
@@ -165,6 +165,25 @@
         <comment value="Author" />
       </mapping>
     </element>
+      <element id="Observation.performer.extension">
+          <path value="Observation.performer.extension" />
+          <slicing>
+              <discriminator>
+                  <type value="value" />
+                  <path value="url" />
+              </discriminator>
+              <rules value="open" />
+          </slicing>
+      </element>
+      <element id="Observation.performer.extension:practitionerrolereference">
+          <path value="Observation.performer.extension" />
+          <sliceName value="practitionerRole" />
+          <max value="1" />
+          <type>
+              <code value="Extension" />
+              <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+          </type>
+      </element>
     <element id="Observation.valueQuantity:valueQuantity">
       <path value="Observation.valueQuantity" />
       <sliceName value="valueQuantity" />

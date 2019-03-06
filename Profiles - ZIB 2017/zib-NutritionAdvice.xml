@@ -153,7 +153,26 @@
         <comment value="Author" />
       </mapping>
     </element>
-    <element id="NutritionOrder.allergyIntolerance">
+    <element id="NutritionOrder.orderer.extension">
+    <path value="NutritionOrder.orderer.extension" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="url" />
+    </discriminator>
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="NutritionOrder.orderer.extension:practitionerrolereference">
+    <path value="NutritionOrder.orderer.extension" />
+    <sliceName value="practitionerRole" />
+    <max value="1" />
+    <type>
+    <code value="Extension" />
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+    </type>
+  </element>
+  <element id="NutritionOrder.allergyIntolerance">
       <path value="NutritionOrder.allergyIntolerance" />
       <type>
         <code value="Reference" />

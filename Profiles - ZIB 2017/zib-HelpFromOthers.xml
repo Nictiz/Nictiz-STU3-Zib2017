@@ -143,6 +143,25 @@
         <comment value="Author" />
       </mapping>
     </element>
+      <element id="CareTeam.author.extension">
+          <path value="CareTeam.author.extension" />
+          <slicing>
+              <discriminator>
+                  <type value="value" />
+                  <path value="url" />
+              </discriminator>
+              <rules value="open" />
+          </slicing>
+      </element>
+      <element id="CareTeam.author.extension:practitionerrolereference">
+          <path value="CareTeam.author.extension" />
+          <sliceName value="practitionerRole" />
+          <max value="1" />
+          <type>
+              <code value="Extension" />
+              <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+          </type>
+      </element>
     <element id="CarePlan.careTeam">
       <path value="CarePlan.careTeam" />
       <type>
@@ -256,7 +275,26 @@
         <comment value="HealthcareProvider" />
       </mapping>
     </element>
-    <element id="CarePlan.activity.detail.description">
+    <element id="CarePlan.activity.detail.performer.extension">
+    <path value="CarePlan.activity.detail.performer.extension" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="url" />
+    </discriminator>
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="CarePlan.activity.detail.performer.extension:practitionerrolereference">
+    <path value="CarePlan.activity.detail.performer.extension" />
+    <sliceName value="practitionerRole" />
+    <max value="1" />
+    <type>
+    <code value="Extension" />
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+    </type>
+  </element>
+  <element id="CarePlan.activity.detail.description">
       <path value="CarePlan.activity.detail.description" />
       <short value="Comment" />
       <definition value="A comment on the help/support the patient receives from others." />

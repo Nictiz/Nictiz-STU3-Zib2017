@@ -191,6 +191,7 @@
     <element id="Consent.extension:comment">
       <path value="Consent.extension" />
       <sliceName value="comment" />
+      <short value="Comment" />
       <definition value="Comments on the treatment instruction such as a written description of an end date which can be indicated as a date (“until discharge from hospital”)." />
       <alias value="Toelichting" />
       <max value="1" />
@@ -440,11 +441,30 @@
         <comment value="Author" />
       </mapping>
     </element>
+    <element id="Consent.consentingParty.extension">
+      <path value="Consent.consentingParty.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Consent.consentingParty.extension:practitionerrolereference">
+      <path value="Consent.consentingParty.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
     <element id="Consent.actor.reference">
       <path value="Consent.actor.reference" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
       </type>
       <type>
         <code value="Reference" />
@@ -469,6 +489,25 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+    <element id="Consent.actor.reference.extension">
+      <path value="Consent.actor.reference.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Consent.actor.reference.extension:practitionerrolereference">
+      <path value="Consent.actor.reference.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
     </element>
     <element id="Consent.organization">
@@ -583,7 +622,7 @@
       <path value="Consent.except.actor.reference" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
       </type>
       <type>
         <code value="Reference" />
@@ -608,6 +647,25 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+  <element id="Consent.except.actor.reference.extension">
+      <path value="Consent.except.actor.reference.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Consent.except.actor.reference.extension:practitionerrolereference">
+      <path value="Consent.except.actor.reference.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
     </element>
   </differential>

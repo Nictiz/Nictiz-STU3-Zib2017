@@ -311,6 +311,25 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
       </type>
     </element>
+    <element id="DeviceRequest.requester.agent.extension">
+      <path value="DeviceRequest.requester.agent.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DeviceRequest.requester.agent.extension:practitionerrolereference">
+      <path value="DeviceRequest.requester.agent.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
     <element id="DeviceRequest.requester.onBehalfOf">
       <path value="DeviceRequest.requester.onBehalfOf" />
       <type>
@@ -345,6 +364,25 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-healthcareservice" />
       </type>
     </element>
+    <element id="DeviceRequest.performer.extension">
+      <path value="DeviceRequest.performer.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DeviceRequest.performer.extension:practitionerrolereference">
+      <path value="DeviceRequest.performer.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
     <element id="DeviceRequest.note.author[x]">
       <path value="DeviceRequest.note.author[x]" />
       <type>
@@ -361,6 +399,25 @@
       </type>
       <type>
         <code value="string" />
+      </type>
+    </element>
+  <element id="DeviceRequest.note.author[x].extension">
+      <path value="DeviceRequest.note.author[x].extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DeviceRequest.note.author[x].extension:practitionerrolereference">
+      <path value="DeviceRequest.note.author[x].extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
     </element>
   </differential>

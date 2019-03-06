@@ -132,7 +132,8 @@
       <short value="OrderStatus" />
       <definition value="The status of the order." />
       <alias value="OrderStatus" />
-      <type>
+      <max value="1" />
+    <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
       </type>
@@ -382,11 +383,31 @@
         <comment value="RequestedBy" />
       </mapping>
     </element>
-    <element id="ProcedureRequest.performer">
+    <element id="ProcedureRequest.requester.agent.extension">
+    <path value="ProcedureRequest.requester.agent.extension" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="url" />
+    </discriminator>
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="ProcedureRequest.requester.agent.extension:practitionerRole">
+    <path value="ProcedureRequest.requester.agent.extension" />
+    <sliceName value="practitionerRole" />
+    <max value="1" />
+    <type>
+    <code value="Extension" />
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+    </type>
+  </element>
+  <element id="ProcedureRequest.performer">
       <path value="ProcedureRequest.performer" />
       <short value="CarriedOutBy" />
-      <definition value="The healthcare provider who will carrie out the procedure. In most cases, only the medical specialty is entered, and not the name of the healthcare provider or the healthcare center where the procedure will be carried out." />
-      <alias value="UitgevoerdDoor" />
+      <definition value="The healthcare provider who will carry out the procedure. In most cases, only the medical specialty is entered, and not the name of the healthcare provider or the healthcare center where the procedure will be carried out." />
+      <comment value="Note: Should a Location::HealthcareProvider with an OrganizationLocation be targeted, then this may be solved using Organization.name 'OrganizationLocation' + Organization.partOf 'HealthcareProvider'" />
+    <alias value="UitgevoerdDoor" />
       <alias value="Locatie" />
       <type>
         <code value="Reference" />
@@ -443,7 +464,26 @@
         <comment value="Location" />
       </mapping>
     </element>
-    <element id="ProcedureRequest.reasonReference">
+    <element id="ProcedureRequest.performer.extension">
+    <path value="ProcedureRequest.performer.extension" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="url" />
+    </discriminator>
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="ProcedureRequest.performer.extension:practitionerRole">
+    <path value="ProcedureRequest.performer.extension" />
+    <sliceName value="practitionerRole" />
+    <max value="1" />
+    <type>
+    <code value="Extension" />
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+    </type>
+  </element>
+  <element id="ProcedureRequest.reasonReference">
       <path value="ProcedureRequest.reasonReference" />
       <short value="Indication" />
       <definition value="The indication is the reason for the procedure." />

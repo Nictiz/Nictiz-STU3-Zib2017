@@ -47,23 +47,23 @@
   <differential>
     <element id="Observation">
       <path value="Observation" />
-      <short value="Oxygen Saturation" />
+      <short value="OxygenSaturation" />
       <definition value="This profile defines how to represent Oxygen Saturation observations in FHIR using a standard LOINC code and UCUM units of measure.&#xD;&#xA;&#xD;&#xA;Arterial oxygen saturation, also referred to as saturation, is an indicator for the amount of oxygen bound to the hemoglobin in the red blood cells of the arteries. The measurement is usually carried out as a transcutaneous measurement with a blood oxygen monitor or pulse oximeter. The saturation level is expressed as a percentage and should be over 95% in healthy people." />
       <alias value="O2Saturatie" />
       <mapping>
         <identity value="hcim-o2saturation-v1.2-2015EN" />
         <map value="NL-CM:12.10.1" />
-        <comment value="oxygenation, saturation, SpO2"/>
+        <comment value="oxygenation, saturation, SpO2" />
       </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.0-2016EN" />
         <map value="NL-CM:12.10.1" />
-        <comment value="oxygenation, saturation, SpO2"/>
+        <comment value="oxygenation, saturation, SpO2" />
       </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.1-2017EN" />
         <map value="NL-CM:12.10.1" />
-        <comment value="O2Saturation"/>
+        <comment value="O2Saturation" />
       </mapping>
     </element>
     <element id="Observation.identifier">
@@ -90,17 +90,17 @@
       <mapping>
         <identity value="hcim-o2saturation-v1.2-2015EN" />
         <map value="NL-CM:12.10.3" />
-        <comment value="O2SaturationDateTime"/>
+        <comment value="O2SaturationDateTime" />
       </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.0-2016EN" />
         <map value="NL-CM:12.10.3" />
-        <comment value="O2SaturationDateTime"/>
+        <comment value="O2SaturationDateTime" />
       </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.1-2017EN" />
         <map value="NL-CM:12.10.3" />
-        <comment value="O2SaturationDateTime"/>
+        <comment value="O2SaturationDateTime" />
       </mapping>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
@@ -116,6 +116,25 @@
         <comment value="Author" />
       </mapping>
     </element>
+      <element id="Observation.performer.extension">
+          <path value="Observation.performer.extension" />
+          <slicing>
+              <discriminator>
+                  <type value="value" />
+                  <path value="url" />
+              </discriminator>
+              <rules value="open" />
+          </slicing>
+      </element>
+      <element id="Observation.performer.extension:practitionerrolereference">
+          <path value="Observation.performer.extension" />
+          <sliceName value="practitionerRole" />
+          <max value="1" />
+          <type>
+              <code value="Extension" />
+              <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+          </type>
+      </element>
     <element id="Observation.valueQuantity:valueQuantity">
       <path value="Observation.valueQuantity" />
       <sliceName value="valueQuantity" />
@@ -125,17 +144,17 @@
       <mapping>
         <identity value="hcim-o2saturation-v1.2-2015EN" />
         <map value="NL-CM:12.10.2" />
-        <comment value="SpO2Value"/>
+        <comment value="SpO2Value" />
       </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.0-2016EN" />
         <map value="NL-CM:12.10.2" />
-        <comment value="SpO2Value"/>
+        <comment value="SpO2Value" />
       </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.1-2017EN" />
         <map value="NL-CM:12.10.2" />
-        <comment value="SpO2Value"/>
+        <comment value="SpO2Value" />
       </mapping>
     </element>
     <element id="Observation.comment">
@@ -146,17 +165,17 @@
       <mapping>
         <identity value="hcim-o2saturation-v1.2-2015EN" />
         <map value="NL-CM:12.10.4" />
-        <comment value="Explanation"/>
+        <comment value="Explanation" />
       </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.0-2016EN" />
         <map value="NL-CM:12.10.4" />
-        <comment value="Explanation"/>
+        <comment value="Explanation" />
       </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.1-2017EN" />
         <map value="NL-CM:12.10.4" />
-        <comment value="Comment"/>
+        <comment value="Comment" />
       </mapping>
     </element>
     <element id="Observation.component">
@@ -210,17 +229,17 @@
       <mapping>
         <identity value="hcim-o2saturation-v1.2-2015EN" />
         <map value="NL-CM:12.10.5" />
-        <comment value="ExtraOxygenAdministration"/>
+        <comment value="ExtraOxygenAdministration" />
       </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.0-2016EN" />
         <map value="NL-CM:12.10.5" />
-        <comment value="ExtraOxygenAdministration"/>
+        <comment value="ExtraOxygenAdministration" />
       </mapping>
       <mapping>
         <identity value="hcim-o2saturation-v3.1-2017EN" />
         <map value="NL-CM:12.10.5" />
-        <comment value="ExtraOxygenAdministration"/>
+        <comment value="ExtraOxygenAdministration" />
       </mapping>
     </element>
   </differential>

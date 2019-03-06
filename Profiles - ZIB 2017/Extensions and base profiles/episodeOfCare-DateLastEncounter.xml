@@ -1,51 +1,50 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="episodeofcare-datelastencounter"/>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-DateLastEncounter"/>
-    <version value="2.0.0"/>
-    <name value="EpisodeOfCare DateLastEncounter"/>
-    <title value="EpisodeOfCare-DateLastEncounter"/>
-    <status value="active"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="For episodes of care it can be relevant, and always is in general practitioner workflow, when the last encounter was that a problem/concern was discussed. You could try to get to that date by going through all encounters taking into account that the EpisodeOfCare might have evolved over time, but this extension provides a convenience method to avoid that."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <kind value="complex-type"/>
-    <abstract value="false"/>
-    <contextType value="resource"/>
-    <context value="EpisodeOfCare"/>
-    <type value="Extension"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Extension">
-            <path value="Extension"/>
-        </element>
-        <element id="Extension.url">
-            <path value="Extension.url"/>
-            <representation value="xmlAttr"/>
-            <type>
-                <code value="uri"/>
-            </type>
-            <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-DateLastEncounter"/>
-        </element>
-        <element id="Extension.valueDateTime">
-            <path value="Extension.valueDateTime"/>
-            <short value="Date and if applicable time/timezone"/>
-            <definition value="Date and if applicable time/timezone for this last encounter that the EpisodeOfCare was discussed"/>
-            <alias value="Datum en indien van toepassing tijd/tijdzone"/>
-            <min value="1"/>
-            <type>
-                <code value="dateTime"/>
-            </type>
-            <meaningWhenMissing value="No information can be inferred from missing the date/time."/>
-        </element>
-    </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="episodeofcare-datelastencounter" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-DateLastEncounter" />
+  <version value="2.0.0" />
+  <name value="EpisodeOfCare DateLastEncounter" />
+  <title value="EpisodeOfCare-DateLastEncounter" />
+  <status value="active" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="For episodes of care it can be relevant, and always is in general practitioner workflow, when the last encounter was that a problem/concern was discussed. You could try to get to that date by going through all encounters taking into account that the EpisodeOfCare might have evolved over time, but this extension provides a convenience method to avoid that." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="EpisodeOfCare" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <representation value="xmlAttr" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-DateLastEncounter" />
+    </element>
+    <element id="Extension.valueDateTime">
+      <path value="Extension.valueDateTime" />
+      <short value="Date and if applicable time/timezone" />
+      <definition value="Date and if applicable time/timezone for this last encounter that the EpisodeOfCare was discussed" />
+      <alias value="Datum en indien van toepassing tijd/tijdzone" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <meaningWhenMissing value="No information can be inferred from missing the date/time." />
+    </element>
+  </differential>
 </StructureDefinition>

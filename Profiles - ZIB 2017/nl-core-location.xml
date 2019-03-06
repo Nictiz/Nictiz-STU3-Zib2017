@@ -19,15 +19,36 @@
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
-    <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+    <identity value="hcim-patient-v2.0.1-2015EN" />
     <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
     <name value="HCIM Patient-v2.0.1(2015EN)" />
     <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs" />
   </mapping>
   <mapping>
-    <identity value="hcim-basicelements-v1.0-2017EN" />
-    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
-    <name value="HCIM BasicElements-v1.0(2017EN)" />
+    <identity value="hcim-patient-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
+    <name value="HCIM Patient-v3.0(2016EN)" />
+    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactinformation-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/ContactInformation-v1.0(2017EN)" />
+    <name value="HCIM ContactInformation-v1.0(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-addressinformation-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/AddressInformation-v1.0(2017EN)" />
+    <name value="HCIM AddressInformation-v1.0(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-dispense-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/Dispense-v1.0(2017EN)" />
+    <name value="HCIM Dispense-v1.0(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-healthcareprovider-v3.1.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/HealthcareProvider-v3.1.1(2017EN)" />
+    <name value="HCIM HealthcareProvider-v3.1.1(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -35,12 +56,22 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Location" />
   <derivation value="constraint" />
   <differential>
-    <element id="Location.identifier">
-      <path value="Location.identifier" />
+    <element id="Location.name">
+      <path value="Location.name" />
+      <short value="LocationName" />
+      <alias value="OrganizationLocation" />
+      <alias value="OrganisatieLocatie" />
+      <alias value="DispenseLocation" />
+      <alias value="Afleverlocatie" />
       <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.6" />
-        <comment value="IdentificationNumber" />
+        <identity value="hcim-dispense-v1.0-2017EN" />
+        <map value="NL-CM:9.9.20925" />
+        <comment value="DispenseLocation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthcareprovider-v3.1.1-2017EN" />
+        <map value="NL-CM:17.2.8" />
+        <comment value="OrganizationLocation" />
       </mapping>
     </element>
     <element id="Location.telecom">
@@ -48,14 +79,29 @@
       <short value="ContactInformation" />
       <alias value="Contactgegevens" />
       <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.5" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.5" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.1" />
         <comment value="ContactInformation" />
       </mapping>
     </element>
     <element id="Location.telecom.system">
       <path value="Location.telecom.system" />
       <min value="1" />
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.5" />
+        <comment value="TelecomType" />
+      </mapping>
     </element>
     <element id="Location.telecom.value">
       <path value="Location.telecom.value" />
@@ -64,14 +110,34 @@
       <alias value="EmailAdres" />
       <min value="1" />
       <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.23" />
         <comment value="TelephoneNumber" />
       </mapping>
       <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.23" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.4" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.20" />
-        <comment value="E-mailAddress" />
+        <comment value="EmailAddress" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.20" />
+        <comment value="EmailAddress" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.7" />
+        <comment value="EmailAddress" />
       </mapping>
     </element>
     <element id="Location.telecom.use">
@@ -80,14 +146,39 @@
       <alias value="NummerSoort" />
       <alias value="EmailSoort" />
       <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.22" />
         <comment value="NumberType" />
       </mapping>
       <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.22" />
+        <comment value="NumberType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.6" />
+        <comment value="NumberType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.19" />
         <comment value="E-mailAddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.19" />
+        <comment value="E-mailAddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.5" />
+        <comment value="TelecomType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.8" />
+        <comment value="EmailAddressType" />
       </mapping>
     </element>
     <element id="Location.address">
@@ -99,10 +190,76 @@
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address" />
       </type>
       <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.4" />
         <comment value="AddressInformation" />
       </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.4" />
+        <comment value="AddressInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-addressinformation-v3.1-2017EN" />
+        <map value="NL-CM:20.5.1" />
+        <comment value="AddressInformation" />
+      </mapping>
+    </element>
+    <element id="Location.address.extension:official">
+      <path value="Location.address.extension" />
+      <sliceName value="official" />
+    </element>
+    <element id="Location.address.extension:official.valueBoolean:valueBoolean">
+      <path value="Location.address.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+    </element>
+    <element id="Location.address.use.extension:AD_use">
+      <path value="Location.address.use.extension" />
+      <sliceName value="AD_use" />
+    </element>
+    <element id="Location.address.use.extension:AD_use.valueCode:valueCode">
+      <path value="Location.address.use.extension.valueCode" />
+      <sliceName value="valueCode" />
+    </element>
+    <element id="Location.address.line.extension:streetName">
+      <path value="Location.address.line.extension" />
+      <sliceName value="streetName" />
+    </element>
+    <element id="Location.address.line.extension:streetName.valueString:valueString">
+      <path value="Location.address.line.extension.valueString" />
+      <sliceName value="valueString" />
+    </element>
+    <element id="Location.address.line.extension:houseNumber">
+      <path value="Location.address.line.extension" />
+      <sliceName value="houseNumber" />
+    </element>
+    <element id="Location.address.line.extension:houseNumber.valueString:valueString">
+      <path value="Location.address.line.extension.valueString" />
+      <sliceName value="valueString" />
+    </element>
+    <element id="Location.address.line.extension:buildingNumbersuffix">
+      <path value="Location.address.line.extension" />
+      <sliceName value="buildingNumbersuffix" />
+    </element>
+    <element id="Location.address.line.extension:buildingNumbersuffix.valueString:valueString">
+      <path value="Location.address.line.extension.valueString" />
+      <sliceName value="valueString" />
+    </element>
+    <element id="Location.address.line.extension:unitID">
+      <path value="Location.address.line.extension" />
+      <sliceName value="unitID" />
+    </element>
+    <element id="Location.address.line.extension:unitID.valueString:valueString">
+      <path value="Location.address.line.extension.valueString" />
+      <sliceName value="valueString" />
+    </element>
+    <element id="Location.address.line.extension:additionalLocator">
+      <path value="Location.address.line.extension" />
+      <sliceName value="additionalLocator" />
+    </element>
+    <element id="Location.address.line.extension:additionalLocator.valueString:valueString">
+      <path value="Location.address.line.extension.valueString" />
+      <sliceName value="valueString" />
     </element>
     <element id="Location.managingOrganization">
       <path value="Location.managingOrganization" />
@@ -110,6 +267,11 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
       </type>
+      <mapping>
+        <identity value="hcim-healthcareprovider-v3.1.1-2017EN" />
+        <map value="NL-CM:17.2.1" />
+        <comment value="HealthcareProvider" />
+      </mapping>
     </element>
     <element id="Location.partOf">
       <path value="Location.partOf" />

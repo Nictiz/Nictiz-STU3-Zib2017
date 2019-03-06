@@ -212,12 +212,36 @@
         <comment value="InformationSource" />
       </mapping>
     </element>
+    <element id="DeviceUseStatement.source.extension">
+      <path value="DeviceUseStatement.source.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DeviceUseStatement.source.extension:practitionerrolereference">
+      <path value="DeviceUseStatement.source.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
     <element id="DeviceUseStatement.device">
       <path value="DeviceUseStatement.device" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
       </type>
+    <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.2" />
+        <comment value="Product" />
+      </mapping>
     </element>
     <element id="DeviceUseStatement.indication.extension">
       <path value="DeviceUseStatement.indication.extension" />

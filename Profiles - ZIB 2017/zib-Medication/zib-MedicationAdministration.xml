@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on Medicatieproces V9.0.6 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAdministration version 1.0.1, year 2017. Medication administration is the registration of the individual administrations of the medicine on the patient by the administrator (e.g. a nurse or patient themselves), in relation to the entered agreements." />
+  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAdministration version 1.0.1, year 2017. Medication administration is the registration of the individual administrations of the medicine on the patient by the administrator (e.g. a nurse or patient themselves), in relation to the entered agreements." />
   <purpose value="The goal of administering the medication is to provide insight into the actual administered products." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -26,7 +26,7 @@
   </mapping>
   <mapping>
     <identity value="Medication-Process-v09" />
-    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20170829T141253/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
+    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20181220T121121/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
     <name value="Medication Process v09" />
     <comment value="Language of Medication Process is Dutch." />
   </mapping>
@@ -431,6 +431,7 @@
     </element>
     <element id="MedicationAdministration.performer.actor">
       <path value="MedicationAdministration.performer.actor" />
+      <comment value="The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
@@ -463,6 +464,25 @@
         <comment value="Caregiver" />
       </mapping>
     </element>
+    <element id="MedicationAdministration.performer.actor.extension">
+      <path value="MedicationAdministration.performer.actor.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationAdministration.performer.actor.extension.extension:practitionerrolereference">
+      <path value="MedicationAdministration.performer.actor.extension.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
     <element id="MedicationAdministration.performer.onBehalfOf">
       <path value="MedicationAdministration.performer.onBehalfOf" />
       <type>
@@ -486,6 +506,7 @@
       <short value="RouteOfAdministration" />
       <definition value="he route through which the medication is administered (oral, nasal, intravenous,...)" />
       <alias value="Toedieningsweg" />
+      <min value="1" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RouteOfAdministration" />
@@ -509,6 +530,7 @@
       <short value="AdministeredAmount" />
       <definition value="Amount of the administered product" />
       <alias value="ToegediendeHoeveelheid" />
+      <min value="1" />
       <binding>
         <strength value="required" />
         <description value="GstdTabel902" />

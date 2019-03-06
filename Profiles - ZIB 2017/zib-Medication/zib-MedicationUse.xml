@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on Medicatieproces V9.0.6 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationUse version 1.0.1, year 2017.&#xD;&#xA;&#xD;&#xA;MedicationUse is a statement on the historic, current or intended use of a certain medicine." />
+  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationUse version 1.0.1, year 2017.&#xD;&#xA;&#xD;&#xA;MedicationUse is a statement on the historic, current or intended use of a certain medicine." />
   <purpose value="The goal of the medication use is to provide insight into the patient’s pattern of use." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -31,7 +31,7 @@
   </mapping>
   <mapping>
     <identity value="Medication-Process-v09" />
-    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20170829T141253/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
+    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20181220T121121/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
     <name value="Medication Process v09" />
     <comment value="Language of Medication Process is Dutch." />
   </mapping>
@@ -102,6 +102,7 @@
       <sliceName value="prescriber" />
       <short value="Prescriber" />
       <definition value="The health professional that entered the medication agreement with the patient." />
+      <comment value="The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
       <alias value="Voorschrijver" />
       <type>
         <code value="Extension" />
@@ -117,13 +118,19 @@
       <path value="MedicationStatement.extension" />
       <sliceName value="author" />
       <short value="Author" />
-      <definition value="The author of this MedicationStatement. This is either a patient, a health professional or healthcare provider." />
+      <definition value="The author of this MedicationStatement. This is either a patient, a health professional or a healthcare provicer." />
+      <comment value="A patient as author maps to the MP9 concept: mp-dataelement900-22472.&#xD;&#xA;A health professional as author maps to the MP9 concept: mp-dataelement900-22473.&#xD;&#xA;A healthcare provider as author maps to the MP9 concept: mp-dataelement900-23994.&#xD;&#xA;&#xD;&#xA;The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
       <alias value="Auteur" />
       <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author" />
       </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22471" />
+        <comment value="Auteur" />
+      </mapping>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.7" />
@@ -167,6 +174,40 @@
     <element id="MedicationStatement.extension:copyIndicator.valueBoolean:valueBoolean">
       <path value="MedicationStatement.extension.valueBoolean" />
       <sliceName value="valueBoolean" />
+    </element>
+    <element id="MedicationStatement.extension:reasonForChangeOrDiscontinuationOfUse">
+      <path value="MedicationStatement.extension" />
+      <sliceName value="reasonForChangeOrDiscontinuationOfUse" />
+      <short value="ReasonForChangeOrDiscontinuationOfUse" />
+      <definition value="Reason for changing or discontinuing use of medication." />
+      <alias value="RedenWijzigenOfStoppenGebruik" />
+      <alias value="Reden wijzigen of stoppen gebruik" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-ReasonForChangeOrDiscontinuationOfUse" />
+      </type>
+    </element>
+    <element id="MedicationStatement.extension:reasonForChangeOrDiscontinuationOfUse.valueCodeableConcept:valueCodeableConcept">
+      <path value="MedicationStatement.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <example>
+        <label value="Example of ReasonForChangeOrDiscontinuationOfUse" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.6.96" />
+            <code value="79899007" />
+            <display value="Drug interaction (disorder)" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+      </binding>
+      <mapping>
+        <identity value="hcim-medicationuse2-v1.0-2017EN" />
+        <map value="NL-CM:9.11.22493" />
+        <comment value="ReasonForChangeOrDiscontinuationOfUse" />
+      </mapping>
     </element>
     <element id="MedicationStatement.modifierExtension">
       <path value="MedicationStatement.modifierExtension" />
@@ -213,7 +254,7 @@
     <element id="MedicationStatement.status">
       <path value="MedicationStatement.status" />
       <short value="MedicationUseStopType" />
-      <comment value="MedicationStatement is a statement at a point in time. The status is only representative at the point when it was asserted. The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xD;&#xA;&#xD;&#xA;This element is also used for the concept 'Stop type'; the manner in which this medication is discontinued (temporary or definitive). A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/MedicatiegebruikStopTypeCodelijst-to-MedicationStatementStatus) is available." />
+      <comment value="MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xD;&#xA;&#xD;&#xA;This element is also used for the concept 'Stop type'; the manner in which this medication is discontinued (temporary or definitive).  A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus) is available that maps MedicationUseStopTypeCodeLijst to the MedicationStatementStatus valueset." />
       <alias value="MedicatieGebruikStopType" />
       <mapping>
         <identity value="hcim-medicationuse2-v1.0-2017EN" />
@@ -359,6 +400,7 @@
     </element>
     <element id="MedicationStatement.informationSource">
       <path value="MedicationStatement.informationSource" />
+      <comment value="The informationSource can be a RelatedPerson (mp-dataelement900-22425), Patient (mp-dataelement900-22452) or a health proffesional (mp-dataelement900-22453).&#xD;&#xA;&#xD;&#xA;If a health professional is the informationSource the missing-type-reference extension can be used for a PractitionerRole reference. The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
@@ -385,6 +427,25 @@
         <map value="NL-CM:0.0.2" />
         <comment value="InformationSource" />
       </mapping>
+    </element>
+    <element id="MedicationStatement.informationSource.extension">
+      <path value="MedicationStatement.informationSource.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationStatement.extension:practitionerrolereference">
+      <path value="MedicationStatement.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
     </element>
     <element id="MedicationStatement.subject">
       <path value="MedicationStatement.subject" />
@@ -457,37 +518,6 @@
         <identity value="hcim-medicationuse2-v1.0-2017EN" />
         <map value="NL-CM:9.11.22399" />
         <comment value="UseIndicator" />
-      </mapping>
-    </element>
-    <element id="MedicationStatement.reasonNotTaken">
-      <path value="MedicationStatement.reasonNotTaken" />
-      <short value="ReasonForChangeOrDiscontinuationOfUse" />
-      <definition value="Reason for changing or discontinuing use of medication." />
-      <alias value="Reden wijzigen gebruik" />
-      <alias value="Reden stoppen gebruik" />
-      <alias value="RedenWijzigenOfStoppenGebruik" />
-      <example>
-        <label value="Example of ReasonForChangeOrDiscontinuationOfUse" />
-        <valueCodeableConcept>
-          <coding>
-            <system value="urn:oid:2.16.840.1.113883.6.96" />
-            <code value="79899007" />
-            <display value="Drug interaction (disorder)" />
-          </coding>
-        </valueCodeableConcept>
-      </example>
-      <binding>
-        <strength value="extensible" />
-        <description value="RedenMedicatieafspraak" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.11.2--20171231000000" />
-          <display value="RedenMedicatieafspraak" />
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="hcim-medicationuse2-v1.0-2017EN" />
-        <map value="NL-CM:9.11.22493" />
-        <comment value="ReasonForChangeOrDiscontinuationOfUse" />
       </mapping>
     </element>
     <element id="MedicationStatement.reasonCode.text">

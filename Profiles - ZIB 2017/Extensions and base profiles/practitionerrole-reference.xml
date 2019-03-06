@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
+  <id value="practitionerrole-reference" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+  <version value="0.2.0" />
+  <name value="PractitionerRole Reference" />
+  <title value="PractitionerRole Reference" />
+    <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This extension adds the PractitionerRole to the Reference datatype where FHIR STU3 Core does not yet specify it." />
+  <purpose value="PractitionerRole allows being specific about the specialism and organization of a Practitioner. 
+    This extension leads to slight duplication: a reference to a Practitioner provided in the PractitionerRole will also be given in the original Reference. 
+    If only the specialism and/or organization are available, the Reference.extension.valueReference.display will be duplicated into the original Reference.display. 
+    Systems that do not know about the extension would thus still have access to the regular Reference to Practitioner and to Reference.display. 
+    The PractitionerRole resource came into being shortly before releasing FHIR STU3 and only a few resources had been updated for it. 
+    As of FHIR R4 all relevant references for PractitionerRole are covered and this extension will no longer be required." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="datatype" />
+  <context value="Reference" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+    </element>
+    <element id="Extension.value[x]:valueReference">
+      <path value="Extension.valueReference" />
+      <sliceName value="valueReference" />
+      <comment value="PractitionerRole allows being specific about the specialism and organization of a Practitioner. This extension leads to slight duplication: a reference to a Practitioner provided in the PractitionerRole will also be given in the original Reference. If only the specialism and/or organization are available, the Reference.extension.valueReference.display will be duplicated into the original Reference.display.  Systems that do not know about the extension would thus still have access to the regular Reference to Practitioner and to Reference.display. " />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

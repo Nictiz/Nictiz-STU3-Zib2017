@@ -154,6 +154,25 @@
         <comment value="ContactWith" />
       </mapping>
     </element>
+    <element id="Encounter.participant.individual.extension">
+      <path value="Encounter.participant.individual.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Encounter.participant.individual.extension:practitionerrolereference">
+      <path value="Encounter.participant.individual.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
     <element id="Encounter.period">
       <path value="Encounter.period" />
       <mapping>

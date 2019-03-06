@@ -42,13 +42,14 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/bodyheight" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/bodyheight" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation">
       <path value="Observation" />
       <short value="BodyHeight" />
-      <alias value="Lichaamslengte" />
+      <definition value="The FHIR BodyHeight profile sets a minimum expectations for the Observation Resource to record, search and fetch the body height associated with a patient." />
+    <alias value="Lichaamslengte" />
       <mapping>
         <identity value="hcim-bodyheight-v1.2-2015EN" />
         <map value="NL-CM:12.2.1" />
@@ -75,7 +76,10 @@
     </element>
     <element id="Observation.code">
       <path value="Observation.code" />
-      <definition value="Loinc code is used to specify the position of the body height measurement." />
+      <definition value="A LOINC code is used to code this observation and to specify the position of the body height measurement. 
+        The HCIM concept Position has two SNOMED codes that map to LOINC codes for this element, namely:
+        * SNOMED CT code 10904000 - Orthostatic body position (Staande positie) maps to LOINC code 8308-9.
+        * SNOMED CT code 102538003 - Recumbent body position (Liggende positie) maps to LOINC code 8306-3." />
       <mapping>
         <identity value="hcim-bodyheight-v1.2-2015EN" />
         <map value="NL-CM:12.2.5" />
@@ -95,7 +99,8 @@
     <element id="Observation.code.coding:bodyHeightCodeStanding">
       <path value="Observation.code.coding" />
       <sliceName value="bodyHeightCodeStanding" />
-      <max value="1" />
+      <comment value="SNOMED CT code 10904000 - Orthostatic body position (Staande positie)	maps to this slice with LOINC code 8308-9" />
+    <max value="1" />
     </element>
     <element id="Observation.code.coding:bodyHeightCodeStanding.system">
       <path value="Observation.code.coding.system" />
@@ -108,7 +113,8 @@
     <element id="Observation.code.coding:bodyHeightCodeLying">
       <path value="Observation.code.coding" />
       <sliceName value="bodyHeightCodeLying" />
-      <max value="1" />
+      <comment value="SNOMED CT code 102538003 - Recumbent body position	(Liggende positie) maps to this slice with LOINC code 8306-3" />
+    <max value="1" />
     </element>
     <element id="Observation.code.coding:bodyHeightCodeLying.system">
       <path value="Observation.code.coding.system" />
@@ -209,6 +215,25 @@
         <comment value="Author" />
       </mapping>
     </element>
+      <element id="Observation.performer.extension">
+          <path value="Observation.performer.extension" />
+          <slicing>
+              <discriminator>
+                  <type value="value" />
+                  <path value="url" />
+              </discriminator>
+              <rules value="open" />
+          </slicing>
+      </element>
+      <element id="Observation.performer.extension:practitionerrolereference">
+          <path value="Observation.performer.extension" />
+          <sliceName value="practitionerRole" />
+          <max value="1" />
+          <type>
+              <code value="Extension" />
+              <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+          </type>
+      </element>
     <element id="Observation.valueQuantity:valueQuantity">
       <path value="Observation.valueQuantity" />
       <sliceName value="valueQuantity" />

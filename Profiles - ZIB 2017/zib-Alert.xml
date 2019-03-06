@@ -225,13 +225,27 @@
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure" />
       </type>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.11" />
-        <comment value="Subject" />
-      </mapping>
-    </element>
-    <element id="Flag.period.start">
+      </element>
+    <element id="Flag.subject.extension">
+    <path value="Flag.subject.extension" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="url" />
+    </discriminator>
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="Flag.subject.extension:practitionerrolereference">
+    <path value="Flag.subject.extension" />
+    <sliceName value="practitionerRole" />
+    <max value="1" />
+    <type>
+    <code value="Extension" />
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+    </type>
+  </element>
+  <element id="Flag.period.start">
       <path value="Flag.period.start" />
       <short value="StartDateTime" />
       <definition value="The date and time at which the described condition was entered as a warning.&#xD;&#xA;This can be an exact date and time, or a rough indication of the date (such as only the year, or the month and the year)." />
@@ -287,5 +301,24 @@
         <comment value="Author" />
       </mapping>
     </element>
+  <element id="Flag.author.extension">
+    <path value="Flag.author.extension" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="url" />
+    </discriminator>
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="Flag.author.extension:practitionerrolereference">
+    <path value="Flag.author.extension" />
+    <sliceName value="practitionerRole" />
+    <max value="1" />
+    <type>
+    <code value="Extension" />
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+    </type>
+  </element>
   </differential>
 </StructureDefinition>

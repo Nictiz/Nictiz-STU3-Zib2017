@@ -5,7 +5,7 @@
   <version value="1.0.0" />
   <name value="Zib Stoma" />
   <title value="HCIM Stoma" />
-  <status value="draft" />
+    <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -165,7 +165,26 @@
         <comment value="Author" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept">
+    <element id="Observation.performer.extension">
+    <path value="Observation.performer.extension" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="url" />
+    </discriminator>
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="Observation.performer.extension:practitionerrolereference">
+    <path value="Observation.performer.extension" />
+    <sliceName value="practitionerRole" />
+    <max value="1" />
+    <type>
+    <code value="Extension" />
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+    </type>
+  </element>
+  <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="Stoma type" />
@@ -226,7 +245,7 @@
         <description value="Codes describing anatomical locations for a stoma" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.5.2.2--20171231000000" />
-          <display value="StomaAnatomischeLocatieCodelijst"/>
+          <display value="StomaAnatomischeLocatieCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>

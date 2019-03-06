@@ -29,9 +29,9 @@
     <name value="HCIM LaboratoryTestResultForTransfer-v3.0(2016EN)" />
   </mapping>
   <mapping>
-    <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+    <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
     <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)" />
-    <name value="HCIM LaboratoryTestResultForTransfer-v4.1(2017EN)" />
+    <name value="HCIM LaboratoryTestResult-v4.1(2017EN)" />
   </mapping>
   <mapping>
     <identity value="hcim-basicelements-v1.0-2017EN" />
@@ -61,7 +61,7 @@
         <comment value="LaboratoryTestResult" />
       </mapping>
       <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.1" />
         <comment value="LaboratoryTestResult" />
       </mapping>
@@ -82,7 +82,7 @@
       <comment value="Requester information should be captured and exchanged in the resource referenced by basedOn. Requester is the healthcare provider and/or organization where or by whom the LaboratoryTestResult was requested." />
       <alias value="Aanvrager" />
       <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.34" />
         <comment value="Contains Requester::HealthProfessional" />
       </mapping>
@@ -134,7 +134,7 @@
         <comment value="ResultStatus" />
       </mapping>
       <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.6" />
         <comment value="ResultStatus" />
       </mapping>
@@ -204,7 +204,7 @@
         <comment value="ResultType" />
       </mapping>
       <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.7" />
         <comment value="ResultType" />
       </mapping>
@@ -233,7 +233,7 @@
         <comment value="Test" />
       </mapping>
       <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.4" />
         <comment value="PanelOrBattery" />
       </mapping>
@@ -292,6 +292,25 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
       </type>
     </element>
+      <element id="DiagnosticReport.performer.actor.extension">
+          <path value="DiagnosticReport.performer.actor..extension" />
+          <slicing>
+              <discriminator>
+                  <type value="value" />
+                  <path value="url" />
+              </discriminator>
+              <rules value="open" />
+          </slicing>
+      </element>
+      <element id="DiagnosticReport.performer.actor.extension:practitionerrolereference">
+          <path value="DiagnosticReport.performer.actor.extension" />
+          <sliceName value="practitionerRole" />
+          <max value="1" />
+          <type>
+              <code value="Extension" />
+              <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+          </type>
+      </element>
     <element id="DiagnosticReport.specimen">
       <path value="DiagnosticReport.specimen" />
       <short value="Specimen" />
@@ -315,7 +334,7 @@
         <comment value="Specimen" />
       </mapping>
       <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.2" />
         <comment value="Specimen" />
       </mapping>
@@ -337,7 +356,7 @@
         <comment value="LaboratoryTest" />
       </mapping>
       <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.3" />
         <comment value="LaboratoryTest" />
       </mapping>
@@ -358,12 +377,12 @@
         <comment value="Explanation" />
       </mapping>
       <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.5" />
         <comment value="Comment" />
       </mapping>
       <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v4.1-2017EN" />
+        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.32" />
         <comment value="ResultInterpretation" />
       </mapping>

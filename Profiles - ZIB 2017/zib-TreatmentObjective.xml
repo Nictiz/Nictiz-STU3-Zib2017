@@ -136,6 +136,25 @@
         <comment value="Author" />
       </mapping>
     </element>
+      <element id="Goal.expressedBy.extension">
+          <path value="Goal.expressedBy.extension" />
+          <slicing>
+              <discriminator>
+                  <type value="value" />
+                  <path value="url" />
+              </discriminator>
+              <rules value="open" />
+          </slicing>
+      </element>
+      <element id="Goal.expressedBy.extension:practitionerrolereference">
+          <path value="Goal.expressedBy.extension" />
+          <sliceName value="practitionerRole" />
+          <max value="1" />
+          <type>
+              <code value="Extension" />
+              <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+          </type>
+      </element>
     <element id="Goal.addresses">
       <path value="Goal.addresses" />
       <short value="Problem" />

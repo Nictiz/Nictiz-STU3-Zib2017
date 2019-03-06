@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on Medicatieproces V9.0.6 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationDispense version 2.0, year 2017.&#xD;&#xA;A dispense is the delivery of an amount of medicine to the patient, their administrator or their representative." />
+  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationDispense version 2.0, year 2017.&#xD;&#xA;A dispense is the delivery of an amount of medicine to the patient, their administrator or their representative." />
   <purpose value="The goal of the dispense is to provide insight into which products are delivered by the pharmacist to the patient (or their representative)" />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -26,7 +26,7 @@
   </mapping>
   <mapping>
     <identity value="Medication-Process-v09" />
-    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20170829T141253/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
+    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20181220T121121/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
     <name value="Medication Process v09" />
     <comment value="Language of Medication Process is Dutch." />
   </mapping>
@@ -227,7 +227,7 @@
       <fixedString value="Dispensing medication (procedure)" />
     </element>
     <element id="MedicationDispense.medication[x]:medicationReference">
-      <path value="MedicationDispense.medication[x]" />
+      <path value="MedicationDispense.medicationReference" />
       <sliceName value="medicationReference" />
       <short value="DispensedMedicine" />
       <definition value="The dispensed medicine." />
@@ -287,6 +287,7 @@
     </element>
     <element id="MedicationDispense.performer.actor">
       <path value="MedicationDispense.performer.actor" />
+      <comment value="The health professional's speciality, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
@@ -308,7 +309,33 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
       </type>
     </element>
-    <element id="MedicationDispense.authorizingPrescription">
+    <element id="MedicationDispense.performer.actor.extension">
+      <path value="MedicationDispense.performer.actor.extension" />
+      <slicing>
+         <discriminator>
+           <type value="value" />
+           <path value="url" />
+         </discriminator>
+       <rules value="open" />
+       </slicing>
+    </element>
+    <element id="MedicationDispense.performer.actor.extension:practitionerrolereference">
+      <path value="MedicationDispense.performer.actor.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+        <element id="MedicationDispense.performer.onBehalfOf">
+            <path value="MedicationDispense.performer.onBehalfOf" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+            </type>
+        </element>
+        <element id="MedicationDispense.authorizingPrescription">
       <path value="MedicationDispense.authorizingPrescription" />
       <short value="DispenseRequest" />
       <definition value="Relationship to the dispense request." />
@@ -378,7 +405,7 @@
       <mapping>
         <identity value="hcim-dispense-v1.0-2017EN" />
         <map value="NL-CM:9.9.20925" />
-        <comment value="DispenseLocation" />
+        <comment value="DispenseLocation. Use Location.name." />
       </mapping>
     </element>
     <element id="MedicationDispense.receiver">
@@ -390,6 +417,25 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+    </element>
+    <element id="MedicationDispense.receiver.extension">
+      <path value="MedicationDispense.receiver.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationDispense.receiver.extension:practitionerrolereference">
+      <path value="MedicationDispense.receiver.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
     </element>
     <element id="MedicationDispense.note">

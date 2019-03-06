@@ -5,7 +5,7 @@
   <version value="1.0.0" />
   <name value="Zib NursingIntervention" />
   <title value="HCIM NursingIntervention" />
-  <status value="draft" />
+    <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -43,7 +43,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.1" />
-        <comment value="NursingIntervention"/>
+        <comment value="NursingIntervention" />
       </mapping>
     </element>
     <element id="Procedure.extension">
@@ -70,7 +70,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.14" />
-        <comment value="TreatmentObjective"/>
+        <comment value="TreatmentObjective" />
       </mapping>
     </element>
     <element id="Procedure.extension:TreatmentObjective.valueReference:valueReference">
@@ -94,7 +94,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.4" />
-        <comment value="Frequency"/>
+        <comment value="Frequency" />
       </mapping>
     </element>
     <element id="Procedure.extension:Frequency.valueTiming:valueTiming">
@@ -104,8 +104,10 @@
     <element id="Procedure.extension:Interval">
       <path value="Procedure.extension" />
       <sliceName value="Interval" />
-      <definition value="Interval indicates the time between planned procedures.&#xD;&#xA;When entering an interval, the focus is on the time between the consecutive procedures, such as in the treatment of a wound, for example. The exact times are of lesser importance." />
-      <max value="1" />
+      <short value="Interval" />
+    <definition value="Interval indicates the time between planned procedures.&#xD;&#xA;When entering an interval, the focus is on the time between the consecutive procedures, such as in the treatment of a wound, for example. The exact times are of lesser importance." />
+      <alias value="Interval" />
+    <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention-Interval" />
@@ -113,7 +115,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.3" />
-        <comment value="Interval"/>
+        <comment value="Interval" />
       </mapping>
     </element>
     <element id="Procedure.extension:Instruction">
@@ -130,7 +132,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.18" />
-        <comment value="Instruction"/>
+        <comment value="Instruction" />
       </mapping>
     </element>
     <element id="Procedure.extension:Requester">
@@ -146,7 +148,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.8" />
-        <comment value="Requester"/>
+        <comment value="Requester" />
       </mapping>
     </element>
     <element id="Procedure.identifier">
@@ -197,11 +199,11 @@
       <short value="Intervention" />
       <definition value="A nursing intervention is a treatment carried out by a nurse based on an expert opinion and clinical knowledge for the benefit of the person requesting healthcare. The intervention is targeted towards a certain problem (diagnosis) and has a predetermined healthcare result." />
       <alias value="Interventie" />
-      <min value="1"/>
+      <min value="1" />
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.2" />
-        <comment value="Intervention"/>
+        <comment value="Intervention" />
       </mapping>
     </element>
     <element id="Procedure.code.coding">
@@ -274,7 +276,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.11" />
-        <comment value="ProcedureStartDateTime"/>
+        <comment value="ProcedureStartDateTime" />
       </mapping>
     </element>
     <element id="Procedure.performed[x]:performedPeriod.end">
@@ -285,7 +287,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.12" />
-        <comment value="ProcedureEndDateTime"/>
+        <comment value="ProcedureEndDateTime" />
       </mapping>
     </element>
     <element id="Procedure.performer">
@@ -297,7 +299,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.15" />
-        <comment value="Performer"/>
+        <comment value="Performer" />
       </mapping>
     </element>
     <element id="Procedure.performer.actor">
@@ -319,20 +321,39 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.7" />
-        <comment value="HealthcareProvider"/>
+        <comment value="HealthcareProvider" />
       </mapping>
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.16" />
-        <comment value="Caregiver"/>
+        <comment value="Caregiver" />
       </mapping>
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.17" />
-        <comment value="Patient"/>
+        <comment value="Patient" />
       </mapping>
     </element>
-    <element id="Procedure.reasonReference">
+    <element id="Procedure.performer.actor.extension">
+    <path value="Procedure.performer.actor.extension" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="url" />
+    </discriminator>
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="Procedure.performer.actor.extension:practitionerrolereference">
+    <path value="Procedure.performer.actor.extension" />
+    <sliceName value="practitionerRole" />
+    <max value="1" />
+    <type>
+    <code value="Extension" />
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+    </type>
+  </element>
+  <element id="Procedure.reasonReference">
       <path value="Procedure.reasonReference" />
       <short value="Indication" />
       <definition value="The nursing-related problem (indication) providing cause for the intervention." />
@@ -348,7 +369,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.6" />
-        <comment value="Indication"/>
+        <comment value="Indication" />
       </mapping>
     </element>
     <element id="Procedure.note.text">
@@ -359,7 +380,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.5" />
-        <comment value="Comment"/>
+        <comment value="Comment" />
       </mapping>
     </element>
     <element id="Procedure.usedReference.extension">
@@ -384,7 +405,7 @@
       <mapping>
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.13" />
-        <comment value="MedicalDevice"/>
+        <comment value="MedicalDevice" />
       </mapping>
     </element>
   </differential>

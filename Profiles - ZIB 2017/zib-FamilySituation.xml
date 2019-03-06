@@ -108,6 +108,10 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
       </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.11" />
@@ -161,6 +165,25 @@
         <comment value="Author" />
       </mapping>
     </element>
+  <element id="Observation.performer.extension">
+    <path value="Observation.performer.extension" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="url" />
+    </discriminator>
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="Observation.performer.extension:practitionerrolereference">
+    <path value="Observation.performer.extension" />
+    <sliceName value="practitionerRole" />
+    <max value="1" />
+    <type>
+    <code value="Extension" />
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+    </type>
+  </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
       <short value="Comment" />

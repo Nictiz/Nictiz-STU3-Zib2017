@@ -97,5 +97,24 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
       </type>
     </element>
+    <element id="EpisodeOfCare.careManager.extension">
+      <path value="EpisodeOfCare.careManager.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="EpisodeOfCare.careManager.extension:practitionerrolereference">
+      <path value="EpisodeOfCare.careManager.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
   </differential>
 </StructureDefinition>
