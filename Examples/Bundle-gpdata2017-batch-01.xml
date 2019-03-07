@@ -763,7 +763,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -1003,7 +1003,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -1243,7 +1243,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -1483,7 +1483,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -1723,7 +1723,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -1963,7 +1963,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -2111,7 +2111,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -2351,7 +2351,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -2568,7 +2568,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -2808,7 +2808,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -3048,7 +3048,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -3269,7 +3269,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -3501,7 +3501,7 @@
         <resource>
             <Encounter>
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact"/>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
                 </meta>
                 <text>
                     <status value="additional"/>
@@ -3733,13 +3733,10 @@
                         <display value="Prescription (procedure)"/>
                     </coding>
                 </category>
-                <medicationCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.4.1"/>
-                        <code value="22179"/>
-                        <display value="doxycycline 100mg tablet"/>
-                    </coding>
-                </medicationCodeableConcept>
+                <medicationReference>
+                    <reference value="urn:oid:2.16.528.1.1007.3.3.2222.6.10222"/>
+                    <display value="doxycycline 100mg tablet"/>
+                </medicationReference>
                 <subject>
                     <identifier>
                         <system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
@@ -3773,6 +3770,23 @@
         </resource>
     </entry>
     <entry>
+        <fullUrl value="urn:oid:2.16.528.1.1007.3.3.2222.6.10222"/>
+        <resource>
+            <Medication xmlns="http://hl7.org/fhir">
+                <meta>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product"/>
+                </meta>
+                <code>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.4.1"/>
+                        <code value="22179"/>
+                        <display value="doxycycline 100mg tablet"/>
+                    </coding>
+                </code>
+            </Medication>
+        </resource>
+    </entry>
+    <entry>
         <fullUrl value="urn:oid:2.16.528.1.1007.3.3.2222.6.102"/>
         <resource>
             <MedicationRequest>
@@ -3792,13 +3806,10 @@
                         <display value="Prescription (procedure)"/>
                     </coding>
                 </category>
-                <medicationCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.4.1"/>
-                        <code value="66311"/>
-                        <display value="TETANUSIMMUNOGLOBULINE INJVLST 125IE/ML"/>
-                    </coding>
-                </medicationCodeableConcept>
+                <medicationReference>
+                    <reference value="urn:oid:2.16.528.1.1007.3.3.2222.6.10333"/>
+                    <display value="TETANUSIMMUNOGLOBULINE INJVLST 125IE/ML"/>
+                </medicationReference>
                 <subject>
                     <identifier>
                         <system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
@@ -3826,6 +3837,23 @@
                     </timing>
                 </dosageInstruction>
             </MedicationRequest>
+        </resource>
+    </entry>
+    <entry>
+        <fullUrl value="urn:oid:2.16.528.1.1007.3.3.2222.6.10333"/>
+        <resource>
+            <Medication xmlns="http://hl7.org/fhir">
+                <meta>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product"/>
+                </meta>
+                <code>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.4.1"/>
+                        <code value="66311"/>
+                        <display value="TETANUSIMMUNOGLOBULINE INJVLST 125IE/ML"/>
+                    </coding>
+                </code>
+            </Medication>
         </resource>
     </entry>
     <entry>
