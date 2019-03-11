@@ -1,49 +1,47 @@
-﻿<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="gp-Encounter"/>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter"/>
-    <version value="1.0"/>
-    <name value="gp-Encounter"/>
-    <title value="gp-Encounter"/>
-    <status value="active"/>
-    <date value="2018-07-17T15:11:00+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description
-        value="Contact as defined by the Dutch General Practitioners Association (Nederlands Huisartsengenootschap or NHG) based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 1.0.&#xD;&#xA;&#xD;&#xA;A contact is any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions.&#xD;&#xA;&#xD;&#xA;Contacts can be visits to the general practitioner or other practices, home visits, admissions (in hospitals, nursing homes or care homes, psychiatric institutions or convalescent homes) or other relevant contacts. This only includes past contacts. Future contacts can be documented in the PlannedCareActivity information model."/>
-    <fhirVersion value="3.0.1"/>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Encounter"/>
-    <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Encounter.class">
-            <path value="Encounter.class"/>
-            <definition value="The type of contact. Normally ambulatory or home visit."/>
-        </element>
-        <element id="Encounter.type">
-            <path value="Encounter.type"/>
-            <definition value="The type of encounter as defined in NHG Table 14 ContactWijze"/>
-            <max value="1"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="EncounterType"/>
-                </extension>
-                <strength value="required"/>
-                <description value="NHG Table 14 ContactWijze"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.3--20110902000000"/>
-                    <display value="NHG Table 14 Contactwijze"/>
-                </valueSetReference>
-            </binding>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="gp-Encounter" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
+  <version value="1.0.0" />
+  <name value="gp-Encounter" />
+  <title value="gp-Encounter" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Contact as defined by the Dutch General Practitioners Association (Nederlands Huisartsengenootschap or NHG) based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 1.0.&#xD;&#xA;&#xD;&#xA;A contact is any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions.&#xD;&#xA;&#xD;&#xA;Contacts can be visits to the general practitioner or other practices, home visits, admissions (in hospitals, nursing homes or care homes, psychiatric institutions or convalescent homes) or other relevant contacts. This only includes past contacts. Future contacts can be documented in the PlannedCareActivity information model." />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Encounter" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Encounter.class">
+      <path value="Encounter.class" />
+      <definition value="The type of contact. Normally ambulatory or home visit." />
+    </element>
+    <element id="Encounter.type">
+      <path value="Encounter.type" />
+      <definition value="The type of encounter as defined in NHG Table 14 ContactWijze" />
+      <max value="1" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EncounterType" />
+        </extension>
+        <strength value="required" />
+        <description value="NHG Table 14 ContactWijze" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.3--20110902000000" />
+          <display value="NHG Table 14 Contactwijze" />
+        </valueSetReference>
+      </binding>
+    </element>
+  </differential>
 </StructureDefinition>

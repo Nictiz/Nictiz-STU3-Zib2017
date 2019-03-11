@@ -1,260 +1,276 @@
-﻿<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd">
-    <id value="vitalsigns-nl"/>
-    <meta>
-        <lastUpdated value="2017-09-07T13:03:07.673+02:00"/>
-    </meta>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
-        <valueMarkdown
-            value="### Complete Summary of the Mandatory Requirements&#xA;&#xA;1.  One status in `Observation.status`which has a [required](http://hl7.org/fhir/STU3/terminologies.html#extensible) binding to:&#xA;    -    [ObservationStatus] value set.&#xA;1.  A category in `Observation.category` which must have:&#xA;    -   a fixed `Observation.category.coding.system`=&quot;http://hl7.org/fhir/observation-category&quot;&#xA;    -   a fixed `Observation.category.coding.code`= &quot;vital-signs&quot;&#xA;&#xA;1.  A code in `Observation.code`&#xA;    -   a fixed `Observation.code.coding.system`= &quot;http://loinc.org&quot;&#xA;    -   a LOINC code in `Observation.code.coding.code` which has an [extensible](http://hl7.org/fhir/STU3/terminologies.html#extensible) binding to:&#xA;         -   [Vital Signs] value set.&#xA;                &#xA;1.  One patient in `Observation.subject`&#xA;1.  A date and time in `effectiveDateTime` or `effectivePeriod`&#xA;1.  Either one `Observation.valueQuantity` or, if there is no value, one code in `Observation.DataAbsentReason`&#xA;    -   Each Observation.valueQuantity must have:&#xA;        -   One numeric value in `Observation.valueQuantity.value`&#xA;        -   a fixed `Observation.valueQuantity.system`=&quot;http://unitsofmeasure&quot;&#xA;        -   a UCUM unit code in `Observation.valueQuantity.code` which has an [required] binding to:&#xA;             -   [Vital Signs Units] value set.&#xA;    -   Observation.DataAbsentReason is bound to [Observation Value&#xA;        Absent Reason] value set.&#xA;&#xA;1.  When using a panel code to group component observations (Note: See&#xA;    the comments regarding blood pressure in the table above), one or&#xA;    more `Observation.component.code` each of which must have:&#xA;    -   a fixed&#xA;        `Observation.component.code.coding.system` =&quot;&lt;http://loinc.org&gt;&quot;&#xA;         -   a LOINC code in `Observation.code.coding.code` which has an [extensible] binding to:&#xA;             -   [Vital Signs Units] value set.&#xA;&#xA;1.  Either one `Observation.component.valueQuantity` or, if there is&#xA;    no value, one code in `Observation.component.DataAbsentReason`&#xA;    -   Each Observation.component.valueQuantity must have:&#xA;        -   One numeric value in&#xA;            `Observation.component.valueQuantity.value`&#xA;        -   a fixed `Observation.component.valueQuantity.system`= &quot;&lt;http://unitsofmeasure.org&gt;&quot;&#xA;        -   a UCUM unit code in&#xA;            `Observation.component.valueQuantity.code` which has an [required] binding to:&#xA;             -   [Vital Signs Units] value set.&#xA;    -   Observation.component.DataAbsentReason is bound to [Observation&#xA;        Value Absent Reason] value set.&#xA;&#xA;1.  When using a panel code to group observations, one or more reference&#xA;    to Vitals Signs Observations in `Observation.related.target`&#xA;    -   a fixed `Observation.related.type`= &quot;has-member&quot;&#xA;&#xA; [Vital Signs]: valueset-observation-vitalsignresult.html&#xA;  [Vital Signs Units]: valueset-ucum-vitals-common.html&#xA;  [extensible]: terminologies.html#extensible&#xA;  [ObservationStatus]: valueset-observation-status.html&#xA; [Observation Value Absent Reason]: valueset-observation-valueabsentreason.html&#xA;[required]: terminologies.html#required"
-        />
-    </extension>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-VitalSigns"/>
-    <version value="2.0"/>
-    <name value="Vital Signs Profile NL"/>
-    <title value="VitalSigns Profile NL"/>
-    <status value="active"/>
-    <experimental value="false"/>
-    <date value="2018-07-12"/>
-    <publisher value="Health Level Seven International (Orders and Observations Workgroup)"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="Copied FHIR Vital Signs Profile to remove .component.value quantity type constrain. More information can be found in the GForge ticket #13796."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-            <short value="FHIR Vital Signs Profile"/>
-            <definition value="The FHIR Vitals Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs associated with a patient."/>
-            <alias value="FHIR Vital Signs profiel"/>
-            <constraint>
-                <key value="vs-2"/>
-                <severity value="error"/>
-                <human value="If there is no component or related element then either a value[x] or a data absent reason must be present"/>
-                <expression value="(component.empty() and related.empty()) implies (dataAbsentReason or value)"/>
-                <xpath value="exists(f:component) or exists(f:related) or exists(f:*[starts-with(local-name(.), 'value')]) or exists(f:dataAbsentReason)"/>
-            </constraint>
-        </element>
-        <element id="Observation.status">
-            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-                <valueString value="default: final"/>
-            </extension>
-            <path value="Observation.status"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.category">
-            <path value="Observation.category"/>
-            <min value="1"/>
-            <condition value="vs-4"/>
-            <constraint>
-                <key value="vs-4"/>
-                <severity value="error"/>
-                <human value="Must have a category of 'vital-signs' and a code system 'http://hl7.org/fhir/observation-category'"/>
-                <expression value="where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()"/>
-                <xpath value="exists(f:coding/code[@value='vital-signs']) and exists(f:coding/system[@value='http://hl7.org/fhir/observation-category'])"/>
-            </constraint>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.code">
-            <path value="Observation.code"/>
-            <short value="Coded Responses from Vital Signs Results"/>
-            <definition value="Coded Responses from C-CDA Vital Sign Results."/>
-            <requirements value="5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301)."/>
-            <alias value="Gecodeerde antwoorden uit Vital Signs resultaten"/>
-            <mustSupport value="true"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="VitalSigns"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="This identifies the vital sign result type."/>
-                <valueSetReference>
-                    <reference value="http://hl7.org/fhir/ValueSet/observation-vitalsignresult"/>
-                    <display value="Vital Signs"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="Observation.subject">
-            <path value="Observation.subject"/>
-            <min value="1"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.effective[x]">
-            <path value="Observation.effective[x]"/>
-            <short value="Often just a dateTime for Vital Signs"/>
-            <definition value="Often just a dateTime for Vital Signs."/>
-            <alias value="Meestal slechts een datum/tijd voor Vital Signs"/>
-            <min value="1"/>
-            <!-- https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=17717&start=0 -->
-            <!--<condition value="vs-1"/>
-            <constraint>
-                <key value="vs-1"/>
-                <severity value="error"/>
-                <human value="Datetime must be at least to day."/>
-                <expression value="($this as dateTime).toString().length() &gt;= 8"/>
-                <xpath value="f:matches(effectiveDateTime,/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)"/>
-            </constraint>-->
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.performer">
-            <path value="Observation.performer"/>
-            <min value="1"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.value[x]">
-            <path value="Observation.valueQuantity"/>
-            <short value="Vital Sign Value recorded with UCUM"/>
-            <definition value="Vital Sign Value recorded with UCUM."/>
-            <requirements value="9. SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:7305)."/>
-            <alias value="Vital Sign waarde, vastgelegd op basis van UCUM-eenheid"/>
-            <type>
-                <code value="Quantity"/>
-            </type>
-            <condition value="vs-2"/>
-            <mustSupport value="true"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="VitalSignsUnits"/>
-                </extension>
-                <strength value="required"/>
-                <description value="Common UCUM units for recording Vital Signs"/>
-                <valueSetReference>
-                    <reference value="http://hl7.org/fhir/ValueSet/ucum-vitals-common"/>
-                    <display value="Vital Signs Units"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="Observation.valueQuantity.value">
-            <path value="Observation.valueQuantity.value"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.valueQuantity.unit">
-            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-                <valueBoolean value="true"/>
-            </extension>
-            <path value="Observation.valueQuantity.unit"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.valueQuantity.system">
-            <path value="Observation.valueQuantity.system"/>
-            <min value="1"/>
-            <fixedUri value="http://unitsofmeasure.org"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.valueQuantity.code">
-            <path value="Observation.valueQuantity.code"/>
-            <short value="Coded responses from the common UCUM units for vital signs value set."/>
-            <definition value="Coded responses from the common UCUM units for vital signs value set."/>
-            <alias value="Gecodeerde antwoorden van de algemene UCUM-eenheden voor vital signs waardelijst."/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.dataAbsentReason">
-            <path value="Observation.dataAbsentReason"/>
-            <condition value="vs-2"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.device">
-            <path value="Observation.device"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
-            </type>
-        </element>
-        <element id="Observation.related">
-            <path value="Observation.related"/>
-            <short value="Used when reporting vital signs panel components"/>
-            <definition value="Used when reporting vital signs panel components."/>
-            <alias value="Gebruikt bij het rapporteren van vital signs panelcomponenten."/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.related.type">
-            <path value="Observation.related.type"/>
-            <min value="1"/>
-            <fixedCode value="has-member"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.related.target">
-            <path value="Observation.related.target"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-VitalSigns"/>
-            </type>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.component">
-            <path value="Observation.component"/>
-            <constraint>
-                <key value="vs-3"/>
-                <severity value="error"/>
-                <human value="If there is no a value a data absent reason must be present"/>
-                <expression value="value.exists() or dataAbsentReason.exists()"/>
-                <xpath value="exists(f:*[starts-with(local-name(.), 'value')]) or exists(f:dataAbsentReason)"/>
-            </constraint>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.component.code">
-            <path value="Observation.component.code"/>
-            <mustSupport value="true"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="VitalSigns"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="This identifies the vital sign result type."/>
-                <valueSetReference>
-                    <reference value="http://hl7.org/fhir/ValueSet/observation-vitalsignresult"/>
-                    <display value="Vital Signs"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="Observation.component.value[x]">
-            <path value="Observation.component.value[x]"/>
-            <short value="Vital Sign Value recorded with UCUM"/>
-            <definition value="Vital Sign Value recorded with UCUM."/>
-            <requirements value="9. SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:7305)."/>
-            <alias value="Vital Sign waarde vastgelegd op basis van UCUM-eenheid"/>
-            <condition value="vs-3"/>
-            <mustSupport value="true"/>
-        </element>
-        <element id="Observation.component.dataAbsentReason">
-            <path value="Observation.component.dataAbsentReason"/>
-            <condition value="vs-3"/>
-            <mustSupport value="true"/>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="vitalsigns-nl" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-VitalSigns" />
+  <version value="2.1.0" />
+  <name value="Vital Signs Profile NL" />
+  <title value="VitalSigns Profile NL" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Copied FHIR Vital Signs Profile to remove .component.value quantity type constrain. More information can be found in the GForge ticket #13796." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="FHIR Vital Signs Profile" />
+      <definition value="The FHIR Vitals Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs associated with a patient." />
+      <alias value="FHIR Vital Signs profiel" />
+      <constraint>
+        <key value="vs-2" />
+        <severity value="error" />
+        <human value="If there is no component or related element then either a value[x] or a data absent reason must be present" />
+        <expression value="(component.empty() and related.empty()) implies (dataAbsentReason or value)" />
+        <xpath value="exists(f:component) or exists(f:related) or exists(f:*[starts-with(local-name(.), 'value')]) or exists(f:dataAbsentReason)" />
+      </constraint>
+    </element>
+    <element id="Observation.status">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
+        <valueString value="default: final" />
+      </extension>
+      <path value="Observation.status" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.category">
+      <path value="Observation.category" />
+      <min value="1" />
+      <condition value="vs-4" />
+      <constraint>
+        <key value="vs-4" />
+        <severity value="error" />
+        <human value="Must have a category of 'vital-signs' and a code system 'http://hl7.org/fhir/observation-category'" />
+        <expression value="where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()" />
+        <xpath value="exists(f:coding/code[@value='vital-signs']) and exists(f:coding/system[@value='http://hl7.org/fhir/observation-category'])" />
+      </constraint>
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <short value="Coded Responses from Vital Signs Results" />
+      <definition value="Coded Responses from C-CDA Vital Sign Results." />
+      <requirements value="5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301)." />
+      <alias value="Gecodeerde antwoorden uit Vital Signs resultaten" />
+      <mustSupport value="true" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSigns" />
+        </extension>
+        <strength value="extensible" />
+        <description value="This identifies the vital sign result type." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-vitalsignresult" />
+          <display value="Vital Signs" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.context">
+      <path value="Observation.context" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
+      </type>
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
+      <short value="Often just a dateTime for Vital Signs" />
+      <definition value="Often just a dateTime for Vital Signs." />
+      <alias value="Meestal slechts een datum/tijd voor Vital Signs" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.performer.extension">
+      <path value="Observation.performer.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.performer.extension:practitionerRole">
+      <path value="Observation.performer.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Vital Sign Value recorded with UCUM" />
+      <definition value="Vital Sign Value recorded with UCUM." />
+      <requirements value="9. SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:7305)." />
+      <alias value="Vital Sign waarde, vastgelegd op basis van UCUM-eenheid" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <condition value="vs-2" />
+      <mustSupport value="true" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSignsUnits" />
+        </extension>
+        <strength value="required" />
+        <description value="Common UCUM units for recording Vital Signs" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/ucum-vitals-common" />
+          <display value="Vital Signs Units" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.value[x]:valueQuantity.value">
+      <path value="Observation.valueQuantity.value" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.value[x]:valueQuantity.unit">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.valueQuantity.unit" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.value[x]:valueQuantity.system">
+      <path value="Observation.valueQuantity.system" />
+      <min value="1" />
+      <fixedUri value="http://unitsofmeasure.org" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.value[x]:valueQuantity.code">
+      <path value="Observation.valueQuantity.code" />
+      <short value="Coded responses from the common UCUM units for vital signs value set." />
+      <definition value="Coded responses from the common UCUM units for vital signs value set." />
+      <alias value="Gecodeerde antwoorden van de algemene UCUM-eenheden voor vital signs waardelijst." />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.dataAbsentReason">
+      <path value="Observation.dataAbsentReason" />
+      <condition value="vs-2" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.device">
+      <path value="Observation.device" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+    </element>
+    <element id="Observation.related">
+      <path value="Observation.related" />
+      <short value="Used when reporting vital signs panel components" />
+      <definition value="Used when reporting vital signs panel components." />
+      <alias value="Gebruikt bij het rapporteren van vital signs panelcomponenten." />
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.related.type">
+      <path value="Observation.related.type" />
+      <min value="1" />
+      <fixedCode value="has-member" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.related.target">
+      <path value="Observation.related.target" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-VitalSigns" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <constraint>
+        <key value="vs-3" />
+        <severity value="error" />
+        <human value="If there is no a value a data absent reason must be present" />
+        <expression value="value.exists() or dataAbsentReason.exists()" />
+        <xpath value="exists(f:*[starts-with(local-name(.), 'value')]) or exists(f:dataAbsentReason)" />
+      </constraint>
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.component.code">
+      <path value="Observation.component.code" />
+      <mustSupport value="true" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VitalSigns" />
+        </extension>
+        <strength value="extensible" />
+        <description value="This identifies the vital sign result type." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-vitalsignresult" />
+          <display value="Vital Signs" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.component.value[x]">
+      <path value="Observation.component.value[x]" />
+      <short value="Vital Sign Value recorded with UCUM" />
+      <definition value="Vital Sign Value recorded with UCUM." />
+      <requirements value="9. SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:7305)." />
+      <alias value="Vital Sign waarde vastgelegd op basis van UCUM-eenheid" />
+      <condition value="vs-3" />
+      <mustSupport value="true" />
+    </element>
+    <element id="Observation.component.dataAbsentReason">
+      <path value="Observation.component.dataAbsentReason" />
+      <condition value="vs-3" />
+      <mustSupport value="true" />
+    </element>
+  </differential>
 </StructureDefinition>

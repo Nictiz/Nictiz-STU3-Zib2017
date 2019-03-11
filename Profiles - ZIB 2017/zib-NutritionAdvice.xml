@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-NutritionAdvice" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2017-05-31T16:09:30.195+02:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-NutritionAdvice" />
-  <version value="2.0" />
+  <version value="2.1.0" />
   <name value="Zib NutritionAdvice" />
   <title value="HCIM NutritionAdvice" />
   <status value="active" />
-  <date value="2017-02-13T15:20:12.6745603+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -38,6 +33,11 @@
     <identity value="hcim-nutritionadvice-v3.1-2017EN" />
     <uri value="https://zibs.nl/wiki/NutritionAdvice-v3.1(2017EN)" />
     <name value="HCIM NutritionAdvice-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -102,12 +102,29 @@
         <comment value="Comment" />
       </mapping>
     </element>
+    <element id="NutritionOrder.extension:Comment.valueString:valueString">
+      <path value="NutritionOrder.extension.valueString" />
+      <sliceName value="valueString" />
+    </element>
+    <element id="NutritionOrder.identifier">
+      <path value="NutritionOrder.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
     <element id="NutritionOrder.patient">
       <path value="NutritionOrder.patient" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
     </element>
     <element id="NutritionOrder.encounter">
       <path value="NutritionOrder.encounter" />
@@ -116,14 +133,46 @@
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Contact" />
       </type>
     </element>
+    <element id="NutritionOrder.dateTime">
+      <path value="NutritionOrder.dateTime" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
     <element id="NutritionOrder.orderer">
       <path value="NutritionOrder.orderer" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
     </element>
-    <element id="NutritionOrder.allergyIntolerance">
+    <element id="NutritionOrder.orderer.extension">
+    <path value="NutritionOrder.orderer.extension" />
+    <slicing>
+    <discriminator>
+      <type value="value" />
+      <path value="url" />
+    </discriminator>
+    <rules value="open" />
+    </slicing>
+  </element>
+  <element id="NutritionOrder.orderer.extension:practitionerrolereference">
+    <path value="NutritionOrder.orderer.extension" />
+    <sliceName value="practitionerRole" />
+    <max value="1" />
+    <type>
+    <code value="Extension" />
+    <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+    </type>
+  </element>
+  <element id="NutritionOrder.allergyIntolerance">
       <path value="NutritionOrder.allergyIntolerance" />
       <type>
         <code value="Reference" />

@@ -1,645 +1,679 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-BloodPressure"/>
-    <meta>
-        <lastUpdated value="2018-03-07T15:11:51.444+01:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BloodPressure"/>
-    <version value="2.0"/>
-    <name value="Zib BloodPressure"/>
-    <title value="HCIM BloodPressure"/>
-    <status value="active"/>
-    <date value="2017-09-06T12:02:17.702+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="This profile is derived from the HL7 Vital Signs profile for Blood Pressure in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) BloodPresurre version 3.1, release 2017 and to provide extensions for missing concepts if needed.&#xD;&#xA;&#xD;&#xA;The blood pressure is a parameter for determining the condition of the blood circulation and is expressed in systolic and diastolic pressure in mmHg."/>
-    <purpose value="Blood pressure is measured to gain an indication of the health condition of the patient’s cardiovascular system."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/BloodPressure-v1.2(2015EN)"/>
-        <name value="HCIM BloodPressure-v1.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/BloodPressure-v3.0(2016EN)"/>
-        <name value="HCIM BloodPressure-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/BloodPressure-v3.1(2017EN)"/>
-        <name value="HCIM BloodPressure-v3.1(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-VitalSigns"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-            <alias value="Bloeddruk"/>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.1"/>
-                <comment value="BloodPressure"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.1"/>
-                <comment value="BloodPressure"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.1"/>
-                <comment value="BloodPressure"/>
-            </mapping>
-        </element>
-        <element id="Observation.effective[x]">
-            <path value="Observation.effective[x]"/>
-            <short value="BloodPressureDateTime"/>
-            <alias value="BloeddrukDatumTijd"/>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.5"/>
-                <comment value="BloodPressureDateTime"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.5"/>
-                <comment value="BloodPressureDateTime"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.5"/>
-                <comment value="BloodPressureDateTime"/>
-            </mapping>
-        </element>
-        <element id="Observation.comment">
-            <path value="Observation.comment"/>
-            <short value="Comment"/>
-            <definition value="Comments on the measured blood pressure. Here, an explanation could be given, for example, of circumstances that may have influenced the patient’s blood pressure, such as pain, stress, exertion and sleep/wake cycles."/>
-            <alias value="Toelichting"/>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.6"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.6"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.6"/>
-                <comment value="Comment"/>
-            </mapping>
-        </element>
-        <element id="Observation.bodySite">
-            <path value="Observation.bodySite"/>
-            <short value="MeasuringLocation"/>
-            <definition value="Anatomical location where the blood pressure was measured."/>
-            <alias value="MeetLocatie"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="BodySite"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="MeetLocatieCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.4--20171231000000"/>
-                    <display value="MeetLocatieCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.10"/>
-                <comment value="MeasuringLocation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.10"/>
-                <comment value="MeasuringLocation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.10"/>
-                <comment value="MeasuringLocation"/>
-            </mapping>
-        </element>
-        <element id="Observation.method">
-            <path value="Observation.method"/>
-            <short value="MeasuringMethod"/>
-            <definition value="The type of method used to measure blood pressure."/>
-            <alias value="Meetmethode"/>
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="ObservationMethod"/>
-                </extension>
-                <strength value="extensible"/>
-                <description value="MeetmethodeCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.1--20171231000000"/>
-                    <display value="MeetmethodeCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.7"/>
-                <comment value="MeasuringMethod"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.7"/>
-                <comment value="MeasuringMethod"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.7"/>
-                <comment value="MeasuringMethod"/>
-            </mapping>
-        </element>
-        <element id="Observation.component">
-            <path value="Observation.component"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code.coding.code"/>
-                </discriminator>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="code.coding.system"/>
-                </discriminator>
-                <ordered value="false"/>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="Observation.component:SystolicBP">
-            <path value="Observation.component"/>
-            <sliceName value="SystolicBP"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:SystolicBP.code">
-            <path value="Observation.component.code"/>
-            <comment value="additional codes that translate or map to this code are allowed. For example a more granular LOINC code or code that is used locally in a system."/>
-        </element>
-        <element id="Observation.component:SystolicBP.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:SystolicBP.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.component:SystolicBP.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="8480-6"/>
-        </element>
-        <element id="Observation.component:SystolicBP.valueQuantity">
-            <path value="Observation.component.valueQuantity"/>
-            <short value="SystolicBloodPressure recorded with UCUM"/>
-            <definition value="The highest (peak) systematic arterial blood pressure - measured in the contraction stage or systole of the cardiac cycle."/>
-            <alias value="SystolischeBloeddruk"/>
-            <min value="1"/>
-            <type>
-                <code value="Quantity"/>
-            </type>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.2"/>
-                <comment value="SystolicBloodPressure"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.2"/>
-                <comment value="SystolicBloodPressure"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.2"/>
-                <comment value="SystolicBloodPressure"/>
-            </mapping>
-        </element>
-        <element id="Observation.component:SystolicBP.valueQuantity.code">
-            <path value="Observation.component.valueQuantity.code"/>
-            <fixedCode value="mm[Hg]"/>
-        </element>
-        <element id="Observation.component:DiastolicBP">
-            <path value="Observation.component"/>
-            <sliceName value="DiastolicBP"/>
-            <min value="1"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:DiastolicBP.code">
-            <path value="Observation.component.code"/>
-            <short value="DiastolicBloodPressure recorded with UCUM"/>
-            <definition value="The lowest systematic arterial blood pressure - measured in the relaxation stage or diastole of the cardiac cycle."/>
-            <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system."/>
-            <alias value="DiastolischeBloeddruk"/>
-            <min value="1"/>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.3"/>
-                <comment value="DiastolicBloodPressure"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.3"/>
-                <comment value="DiastolicBloodPressure"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.3"/>
-                <comment value="DiastolicBloodPressure"/>
-            </mapping>
-        </element>
-        <element id="Observation.component:DiastolicBP.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:DiastolicBP.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.component:DiastolicBP.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="8462-4"/>
-        </element>
-        <element id="Observation.component:DiastolicBP.valueQuantity">
-            <path value="Observation.component.valueQuantity"/>
-            <type>
-                <code value="Quantity"/>
-            </type>
-        </element>
-        <element id="Observation.component:DiastolicBP.valueQuantity.code">
-            <path value="Observation.component.valueQuantity.code"/>
-            <fixedCode value="mm[Hg]"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressureLOINC">
-            <path value="Observation.component"/>
-            <sliceName value="AverageBloodPressureLOINC"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressureLOINC.code">
-            <path value="Observation.component.code"/>
-            <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system."/>
-        </element>
-        <element id="Observation.component:AverageBloodPressureLOINC.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressureLOINC.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressureLOINC.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="8478-0"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressureLOINC.valueQuantity:valueQuantity">
-            <path value="Observation.component.valueQuantity"/>
-            <short value="AverageBloodPressure recorded with UCUM"/>
-            <definition value="Average blood pressure during one cycle of the heart contracting and relaxing.&#xD;&#xA;Estimated based on systolic and diastolic blood pressure. This estimate is unreliable in cases of circulatory disorders. This value can only be reliably determined when invasive blood pressure is measured."/>
-            <alias value="GemiddeldeBloeddruk"/>
-            <type>
-                <code value="Quantity"/>
-            </type>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.4"/>
-                <comment value="AverageBloodPressure"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.4"/>
-                <comment value="AverageBloodPressure"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.4"/>
-                <comment value="AverageBloodPressure"/>
-            </mapping>
-        </element>
-        <element id="Observation.component:AverageBloodPressureLOINC.valueQuantity:valueQuantity.code">
-            <path value="Observation.component.valueQuantity.code"/>
-            <fixedCode value="mm[Hg]"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressureSNOMED">
-            <path value="Observation.component"/>
-            <sliceName value="AverageBloodPressureSNOMED"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressureSNOMED.code">
-            <path value="Observation.component.code"/>
-            <comment value="additional codes that translate or map to this code are allowed.  For example a more granular SNOMED code or code that is used locally in a system."/>
-        </element>
-        <element id="Observation.component:AverageBloodPressureSNOMED.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressureSNOMED.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="6797001"/>
-        </element>
-        <element id="Observation.component:AverageBloodPressureSNOMED.valueQuantity:valueQuantity">
-            <path value="Observation.component.valueQuantity"/>
-            <short value="AverageBloodPressure recorded with UCUM"/>
-            <definition value="Average blood pressure during one cycle of the heart contracting and relaxing.&#xD;&#xA;Estimated based on systolic and diastolic blood pressure. This estimate is unreliable in cases of circulatory disorders. This value can only be reliably determined when invasive blood pressure is measured."/>
-            <alias value="GemiddeldeBloeddruk"/>
-            <type>
-                <code value="Quantity"/>
-            </type>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.4"/>
-                <comment value="AverageBloodPressure"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.4"/>
-                <comment value="AverageBloodPressure"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.4"/>
-                <comment value="AverageBloodPressure"/>
-            </mapping>
-        </element>
-        <element id="Observation.component:AverageBloodPressureSNOMED.valueQuantity:valueQuantity.code">
-            <path value="Observation.component.valueQuantity.code"/>
-            <fixedCode value="mm[Hg]"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint">
-            <path value="Observation.component"/>
-            <sliceName value="diastolicEndpoint"/>
-            <short value="DiastolicEndpoint"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint.code">
-            <path value="Observation.component.code"/>
-            <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system."/>
-            <alias value="Component Test"/>
-            <alias value="Component Name"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="85549003"/>
-        </element>
-        <element id="Observation.component:diastolicEndpoint.valueCodeableConcept">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <short value="DiastolicEndpoint"/>
-            <definition value="Registration of the Korotkoff sound used to measure diastolic pressure with the auscultatory method."/>
-            <alias value="DiastolischEindpunt"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <binding>
-                <strength value="extensible"/>
-                <description value="DiastolischEindpuntCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.2--20171231000000"/>
-                    <display value="DiastolischEindpuntCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.8"/>
-                <comment value="DiastolicEndpoint"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.8"/>
-                <comment value="DiastolicEndpoint"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.8"/>
-                <comment value="DiastolicEndpoint"/>
-            </mapping>
-        </element>
-        <element id="Observation.component:cuffTypeLOINC">
-            <path value="Observation.component"/>
-            <sliceName value="cuffTypeLOINC"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:cuffTypeLOINC.code">
-            <path value="Observation.component.code"/>
-            <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system."/>
-            <alias value="Component Test"/>
-            <alias value="Component Name"/>
-        </element>
-        <element id="Observation.component:cuffTypeLOINC.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:cuffTypeLOINC.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.component:cuffTypeLOINC.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="8358-4"/>
-        </element>
-        <element id="Observation.component:cuffTypeLOINC.valueCodeableConcept:valueCodeableConcept">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <short value="CuffType"/>
-            <definition value="The size of the cuff used in the measurement."/>
-            <alias value="ManchetType"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <binding>
-                <strength value="extensible"/>
-                <description value="ManchetTypeCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.3--20171231000000"/>
-                    <display value="ManchetTypeCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.9"/>
-                <comment value="CuffType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.9"/>
-                <comment value="CuffType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.9"/>
-                <comment value="CuffType"/>
-            </mapping>
-        </element>
-        <element id="Observation.component:cuffTypeSNOMED">
-            <path value="Observation.component"/>
-            <sliceName value="cuffTypeSNOMED"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:cuffTypeSNOMED.code">
-            <path value="Observation.component.code"/>
-            <comment value="additional codes that translate or map to this code are allowed.  For example a more granular SNOMED code or code that is used locally in a system."/>
-            <alias value="Component Test"/>
-            <alias value="Component Name"/>
-        </element>
-        <element id="Observation.component:cuffTypeSNOMED.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.component:cuffTypeSNOMED.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="70665002"/>
-        </element>
-        <element id="Observation.component:cuffTypeSNOMED.valueCodeableConcept:valueCodeableConcept">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <short value="CuffType"/>
-            <definition value="The size of the cuff used in the measurement."/>
-            <alias value="ManchetType"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <binding>
-                <strength value="extensible"/>
-                <description value="ManchetTypeCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.3--20171231000000"/>
-                    <display value="ManchetTypeCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.9"/>
-                <comment value="CuffType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.9"/>
-                <comment value="CuffType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.9"/>
-                <comment value="CuffType"/>
-            </mapping>
-        </element>
-        <element id="Observation.component:positionSNOMED">
-            <path value="Observation.component"/>
-            <sliceName value="positionSNOMED"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:positionSNOMED.code">
-            <path value="Observation.component.code"/>
-        </element>
-        <element id="Observation.component:positionSNOMED.code.coding">
-            <path value="Observation.component.code.coding"/>
-            <min value="1"/>
-        </element>
-        <element id="Observation.component:positionSNOMED.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://snomed.info/sct"/>
-        </element>
-        <element id="Observation.component:positionSNOMED.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="424724000"/>
-        </element>
-        <element id="Observation.component:positionSNOMED.valueCodeableConcept">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <short value="Position"/>
-            <definition value="The position of the patient when the blood pressure was measured."/>
-            <alias value="Houding"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <binding>
-                <strength value="extensible"/>
-                <description value="HoudingCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.5--20171231000000"/>
-                    <display value="HoudingCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.11"/>
-                <comment value="Position"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.11"/>
-                <comment value="Position"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.11"/>
-                <comment value="Position"/>
-            </mapping>
-        </element>
-        <element id="Observation.component:positionLOINC">
-            <path value="Observation.component"/>
-            <sliceName value="positionLOINC"/>
-            <max value="1"/>
-        </element>
-        <element id="Observation.component:positionLOINC.code">
-            <path value="Observation.component.code"/>
-        </element>
-        <element id="Observation.component:positionLOINC.code.coding.system">
-            <path value="Observation.component.code.coding.system"/>
-            <fixedUri value="http://loinc.org"/>
-        </element>
-        <element id="Observation.component:positionLOINC.code.coding.code">
-            <path value="Observation.component.code.coding.code"/>
-            <fixedCode value="8361-8"/>
-        </element>
-        <element id="Observation.component:positionLOINC.valueCodeableConcept">
-            <path value="Observation.component.valueCodeableConcept"/>
-            <short value="Position"/>
-            <definition value="The position of the patient when the blood pressure was measured."/>
-            <alias value="Houding"/>
-            <type>
-                <code value="CodeableConcept"/>
-            </type>
-            <binding>
-                <strength value="extensible"/>
-                <description value="HoudingCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.5--20171231000000"/>
-                    <display value="HoudingCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-bloodpressure-v1.2-2015EN"/>
-                <map value="NL-CM:12.4.11"/>
-                <comment value="Position"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.0-2016EN"/>
-                <map value="NL-CM:12.4.11"/>
-                <comment value="Position"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bloodpressure-v3.1-2017EN"/>
-                <map value="NL-CM:12.4.11"/>
-                <comment value="Position"/>
-            </mapping>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-BloodPressure" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BloodPressure" />
+  <version value="2.0.1" />
+  <name value="Zib BloodPressure" />
+  <title value="HCIM BloodPressure" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is derived from the HL7 Vital Signs profile for Blood Pressure in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) BloodPresurre version 3.1, release 2017 and to provide extensions for missing concepts if needed.&#xD;&#xA;&#xD;&#xA;The blood pressure is a parameter for determining the condition of the blood circulation and is expressed in systolic and diastolic pressure in mmHg." />
+  <purpose value="Blood pressure is measured to gain an indication of the health condition of the patient’s cardiovascular system." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-bloodpressure-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/BloodPressure-v1.2(2015EN)" />
+    <name value="HCIM BloodPressure-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-bloodpressure-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/BloodPressure-v3.0(2016EN)" />
+    <name value="HCIM BloodPressure-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-bloodpressure-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/BloodPressure-v3.1(2017EN)" />
+    <name value="HCIM BloodPressure-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-VitalSigns" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="BloodPressure" />
+      <definition value="The FHIR BloodPressure profile sets a minimum expectations for the Observation Resource to record, search and fetch the blood pressure associated with a patient." />
+      <alias value="Bloeddruk" />
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.1" />
+        <comment value="BloodPressure" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.1" />
+        <comment value="BloodPressure" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.1" />
+        <comment value="BloodPressure" />
+      </mapping>
+    </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
+      <short value="BloodPressureDateTime" />
+      <alias value="BloeddrukDatumTijd" />
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.5" />
+        <comment value="BloodPressureDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.5" />
+        <comment value="BloodPressureDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.5" />
+        <comment value="BloodPressureDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comments on the measured blood pressure. Here, an explanation could be given, for example, of circumstances that may have influenced the patient’s blood pressure, such as pain, stress, exertion and sleep/wake cycles." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.6" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.6" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.6" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.bodySite">
+      <path value="Observation.bodySite" />
+      <short value="MeasuringLocation" />
+      <definition value="Anatomical location where the blood pressure was measured." />
+      <alias value="MeetLocatie" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite" />
+        </extension>
+        <strength value="extensible" />
+        <description value="MeetLocatieCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.4--20171231000000" />
+          <display value="MeetLocatieCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.10" />
+        <comment value="MeasuringLocation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.10" />
+        <comment value="MeasuringLocation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.10" />
+        <comment value="MeasuringLocation" />
+      </mapping>
+    </element>
+    <element id="Observation.method">
+      <path value="Observation.method" />
+      <short value="MeasuringMethod" />
+      <definition value="The type of method used to measure blood pressure." />
+      <alias value="Meetmethode" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationMethod" />
+        </extension>
+        <strength value="extensible" />
+        <description value="MeetmethodeCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.1--20171231000000" />
+          <display value="MeetmethodeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.7" />
+        <comment value="MeasuringMethod" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.7" />
+        <comment value="MeasuringMethod" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.7" />
+        <comment value="MeasuringMethod" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
+          <path value="code.coding.system" />
+        </discriminator>
+        <ordered value="false" />
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:SystolicBP">
+      <path value="Observation.component" />
+      <sliceName value="SystolicBP" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:SystolicBP.code">
+      <path value="Observation.component.code" />
+      <comment value="additional codes that translate or map to this code are allowed. For example a more granular LOINC code or code that is used locally in a system." />
+    </element>
+    <element id="Observation.component:SystolicBP.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:SystolicBP.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.component:SystolicBP.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="8480-6" />
+    </element>
+    <element id="Observation.component:SystolicBP.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="SystolicBloodPressure recorded with UCUM" />
+      <definition value="The highest (peak) systematic arterial blood pressure - measured in the contraction stage or systole of the cardiac cycle." />
+      <alias value="SystolischeBloeddruk" />
+      <min value="1" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.2" />
+        <comment value="SystolicBloodPressure" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.2" />
+        <comment value="SystolicBloodPressure" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.2" />
+        <comment value="SystolicBloodPressure" />
+      </mapping>
+    </element>
+    <element id="Observation.component:SystolicBP.value[x]:valueQuantity.code">
+      <path value="Observation.component.valueQuantity.code" />
+      <fixedCode value="mm[Hg]" />
+    </element>
+    <element id="Observation.component:DiastolicBP">
+      <path value="Observation.component" />
+      <sliceName value="DiastolicBP" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:DiastolicBP.code">
+      <path value="Observation.component.code" />
+      <short value="DiastolicBloodPressure recorded with UCUM" />
+      <definition value="The lowest systematic arterial blood pressure - measured in the relaxation stage or diastole of the cardiac cycle." />
+      <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system." />
+      <alias value="DiastolischeBloeddruk" />
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.3" />
+        <comment value="DiastolicBloodPressure" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.3" />
+        <comment value="DiastolicBloodPressure" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.3" />
+        <comment value="DiastolicBloodPressure" />
+      </mapping>
+    </element>
+    <element id="Observation.component:DiastolicBP.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:DiastolicBP.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.component:DiastolicBP.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="8462-4" />
+    </element>
+    <element id="Observation.component:DiastolicBP.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <type>
+        <code value="Quantity" />
+      </type>
+    </element>
+    <element id="Observation.component:DiastolicBP.value[x]:valueQuantity.code">
+      <path value="Observation.component.valueQuantity.code" />
+      <fixedCode value="mm[Hg]" />
+    </element>
+    <element id="Observation.component:AverageBloodPressureLOINC">
+      <path value="Observation.component" />
+      <sliceName value="AverageBloodPressureLOINC" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:AverageBloodPressureLOINC.code">
+      <path value="Observation.component.code" />
+      <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system." />
+    </element>
+    <element id="Observation.component:AverageBloodPressureLOINC.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:AverageBloodPressureLOINC.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.component:AverageBloodPressureLOINC.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="8478-0" />
+    </element>
+    <element id="Observation.component:AverageBloodPressureLOINC.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="AverageBloodPressure recorded with UCUM" />
+      <definition value="Average blood pressure during one cycle of the heart contracting and relaxing.&#xD;&#xA;Estimated based on systolic and diastolic blood pressure. This estimate is unreliable in cases of circulatory disorders. This value can only be reliably determined when invasive blood pressure is measured." />
+      <alias value="GemiddeldeBloeddruk" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.4" />
+        <comment value="AverageBloodPressure" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.4" />
+        <comment value="AverageBloodPressure" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.4" />
+        <comment value="AverageBloodPressure" />
+      </mapping>
+    </element>
+    <element id="Observation.component:AverageBloodPressureLOINC.value[x]:valueQuantity.code">
+      <path value="Observation.component.valueQuantity.code" />
+      <fixedCode value="mm[Hg]" />
+    </element>
+    <element id="Observation.component:AverageBloodPressureSNOMED">
+      <path value="Observation.component" />
+      <sliceName value="AverageBloodPressureSNOMED" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:AverageBloodPressureSNOMED.code">
+      <path value="Observation.component.code" />
+      <comment value="additional codes that translate or map to this code are allowed.  For example a more granular SNOMED code or code that is used locally in a system." />
+    </element>
+    <element id="Observation.component:AverageBloodPressureSNOMED.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:AverageBloodPressureSNOMED.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="6797001" />
+    </element>
+    <element id="Observation.component:AverageBloodPressureSNOMED.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="AverageBloodPressure recorded with UCUM" />
+      <definition value="Average blood pressure during one cycle of the heart contracting and relaxing.&#xD;&#xA;Estimated based on systolic and diastolic blood pressure. This estimate is unreliable in cases of circulatory disorders. This value can only be reliably determined when invasive blood pressure is measured." />
+      <alias value="GemiddeldeBloeddruk" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.4" />
+        <comment value="AverageBloodPressure" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.4" />
+        <comment value="AverageBloodPressure" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.4" />
+        <comment value="AverageBloodPressure" />
+      </mapping>
+    </element>
+    <element id="Observation.component:AverageBloodPressureSNOMED.value[x]:valueQuantity.code">
+      <path value="Observation.component.valueQuantity.code" />
+      <fixedCode value="mm[Hg]" />
+    </element>
+    <element id="Observation.component:diastolicEndpoint">
+      <path value="Observation.component" />
+      <sliceName value="diastolicEndpoint" />
+      <short value="DiastolicEndpoint" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:diastolicEndpoint.code">
+      <path value="Observation.component.code" />
+      <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system." />
+      <alias value="Component Test" />
+      <alias value="Component Name" />
+    </element>
+    <element id="Observation.component:diastolicEndpoint.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:diastolicEndpoint.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:diastolicEndpoint.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="85549003" />
+    </element>
+    <element id="Observation.component:diastolicEndpoint.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="DiastolicEndpoint" />
+      <definition value="Registration of the Korotkoff sound used to measure diastolic pressure with the auscultatory method." />
+      <alias value="DiastolischEindpunt" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="DiastolischEindpuntCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.2--20171231000000" />
+          <display value="DiastolischEindpuntCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.8" />
+        <comment value="DiastolicEndpoint" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.8" />
+        <comment value="DiastolicEndpoint" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.8" />
+        <comment value="DiastolicEndpoint" />
+      </mapping>
+    </element>
+    <element id="Observation.component:cuffTypeLOINC">
+      <path value="Observation.component" />
+      <sliceName value="cuffTypeLOINC" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:cuffTypeLOINC.code">
+      <path value="Observation.component.code" />
+      <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system." />
+      <alias value="Component Test" />
+      <alias value="Component Name" />
+    </element>
+    <element id="Observation.component:cuffTypeLOINC.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:cuffTypeLOINC.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.component:cuffTypeLOINC.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="8358-4" />
+    </element>
+    <element id="Observation.component:cuffTypeLOINC.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="CuffType" />
+      <definition value="The size of the cuff used in the measurement." />
+      <alias value="ManchetType" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="ManchetTypeCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.3--20171231000000" />
+          <display value="ManchetTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.9" />
+        <comment value="CuffType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.9" />
+        <comment value="CuffType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.9" />
+        <comment value="CuffType" />
+      </mapping>
+    </element>
+    <element id="Observation.component:cuffTypeSNOMED">
+      <path value="Observation.component" />
+      <sliceName value="cuffTypeSNOMED" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:cuffTypeSNOMED.code">
+      <path value="Observation.component.code" />
+      <comment value="additional codes that translate or map to this code are allowed.  For example a more granular SNOMED code or code that is used locally in a system." />
+      <alias value="Component Test" />
+      <alias value="Component Name" />
+    </element>
+    <element id="Observation.component:cuffTypeSNOMED.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:cuffTypeSNOMED.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="70665002" />
+    </element>
+    <element id="Observation.component:cuffTypeSNOMED.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="CuffType" />
+      <definition value="The size of the cuff used in the measurement." />
+      <alias value="ManchetType" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="ManchetTypeCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.3--20171231000000" />
+          <display value="ManchetTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.9" />
+        <comment value="CuffType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.9" />
+        <comment value="CuffType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.9" />
+        <comment value="CuffType" />
+      </mapping>
+    </element>
+    <element id="Observation.component:positionSNOMED">
+      <path value="Observation.component" />
+      <sliceName value="positionSNOMED" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:positionSNOMED.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:positionSNOMED.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:positionSNOMED.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="424724000" />
+    </element>
+    <element id="Observation.component:positionSNOMED.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Position" />
+      <definition value="The position of the patient when the blood pressure was measured." />
+      <alias value="Houding" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="HoudingCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.5--20171231000000" />
+          <display value="HoudingCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.11" />
+        <comment value="Position" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.11" />
+        <comment value="Position" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.11" />
+        <comment value="Position" />
+      </mapping>
+    </element>
+    <element id="Observation.component:positionLOINC">
+      <path value="Observation.component" />
+      <sliceName value="positionLOINC" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:positionLOINC.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.component:positionLOINC.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="8361-8" />
+    </element>
+    <element id="Observation.component:positionLOINC.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Position" />
+      <definition value="The position of the patient when the blood pressure was measured." />
+      <alias value="Houding" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="HoudingCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.4.5--20171231000000" />
+          <display value="HoudingCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-bloodpressure-v1.2-2015EN" />
+        <map value="NL-CM:12.4.11" />
+        <comment value="Position" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.0-2016EN" />
+        <map value="NL-CM:12.4.11" />
+        <comment value="Position" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bloodpressure-v3.1-2017EN" />
+        <map value="NL-CM:12.4.11" />
+        <comment value="Position" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

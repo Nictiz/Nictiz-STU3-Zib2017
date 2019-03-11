@@ -1,15 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Medication-StopType" />
-  <meta>
-    <lastUpdated value="2017-12-14T13:51:54.488+01:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-StopType" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib Medication StopType" />
   <title value="HCIM Medication StopType" />
   <status value="active" />
-  <date value="2017-12-14T10:45:45.835+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -42,8 +38,9 @@
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-StopType" />
     </element>
-    <element id="Extension.value[x]">
+    <element id="Extension.value[x]:valueCodeableConcept">
       <path value="Extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <type>
         <code value="CodeableConcept" />
       </type>
@@ -52,7 +49,7 @@
         <description value="StopType" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.19--20160617101300" />
-            <display value="MedicatieafspraakStopTypeCodelijst"/>
+          <display value="MedicatieafspraakStopTypeCodelijst" />
         </valueSetReference>
       </binding>
     </element>

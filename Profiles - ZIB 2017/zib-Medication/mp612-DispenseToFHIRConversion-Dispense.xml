@@ -2,11 +2,10 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="mp612-dispensetofhirconversion-dispense" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-Dispense" />
-  <version value="1.0.0" />
+  <version value="1.1.0" />
   <name value="MP612 DispenseToFHIRConversion Dispense" />
   <title value="MP612 DispenseToFHIRConversion Dispense" />
   <status value="active" />
-  <date value="2019-02-01" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -44,10 +43,6 @@
       <sliceName value="distributionForm" />
       <max value="0" />
     </element>
-    <element id="MedicationDispense.extension:distributionForm.valueCodeableConcept:valueCodeableConcept">
-      <path value="MedicationDispense.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-    </element>
     <element id="MedicationDispense.extension:requestDate">
       <path value="MedicationDispense.extension" />
       <sliceName value="requestDate" />
@@ -57,32 +52,10 @@
         <comment value="Aanschrijfdatum" />
       </mapping>
     </element>
-    <element id="MedicationDispense.extension:requestDate.valueDateTime:valueDateTime">
-      <path value="MedicationDispense.extension.valueDateTime" />
-      <sliceName value="valueDateTime" />
-    </element>
     <element id="MedicationDispense.extension:additionalInformation">
       <path value="MedicationDispense.extension" />
       <sliceName value="additionalInformation" />
       <max value="0" />
-    </element>
-    <element id="MedicationDispense.extension:additionalInformation.valueCodeableConcept:valueCodeableConcept">
-      <path value="MedicationDispense.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-    </element>
-    <element id="MedicationDispense.extension:medicationTreatment">
-      <path value="MedicationDispense.extension" />
-      <sliceName value="medicationTreatment" />
-      <min value="1" />
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22092 " />
-        <comment value="Medicamenteuze behandeling" />
-      </mapping>
-    </element>
-    <element id="MedicationDispense.extension:medicationTreatment.valueIdentifier:valueIdentifier">
-      <path value="MedicationDispense.extension.valueIdentifier" />
-      <sliceName value="valueIdentifier" />
     </element>
     <element id="MedicationDispense.identifier">
       <path value="MedicationDispense.identifier" />
@@ -127,13 +100,6 @@
     </element>
     <element id="MedicationDispense.category.coding:DispenseCode.code">
       <path value="MedicationDispense.category.coding.code" />
-      <min value="1" />
-    </element>
-    <element id="MedicationDispense.category.coding:DispenseCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="MedicationDispense.category.coding.display" />
       <min value="1" />
     </element>
     <element id="MedicationDispense.medicationReference:medicationReference">
@@ -188,6 +154,10 @@
     </element>
     <element id="MedicationDispense.authorizingPrescription">
       <path value="MedicationDispense.authorizingPrescription" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-AdministrationAgreement" />
+      </type>
       <mapping>
         <identity value="Medication-Process-v09" />
         <map value="mp-dataelement900-22396" />

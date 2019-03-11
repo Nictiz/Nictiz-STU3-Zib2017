@@ -1,11 +1,11 @@
-﻿<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-GeneralMeasurement" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
-  <version value="1.0" />
+  <version value="1.0.1" />
   <name value="Zib GeneralMeasurement" />
   <title value="HCIM General Measurement" />
   <status value="active" />
-  <date value="2018-06-14" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -24,6 +24,11 @@
     <uri value="https://zibs.nl/wiki/GeneralMeasurement-v3.0(2017EN)" />
     <name value="HCIM GeneralMeasurement-v3.0(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
@@ -33,12 +38,20 @@
     <element id="Observation">
       <path value="Observation" />
       <short value="GeneralMeasurement" />
-      <definition value="Root concept of the GeneralMeasurement information model. This root concept contains all data elements of the GeneralMeasurement information model.&#xD;&#xA;" />
+      <definition value="Root concept of the GeneralMeasurement information model. This root concept contains all data elements of the GeneralMeasurement information model." />
       <alias value="MeetUitslag" />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
         <map value="NL-CM:13.3.1" />
         <comment value="GeneralMeasurement" />
+      </mapping>
+    </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
       </mapping>
     </element>
     <element id="Observation.status">
@@ -47,7 +60,7 @@
       </extension>
       <path value="Observation.status" />
       <short value="ResultStatus" />
-      <definition value="The status of the total measurement.&#xD;&#xA;" />
+      <definition value="The status of the total measurement." />
       <alias value="ResultaatStatus" />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
@@ -58,7 +71,7 @@
     <element id="Observation.code">
       <path value="Observation.code" />
       <short value="Investigation | MeasurementName" />
-      <definition value="A general measurement can contain multiple components. This concept contains the name and code of the entire measurement. &#xD;&#xA;" />
+      <definition value="A general measurement can contain multiple components. This concept contains the name and code of the entire measurement." />
       <alias value="Onderzoek" />
       <alias value="MetingNaam" />
       <binding>
@@ -88,10 +101,6 @@
       <min value="1" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
       </type>
       <type>
@@ -100,17 +109,31 @@
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
       </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]" />
-      <definition value="ResultDateTime&#xD;&#xA;" />
+      <definition value="ResultDateTime" />
       <alias value="UitslagDatumTijd" />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
         <map value="NL-CM:13.3.9" />
         <comment value="ResultDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
       </mapping>
     </element>
     <element id="Observation.performer">
@@ -131,10 +154,34 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Observation.performer.extension">
+      <path value="Observation.performer.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.performer.extension:practitionerRole">
+      <path value="Observation.performer.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]" />
-      <definition value="The result of the measurement. Depending on the type of measurement, the result will consist of a value with a unit or a coded value (ordinal or nominal) or of a textual result.&#xD;&#xA;" />
+      <definition value="The result of the measurement. Depending on the type of measurement, the result will consist of a value with a unit or a coded value (ordinal or nominal) or of a textual result." />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
         <map value="NL-CM:13.3.7" />
@@ -144,7 +191,7 @@
     <element id="Observation.comment">
       <path value="Observation.comment" />
       <short value="Comment" />
-      <definition value="Comments such as an interpretation or advice accompanying the result.&#xD;&#xA;" />
+      <definition value="Comments such as an interpretation or advice accompanying the result." />
       <alias value="Toelichting" />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
@@ -155,7 +202,7 @@
     <element id="Observation.method">
       <path value="Observation.method" />
       <short value="MeasuringMethod" />
-      <definition value="The test method used to obtain the result.&#xD;&#xA;" />
+      <definition value="The test method used to obtain the result." />
       <alias value="Meetmethode" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -183,7 +230,7 @@
     <element id="Observation.component.code">
       <path value="Observation.component.code" />
       <short value="MeasurementName" />
-      <definition value="Description (name and code) of the measurement.&#xD;&#xA;" />
+      <definition value="Description (name and code) of the measurement." />
       <alias value="MetingNaam" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -205,7 +252,7 @@
     <element id="Observation.component.value[x]">
       <path value="Observation.component.value[x]" />
       <short value="ResultValue" />
-      <definition value="The result of the measurement. Depending on the type of measurement, the result will consist of a value with a unit or a coded value (ordinal or nominal) or of a textual result.&#xD;&#xA;" />
+      <definition value="The result of the measurement. Depending on the type of measurement, the result will consist of a value with a unit or a coded value (ordinal or nominal) or of a textual result." />
       <alias value="UitslagWaarde" />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />

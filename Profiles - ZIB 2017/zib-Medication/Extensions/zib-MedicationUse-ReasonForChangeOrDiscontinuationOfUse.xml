@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-MedicationUse-ReasonForChangeOrDiscontinuationOfUse" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-ReasonForChangeOrDiscontinuationOfUse" />
+  <name value="Zib MedicationUse ReasonForChangeOrDiscontinuationOfUse" />
+  <title value="HCIM MedicationUse ReasonForChangeOrDiscontinuationOfUse" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Information about the reason for changing or discontinuing use of medication based on a reference as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or zib) 'MedicationUse'." />
+  <purpose value="To provide information about the reason for changing or discontinuing use of medication. Currently, there is no field avaiblable in a MedicationStatement resource for this information, hence the reason for this extension." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="MedicationStatement" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-ReasonForChangeOrDiscontinuationOfUse" />
+    </element>
+    <element id="Extension.value[x]:valueCodeableConcept">
+      <path value="Extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="ReasonForChangeOrDiscontinuationOfUse" />
+      <definition value="Reason for changing or discontinuing use of medication." />
+      <alias value="Reden wijzigen of stoppen gebruik" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="preferred" />
+        <description value="ReasonForChangeOrDiscontinuationOfUseCodeList" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.37--20181218104254" />
+          <display value="RedenWijzigenOfStoppenGebruikCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

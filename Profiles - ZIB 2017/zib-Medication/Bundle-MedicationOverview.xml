@@ -1,14 +1,10 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Bundle-MedicationOverview" />
-  <meta>
-    <lastUpdated value="2017-12-07T15:37:42.957+01:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/Bundle-MedicationOverview" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Medication Overview response structure" />
   <status value="active" />
-  <date value="2017-12-04T17:07:30.44+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -60,7 +56,7 @@
       <mapping>
         <identity value="Medication-Overview" />
         <map value="mp-dataelement900-22968" />
-        <comment value="Documentgegevens"/>
+        <comment value="Documentgegevens" />
       </mapping>
     </element>
     <element id="Bundle.entry:List.resource">
@@ -79,6 +75,11 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
         <aggregation value="bundled" />
       </type>
+      <mapping>
+        <identity value="Medication-Overview" />
+        <map value="mp-dataelement900-19798" />
+        <comment value="Patient" />
+      </mapping>
     </element>
     <element id="Bundle.entry:List.resource.entry:AdministrationAgreement">
       <path value="Bundle.entry.resource.entry" />
@@ -86,23 +87,11 @@
     </element>
     <element id="Bundle.entry:List.resource.entry:AdministrationAgreement.item">
       <path value="Bundle.entry.resource.entry.item" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
-        <aggregation value="bundled" />
-      </type>
-    </element>
-    <element id="Bundle.entry:List.resource.entry:MedicationUsage">
-      <path value="Bundle.entry.resource.entry" />
-      <sliceName value="MedicationUsage" />
-    </element>
-    <element id="Bundle.entry:List.resource.entry:MedicationUsage.item">
-      <path value="Bundle.entry.resource.entry.item" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse" />
-        <aggregation value="bundled" />
-      </type>
+      <mapping>
+        <identity value="Medication-Overview" />
+        <map value="mp-dataelement900-20132" />
+        <comment value="Toedieningsafspraak" />
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>

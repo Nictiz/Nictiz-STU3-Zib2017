@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Alert" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2018-08-19T12:18:39.6788994+02:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Alert" />
-  <version value="2.0.1" />
+  <version value="2.1.0" />
   <name value="Zib Alert" />
   <title value="HCIM Alert" />
   <status value="active" />
-  <date value="2018-08-19T12:18:39.6788994+02:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -38,6 +33,11 @@
     <identity value="hcim-alert-v3.2-2017EN" />
     <uri value="https://zibs.nl/wiki/Alert-v3.2(2017EN)" />
     <name value="HCIM Alert-v3.2(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -101,9 +101,17 @@
         <comment value="Condition" />
       </mapping>
     </element>
-    <element id="Flag.extension:ConcernReference.url">
-      <path value="Flag.extension.url" />
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/flag-detail" />
+    <element id="Flag.extension:ConcernReference.valueReference:valueReference">
+      <path value="Flag.extension.valueReference" />
+      <sliceName value="valueReference" />
+    </element>
+    <element id="Flag.identifier">
+      <path value="Flag.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
     </element>
     <element id="Flag.category">
       <path value="Flag.category" />
@@ -191,7 +199,7 @@
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
       </type>
       <type>
         <code value="Reference" />
@@ -216,6 +224,25 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure" />
+      </type>
+    </element>
+    <element id="Flag.subject.extension">
+      <path value="Flag.subject.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Flag.subject.extension:practitionerRole">
+      <path value="Flag.subject.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
     </element>
     <element id="Flag.period.start">
@@ -267,6 +294,30 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Flag.author.extension">
+      <path value="Flag.author.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Flag.author.extension:practitionerRole">
+      <path value="Flag.author.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
     </element>
   </differential>

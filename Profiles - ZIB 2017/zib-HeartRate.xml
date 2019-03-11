@@ -1,15 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-HeartRate" />
-  <meta>
-    <lastUpdated value="2017-09-11T09:35:57.691+02:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HeartRate" />
-  <version value="2.0" />
+  <version value="2.1.0" />
   <name value="Zib HeartRate" />
   <title value="HCIM HeartRate" />
   <status value="active" />
-  <date value="2017-09-06T12:02:17.702+02:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -20,7 +16,7 @@
     </telecom>
   </contact>
   <description value="This profile is derived from the HL7 Vital Signs profile for heart rate in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) Heartrate v3.1, release 2017, and to provide extensions for missing concepts." />
-  <purpose value="Obtaining information on circulation and heart function by measuring the heartbeat. " />
+  <purpose value="Obtaining information on circulation and heart function by measuring the heartbeat." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -38,10 +34,15 @@
     <uri value="https://zibs.nl/wiki/HeartRate-v3.1(2017EN)" />
     <name value="HCIM HeartRate-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/heartrate" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/heartrate" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation">
@@ -53,6 +54,27 @@
         <identity value="hcim-heartrate-v1.2-2015EN" />
         <map value="NL-CM:12.3.1" />
         <comment value="HeartFrequency" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-heartrate-v3.0-2016EN" />
+        <map value="NL-CM:12.3.1" />
+        <comment value="HeartRate" />
+      </mapping>
+    </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
       </mapping>
     </element>
     <element id="Observation.effective[x]">
@@ -75,9 +97,23 @@
         <map value="NL-CM:12.3.4" />
         <comment value="HeartRateDateTime" />
       </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
     </element>
-    <element id="Observation.valueQuantity">
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Observation.valueQuantity:valueQuantity">
       <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
       <short value="HeartRateValue" />
       <definition value="The heart frequency measured as the number of heartbeats per minute." />
       <alias value="HartfrequentieWaarde" />

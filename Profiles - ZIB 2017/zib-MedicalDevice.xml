@@ -1,300 +1,367 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-MedicalDevice"/>
-    <meta>
-        <versionId value="1"/>
-        <lastUpdated value="2018-08-19T12:18:39.6788994+02:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice"/>
-    <version value="2.0.2"/>
-    <name value="Zib MedicalDevice"/>
-    <title value="HCIM MedicalDevice"/>
-    <status value="active"/>
-    <date value="2018-08-19T12:18:39.6788994+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="MedicalDevice as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017.&#xD;&#xA;&#xD;&#xA;Medical aids are any internally implanted and external devices and/or aids used by the patient (in the past) to reduce the effects of functional limitations in organ systems or to facilitate the treatment of a disease."/>
-    <purpose value="Data on medical aids is recorded for several reasons. Knowledge of the presence of these implants enables tracing and taking the aid or device into account in diagnostic or therapeutic procedures, care and transport.&#xD;&#xA;&#xD;&#xA;Examples include: &#xD;&#xA;* Consequences for transportation, toilet use, etc., in the case of a wheelchair;&#xD;&#xA;* A pacemaker can be of medical importance, but also has consequences for planning radiological exams."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-medicaldevice-v1.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/MedicalDevice-v1.2(2015EN)"/>
-        <name value="HCIM MedicalDevice-v1.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-medicaldevice-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/MedicalDevice-v3.0(2016EN)"/>
-        <name value="HCIM MedicalDevice-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-medicaldevice-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/MedicalDevice-v3.1(2017EN)"/>
-        <name value="HCIM MedicalDevice-v3.1(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="DeviceUseStatement"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DeviceUseStatement"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="DeviceUseStatement">
-            <path value="DeviceUseStatement"/>
-            <short value="MedicalDevice"/>
-            <alias value="MedischHulpmiddel"/>
-            <mapping>
-                <identity value="hcim-medicaldevice-v1.2-2015EN"/>
-                <map value="NL-CM:10.1.1"/>
-                <comment value="MedicalAid"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.0-2016EN"/>
-                <map value="NL-CM:10.1.1"/>
-                <comment value="MedicalAid"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.1-2017EN"/>
-                <map value="NL-CM:10.1.1"/>
-                <comment value="MedicalDevice"/>
-            </mapping>
-        </element>
-        <element id="DeviceUseStatement.extension">
-            <path value="DeviceUseStatement.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="DeviceUseStatement.extension:HealthcareProvider">
-            <path value="DeviceUseStatement.extension"/>
-            <sliceName value="HealthcareProvider"/>
-            <short value="HealthcareProvider"/>
-            <definition value="The healthcare provider at which use of the medical aid was initiated or where the aid was implanted."/>
-            <alias value="Zorgaanbieder"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Organization"/>
-            </type>
-            <mapping>
-                <identity value="hcim-medicaldevice-v1.2-2015EN"/>
-                <map value="NL-CM:10.1.8"/>
-                <comment value="Location"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.0-2016EN"/>
-                <map value="NL-CM:10.1.8"/>
-                <comment value="Location"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.1-2017EN"/>
-                <map value="NL-CM:10.1.8"/>
-                <comment value="Location"/>
-            </mapping>
-        </element>
-        <element id="DeviceUseStatement.extension:HealthProfessional">
-            <path value="DeviceUseStatement.extension"/>
-            <sliceName value="HealthProfessional"/>
-            <short value="HealthProfessional"/>
-            <definition value="The healthcare provider involved in the indication for use of the medical aid implant."/>
-            <alias value="Zorgverlener"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Practitioner"/>
-            </type>
-            <mapping>
-                <identity value="hcim-medicaldevice-v1.2-2015EN"/>
-                <map value="NL-CM:10.1.9"/>
-                <comment value="HealthcareProvider"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.0-2016EN"/>
-                <map value="NL-CM:10.1.9"/>
-                <comment value="HealthcareProvider"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.1-2017EN"/>
-                <map value="NL-CM:10.1.9"/>
-                <comment value="HealthProfessional"/>
-            </mapping>
-        </element>
-        <element id="DeviceUseStatement.subject">
-            <path value="DeviceUseStatement.subject"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-        </element>
-        <element id="DeviceUseStatement.whenUsed">
-            <path value="DeviceUseStatement.whenUsed"/>
-            <short value="Time range defined by start and end date/time"/>
-            <alias value="Tijdsduur gedefinieerd door start- en einddatum/tijd"/>
-        </element>
-        <element id="DeviceUseStatement.whenUsed.start">
-            <path value="DeviceUseStatement.whenUsed.start"/>
-            <short value="StartDate"/>
-            <definition value="The start date of the first use or implant of the medical aid. A ‘vague’ date, such as only the year, is permitted."/>
-            <alias value="BeginDatum"/>
-            <mapping>
-                <identity value="hcim-medicaldevice-v1.2-2015EN"/>
-                <map value="NL-CM:10.1.11"/>
-                <comment value="StartDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.0-2016EN"/>
-                <map value="NL-CM:10.1.11"/>
-                <comment value="StartDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.1-2017EN"/>
-                <map value="NL-CM:10.1.11"/>
-                <comment value="StartDate"/>
-            </mapping>
-        </element>
-        <element id="DeviceUseStatement.device">
-            <path value="DeviceUseStatement.device"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
-            </type>
-        </element>
-        <element id="DeviceUseStatement.indication.extension">
-            <path value="DeviceUseStatement.indication.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="DeviceUseStatement.indication.extension:indication_Problem">
-            <path value="DeviceUseStatement.indication.extension"/>
-            <sliceName value="indication_Problem"/>
-            <short value="Indication-Probleem"/>
-            <definition value="The medical reason for use of the medical device."/>
-            <alias value="Indicatie"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Problem"/>
-            </type>
-            <mapping>
-                <identity value="hcim-medicaldevice-v1.2-2015EN"/>
-                <map value="NL-CM:10.1.7"/>
-                <comment value="Indication"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.0-2016EN"/>
-                <map value="NL-CM:10.1.7"/>
-                <comment value="Indication"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.1-2017EN"/>
-                <map value="NL-CM:10.1.7"/>
-                <comment value="Indication"/>
-            </mapping>
-        </element>
-        <element id="DeviceUseStatement.bodySite">
-            <path value="DeviceUseStatement.bodySite"/>
-            <short value="AnatomicalLocation"/>
-            <definition value="Patient’s anatomical location of the medical device used."/>
-            <alias value="AnatomischeLocatie"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="Patient’s anatomical location of the medical aid used."/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.2--20171231000000"/>
-                    <display value="HulpmiddelAnatomischeLocatieCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-medicaldevice-v1.2-2015EN"/>
-                <map value="NL-CM:10.1.6"/>
-                <comment value="AidAnatomicalLocation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.0-2016EN"/>
-                <map value="NL-CM:10.1.6"/>
-                <comment value="AidAnatomicalLocation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.1-2017EN"/>
-                <map value="NL-CM:10.1.6"/>
-                <comment value="AnatomicalLocation"/>
-            </mapping>
-        </element>
-        <element id="DeviceUseStatement.bodySite.extension">
-            <path value="DeviceUseStatement.bodySite.extension"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="url"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-        </element>
-        <element id="DeviceUseStatement.bodySite.extension:Laterality">
-            <path value="DeviceUseStatement.bodySite.extension"/>
-            <sliceName value="Laterality"/>
-            <short value="Laterality"/>
-            <definition value="Laterality adds information about body side to the anatomic location, e.g. left"/>
-            <max value="1"/>
-            <type>
-                <code value="Extension"/>
-                <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier"/>
-            </type>
-        </element>
-        <element id="DeviceUseStatement.bodySite.extension:Laterality.value[x]">
-            <path value="DeviceUseStatement.bodySite.extension.valueCodeableConcept"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="MedicalDeviceLateralityCodelist"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.4--20171231000000"/>
-                    <display value="MedischHulpmiddelLateraliteitCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.1-2017EN"/>
-                <map value="NL-CM:10.1.12"/>
-                <comment value="Laterality"/>
-            </mapping>
-        </element>
-        <element id="DeviceUseStatement.note.text">
-            <path value="DeviceUseStatement.note.text"/>
-            <short value="Comment"/>
-            <definition value="Comment about use or information on the medical aid used."/>
-            <alias value="Toelichting"/>
-            <mapping>
-                <identity value="hcim-medicaldevice-v1.2-2015EN"/>
-                <map value="NL-CM:10.1.10"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.0-2016EN"/>
-                <map value="NL-CM:10.1.10"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-medicaldevice-v3.1-2017EN"/>
-                <map value="NL-CM:10.1.10"/>
-                <comment value="Comment"/>
-            </mapping>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-MedicalDevice" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice" />
+  <version value="2.1.0" />
+  <name value="Zib MedicalDevice" />
+  <title value="HCIM MedicalDevice" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="MedicalDevice as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017.&#xD;&#xA;&#xD;&#xA;Medical aids are any internally implanted and external devices and/or aids used by the patient (in the past) to reduce the effects of functional limitations in organ systems or to facilitate the treatment of a disease." />
+  <purpose value="Data on medical aids is recorded for several reasons. Knowledge of the presence of these implants enables tracing and taking the aid or device into account in diagnostic or therapeutic procedures, care and transport.&#xD;&#xA;&#xD;&#xA;Examples include: &#xD;&#xA;* Consequences for transportation, toilet use, etc., in the case of a wheelchair;&#xD;&#xA;* A pacemaker can be of medical importance, but also has consequences for planning radiological exams." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-medicaldevice-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/MedicalDevice-v1.2(2015EN)" />
+    <name value="HCIM MedicalDevice-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-medicaldevice-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/MedicalDevice-v3.0(2016EN)" />
+    <name value="HCIM MedicalDevice-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-medicaldevice-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/MedicalDevice-v3.1(2017EN)" />
+    <name value="HCIM MedicalDevice-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DeviceUseStatement" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DeviceUseStatement">
+      <path value="DeviceUseStatement" />
+      <short value="MedicalDevice" />
+      <alias value="MedischHulpmiddel" />
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.1" />
+        <comment value="MedicalAid" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.1" />
+        <comment value="MedicalAid" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.1" />
+        <comment value="MedicalDevice" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension">
+      <path value="DeviceUseStatement.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DeviceUseStatement.extension:HealthcareProvider">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="HealthcareProvider" />
+      <short value="HealthcareProvider" />
+      <definition value="The healthcare provider at which use of the medical aid was initiated or where the aid was implanted." />
+      <alias value="Zorgaanbieder" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Organization" />
+      </type>
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.8" />
+        <comment value="Location" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.8" />
+        <comment value="Location" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.8" />
+        <comment value="Location" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:HealthProfessional">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="HealthProfessional" />
+      <short value="HealthProfessional" />
+      <definition value="The healthcare provider involved in the indication for use of the medical aid implant." />
+      <alias value="Zorgverlener" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Practitioner" />
+      </type>
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.9" />
+        <comment value="HealthcareProvider" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.9" />
+        <comment value="HealthcareProvider" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.9" />
+        <comment value="HealthProfessional" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:HealthProfessional.valueReference:valueReference">
+      <path value="DeviceUseStatement.extension.valueReference" />
+      <sliceName value="valueReference" />
+    </element>
+    <element id="DeviceUseStatement.identifier">
+      <path value="DeviceUseStatement.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.subject">
+      <path value="DeviceUseStatement.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.whenUsed">
+      <path value="DeviceUseStatement.whenUsed" />
+      <short value="Time range defined by start and end date/time" />
+      <alias value="Tijdsduur gedefinieerd door start- en einddatum/tijd" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.whenUsed.start">
+      <path value="DeviceUseStatement.whenUsed.start" />
+      <short value="StartDate" />
+      <definition value="The start date of the first use or implant of the medical aid. A ‘vague’ date, such as only the year, is permitted." />
+      <alias value="BeginDatum" />
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.11" />
+        <comment value="StartDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.11" />
+        <comment value="StartDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.11" />
+        <comment value="StartDate" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.source">
+      <path value="DeviceUseStatement.source" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.2" />
+        <comment value="InformationSource" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.source.extension">
+      <path value="DeviceUseStatement.source.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DeviceUseStatement.source.extension:practitionerRole">
+      <path value="DeviceUseStatement.source.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+    <element id="DeviceUseStatement.device">
+      <path value="DeviceUseStatement.device" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.2" />
+        <comment value="Product" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.indication.extension">
+      <path value="DeviceUseStatement.indication.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DeviceUseStatement.indication.extension:indication_Problem">
+      <path value="DeviceUseStatement.indication.extension" />
+      <sliceName value="indication_Problem" />
+      <short value="Indication-Probleem" />
+      <definition value="The medical reason for use of the medical device." />
+      <alias value="Indicatie" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Problem" />
+      </type>
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.7" />
+        <comment value="Indication" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.7" />
+        <comment value="Indication" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.7" />
+        <comment value="Indication" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.bodySite">
+      <path value="DeviceUseStatement.bodySite" />
+      <short value="AnatomicalLocation" />
+      <definition value="Patient’s anatomical location of the medical device used." />
+      <alias value="AnatomischeLocatie" />
+      <binding>
+        <strength value="extensible" />
+        <description value="Patient’s anatomical location of the medical aid used." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.2--20171231000000" />
+          <display value="HulpmiddelAnatomischeLocatieCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.6" />
+        <comment value="AidAnatomicalLocation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.6" />
+        <comment value="AidAnatomicalLocation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.6" />
+        <comment value="AnatomicalLocation" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.bodySite.extension">
+      <path value="DeviceUseStatement.bodySite.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DeviceUseStatement.bodySite.extension:Laterality">
+      <path value="DeviceUseStatement.bodySite.extension" />
+      <sliceName value="Laterality" />
+      <short value="Laterality" />
+      <definition value="Laterality adds information about body side to the anatomic location, e.g. left" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
+      </type>
+    </element>
+    <element id="DeviceUseStatement.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
+      <path value="DeviceUseStatement.bodySite.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="MedicalDeviceLateralityCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.4--20171231000000" />
+          <display value="MedischHulpmiddelLateraliteitCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.12" />
+        <comment value="Laterality" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.note.text">
+      <path value="DeviceUseStatement.note.text" />
+      <short value="Comment" />
+      <definition value="Comment about use or information on the medical aid used." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.10" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.10" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.10" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

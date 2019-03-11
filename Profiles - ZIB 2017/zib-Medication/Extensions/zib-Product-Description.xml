@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Product-Description" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2017-08-30T13:16:33.722+02:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Product-Description" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib Product Description" />
   <title value="HCIM Product Description" />
   <status value="active" />
-  <date value="2017-02-20T14:32:19.216+00:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -35,8 +30,9 @@
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Product-Description" />
     </element>
-    <element id="Extension.valueString">
+    <element id="Extension.value[x]:valueString">
       <path value="Extension.valueString" />
+      <sliceName value="valueString" />
       <type>
         <code value="string" />
       </type>

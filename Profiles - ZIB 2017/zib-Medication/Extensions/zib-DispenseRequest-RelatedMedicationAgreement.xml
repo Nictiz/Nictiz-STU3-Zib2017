@@ -1,15 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-DispenseRequest-RelatedMedicationAgreement" />
-  <meta>
-    <lastUpdated value="2017-06-12T14:43:57.829+02:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-DispenseRequest-RelatedMedicationAgreement" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib Related Medication Agreement" />
   <title value="HCIM Related Medication Agreement" />
   <status value="active" />
-  <date value="2017-09-12T14:35:24.878917+02:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -35,8 +31,9 @@
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-DispenseRequest-RelatedMedicationAgreement" />
     </element>
-    <element id="Extension.valueReference">
+    <element id="Extension.value[x]:valueReference">
       <path value="Extension.valueReference" />
+      <sliceName value="valueReference" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />

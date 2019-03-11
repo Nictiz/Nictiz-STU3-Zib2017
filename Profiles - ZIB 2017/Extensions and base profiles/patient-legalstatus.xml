@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-patient-legalstatus" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-patient-legalstatus" />
-  <version value="1.0" />
+  <version value="1.0.0" />
   <name value="zib patient legalstatus" />
   <title value="Patient LegalSatus" />
   <status value="active" />
@@ -30,8 +30,8 @@
     <element id="Extension">
       <path value="Extension" />
       <short value="legalStatus" />
-      <definition value="The legal situation that applies to the patient during the intervention. The code of the legal status is based on the Vektis/AZR code list COD232-VEKT Legal Status. " />
-      <comment value="The concept LegalStatus of the Zib FreedomRestrictingMeasures plays an importand role in the context of mental healthcare (GGZ). This concept will become an independent Zib with the next release of Zibs (2018 release).  &#xD;&#xA;&#xD;&#xA;The LegalStatus concept and bound valueset will be split in two concepts: legalstatus and representative. These concept are currently captured in one valueset. It is possible to have a legalstatus AND a representative. Therefore, we allow this extension to have a cardinality of 0..2." />
+      <definition value="The legal situation that applies to the patient during the intervention. The code of the legal status is based on the Vektis/AZR code list COD232-VEKT Legal Status." />
+      <comment value="The concept LegalStatus of the Zib FreedomRestrictingMeasures plays an importand role in the context of mental healthcare (GGZ). This concept will become an independent Zib with the next release of Zibs (2018 release).  &#xD;&#xA;&#xD;&#xA;The LegalStatus concept and associated valueset will be split in two concepts: legalstatus and representative. These concept are currently captured in one valueset. It is possible to have a legalstatus AND a representative. Therefore, we allow this extension to have a cardinality of 0..2." />
       <max value="2" />
     </element>
     <element id="Extension.url">

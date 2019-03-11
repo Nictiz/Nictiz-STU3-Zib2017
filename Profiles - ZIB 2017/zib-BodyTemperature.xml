@@ -1,160 +1,184 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-BodyTemperature"/>
-    <meta>
-        <lastUpdated value="2017-09-06T17:15:04.546+02:00"/>
-    </meta>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyTemperature"/>
-    <version value="2.0.1"/>
-    <name value="Zib BodyTemperature"/>
-    <title value="HCIM BodyTemperature"/>
-    <status value="active"/>
-    <date value="2017-09-06T12:02:17.702+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="This profile is derived from the HL7 Vital Signs profile for Body temperature in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) BodyTemperature v3.1, release 2017, and to provide extensions for missing concepts."/>
-    <purpose value="Measuring the body temperature is of medical importance. A number of diseases are accompanied by characteristic changes in body temperature. The symptoms of some diseases can be tracked by measuring the body temperature. The healthcare provider can use this temperature development to determine the effect of the treatment."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-bodytemperature-v1.2.1-2015EN"/>
-        <uri value="https://zibs.nl/wiki/BodyTemperature-v1.2.1(2015EN)"/>
-        <name value="HCIM BodyTemperature-v1.2.1(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-bodytemperature-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/BodyTemperature-v3.0(2016EN)"/>
-        <name value="HCIM BodyTemperature-3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-bodytemperature-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/BodyTemperature-v3.1(2017EN)"/>
-        <name value="HCIM BodyTemperature-3.1(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Observation"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/bodytemp"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Observation">
-            <path value="Observation"/>
-            <short value="BodyTemperature"/>
-            <definition value="This profile defines  how to represent Body Temperature observations in FHIR using a standard LOINC code and UCUM units of measure.&#xD;&#xA;Measuring and documenting the body temperature of a person as a surrogate for a person’s central body temperature (the highest temperature at the centre of the torso)"/>
-            <alias value="Lichaamstemperatuur"/>
-            <mapping>
-                <identity value="hcim-bodytemperature-v1.2.1-2015EN"/>
-                <map value="NL-CM:12.6.1"/>
-                <comment value="BodyTemperature"/>
-            </mapping>
-        </element>
-        <element id="Observation.effective[x]">
-            <path value="Observation.effective[x]"/>
-            <short value="TemperatureDateTime"/>
-            <definition value="Date and time of measurement."/>
-            <alias value="TemperatuurDatumTijd"/>
-            <mapping>
-                <identity value="hcim-bodytemperature-v1.2.1-2015EN"/>
-                <map value="NL-CM:12.6.4"/>
-                <comment value="TemperatureDateTime"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodytemperature-v3.0-2016EN"/>
-                <map value="NL-CM:12.6.4"/>
-                <comment value="TemperatureDateTime"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodytemperature-v3.1-2017EN"/>
-                <map value="NL-CM:12.6.4"/>
-                <comment value="TemperatureDateTime"/>
-            </mapping>
-        </element>
-        <element id="Observation.valueQuantity">
-            <path value="Observation.valueQuantity"/>
-            <short value="TemperatureValue recorded with UCUM"/>
-            <definition value="Body temperature is the temperature inside the body, measured in °C (degrees Celsius). The measurement method must be specified for a correct interpretation of the measurement value."/>
-            <alias value="TemperatuurWaarde"/>
-            <min value="1"/>
-            <mapping>
-                <identity value="hcim-bodytemperature-v1.2.1-2015EN"/>
-                <map value="NL-CM:12.6.2"/>
-                <comment value="TemperatureValue"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodytemperature-v3.0-2016EN"/>
-                <map value="NL-CM:12.6.2"/>
-                <comment value="TemperatureValue"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodytemperature-v3.1-2017EN"/>
-                <map value="NL-CM:12.6.2"/>
-                <comment value="TemperatureValue"/>
-            </mapping>
-        </element>
-        <element id="Observation.comment">
-            <path value="Observation.comment"/>
-            <short value="Comment"/>
-            <definition value="Comments or details that may be of importance in interpreting the measurement value."/>
-            <alias value="Toelichting"/>
-            <mapping>
-                <identity value="hcim-bodytemperature-v1.2.1-2015EN"/>
-                <map value="NL-CM:12.6.3"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodytemperature-v3.0-2016EN"/>
-                <map value="NL-CM:12.6.3"/>
-                <comment value="Explanation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodytemperature-v3.1-2017EN"/>
-                <map value="NL-CM:12.6.3"/>
-                <comment value="Comment"/>
-            </mapping>
-        </element>
-        <element id="Observation.method">
-            <path value="Observation.method"/>
-            <short value="TemperatureType"/>
-            <definition value="The anatomical location where the body temperature was measured."/>
-            <comment value="Note: Temperaturetype was originally mapped to Observation.bodySite. See https://bits.nictiz.nl/browse/MM-80 or https://bits.nictiz.nl/browse/ZIB-690 for why this mapping was updated."/>
-            <alias value="TemperatuurType"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="TemperatuurTypeCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.6.1--20171231000000"/>
-                    <display value="TemperatuurTypeCodelijst"/>
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-bodytemperature-v1.2.1-2015EN"/>
-                <map value="NL-CM:12.6.5"/>
-                <comment value="TemperatureType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodytemperature-v3.0-2016EN"/>
-                <map value="NL-CM:12.6.5"/>
-                <comment value="TemperatureType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-bodytemperature-v3.1-2017EN"/>
-                <map value="NL-CM:12.6.5"/>
-                <comment value="TemperatureType"/>
-            </mapping>
-        </element>
-        <element id="Observation.device">
-            <path value="Observation.device"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
-            </type>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-BodyTemperature" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyTemperature" />
+  <version value="2.1.0" />
+  <name value="Zib BodyTemperature" />
+  <title value="HCIM BodyTemperature" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is derived from the HL7 Vital Signs profile for Body temperature in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) BodyTemperature v3.1, release 2017, and to provide extensions for missing concepts." />
+  <purpose value="Measuring the body temperature is of medical importance. A number of diseases are accompanied by characteristic changes in body temperature. The symptoms of some diseases can be tracked by measuring the body temperature. The healthcare provider can use this temperature development to determine the effect of the treatment." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-bodytemperature-v1.2.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/BodyTemperature-v1.2.1(2015EN)" />
+    <name value="HCIM BodyTemperature-v1.2.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-bodytemperature-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/BodyTemperature-v3.0(2016EN)" />
+    <name value="HCIM BodyTemperature-3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-bodytemperature-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/BodyTemperature-v3.1(2017EN)" />
+    <name value="HCIM BodyTemperature-3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/bodytemp" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="BodyTemperature" />
+      <definition value="This profile defines  how to represent Body Temperature observations in FHIR using a standard LOINC code and UCUM units of measure.&#xD;&#xA;Measuring and documenting the body temperature of a person as a surrogate for a person’s central body temperature (the highest temperature at the centre of the torso)" />
+      <alias value="Lichaamstemperatuur" />
+      <mapping>
+        <identity value="hcim-bodytemperature-v1.2.1-2015EN" />
+        <map value="NL-CM:12.6.1" />
+        <comment value="BodyTemperature" />
+      </mapping>
+    </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
+      <short value="TemperatureDateTime" />
+      <definition value="Date and time of measurement." />
+      <alias value="TemperatuurDatumTijd" />
+      <mapping>
+        <identity value="hcim-bodytemperature-v1.2.1-2015EN" />
+        <map value="NL-CM:12.6.4" />
+        <comment value="TemperatureDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodytemperature-v3.0-2016EN" />
+        <map value="NL-CM:12.6.4" />
+        <comment value="TemperatureDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodytemperature-v3.1-2017EN" />
+        <map value="NL-CM:12.6.4" />
+        <comment value="TemperatureDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Observation.valueQuantity:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="TemperatureValue recorded with UCUM" />
+      <definition value="Body temperature is the temperature inside the body, measured in °C (degrees Celsius). The measurement method must be specified for a correct interpretation of the measurement value." />
+      <alias value="TemperatuurWaarde" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-bodytemperature-v1.2.1-2015EN" />
+        <map value="NL-CM:12.6.2" />
+        <comment value="TemperatureValue" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodytemperature-v3.0-2016EN" />
+        <map value="NL-CM:12.6.2" />
+        <comment value="TemperatureValue" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodytemperature-v3.1-2017EN" />
+        <map value="NL-CM:12.6.2" />
+        <comment value="TemperatureValue" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comments or details that may be of importance in interpreting the measurement value." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-bodytemperature-v1.2.1-2015EN" />
+        <map value="NL-CM:12.6.3" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodytemperature-v3.0-2016EN" />
+        <map value="NL-CM:12.6.3" />
+        <comment value="Explanation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodytemperature-v3.1-2017EN" />
+        <map value="NL-CM:12.6.3" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.method">
+      <path value="Observation.method" />
+      <short value="TemperatureType" />
+      <definition value="The anatomical location where the body temperature was measured." />
+      <comment value="Note: Temperaturetype was originally mapped to Observation.bodySite. See https://bits.nictiz.nl/browse/MM-80 or https://bits.nictiz.nl/browse/ZIB-690 for why this mapping was updated." />
+      <alias value="TemperatuurType" />
+      <binding>
+        <strength value="extensible" />
+        <description value="TemperatuurTypeCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.6.1--20171231000000" />
+          <display value="TemperatuurTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-bodytemperature-v1.2.1-2015EN" />
+        <map value="NL-CM:12.6.5" />
+        <comment value="TemperatureType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodytemperature-v3.0-2016EN" />
+        <map value="NL-CM:12.6.5" />
+        <comment value="TemperatureType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-bodytemperature-v3.1-2017EN" />
+        <map value="NL-CM:12.6.5" />
+        <comment value="TemperatureType" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

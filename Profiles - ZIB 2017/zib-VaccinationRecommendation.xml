@@ -1,308 +1,330 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-VaccinationRecommendation"/>
-    <meta>
-        <lastUpdated value="2018-03-06T17:23:53.763+01:00"/>
-    </meta>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-        <valueCode value="pher"/>
-    </extension>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation"/>
-    <version value="2.0"/>
-    <name value="Zib VaccinationRecommendation"/>
-    <title value="HCIM VaccinationRecommendation"/>
-    <status value="active"/>
-    <date value="2017-04-26T14:46:25.6166784+02:00"/>
-    <publisher value="Nictiz"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="This profile is one of two profile based on Vaccination as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1. This profile is also used for the Dutch Health and Care Information model PlannedCareActivityForTransfer version 3.1"/>
-    <purpose value="The ZIB vaccinatie defines the concept DesiredDateForRevaccination. FHIR has a dedicated resources for this. To cover DesiredDateForRevaccination and to exand on the ZIB vaccination, the ImmunizationRecommendation Resource is used and profiled."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-vaccination-v1.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/Vaccination-v1.2(2015EN)"/>
-        <name value="HCIM Vaccination-v1.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-vaccination-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/Vaccination-v3.0(2016EN)"/>
-        <name value="HCIM Vaccination-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-vaccination-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/Vaccination-v3.1(2017EN)"/>
-        <name value="HCIM Vaccination-v3.1(2017EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
-        <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v1.2.1(2015EN)"/>
-        <name value="HCIM PlannedCareActivityForTransfer-v1.2.1(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.0(2016EN)"/>
-        <name value="HCIM PlannedCareActivityForTransfer-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.1(2017EN)"/>
-        <name value="HCIM PlannedCareActivityForTransfer-v3.1(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="ImmunizationRecommendation"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="ImmunizationRecommendation">
-            <path value="ImmunizationRecommendation"/>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
-                <map value="NL-CM:16.1.5"/>
-                <comment value="Vaccination"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:16.1.5"/>
-                <comment value="Vaccination"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
-                <map value="NL-CM:16.1.5"/>
-                <comment value="Vaccination"/>
-            </mapping>
-        </element>
-      <element id="ImmunizationRecommendation.extension:orderStatus">
-        <path value="ImmunizationRecommendation.extension"/>
-        <sliceName value="orderStatus"/>
-        <short value="OrderStatus"/>
-        <definition value="The status of the order / recommendation."/>
-        <alias value="OrderStatus"/>
-        <max value="1"/>
-        <type>
-          <code value="Extension"/>
-          <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation-OrderStatus"/>
-        </type>
-        <mapping>
-          <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
-          <map value="NL-CM:16.1.9"/>
-          <comment value="OrderStatus"/>
-        </mapping>
-        <mapping>
-          <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
-          <map value="NL-CM:16.1.9"/>
-          <comment value="OrderStatus"/>
-        </mapping>
-        <mapping>
-          <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
-          <map value="NL-CM:16.1.9"/>
-          <comment value="OrderStatus"/>
-        </mapping>
-      </element>
-      <element id="ImmunizationRecommendation.extension:orderStatus.valueCodeableConcept">
-        <path value="ImmunizationRecommendation.extension.valueCodeableConcept"/>
-        <binding>
-          <strength value="extensible"/>
-          <description value="OrderStatusCodelist"/>
-          <valueSetReference>
-            <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000"/>
-            <display value="OrderStatusCodelist"/>
-          </valueSetReference>
-        </binding>
-      </element>
-        <element id="ImmunizationRecommendation.patient">
-            <path value="ImmunizationRecommendation.patient"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.date">
-            <path value="ImmunizationRecommendation.recommendation.date"/>
-            <short value="DesiredDateForRevaccination"/>
-            <definition value="Date on which this vaccination will have to be repeated according to the author’s information."/>
-            <alias value="GewensteDatumHervaccinatie"/>
-            <mapping>
-                <identity value="hcim-vaccination-v1.2-2015EN"/>
-                <map value="NL-CM:11.1.5"/>
-                <comment value="DesiredDateForRevaccination"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-vaccination-v3.0-2016EN"/>
-                <map value="NL-CM:11.1.5"/>
-                <comment value="DesiredDateForRevaccination"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-vaccination-v3.1-2017EN"/>
-                <map value="NL-CM:11.1.5"/>
-                <comment value="PreferedDateForRevaccination"/>
-            </mapping>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.vaccineCode">
-            <path value="ImmunizationRecommendation.recommendation.vaccineCode"/>
-            <short value="ProductCode"/>
-            <definition value="The product code of the vaccine administered.&#xD;&#xA;There are several possible code systems for documenting the product code. If the vaccination data is registered based on an anamnesis, coding with the ATC code is preferred. In all cases it concerns those products that fall under ATC group J07 (vaccines)."/>
-            <alias value="ProductCode"/>
-            <mapping>
-                <identity value="hcim-vaccination-v1.2-2015EN"/>
-                <map value="NL-CM:11.1.2"/>
-                <comment value="ProductCode"/>
-            </mapping>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding">
-            <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <min value="1"/>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:ProductCodeGPKCodelijst">
-            <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding"/>
-            <sliceName value="productCodeGPKCodelijst"/>
-            <max value="1"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="ProductCodeGPKCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.3--20171231000000"/>
-                    <display value="ProductCodeGPKCodelijst"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:ProductCodeHPKCodelijst">
-            <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding"/>
-            <sliceName value="productCodeHPKCodelijst"/>
-            <max value="1"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="ProductCodeHPKCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.2--20171231000000"/>
-                    <display value="ProductCodeHPKCodelijst"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:ProductCodeZICodelijst">
-            <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding"/>
-            <sliceName value="productCodeZICodelijst"/>
-            <max value="1"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="ProductCodeZICodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.6--20171231000000"/>
-                    <display value="ProductCodeZICodelijst"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:ProductCodeATCCodelijst">
-            <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding"/>
-            <sliceName value="productCodeATCCodelijst"/>
-            <max value="1"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="ProductCodeATCCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.4--20171231000000"/>
-                    <display value="ProductCodeATCCodelijst"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:ProductCodePRKCodelijst">
-            <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding"/>
-            <sliceName value="productCodePRKCodelijst"/>
-            <max value="1"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="ProductCodePRKCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.1--20171231000000"/>
-                    <display value="ProductCodePRKCodelijst"/>
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:ProductCodeGTINCodelijst">
-            <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding"/>
-            <sliceName value="productCodeGTINCodelijst"/>
-            <max value="1"/>
-            <binding>
-                <strength value="extensible"/>
-                <description value="ProductCodeGTINCodelijst"/>
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.5--20171231000000"/>
-                    <display value="ProductCodeGTINCodelijst"/>
-                </valueSetReference>
-            </binding>
-        </element>        
-        <element id="ImmunizationRecommendation.recommendation.dateCriterion">
-            <path value="ImmunizationRecommendation.recommendation.dateCriterion"/>
-            <short value="StartDate / EndDate"/>
-            <comment value="This element can be used to capture the StartDate and EndDate concepts of the ZIB OverdrachtGeplandeZorgActiviteit."/>
-            <alias value="StartDate"/>
-            <alias value="EndDate"/>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
-                <map value="NL-CM:16.1.10"/>
-                <comment value="StartDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:16.1.10"/>
-                <comment value="StartDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
-                <map value="NL-CM:16.1.10"/>
-                <comment value="StartDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN"/>
-                <map value="NL-CM:16.1.11"/>
-                <comment value="EndDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN"/>
-                <map value="NL-CM:16.1.11"/>
-                <comment value="EndDate"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN"/>
-                <map value="NL-CM:16.1.11"/>
-                <comment value="EndDate"/>
-            </mapping>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.protocol.authority">
-            <path value="ImmunizationRecommendation.recommendation.protocol.authority"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.supportingImmunization">
-            <path value="ImmunizationRecommendation.recommendation.supportingImmunization"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Vaccination"/>
-            </type>
-        </element>
-        <element id="ImmunizationRecommendation.recommendation.supportingPatientInformation">
-            <path value="ImmunizationRecommendation.recommendation.supportingPatientInformation"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance"/>
-            </type>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-VaccinationRecommendation" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation" />
+  <version value="2.0.1" />
+  <name value="Zib VaccinationRecommendation" />
+  <title value="HCIM VaccinationRecommendation" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is one of two profile based on Vaccination as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1. This profile is also used for the Dutch Health and Care Information model PlannedCareActivityForTransfer version 3.1" />
+  <purpose value="The ZIB vaccinatie defines the concept DesiredDateForRevaccination. FHIR has a dedicated resources for this. To cover DesiredDateForRevaccination and to exand on the ZIB vaccination, the ImmunizationRecommendation Resource is used and profiled." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-vaccination-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/Vaccination-v1.2(2015EN)" />
+    <name value="HCIM Vaccination-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-vaccination-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Vaccination-v3.0(2016EN)" />
+    <name value="HCIM Vaccination-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-vaccination-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Vaccination-v3.1(2017EN)" />
+    <name value="HCIM Vaccination-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v1.2.1(2015EN)" />
+    <name value="HCIM PlannedCareActivityForTransfer-v1.2.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.0(2016EN)" />
+    <name value="HCIM PlannedCareActivityForTransfer-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v3.1(2017EN)" />
+    <name value="HCIM PlannedCareActivityForTransfer-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="ImmunizationRecommendation" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ImmunizationRecommendation">
+      <path value="ImmunizationRecommendation" />
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.5" />
+        <comment value="Vaccination" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.5" />
+        <comment value="Vaccination" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.5" />
+        <comment value="Vaccination" />
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.extension">
+      <path value="ImmunizationRecommendation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="ImmunizationRecommendation.extension:orderStatus">
+      <path value="ImmunizationRecommendation.extension" />
+      <sliceName value="orderStatus" />
+      <short value="OrderStatus" />
+      <definition value="The status of the order / recommendation." />
+      <alias value="OrderStatus" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation-OrderStatus" />
+      </type>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.9" />
+        <comment value="OrderStatus" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.9" />
+        <comment value="OrderStatus" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.9" />
+        <comment value="OrderStatus" />
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.extension:orderStatus.valueCodeableConcept:valueCodeableConcept">
+      <path value="ImmunizationRecommendation.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+      </binding>
+    </element>
+    <element id="ImmunizationRecommendation.identifier">
+      <path value="ImmunizationRecommendation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.patient">
+      <path value="ImmunizationRecommendation.patient" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.date">
+      <path value="ImmunizationRecommendation.recommendation.date" />
+      <short value="DesiredDateForRevaccination" />
+      <definition value="Date on which this vaccination will have to be repeated according to the author’s information." />
+      <alias value="GewensteDatumHervaccinatie" />
+      <mapping>
+        <identity value="hcim-vaccination-v1.2-2015EN" />
+        <map value="NL-CM:11.1.5" />
+        <comment value="DesiredDateForRevaccination" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.0-2016EN" />
+        <map value="NL-CM:11.1.5" />
+        <comment value="DesiredDateForRevaccination" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-vaccination-v3.1-2017EN" />
+        <map value="NL-CM:11.1.5" />
+        <comment value="PreferedDateForRevaccination" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.vaccineCode">
+      <path value="ImmunizationRecommendation.recommendation.vaccineCode" />
+      <short value="ProductCode" />
+      <definition value="The product code of the vaccine administered.&#xD;&#xA;There are several possible code systems for documenting the product code. If the vaccination data is registered based on an anamnesis, coding with the ATC code is preferred. In all cases it concerns those products that fall under ATC group J07 (vaccines)." />
+      <alias value="ProductCode" />
+      <mapping>
+        <identity value="hcim-vaccination-v1.2-2015EN" />
+        <map value="NL-CM:11.1.2" />
+        <comment value="ProductCode" />
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding">
+      <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:productCodeGPKCodelijst">
+      <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding" />
+      <sliceName value="productCodeGPKCodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodeGPKCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.3--20171231000000" />
+          <display value="ProductCodeGPKCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:productCodeHPKCodelijst">
+      <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding" />
+      <sliceName value="productCodeHPKCodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodeHPKCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.2--20171231000000" />
+          <display value="ProductCodeHPKCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:productCodeZICodelijst">
+      <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding" />
+      <sliceName value="productCodeZICodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodeZICodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.6--20171231000000" />
+          <display value="ProductCodeZICodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:productCodeATCCodelijst">
+      <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding" />
+      <sliceName value="productCodeATCCodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodeATCCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.4--20171231000000" />
+          <display value="ProductCodeATCCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:productCodePRKCodelijst">
+      <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding" />
+      <sliceName value="productCodePRKCodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodePRKCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.1--20171231000000" />
+          <display value="ProductCodePRKCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.vaccineCode.coding:productCodeGTINCodelijst">
+      <path value="ImmunizationRecommendation.recommendation.vaccineCode.coding" />
+      <sliceName value="productCodeGTINCodelijst" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProductCodeGTINCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.11.1.5--20171231000000" />
+          <display value="ProductCodeGTINCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.dateCriterion">
+      <path value="ImmunizationRecommendation.recommendation.dateCriterion" />
+      <short value="StartDate / EndDate" />
+      <comment value="This element can be used to capture the StartDate and EndDate concepts of the ZIB OverdrachtGeplandeZorgActiviteit." />
+      <alias value="StartDate" />
+      <alias value="EndDate" />
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.10" />
+        <comment value="StartDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.10" />
+        <comment value="StartDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.10" />
+        <comment value="StartDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
+        <map value="NL-CM:16.1.11" />
+        <comment value="EndDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:16.1.11" />
+        <comment value="EndDate" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-plannedcareactivityfortransfer-v3.1-2017EN" />
+        <map value="NL-CM:16.1.11" />
+        <comment value="EndDate" />
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.protocol.authority">
+      <path value="ImmunizationRecommendation.recommendation.protocol.authority" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.supportingImmunization">
+      <path value="ImmunizationRecommendation.recommendation.supportingImmunization" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Vaccination" />
+      </type>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.supportingPatientInformation">
+      <path value="ImmunizationRecommendation.recommendation.supportingPatientInformation" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance" />
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

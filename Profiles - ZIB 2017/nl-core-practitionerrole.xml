@@ -1,289 +1,298 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="nl-core-practitionerrole" />
-    <meta>
-        <lastUpdated value="2018-02-20T16:33:19.663+01:00" />
-    </meta>
-    <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
-    <version value="2.0" />
-    <name value="nl core practitionerrole" />
-    <title value="nl-core-practitionerrole" />
-    <status value="active" />
-    <date value="2017-03-29T17:34:12.7816784+02:00" />
-    <publisher value="HL7 Netherlands" />
-    <contact>
-        <name value="Nictiz" />
-        <telecom>
-            <system value="email" />
-            <value value="info@nictiz.nl" />
-            <use value="work" />
-        </telecom>
-    </contact>
-    <description value="Functional requirements taken from Health and Care Information models (Zorginformatiebouwsteen) HealthProfessional v3.2 (release 2017). Names and addresses are also in compliance with HL7 V3 Basic Components." />
-    <copyright value="CC0" />
-    <fhirVersion value="3.0.1" />
-    <mapping>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="nl-core-practitionerrole" />
+  <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+  <version value="2.0.1" />
+  <name value="nl-core-practitionerrole" />
+  <title value="nl-core-practitionerrole" />
+  <status value="active" />
+  <publisher value="HL7 Netherlands" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Functional requirements taken from Health and Care Information models (Zorginformatiebouwsteen) HealthProfessional v3.2 (release 2017). Names and addresses are also in compliance with HL7 V3 Basic Components." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)" />
+    <name value="HCIM HealthProfessional-v1.2.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-healthprofessional-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)" />
+    <name value="HCIM HealthProfessional-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-healthprofessional-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v3.2(2017EN)" />
+    <name value="HCIM HealthProfessional-v3.2(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
+    <name value="HCIM Patient-v2.0.1(2015EN)" />
+    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactinformation-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
+    <name value="HCIM Patient-v3.0(2016EN)" />
+    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactinformation-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/ContactInformation-v1.0(2017EN)" />
+    <name value="HCIM ContactInformation-v1.0(2017EN)" />
+    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="PractitionerRole" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/PractitionerRole" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="PractitionerRole">
+      <path value="PractitionerRole" />
+      <short value="HealthProfessionalRole" />
+      <alias value="ZorgverlenerRol" />
+    </element>
+    <element id="PractitionerRole.identifier">
+      <path value="PractitionerRole.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="PractitionerRole.practitioner">
+      <path value="PractitionerRole.practitioner" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+    </element>
+    <element id="PractitionerRole.organization">
+      <path value="PractitionerRole.organization" />
+      <short value="HealthcareProvider" />
+      <alias value="Zorgaanbieder" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <mapping>
         <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)" />
-        <name value="HCIM HealthProfessional-v1.2.1(2015EN)" />
-    </mapping>
-    <mapping>
+        <map value="NL-CM:17.1.6" />
+        <comment value="HealthcareProvider" />
+      </mapping>
+      <mapping>
         <identity value="hcim-healthprofessional-v3.0-2016EN" />
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)" />
-        <name value="HCIM HealthProfessional-v3.0(2016EN)" />
-    </mapping>
-    <mapping>
+        <map value="NL-CM:17.1.6" />
+        <comment value="HealthcareProvider" />
+      </mapping>
+      <mapping>
         <identity value="hcim-healthprofessional-v3.2-2017EN" />
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.2(2017EN)" />
-        <name value="HCIM HealthProfessional-v3.2(2017EN)" />
-    </mapping>
-    <mapping>
+        <map value="NL-CM:17.1.6" />
+        <comment value="HealthcareProvider" />
+      </mapping>
+    </element>
+    <element id="PractitionerRole.code">
+      <path value="PractitionerRole.code" />
+      <short value="HealthProfessionalRole" />
+      <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
+      <alias value="ZorgverlenerRol" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PractitionerRole" />
+        </extension>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
+          <display value="ZorgverlenerRolCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+        <map value="NL-CM:17.1.5" />
+        <comment value="HealthcareProviderRole" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.0-2016EN" />
+        <map value="NL-CM:17.1.5" />
+        <comment value="HealthcareProviderRole" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.2-2017EN" />
+        <map value="NL-CM:17.1.5" />
+        <comment value="HealthProfessionalRole" />
+      </mapping>
+    </element>
+    <element id="PractitionerRole.specialty">
+      <path value="PractitionerRole.specialty" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="coding.system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="Specialty" />
+      <definition value="Healthcare provider’s medical specialty. This refers to the recognized medical specialties as stated in the BIG Act." />
+      <alias value="Specialisme" />
+      <mapping>
+        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+        <map value="NL-CM:17.1.4" />
+        <comment value="Specialty" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.0-2016EN" />
+        <map value="NL-CM:17.1.4" />
+        <comment value="Specialty" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.2-2017EN" />
+        <map value="NL-CM:17.1.4" />
+        <comment value="Specialty" />
+      </mapping>
+    </element>
+    <element id="PractitionerRole.specialty:SpecialtyAGB">
+      <path value="PractitionerRole.specialty" />
+      <sliceName value="SpecialtyAGB" />
+      <short value="SpecialtyAGB" />
+      <alias value="SpecialismeAGB" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PractitionerSpecialty" />
+        </extension>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.7--20171231000000" />
+          <display value="SpecialismeAGBCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty:SpecialtyUZI">
+      <path value="PractitionerRole.specialty" />
+      <sliceName value="SpecialtyUZI" />
+      <short value="SpecialtyUZI" />
+      <alias value="SpecialismeUZI" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PractitionerSpecialty" />
+        </extension>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.6--20171231000000" />
+          <display value="SpecialismeUZICodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="PractitionerRole.telecom">
+      <path value="PractitionerRole.telecom" />
+      <short value="ContactInformation" />
+      <alias value="Contactgegevens" />
+      <mapping>
+        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+        <map value="NL-CM:17.1.8" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.0-2016EN" />
+        <map value="NL-CM:17.1.8" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.2-2017EN" />
+        <map value="NL-CM:17.1.8" />
+        <comment value="ContactInformation" />
+      </mapping>
+    </element>
+    <element id="PractitionerRole.telecom.system">
+      <path value="PractitionerRole.telecom.system" />
+      <min value="1" />
+    </element>
+    <element id="PractitionerRole.telecom.value">
+      <path value="PractitionerRole.telecom.value" />
+      <short value="TelephoneNumber / E-mailAddress" />
+      <alias value="Telefoonnummer" />
+      <alias value="EmailAdres" />
+      <min value="1" />
+      <mapping>
         <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
-        <name value="HCIM Patient-v2.0.1(2015EN)" />
-        <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
-    </mapping>
-    <mapping>
+        <map value="NL-CM:0.1.23" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
         <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
-        <name value="HCIM Patient-v3.0(2016EN)" />
-        <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
-    </mapping>
-    <mapping>
+        <map value="NL-CM:0.1.23" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <uri value="https://zibs.nl/wiki/ContactInformation-v1.0(2017EN)" />
-        <name value="HCIM ContactInformation-v1.0(2017EN)" />
-        <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs." />
-    </mapping>
-    <kind value="resource" />
-    <abstract value="false" />
-    <type value="PractitionerRole" />
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/PractitionerRole" />
-    <derivation value="constraint" />
-    <differential>
-        <element id="PractitionerRole">
-            <path value="PractitionerRole" />
-            <short value="HealthcareProviderRole" />
-            <alias value="ZorgverlenerRol" />
-        </element>
-        <element id="PractitionerRole.practitioner">
-            <path value="PractitionerRole.practitioner" />
-            <type>
-                <code value="Reference" />
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-            </type>
-        </element>
-        <element id="PractitionerRole.organization">
-            <path value="PractitionerRole.organization" />
-            <short value="HealthcareProvider" />
-            <alias value="Zorgaanbieder" />
-            <type>
-                <code value="Reference" />
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-            </type>
-            <mapping>
-                <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-                <map value="NL-CM:17.1.6" />
-                <comment value="HealthcareProvider"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.0-2016EN" />
-                <map value="NL-CM:17.1.6" />
-                <comment value="HealthcareProvider"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.2-2017EN" />
-                <map value="NL-CM:17.1.6" />
-                <comment value="HealthcareProvider"/>
-            </mapping>
-        </element>
-        <element id="PractitionerRole.code">
-            <path value="PractitionerRole.code" />
-            <short value="HealthProfessionalRole" />
-            <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
-            <alias value="ZorgverlenerRol" />
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="PractitionerRole" />
-                </extension>
-                <strength value="extensible" />
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
-                    <display value="ZorgverlenerRolCodelijst" />
-                </valueSetReference>
-            </binding>
-            <mapping>
-                <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-                <map value="NL-CM:17.1.5" />
-                <comment value="HealthcareProviderRole"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.0-2016EN" />
-                <map value="NL-CM:17.1.5" />
-                <comment value="HealthcareProviderRole"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.2-2017EN" />
-                <map value="NL-CM:17.1.5" />
-                <comment value="HealthProfessionalRole"/>
-            </mapping>
-        </element>
-        <element id="PractitionerRole.specialty">
-            <path value="PractitionerRole.specialty" />
-            <slicing>
-                <discriminator>
-                    <type value="value" />
-                    <path value="coding.system" />
-                </discriminator>
-                <rules value="open" />
-            </slicing>
-            <short value="Specialty" />
-            <definition value="Healthcare provider’s medical specialty. This refers to the recognized medical specialties as stated in the BIG Act." />
-            <alias value="Specialisme" />
-            <mapping>
-                <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-                <map value="NL-CM:17.1.4" />
-                <comment value="Specialty"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.0-2016EN" />
-                <map value="NL-CM:17.1.4" />
-                <comment value="Specialty"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.2-2017EN" />
-                <map value="NL-CM:17.1.4" />
-                <comment value="Specialty"/>
-            </mapping>
-        </element>
-        <element id="PractitionerRole.specialty:SpecialtyAGB">
-            <path value="PractitionerRole.specialty" />
-            <sliceName value="SpecialtyAGB" />
-            <short value="SpecialtyAGB" />
-            <alias value="SpecialismeAGB" />
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="PractitionerSpecialty" />
-                </extension>
-                <strength value="extensible" />
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.7--20171231000000" />
-                    <display value="SpecialismeAGBCodelijst" />
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="PractitionerRole.specialty:SpecialtyUZI">
-            <path value="PractitionerRole.specialty" />
-            <sliceName value="SpecialtyUZI" />
-            <short value="SpecialtyUZI" />
-            <alias value="SpecialismeUZI" />
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="PractitionerSpecialty" />
-                </extension>
-                <strength value="extensible" />
-                <valueSetReference>
-                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.6--20171231000000" />
-                    <display value="SpecialismeUZICodelijst" />
-                </valueSetReference>
-            </binding>
-        </element>
-        <element id="PractitionerRole.telecom">
-            <path value="PractitionerRole.telecom" />
-            <short value="ContactInformation" />
-            <alias value="Contactgegevens" />
-            <mapping>
-                <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-                <map value="NL-CM:17.1.8" />
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.0-2016EN" />
-                <map value="NL-CM:17.1.8" />
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.2-2017EN" />
-                <map value="NL-CM:17.1.8" />
-                <comment value="ContactInformation"/>
-            </mapping>
-        </element>
-        <element id="PractitionerRole.telecom.system">
-            <path value="PractitionerRole.telecom.system" />
-            <min value="1" />
-        </element>
-        <element id="PractitionerRole.telecom.value">
-            <path value="PractitionerRole.telecom.value" />
-            <short value="TelephoneNumber / E-mailAddress" />
-            <alias value="Telefoonnummer" />
-            <alias value="EmailAdres" />
-            <min value="1" />
-            <mapping>
-                <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-                <map value="NL-CM:0.1.23" />
-                <comment value="TelephoneNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.0-2016EN" />
-                <map value="NL-CM:0.1.23" />
-                <comment value="TelephoneNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN" />
-                <map value="NL-CM:20.6.4" />
-                <comment value="TelephoneNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-                <map value="NL-CM:0.1.20" />
-                <comment value="E-mailAddress"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.0-2016EN" />
-                <map value="NL-CM:0.1.20" />
-                <comment value="E-mailAddress"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN" />
-                <map value="NL-CM:20.6.7" />
-                <comment value="EmailAddress"/>
-            </mapping>
-        </element>
-        <element id="PractitionerRole.telecom.use">
-            <path value="PractitionerRole.telecom.use" />
-            <short value="NumberType / E-mailAddressType" />
-            <alias value="NummerSoort" />
-            <alias value="EmailSoort" />
-            <mapping>
-                <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-                <map value="NL-CM:0.1.22" />
-                <comment value="NumberType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.0-2016EN" />
-                <map value="NL-CM:0.1.22" />
-                <comment value="NumberType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-                <map value="NL-CM:0.1.19" />
-                <comment value="E-mailAddressType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.0-2016EN" />
-                <map value="NL-CM:0.1.19" />
-                <comment value="E-mailAddressType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN" />
-                <map value="NL-CM:20.6.8" />
-                <comment value="EmailAddressType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN" />
-                <map value="NL-CM:20.6.6" />
-                <comment value="NumberType"/>
-            </mapping>
-        </element>
-    </differential>
+        <map value="NL-CM:20.6.4" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.20" />
+        <comment value="E-mailAddress" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.20" />
+        <comment value="E-mailAddress" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.7" />
+        <comment value="EmailAddress" />
+      </mapping>
+    </element>
+    <element id="PractitionerRole.telecom.use">
+      <path value="PractitionerRole.telecom.use" />
+      <short value="NumberType / E-mailAddressType" />
+      <alias value="NummerSoort" />
+      <alias value="EmailSoort" />
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.22" />
+        <comment value="NumberType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.22" />
+        <comment value="NumberType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.19" />
+        <comment value="E-mailAddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.19" />
+        <comment value="E-mailAddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.8" />
+        <comment value="EmailAddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.6" />
+        <comment value="NumberType" />
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

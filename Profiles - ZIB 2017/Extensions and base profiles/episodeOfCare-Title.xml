@@ -1,51 +1,44 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="episodeofcare-title"/>
-    <url value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-Title"/>
-    <version value="2.0"/>
-    <name value="EpisodeOfCare Title"/>
-    <title value="EpisodeOfCare-Title"/>
-    <status value="active"/>
-    <date value="2018-07-17T13:13:49+02:00"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description value="For episodes of care it can be relevant to carry the title that the episode of care is known as for the physisian. This is standard for general practitioner workflow. Usually it is the common name for the latest associated Condition"/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <kind value="complex-type"/>
-    <abstract value="false"/>
-    <contextType value="resource"/>
-    <context value="EpisodeOfCare"/>
-    <type value="Extension"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Extension">
-            <path value="Extension"/>
-        </element>
-        <element id="Extension.url">
-            <path value="Extension.url"/>
-            <representation value="xmlAttr"/>
-            <type>
-                <code value="uri"/>
-            </type>
-            <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-Title"/>
-        </element>
-        <element id="Extension.valueString">
-            <path value="Extension.valueString"/>
-            <short value="EpisodeOfCare title string"/>
-            <definition value="Short string that best sums up what the episode is about"/>
-            <alias value="Episodetitel"/>
-            <min value="1"/>
-            <type>
-                <code value="string"/>
-            </type>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="episodeofcare-title" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-Title" />
+  <version value="2.0.0" />
+  <name value="EpisodeOfCare Title" />
+  <title value="EpisodeOfCare-Title" />
+  <status value="active" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="For episodes of care it can be relevant to carry the title that the episode of care is known as for the physisian. This is standard for general practitioner workflow. Usually it is the common name for the latest associated Condition" />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="EpisodeOfCare" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-Title" />
+    </element>
+    <element id="Extension.value[x]:valueString">
+      <path value="Extension.valueString" />
+      <sliceName value="valueString" />
+      <short value="EpisodeOfCare title string" />
+      <definition value="Short string that best sums up what the episode is about" />
+      <alias value="Episodetitel" />
+      <min value="1" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

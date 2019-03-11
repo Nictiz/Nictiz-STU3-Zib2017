@@ -1,7 +1,8 @@
-﻿<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-ParticipationInSociety" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-ParticipationInSociety" />
-  <version value="1.0" />
+  <version value="1.1.0" />
   <name value="Zib ParticipationInSociety" />
   <title value="HCIM ParticipationInSociety" />
   <status value="active" />
@@ -23,6 +24,11 @@
     <uri value="https://zibs.nl/wiki/ParticipationInSociety-v3.1(2017EN)" />
     <name value="HCIM ParticipationInSociety-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
@@ -38,6 +44,14 @@
         <identity value="hcim-participationinsociety-v3.1-2017EN" />
         <map value="NL-CM:18.6.1" />
         <comment value="ParticipationInSociety" />
+      </mapping>
+    </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
       </mapping>
     </element>
     <element id="Observation.code.coding">
@@ -72,7 +86,7 @@
         <valueBoolean value="true" />
       </extension>
       <path value="Observation.code.coding.display" />
-      <fixedString value="Patient participation status" />
+      <defaultValueString value="Patient participation status" />
     </element>
     <element id="Observation.subject">
       <path value="Observation.subject" />
@@ -91,8 +105,36 @@
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Observation.context">
+      <path value="Observation.context" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
+      </type>
+    </element>
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
     </element>
     <element id="Observation.performer">
       <path value="Observation.performer" />
@@ -112,11 +154,35 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Observation.performer.extension">
+      <path value="Observation.performer.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.performer.extension:practitionerRole">
+      <path value="Observation.performer.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
       <short value="Comment" />
-      <definition value="Comment on the participation in society. " />
+      <definition value="Comment on the participation in society." />
       <alias value="Toelichting" />
       <mapping>
         <identity value="hcim-participationinsociety-v3.1-2017EN" />
@@ -142,37 +208,24 @@
     </element>
     <element id="Observation.component:socialNetwork.code.coding">
       <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.component:socialNetwork.code.coding:socialNetworkCode">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="socialNetworkCode" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:socialNetwork.code.coding:socialNetworkCode.system">
+    <element id="Observation.component:socialNetwork.code.coding.system">
       <path value="Observation.component.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:socialNetwork.code.coding:socialNetworkCode.code">
+    <element id="Observation.component:socialNetwork.code.coding.code">
       <path value="Observation.component.code.coding.code" />
       <min value="1" />
       <fixedCode value="365469004" />
     </element>
-    <element id="Observation.component:socialNetwork.code.coding:socialNetworkCode.display">
+    <element id="Observation.component:socialNetwork.code.coding.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
       <path value="Observation.component.code.coding.display" />
-      <fixedString value="Household, family and support network finding (finding)" />
+      <defaultValueString value="Household, family and support network finding (finding)" />
     </element>
     <element id="Observation.component:socialNetwork.value[x]:valueString">
       <path value="Observation.component.valueString" />
@@ -196,37 +249,24 @@
     </element>
     <element id="Observation.component:hobby.code.coding">
       <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.component:hobby.code.coding:hobbyCode">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="hobbyCode" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:hobby.code.coding:hobbyCode.system">
+    <element id="Observation.component:hobby.code.coding.system">
       <path value="Observation.component.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:hobby.code.coding:hobbyCode.code">
+    <element id="Observation.component:hobby.code.coding.code">
       <path value="Observation.component.code.coding.code" />
       <min value="1" />
       <fixedCode value="405081003" />
     </element>
-    <element id="Observation.component:hobby.code.coding:hobbyCode.display">
+    <element id="Observation.component:hobby.code.coding.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
       <path value="Observation.component.code.coding.display" />
-      <fixedString value="Leisure behavior (observable entity)" />
+      <defaultValueString value="Leisure behavior (observable entity)" />
     </element>
     <element id="Observation.component:hobby.value[x]:valueString">
       <path value="Observation.component.valueString" />
@@ -250,37 +290,24 @@
     </element>
     <element id="Observation.component:workSituation.code.coding">
       <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.component:workSituation.code.coding:workSituationCode">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="workSituationCode" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:workSituation.code.coding:workSituationCode.system">
+    <element id="Observation.component:workSituation.code.coding.system">
       <path value="Observation.component.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:workSituation.code.coding:workSituationCode.code">
+    <element id="Observation.component:workSituation.code.coding.code">
       <path value="Observation.component.code.coding.code" />
       <min value="1" />
       <fixedCode value="364703007" />
     </element>
-    <element id="Observation.component:workSituation.code.coding:workSituationCode.display">
+    <element id="Observation.component:workSituation.code.coding.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
       <path value="Observation.component.code.coding.display" />
-      <fixedString value="Employment detail (observable entity)" />
+      <defaultValueString value="Employment detail (observable entity)" />
     </element>
     <element id="Observation.component:workSituation.value[x]:valueString">
       <path value="Observation.component.valueString" />

@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Payer-BankInformation" />
-  <meta>
-    <versionId value="2" />
-    <lastUpdated value="2017-02-22T10:56:13.364+00:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer-BankInformation" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib Payer BankInformation" />
   <title value="HCIM Payer BankInformation" />
   <status value="active" />
-  <date value="2017-01-16T16:23:21.4994187+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -60,8 +55,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="BankName" />
     </element>
-    <element id="Extension.extension:BankName.value[x]">
+    <element id="Extension.extension:BankName.value[x]:valueString">
       <path value="Extension.extension.valueString" />
+      <sliceName value="valueString" />
       <short value="BankName" />
       <definition value="Name of the financial organization." />
       <alias value="BankNaam" />
@@ -79,8 +75,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="AccountNumber" />
     </element>
-    <element id="Extension.extension:AccountNumber.value[x]">
+    <element id="Extension.extension:AccountNumber.value[x]:valueString">
       <path value="Extension.extension.valueString" />
+      <sliceName value="valueString" />
       <short value="AccountNumber" />
       <definition value="The payer’s bank account number at the listed organization. For European countries, this is the IBAN." />
       <alias value="Rekeningnummer" />
@@ -97,8 +94,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="Bankcode" />
     </element>
-    <element id="Extension.extension:Bankcode.value[x]">
+    <element id="Extension.extension:Bankcode.value[x]:valueString">
       <path value="Extension.extension.valueString" />
+      <sliceName value="valueString" />
       <short value="Bankcode" />
       <definition value="Code indicating the bank and branch. For European countries, this is the organization’s BIC or SWIFT code." />
       <alias value="Bankcode" />

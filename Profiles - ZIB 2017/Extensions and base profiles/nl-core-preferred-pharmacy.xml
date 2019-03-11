@@ -1,11 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-preferred-pharmacy" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-preferred-pharmacy" />
+  <version value="2.0.0" />
   <name value="nl core preferred pharmacy" />
   <title value="nl-core-preferred-pharmacy" />
   <status value="active" />
-  <date value="2017-03-31T12:00:00+01:00" />
   <publisher value="HL7 Netherlands" />
   <contact>
     <name value="Nictiz" />
@@ -26,40 +26,14 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension">
-      <path value="Extension" />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="Extension" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <representation value="xmlAttr" />
-      <min value="1" />
-      <max value="1" />
-      <base>
-        <path value="Extension.url" />
-        <min value="1" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="uri" />
-      </type>
       <fixedUri value="http://fhir.nl/fhir/StructureDefinition/nl-core-preferred-pharmacy" />
     </element>
-    <element id="Extension.valueReference">
+    <element id="Extension.value[x]:valueReference">
       <path value="Extension.valueReference" />
+      <sliceName value="valueReference" />
       <min value="1" />
-      <max value="1" />
-      <base>
-        <path value="Extension.valueReference" />
-        <min value="0" />
-        <max value="1" />
-      </base>
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />

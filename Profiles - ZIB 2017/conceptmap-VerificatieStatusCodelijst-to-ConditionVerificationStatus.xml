@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+    <url value="http://nictiz.nl/fhir/ConceptMap/VerificatieStatusCodelijst-to-ConditionVerificationStatus"/>
+    <version value="1.0"/>
+    <name value="VerificatieStatusCodelijst-to-ConditionVerificationStatus"/>
+    <title value="HCIM VerificatieStatusCodelijst-to-ConditionVerificationStatus"/>
+    <status value="active"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="Maps the HCIM Problem release 2017 terminology for VerificationStatus to the FHIR STU3 terminology associated with Condition.verificationStatus."/>
+    <purpose value="To aid in mapping from HCIM Problem value set VerificatieStatusCodelijst to FHIR STU3 Condition.verificationStatus."/>
+    <copyright value="CC0"/>
+    <sourceUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.5.1.4--20171231000000"/>
+    <targetUri value="http://hl7.org/fhir/ValueSet/condition-ver-status"/>
+    <group>
+        <source value="http://snomed.info/sct"/>
+        <target value="http://hl7.org/fhir/condition-ver-status"/>
+        <targetVersion value="http://hl7.org/fhir/condition-ver-status version 3.0.1"/>
+        <element>
+            <code value="415684004"/>
+            <display value="Suspected"/>
+            <target>
+                <code value="provisional"/>
+                <display value="Provisional"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="410590009"/>
+            <display value="Known possible"/>
+            <target>
+                <code value="differential"/>
+                <display value="Differential"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="410605003"/>
+            <display value="Confirmed present"/>
+            <target>
+                <code value="confirmed"/>
+                <display value="Confirmed"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="410516002"/>
+            <display value="Known absent"/>
+            <target>
+                <code value="refuted"/>
+                <display value="Refuted"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+    </group>
+    <group>
+        <source value="http://hl7.org/fhir/v3/NullFlavor"/>
+        <target value="http://hl7.org/fhir/condition-ver-status"/>
+        <element>
+            <code value="UNK"/>
+            <display value="Unknown"/>
+            <target>
+                <code value="unknown"/>
+                <display value="Unknown"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+    </group>
+</ConceptMap>

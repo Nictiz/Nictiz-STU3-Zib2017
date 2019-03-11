@@ -1,6 +1,8 @@
-﻿<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-TreatmentObjective" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentObjective" />
-  <version value="1" />
+  <version value="1.1.0" />
   <name value="Zib TreatmentObjective" />
   <title value="HCIM TreatmentObjective" />
   <status value="active" />
@@ -22,6 +24,11 @@
     <uri value="https://zibs.nl/wiki/TreatmentObjective-v3.1(2017EN)" />
     <name value="HCIM TreatmentObjective-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Goal" />
@@ -36,6 +43,14 @@
         <identity value="hcim-treatmentobjective-v3.1-2017EN" />
         <map value="NL-CM:13.5.1" />
         <comment value="TreatmentObjective" />
+      </mapping>
+    </element>
+    <element id="Goal.identifier">
+      <path value="Goal.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
       </mapping>
     </element>
     <element id="Goal.description">
@@ -63,11 +78,16 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
     </element>
     <element id="Goal.target.measure">
       <path value="Goal.target.measure" />
       <definition value="The parameter whose value is being tracked, e.g. body weight, blood pressure, hemoglobin A1c level or functional or mental status name." />
-      <comment value="The HCIM TreatmentObject states a reference to the observations GeneralMeasurement or FunctionalOrMentalStatus to provide information on the Goal's target. This profile uses the Goal elements target.measure and target.detail to record this information inside the Goal resource. The Observation.code maps to target.measure and Observation.value maps to target.detail.&#xD;&#xA;&#xD;&#xA;The gol-1 constraints requires that both elements are given if target.measure or target.detail is used. " />
+      <comment value="The HCIM TreatmentObject states a reference to the observations GeneralMeasurement or FunctionalOrMentalStatus to provide information on the Goal's target. This profile uses the Goal elements target.measure and target.detail to record this information inside the Goal resource. The Observation.code maps to target.measure and Observation.value maps to target.detail.&#xD;&#xA;&#xD;&#xA;The gol-1 constraints requires that both elements are given if target.measure or target.detail is used." />
       <mapping>
         <identity value="hcim-treatmentobjective-v3.1-2017EN" />
         <map value="NL-CM:13.5.2" />
@@ -83,7 +103,7 @@
       <path value="Goal.target.detail[x]" />
       <short value="TargetValue / DesiredHealthCondition" />
       <definition value="The target value is the desired value (e.g. blood pressure, weight, pain score) which can be evaluated by means of a measurement or the desired health condition is a target value which can be expressed as the patient’s functional or mental status." />
-      <comment value="The HCIM TreatmentObject states a reference to the observations GeneralMeasurement or FunctionalOrMentalStatus to provide information on the Goal's target. This profile uses the Goal elements target.measure and target.detail to record this information inside the Goal resource. The Observation.code maps to target.measure and Observation.value maps to target.detail.&#xD;&#xA;&#xD;&#xA;The gol-1 constraints requires that both elements are given if target.measure or target.detail is used. " />
+      <comment value="The HCIM TreatmentObject states a reference to the observations GeneralMeasurement or FunctionalOrMentalStatus to provide information on the Goal's target. This profile uses the Goal elements target.measure and target.detail to record this information inside the Goal resource. The Observation.code maps to target.measure and Observation.value maps to target.detail.&#xD;&#xA;&#xD;&#xA;The gol-1 constraints requires that both elements are given if target.measure or target.detail is used." />
       <alias value="Streefwaarde / GewensteGezondheidstoestand" />
       <mapping>
         <identity value="hcim-treatmentobjective-v3.1-2017EN" />
@@ -95,6 +115,45 @@
         <map value="NL-CM:13.5.3" />
         <comment value="DesiredHealthCondition" />
       </mapping>
+    </element>
+    <element id="Goal.expressedBy">
+      <path value="Goal.expressedBy" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Goal.expressedBy.extension">
+      <path value="Goal.expressedBy.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Goal.expressedBy.extension:practitionerRole">
+      <path value="Goal.expressedBy.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
     </element>
     <element id="Goal.addresses">
       <path value="Goal.addresses" />

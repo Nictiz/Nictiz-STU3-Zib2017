@@ -1,11 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Infusion" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion" />
-  <version value="1.0.0" />
+  <version value="1.0.1" />
   <name value="Zib Infusion" />
   <title value="HCIM Infusion" />
-  <status value="draft" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -24,6 +24,11 @@
     <uri value="https://zibs.nl/wiki/Infusion-v3.2(2017EN)" />
     <name value="HCIM Infusion-v3.2(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="DeviceUseStatement" />
@@ -40,6 +45,16 @@
         <map value="NL-CM:10.3.2" />
         <comment value="FeedingTube" />
       </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension">
+      <path value="DeviceUseStatement.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
     <element id="DeviceUseStatement.extension:LumenOrLine">
       <path value="DeviceUseStatement.extension" />
@@ -71,11 +86,6 @@
       <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
-        <description value="LineStatusCodeList" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.2.3--20171231000000" />
-          <display value="LineStatusCodeList" />
-        </valueSetReference>
       </binding>
     </element>
     <element id="DeviceUseStatement.extension:LumenOrLine.extension:LumenLocation">
@@ -92,11 +102,6 @@
       <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
-        <description value="LumenLocationCodeList" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.2.2--20171231000000" />
-          <display value="LumenLocationCodeList" />
-        </valueSetReference>
       </binding>
     </element>
     <element id="DeviceUseStatement.extension:LumenOrLine.extension:LockFluid">
@@ -131,6 +136,11 @@
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-Product" />
       </type>
+      <mapping>
+        <identity value="hcim-infusion-v3.2-2017EN" />
+        <map value="NL-CM:10.2.3" />
+        <comment value="InfusionCatheter::MedicalDevice" />
+      </mapping>
     </element>
     <element id="DeviceUseStatement.note.text">
       <path value="DeviceUseStatement.note.text" />

@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationUse-Duration" />
-  <meta>
-    <versionId value="2" />
-    <lastUpdated value="2017-08-30T15:01:17.677+02:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib MedicationUse Duration" />
   <title value="HCIM MedicationUse Duration" />
   <status value="active" />
-  <date value="2016-12-12T16:29:39.343+00:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -33,15 +28,13 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension">
-      <path value="Extension" />
-    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration" />
     </element>
-    <element id="Extension.valueDuration">
+    <element id="Extension.value[x]:valueDuration">
       <path value="Extension.valueDuration" />
+      <sliceName value="valueDuration" />
       <short value="UsageDuration" />
       <alias value="Gebruiksduur" />
       <type>

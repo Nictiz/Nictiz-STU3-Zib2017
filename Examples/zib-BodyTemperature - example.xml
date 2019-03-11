@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-bodytemperatyre-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyTemperature"/>
+    </meta>
+    <status value="final"/>
+    <category>
+        <coding>
+            <system value="http://hl7.org/fhir/observation-category"/>
+            <code value="vital-signs"/>
+            <display value="Vital Signs"/>
+        </coding>
+    </category>
+    <code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="8310-5"/>
+            <display value="Body temperature"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/example"/>
+        <display value="Example Patient"/>
+    </subject>
+    <effectiveDateTime value="2013-02-08T06:43:00+02:00"/>
+    <performer>
+        <reference value="Practitioner/example"/>
+        <display value="Example Practitioner"/>
+    </performer>
+    <valueQuantity>
+        <value value="38.6"/>
+        <unit value="Cel"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="Cel"/>
+    </valueQuantity> 
+    <interpretation>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="248650006"/>
+            <display value="Heart irregular"/>
+        </coding>
+    </interpretation>
+    <comment value="Voeten voelen heel koud aan"/>
+    <method>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="415974002"/>
+            <display value="Tympanic temperature"/>
+        </coding>
+    </method>
+</Observation>

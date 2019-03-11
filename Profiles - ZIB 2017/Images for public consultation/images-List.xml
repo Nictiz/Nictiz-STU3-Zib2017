@@ -2,11 +2,10 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="images-List" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/images-List" />
-  <version value="0.1.0" />
+  <version value="0.2.0" />
   <name value="images-List" />
   <title value="Images List" />
   <status value="draft" />
-  <date value="2019-02-01" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -107,6 +106,25 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+    </element>
+    <element id="List.source.extension">
+      <path value="List.source.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="List.source.extension:practitionerRole">
+      <path value="List.source.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
     </element>
     <element id="List.note">

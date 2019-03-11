@@ -1,14 +1,10 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MedicationOverview-Verification" />
-  <meta>
-    <lastUpdated value="2017-12-06T14:07:25.814+01:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/MedicationOverview-Verification" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="MedicationOverview Verification" />
   <status value="active" />
-  <date value="2017-12-06T11:19:30.043+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -53,8 +49,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="VerificationPatient" />
     </element>
-    <element id="Extension.extension:VerificationPatient.value[x]">
+    <element id="Extension.extension:VerificationPatient.value[x]:valueBoolean">
       <path value="Extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
       <type>
         <code value="boolean" />
       </type>
@@ -70,8 +67,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="VerificationPatientDate" />
     </element>
-    <element id="Extension.extension:VerificationPatientDate.value[x]">
+    <element id="Extension.extension:VerificationPatientDate.value[x]:valueDateTime">
       <path value="Extension.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
       <type>
         <code value="dateTime" />
       </type>
@@ -89,8 +87,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="VerificationHealthProfessional" />
     </element>
-    <element id="Extension.extension:VerificationHealthProfessional.value[x]">
+    <element id="Extension.extension:VerificationHealthProfessional.value[x]:valueBoolean">
       <path value="Extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
       <type>
         <code value="boolean" />
       </type>
@@ -106,8 +105,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="VerificationHealthProfessionalDate" />
     </element>
-    <element id="Extension.extension:VerificationHealthProfessionalDate.value[x]">
+    <element id="Extension.extension:VerificationHealthProfessionalDate.value[x]:valueDateTime">
       <path value="Extension.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
       <short value="Verification Date" />
       <definition value="At least specific to day-month-year." />
       <type>

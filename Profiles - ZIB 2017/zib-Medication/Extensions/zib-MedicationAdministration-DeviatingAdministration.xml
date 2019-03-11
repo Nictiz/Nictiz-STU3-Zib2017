@@ -1,15 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationAdministration-DeviatingAdministration" />
-  <meta>
-    <lastUpdated value="2017-06-08T17:16:26.473+02:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-DeviatingAdministration" />
-  <version value="2.0" />
+  <version value="2.0.0" />
   <name value="Zib Deviating Administration" />
   <title value="HCIM Deviating Administration" />
   <status value="active" />
-  <date value="2017-06-08T14:49:41.0568655+02:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -31,9 +27,6 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension">
-      <path value="Extension" />
-    </element>
     <element id="Extension.extension">
       <path value="Extension.extension" />
       <slicing>
@@ -55,8 +48,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="deviation" />
     </element>
-    <element id="Extension.extension:deviation.valueBoolean">
+    <element id="Extension.extension:deviation.value[x]:valueBoolean">
       <path value="Extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
       <type>
         <code value="boolean" />
       </type>
@@ -72,8 +66,9 @@
       <path value="Extension.extension.url" />
       <fixedUri value="reasonForDeviation" />
     </element>
-    <element id="Extension.extension:reasonForDeviation.valueCodeableConcept">
+    <element id="Extension.extension:reasonForDeviation.value[x]:valueCodeableConcept">
       <path value="Extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <type>
         <code value="CodeableConcept" />
       </type>

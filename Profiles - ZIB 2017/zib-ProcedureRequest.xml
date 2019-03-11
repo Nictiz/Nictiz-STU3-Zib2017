@@ -1,16 +1,11 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-ProcedureRequest" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2017-09-29T16:15:04.388+02:00" />
-  </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-ProcedureRequest" />
-  <version value="2.0.1" />
+  <version value="2.1.0" />
   <name value="Zib ProcedureRequest" />
   <title value="HCIM ProcedureRequest" />
   <status value="active" />
-  <date value="2017-05-17T13:30:03.2275207+01:00" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -69,6 +64,11 @@
     <uri value="https://zibs.nl/wiki/NursingIntervention-v3.1(2017EN)" />
     <name value="HCIM NursingIntervention-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="ProcedureRequest" />
@@ -108,6 +108,14 @@
         <comment value="NursingProcedure" />
       </mapping>
     </element>
+    <element id="ProcedureRequest.identifier">
+      <path value="ProcedureRequest.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
     <element id="ProcedureRequest.status.extension">
       <path value="ProcedureRequest.status.extension" />
       <slicing>
@@ -124,6 +132,7 @@
       <short value="OrderStatus" />
       <definition value="The status of the order." />
       <alias value="OrderStatus" />
+      <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
@@ -203,6 +212,11 @@
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
       </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
     </element>
     <element id="ProcedureRequest.context">
       <path value="ProcedureRequest.context" />
@@ -224,6 +238,11 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
     </element>
     <element id="ProcedureRequest.occurrence[x]:occurrenceDateTime">
       <path value="ProcedureRequest.occurrence[x]" />
@@ -334,6 +353,14 @@
         <comment value="Interval" />
       </mapping>
     </element>
+    <element id="ProcedureRequest.requester">
+      <path value="ProcedureRequest.requester" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
     <element id="ProcedureRequest.requester.agent">
       <path value="ProcedureRequest.requester.agent" />
       <short value="RequestedBy" />
@@ -356,10 +383,30 @@
         <comment value="RequestedBy" />
       </mapping>
     </element>
+    <element id="ProcedureRequest.requester.agent.extension">
+      <path value="ProcedureRequest.requester.agent.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="ProcedureRequest.requester.agent.extension:practitionerRole">
+      <path value="ProcedureRequest.requester.agent.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
     <element id="ProcedureRequest.performer">
       <path value="ProcedureRequest.performer" />
       <short value="CarriedOutBy" />
-      <definition value="The healthcare provider who will carrie out the procedure. In most cases, only the medical specialty is entered, and not the name of the healthcare provider or the healthcare center where the procedure will be carried out." />
+      <definition value="The healthcare provider who will carry out the procedure. In most cases, only the medical specialty is entered, and not the name of the healthcare provider or the healthcare center where the procedure will be carried out." />
+      <comment value="Note: Should a Location::HealthcareProvider with an OrganizationLocation be targeted, then this may be solved using Organization.name 'OrganizationLocation' + Organization.partOf 'HealthcareProvider'" />
       <alias value="UitgevoerdDoor" />
       <alias value="Locatie" />
       <type>
@@ -416,6 +463,25 @@
         <map value="NL-CM:14.1.5" />
         <comment value="Location" />
       </mapping>
+    </element>
+    <element id="ProcedureRequest.performer.extension">
+      <path value="ProcedureRequest.performer.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="ProcedureRequest.performer.extension:practitionerRole">
+      <path value="ProcedureRequest.performer.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
     </element>
     <element id="ProcedureRequest.reasonReference">
       <path value="ProcedureRequest.reasonReference" />

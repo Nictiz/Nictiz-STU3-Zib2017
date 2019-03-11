@@ -1,550 +1,539 @@
-<?xml-model href="http://hl7.org/fhir/STU3/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/structuredefinition.xsd" xmlns="http://hl7.org/fhir">
-    <id value="nl-core-person"/>
-    <meta>
-        <versionId value="4"/>
-        <lastUpdated value="2017-09-29T13:57:31.865+02:00"/>
-    </meta>
-    <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-person"/>
-    <version value="1.0"/>
-    <name value="nl-core-person"/>
-    <title value="nl-core-person"/>
-    <status value="active"/>
-    <publisher value="HL7 Netherlands"/>
-    <contact>
-        <name value="Nictiz"/>
-        <telecom>
-            <system value="email"/>
-            <value value="info@nictiz.nl"/>
-            <use value="work"/>
-        </telecom>
-    </contact>
-    <description
-        value="A Person resource as defined by the Dutch Health and Care Information models or HCIM (Dutch: Zorginformatiebouwsteen or ZIB) ContactPersoon version 1.2 (Release 2015). The HCIM ContactPerson is meant to deal with both related persons and contacts. This profile targets instantiations of the HCIM ContactPerson who are related persons. An HCIM ContactPerson who is a contact for a patient, belongs in Patient.contact. If a person is both a related person and a contact person, then some data duplication is inevitable. This may or may not be resolved in a future version of the Patient/Person resources."/>
-    <copyright value="CC0"/>
-    <fhirVersion value="3.0.1"/>
-    <mapping>
-        <identity value="hcim-basicelements-v1.0-2015EN"/>
-        <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2015EN)"/>
-        <name value="HCIM BasicElements-v1.0(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN"/>
-        <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)"/>
-        <name value="HCIM Patient-v2.0.1(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-contactperson-v1.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/ContactPerson-v1.2(2015EN)"/>
-        <name value="HCIM ContactPerson-v1.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-healthprofessional-v1.2.1-2015EN"/>
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)"/>
-        <name value="HCIM HealthProfessional-v1.2.1(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-payer-v1.2-2015EN"/>
-        <uri value="https://zibs.nl/wiki/Payer-v1.2(2015EN)"/>
-        <name value="HCIM Payer-v1.2(2015EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-basicelements-v1.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2016EN)"/>
-        <name value="HCIM BasicElements-v1.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-patient-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)"/>
-        <name value="HCIM Patient-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-contactperson-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/ContactPerson-v3.0(2016EN)"/>
-        <name value="HCIM ContactPerson-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-healthprofessional-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)"/>
-        <name value="HCIM HealthProfessional-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-payer-v3.0-2016EN"/>
-        <uri value="https://zibs.nl/wiki/Payer-v3.0(2016EN)"/>
-        <name value="HCIM Payer-v3.0(2016EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN"/>
-        <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)"/>
-        <name value="HCIM BasicElements-v1.0(2017EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-patient-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/Patient-v3.1(2017EN)"/>
-        <name value="HCIM Patient-v3.1(2017EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-contactperson-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/ContactPerson-v3.1(2017EN)"/>
-        <name value="HCIM ContactPerson-v3.1(2017EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-healthprofessional-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.1(2017EN)"/>
-        <name value="HCIM HealthProfessional-v3.1(2017EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-payer-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/Payer-v3.1(2017EN)"/>
-        <name value="HCIM Payer-v3.1(2017EN)"/>
-    </mapping>
-    <mapping>
-        <identity value="hcim-contactinformation-v3.1-2017EN"/>
-        <uri value="https://zibs.nl/wiki/ContactInformation-v1.0(2017EN)"/>
-        <name value="HCIM ContactInformation-v3.1(2017EN)"/>
-    </mapping>
-    <kind value="resource"/>
-    <abstract value="false"/>
-    <type value="Person"/>
-    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Person"/>
-    <derivation value="constraint"/>
-    <differential>
-        <element id="Person">
-            <path value="Person"/>
-        </element>
-        <element id="Person.identifier">
-            <path value="Person.identifier"/>
-            <slicing>
-                <discriminator>
-                    <type value="value"/>
-                    <path value="system"/>
-                </discriminator>
-                <rules value="open"/>
-            </slicing>
-            <short value="Identifier"/>
-            <definition value="Identification of the person. This is different from the identification of the persons role as patient/practitioner/contact. Some identifiers however are both in practice like the Dutch burgerservicenummer."/>
-            <alias value="Identificatienummer"/>
-            <mapping>
-                <identity value="hcim-basicelements-v1.0-2015EN"/>
-                <map value="NL-CM:0.0.6"/>
-                <comment value="IdentificationNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-basicelements-v1.0-2016EN"/>
-                <map value="NL-CM:0.0.6"/>
-                <comment value="IdentificationNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-basicelements-v1.0-2017EN"/>
-                <map value="NL-CM:0.0.6"/>
-                <comment value="IdentificationNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.7"/>
-                <comment value="PatientIdentificationNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.7"/>
-                <comment value="PatientIdentificationNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.1-2017EN"/>
-                <map value="NL-CM:0.1.7"/>
-                <comment value="PatientIdentificationNumber"/>
-            </mapping>
-        </element>
-        <element id="Person.identifier:BSN">
-            <path value="Person.identifier"/>
-            <sliceName value="BSN"/>
-            <short value="BSN"/>
-            <alias value="BSN"/>
-            <max value="1"/>
-        </element>
-        <element id="Person.identifier:BSN.system">
-            <path value="Person.identifier.system"/>
-            <min value="1"/>
-            <type>
-                <code value="uri"/>
-            </type>
-            <fixedUri value="http://fhir.nl/fhir/NamingSystem/bsn"/>
-        </element>
-        <element id="Person.identifier:BSN.value">
-            <path value="Person.identifier.value"/>
-            <short value="BSN (Burgerservicenummer (Dutch person identification number))"/>
-            <alias value="BSN"/>
-            <min value="1"/>
-            <example>
-                <label value="Example of a burgerservicenummer"/>
-                <valueString value="123456782"/>
-            </example>
-        </element>
-        <element id="Person.name">
-            <path value="Person.name"/>
-            <short value="NameInformation"/>
-            <alias value="Naamgegevens"/>
-            <type>
-                <code value="HumanName"/>
-                <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname"/>
-            </type>
-            <mapping>
-                <identity value="hcim-patient-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.6"/>
-                <comment value="NameInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.6"/>
-                <comment value="NameInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.1-2017EN"/>
-                <map value="NL-CM:0.1.6"/>
-                <comment value="NameInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v1.2-2015EN"/>
-                <map value="NL-CM:3.1.4"/>
-                <comment value="Name"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.0-2016EN"/>
-                <map value="NL-CM:3.1.4"/>
-                <comment value="Name"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.1-2017EN"/>
-                <map value="NL-CM:3.1.4"/>
-                <comment value="NameInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v1.2.1-2015EN"/>
-                <map value="NL-CM:17.1.3"/>
-                <comment value="HealthcareProviderName"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.0-2016EN"/>
-                <map value="NL-CM:17.1.3"/>
-                <comment value="HealthcareProviderName"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.1-2017EN"/>
-                <map value="NL-CM:17.1.3"/>
-                <comment value="NameInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v1.2-2015EN"/>
-                <map value="NL-CM:1.1.5"/>
-                <comment value="PayerName"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.0-2016EN"/>
-                <map value="NL-CM:1.1.5"/>
-                <comment value="PayerName"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.1-2017EN"/>
-                <map value="NL-CM:1.1.5"/>
-                <comment value="PayerName"/>
-            </mapping>
-        </element>
-        <element id="Person.telecom">
-            <path value="Person.telecom"/>
-            <short value="ContactInformation"/>
-            <alias value="Contactgegevens"/>
-            <mapping>
-                <identity value="hcim-patient-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.5"/>
-                <comment value="ContactInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.5"/>
-                <comment value="ContactInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.1-2017EN"/>
-                <map value="NL-CM:0.1.5"/>
-                <comment value="ContactInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v1.2-2015EN"/>
-                <map value="NL-CM:3.1.6"/>
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.0-2016EN"/>
-                <map value="NL-CM:3.1.6"/>
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.1-2017EN"/>
-                <map value="NL-CM:3.1.6"/>
-                <comment value="ContactInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v1.2.1-2015EN"/>
-                <map value="NL-CM:17.1.8"/>
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.0-2016EN"/>
-                <map value="NL-CM:17.1.8"/>
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.1-2017EN"/>
-                <map value="NL-CM:17.1.8"/>
-                <comment value="ContactInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v1.2-2015EN"/>
-                <map value="NL-CM:1.1.12"/>
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.0-2016EN"/>
-                <map value="NL-CM:1.1.12"/>
-                <comment value="TelephoneE-mail"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.1-2017EN"/>
-                <map value="NL-CM:1.1.12"/>
-                <comment value="ContactInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.1-2017EN"/>
-                <map value="NL-CM:20.6.2"/>
-                <comment value="TelephoneNumbers"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.1-2017EN"/>
-                <map value="NL-CM:20.6.3"/>
-                <comment value="EmailAddresses"/>
-            </mapping>
-        </element>
-        <element id="Person.telecom.system">
-            <path value="Person.telecom.system"/>
-            <min value="1"/>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.1-2017EN"/>
-                <map value="NL-CM:20.6.6"/>
-                <comment value="NumberType"/>
-            </mapping>
-        </element>
-        <element id="Person.telecom.value">
-            <path value="Person.telecom.value"/>
-            <short value="TelephoneNumber / E-mailAddress"/>
-            <alias value="Telefoonnummer"/>
-            <alias value="EmailAdres"/>
-            <min value="1"/>
-            <mapping>
-                <identity value="hcim-patient-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.23"/>
-                <comment value="TelephoneNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.23"/>
-                <comment value="TelephoneNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN"/>
-                <map value="NL-CM:20.6.4"/>
-                <comment value="TelephoneNumber"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.20"/>
-                <comment value="E-mailAddress"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.20"/>
-                <comment value="E-mailAddress"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v3.1-2017EN"/>
-                <map value="NL-CM:20.6.7"/>
-                <comment value="EmailAddress"/>
-            </mapping>
-        </element>
-        <element id="Person.telecom.use">
-            <path value="Person.telecom.use"/>
-            <short value="NumberType / E-mailAddressType"/>
-            <alias value="NummerSoort"/>
-            <alias value="EmailSoort"/>
-            <mapping>
-                <identity value="hcim-patient-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.22"/>
-                <comment value="NumberType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.22"/>
-                <comment value="NumberType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN"/>
-                <map value="NL-CM:20.6.6"/>
-                <comment value="NumberType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.19"/>
-                <comment value="E-mailAddressType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.19"/>
-                <comment value="E-mailAddressType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN"/>
-                <map value="NL-CM:20.6.5"/>
-                <comment value="TelecomType"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactinformation-v1.0-2017EN"/>
-                <map value="NL-CM:20.6.8"/>
-                <comment value="EmailAddressType"/>
-            </mapping>
-        </element>
-        <element id="Person.gender">
-            <path value="Person.gender"/>
-            <short value="Gender"/>
-            <alias value="Geslacht"/>
-            <mapping>
-                <identity value="hcim-patient-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.9"/>
-                <comment value="Gender"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.9"/>
-                <comment value="Gender"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.1-2017EN"/>
-                <map value="NL-CM:0.1.9"/>
-                <comment value="Gender"/>
-            </mapping>
-        </element>
-        <element id="Person.birthDate">
-            <path value="Person.birthDate"/>
-            <short value="Persons date of birth. An incomplete date, e.g. only year or only year + month, is permitted."/>
-            <alias value="Geboortedatum"/>
-            <mapping>
-                <identity value="hcim-patient-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.10"/>
-                <comment value="DateOfBirth"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.10"/>
-                <comment value="DateOfBirth"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.1-2017EN"/>
-                <map value="NL-CM:0.1.10"/>
-                <comment value="DateOfBirth"/>
-            </mapping>
-        </element>
-        <element id="Person.address">
-            <path value="Person.address"/>
-            <short value="AddressInformation"/>
-            <alias value="Adresgegevens"/>
-            <type>
-                <code value="Address"/>
-                <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address"/>
-            </type>
-            <mapping>
-                <identity value="hcim-patient-v2.0.1-2015EN"/>
-                <map value="NL-CM:0.1.4"/>
-                <comment value="AddressInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.0-2016EN"/>
-                <map value="NL-CM:0.1.4"/>
-                <comment value="AddressInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-patient-v3.1-2017EN"/>
-                <map value="NL-CM:0.1.4"/>
-                <comment value="AddressInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v1.2-2015EN"/>
-                <map value="NL-CM:3.1.5"/>
-                <comment value="Address"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.0-2016EN"/>
-                <map value="NL-CM:3.1.5"/>
-                <comment value="Address"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-contactperson-v3.1-2017EN"/>
-                <map value="NL-CM:3.1.5"/>
-                <comment value="AddressInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v1.2.1-2015EN"/>
-                <map value="NL-CM:17.1.7"/>
-                <comment value="Address"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.0-2016EN"/>
-                <map value="NL-CM:17.1.7"/>
-                <comment value="Address"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-healthprofessional-v3.1-2017EN"/>
-                <map value="NL-CM:17.1.7"/>
-                <comment value="AddressInformation"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v1.2-2015EN"/>
-                <map value="NL-CM:1.1.17"/>
-                <comment value="Address"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.0-2016EN"/>
-                <map value="NL-CM:1.1.17"/>
-                <comment value="Address"/>
-            </mapping>
-            <mapping>
-                <identity value="hcim-payer-v3.1-2017EN"/>
-                <map value="NL-CM:1.1.17"/>
-                <comment value="AddressInformation"/>
-            </mapping>
-        </element>
-        <element id="Person.managingOrganization">
-            <path value="Person.managingOrganization"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-            </type>
-        </element>
-        <element id="Person.link.target">
-            <path value="Person.link.target"/>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-            </type>
-            <type>
-                <code value="Reference"/>
-                <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-person"/>
-            </type>
-        </element>
-    </differential>
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="nl-core-person" />
+  <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-person" />
+  <version value="1.0.0" />
+  <name value="nl-core-person" />
+  <title value="nl-core-person" />
+  <status value="active" />
+  <publisher value="HL7 Netherlands" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A Person resource as defined by the Dutch Health and Care Information models or HCIM (Dutch: Zorginformatiebouwsteen or ZIB) ContactPersoon version 1.2 (Release 2015). The HCIM ContactPerson is meant to deal with both related persons and contacts. This profile targets instantiations of the HCIM ContactPerson who are related persons. An HCIM ContactPerson who is a contact for a patient, belongs in Patient.contact. If a person is both a related person and a contact person, then some data duplication is inevitable. This may or may not be resolved in a future version of the Patient/Person resources." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2015EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2015EN)" />
+    <name value="HCIM BasicElements-v1.0(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-patient-v2.0.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
+    <name value="HCIM Patient-v2.0.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactperson-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/ContactPerson-v1.2(2015EN)" />
+    <name value="HCIM ContactPerson-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)" />
+    <name value="HCIM HealthProfessional-v1.2.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-payer-v1.2-2015EN" />
+    <uri value="https://zibs.nl/wiki/Payer-v1.2(2015EN)" />
+    <name value="HCIM Payer-v1.2(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2016EN)" />
+    <name value="HCIM BasicElements-v1.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-patient-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
+    <name value="HCIM Patient-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactperson-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/ContactPerson-v3.0(2016EN)" />
+    <name value="HCIM ContactPerson-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-healthprofessional-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)" />
+    <name value="HCIM HealthProfessional-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-payer-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Payer-v3.0(2016EN)" />
+    <name value="HCIM Payer-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-patient-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v3.1(2017EN)" />
+    <name value="HCIM Patient-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactperson-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/ContactPerson-v3.1(2017EN)" />
+    <name value="HCIM ContactPerson-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-healthprofessional-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v3.1(2017EN)" />
+    <name value="HCIM HealthProfessional-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-payer-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Payer-v3.1(2017EN)" />
+    <name value="HCIM Payer-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactinformation-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/ContactInformation-v1.0(2017EN)" />
+    <name value="HCIM ContactInformation-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Person" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Person" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Person.identifier">
+      <path value="Person.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="Identifier" />
+      <definition value="Identification of the person. This is different from the identification of the persons role as patient/practitioner/contact. Some identifiers however are both in practice like the Dutch burgerservicenummer." />
+      <alias value="Identificatienummer" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2015EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2016EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.7" />
+        <comment value="PatientIdentificationNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.7" />
+        <comment value="PatientIdentificationNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.1-2017EN" />
+        <map value="NL-CM:0.1.7" />
+        <comment value="PatientIdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="Person.identifier:BSN">
+      <path value="Person.identifier" />
+      <sliceName value="BSN" />
+      <short value="BSN" />
+      <alias value="BSN" />
+      <max value="1" />
+    </element>
+    <element id="Person.identifier:BSN.system">
+      <path value="Person.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://fhir.nl/fhir/NamingSystem/bsn" />
+    </element>
+    <element id="Person.identifier:BSN.value">
+      <path value="Person.identifier.value" />
+      <short value="BSN (Burgerservicenummer (Dutch person identification number))" />
+      <alias value="BSN" />
+      <min value="1" />
+      <example>
+        <label value="Example of a burgerservicenummer" />
+        <valueString value="123456782" />
+      </example>
+    </element>
+    <element id="Person.name">
+      <path value="Person.name" />
+      <short value="NameInformation" />
+      <alias value="Naamgegevens" />
+      <type>
+        <code value="HumanName" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname" />
+      </type>
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.6" />
+        <comment value="NameInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.6" />
+        <comment value="NameInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.1-2017EN" />
+        <map value="NL-CM:0.1.6" />
+        <comment value="NameInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v1.2-2015EN" />
+        <map value="NL-CM:3.1.4" />
+        <comment value="Name" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.0-2016EN" />
+        <map value="NL-CM:3.1.4" />
+        <comment value="Name" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.1-2017EN" />
+        <map value="NL-CM:3.1.4" />
+        <comment value="NameInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+        <map value="NL-CM:17.1.3" />
+        <comment value="HealthcareProviderName" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.0-2016EN" />
+        <map value="NL-CM:17.1.3" />
+        <comment value="HealthcareProviderName" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.1-2017EN" />
+        <map value="NL-CM:17.1.3" />
+        <comment value="NameInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v1.2-2015EN" />
+        <map value="NL-CM:1.1.5" />
+        <comment value="PayerName" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.0-2016EN" />
+        <map value="NL-CM:1.1.5" />
+        <comment value="PayerName" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.1-2017EN" />
+        <map value="NL-CM:1.1.5" />
+        <comment value="PayerName" />
+      </mapping>
+    </element>
+    <element id="Person.telecom">
+      <path value="Person.telecom" />
+      <short value="ContactInformation" />
+      <alias value="Contactgegevens" />
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.5" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.5" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.1-2017EN" />
+        <map value="NL-CM:0.1.5" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v1.2-2015EN" />
+        <map value="NL-CM:3.1.6" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.0-2016EN" />
+        <map value="NL-CM:3.1.6" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.1-2017EN" />
+        <map value="NL-CM:3.1.6" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+        <map value="NL-CM:17.1.8" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.0-2016EN" />
+        <map value="NL-CM:17.1.8" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.1-2017EN" />
+        <map value="NL-CM:17.1.8" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v1.2-2015EN" />
+        <map value="NL-CM:1.1.12" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.0-2016EN" />
+        <map value="NL-CM:1.1.12" />
+        <comment value="TelephoneE-mail" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.1-2017EN" />
+        <map value="NL-CM:1.1.12" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.1-2017EN" />
+        <map value="NL-CM:20.6.2" />
+        <comment value="TelephoneNumbers" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.1-2017EN" />
+        <map value="NL-CM:20.6.3" />
+        <comment value="EmailAddresses" />
+      </mapping>
+    </element>
+    <element id="Person.telecom.system">
+      <path value="Person.telecom.system" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-contactinformation-v3.1-2017EN" />
+        <map value="NL-CM:20.6.6" />
+        <comment value="NumberType" />
+      </mapping>
+    </element>
+    <element id="Person.telecom.value">
+      <path value="Person.telecom.value" />
+      <short value="TelephoneNumber / E-mailAddress" />
+      <alias value="Telefoonnummer" />
+      <alias value="EmailAdres" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.23" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.23" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.4" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.20" />
+        <comment value="E-mailAddress" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.20" />
+        <comment value="E-mailAddress" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.1-2017EN" />
+        <map value="NL-CM:20.6.7" />
+        <comment value="EmailAddress" />
+      </mapping>
+    </element>
+    <element id="Person.telecom.use">
+      <path value="Person.telecom.use" />
+      <short value="NumberType / E-mailAddressType" />
+      <alias value="NummerSoort" />
+      <alias value="EmailSoort" />
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.22" />
+        <comment value="NumberType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.22" />
+        <comment value="NumberType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.6" />
+        <comment value="NumberType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.19" />
+        <comment value="E-mailAddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.19" />
+        <comment value="E-mailAddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.5" />
+        <comment value="TelecomType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.8" />
+        <comment value="EmailAddressType" />
+      </mapping>
+    </element>
+    <element id="Person.gender">
+      <path value="Person.gender" />
+      <short value="Gender" />
+      <alias value="Geslacht" />
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.9" />
+        <comment value="Gender" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.9" />
+        <comment value="Gender" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.1-2017EN" />
+        <map value="NL-CM:0.1.9" />
+        <comment value="Gender" />
+      </mapping>
+    </element>
+    <element id="Person.birthDate">
+      <path value="Person.birthDate" />
+      <short value="Persons date of birth. An incomplete date, e.g. only year or only year + month, is permitted." />
+      <alias value="Geboortedatum" />
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.10" />
+        <comment value="DateOfBirth" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.10" />
+        <comment value="DateOfBirth" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.1-2017EN" />
+        <map value="NL-CM:0.1.10" />
+        <comment value="DateOfBirth" />
+      </mapping>
+    </element>
+    <element id="Person.address">
+      <path value="Person.address" />
+      <short value="AddressInformation" />
+      <alias value="Adresgegevens" />
+      <type>
+        <code value="Address" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address" />
+      </type>
+      <mapping>
+        <identity value="hcim-patient-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.4" />
+        <comment value="AddressInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.0-2016EN" />
+        <map value="NL-CM:0.1.4" />
+        <comment value="AddressInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-patient-v3.1-2017EN" />
+        <map value="NL-CM:0.1.4" />
+        <comment value="AddressInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v1.2-2015EN" />
+        <map value="NL-CM:3.1.5" />
+        <comment value="Address" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.0-2016EN" />
+        <map value="NL-CM:3.1.5" />
+        <comment value="Address" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactperson-v3.1-2017EN" />
+        <map value="NL-CM:3.1.5" />
+        <comment value="AddressInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+        <map value="NL-CM:17.1.7" />
+        <comment value="Address" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.0-2016EN" />
+        <map value="NL-CM:17.1.7" />
+        <comment value="Address" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.1-2017EN" />
+        <map value="NL-CM:17.1.7" />
+        <comment value="AddressInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v1.2-2015EN" />
+        <map value="NL-CM:1.1.17" />
+        <comment value="Address" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.0-2016EN" />
+        <map value="NL-CM:1.1.17" />
+        <comment value="Address" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-payer-v3.1-2017EN" />
+        <map value="NL-CM:1.1.17" />
+        <comment value="AddressInformation" />
+      </mapping>
+    </element>
+    <element id="Person.managingOrganization">
+      <path value="Person.managingOrganization" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="Person.link.target">
+      <path value="Person.link.target" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-person" />
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>
