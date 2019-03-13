@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-patient" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-  <version value="2.1.2" />
+  <version value="2.1.3" />
   <name value="nl-core-patient" />
   <title value="nl-core-patient" />
   <status value="active" />
@@ -1090,6 +1090,25 @@
         <map value="NL-CM:17.1.1" />
         <comment value="HealthProfessional" />
       </mapping>
+    </element>
+    <element id="Patient.generalPractitioner.extension">
+      <path value="Patient.generalPractitioner.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Patient.generalPractitioner.extension:practitionerRole">
+      <path value="Patient.generalPractitioner.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
     </element>
   </differential>
 </StructureDefinition>
