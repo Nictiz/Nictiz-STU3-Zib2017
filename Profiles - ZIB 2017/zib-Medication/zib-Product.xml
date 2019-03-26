@@ -2,9 +2,9 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Product" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Product" />
-  <version value="2.0.1" />
-  <name value="Zib Product" />
-  <title value="HCIM Product" />
+  <version value="2.0.2" />
+  <name value="Zib PharmaceuticalProduct" />
+  <title value="HCIM PharmaceuticalProduct" />
   <status value="active" />
   <publisher value="Nictiz" />
   <contact>
@@ -15,14 +15,14 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB)  nl.zorg.part.Product version 2.0, year 2017." />
-  <purpose value="The purpose of Product is to unambiguously describe the medication to be used." />
+  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) nl.zorg.part.PharmacauticalProduct version 2.0, year 2017. It was first modeled after nl.zorg.part.Product from the prerelease version 1.0 of 2017 (https://zibs.nl/wiki/Product-v1.0(2017EN)) which is why the canonical uri is different. This will updated in the next iteration of the HCIMs/profiles" />
+  <purpose value="The purpose of PharmaceuticalProduct is to unambiguously describe the medication to be used." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
-    <identity value="hcim-product-v1.0-2017EN" />
-    <uri value="https://zibs.nl/wiki/Product-v1.0(2017EN)" />
-    <name value="HCIM Product-v1.0(2017EN)" />
+    <identity value="hcim-pharmaceuticalproduct-v2.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/PharmaceuticalProduct-v2.0(2017EN)" />
+    <name value="HCIM PharmaceuticalProduct-v2.0(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -36,7 +36,7 @@
       <definition value="Root concept of the Product partial information model. This root concept contains all data elements of the  Product partial information model.&#xD;&#xD;&#xA;The prescribed product is usually a medicine. However, medical aids and bandages can also be prescribed and supplied via the pharmacy. Strictly speaking, food and blood products do not belong in the medication category, but can be prescribed and supplied by a pharmacy as well. &#xD;&#xD;&#xA;A type of medication can be indicated with a single codeThat code can be chosen from several possible coding systems (concretely: GPK, PRK, HPK or article numbers). Correct use of these codes in the software systems will sufficiently record the composition of the product used, making a complete product specification unnecessary. &#xD;&#xD;&#xA;In addition to a primary code, alternative codes from other coding systems can also be entered (so that the GPK can be sent along in the event that the patient was registered based on PRK, for example).  &#xD;&#xD;&#xA;Entering multiple ingredients will enable you to display a compound product. If one of the composite parts is liquid, the dosage will be given in milliliters; otherwise it will be given in ‘units’. &#xD;&#xD;&#xA;In that case, the composition of the medicationcan be specified implicitly (with the use of a medication code) or explicitly, for example by listing the (active) substance(s) of the medication. &#xD;&#xA;Prescriptions to be prepared by the pharmacy can be entered as well. This can be done by means of the option listed above to enter coded ingredients and/or by entering the composition and preparation method as free text." />
       <alias value="Geneesmiddel" />
       <mapping>
-        <identity value="hcim-product-v1.0-2017EN" />
+        <identity value="hcim-pharmaceuticalproduct-v2.0-2017EN" />
         <map value="NL-CM:9.7.19926" />
         <comment value="FarmaceuticalProduct" />
       </mapping>
@@ -63,7 +63,7 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product-Description" />
       </type>
       <mapping>
-        <identity value="hcim-product-v1.0-2017EN" />
+        <identity value="hcim-pharmaceuticalproduct-v2.0-2017EN" />
         <map value="NL-CM:9.7.19784" />
         <comment value="Description" />
       </mapping>
@@ -96,7 +96,7 @@
       <alias value="ProductCode" />
       <alias value="Geneesmiddel code" />
       <mapping>
-        <identity value="hcim-product-v1.0-2017EN" />
+        <identity value="hcim-pharmaceuticalproduct-v2.0-2017EN" />
         <map value="NL-CM:9.7.19927" />
         <comment value="MedicationCode" />
       </mapping>
@@ -193,7 +193,7 @@
         <valueString value="PARACETAMOL 500MG TABLET" />
       </example>
       <mapping>
-        <identity value="hcim-product-v1.0-2017EN" />
+        <identity value="hcim-pharmaceuticalproduct-v2.0-2017EN" />
         <map value="NL-CM:9.7.19929" />
         <comment value="Medication" />
       </mapping>
@@ -222,7 +222,7 @@
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="hcim-product-v1.0-2017EN" />
+        <identity value="hcim-pharmaceuticalproduct-v2.0-2017EN" />
         <map value="NL-CM:9.7.19931" />
         <comment value="PharmaceuticalForm" />
       </mapping>
@@ -233,14 +233,13 @@
       <definition value="Container of the Ingredient concept. This container contains all data elements of the Ingredient concept. &#xD;&#xD;&#xA;A product contains one or more active substances and excipients. These are usually determined by the product code. For medication prepared or compounded by the local pharmacy, each ingredient must be entered separately. &#xD;&#xD;&#xA;The active substances play an important role, as they: &#xD;&#xD;&#xA;a) determine the pharmacotherapeutic effect of the medication and &#xD;&#xA;b) serve as the basis for the indication of the strength of the medication (e.g. 200mg)." />
       <alias value="Ingredient" />
       <mapping>
-        <identity value="hcim-product-v1.0-2017EN" />
+        <identity value="hcim-pharmaceuticalproduct-v2.0-2017EN" />
         <map value="NL-CM:9.7.19932" />
         <comment value="Ingredient" />
       </mapping>
     </element>
     <element id="Medication.ingredient.item[x]:itemCodeableConcept">
       <path value="Medication.ingredient.itemCodeableConcept" />
-      <sliceName value="itemCodeableConcept" />
       <short value="Substance" />
       <definition value="Active substance or excipient. &#xD;&#xA;Here, the same codes can be used as for the ProductCode (for dilutions and compounds in particular), but now, the ATC, SSK and SNK codes can also be used to indicate a substance (to list ingredients of local products prepared by the pharmacy). &#xD;&#xA;- GTIN International Article Number&#xD;&#xA;- KNMP article number&#xD;&#xA;- Trade product code (HPK)&#xD;&#xA;- Prescription code (PRK)&#xD;&#xA;- Generic product code (GPK)&#xD;&#xA;- ATC (anatomic therapeutic classification)&#xD;&#xA;- SSK (substance name code with route of administration)&#xD;&#xA;- SNK (substance name code)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;The ATC is an international classification of pharmaceutical substances without a reference to specific products on the market. Therefore, the ATC code of a generic product will not contain a reference to a certain dose, pharmaceutical form or route of administration; it will only contain a reference to the ingredients (not the amount/concentration/strength)." />
       <alias value="IngredientCode" />
@@ -258,7 +257,7 @@
         </valueCodeableConcept>
       </example>
       <mapping>
-        <identity value="hcim-product-v1.0-2017EN" />
+        <identity value="hcim-pharmaceuticalproduct-v2.0-2017EN" />
         <map value="NL-CM:9.7.19934" />
         <comment value="SubstanceCode" />
       </mapping>
@@ -394,7 +393,7 @@
         </valueRatio>
       </example>
       <mapping>
-        <identity value="hcim-product-v1.0-2017EN" />
+        <identity value="hcim-pharmaceuticalproduct-v2.0-2017EN" />
         <map value="NL-CM:9.7.19933" />
         <comment value="Concentration" />
       </mapping>
@@ -405,7 +404,7 @@
       <definition value="The amount of this ingredient. This is the numerator for the calculation of the concentration. The unit should be selected from the G-Standard (Table 902)" />
       <alias value="IngredientHoeveelheid" />
       <mapping>
-        <identity value="hcim-product-v1.0-2017EN" />
+        <identity value="hcim-pharmaceuticalproduct-v2.0-2017EN" />
         <map value="NL-CM:9.7.22277" />
         <comment value="IngredientAmount" />
       </mapping>
@@ -416,7 +415,7 @@
       <definition value="Amount of the product. This is the denominator for the calculation of the concentration" />
       <alias value="ProductHoeveelheid" />
       <mapping>
-        <identity value="hcim-product-v1.0-2017EN" />
+        <identity value="hcim-pharmaceuticalproduct-v2.0-2017EN" />
         <map value="NL-CM:9.7.22278" />
         <comment value="ProductAmount" />
       </mapping>
