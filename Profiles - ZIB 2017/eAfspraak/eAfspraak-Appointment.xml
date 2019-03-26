@@ -437,18 +437,18 @@
         <comment value="Subject" />
       </mapping>
     </element>
-      <element id="Appointment.participant.type">
-          <path value="Appointment.participant.type" />
+      <element id="Appointment.participant.type.coding">
+          <path value="Appointment.participant.type.coding" />
           <slicing>
               <discriminator>
                   <type value="value" />
-                  <path value="url" />
+                  <path value="system" />
               </discriminator>
               <rules value="open" />
           </slicing>
       </element>
-      <element id="Appointment.participant.type:healthProfessionalRole">
-          <path value="Appointment.participant.type" />
+      <element id="Appointment.participant.type.coding:healthProfessionalRole">
+          <path value="Appointment.participant.type.coding" />
           <sliceName value="healthProfessionalRole" />
           <short value="HealthProfessionalRole" />
           <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />

@@ -257,18 +257,18 @@
         <comment value="Author" />
       </mapping>
     </element>
-      <element id="DiagnosticReport.performer.role">
-          <path value="DiagnosticReport.performer.role" />
+      <element id="DiagnosticReport.performer.role.coding">
+          <path value="DiagnosticReport.performer.role.coding" />
           <slicing>
               <discriminator>
                   <type value="value" />
-                  <path value="url" />
+                  <path value="system" />
               </discriminator>
               <rules value="open" />
           </slicing>
       </element>
-      <element id="DiagnosticReport.performer.role:healthProfessionalRole">
-          <path value="DiagnosticReport.performer.role" />
+      <element id="DiagnosticReport.performer.role.coding:healthProfessionalRole">
+          <path value="DiagnosticReport.performer.role.coding" />
           <sliceName value="healthProfessionalRole" />
           <short value="HealthProfessionalRole" />
           <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />

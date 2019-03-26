@@ -351,18 +351,18 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
       </type>
     </element>
-      <element id="DeviceRequest.performerType">
-          <path value="DeviceRequest.performerType" />
+      <element id="DeviceRequest.performerType.coding">
+          <path value="DeviceRequest.performerType.coding" />
           <slicing>
               <discriminator>
                   <type value="value" />
-                  <path value="url" />
+                  <path value="system" />
               </discriminator>
               <rules value="open" />
           </slicing>
       </element>
-      <element id="DeviceRequest.performerType:healthProfessionalRole">
-          <path value="DeviceRequest.performerType" />
+      <element id="DeviceRequest.performerType.coding:healthProfessionalRole">
+          <path value="DeviceRequest.performerType.coding" />
           <sliceName value="healthProfessionalRole" />
           <short value="HealthProfessionalRole" />
           <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />

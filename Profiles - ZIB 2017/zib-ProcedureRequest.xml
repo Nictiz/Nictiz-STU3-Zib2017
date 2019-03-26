@@ -435,18 +435,18 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
     </element>
-      <element id="ProcedureRequest.performerType">
-          <path value="ProcedureRequest.performerType" />
+      <element id="ProcedureRequest.performerType.coding">
+          <path value="ProcedureRequest.performerType.coding" />
           <slicing>
               <discriminator>
                   <type value="value" />
-                  <path value="url" />
+                  <path value="system" />
               </discriminator>
               <rules value="open" />
           </slicing>
       </element>
-      <element id="ProcedureRequest.performerType:healthProfessionalRole">
-          <path value="ProcedureRequest.performerType" />
+      <element id="ProcedureRequest.performerType.coding:healthProfessionalRole">
+          <path value="ProcedureRequest.performerType.coding" />
           <sliceName value="healthProfessionalRole" />
           <short value="HealthProfessionalRole" />
           <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
