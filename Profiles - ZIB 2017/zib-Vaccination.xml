@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Vaccination" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Vaccination" />
-  <version value="2.1.0" />
+  <version value="2.1.1" />
   <name value="Zib Vaccination" />
   <title value="HCIM Vaccination" />
   <status value="active" />
@@ -34,6 +34,21 @@
     <uri value="https://zibs.nl/wiki/Vaccination-v3.1(2017EN)" />
     <name value="HCIM Vaccination-v3.1(2017EN)" />
   </mapping>
+    <mapping>
+        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+        <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)" />
+        <name value="HCIM HealthProfessional-v1.2.1(2015EN)" />
+    </mapping>
+    <mapping>
+        <identity value="hcim-healthprofessional-v3.0-2016EN" />
+        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)" />
+        <name value="HCIM HealthProfessional-v3.0(2016EN)" />
+    </mapping>
+    <mapping>
+        <identity value="hcim-healthprofessional-v3.2-2017EN" />
+        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.2(2017EN)" />
+        <name value="HCIM HealthProfessional-v3.2(2017EN)" />
+    </mapping>
   <mapping>
     <identity value="hcim-basicelements-v1.0-2017EN" />
     <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
@@ -251,9 +266,8 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
       </type>
     </element>
-    <element id="Immunization.doseQuantity:SimpleQuantity">
+    <element id="Immunization.doseQuantity">
       <path value="Immunization.doseQuantity" />
-      <sliceName value="SimpleQuantity" />
       <short value="Dose" />
       <definition value="The amount of product administered shown in milliliters. In most cases, the entire product is administered; in some cases, a described part of the product is administered." />
       <alias value="Dosis" />
@@ -281,6 +295,45 @@
         <comment value="Author" />
       </mapping>
     </element>
+      <element id="Immunization.practitioner.role.coding">
+          <path value="Immunization.practitioner.role.coding" />
+          <slicing>
+              <discriminator>
+                  <type value="value" />
+                  <path value="system" />
+              </discriminator>
+              <rules value="open" />
+          </slicing>
+      </element>
+      <element id="Immunization.practitioner.role.coding:healthProfessionalRole">
+          <path value="Immunization.practitioner.role.coding" />
+          <sliceName value="healthProfessionalRole" />
+          <short value="HealthProfessionalRole" />
+          <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
+          <alias value="ZorgverlenerRol" />
+          <binding>
+              <strength value="extensible" />
+              <valueSetReference>
+                  <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
+                  <display value="ZorgverlenerRolCodelijst" />
+              </valueSetReference>
+          </binding>
+          <mapping>
+              <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+              <map value="NL-CM:17.1.5" />
+              <comment value="HealthcareProviderRole" />
+          </mapping>
+          <mapping>
+              <identity value="hcim-healthprofessional-v3.0-2016EN" />
+              <map value="NL-CM:17.1.5" />
+              <comment value="HealthcareProviderRole" />
+          </mapping>
+          <mapping>
+              <identity value="hcim-healthprofessional-v3.2-2017EN" />
+              <map value="NL-CM:17.1.5" />
+              <comment value="HealthProfessionalRole" />
+          </mapping>
+      </element>
     <element id="Immunization.practitioner.actor">
       <path value="Immunization.practitioner.actor" />
       <short value="Administrator" />

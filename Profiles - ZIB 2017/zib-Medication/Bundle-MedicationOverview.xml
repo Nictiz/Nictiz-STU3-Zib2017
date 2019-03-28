@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Bundle-MedicationOverview" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/Bundle-MedicationOverview" />
-  <version value="2.0.0" />
+  <version value="2.0.1" />
   <name value="Medication Overview response structure" />
   <status value="active" />
   <publisher value="Nictiz" />
@@ -33,6 +33,10 @@
     <element id="Bundle.type">
       <path value="Bundle.type" />
       <fixedCode value="searchset" />
+    </element>
+    <element id="Bundle.total">
+      <path value="Bundle.total"/>
+      <comment value="The total value contains the number of matching HCIMs: MedicationUse, AdministrationAgreement and MedicationAgreement. Other included resources, such as Medication resources, are not included in the total."/>
     </element>
     <element id="Bundle.entry">
       <path value="Bundle.entry" />

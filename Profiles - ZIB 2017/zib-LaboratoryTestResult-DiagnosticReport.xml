@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-LaboratoryTestResult-DiagnosticReport" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport" />
-  <version value="2.1.0" />
+  <version value="2.1.1" />
   <name value="Zib LaboratoryTestResult DiagnosticReport" />
   <title value="HCIM LaboratoryTestResult DiagnosticReport" />
   <status value="active" />
@@ -33,6 +33,21 @@
     <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)" />
     <name value="HCIM LaboratoryTestResult-v4.1(2017EN)" />
   </mapping>
+    <mapping>
+        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+        <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)" />
+        <name value="HCIM HealthProfessional-v1.2.1(2015EN)" />
+    </mapping>
+    <mapping>
+        <identity value="hcim-healthprofessional-v3.0-2016EN" />
+        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)" />
+        <name value="HCIM HealthProfessional-v3.0(2016EN)" />
+    </mapping>
+    <mapping>
+        <identity value="hcim-healthprofessional-v3.2-2017EN" />
+        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.2(2017EN)" />
+        <name value="HCIM HealthProfessional-v3.2(2017EN)" />
+    </mapping>
   <mapping>
     <identity value="hcim-basicelements-v1.0-2017EN" />
     <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
@@ -78,7 +93,12 @@
     <element id="DiagnosticReport.basedOn">
       <path value="DiagnosticReport.basedOn" />
       <short value="Fulfills plan, proposal or order including requester information." />
-      <comment value="Requester information should be captured and exchanged in the resource referenced by basedOn. Requester is the healthcare provider and/or organization where or by whom the LaboratoryTestResult was requested." />
+      <comment value="Requester information should be captured and exchanged in the resource ProcedureRequest referenced by basedOn. Requester is the healthcare provider and/or organization where or by whom the LaboratoryTestResult was requested. There are a few required elements in ProcedureRequest
+                - ProcedureRequest.status (use fixed value &quot;active&quot;, unless you know what the actual value is)
+                - ProcedureRequest.intent (use fixed value &quot;order&quot;, unless you know what the actual value is)
+                - ProcedureRequest.code (use extension http://hl7.org/fhir/STU3/extension-iso21090-nullflavor.html met valueCode UNK, unless you know what the actual value is)
+                - ProcedureRequest.subject (equal to DiagnosticReport.subject)
+                - ProcedureRequest.requester.agent (contains the requesting HealthProfessional)"/>
       <alias value="Aanvrager" />
       <mapping>
         <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
@@ -280,7 +300,46 @@
         <comment value="Author" />
       </mapping>
     </element>
-    <element id="DiagnosticReport.performer.actor">
+      <element id="DiagnosticReport.performer.role.coding">
+          <path value="DiagnosticReport.performer.role.coding" />
+          <slicing>
+              <discriminator>
+                  <type value="value" />
+                  <path value="system" />
+              </discriminator>
+              <rules value="open" />
+          </slicing>
+      </element>
+      <element id="DiagnosticReport.performer.role.coding:healthProfessionalRole">
+          <path value="DiagnosticReport.performer.role.coding" />
+          <sliceName value="healthProfessionalRole" />
+          <short value="HealthProfessionalRole" />
+          <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
+          <alias value="ZorgverlenerRol" />
+          <binding>
+              <strength value="extensible" />
+              <valueSetReference>
+                  <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
+                  <display value="ZorgverlenerRolCodelijst" />
+              </valueSetReference>
+          </binding>
+          <mapping>
+              <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+              <map value="NL-CM:17.1.5" />
+              <comment value="HealthcareProviderRole" />
+          </mapping>
+          <mapping>
+              <identity value="hcim-healthprofessional-v3.0-2016EN" />
+              <map value="NL-CM:17.1.5" />
+              <comment value="HealthcareProviderRole" />
+          </mapping>
+          <mapping>
+              <identity value="hcim-healthprofessional-v3.2-2017EN" />
+              <map value="NL-CM:17.1.5" />
+              <comment value="HealthProfessionalRole" />
+          </mapping>
+      </element>
+      <element id="DiagnosticReport.performer.actor">
       <path value="DiagnosticReport.performer.actor" />
       <type>
         <code value="Reference" />

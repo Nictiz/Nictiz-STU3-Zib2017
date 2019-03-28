@@ -108,47 +108,14 @@
     </element>
     <element id="PractitionerRole.code">
       <path value="PractitionerRole.code" />
-      <short value="HealthProfessionalRole" />
-      <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
-      <alias value="ZorgverlenerRol" />
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PractitionerRole" />
-        </extension>
-        <strength value="extensible" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
-          <display value="ZorgverlenerRolCodelijst" />
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-        <map value="NL-CM:17.1.5" />
-        <comment value="HealthcareProviderRole" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-healthprofessional-v3.0-2016EN" />
-        <map value="NL-CM:17.1.5" />
-        <comment value="HealthcareProviderRole" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-healthprofessional-v3.2-2017EN" />
-        <map value="NL-CM:17.1.5" />
-        <comment value="HealthProfessionalRole" />
-      </mapping>
+      <comment value="A person may have more than one role. Note: in earlier versions of this profile there used to be an association with the HCIM element NL-CM:17.1.5 HealthcareProviderRole. This mapping was semantically incorrect. The HCIM element is a property of the association of PractitionerRole to some healthcare act. In a number of FHIR Resources the association is implicit from the semantics of the resource element like in Observation.performer. In others you can make this explicit like Encounter.participant.type, CareTeam.participant.role and Procedure.performer.role. Please refer to the relevant profiles on those resources for associations with HCIM NL-CM:17.1.5 HealthcareProviderRole" />
     </element>
     <element id="PractitionerRole.specialty">
       <path value="PractitionerRole.specialty" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="coding.system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
       <short value="Specialty" />
-      <definition value="Healthcare provider’s medical specialty. This refers to the recognized medical specialties as stated in the BIG Act." />
+      <definition value="Healthcare provider’s medical specialty. This refers to the recognized medical specialties as stated in the BIG Act. A PractitionerRole instance SHALL be a singular assocation between a person acting in a certain specialty for a certain organization. It's possible however that either specialty or organization or both is/are uknown. It is also possible that equivalent specialisms are available in multiple coding systems e.g. 01.015 UZI (Huisarts) and 0101 AGB (Huisartsen, niet apotheekhoudend). For this reason you may use multiple coding elements, each indicating the relevant code from a different system" />
       <alias value="Specialisme" />
+      <max value="1" />
       <mapping>
         <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
         <map value="NL-CM:17.1.4" />
@@ -165,24 +132,18 @@
         <comment value="Specialty" />
       </mapping>
     </element>
-    <element id="PractitionerRole.specialty:SpecialtyAGB">
-      <path value="PractitionerRole.specialty" />
-      <sliceName value="SpecialtyAGB" />
-      <short value="SpecialtyAGB" />
-      <alias value="SpecialismeAGB" />
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PractitionerSpecialty" />
-        </extension>
-        <strength value="extensible" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.7--20171231000000" />
-          <display value="SpecialismeAGBCodelijst" />
-        </valueSetReference>
-      </binding>
+    <element id="PractitionerRole.specialty.coding">
+      <path value="PractitionerRole.specialty.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
-    <element id="PractitionerRole.specialty:SpecialtyUZI">
-      <path value="PractitionerRole.specialty" />
+    <element id="PractitionerRole.specialty.coding:SpecialtyUZI">
+      <path value="PractitionerRole.specialty.coding" />
       <sliceName value="SpecialtyUZI" />
       <short value="SpecialtyUZI" />
       <alias value="SpecialismeUZI" />
@@ -194,6 +155,22 @@
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.6--20171231000000" />
           <display value="SpecialismeUZICodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:SpecialtyAGB">
+      <path value="PractitionerRole.specialty.coding" />
+      <sliceName value="SpecialtyAGB" />
+      <short value="SpecialtyAGB" />
+      <alias value="SpecialismeAGB" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PractitionerSpecialty" />
+        </extension>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.7--20171231000000" />
+          <display value="SpecialismeAGBCodelijst" />
         </valueSetReference>
       </binding>
     </element>

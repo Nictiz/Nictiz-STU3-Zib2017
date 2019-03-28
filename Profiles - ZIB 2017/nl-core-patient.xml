@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-patient" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-  <version value="2.1.2" />
+  <version value="2.1.4" />
   <name value="nl-core-patient" />
   <title value="nl-core-patient" />
   <status value="active" />
@@ -549,17 +549,17 @@
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender. Use ConceptMap for conversion: http://hl7.org/fhir/STU3/cm-administrative-gender-v3.html" />
+        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3"/>
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender. Use ConceptMap for conversion: http://hl7.org/fhir/STU3/cm-administrative-gender-v3.html" />
+        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3"/>
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.1-2017EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender. Use ConceptMap for conversion: http://hl7.org/fhir/STU3/cm-administrative-gender-v3.html" />
+        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3"/>
       </mapping>
     </element>
     <element id="Patient.birthDate">
@@ -1090,6 +1090,25 @@
         <map value="NL-CM:17.1.1" />
         <comment value="HealthProfessional" />
       </mapping>
+    </element>
+    <element id="Patient.generalPractitioner.extension">
+      <path value="Patient.generalPractitioner.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Patient.generalPractitioner.extension:practitionerRole">
+      <path value="Patient.generalPractitioner.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
     </element>
   </differential>
 </StructureDefinition>
