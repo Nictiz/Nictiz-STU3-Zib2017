@@ -2,10 +2,10 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-NursingIntervention" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention" />
-  <version value="1.1.0" />
+  <version value="1.1.1" />
   <name value="Zib NursingIntervention" />
   <title value="HCIM NursingIntervention" />
-    <status value="active" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -15,8 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="NursingIntervention as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017 with an addaption by the 'VNN redactieraad 2018', where a informationmodel is proposed without the NursingProcedure container and attached mandatory Activity concept. 
-    &#xD;&#xA;&#xD;&#xA;A nursing intervention is the care and/or treatment carried out by a nurse based on an expert opinion and clinical knowledge. It is part of the nursing process; interventions are determined as a result of indexed healthcare problems (nursing diagnoses) and based on treatment goals. The interventions are outlined in the nursing procedures.&#xD;&#xA;In a home care situation some actions can also be performed by the patient or a caregiver after a relevant instruction." />
+  <description value="NursingIntervention as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017 with an addaption by the 'VNN redactieraad 2018', where a informationmodel is proposed without the NursingProcedure container and attached mandatory Activity concept.      &#xD;&#xA;&#xD;&#xA;A nursing intervention is the care and/or treatment carried out by a nurse based on an expert opinion and clinical knowledge. It is part of the nursing process; interventions are determined as a result of indexed healthcare problems (nursing diagnoses) and based on treatment goals. The interventions are outlined in the nursing procedures.&#xD;&#xA;In a home care situation some actions can also be performed by the patient or a caregiver after a relevant instruction." />
   <purpose value="The nursing interventions are an essential part of the nursing process. A nursing intervention is recorded to document the nursing policy and to update other health professionals on the intervention. The documentation of nursing interventions offers the option to determine whether the interventions outlined in the treatment plan have been carried out. This way, we can facilitate optimal nursing and continuity of care." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -25,21 +24,21 @@
     <uri value="https://zibs.nl/wiki/NursingIntervention-v3.1(2017EN)" />
     <name value="HCIM NursingIntervention-v3.1(2017EN)" />
   </mapping>
-    <mapping>
-        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)" />
-        <name value="HCIM HealthProfessional-v1.2.1(2015EN)" />
-    </mapping>
-    <mapping>
-        <identity value="hcim-healthprofessional-v3.0-2016EN" />
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)" />
-        <name value="HCIM HealthProfessional-v3.0(2016EN)" />
-    </mapping>
-    <mapping>
-        <identity value="hcim-healthprofessional-v3.2-2017EN" />
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.2(2017EN)" />
-        <name value="HCIM HealthProfessional-v3.2(2017EN)" />
-    </mapping>
+  <mapping>
+    <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)" />
+    <name value="HCIM HealthProfessional-v1.2.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-healthprofessional-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)" />
+    <name value="HCIM HealthProfessional-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-healthprofessional-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v3.2(2017EN)" />
+    <name value="HCIM HealthProfessional-v3.2(2017EN)" />
+  </mapping>
   <mapping>
     <identity value="hcim-basicelements-v1.0-2017EN" />
     <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
@@ -119,10 +118,8 @@
     <element id="Procedure.extension:Interval">
       <path value="Procedure.extension" />
       <sliceName value="Interval" />
-      <short value="Interval" />
-    <definition value="Interval indicates the time between planned procedures.&#xD;&#xA;When entering an interval, the focus is on the time between the consecutive procedures, such as in the treatment of a wound, for example. The exact times are of lesser importance." />
-      <alias value="Interval" />
-    <max value="1" />
+      <definition value="Interval indicates the time between planned procedures.&#xD;&#xA;When entering an interval, the focus is on the time between the consecutive procedures, such as in the treatment of a wound, for example. The exact times are of lesser importance." />
+      <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention-Interval" />
@@ -317,45 +314,45 @@
         <comment value="Performer" />
       </mapping>
     </element>
-      <element id="Procedure.performer.role.coding">
-          <path value="Procedure.performer.role.coding" />
-          <slicing>
-              <discriminator>
-                  <type value="value" />
-                  <path value="system" />
-              </discriminator>
-              <rules value="open" />
-          </slicing>
-      </element>
-      <element id="Procedure.performer.role.coding:healthProfessionalRole">
-          <path value="Procedure.performer.role.coding" />
-          <sliceName value="healthProfessionalRole" />
-          <short value="HealthProfessionalRole" />
-          <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
-          <alias value="ZorgverlenerRol" />
-          <binding>
-              <strength value="extensible" />
-              <valueSetReference>
-                  <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
-                  <display value="ZorgverlenerRolCodelijst" />
-              </valueSetReference>
-          </binding>
-          <mapping>
-              <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-              <map value="NL-CM:17.1.5" />
-              <comment value="HealthcareProviderRole" />
-          </mapping>
-          <mapping>
-              <identity value="hcim-healthprofessional-v3.0-2016EN" />
-              <map value="NL-CM:17.1.5" />
-              <comment value="HealthcareProviderRole" />
-          </mapping>
-          <mapping>
-              <identity value="hcim-healthprofessional-v3.2-2017EN" />
-              <map value="NL-CM:17.1.5" />
-              <comment value="HealthProfessionalRole" />
-          </mapping>
-      </element>
+    <element id="Procedure.performer.role.coding">
+      <path value="Procedure.performer.role.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Procedure.performer.role.coding:healthProfessionalRole">
+      <path value="Procedure.performer.role.coding" />
+      <sliceName value="healthProfessionalRole" />
+      <short value="HealthProfessionalRole" />
+      <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
+      <alias value="ZorgverlenerRol" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
+          <display value="ZorgverlenerRolCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+        <map value="NL-CM:17.1.5" />
+        <comment value="HealthcareProviderRole" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.0-2016EN" />
+        <map value="NL-CM:17.1.5" />
+        <comment value="HealthcareProviderRole" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.2-2017EN" />
+        <map value="NL-CM:17.1.5" />
+        <comment value="HealthProfessionalRole" />
+      </mapping>
+    </element>
     <element id="Procedure.performer.actor">
       <path value="Procedure.performer.actor" />
       <short value="The reference to the performer" />
@@ -398,7 +395,7 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Procedure.performer.actor.extension:practitionerrolereference">
+    <element id="Procedure.performer.actor.extension:practitionerRole">
       <path value="Procedure.performer.actor.extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />
