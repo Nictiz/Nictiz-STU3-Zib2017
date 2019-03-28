@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-TextResult" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult" />
-  <version value="2.1.0" />
+  <version value="2.1.1" />
   <name value="Zib TextResult" />
   <title value="HCIM TextResult" />
   <status value="active" />
@@ -48,21 +48,21 @@
     <identity value="hcim-patient-v3.1-2017EN" />
     <uri value="https://zibs.nl/wiki/Patient-v3.1(2017EN)" />
   </mapping>
-    <mapping>
-        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)" />
-        <name value="HCIM HealthProfessional-v1.2.1(2015EN)" />
-    </mapping>
-    <mapping>
-        <identity value="hcim-healthprofessional-v3.0-2016EN" />
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)" />
-        <name value="HCIM HealthProfessional-v3.0(2016EN)" />
-    </mapping>
-    <mapping>
-        <identity value="hcim-healthprofessional-v3.2-2017EN" />
-        <uri value="https://zibs.nl/wiki/HealthProfessional-v3.2(2017EN)" />
-        <name value="HCIM HealthProfessional-v3.2(2017EN)" />
-    </mapping>
+  <mapping>
+    <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v1.2.1(2015EN)" />
+    <name value="HCIM HealthProfessional-v1.2.1(2015EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-healthprofessional-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v3.0(2016EN)" />
+    <name value="HCIM HealthProfessional-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-healthprofessional-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/HealthProfessional-v3.2(2017EN)" />
+    <name value="HCIM HealthProfessional-v3.2(2017EN)" />
+  </mapping>
   <mapping>
     <identity value="hcim-basicelements-v1.0-2017EN" />
     <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
@@ -257,56 +257,45 @@
         <comment value="Author" />
       </mapping>
     </element>
-      <element id="DiagnosticReport.performer.role.coding">
-          <path value="DiagnosticReport.performer.role.coding" />
-          <slicing>
-              <discriminator>
-                  <type value="value" />
-                  <path value="system" />
-              </discriminator>
-              <rules value="open" />
-          </slicing>
-      </element>
-      <element id="DiagnosticReport.performer.role.coding:healthProfessionalRole">
-          <path value="DiagnosticReport.performer.role.coding" />
-          <sliceName value="healthProfessionalRole" />
-          <short value="HealthProfessionalRole" />
-          <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
-          <alias value="ZorgverlenerRol" />
-          <binding>
-              <strength value="extensible" />
-              <valueSetReference>
-                  <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
-                  <display value="ZorgverlenerRolCodelijst" />
-              </valueSetReference>
-          </binding>
-          <mapping>
-              <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
-              <map value="NL-CM:17.1.5" />
-              <comment value="HealthcareProviderRole" />
-          </mapping>
-          <mapping>
-              <identity value="hcim-healthprofessional-v3.0-2016EN" />
-              <map value="NL-CM:17.1.5" />
-              <comment value="HealthcareProviderRole" />
-          </mapping>
-          <mapping>
-              <identity value="hcim-healthprofessional-v3.2-2017EN" />
-              <map value="NL-CM:17.1.5" />
-              <comment value="HealthProfessionalRole" />
-          </mapping>
-      </element>
-    <element id="DiagnosticReport.performer.actor">
-          <path value="DiagnosticReport.performer.actor" />
-          <type>
-              <code value="Reference" />
-              <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-          </type>
-          <type>
-              <code value="Reference" />
-              <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-          </type>
-      </element>
+    <element id="DiagnosticReport.performer.role.coding">
+      <path value="DiagnosticReport.performer.role.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DiagnosticReport.performer.role.coding:healthProfessionalRole">
+      <path value="DiagnosticReport.performer.role.coding" />
+      <sliceName value="healthProfessionalRole" />
+      <short value="HealthProfessionalRole" />
+      <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
+      <alias value="ZorgverlenerRol" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
+          <display value="ZorgverlenerRolCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
+        <map value="NL-CM:17.1.5" />
+        <comment value="HealthcareProviderRole" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.0-2016EN" />
+        <map value="NL-CM:17.1.5" />
+        <comment value="HealthcareProviderRole" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-healthprofessional-v3.2-2017EN" />
+        <map value="NL-CM:17.1.5" />
+        <comment value="HealthProfessionalRole" />
+      </mapping>
+    </element>
     <element id="DiagnosticReport.performer.actor">
       <path value="DiagnosticReport.performer.actor" />
       <type>
