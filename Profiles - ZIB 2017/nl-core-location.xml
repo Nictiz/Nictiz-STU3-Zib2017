@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-location" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
-  <version value="2.0.0" />
+  <version value="2.0.1" />
   <name value="nl-core-location" />
   <title value="nl-core-location" />
   <status value="active" />
@@ -18,6 +18,11 @@
   <description value="A Location resource as defined for the Dutch realm" />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="art-decor-eafspraak" />
+    <uri value="https://decor.nictiz.nl/art-decor/decor-datasets--eafspraken-?id=2.16.840.1.113883.2.4.3.11.60.61.1.1" />
+    <name value="ART-DECOR Dataset eAfspraak" />
+  </mapping>
   <mapping>
     <identity value="hcim-patient-v2.0.1-2015EN" />
     <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
@@ -56,6 +61,35 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Location" />
   <derivation value="constraint" />
   <differential>
+    <element id="Location.identifier">
+      <path value="Location.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Location.identifier:ContactLocationURI">
+      <path value="Location.identifier" />
+      <sliceName value="ContactLocationURI" />
+      <max value="1" />
+      <mapping>
+        <identity value="art-decor-eafspraak" />
+        <map value="eafspraak-dataelement-38" />
+        <comment value="ContactLocatieURI" />
+      </mapping>
+    </element>
+    <element id="Location.identifier:ContactLocationURI.system">
+      <path value="Location.identifier.system" />
+      <min value="1" />
+      <fixedUri value="ContactLocationURI" />
+    </element>
+    <element id="Location.identifier:ContactLocationURI.value">
+      <path value="Location.identifier.value" />
+      <min value="1" />
+    </element>
     <element id="Location.name">
       <path value="Location.name" />
       <short value="LocationName" />
@@ -63,6 +97,7 @@
       <alias value="OrganisatieLocatie" />
       <alias value="DispenseLocation" />
       <alias value="Afleverlocatie" />
+      <alias value="ContactLocatieNaam" />
       <mapping>
         <identity value="hcim-dispense-v1.0-2017EN" />
         <map value="NL-CM:9.9.20925" />
@@ -72,6 +107,11 @@
         <identity value="hcim-healthcareprovider-v3.1.1-2017EN" />
         <map value="NL-CM:17.2.8" />
         <comment value="OrganizationLocation" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-eafspraak" />
+        <map value="eafspraak-dataelement-37" />
+        <comment value="ContactLocatieNaam" />
       </mapping>
     </element>
     <element id="Location.telecom">
@@ -92,6 +132,11 @@
         <identity value="hcim-contactinformation-v1.0-2017EN" />
         <map value="NL-CM:20.6.1" />
         <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-eafspraak" />
+        <map value="eafspraak-dataelement-40" />
+        <comment value="Contactgegevens" />
       </mapping>
     </element>
     <element id="Location.telecom.system">
@@ -203,6 +248,19 @@
         <identity value="hcim-addressinformation-v3.1-2017EN" />
         <map value="NL-CM:20.5.1" />
         <comment value="AddressInformation" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-eafspraak" />
+        <map value="eafspraak-dataelement-39" />
+        <comment value="Adresgegevens" />
+      </mapping>
+    </element>
+    <element id="Location.physicalType">
+      <path value="Location.physicalType" />
+      <mapping>
+        <identity value="art-decor-eafspraak" />
+        <map value="eafspraak-dataelement-36" />
+        <comment value="ContactLocatieType" />
       </mapping>
     </element>
     <element id="Location.managingOrganization">
