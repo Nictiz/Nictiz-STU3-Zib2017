@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationUse" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse" />
-  <version value="2.2.0" />
+  <version value="2.2.1" />
   <name value="Zib MedicationUse" />
   <title value="HCIM MedicationUse" />
   <status value="active" />
@@ -205,27 +205,243 @@
         <comment value="ReasonForChangeOrDiscontinuationOfUse" />
       </mapping>
     </element>
-    <element id="MedicationStatement.extension:practitionerRole">
-      <path value="MedicationStatement.extension" />
+    <element id="MedicationStatement.modifierExtension">
+      <path value="MedicationStatement.modifierExtension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationStatement.modifierExtension:repeatPeriodCyclicalSchedule">
+      <path value="MedicationStatement.modifierExtension" />
+      <sliceName value="repeatPeriodCyclicalSchedule" />
+      <label value="HerhaalperiodeCyclischSchema" />
+      <short value="RepeatPeriodCyclicalSchedule" />
+      <definition value="The repeated period in a cyclical schedule (of one or more dosing instructions). A cyclic schedule is noted in days, the corresponding dosing duration is also in days.&#xD;&#xA;&#xD;&#xA;Examples of a cyclical schedule: contraceptive pill (21 days, 1 pill 1x a day, then skip for 7 days, repeat), repeat period here is 28 days.&#xD;&#xA;RepeatPeriodCyclicalSchedule" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-RepeatPeriodCyclicalSchedule" />
+      </type>
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.22505" />
+        <comment value="RepeatPeriodCyclicalSchedule" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.identifier">
+      <path value="MedicationStatement.identifier" />
+      <short value="MedicationUseIdentifier" />
+      <alias value="MedicatiegebruikIdentificatie" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22760" />
+        <comment value="Identificatie" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.status">
+      <path value="MedicationStatement.status" />
+      <short value="MedicationUseStopType" />
+      <comment value="MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xD;&#xA;&#xD;&#xA;This element is also used for the concept 'Stop type'; the manner in which this medication is discontinued (temporary or definitive).  A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus) is available that maps MedicationUseStopTypeCodeLijst to the MedicationStatementStatus valueset." />
+      <alias value="MedicatieGebruikStopType" />
+      <mapping>
+        <identity value="hcim-medicationuse2-v1.0-2017EN" />
+        <map value="NL-CM:9.11.23132" />
+        <comment value="MedicationUseStopType" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.category">
+      <path value="MedicationStatement.category" />
+      <min value="1" />
+    </element>
+    <element id="MedicationStatement.category.coding">
+      <path value="MedicationStatement.category.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationStatement.category.coding:medicationUseCode">
+      <path value="MedicationStatement.category.coding" />
+      <sliceName value="medicationUseCode" />
+      <short value="MedicationUseCode" />
+      <definition value="Category code used for indexing/retrieval of the ZIB MedicationUse. The system and code are stated in the Medication Process v09." />
+    </element>
+    <element id="MedicationStatement.category.coding:medicationUseCode.system">
+      <path value="MedicationStatement.category.coding.system" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3" />
+    </element>
+    <element id="MedicationStatement.category.coding:medicationUseCode.code">
+      <path value="MedicationStatement.category.coding.code" />
+      <fixedCode value="6" />
+    </element>
+    <element id="MedicationStatement.medication[x]:medicationReference">
+      <path value="MedicationStatement.medicationReference" />
+      <sliceName value="medicationReference" />
+      <short value="ProductUsed" />
+      <alias value="Gebruiksproduct" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Product" />
+      </type>
+      <mapping>
+        <identity value="hcim-medicationuse2-v1.0-2017EN" />
+        <map value="NL-CM:9.11.21339" />
+        <comment value="ProductUsed" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.effective[x]:effectivePeriod">
+      <path value="MedicationStatement.effectivePeriod" />
+      <sliceName value="effectivePeriod" />
+      <short value="PeriodOfUse" />
+      <definition value="Medication use can be recorded for a certain moment or over a certain period. Thus, medication use can be recorded multiple times during the use of medication. The usage period is the period or moment over which the data is recorded.&#xD;&#xA;&#xD;&#xA;Start date: This is the time at which the agreement was to take effect (or took effect or will take effect). &#xD;&#xA;&#xD;&#xA;Duration: The intended duration of use. E.g. 5 days or 8 weeks. It is not allowed to indicate the duration in months, because different months have a variable duration in days. &#xD;&#xA;&#xD;&#xA;End date: The time at which the period of use ends (or ended or will end). To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date." />
+      <alias value="Gebruiksperiode" />
+      <type>
+        <code value="Period" />
+      </type>
+      <mapping>
+        <identity value="hcim-medicationuse2-v1.0-2017EN" />
+        <map value="NL-CM:9.11.22663" />
+        <comment value="PeriodOfUse" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+        <comment value="DateTime" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.effective[x]:effectivePeriod.extension">
+      <path value="MedicationStatement.effectivePeriod.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationStatement.effective[x]:effectivePeriod.extension:Duration">
+      <path value="MedicationStatement.effectivePeriod.extension" />
+      <sliceName value="Duration" />
+      <short value="Duration" />
+      <definition value="The intended duration of use. E.g. 5 days or 8 weeks. It is not allowed to indicate the duration in months, because different months have a variable duration in days." />
+      <alias value="tijdsDuur" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration" />
+      </type>
+    </element>
+    <element id="MedicationStatement.effective[x]:effectivePeriod.extension:Duration.valueDuration:valueDuration">
+      <path value="MedicationStatement.effectivePeriod.extension.valueDuration" />
+      <sliceName value="valueDuration" />
+      <example>
+        <label value="Example of Duration" />
+        <valueDuration>
+          <value value="3" />
+          <unit value="day" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="d" />
+        </valueDuration>
+      </example>
+    </element>
+    <element id="MedicationStatement.effective[x]:effectivePeriod.start">
+      <path value="MedicationStatement.effectivePeriod.start" />
+      <short value="StartDate" />
+      <definition value="This is the time at which the agreement was to take effect (or took effect or will take effect)." />
+      <alias value="Ingangsdatum" />
+      <mapping>
+        <identity value="hcim-timeinterval-v1.0-2017EN" />
+        <map value="NL-CM:20.3.2" />
+        <comment value="startDateTime" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.effective[x]:effectivePeriod.end">
+      <path value="MedicationStatement.effectivePeriod.end" />
+      <short value="EndDate" />
+      <definition value="The time at which the period of use ends (or ended or will end). To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date." />
+      <alias value="Einddatum" />
+      <mapping>
+        <identity value="hcim-timeinterval-v1.0-2017EN" />
+        <map value="NL-CM:20.3.3" />
+        <comment value="endDateTime" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.dateAsserted">
+      <path value="MedicationStatement.dateAsserted" />
+      <short value="MedicationUseDateTime" />
+      <definition value="Date on which this use is entered." />
+      <alias value="Registratiedatum" />
+      <min value="1" />
+      <example>
+        <label value="Example of MedicationUseDateTime" />
+        <valueDateTime value="2017-06-14" />
+      </example>
+      <mapping>
+        <identity value="hcim-medicationuse2-v1.0-2017EN" />
+        <map value="NL-CM:9.11.22398" />
+        <comment value="MedicationUseDateTime" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.informationSource">
+      <path value="MedicationStatement.informationSource" />
+      <comment value="The informationSource can be a RelatedPerson (mp-dataelement900-22425), Patient (mp-dataelement900-22452) or a health proffesional (mp-dataelement900-22453).&#xD;&#xA;&#xD;&#xA;If a health professional is the informationSource the missing-type-reference extension can be used for a PractitionerRole reference. The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22424" />
+        <comment value="Informant" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.2" />
+        <comment value="InformationSource" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.informationSource.extension">
+      <path value="MedicationStatement.informationSource.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationStatement.informationSource.extension:practitionerRole">
+      <path value="MedicationStatement.informationSource.extension" />
       <sliceName value="practitionerRole" />
       <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
-    </element>
-    <element id="MedicationStatement.informationSource">
-      <path value="MedicationStatement.informationSource" />
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.2" />
-        <comment value="InformationSource" />
-      </mapping>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22424" />
-        <comment value="Informant" />
-      </mapping>
     </element>
     <element id="MedicationStatement.subject">
       <path value="MedicationStatement.subject" />
