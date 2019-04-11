@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-PainScore" />
+  <name value="Zib PainScore" />
+  <title value="HCIM PainScore" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is derived from the HL7 Observation profile in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) PainScore version 3.1, release 2017 and to provide extensions for missing concepts if needed.&#xD;&#xA;&#xD;&#xA;The pain score is a general measurement for pain experience, not a description of specific, localized pain." />
+  <purpose value="The purpose of the pain score is to quantify and objectify the patient’s subjective pain experience." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-painscore-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/PainScore-v3.1(2017EN)" />
+    <name value="HCIM PainScore-v3.1-2017EN" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0-2017EN" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:PainScoreCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="PainScoreCode" />
+    </element>
+    <element id="Observation.code.coding:PainScoreCode.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:PainScoreCode.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="225908003" />
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.3" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
+      </mapping>
+    </element>
+    <element id="Observation.performer">
+      <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <type>
+        <code value="Quantity" />
+      </type>
+    </element>
+    <element id="Observation.value[x]:valueQuantity.value">
+      <path value="Observation.valueQuantity.value" />
+      <min value="1" />
+      <minValueDecimal value="0" />
+      <constraint>
+        <key value="max-1" />
+        <severity value="error" />
+        <human value="Limit the max value to 100 in case of method VAS100 or 10 in other cases" />
+        <expression value="allTrue((Observation.method='VAS100' and $this.maxValue&lt;100), (Observation.method!='VAS100' and $this.maxValue&lt;10))" />
+      </constraint>
+    </element>
+    <element id="Observation.bodySite">
+      <path value="Observation.bodySite" />
+      <label value="AnatomicalLocation" />
+      <definition value="Anatomical location which is the focus of the procedure." />
+      <alias value="AnatomischeLocatie" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite" />
+        </extension>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.9.2--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.6" />
+        <comment value="PainMeasuringMethodCodelist" />
+      </mapping>
+    </element>
+    <element id="Observation.bodySite.extension">
+      <path value="Observation.bodySite.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.bodySite.extension:Laterality">
+      <path value="Observation.bodySite.extension" />
+      <sliceName value="Laterality" />
+      <alias value="Lateraliteit" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
+      </type>
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.7" />
+        <comment value="Laterality" />
+      </mapping>
+    </element>
+    <element id="Observation.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
+      <path value="Observation.bodySite.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="required" />
+        <description value="Laterality" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.9.3--20171231000000" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.method">
+      <path value="Observation.method" />
+      <label value="PainMeasuringMethod" />
+      <alias value="PijnMeetmethode" />
+      <min value="1" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationMethod" />
+        </extension>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.9.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.4" />
+        <comment value="PainMeasuringMethod" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
