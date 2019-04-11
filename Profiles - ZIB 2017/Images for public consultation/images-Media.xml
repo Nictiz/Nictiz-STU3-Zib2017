@@ -77,11 +77,6 @@
       </slicing>
       <alias value="Identifier" />
       <min value="1" />
-      <mapping>
-        <identity value="art-decor-beelden" />
-        <map value="bd-dataelement-3" />
-        <comment value="Identifier" />
-      </mapping>
     </element>
     <element id="Media.identifier:masterIdentifier">
       <path value="Media.identifier" />
@@ -168,7 +163,6 @@
     </element>
     <element id="Media.operator">
       <path value="Media.operator" />
-      <alias value="Auteur" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
@@ -181,11 +175,6 @@
       <mapping>
         <identity value="xds" />
         <map value="DocumentEntry.author" />
-      </mapping>
-      <mapping>
-        <identity value="art-decor-beelden" />
-        <map value="bd-dataelement-25" />
-        <comment value="Autheur" />
       </mapping>
     </element>
     <element id="Media.operator.extension">
@@ -205,15 +194,6 @@
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-      </type>
-    </element>
-    <element id="Media.operator.extension:patient">
-      <path value="Media.operator.extension" />
-      <sliceName value="patient" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/media-operator-patient-reference" />
       </type>
     </element>
     <element id="Media.reasonCode">
