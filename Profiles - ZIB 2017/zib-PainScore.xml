@@ -33,6 +33,15 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
   <derivation value="constraint" />
   <differential>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+      </mapping>
+    </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
       <slicing>
@@ -79,13 +88,13 @@
         <identity value="hcim-painscore-v3.1-2017EN" />
         <map value="NL-CM:12.9.3" />
       </mapping>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.14" />
-      </mapping>
     </element>
     <element id="Observation.performer">
       <path value="Observation.performer" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
@@ -107,6 +116,7 @@
     <element id="Observation.value[x]:valueQuantity">
       <path value="Observation.valueQuantity" />
       <sliceName value="valueQuantity" />
+      <min value="1" />
       <type>
         <code value="Quantity" />
       </type>
@@ -121,6 +131,13 @@
         <human value="Limit the max value to 100 in case of method VAS100 or 10 in other cases" />
         <expression value="allTrue((Observation.method='VAS100' and $this.maxValue&lt;100), (Observation.method!='VAS100' and $this.maxValue&lt;10))" />
       </constraint>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.5" />
+      </mapping>
     </element>
     <element id="Observation.bodySite">
       <path value="Observation.bodySite" />
