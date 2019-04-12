@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-PainScore" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-PainScore" />
   <name value="Zib PainScore" />
   <title value="HCIM PainScore" />
@@ -33,9 +34,30 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
   <derivation value="constraint" />
   <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="PainScore" />
+      <definition value="The pain score is a general measurement for pain experience, not a description of specific, localized pain.&#xD;&#xA;&#xD;&#xA;The following are used as an easily reproducible measurement for pain experience:&#xD;&#xA;&#xD;&#xA;    NRS (Numeric Rating Scale) in which the patient gives the pain a number on a scale of 1 (no pain) to 10 (unbearable pain).&#xD;&#xA;    VAS (Visual Analogue Score), in which the patient points to a bar with a line to indicate the pain they feel. The back of the bar has a scale from 0 (no pain) to 10 (unbearable pain) on it.&#xD;&#xA;&#xD;&#xA;The results of both scores have the same meaning, but the visual analogue method (VAS) is seen as more reliable than the NRS pain score." />
+      <alias value="Pijnscore" />
+      <constraint>
+        <key value="maxValue-for-method" />
+        <severity value="error" />
+        <human value="maxValue of 10 if method is VAS10 or NRS or 100 if VAS100" />
+        <expression value="((method.coding.code = 'VAS10' or method.coding.code = 'NRS') and valueQuantity.value &lt;= 10) or (method.coding.code='VAS100' and valueQuantity.value &lt;= 100)" />
+      </constraint>
+      <constraint>
+        <key value="minValue-for-method" />
+        <severity value="error" />
+        <human value="minValue of 1 if method is NRS or 0 if VAS" />
+        <expression value="((method.coding.code = 'VAS10' or method.coding.code = 'VAS100') and valueQuantity.value &gt;= 0) or (method.coding.code='NRS' and valueQuantity.value &gt;= 1)" />
+      </constraint>
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.1" />
+      </mapping>
+    </element>
     <element id="Observation.identifier">
       <path value="Observation.identifier" />
-      <min value="1" />
       <max value="1" />
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
@@ -124,12 +146,11 @@
     <element id="Observation.value[x]:valueQuantity.value">
       <path value="Observation.valueQuantity.value" />
       <min value="1" />
-      <minValueDecimal value="0" />
       <constraint>
-        <key value="max-1" />
-        <severity value="error" />
-        <human value="Limit the max value to 100 in case of method VAS100 or 10 in other cases" />
-        <expression value="allTrue((Observation.method='VAS100' and $this.maxValue&lt;100), (Observation.method!='VAS100' and $this.maxValue&lt;10))" />
+        <key value="int-1" />
+        <severity value="warning" />
+        <human value="Only allow integers" />
+        <expression value="(($this * 10) mod 10) = 0" />
       </constraint>
     </element>
     <element id="Observation.comment">
@@ -187,7 +208,7 @@
       <path value="Observation.bodySite.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <binding>
-        <strength value="required" />
+        <strength value="extensible" />
         <description value="Laterality" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.9.3--20171231000000" />
