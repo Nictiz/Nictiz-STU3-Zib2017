@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="vitalsigns-headcircum" />
+    <url value="http://nictiz.nl/fhir/StructureDefinition/headcircum" />
+    <version value="0.1.0" />
+    <name value="Vital Signs HeadCircum" />
+    <title value="VitalSigns HeadCircum" />
+    <status value="draft" />
+    <publisher value="Nictiz" />
+    <contact>
+        <name value="Nictiz" />
+        <telecom>
+            <system value="email" />
+            <value value="info@nictiz.nl" />
+            <use value="work" />
+        </telecom>
+    </contact>
+    <description value="FHIR Head Circumference Profile - Copied FHIR Vital Sign Profile to remove .component.value quantity type constrain. More information can be found in GForge ticket #13796 or in the FHIR zulip chat https://chat.fhir.org/#narrow/stream/implementers/subject/Vital.20signs.20supporting.20observations." />
+    <copyright value="CC0" />
+    <fhirVersion value="3.0.1" />
+    <kind value="resource" />
+    <abstract value="false" />
+    <type value="Observation" />
+    <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-VitalSigns" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="Observation">
+            <path value="Observation" />
+            <short value="FHIR Head Circumference Profile" />
+            <definition value="This profile defines  how to represent Head Circumference observations in FHIR using a         standard LOINC code and UCUM units of measure." />
+            <min value="0" />
+            <max value="*" />
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code" />
+            <short value="Head Circumference" />
+            <definition value="Head Circumference." />
+            <comment value="additional codes that translate or map to this code are allowed.  For example a more granular         LOINC code or code that is used locally in a system." />
+            <alias value="Test" />
+            <alias value="Name" />
+        </element>
+        <element id="Observation.code.coding">
+            <path value="Observation.code.coding" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="code" />
+                </discriminator>
+                <ordered value="false" />
+                <rules value="open" />
+            </slicing>
+        </element>
+        <element id="Observation.code.coding:headcircumcode">
+            <path value="Observation.code.coding" />
+            <sliceName value="HeadCircumCode" />
+        </element>
+        <element id="Observation.code.coding:headcircumcode.system">
+            <path value="Observation.code.coding.system" />
+            <type>
+                <code value="uri" />
+            </type>
+            <fixedUri value="http://loinc.org" />
+        </element>
+        <element id="Observation.code.coding:headcircumcode.code">
+            <path value="Observation.code.coding.code" />
+            <type>
+                <code value="code" />
+            </type>
+            <fixedCode value="8287-5" />
+        </element>
+        <element id="Observation.valueQuantity">
+            <path value="Observation.valueQuantity" />
+        </element>
+        <element id="Observation.valueQuantity.code">
+            <path value="Observation.valueQuantity.code" />
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="BodyLengthUnits" />
+                </extension>
+                <strength value="required" />
+                <description value="Common UCUM units for Body Length measures such as Body Height and Head Circumference" />
+                <valueSetReference>
+                    <reference value="http://hl7.org/fhir/ValueSet/ucum-bodylength" />
+                </valueSetReference>
+            </binding>
+        </element>
+    </differential>
+</StructureDefinition>
