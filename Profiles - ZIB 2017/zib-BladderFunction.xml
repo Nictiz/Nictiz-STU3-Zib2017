@@ -32,7 +32,6 @@
       <sliceName value="urinaryStoma" />
       <short value="Urinary Stoma" />
       <definition value="UrinaryStoma describes the presence of an unnatural, surgically created opening. If the patient has a urinary stoma, the date of placement, location of the stoma and any stoma pouches and an comment can be entered. The type of stoma is automatically a urinary stoma in this case." />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -43,10 +42,21 @@
         <map value="NL-CM:4.14.3" />
       </mapping>
     </element>
+    <element id="Observation.extension:urinaryStoma.value[x]:valueReference">
+      <path value="Observation.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Stoma" />
+      </type>
+      <mapping>
+        <identity value="hcim-bladderfunction-v3.0-2017EN" />
+        <map value="NL-CM:4.14.3" />
+      </mapping>
+    </element>
     <element id="Observation.extension:urineCatheter">
       <path value="Observation.extension" />
       <sliceName value="urineCatheter" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -60,7 +70,6 @@
     <element id="Observation.extension:incontinenceMaterial">
       <path value="Observation.extension" />
       <sliceName value="incontinenceMaterial" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -86,7 +95,7 @@
       <sliceName value="MicturitionCode" />
       <mapping>
         <identity value="hcim-Blaasfunctie-v3.0-2017EN" />
-        <map value=" NL-CM:4.14.1" />
+        <map value="NL-CM:4.14.1" />
         <comment value="UrineContinence" />
       </mapping>
     </element>
