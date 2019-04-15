@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-bladderfunction-urinecatheter" />
+  <name value="zib-bladderfunction-urinecatheter" />
+  <status value="draft" />
+  <description value="UrineCatheter describes the presence of a urine catheter. If this is the case, the date of placement, urine catheter location, comment and catheter identification information can be described in addition to the type of catheter." />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DeviceUseStatement" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DeviceUseStatement">
+      <path value="DeviceUseStatement" />
+      <mapping>
+        <identity value="hcim-bladderfunction-v3.0-2017EN" />
+        <map value="NL-CM:4.14.4" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.device">
+      <path value="DeviceUseStatement.device" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-bladderfunction-urinecatheterproduct" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

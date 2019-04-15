@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction" />
+  <name value="zib-BladderFunction" />
+  <status value="draft" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <mapping>
+        <identity value="hcim-Blaasfunctie-v3.0-2017EN" />
+        <map value="NL-CM:4.14.1" />
+      </mapping>
+    </element>
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.extension:urinaryStoma">
+      <path value="Observation.extension" />
+      <sliceName value="urinaryStoma" />
+      <short value="Urinary Stoma" />
+      <definition value="UrinaryStoma describes the presence of an unnatural, surgically created opening. If the patient has a urinary stoma, the date of placement, location of the stoma and any stoma pouches and an comment can be entered. The type of stoma is automatically a urinary stoma in this case." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-stoma" />
+      </type>
+      <mapping>
+        <identity value="hcim-blaasfunctie-v3.0-2017EN" />
+        <map value="NL-CM:4.14.3" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:urineCatheter">
+      <path value="Observation.extension" />
+      <sliceName value="urineCatheter" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://example.org/fhir/StructureDefinition/extension-productType-UrineCatheter" />
+      </type>
+      <mapping>
+        <identity value="hcim-bladderfunction-v3.0-2017EN" />
+        <map value="NL-CM:4.14.4" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:incontinenceMaterial">
+      <path value="Observation.extension" />
+      <sliceName value="incontinenceMaterial" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice" />
+      </type>
+      <mapping>
+        <identity value="hcim-bladderfunction-v3.0-2017EN" />
+        <map value="NL-CM:4.14.5" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:MicturitionCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="MicturitionCode" />
+      <mapping>
+        <identity value="hcim-Blaasfunctie-v3.0-2017EN" />
+        <map value=" NL-CM:4.14.1" />
+        <comment value="UrineContinence" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding:MicturitionCode.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:MicturitionCode.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="28278009" />
+    </element>
+    <element id="Observation.value[x]:valueCodeableConcept">
+      <path value="Observation.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <definition value="Urine continence describes control over urine discharge. This includes disorders such as stress incontinence, urge incontinence, reflex incontinence, constant incontinence and mixed incontinence." />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of UrineContinence" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="165232002" />
+            <display value="Incontinent" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="Urine continence describes control over urine discharge." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.14.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-Blaasfunctie-v3.0-2017EN" />
+        <map value="NL-CM:4.14.2" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <mapping>
+        <identity value="hcim-Blaasfunctie-v3.0-2017EN" />
+        <map value="NL-CM:4.14.6" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
