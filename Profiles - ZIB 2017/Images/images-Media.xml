@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="images-Media" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/images-Media" />
+  <version value="0.3.0" />
+  <name value="images-Media" />
+  <title value="Images Media" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Profile on Media to support the MedMij Images use case where a patient/PHR sends a image to a healtcare provider/XIS.&#xD;&#xA;&#xD;&#xA;A number of elements are made mandatory to accomodate succesfull entries in a XDS network. Mappings to the IHE MHD profile on DocumentReference and XDS DocumentEntry are provided to assists in this." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+    <uri value="https://simplifier.net/search?canonical=http://ihe.net/fhir/structuredefinition/ihe.mhd.provide.comprehensive.documentreference" />
+    <name value="IHE MHD DocumentReference (XDS-on-FHIR)" />
+    <comment value="Profile for IHE MHD DocumentReference a.k.a. XDS-on-FHIR" />
+  </mapping>
+  <mapping>
+    <identity value="xds" />
+    <uri value="https://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing" />
+    <name value="XDS metadata equivalent" />
+  </mapping>
+  <mapping>
+    <identity value="art-decor-beelden" />
+    <uri value="https://decor.nictiz.nl/art-decor/decor-datasets--bd-?id=2.16.840.1.113883.2.4.3.11.60.54.1.1&amp;effectiveDate=2019-01-29T11:40:51&amp;language=nl-NL" />
+    <name value="ART-DECOR Dataset Beelden" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Media" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Media" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Media">
+      <path value="Media" />
+      <alias value="Beeld" />
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-beelden" />
+        <map value="bd-dataelement-1" />
+        <comment value="Beeld" />
+      </mapping>
+    </element>
+    <element id="Media.meta.security">
+      <path value="Media.meta.security" />
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.securityLabel" />
+        <comment value="If no value is present 'normal' as default" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.confidentialityCode" />
+        <comment value="If no value is present 'normal' as default" />
+      </mapping>
+    </element>
+    <element id="Media.extension">
+      <path value="Media.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Media.extension:recipient">
+      <path value="Media.extension" />
+      <sliceName value="recipient" />
+      <short value="recipient" />
+      <definition value="Intended recipient of the collection images. This can be both a Practitioner as well as an Organization" />
+      <alias value="Ontvanger" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/images-recipient" />
+      </type>
+      <mapping>
+        <identity value="art-decor-beelden" />
+        <map value="bd-dataelement-53" />
+        <comment value="Ontvanger" />
+      </mapping>
+    </element>
+    <element id="Media.identifier">
+      <path value="Media.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <alias value="Identifier" />
+      <min value="1" />
+    </element>
+    <element id="Media.identifier:masterIdentifier">
+      <path value="Media.identifier" />
+      <sliceName value="masterIdentifier" />
+      <short value="Master Version Specific Identifier" />
+      <definition value="Image identifier as assigned by the source of the image / Media. This identifier is specific to this version of the image. This unique identifier may be used elsewhere to identify this version of the image." />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.masterIdentifier" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.uniqueId" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-beelden" />
+        <map value="bd-dataelement-40" />
+        <comment value="Identificatie" />
+      </mapping>
+    </element>
+    <element id="Media.identifier:masterIdentifier.system">
+      <path value="Media.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="Media.identifier:masterIdentifier.value">
+      <path value="Media.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="Media.basedOn">
+      <path value="Media.basedOn" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-ProcedureRequest" />
+      </type>
+    </element>
+    <element id="Media.type">
+      <path value="Media.type" />
+      <comment value="The value 'photo' shall be used in the MedMij images use case. This is value is mapped to XDS DocumentEntry.type with a fixed LOINC code: 72170-4 Photographic image Unspecified body region Document." />
+      <fixedCode value="photo" />
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.type" />
+        <comment value="Fixed LOINC code: 72170-4 Photographic image" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.type" />
+        <comment value="Fixed LOINC code: 72170-4 Photographic image" />
+      </mapping>
+    </element>
+    <element id="Media.subject">
+      <path value="Media.subject" />
+      <short value="Who this Media is a record of" />
+      <definition value="Who this Media is a record of." />
+      <comment value="Within the MedMij image use case and IHE MHD this sould be a reference to the Patient resource who is the subject of the Media resource. Not a contained resource. URL Points to an existing Patient Resource representing the XDS Affinity Domain Patient." />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+        <aggregation value="bundled" />
+      </type>
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.subject" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.patientId" />
+      </mapping>
+    </element>
+    <element id="Media.occurrence[x]:occurrenceDateTime">
+      <path value="Media.occurrenceDateTime" />
+      <sliceName value="occurrenceDateTime" />
+      <definition value="The date and time at which the media was collected." />
+      <alias value="MaakDatumTijd" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.indexed" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.submissionTime" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-beelden" />
+        <map value="bd-dataelement-4" />
+        <comment value="MaakDatumTijd" />
+      </mapping>
+    </element>
+    <element id="Media.operator">
+      <path value="Media.operator" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+        <aggregation value="bundled" />
+      </type>
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.author" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.author" />
+      </mapping>
+    </element>
+    <element id="Media.operator.extension">
+      <path value="Media.operator.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Media.operator.extension:practitionerRole">
+      <path value="Media.operator.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+    <element id="Media.reasonCode">
+      <path value="Media.reasonCode" />
+      <comment value="For XDS entry if no reasonCode value is present the default code for DocumentReference and a XDS DocumentEntry shall be a fixed LOINC code 72170-4 Photographic image. If mutiple reasonCodes are provided use the the first one." />
+      <alias value="Reden" />
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.class" />
+        <comment value="If no reasonCode is present fixed LOINC code 72170-4 Photographic image" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.class" />
+        <comment value="If no reasonCode is present fixed LOINC code 72170-4 Photographic image" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-beelden" />
+        <map value="bd-dataelement-22" />
+        <comment value="Reden" />
+      </mapping>
+    </element>
+    <element id="Media.bodySite">
+      <path value="Media.bodySite" />
+      <alias value="AnatomischeLocatie" />
+      <mapping>
+        <identity value="art-decor-beelden" />
+        <map value="bd-dataelement-23" />
+        <comment value="AnatomischeLocatie" />
+      </mapping>
+    </element>
+    <element id="Media.content.contentType">
+      <path value="Media.content.contentType" />
+      <short value="Mime type of the image" />
+      <definition value="Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. &#xD;&#xA;Shall be one of the following: jpeg, gif, png, jp2." />
+      <alias value="Beeldformaat" />
+      <min value="1" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MimeType" />
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true" />
+        </extension>
+        <strength value="required" />
+        <description value="MediaContentTypeCodelijst based on Dicom's Web Services rendered Media Types for single frame images." />
+        <valueSetReference>
+          <reference value="http://nictiz.nl/fhir/ValueSet/images-MediaContentTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.content.attachment.contentType" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.mimeType" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-beelden" />
+        <map value="bd-dataelement-18" />
+        <comment value="Beeldformaat" />
+      </mapping>
+    </element>
+    <element id="Media.content.url">
+      <path value="Media.content.url" />
+      <comment value="The Media.content.url points at the image content, which shall be in the Bundle as a Binary resource.  &#xD;&#xA;&#xD;&#xA;If both data and url are provided, the url SHALL point to the same content as the data contains. Urls may be relative references or may reference transient locations such as a wrapping envelope using cid: though this has ramifications for using signatures. Relative URLs are interpreted relative to the service url, like a resource reference, rather than relative to the resource itself. If a URL is provided, it SHALL resolve to actual data." />
+      <alias value="Beeldbestand" />
+      <min value="1" />
+      <example>
+        <label value="Reference to Binary" />
+        <valueUri value="Binary/eczeem-detail-acuut" />
+      </example>
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.content.attachment.url" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.URI" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-beelden" />
+        <map value="bd-dataelement-37" />
+        <comment value="Beeldbestand - provided in a Binary Resource" />
+      </mapping>
+    </element>
+    <element id="Media.content.size">
+      <path value="Media.content.size" />
+      <comment value="The size is calculated on the data prior to base64 encoding, if the data is base64 encoded." />
+      <alias value="Grootte" />
+      <min value="1" />
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.content.attachment.size" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.size" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-beelden" />
+        <map value="bd-dataelement-19" />
+        <comment value="Grootte" />
+      </mapping>
+    </element>
+    <element id="Media.content.hash">
+      <path value="Media.content.hash" />
+      <comment value="The IHE Document Sharing metadata element hash holds the SHA1 hash of the document. The hash is encoded in FHIR in base64Binary, whereas in XDS hexbinary is used. The hash is calculated on the data prior to base64 encoding, if the data is base64 encoded." />
+      <min value="1" />
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.content.attachment.hash" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.hash" />
+      </mapping>
+    </element>
+    <element id="Media.content.title">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Media.content.title" />
+      <alias value="Titel" />
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.title" />
+      </mapping>
+    </element>
+    <element id="Media.content.creation">
+      <path value="Media.content.creation" />
+      <comment value="This HL7 FHIR STU3 element is not used in IHE MHD XDS, therefore would not be present." />
+    </element>
+    <element id="Media.note">
+      <path value="Media.note" />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.description" />
+      </mapping>
+      <mapping>
+        <identity value="xds" />
+        <map value="DocumentEntry.description" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-beelden" />
+        <map value="bd-dataelement-21" />
+        <comment value="Toelichting" />
+      </mapping>
+    </element>
+    <element id="Media.note.author[x]">
+      <path value="Media.note.author[x]" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
