@@ -81,6 +81,7 @@
       <sliceName value="recipient" />
       <short value="recipient" />
       <definition value="Intended recipient of the collection images. This can be both a Practitioner as well as an Organization" />
+      <comment value="A collection of images send with a List may hold the recipient extension as well. It is not necessary to provide the recipient here if this is provided in the List resource." />
       <alias value="Ontvanger" />
       <type>
         <code value="Extension" />
@@ -231,26 +232,6 @@
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
-    </element>
-    <element id="Media.reasonCode">
-      <path value="Media.reasonCode" />
-      <comment value="For XDS entry if no reasonCode value is present the default code for DocumentReference and a XDS DocumentEntry shall be a fixed LOINC code 72170-4 Photographic image. If mutiple reasonCodes are provided use the the first one." />
-      <alias value="Reden" />
-      <mapping>
-        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
-        <map value="DocumentReference.class" />
-        <comment value="If no reasonCode is present fixed LOINC code 72170-4 Photographic image" />
-      </mapping>
-      <mapping>
-        <identity value="xds" />
-        <map value="DocumentEntry.class" />
-        <comment value="If no reasonCode is present fixed LOINC code 72170-4 Photographic image" />
-      </mapping>
-      <mapping>
-        <identity value="art-decor-beelden" />
-        <map value="bd-dataelement-22" />
-        <comment value="Reden" />
-      </mapping>
     </element>
     <element id="Media.bodySite">
       <path value="Media.bodySite" />
