@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-hearingfunction-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingFunction"/>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
+        <valueReference>
+            <reference value="DeviceUseStatement/example-hearingfunction-hearingaid" />
+        </valueReference>
+    </extension>
+    <status value="preliminary"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="225908003"/>
+            <display value="Hearing" />
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/example"/>
+        <display value="Example Patient"/>
+    </subject>
+    <effectiveDateTime value="2013-02-08T06:43:00+02:00"/>
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="15188001" />
+            <display value="Hearing loss" />
+        </coding>
+    </valueCodeableConcept>
+</Observation>
