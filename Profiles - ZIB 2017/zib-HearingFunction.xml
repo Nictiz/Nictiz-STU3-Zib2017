@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-HearingFunction" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingFunction" />
+  <version value="1.0.0" />
+  <name value="zib-HearingFunction" />
+  <title value="zib HearingFunction" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A HearingFunction resource as defined by the Dutch HCIM Zorginformatiebouwsteen HearingFunction v3.1(2017EN)" />
+  <purpose value="Information on hearing function disorders is important in patient nursing and care and particularly in communication with the patient." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-hearingfunction-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/HearingFunction-v3.1(2017EN)" />
+    <name value="HCIM HearingFunction-v3.1-2017EN" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <mapping>
+        <identity value="hcim-hearingfunction-v3.1-2017EN" />
+        <map value="NL-CM:4.17.1" />
+        <comment value="FunctieHoren" />
+      </mapping>
+    </element>
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.extension:hearingAid">
+      <path value="Observation.extension" />
+      <sliceName value="hearingAid" />
+      <short value="HearingAid" />
+      <definition value="The medical aid used to help the patient hear." />
+      <alias value="HorenHulpmiddel" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice" />
+      </type>
+      <mapping>
+        <identity value="hcim-hearingfunction-v3.1-2017EN" />
+        <map value="NL-CM:4.17.4" />
+        <comment value="HearingAid" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:hearingAid.valueReference:valueReference">
+      <path value="Observation.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://example.org/fhir/StructureDefinition/zib-HearingAid" />
+      </type>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:HearingFunction">
+      <path value="Observation.code.coding" />
+      <sliceName value="HearingFunction" />
+    </element>
+    <element id="Observation.code.coding:HearingFunction.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:HearingFunction.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="47078008" />
+    </element>
+    <element id="Observation.code.coding:HearingFunction.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <alias value="gehoorfunctie" />
+      <fixedString value="Hearing" />
+    </element>
+    <element id="Observation.value[x]:valueCodeableConcept">
+      <path value="Observation.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="HearingFunction" />
+      <alias value="HoorFunctie" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="The faculty of hearing due to responses to stimuli from auditory organs, capacity to hear." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.17.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-hearingfunction-v3.1-2017EN" />
+        <map value="NL-CM:4.17.3" />
+        <comment value="HearingFunction" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueCodeableConcept.coding">
+      <path value="Observation.valueCodeableConcept.coding" />
+      <binding>
+        <strength value="required" />
+        <description value="The faculty of hearing due to responses to stimuli from auditory organs, capacity to hear." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.17.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="A comment on the hearing function." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-hearingfunction-v3.1-2017EN" />
+        <map value="NL-CM:4.17.2" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

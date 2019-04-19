@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-HearingFunction-HearingAid" />
+  <url value="http://example.org/fhir/StructureDefinition/zib-HearingFunction-HearingAid" />
+  <version value="1.0.0" />
+  <name value="zib-HearingFunction-HearingAid" />
+  <title value="zib HearingFunction HearingAid" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-hearingfunction-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/HearingFunction-v3.1(2017EN)" />
+    <name value="HCIM HearingFunction-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DeviceUseStatement" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DeviceUseStatement.device">
+      <path value="DeviceUseStatement.device" />
+      <short value="ProductType" />
+      <definition value="The type of product used to help the patient hear." />
+      <alias value="ProductType" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingAid-Product" />
+      </type>
+      <mapping>
+        <identity value="hcim-hearingfunction-v3.1-2017EN" />
+        <map value="NL-CM:10.1.3" />
+        <comment value="ProductType" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.bodySite">
+      <path value="DeviceUseStatement.bodySite" />
+      <short value="DeviceAnatomicalLocation" />
+      <definition value="The anatomical location of the hearing aid, such as: ‘left ear’." />
+      <alias value="HulpmiddelAnatomischeLocatie" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.17.3--20171231000000" />
+          <display value="HulpmiddelAnatomischeLocatieCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-hearingfunction-v3.1-2017EN" />
+        <map value="NL-CM:10.1.6" />
+        <comment value="DeviceAnatomicalLocation" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
