@@ -3,8 +3,8 @@
   <id value="zib-HearingFunction" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingFunction" />
   <version value="1.0.0" />
-  <name value="zib-HearingFunction" />
-  <title value="zib HearingFunction" />
+  <name value="Zib HearingFunction" />
+  <title value="HCIM HearingFunction" />
   <status value="draft" />
   <publisher value="Nictiz" />
   <contact>
@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A HearingFunction resource as defined by the Dutch HCIM Zorginformatiebouwsteen HearingFunction v3.1(2017EN)" />
+  <description value="A HearingFunction resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) HearingFunction v3.1(2017EN)." />
   <purpose value="Information on hearing function disorders is important in patient nursing and care and particularly in communication with the patient." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -81,17 +81,22 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Observation.code.coding:HearingFunction">
       <path value="Observation.code.coding" />
       <sliceName value="HearingFunction" />
+      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Observation.code.coding:HearingFunction.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.code.coding:HearingFunction.code">
       <path value="Observation.code.coding.code" />
+      <min value="1" />
       <fixedCode value="47078008" />
     </element>
     <element id="Observation.code.coding:HearingFunction.display">
@@ -100,12 +105,13 @@
       </extension>
       <path value="Observation.code.coding.display" />
       <alias value="gehoorfunctie" />
-      <fixedString value="Hearing" />
+      <min value="1" />
     </element>
     <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="HearingFunction" />
+      <definition value="The faculty of hearing due to responses to stimuli from auditory organs, capacity to hear." />
       <alias value="HoorFunctie" />
       <min value="1" />
       <type>
@@ -113,9 +119,10 @@
       </type>
       <binding>
         <strength value="extensible" />
-        <description value="The faculty of hearing due to responses to stimuli from auditory organs, capacity to hear." />
+        <description value="HearingFunctionCodelist" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.17.1--20171231000000" />
+          <display value="HoorFunctieCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -123,16 +130,6 @@
         <map value="NL-CM:4.17.3" />
         <comment value="HearingFunction" />
       </mapping>
-    </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding">
-      <path value="Observation.valueCodeableConcept.coding" />
-      <binding>
-        <strength value="required" />
-        <description value="The faculty of hearing due to responses to stimuli from auditory organs, capacity to hear." />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.17.1--20171231000000" />
-        </valueSetReference>
-      </binding>
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
