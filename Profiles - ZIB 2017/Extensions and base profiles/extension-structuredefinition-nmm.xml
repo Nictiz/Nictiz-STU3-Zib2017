@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="structuredefinition-nmm" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/structuredefinition-nmm" />
+  <name value="NictizMaturityModelExtension" />
+  <title value="Nictiz Maturity Model Extension" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This extension allows marking the maturity level of StructureDefinitions (profiles, extensions, logical models) according to the Nictiz Maturity Model, first established under MedMij: https://informatiestandaarden.nictiz.nl/wiki/MedMij:Register_van_informatiestandaarden" />
+  <purpose value="Need to extend StructureDefinitions with a Maturity Model marker to allow better assessment of its maturity." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="*" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="MM Level" />
+      <definition value="The MM level assigned to the artifact." />
+      <alias value="MMVN" />
+      <alias value="MedMij Volwassenheidsniveau" />
+    </element>
+    <element id="Extension.valueInteger:valueInteger">
+      <path value="Extension.valueInteger" />
+      <sliceName value="valueInteger" />
+    </element>
+  </differential>
+</StructureDefinition>
