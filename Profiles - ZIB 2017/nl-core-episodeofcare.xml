@@ -34,6 +34,38 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" />
   <derivation value="constraint" />
   <differential>
+    <element id="EpisodeOfCare.extension">
+      <path value="EpisodeOfCare.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="EpisodeOfCare.extension:dateFirstEncounter">
+      <path value="EpisodeOfCare.extension" />
+      <sliceName value="dateFirstEncounter" />
+      <comment value="For episodes of care it can be relevant, and always is in general practitioner workflow, when the first encounter was that a problem/concern was discussed." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-DateFirstEncounter" />
+      </type>
+    </element>
+    <element id="EpisodeOfCare.extension:dateLastEncounter">
+      <path value="EpisodeOfCare.extension" />
+      <sliceName value="dateLastEncounter" />
+      <comment value="For episodes of care it can be relevant, and always is in general practitioner workflow, when the last encounter was that a problem/concern was discussed." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-DateLastEncounter" />
+      </type>
+    </element>
     <element id="EpisodeOfCare.identifier">
       <path value="EpisodeOfCare.identifier" />
       <mapping>
