@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="Profile on List to support sending a collection of images from patient/PHR to a healtcare provider/XIS.&#xD;&#xA;&#xD;&#xA;A number of elements are made mandatory to accomodate succesfull entries in a XDS network.  This profile provides a mapping to the metadata attributes associated with a Document Sharing Folder object. The full Folder metadata attribute definition is in IHE ITI TF-3 Section 4.2.3.4." />
+  <description value="Profile on List to support sending a collection of max three images from a patient/PHR to a healtcare provider/XIS.&#xD;&#xA;&#xD;&#xA;A number of elements are made mandatory to accomodate succesfull entries in a XDS network. This profile provides a mapping to the metadata attributes associated with a Document Sharing Folder object. The full Folder metadata attribute definition is in IHE ITI TF-3 Section 4.2.3.4." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -63,7 +63,6 @@
       <short value="recipient" />
       <definition value="Intended recipient of the collection images. This can be both a Practitioner as well as an Organization" />
       <alias value="Ontvanger" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -102,6 +101,7 @@
     </element>
     <element id="List.status">
       <path value="List.status" />
+      <comment value="For this use case the value 'current' is expected as the status." />
       <mapping>
         <identity value="ihe-xds-folder-metadata-attributes" />
         <map value="availabilityStatus" />
@@ -128,6 +128,7 @@
     </element>
     <element id="List.subject">
       <path value="List.subject" />
+      <comment value="A reference to the Patient resource who is the subject of the List and Media resources." />
       <min value="1" />
       <type>
         <code value="Reference" />
@@ -161,10 +162,6 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
       </type>
     </element>
     <element id="List.source.extension">
