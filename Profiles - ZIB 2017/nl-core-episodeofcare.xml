@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-episodeofcare" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
-  <version value="1.1.0" />
+  <version value="1.1.1" />
   <name value="nl-core-episodeofcare" />
   <title value="nl-core-episodeofcare" />
   <status value="active" />
@@ -34,6 +34,49 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" />
   <derivation value="constraint" />
   <differential>
+    <element id="EpisodeOfCare.extension">
+      <path value="EpisodeOfCare.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="EpisodeOfCare.extension:dateFirstEncounter">
+      <path value="EpisodeOfCare.extension" />
+      <sliceName value="dateFirstEncounter" />
+      <comment value="For episodes of care it can be relevant, and always is in general practitioner workflow, when the first encounter was that a problem/concern was discussed." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-DateFirstEncounter" />
+      </type>
+    </element>
+    <element id="EpisodeOfCare.extension:dateLastEncounter">
+      <path value="EpisodeOfCare.extension" />
+      <sliceName value="dateLastEncounter" />
+      <comment value="For episodes of care it can be relevant, and always is in general practitioner workflow, when the last encounter was that a problem/concern was discussed." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-DateLastEncounter" />
+      </type>
+    </element>
+    <element id="EpisodeOfCare.extension:title">
+      <path value="EpisodeOfCare.extension" />
+      <sliceName value="title" />
+      <comment value="For episodes of care it can be relevant to carry the title that the episode of care is known as for the physisian. This is standard for general practitioner workflow. Usually it is the common name for the latest associated Condition" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-Title" />
+      </type>
+    </element>
     <element id="EpisodeOfCare.identifier">
       <path value="EpisodeOfCare.identifier" />
       <mapping>
