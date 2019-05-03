@@ -28,6 +28,24 @@
   <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice" />
   <derivation value="constraint" />
   <differential>
+    <element id="DeviceUseStatement.extension:reasonReference">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="reasonReference" />
+      <alias value="FunctieHoren" />
+      <mapping>
+        <identity value="hcim-hearingfunction-v3.1-2017EN" />
+        <map value="NL-CM:4.17.1" />
+        <comment value="HearingFunction" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:reasonReference.valueReference:valueReference">
+      <path value="DeviceUseStatement.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingFunction" />
+      </type>
+    </element>
     <element id="DeviceUseStatement.device">
       <path value="DeviceUseStatement.device" />
       <short value="ProductType" />

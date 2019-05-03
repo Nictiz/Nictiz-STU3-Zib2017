@@ -38,40 +38,6 @@
         <comment value="FunctieHoren" />
       </mapping>
     </element>
-    <element id="Observation.extension">
-      <path value="Observation.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Observation.extension:hearingAid">
-      <path value="Observation.extension" />
-      <sliceName value="hearingAid" />
-      <short value="HearingAid" />
-      <definition value="The medical aid used to help the patient hear." />
-      <alias value="HorenHulpmiddel" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice" />
-      </type>
-      <mapping>
-        <identity value="hcim-hearingfunction-v3.1-2017EN" />
-        <map value="NL-CM:4.17.4" />
-        <comment value="HearingAid" />
-      </mapping>
-    </element>
-    <element id="Observation.extension:hearingAid.valueReference:valueReference">
-      <path value="Observation.extension.valueReference" />
-      <sliceName value="valueReference" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://example.org/fhir/StructureDefinition/zib-HearingAid" />
-      </type>
-    </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
       <slicing>
