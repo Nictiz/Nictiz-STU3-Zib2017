@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="images-Media" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/images-Media" />
-  <version value="0.3.0" />
+  <version value="1.0.0" />
   <name value="images-Media" />
   <title value="Images Media" />
   <status value="draft" />
@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="Profile on Media to support the MedMij Images use case where a patient/PHR sends a image to a healtcare provider/XIS.&#xD;&#xA;&#xD;&#xA;A number of elements are made mandatory to accomodate succesfull entries in a XDS network. Mappings to the IHE MHD profile on DocumentReference and XDS DocumentEntry are provided to assists in this." />
+  <description value="Profile on Media to support sending images from patient/PHR to a healtcare provider/XIS.&#xD;&#xA;&#xD;&#xA;A number of elements are made mandatory to accomodate succesfull entries in a XDS network. Mappings to the IHE MHD profile on DocumentReference and XDS DocumentEntry are provided to assists in this." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -143,7 +143,7 @@
     </element>
     <element id="Media.type">
       <path value="Media.type" />
-      <comment value="The value 'photo' shall be used in the MedMij images use case. This is value is mapped to XDS DocumentEntry.type with a fixed LOINC code: 72170-4 Photographic image Unspecified body region Document." />
+      <comment value="The profile's use cases allows only sending images hence the fixed value 'photo'. This is value is mapped to XDS DocumentEntry.type with a fixed LOINC code: 72170-4 Photographic image Unspecified body region Document." />
       <fixedCode value="photo" />
       <mapping>
         <identity value="ihe-mhd-documentreference-xds-on-fhir" />
@@ -160,7 +160,7 @@
       <path value="Media.subject" />
       <short value="Who this Media is a record of" />
       <definition value="Who this Media is a record of." />
-      <comment value="Within the MedMij image use case and IHE MHD this sould be a reference to the Patient resource who is the subject of the Media resource. Not a contained resource. URL Points to an existing Patient Resource representing the XDS Affinity Domain Patient." />
+      <comment value="A reference to the Patient resource who is the subject of the Media resource. Not a contained resource. URL Points to an existing Patient Resource representing the XDS Affinity Domain Patient." />
       <min value="1" />
       <type>
         <code value="Reference" />
