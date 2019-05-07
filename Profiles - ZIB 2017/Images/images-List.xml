@@ -74,6 +74,20 @@
         <comment value="Ontvanger" />
       </mapping>
     </element>
+    <element id="List.extension:recipient.value[x]:valueReference">
+      <path value="List.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+        <aggregation value="bundled" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+        <aggregation value="bundled" />
+      </type>
+    </element>
     <element id="List.identifier">
       <path value="List.identifier" />
       <min value="1" />
@@ -217,6 +231,7 @@
     <element id="List.entry">
       <path value="List.entry" />
       <comment value="Max 3 Media Resources (images) in the transaction Bundle." />
+      <min value="1" />
       <max value="3" />
     </element>
     <element id="List.entry.item">
@@ -226,6 +241,11 @@
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/images-Media" />
         <aggregation value="bundled" />
       </type>
+      <mapping>
+        <identity value="ard-decor-beelden" />
+        <map value="bd-dataelement-68" />
+        <comment value="Beeld" />
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>
