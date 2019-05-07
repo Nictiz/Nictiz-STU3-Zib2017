@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-AbilityToDrink" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToDrink" />
+  <version value="1.0.0" />
+  <name value="Zib AbilityToDrink" />
+  <title value="HCIM AbilityToDrink" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Observation as defined by the Dutch HCIM Zorginformatiebouwsteen AbilityToDrink v3.1(2017EN)" />
+  <purpose value="This profile is part of a group of statements regarding the patients ability to perform activities of daily living (ADL). Each statement applies to the current situation and is modeled as an observation about one aspect about these abilities." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-abilitytodrink-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/AbilityToDrink-v3.1(2017EN)" />
+    <name value="HCIM AbilityToDrink-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <alias value="VermogenTotDrinken" />
+      <mapping>
+        <identity value="hcim-abilitytodrink-v3.1-2017EN" />
+        <map value="NL-CM:4.8.1" />
+        <comment value="AbilityToDrink" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueCodeableConcept">
+      <path value="Observation.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Drinking" />
+      <definition value="Taking fluids during meals and during the day or when thirsty." />
+      <alias value="Drinken" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <mapping>
+        <identity value="hcim-abilitytodrink-v3.1-2017EN" />
+        <map value="NL-CM:4.8.3" />
+        <comment value="Drinking" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueCodeableConcept.coding">
+      <path value="Observation.valueCodeableConcept.coding" />
+      <max value="1" />
+    </element>
+    <element id="Observation.value[x]:valueCodeableConcept.coding.system">
+      <path value="Observation.valueCodeableConcept.coding.system" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.8.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="code.coding.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:DrinkingLimitations">
+      <path value="Observation.component" />
+      <sliceName value="DrinkingLimitations" />
+      <short value="DrinkingLimitations" />
+      <definition value="DrinkingConstraints specifies the patient’s constraints in drinking." />
+      <alias value="DrinkBeperkingen" />
+      <mapping>
+        <identity value="hcim-abilitytodrink-v3.1-2017EN" />
+        <map value="NL-CM:4.8.4" />
+        <comment value="drinkingLimitations" />
+      </mapping>
+    </element>
+    <element id="Observation.component:DrinkingLimitations.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:DrinkingLimitations.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="288851008" />
+    </element>
+    <element id="Observation.component:DrinkingLimitations.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.8.2--20171231000000" />
+        </valueSetReference>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>
