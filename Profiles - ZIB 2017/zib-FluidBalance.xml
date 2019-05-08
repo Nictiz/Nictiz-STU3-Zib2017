@@ -7,7 +7,8 @@
   <title value="HCIM FluidBalance" />
   <status value="draft" />
   <publisher value="Nictiz" />
-  <description value="An Observation type resource as defined by the Dutch HCIM FluidBalance 1.0" />
+  <description value="An Observation type resource as defined by the Dutch Health Care Information Model FluidBalance 1.0 - 2017EN" />
+  <purpose value="HCIM FluidBalance fits in Observation.  No known arguments for other resources" />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -34,14 +35,17 @@
     </element>
     <element id="Observation.code">
       <path value="Observation.code" />
+      <short value="FluidBalance" />
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="coding.code" />
+          <path value="code" />
         </discriminator>
         <rules value="open" />
       </slicing>
-      <short value="FluidBalance" />
     </element>
     <element id="Observation.code.coding.system">
       <path value="Observation.code.coding.system" />
@@ -64,12 +68,22 @@
       <short value="FluidBalanceStartTime" />
       <definition value="The time at which the measurement of the fluid balance was started." />
       <alias value="VochtbalansStarttijd" />
+      <mapping>
+        <identity value="hcim-fluidbalance-v1.0-2017EN" />
+        <map value="NL-CM:12.15.2" />
+        <comment value="FluidBalanceStartTime" />
+      </mapping>
     </element>
     <element id="Observation.effective[x]:effectivePeriod.end">
       <path value="Observation.effectivePeriod.end" />
       <short value="FluidBalanceStopTime" />
       <definition value="The time at which the measurement of the fluid balance was stopped." />
       <alias value="VochtbalansStoptijd" />
+      <mapping>
+        <identity value="hcim-fluidbalance-v1.0-2017EN" />
+        <map value="NL-CM:12.15.3" />
+        <comment value="FluidBalanceStopTime" />
+      </mapping>
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
@@ -84,7 +98,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="code" />
+          <path value="code.coding.code" />
         </discriminator>
         <rules value="open" />
       </slicing>
