@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="eOverdrachtAanmeldbericht" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtAanmeldbericht" />
-  <version value="0.1" />
+  <version value="0.2" />
   <name value="eOverdracht Aanmeldbericht" />
   <title value="eOverdracht Aanmeldbericht" />
   <status value="draft" />
@@ -41,12 +41,18 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
   <derivation value="constraint" />
   <differential>
+    <element id="Composition.type.coding">
+      <path value="Composition.type.coding" />
+      <min value="1" />
+    </element>
     <element id="Composition.type.coding.system">
       <path value="Composition.type.coding.system" />
+      <min value="1" />
       <fixedUri value="http://loinc.org" />
     </element>
     <element id="Composition.type.coding.code">
       <path value="Composition.type.coding.code" />
+      <min value="1" />
       <fixedCode value="57830-2" />
     </element>
     <element id="Composition.subject">
