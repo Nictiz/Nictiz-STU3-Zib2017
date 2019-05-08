@@ -1,27 +1,60 @@
 <?xml-model href="http://hl7.org/fhir/STU3/bundle.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/bundle.xsd">
     <id value="images-bundle-transaction"/> 
-    <meta> 
-        <lastUpdated value="2018-12-04T15:55:01+01:00"/> 
-    </meta>
     <type value="transaction"/> 
+    <entry>
+        <fullUrl value="urn:uuid:12ebe359-bfdc-4613-8bf2-c5e300945d0a"/>
+        <resource>
+            <List>
+                <meta>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/images-List"/>
+                </meta>
+                <extension url="http://nictiz.nl/fhir/StructureDefinition/images-recipient">
+                    <valueReference>
+                        <reference value="urn:uuid:4404ed56-d348-4036-affb-bccbad77a076"/>
+                        <display value="Dhr. A. Cornelissen, Maatschap Vaste Huisarts"/>
+                    </valueReference>
+                </extension>
+                <identifier>
+                    <use value="official"/>
+                    <system value="http://example.phr.org/system/"/>
+                    <value value="urn:uuid:a6e06ca8-0c75-4064-9e5c-88b9045a9b45"/>
+                </identifier>
+                <identifier>
+                    <system value="http://example.phr.org/system/"/>
+                    <value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.3670982664"/>
+                </identifier>
+                <status value="current"/>
+                <mode value="snapshot"/>
+                <subject>
+                    <reference value="urn:uuid:34ebe359-bfdc-4613-8bf2-c5e300945f0a"/>
+                    <display value="E XXX_Baltus"/>
+                </subject>
+                <date value="2018-12-04T15:55:01+01:00"/>
+                <note>
+                    <authorReference>
+                        <reference value="urn:uuid:34ebe359-bfdc-4613-8bf2-c5e300945f0a"/>
+                        <display value="E XXX_Baltus"/>
+                    </authorReference>
+                    <text value="Sinds gister werd de eczeem heftiger. De zalf lijkt niet te werken. Twee foto's van de betreffende plekken. Wat denkt u? "/>
+                </note>
+                <entry>
+                    <item>
+                        <reference value="urn:uuid:92016563-483f-484b-b2ac-3e699a165630"/>
+                        <display value="Eczema close up"/>
+                    </item>
+                </entry>
+            </List>
+        </resource>
+        <request> 
+            <method value="POST"/> 
+            <url value="List"/> 
+        </request> 
+    </entry>
     <entry> 
         <fullUrl value="urn:uuid:92016563-483f-484b-b2ac-3e699a165630"/> 
         <resource> 
             <Media xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/media.xsd">
-                <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/images-Media"/>
-                    <security>
-                        <system value="http://hl7.org/fhir/v3/Confidentiality"/>
-                        <code value="V"/>
-                        <display value="very restricted"/>
-                        <userSelected value="true"/>
-                    </security>
-                </meta>
-                <text> 
-                    <status value="generated"/> 
-                    <div xmlns="http://www.w3.org/1999/xhtml">Some narrative</div> 
-                </text> 
                 <identifier>
                     <system value="http://example-xis.org/fhir/NamingSystem/imageID"/>
                     <value value="1000002123"/>
@@ -34,10 +67,6 @@
                         <display value="External-camera Photography"/>
                     </coding>
                 </subtype>
-                <subject>
-                    <reference value="urn:uuid:34ebe359-bfdc-4613-8bf2-c5e300945f0a"/>
-                    <display value="E XXX_Baltus"/>
-                </subject>
                 <occurrenceDateTime value="2018-12-04T15:38:01+01:00"/>
                 <operator>
                     <extension url="http://nictiz.nl/fhir/StructureDefinition/missing-type-reference">
@@ -62,12 +91,6 @@
                         <display value="Anterior surface of arm"/>
                     </coding>
                 </bodySite>
-                <device>
-                    <reference value="urn:uuid:88567666-7a98-44e4-b113-f7f83b36c159"/>
-                    <display value="Iphone 7"/>
-                </device>
-                <height value="1000"/>
-                <width value="662"/>
                 <content>
                     <contentType value="image/jpeg"/>
                     <url value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f0a"/>
@@ -75,9 +98,6 @@
                     <hash value="3G+rTEx+TdWrmPJ6qqZBb2UEbQo="/>
                     <title value="Eczema close up"/>
                 </content>
-                <note>
-                    <text value="Sinds gister werd de eczeem heftiger. De zalf lijkt niet te werken. Wat denkt u?"/>
-                </note>
             </Media>
         </resource> 
         <request> 
@@ -128,33 +148,75 @@
             <url value="Patient"/> 
         </request> 
     </entry>
-    <entry> 
-        <fullUrl value="urn:uuid:88567666-7a98-44e4-b113-f7f83b36c159"/> 
-        <resource> 
-            <Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/device.xsd"> 
+    <entry>
+        <fullUrl value="urn:uuid:4404ed56-d348-4036-affb-bccbad77a076"/>
+        <resource>
+            <PractitionerRole xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitionerrole.xsd" xmlns="http://hl7.org/fhir">
                 <meta>
-                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
+                    <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
                 </meta>
-                <text> 
-                    <status value="generated"/> 
-                    <div xmlns="http://www.w3.org/1999/xhtml">Some narrative</div> 
-                </text> 
-                <status value="active" />
-                <type>
+                <practitioner>
+                    <reference value="urn:uuid:d0832e8e-a584-4dbc-b6f6-040dffb19441"/>
+                    <display value="Dhr. A. Cornelissen"/>
+                </practitioner>
+                <organization>
+                    <reference value="urn:uuid:febecfed-a909-4fd2-8e37-559a8d5d4f4e"/>
+                    <display value="Maatschap Vaste Huisarts"/>
+                </organization>
+                <specialty>
                     <coding>
-                        <system value="http://snomed.info/sct"/>
-                        <code value="14364002"/>
-                        <display value="Camera"/>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+                        <code value="0100"/>
+                        <display value="Huisartsen, niet nader gespecificeerd"/>
                     </coding>
-                    <text value="Iphone 7"/>
-                </type>
-                <manufacturer value="Apple Inc."/> 
-                <model value="Iphone 7/A1660"/> 
-            </Device> 
-        </resource> 
+                </specialty>
+            </PractitionerRole>
+        </resource>
         <request> 
             <method value="POST"/> 
-            <url value="Device"/> 
+            <url value="PractitionerRole"/> 
+        </request> 
+    </entry>
+    <entry>
+        <fullUrl value="urn:uuid:febecfed-a909-4fd2-8e37-559a8d5d4f4e"/>
+        <resource>
+            <Organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/organization.xsd" xmlns="http://hl7.org/fhir">
+                <meta>
+                    <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+                </meta>
+                <type>
+                    <coding>
+                        <system value="http://nictiz.nl/fhir/NamingSystem/organization-type"/>
+                        <code value="Z3"/>
+                        <display value="Huisartspraktijk (zelfstandig of groepspraktijk)"/>
+                    </coding>
+                </type>
+                <name value="Maatschap Vaste Huisarts"/>
+            </Organization>
+        </resource>
+        <request> 
+            <method value="POST"/> 
+            <url value="Organization"/> 
+        </request> 
+    </entry>
+    <entry>
+        <fullUrl value="urn:uuid:d0832e8e-a584-4dbc-b6f6-040dffb19441"/>
+        <resource>
+            <Practitioner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/procedure.xsd" xmlns="http://hl7.org/fhir">
+                <name>
+                    <family value="Cornelissen"/>                   
+                    <given value="A.">
+                        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                            <valueCode value="IN"/>
+                        </extension>
+                    </given>
+                </name>
+                <gender value="male"/>
+            </Practitioner>
+        </resource>
+        <request> 
+            <method value="POST"/> 
+            <url value="Practitioner"/> 
         </request> 
     </entry>
 </Bundle>

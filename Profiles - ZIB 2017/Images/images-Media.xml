@@ -66,33 +66,6 @@
         <comment value="If no value is present 'normal' as default" />
       </mapping>
     </element>
-    <element id="Media.extension">
-      <path value="Media.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Media.extension:recipient">
-      <path value="Media.extension" />
-      <sliceName value="recipient" />
-      <short value="recipient" />
-      <definition value="Intended recipient of the collection images. This can be both a Practitioner as well as an Organization" />
-      <comment value="A collection of images send with a List may hold the recipient extension as well. It is not necessary to provide the recipient here if this is provided in the List resource." />
-      <alias value="Ontvanger" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/images-recipient" />
-      </type>
-      <mapping>
-        <identity value="art-decor-beelden" />
-        <map value="bd-dataelement-53" />
-        <comment value="Ontvanger" />
-      </mapping>
-    </element>
     <element id="Media.identifier">
       <path value="Media.identifier" />
       <slicing>
@@ -161,7 +134,6 @@
       <short value="Who this Media is a record of" />
       <definition value="Who this Media is a record of." />
       <comment value="A reference to the Patient resource who is the subject of the Media resource. Not a contained resource. URL Points to an existing Patient Resource representing the XDS Affinity Domain Patient." />
-      <min value="1" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
