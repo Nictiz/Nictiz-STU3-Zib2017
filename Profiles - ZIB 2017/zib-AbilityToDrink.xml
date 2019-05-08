@@ -39,6 +39,24 @@
         <comment value="AbilityToDrink" />
       </mapping>
     </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <comment value="Terminology missing!" />
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="MISSING" />
+    </element>
     <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
@@ -49,30 +67,24 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="DrinkenCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.8.1--20171231000000" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-abilitytodrink-v3.1-2017EN" />
         <map value="NL-CM:4.8.3" />
         <comment value="Drinking" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding">
-      <path value="Observation.valueCodeableConcept.coding" />
-      <max value="1" />
-    </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding.system">
-      <path value="Observation.valueCodeableConcept.coding.system" />
-      <binding>
-        <strength value="extensible" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.8.1--20171231000000" />
-        </valueSetReference>
-      </binding>
-    </element>
     <element id="Observation.component">
       <path value="Observation.component" />
       <slicing>
         <discriminator>
-          <type value="pattern" />
+          <type value="value" />
           <path value="code.coding.code" />
         </discriminator>
         <rules value="open" />
@@ -84,18 +96,19 @@
       <short value="DrinkingLimitations" />
       <definition value="DrinkingConstraints specifies the patient’s constraints in drinking." />
       <alias value="DrinkBeperkingen" />
-      <mapping>
-        <identity value="hcim-abilitytodrink-v3.1-2017EN" />
-        <map value="NL-CM:4.8.4" />
-        <comment value="drinkingLimitations" />
-      </mapping>
+    </element>
+    <element id="Observation.component:DrinkingLimitations.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
     </element>
     <element id="Observation.component:DrinkingLimitations.code.coding.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.component:DrinkingLimitations.code.coding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="288851008" />
     </element>
     <element id="Observation.component:DrinkingLimitations.value[x]:valueCodeableConcept">
@@ -106,10 +119,16 @@
       </type>
       <binding>
         <strength value="extensible" />
+        <description value="DrinkBeperkingenCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.8.2--20171231000000" />
         </valueSetReference>
       </binding>
+      <mapping>
+        <identity value="hcim-abilitytodrink-v3.1-2017EN" />
+        <map value="NL-CM:4.8.4" />
+        <comment value="drinkingLimitations" />
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>
