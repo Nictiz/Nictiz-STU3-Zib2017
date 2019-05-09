@@ -39,41 +39,59 @@
         <comment value="AbilityToWashOneSelf" />
       </mapping>
     </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:AbilityToWashOneSelf">
+      <path value="Observation.code.coding" />
+      <sliceName value="AbilityToWashOneSelf" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:AbilityToWashOneSelf.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:AbilityToWashOneSelf.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="MISSING" />
+    </element>
     <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="BathingOneself" />
-      <definition value="The washing and drying of the entire body, or body parts, such as bathing, showering, washing of hands and feet, face and hair. 
-        The BodyPartToBeBathed concept offers the option to specify to which part of the body the limitation applies." />
+      <definition value="The washing and drying of the entire body, or body parts, such as bathing, showering, washing of hands and feet, face and hair.&#xD;&#xA;The BodyPartToBeBathed concept offers the option to specify to which part of the body the limitation applies." />
       <alias value="ZichWassen" />
       <min value="1" />
       <type>
         <code value="CodeableConcept" />
       </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="ZichWassenCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.10.1--20171231000000" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-abilitytowashoneself-v3.1-2017EN" />
         <map value="NL-CM:4.10.2" />
         <comment value="BathingOneself" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding">
-      <path value="Observation.valueCodeableConcept.coding" />
-      <max value="1" />
-    </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding.system">
-      <path value="Observation.valueCodeableConcept.coding.system" />
-      <binding>
-        <strength value="extensible" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.10.1--20171231000000" />
-        </valueSetReference>
-      </binding>
-    </element>
     <element id="Observation.component">
       <path value="Observation.component" />
       <slicing>
         <discriminator>
-          <type value="pattern" />
+          <type value="value" />
           <path value="code.coding.code" />
         </discriminator>
         <rules value="open" />
@@ -85,18 +103,20 @@
       <short value="BodyPartToBeBathed" />
       <definition value="The part or parts of the body for which help bathing is wanted/necessary." />
       <alias value="TeWassenLichaamsdeel" />
-      <mapping>
-        <identity value="hcim-abilitytowashoneself-v3.1-2017EN" />
-        <map value="NL-CM:4.10.3" />
-        <comment value="BodyPartToBeBathed" />
-      </mapping>
+    </element>
+    <element id="Observation.component:BodyPartToBeBathed.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Observation.component:BodyPartToBeBathed.code.coding.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.component:BodyPartToBeBathed.code.coding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="38866009" />
     </element>
     <element id="Observation.component:BodyPartToBeBathed.value[x]:valueCodeableConcept">
@@ -107,10 +127,16 @@
       </type>
       <binding>
         <strength value="extensible" />
+        <description value="TeWassenLichaamsdeelCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.10.2--20171231000000" />
         </valueSetReference>
       </binding>
+      <mapping>
+        <identity value="hcim-abilitytowashoneself-v3.1-2017EN" />
+        <map value="NL-CM:4.10.3" />
+        <comment value="BodyPartToBeBathed" />
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>

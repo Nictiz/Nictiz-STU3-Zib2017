@@ -45,14 +45,27 @@
     </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.code.coding.system">
+    <element id="Observation.code.coding:AbilityToDrink">
+      <path value="Observation.code.coding" />
+      <sliceName value="AbilityToDrink" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:AbilityToDrink.system">
       <path value="Observation.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.code.coding.code">
+    <element id="Observation.code.coding:AbilityToDrink.code">
       <path value="Observation.code.coding.code" />
       <min value="1" />
       <fixedCode value="MISSING" />
@@ -93,9 +106,6 @@
     <element id="Observation.component:DrinkingLimitations">
       <path value="Observation.component" />
       <sliceName value="DrinkingLimitations" />
-      <short value="DrinkingLimitations" />
-      <definition value="DrinkingConstraints specifies the patient’s constraints in drinking." />
-      <alias value="DrinkBeperkingen" />
     </element>
     <element id="Observation.component:DrinkingLimitations.code.coding">
       <path value="Observation.component.code.coding" />
@@ -114,6 +124,9 @@
     <element id="Observation.component:DrinkingLimitations.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
+      <short value="DrinkingLimitations" />
+      <definition value="DrinkingConstraints specifies the patient’s constraints in drinking." />
+      <alias value="DrinkBeperkingen" />
       <type>
         <code value="CodeableConcept" />
       </type>
