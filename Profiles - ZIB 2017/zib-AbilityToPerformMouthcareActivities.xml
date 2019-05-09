@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-AbilityToPerformMouthcareActivities" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToPerformMouthcareActivities" />
+  <version value="1.0.0" />
+  <name value="Zib AbilityToPerformMouthcareActivities" />
+  <title value="HCIM AbilityToPerformMouthcareActivities" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Observation as defined by the Dutch HCIM Zorginformatiebouwsteen AbilityToGroome v1.0(2017EN)" />
+  <purpose value="This profile is part of a group of statements regarding the patients ability to perform activities of daily living (ADL). Each statement applies to the current situation and is modeled as an observation about one aspect about these abilities." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-abilitytoperformmouthcareactivities-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/AbilityToPerformMouthcareActivities-v3.1(2017EN)" />
+    <name value="HCIM AbilityToPerformMouthcareActivities-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <alias value="VermogenTotMondverzorging" />
+      <mapping>
+        <identity value="hcim-abilitytoperformmouthcareactivities-v1.0-2017EN" />
+        <map value="NL-CM:4.13.1" />
+        <comment value="AbilityToPerformMouthcareActivities" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:AbilityToPerformMouthcareActivities">
+      <path value="Observation.code.coding" />
+      <sliceName value="AbilityToPerformMouthcareActivities" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:AbilityToPerformMouthcareActivities.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:AbilityToPerformMouthcareActivities.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="MISSING" />
+    </element>
+    <element id="Observation.value[x]:valueCodeableConcept">
+      <path value="Observation.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="DentalHygiene" />
+      <definition value="Taking care of mouth and teeth/molars or dentures." />
+      <alias value="VerzorgenTanden" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="VerzorgenTandenCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.13.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-abilitytoperformmouthcareactivities-v1.0-2017EN" />
+        <map value="NL-CM:4.13.2" />
+        <comment value="DentalHygiene" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
