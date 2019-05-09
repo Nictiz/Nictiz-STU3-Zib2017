@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="zib-AbilityToWashOneSelf" />
-  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToWashOneSelf" />
+  <id value="zib-AbilityToDressOneSelf" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToDressOneself" />
   <version value="1.0.0" />
-  <name value="Zib AbilityToWashOneSelf" />
-  <title value="HCIM AbilityToWashOneSelf" />
+  <name value="Zib AbilityToDressOneself" />
+  <title value="HCIM AbilityToDressOneself" />
   <status value="draft" />
   <publisher value="Nictiz" />
   <contact>
@@ -15,14 +15,14 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="An Observation as defined by the Dutch HCIM Zorginformatiebouwsteen AbilityToWashOneSelf v3.1(2017EN)" />
+  <description value="An Observation as defined by the Dutch HCIM Zorginformatiebouwsteen AbilityToDressOneself v3.1(2017EN)" />
   <purpose value="This profile is part of a group of statements regarding the patients ability to perform activities of daily living (ADL). Each statement applies to the current situation and is modeled as an observation about one aspect about these abilities." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
-    <identity value="hcim-abilitytowashoneself-v3.1-2017EN" />
-    <uri value="https://zibs.nl/wiki/AbilityToWashOneSelf-v3.1(2017EN)" />
-    <name value="HCIM AbilityToWashOneSelf-v3.1(2017EN)" />
+    <identity value="hcim-abilitytodressoneself-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/AbilityToDressOneself-v3.1(2017EN)" />
+    <name value="HCIM AbilityToDressOneSelf-v3.1(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -32,11 +32,11 @@
   <differential>
     <element id="Observation">
       <path value="Observation" />
-      <alias value="VermogenTotZichWassen" />
+      <alias value="VermogenTotZichKleden" />
       <mapping>
-        <identity value="hcim-abilitytowashoneself-v3.1-2017EN" />
-        <map value="NL-CM:4.10.1" />
-        <comment value="AbilityToWashOneSelf" />
+        <identity value="hcim-abilitytodressoneself-v3.1-2017EN" />
+        <map value="NL-CM:4.11.1" />
+        <comment value="AbilityToDressOneself" />
       </mapping>
     </element>
     <element id="Observation.code.coding">
@@ -50,17 +50,18 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.code.coding:AbilityToWashOneSelf">
+    <element id="Observation.code.coding:AbilityToDressOneself">
       <path value="Observation.code.coding" />
-      <sliceName value="AbilityToWashOneSelf" />
+      <sliceName value="AbilityToDressOneself" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.code.coding:AbilityToWashOneSelf.system">
+    <element id="Observation.code.coding:AbilityToDressOneself.system">
       <path value="Observation.code.coding.system" />
       <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.code.coding:AbilityToWashOneSelf.code">
+    <element id="Observation.code.coding:AbilityToDressOneself.code">
       <path value="Observation.code.coding.code" />
       <min value="1" />
       <fixedCode value="MISSING" />
@@ -68,24 +69,24 @@
     <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
-      <short value="BathingOneself" />
-      <definition value="The washing and drying of the entire body, or body parts, such as bathing, showering, washing of hands and feet, face and hair.&#xD;&#xA;The BodyPartToBeBathed concept offers the option to specify to which part of the body the limitation applies." />
-      <alias value="ZichWassen" />
+      <short value="DressingOneself" />
+      <definition value="Putting on or removing clothes.&#xD;&#xA;The BodyPartToBeDressed concept offers the option to specify to which part of the body the limitation applies." />
+      <alias value="ZichKleden" />
       <min value="1" />
       <type>
         <code value="CodeableConcept" />
       </type>
       <binding>
         <strength value="extensible" />
-        <description value="ZichWassenCodelijst" />
+        <description value="ZichKledenCodelijst" />
         <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.10.1--20171231000000" />
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.11.1--20171231000000" />
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="hcim-abilitytowashoneself-v3.1-2017EN" />
-        <map value="NL-CM:4.10.2" />
-        <comment value="BathingOneself" />
+        <identity value="hcim-abilitytodressoneself-v3.1-2017EN" />
+        <map value="NL-CM:4.11.2" />
+        <comment value="DressingOneself" />
       </mapping>
     </element>
     <element id="Observation.component">
@@ -98,45 +99,45 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Observation.component:BodyPartToBeBathed">
+    <element id="Observation.component:BodyPartToBeDressed">
       <path value="Observation.component" />
-      <sliceName value="BodyPartToBeBathed" />
+      <sliceName value="BodyPartToBeDressed" />
     </element>
-    <element id="Observation.component:BodyPartToBeBathed.code.coding">
+    <element id="Observation.component:BodyPartToBeDressed.code.coding">
       <path value="Observation.component.code.coding" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.component:BodyPartToBeBathed.code.coding.system">
+    <element id="Observation.component:BodyPartToBeDressed.code.coding.system">
       <path value="Observation.component.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:BodyPartToBeBathed.code.coding.code">
+    <element id="Observation.component:BodyPartToBeDressed.code.coding.code">
       <path value="Observation.component.code.coding.code" />
       <min value="1" />
       <fixedCode value="38866009" />
     </element>
-    <element id="Observation.component:BodyPartToBeBathed.value[x]:valueCodeableConcept">
+    <element id="Observation.component:BodyPartToBeDressed.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
-      <short value="BodyPartToBeBathed" />
-      <definition value="The part or parts of the body for which help bathing is wanted/necessary." />
-      <alias value="TeWassenLichaamsdeel" />
+      <short value="BodyPartToBeDressed" />
+      <definition value="The part or parts of the body for which help getting dressed is wanted/necessary." />
+      <alias value="TeKledenLichaamsdeel" />
       <type>
         <code value="CodeableConcept" />
       </type>
       <binding>
         <strength value="extensible" />
-        <description value="TeWassenLichaamsdeelCodelijst" />
+        <description value="TeKledenLichaamsdeelCodelijst" />
         <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.10.2--20171231000000" />
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.11.2--20171231000000" />
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="hcim-abilitytowashoneself-v3.1-2017EN" />
-        <map value="NL-CM:4.10.3" />
-        <comment value="BodyPartToBeBathed" />
+        <identity value="hcim-abilitytodressoneself-v3.1-2017EN" />
+        <map value="NL-CM:4.11.3" />
+        <comment value="BodyPartToBeDressed" />
       </mapping>
     </element>
   </differential>
