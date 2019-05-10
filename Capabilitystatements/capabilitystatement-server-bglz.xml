@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/capabilitystatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
+    <url value="http://nictiz.nl/fhir/CapabilityStatement/bglz-servercapabilities"/>
+    <version value="1.0.0"/>
+    <name value="bglzServer"/>
+    <status value="draft"/>
+    <date value="2019-05-20"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This CapabilityStatement describes the minimal requirements for a server to expose BgLZ information based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB), release 2017."/>
+    <copyright value="CC0"/>
+    <kind value="requirements"/>
+    <fhirVersion value="3.0.1"/>
+    <acceptUnknown value="both"/>
+    <format value="xml"/>
+    <format value="json"/>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+        <display value="nl-core-patient"/>
+    </profile>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+        <display value="nl-core-practitioner"/>
+    </profile>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+        <display value="nl-core-practitionerrole"/>
+    </profile>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+        <display value="nl-core-organization"/>
+    </profile>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-careteam"/>
+        <display value="nl-core-careteam"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective"/>
+        <display value="zib-TreatmentDirective"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective"/>
+        <display value="zib-AdvanceDirective"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
+        <display value="zib-Problem"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance"/>
+        <display value="zib-AllergyIntolerance"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation"/>
+        <display value="zib-LaboratoryTestResult-Observation"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure"/>
+        <display value="zib-Procedure"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentObjective"/>
+        <display value="zib-TreatmentObjective"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice"/>
+        <display value="zib-MedicalDevice"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-OutcomeOfCare"/>
+        <display value="zib-OutcomeOfCare"/>
+    </profile>
+    <rest>
+        <mode value="server"/>
+        <resource>
+            <type value="Patient"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchInclude value="general-practitioner"/>
+            <searchParam>
+                <name value="identifier"/>
+                <type value="token"/>
+            </searchParam>
+        </resource>
+        <resource>
+            <type value="Observation"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchInclude value="related-target"/>
+            <searchInclude value="specimen"/>
+            <searchParam>
+                <name value="patient"/>
+                <type value="reference"/>
+            </searchParam>
+            <searchParam>
+                <name value="category"/>
+                <type value="token"/>
+            </searchParam>
+            <searchParam>
+                <name value="code"/>
+                <type value="token"/>
+            </searchParam>
+        </resource>
+        <resource>
+            <type value="Consent"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchParam>
+                <name value="patient"/>
+                <type value="reference"/>
+            </searchParam>
+            <searchParam>
+                <name value="category"/>
+                <type value="token"/>
+            </searchParam>
+        </resource>
+        <resource>
+            <type value="Procedure"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchInclude value="treatmentobjective"/>
+            <searchInclude value="medicaldevice"/>
+            <searchParam>
+                <name value="patient"/>
+                <type value="reference"/>
+            </searchParam>
+            <searchParam>
+                <name value="category"/>
+                <type value="token"/>
+            </searchParam>
+            <searchParam>
+                <name value="treatmentobjective"/>
+                <definition value="http://nictiz.nl/fhir/SearchParameter/procedure-treatmentobjective"/>
+                <type value="reference"/>
+            </searchParam>
+            <searchParam>
+                <name value="medicaldevice"/>
+                <definition value="http://nictiz.nl/fhir/SearchParameter/procedure-medicaldevice"/>
+                <type value="reference"/>
+            </searchParam>
+        </resource>
+        <resource>
+            <type value="AllergyIntolerance"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchParam>
+                <name value="patient"/>
+                <type value="reference"/>
+            </searchParam>
+        </resource>
+        <resource>
+            <type value="CareTeam"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchInclude value="participant"/>
+            <searchParam>
+                <name value="patient"/>
+                <type value="reference"/>
+            </searchParam>
+        </resource>
+        <resource>
+            <type value="Condition"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchParam>
+                <name value="patient"/>
+                <type value="reference"/>
+            </searchParam>
+        </resource>
+        <operation>
+            <name value="Last N Observations Query"/>
+            <definition>
+                <reference value="http://hl7.org/fhir/OperationDefinition/Observation-lastn"/>
+                <display value="Observation-lastn"/>
+            </definition>
+        </operation>
+    </rest>
+</CapabilityStatement>
