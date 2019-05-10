@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/searchparameter.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<SearchParameter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/searchparameter.xsd">
+  <id value="procedure-treatmentobjective"/>
+  <url value="http://nictiz.nl/fhir/SearchParameter/procedure-treatmentobjective" />
+  <version value="1.0.0"/>
+  <name value="procedure-treatmentobjective" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <purpose value="To search on a Goal resource, referenced from a HL7 core extension in Procedure. Main purpose is to use this search parameter for including Goal resouces in the result for a search on Procedure."/>
+  <code value="treatmentobjective"/>
+  <base value="Procedure"/>
+  <type value="reference"/>
+  <description value="To alow a search (_include) on a Goal resource that has the description of the treatment goal that the intervention (Procedure) decision is based on." />
+  <expression value="Procedure.extension('http://hl7.org/fhir/StructureDefinition/goal-pertainsToGoal')"/>
+  <xpath value="f:Procedure/f:extension[@url='http://hl7.org/fhir/StructureDefinition/goal-pertainsToGoal']"/>
+  <xpathUsage value="normal"/>
+</SearchParameter>
+
