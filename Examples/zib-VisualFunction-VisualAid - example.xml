@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/deviceusestatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<DeviceUseStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
+    <id value="example-visualfunction-visualaid" />
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-VisualFunction-VisualAid"/>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/DeviceUseStatement-reasonReference-stu3">
+        <valueReference>
+            <reference value="Observation/zib-visualfunction-example" />
+        </valueReference>
+    </extension>
+    <status value="active" />
+    <subject>
+        <reference value="Patient/example"/>
+        <display value="Example Patient"/>
+    </subject>
+    <device>
+        <reference value="Device/example-visualfunction-visualaid-product"/>
+        <display value="Leesbril"/>
+    </device>
+</DeviceUseStatement>
