@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-OutcomeOfCare" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-OutcomeOfCare" />
+  <version value="0.1.0" />
+  <name value="zib-OutcomeOfCare" />
+  <title value="HCIM OutcomeOfCare" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A profile on nl-core-observation to represent the the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) OutcomeOfCare version 3.1, release 2017.&#xD;&#xA;&#xD;&#xA;The OutcomeOfCare concept describes the determined status of the patient in terms of a certain problem. Comparing the healthcare result with the treatment objective provides insight into the effectively of the nursing interventions/activities carried out for this problem. It is a part of the nursing process, together with nursing diagnoses/problems, the treatment objective and nursing interventions." />
+  <purpose value="Healthcare results are important parameters for evaluating the patient’s health and monitoring the effectivity of the medical treatment and nursing interventions." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-outcomeofcare-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/OutcomeOfCare-v3.1(2017EN)" />
+    <name value="HCIM OutcomeOfCare-v3.1 (2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="OutcomeOfCare" />
+      <definition value="Root concept of the OutcomeOfCare information model. This root concept contains all data elements of the OutcomeOfCare information model." />
+      <alias value="UitkomstVanZorg" />
+      <mapping>
+        <identity value="hcim-outcomeofcare-v3.1-2017EN" />
+        <map value="NL-CM:13.4.1" />
+        <comment value="OutcomeOfCare" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="coding.code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:outcomOfCareCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="outcomOfCareCode" />
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:outcomOfCareCode.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.code.coding:outcomOfCareCode.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="27574-3" />
+    </element>
+    <element id="Observation.code.coding:outcomOfCareCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Skilled nursing treatment plan Progress note and attainment of goals (narrative)" />
+    </element>
+    <element id="Observation.value[x]:valueString">
+      <path value="Observation.valueString" />
+      <sliceName value="valueString" />
+      <short value="HealthcareResult" />
+      <definition value="The textual account of the healthcare result. If HealthcareResult cannot be entered as a measurement value or functional/mental status, it can be described as free text in the healthcare result." />
+      <alias value="Zorgresultaat" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="hcim-outcomeofcare-v3.1-2017EN" />
+        <map value="NL-CM:13.4.5" />
+        <comment value="HealthcareResult" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
