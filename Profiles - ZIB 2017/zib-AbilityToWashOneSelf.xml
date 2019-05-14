@@ -15,8 +15,8 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="An Observation as defined by the Dutch HCIM Zorginformatiebouwsteen AbilityToWashOneSelf v3.1(2017EN)" />
-  <purpose value="This profile is part of a group of statements regarding the patients ability to perform activities of daily living (ADL). Each statement applies to the current situation and is modeled as an observation about one aspect about these abilities." />
+  <description value="An Observation as defined by the Dutch HCIM Zorginformatiebouwsteen AbilityToWashOneSelf v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Being able to bathe independently is part of self-care. Limitations in this ability indicate a reduced ability to cope for oneself.&#xD;&#xA;This activity and activities such as those including eating, drinking, and dressing are also known as activities of daily living (ADL). These are the activities people go through in daily life. The extent to which a person is able to do all these activities by themselves is a measure for their total ability to do things independently." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;Information on limitations in a patient’s ability to bathe themselves is important in determining the nature and intensity of the care the patient needs. In a transfer situation, it gives the receiving organization the ability to anticipate the intensity of the care to be given to the patient, enabling continuity in healthcare for the patient.&#xD;&#xA;If policy has been implemented to improve a patient’s ability to do things independently, the entered extent of independence helps to determine the efficiency of the treatment.&#xD;&#xA;&#xD;&#xA;# Rationale for Observation resource&#xD;&#xA;This profile is part of a group of statements regarding the patients ability to perform activities of daily living (ADL). Each statement applies to the current situation and is modeled as an observation about one aspect about these abilities." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -63,7 +63,14 @@
     <element id="Observation.code.coding:AbilityToWashOneSelf.code">
       <path value="Observation.code.coding.code" />
       <min value="1" />
-      <fixedCode value="MISSING" />
+      <fixedCode value="284785009" />
+    </element>
+    <element id="Observation.code.coding:AbilityToWashOneSelf.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Ability to wash self" />
     </element>
     <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />

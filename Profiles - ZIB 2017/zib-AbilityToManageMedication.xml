@@ -15,8 +15,8 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="An Observation as defined by the Dutch HCIM Zorginformatiebouwsteen AbilityToManageMedication v1.0(2017EN)" />
-  <purpose value="This profile is part of a group of statements regarding the patients ability to perform activities of daily living (ADL). Each statement applies to the current situation and is modeled as an observation about one aspect about these abilities." />
+  <description value="An Observation as defined by the Dutch HCIM Zorginformatiebouwsteen AbilityToManageMedication v1.0(2017EN).&#xD;&#xA;&#xD;&#xA;Managing one's own medication is part of self-healthcare. Limitations in this ability indicate a reduced ability to cope for oneself.&#xD;&#xA;This activity and activities such as those including cooking, using the telephone and shopping are also known as instrumentel activities of daily living (IADL). These tasks support an independent life style. Many people can still live independently even though they need help with one or two of these IADL’s. " />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;To promote safe and proper use of medication, it is important in patient care to know whether the patient is capable of using the medication independently, or if the patient needs help doing so. &#xD;&#xA;&#xD;&#xA;# Rationale for Observation resource&#xD;&#xA;This profile is part of a group of statements regarding the patients ability to perform activities of daily living (ADL). Each statement applies to the current situation and is modeled as an observation about one aspect about these abilities." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -52,7 +52,6 @@
     <element id="Observation.extension:requiredAssistance">
       <path value="Observation.extension" />
       <sliceName value="requiredAssistance" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -97,6 +96,13 @@
       <path value="Observation.code.coding.code" />
       <min value="1" />
       <fixedCode value="285033005" />
+    </element>
+    <element id="Observation.code.coding:AbilityToManageMedication.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Ability to manage medication" />
     </element>
     <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
