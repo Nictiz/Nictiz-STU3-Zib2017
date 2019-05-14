@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="images-List" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/images-List" />
+  <version value="1.0.0" />
+  <name value="images-List" />
+  <title value="Images List" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Profile on List to support sending a collection of max three images from a patient/PHR to a healtcare provider/XIS.&#xD;&#xA;&#xD;&#xA;A number of elements are made mandatory to accomodate succesfull entries in a XDS network. This profile provides a mapping to the metadata attributes associated with a Document Sharing Folder object. The full Folder metadata attribute definition is in IHE ITI TF-3 Section 4.2.3.4." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="ard-decor-beelden" />
+    <uri value="https://decor.nictiz.nl/art-decor/decor-datasets--bd-?id=2.16.840.1.113883.2.4.3.11.60.54.1.1&amp;effectiveDate=2019-01-29T11:40:51&amp;language=nl-NL" />
+    <name value="ART-DECOR Dataset Beelden" />
+  </mapping>
+  <mapping>
+    <identity value="ihe-xds-folder-metadata-attributes" />
+    <uri value="http://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_MHD.pdf" />
+    <name value="Folder Metadata Attributes" />
+    <comment value="Table 4.2.3.4-1: Folder Metadata Attribute Definitions" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="List" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/List" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="List">
+      <path value="List" />
+      <mapping>
+        <identity value="ihe-xds-folder-metadata-attributes" />
+        <map value="folder" />
+      </mapping>
+      <mapping>
+        <identity value="ard-decor-beelden" />
+        <map value="bd-dataelement-31" />
+        <comment value="CollectieBeelden" />
+      </mapping>
+    </element>
+    <element id="List.extension">
+      <path value="List.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="List.extension:recipient">
+      <path value="List.extension" />
+      <sliceName value="recipient" />
+      <short value="recipient" />
+      <definition value="Intended recipient of the collection images. This can be both a Practitioner as well as an Organization" />
+      <alias value="Ontvanger" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/images-recipient" />
+      </type>
+      <mapping>
+        <identity value="ard-decor-beelden" />
+        <map value="bd-dataelement-53" />
+        <comment value="Ontvanger" />
+      </mapping>
+    </element>
+    <element id="List.extension:recipient.value[x]:valueReference">
+      <path value="List.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+        <aggregation value="bundled" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+        <aggregation value="bundled" />
+      </type>
+    </element>
+    <element id="List.identifier">
+      <path value="List.identifier" />
+      <min value="1" />
+      <mapping>
+        <identity value="ihe-xds-folder-metadata-attributes" />
+        <map value="uniqueId" />
+      </mapping>
+      <mapping>
+        <identity value="ihe-xds-folder-metadata-attributes" />
+        <map value="entryUUID" />
+      </mapping>
+      <mapping>
+        <identity value="ard-decor-beelden" />
+        <map value="bd-dataelement-66" />
+        <comment value="Identificatie" />
+      </mapping>
+    </element>
+    <element id="List.identifier.system">
+      <path value="List.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="List.identifier.value">
+      <path value="List.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="List.status">
+      <path value="List.status" />
+      <comment value="For this use case the value 'current' is expected as the status." />
+      <mapping>
+        <identity value="ihe-xds-folder-metadata-attributes" />
+        <map value="availabilityStatus" />
+      </mapping>
+    </element>
+    <element id="List.mode">
+      <path value="List.mode" />
+      <fixedCode value="snapshot" />
+    </element>
+    <element id="List.title">
+      <path value="List.title" />
+      <alias value="Titel" />
+      <mapping>
+        <identity value="ihe-xds-folder-metadata-attributes" />
+        <map value="title" />
+      </mapping>
+    </element>
+    <element id="List.code">
+      <path value="List.code" />
+      <mapping>
+        <identity value="ihe-xds-folder-metadata-attributes" />
+        <map value="codeList" />
+      </mapping>
+    </element>
+    <element id="List.subject">
+      <path value="List.subject" />
+      <comment value="A reference to the Patient resource who is the subject of the List and Media resources." />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+        <aggregation value="bundled" />
+      </type>
+      <mapping>
+        <identity value="ihe-xds-folder-metadata-attributes" />
+        <map value="patientId" />
+      </mapping>
+    </element>
+    <element id="List.date">
+      <path value="List.date" />
+      <alias value="DatumTijd" />
+      <mapping>
+        <identity value="ihe-xds-folder-metadata-attributes" />
+        <map value="lastUpdateTime" />
+      </mapping>
+      <mapping>
+        <identity value="ard-decor-beelden" />
+        <map value="bd-dataelement-34" />
+        <comment value="DatumTijd" />
+      </mapping>
+    </element>
+    <element id="List.source">
+      <path value="List.source" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+    </element>
+    <element id="List.source.extension">
+      <path value="List.source.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="List.source.extension:practitionerRole">
+      <path value="List.source.extension" />
+      <sliceName value="practitionerRole" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+    <element id="List.note">
+      <path value="List.note" />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="ihe-xds-folder-metadata-attributes" />
+        <map value="comments" />
+      </mapping>
+      <mapping>
+        <identity value="ard-decor-beelden" />
+        <map value="bd-dataelement-33" />
+        <comment value="Toelichting" />
+      </mapping>
+    </element>
+    <element id="List.note.author[x]">
+      <path value="List.note.author[x]" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="List.entry">
+      <path value="List.entry" />
+      <comment value="Max 3 Media Resources (images) in the transaction Bundle." />
+      <min value="1" />
+      <max value="3" />
+    </element>
+    <element id="List.entry.item">
+      <path value="List.entry.item" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/images-Media" />
+        <aggregation value="bundled" />
+      </type>
+      <mapping>
+        <identity value="ard-decor-beelden" />
+        <map value="bd-dataelement-68" />
+        <comment value="Beeld" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
