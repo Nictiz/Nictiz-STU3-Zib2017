@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://hl7.org/fhir/STU3/capabilitystatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
-  <url value="http://nictiz.nl/fhir/CapabilityStatement/image-servercapabilities" />
-  <version value="0.3.0"/>
-  <name value="ImageServer" />
-  <status value="draft" />
-  <date value="2018-12-13" />
+  <url value="http://nictiz.nl/fhir/CapabilityStatement/images-servercapabilities" />
+  <version value="1.0.0"/>
+  <name value="ImagesServer" />
+  <status value="active" />
+  <date value="2019-04" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This CapabilityStatement describes the minimal requirements for a server to receive images. The requirements are influenced by the IHE technical framework supplement for Mobile access to Health Documents (MHD)." />
+  <description value="This CapabilityStatement describes the minimal requirements for a server to receive images." />
   <copyright value="CC0" />
   <kind value="requirements" />
   <fhirVersion value="3.0.1" />
@@ -29,13 +29,16 @@
     <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
   </profile>
   <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+  </profile>
+  <profile>
     <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
   </profile>
   <profile>
     <reference value="http://nictiz.nl/fhir/StructureDefinition/images-Media" />
   </profile>
   <profile>
-    <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+    <reference value="http://nictiz.nl/fhir/StructureDefinition/images-List" />
   </profile>
   <rest>
     <mode value="server" />
@@ -52,6 +55,12 @@
       </interaction>
     </resource>
     <resource>
+      <type value="List" />
+      <interaction>
+        <code value="create" />
+      </interaction>
+    </resource>
+    <resource>
       <type value="Binary"/>
       <interaction>
         <code value="create"/>
@@ -59,6 +68,24 @@
     </resource>
     <resource>
       <type value="Patient" />
+      <interaction>
+        <code value="create" />
+      </interaction>
+    </resource>
+    <resource>
+      <type value="Practitioner" />
+      <interaction>
+        <code value="create" />
+      </interaction>
+    </resource>
+    <resource>
+      <type value="PractitionerRole" />
+      <interaction>
+        <code value="create" />
+      </interaction>
+    </resource>
+    <resource>
+      <type value="Organization" />
       <interaction>
         <code value="create" />
       </interaction>
