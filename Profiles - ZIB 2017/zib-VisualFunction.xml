@@ -15,8 +15,8 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="An Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) VisualFunction v3.1(2017EN)" />
-  <purpose value="Information on visual function disorders is important in patient care and treatment and particularly in the communication with the patient. Based on this information, healthcare can be adjusted to the patient’s limitations if needed.&#xD;&#xA;&#xD;&#xA;This HCIM is modeled on an Observation resource because it foucses on visual function disorders and visual aids in the context of communication with the patient. It is not meant to track the overaching condition." />
+  <description value="An Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) VisualFunction v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Sight is the ability to observe lit objects, with the goal of orienting yourself on objects and people in a lit environment. This pertains to observing the light stimuli, and not processing them in the brain.&#xD;&#xA;A sight disorder can lead to things including orientation problems." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;Information on visual function disorders is important in patient care and treatment and particularly in the communication with the patient. Based on this information, healthcare can be adjusted to the patient’s limitations if needed.&#xD;&#xA;&#xD;&#xA;# Purpose of this resource&#xD;&#xA;This HCIM is is not meant to track the overaching condition but make an observation about the visual disorders in the context of communication with the patient. It is complemented by the zib-VisualFunction-VisualAid (DeviceUseStatement) and zib-VisualFunction-VisualAidProduct (Device) profiles to score information about the use of any visual aids." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -42,19 +42,32 @@
     </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.code.coding.system">
+    <element id="Observation.code.coding:VisualFunction">
+      <path value="Observation.code.coding" />
+      <sliceName value="VisualFunction" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:VisualFunction.system">
       <path value="Observation.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.code.coding.code">
+    <element id="Observation.code.coding:VisualFunction.code">
       <path value="Observation.code.coding.code" />
       <min value="1" />
       <fixedCode value="281004000" />
     </element>
-    <element id="Observation.code.coding.display">
+    <element id="Observation.code.coding:VisualFunction.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
@@ -76,6 +89,7 @@
         <description value="VisueleFunctieCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.16.1--20171231000000" />
+          <display value="VisueleFunctieCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>

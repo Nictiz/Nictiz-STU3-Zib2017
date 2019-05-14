@@ -15,8 +15,8 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A HearingFunction resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) HearingFunction v3.1(2017EN)." />
-  <purpose value="Information on hearing function disorders is important in patient nursing and care and particularly in communication with the patient." />
+  <description value="A HearingFunction resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) HearingFunction v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Hearing is the ability to observe sound, with the purpose of communicating with others, localizing the source of the sound and recognizing certain sounds. This pertains to observing the sound waves, and not processing the sounds in the brain.&#xD;&#xA;A hearing disorder can lead to things including communication problems." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;Information on hearing function disorders is important in patient nursing and care and particularly in communication with the patient.&#xD;&#xA;&#xD;&#xA;# Purpose of this resource&#xD;&#xA;This HCIM is is not meant to track the overaching condition but make an observation about the hearing disorders in the context of communication with the patient. It is complemented by the zib-HearingFunction-HearingAid (DeviceUseStatement) and zib-HearingFunction-HearingAidProduct (Device) profiles to score information about the use of any hearing aids." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -32,6 +32,8 @@
   <differential>
     <element id="Observation">
       <path value="Observation" />
+      <short value="HearingFunction" />
+      <alias value="FunctieHoren" />
       <mapping>
         <identity value="hcim-hearingfunction-v3.1-2017EN" />
         <map value="NL-CM:4.17.1" />
@@ -70,8 +72,7 @@
         <valueBoolean value="true" />
       </extension>
       <path value="Observation.code.coding.display" />
-      <alias value="gehoorfunctie" />
-      <min value="1" />
+      <defaultValueString value="Hearing, function" />
     </element>
     <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
