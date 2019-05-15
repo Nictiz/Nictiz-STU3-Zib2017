@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-AbilityToPerformNursingActivities-NursingIntervention" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToPerformNursingActivities-NursingIntervention" />
+  <version value="1.0.0" />
+  <name value="Zib AbilityToPerformNursingActivities NursingIntervention extension" />
+  <title value="HCIM AbilityToPerformNursingActivities NursingIntervention extension" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The Dutch Health and Care Information model (Dutch: Zorginformatiebouwsteen or ZIB) AbilityToPerformNursingActivities AbilityToPerformNursingActivities needs a reference to the NursingIntervention HCIM. This extension provides a method to extend Observation profiles with this reference." />
+  <purpose value="This extensions can be used to include a reference from an Observation to a zib-NursingIntervention profile" />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Observation" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToPerformNursingActivities-NursingIntervention" />
+    </element>
+    <element id="Extension.value[x]:valueReference">
+      <path value="Extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
