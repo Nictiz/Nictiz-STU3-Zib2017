@@ -46,14 +46,17 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Observation.code.coding.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.code.coding.code">
       <path value="Observation.code.coding.code" />
       <short value="Fluid balance observable" />
+      <min value="1" />
       <fixedCode value="364396009" />
     </element>
     <element id="Observation.effective[x]:effectivePeriod">
@@ -87,6 +90,9 @@
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comment on the fluid balance." />
+      <alias value="Toelichting" />
       <mapping>
         <identity value="hcim-fluidbalance-v1.0-2017EN" />
         <map value="NL-CM:12.15.6" />
@@ -97,8 +103,8 @@
       <path value="Observation.component" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="code.coding.code" />
+          <type value="pattern" />
+          <path value="code" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -126,7 +132,7 @@
         <valueBoolean value="true" />
       </extension>
       <path value="Observation.component.code.coding.display" />
-      <defaultValueString value="The total of fluid intake (e.g. by mouth, drip or tube feeding) in mL." />
+      <defaultValueString value="Total fluid input" />
     </element>
     <element id="Observation.component:FluidTotalIn.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -136,6 +142,11 @@
       <type>
         <code value="Quantity" />
       </type>
+      <mapping>
+        <identity value="hcim-fluidbalance-v1.0-2017EN" />
+        <map value="NL-CM:12.15.4" />
+        <comment value="FluidTotalOut" />
+      </mapping>
     </element>
     <element id="Observation.component:FluidTotalIn.value[x]:valueQuantity.unit">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -146,7 +157,6 @@
     </element>
     <element id="Observation.component:FluidTotalIn.value[x]:valueQuantity.system">
       <path value="Observation.component.valueQuantity.system" />
-      <short value="UCUM" />
       <fixedUri value="http://unitsofmeasure.org" />
     </element>
     <element id="Observation.component:FluidTotalIn.value[x]:valueQuantity.code">
@@ -178,7 +188,7 @@
         <valueBoolean value="true" />
       </extension>
       <path value="Observation.component.code.coding.display" />
-      <defaultValueString value="The total of fluid excretion (e.g. urine production, drain, watery defecation) in mL." />
+      <defaultValueString value="Total fluid output" />
     </element>
     <element id="Observation.component:FluidTotalOut.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -187,6 +197,11 @@
       <type>
         <code value="Quantity" />
       </type>
+      <mapping>
+        <identity value="hcim-fluidbalance-v1.0-2017EN" />
+        <map value="NL-CM:12.15.5" />
+        <comment value="FluidTotalIn" />
+      </mapping>
     </element>
     <element id="Observation.component:FluidTotalOut.value[x]:valueQuantity.unit">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -197,12 +212,10 @@
     </element>
     <element id="Observation.component:FluidTotalOut.value[x]:valueQuantity.system">
       <path value="Observation.component.valueQuantity.system" />
-      <short value="UCUM" />
       <fixedUri value="http://unitsofmeasure.org" />
     </element>
     <element id="Observation.component:FluidTotalOut.value[x]:valueQuantity.code">
       <path value="Observation.component.valueQuantity.code" />
-      <short value="milliliter" />
       <fixedCode value="mL" />
     </element>
   </differential>
