@@ -88,8 +88,8 @@
       <path value="Observation.component" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="code.coding.code" />
+          <type value="pattern" />
+          <path value="code" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -99,39 +99,14 @@
       <sliceName value="Walking" />
       <max value="1" />
     </element>
-    <element id="Observation.component:Walking.code.coding">
-      <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Observation.component:Walking.code.coding:AbilityToWalk">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="AbilityToWalk" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:Walking.code.coding:AbilityToWalk.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:Walking.code.coding:AbilityToWalk.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="282097004" />
-    </element>
-    <element id="Observation.component:Walking.code.coding:AbilityToWalk.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.code.coding.display" />
-      <defaultValueString value="Ability to walk" />
+    <element id="Observation.component:Walking.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="282097004" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:Walking.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -160,39 +135,14 @@
       <sliceName value="ClimbingStairs" />
       <max value="1" />
     </element>
-    <element id="Observation.component:ClimbingStairs.code.coding">
-      <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Observation.component:ClimbingStairs.code.coding:AbilityToManageChairs">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="AbilityToManageChairs" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:ClimbingStairs.code.coding:AbilityToManageChairs.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:ClimbingStairs.code.coding:AbilityToManageChairs.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="301587001" />
-    </element>
-    <element id="Observation.component:ClimbingStairs.code.coding:AbilityToManageChairs.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.code.coding.display" />
-      <defaultValueString value="Ability to manage stairs" />
+    <element id="Observation.component:ClimbingStairs.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="301587001" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:ClimbingStairs.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -221,39 +171,15 @@
       <sliceName value="ChangingPosition" />
       <max value="1" />
     </element>
-    <element id="Observation.component:ChangingPosition.code.coding">
-      <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
+    <element id="Observation.component:ChangingPosition.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="282869009" />
+        </coding>
+      </patternCodeableConcept>
       <min value="1" />
-    </element>
-    <element id="Observation.component:ChangingPosition.code.coding:AbilityToChangePosition">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="AbilityToChangePosition" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:ChangingPosition.code.coding:AbilityToChangePosition.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:ChangingPosition.code.coding:AbilityToChangePosition.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="282869009" />
-    </element>
-    <element id="Observation.component:ChangingPosition.code.coding:AbilityToChangePosition.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.code.coding.display" />
-      <defaultValueString value="Ability to change position" />
     </element>
     <element id="Observation.component:ChangingPosition.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -282,39 +208,15 @@
       <sliceName value="MaintainingPosition" />
       <max value="1" />
     </element>
-    <element id="Observation.component:MaintainingPosition.code.coding">
-      <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
+    <element id="Observation.component:MaintainingPosition.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="249868004" />
+        </coding>
+      </patternCodeableConcept>
       <min value="1" />
-    </element>
-    <element id="Observation.component:MaintainingPosition.code.coding:AbilityToMaintainPosition">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="AbilityToMaintainPosition" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:MaintainingPosition.code.coding:AbilityToMaintainPosition.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:MaintainingPosition.code.coding:AbilityToMaintainPosition.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="249868004" />
-    </element>
-    <element id="Observation.component:MaintainingPosition.code.coding:AbilityToMaintainPosition.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.code.coding.display" />
-      <defaultValueString value="Ability to maintain position" />
     </element>
     <element id="Observation.component:MaintainingPosition.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -343,39 +245,15 @@
       <sliceName value="Transfer" />
       <max value="1" />
     </element>
-    <element id="Observation.component:Transfer.code.coding">
-      <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
+    <element id="Observation.component:Transfer.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="364666007" />
+        </coding>
+      </patternCodeableConcept>
       <min value="1" />
-    </element>
-    <element id="Observation.component:Transfer.code.coding:AbilityToTransferLocation">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="AbilityToTransferLocation" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:Transfer.code.coding:AbilityToTransferLocation.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:Transfer.code.coding:AbilityToTransferLocation.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="364666007" />
-    </element>
-    <element id="Observation.component:Transfer.code.coding:AbilityToTransferLocation.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.code.coding.display" />
-      <defaultValueString value="Ability to transfer location" />
     </element>
     <element id="Observation.component:Transfer.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
