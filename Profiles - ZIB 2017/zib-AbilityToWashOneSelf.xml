@@ -99,8 +99,8 @@
       <path value="Observation.component" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="code.coding.code" />
+          <type value="pattern" />
+          <path value="code" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -109,20 +109,14 @@
       <path value="Observation.component" />
       <sliceName value="BodyPartToBeBathed" />
     </element>
-    <element id="Observation.component:BodyPartToBeBathed.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:BodyPartToBeBathed.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:BodyPartToBeBathed.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="38866009" />
+    <element id="Observation.component:BodyPartToBeBathed.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="38866009" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:BodyPartToBeBathed.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />

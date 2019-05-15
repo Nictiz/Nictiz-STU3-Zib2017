@@ -77,8 +77,8 @@
       <path value="Observation.component" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="code.coding.code" />
+          <type value="pattern" />
+          <path value="code" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -88,20 +88,14 @@
       <sliceName value="ToiletUse" />
       <max value="1" />
     </element>
-    <element id="Observation.component:ToiletUse.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:ToiletUse.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:ToiletUse.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="284899001" />
+    <element id="Observation.component:ToiletUse.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="284899001" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:ToiletUse.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -130,20 +124,14 @@
       <sliceName value="MenstrualCare" />
       <max value="1" />
     </element>
-    <element id="Observation.component:MenstrualCare.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:MenstrualCare.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:MenstrualCare.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="284955009" />
+    <element id="Observation.component:MenstrualCare.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="284955009" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:MenstrualCare.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />

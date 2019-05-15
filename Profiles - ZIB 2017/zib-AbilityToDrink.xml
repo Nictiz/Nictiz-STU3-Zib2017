@@ -104,8 +104,8 @@
       <path value="Observation.component" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="code.coding.code" />
+          <type value="pattern" />
+          <path value="code" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -114,19 +114,14 @@
       <path value="Observation.component" />
       <sliceName value="DrinkingLimitations" />
     </element>
-    <element id="Observation.component:DrinkingLimitations.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-    </element>
-    <element id="Observation.component:DrinkingLimitations.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:DrinkingLimitations.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="288851008" />
+    <element id="Observation.component:DrinkingLimitations.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="288851008" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:DrinkingLimitations.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
