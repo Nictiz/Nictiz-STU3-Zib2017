@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-strongkidsscore-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-StrongKidsScore"/>
+    </meta>
+    <status value="preliminary"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="MISSING"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/example"/>
+        <display value="Example Patient"/>
+    </subject>
+    <effectiveDateTime value="2013-02-08T09:30:00+02:00"/>
+    <valueQuantity>
+        <value value="4"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="{score}"/>
+    </valueQuantity>
+    <comment value="nog geen diagnose gesteld." />
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="MISSING_1"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.17.1"/>
+                <code value="G2"/>
+                <display value="Gewichtsverlies of stilstand in groei/ gewicht aanwezig"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="MISSING_2"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.17.2"/>
+                <code value="R0"/>
+                <display value="Geen ziektebeeld met verhoogd risico"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="MISSING_3"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.17.3"/>
+                <code value="Z1"/>
+                <display value="Verminderde voedselinname"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="MISSING_4"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.17.4"/>
+                <code value="T1"/>
+                <display value="Slechte voedingstoestand"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+</Observation>
