@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-ComfortScale" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-ComfortScale" />
+  <version value="1.0.0" />
+  <name value="Zib ComfortScale" />
+  <title value="HCIM ComfortScale" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The Comfort Behaviour scale /Comfortneo scale is an assessment tool, that is used to assess the pain behaviour of neonates (new born).&#xD;&#xA;The Comfort Behaviour scale has 7 observation points that that need to be addressed. For each on observation is value is assigned from a 5-point scale, the final score indicates whether the observed child suffers pain and 'how much'. The score is combined with an NRS score that is completed by the nurses on basis of clinical experience." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;A pain observation instrument is a tool in determining the intensity of pain and can be useful in order to determine the effectiveness of pain treatment interventions (pharmacological or non-pharmacological). For new born it is nevertheless difficult to differentiate between pain or distress/anxiety. This is relevant in determining the treatment. The score on a pain measurement instrument remains a snapshot in time." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-comfortscale-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/ComfortScale-v1.0(2017EN)" />
+    <name value="HCIM ComfortScale-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="ComfortScale" />
+      <alias value="ComfortScore" />
+      <mapping>
+        <identity value="hcim-comfortscale-v1.0-2017EN" />
+        <map value="NL-CM:12.12.1" />
+        <comment value="ComfortScale" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:MISSING">
+      <path value="Observation.code.coding" />
+      <sliceName value="MISSING" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:MISSING.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:MISSING.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="MISSING" />
+    </element>
+    <element id="Observation.code.coding:MISSING.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="MISSING" />
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <short value="ScoreDateTime" />
+      <definition value="The date and time at which the Comfort Behaviour scale/ComfortNeo scale was determined." />
+      <alias value="ScoreDatumTijd" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="hcim-comfortscale-v1.0-2017EN" />
+        <map value="NL-CM:12.12.11" />
+        <comment value="ScoreDateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="TotalScore" />
+      <definition value="The total score is the sum of all the individual scores. The total score has a range from 0 - 35." />
+      <alias value="TotaalScore" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="hcim-comfortscale-v1.0-2017EN" />
+        <map value="NL-CM:12.12.2" />
+        <comment value="TotalScore" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity.value">
+      <path value="Observation.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="35" />
+    </element>
+    <element id="Observation.value[x]:valueQuantity.unit">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.valueQuantity.unit" />
+      <fixedString value="score" />
+    </element>
+    <element id="Observation.value[x]:valueQuantity.system">
+      <path value="Observation.valueQuantity.system" />
+      <fixedUri value="http://unitsofmeasure.org" />
+    </element>
+    <element id="Observation.value[x]:valueQuantity.code">
+      <path value="Observation.valueQuantity.code" />
+      <fixedCode value="{score}" />
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="A comment on the circumstances during the measurement." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-comfortscale-v1.0-2017EN" />
+        <map value="NL-CM:12.12.12" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:ALERTNESS_CODEMISSING">
+      <path value="Observation.component" />
+      <sliceName value="ALERTNESS_CODEMISSING" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:ALERTNESS_CODEMISSING.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Alertness" />
+      <definition value="Observation of:  Alertness" />
+      <alias value="Alertheid" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="AlertheidCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.12.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-comfortscale-v1.0-2017EN" />
+        <map value="NL-CM:12.12.3" />
+        <comment value="Alertness" />
+      </mapping>
+    </element>
+    <element id="Observation.component:CALMNESS_AGITATION_CODEMISSING">
+      <path value="Observation.component" />
+      <sliceName value="CALMNESS_AGITATION_CODEMISSING" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:CALMNESS_AGITATION_CODEMISSING.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Calmness_Agitation" />
+      <definition value="Observation: Calmness/ agitation" />
+      <alias value="Kalmte_Agitatie" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="Kalmte_AgitatieCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.12.2--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-comfortscale-v1.0-2017EN" />
+        <map value="NL-CM:12.12.4" />
+        <comment value="Calmness_Agitation" />
+      </mapping>
+    </element>
+    <element id="Observation.component:RESPIRATORYRESPONSE_CODEMISSING">
+      <path value="Observation.component" />
+      <sliceName value="RESPIRATORYRESPONSE_CODEMISSING" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:RESPIRATORYRESPONSE_CODEMISSING.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="RespiratoryResponse" />
+      <definition value="Observation: Respiratory response (only in mechanically ventilated children)" />
+      <alias value="Ademhalingsreactie" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="AdemhalingsreactieCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.12.3--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-comfortscale-v1.0-2017EN" />
+        <map value="NL-CM:12.12.5" />
+        <comment value="RespiratoryResponse" />
+      </mapping>
+    </element>
+    <element id="Observation.component:CRYING_CODEMISSING">
+      <path value="Observation.component" />
+      <sliceName value="CRYING_CODEMISSING" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:CRYING_CODEMISSING.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="RespiratoryResponse" />
+      <definition value="Observation: Respiratory response (only in mechanically ventilated children)" />
+      <alias value="Ademhalingsreactie" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="HuilenCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.13.4--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-comfortscale-v1.0-2017EN" />
+        <map value="NL-CM:12.12.5" />
+        <comment value="RespiratoryResponse" />
+      </mapping>
+    </element>
+    <element id="Observation.component:BODYMOVEMENT_CODEMISSING">
+      <path value="Observation.component" />
+      <sliceName value="BODYMOVEMENT_CODEMISSING" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:BODYMOVEMENT_CODEMISSING.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="BodyMovement" />
+      <definition value="Observation: Physical movement" />
+      <alias value="Lichaamsbeweging" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="LichaamsbewegingCodelijstLichaamsbewegingCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.12.5--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-comfortscale-v1.0-2017EN" />
+        <map value="NL-CM:12.12.8" />
+        <comment value="BodyMovement" />
+      </mapping>
+    </element>
+    <element id="Observation.component:FACIALTONE_CODEMISSING">
+      <path value="Observation.component" />
+      <sliceName value="FACIALTONE_CODEMISSING" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:FACIALTONE_CODEMISSING.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="FacialTone" />
+      <definition value="Observation: Facial tension" />
+      <alias value="Gezichtsspanning" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="GezichtsspanningCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.12.6--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-comfortscale-v1.0-2017EN" />
+        <map value="NL-CM:12.12.9" />
+        <comment value="FacialTone" />
+      </mapping>
+    </element>
+    <element id="Observation.component:BODYMUSCLETONE_CODEMISSING">
+      <path value="Observation.component" />
+      <sliceName value="BODYMUSCLETONE_CODEMISSING" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:BODYMUSCLETONE_CODEMISSING.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="BodyMuscleTone" />
+      <definition value="Observation: Muscle tone" />
+      <alias value="Spierspanning" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="SpierspanningCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.12.7--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-comfortscale-v1.0-2017EN" />
+        <map value="NL-CM:12.12.10" />
+        <comment value="BodyMuscleTone" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
