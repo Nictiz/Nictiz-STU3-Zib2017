@@ -117,22 +117,12 @@
     <element id="Observation.component:FluidTotalIn.code">
       <path value="Observation.component.code" />
       <short value="FluidTotalIn" />
-    </element>
-    <element id="Observation.component:FluidTotalIn.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:FluidTotalIn.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <short value="Total fluid input" />
-      <fixedCode value="251852001" />
-    </element>
-    <element id="Observation.component:FluidTotalIn.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.code.coding.display" />
-      <defaultValueString value="Total fluid input" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="251852001" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:FluidTotalIn.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -145,7 +135,7 @@
       <mapping>
         <identity value="hcim-fluidbalance-v1.0-2017EN" />
         <map value="NL-CM:12.15.4" />
-        <comment value="FluidTotalOut" />
+        <comment value="FluidTotalIn" />
       </mapping>
     </element>
     <element id="Observation.component:FluidTotalIn.value[x]:valueQuantity.unit">
@@ -173,22 +163,16 @@
       <path value="Observation.component.code" />
       <short value="FluidTotalOut" />
       <alias value="VochtTotaalUit" />
-    </element>
-    <element id="Observation.component:FluidTotalOut.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <fixedUri value="http://snomed.info/sct" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="251841007" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:FluidTotalOut.code.coding.code">
       <path value="Observation.component.code.coding.code" />
       <short value="Total fluid output" />
-      <fixedCode value="251841007" />
-    </element>
-    <element id="Observation.component:FluidTotalOut.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.code.coding.display" />
-      <defaultValueString value="Total fluid output" />
     </element>
     <element id="Observation.component:FluidTotalOut.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -200,7 +184,7 @@
       <mapping>
         <identity value="hcim-fluidbalance-v1.0-2017EN" />
         <map value="NL-CM:12.15.5" />
-        <comment value="FluidTotalIn" />
+        <comment value="FluidTotalOut" />
       </mapping>
     </element>
     <element id="Observation.component:FluidTotalOut.value[x]:valueQuantity.unit">
