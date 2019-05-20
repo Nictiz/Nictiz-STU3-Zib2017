@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://hl7.org/fhir/STU3/searchparameter.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <SearchParameter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/searchparameter.xsd">
-  <id value="procedure-medicaldevice"/>
-  <url value="http://nictiz.nl/fhir/SearchParameter/procedure-medicaldevice" />
+  <id value="careplan-medicaldevice"/>
+  <url value="http://nictiz.nl/fhir/SearchParameter/careplan-medicaldevice" />
   <version value="1.0.0"/>
-  <name value="procedure-medicaldevice" />
-  <status value="draft" />
+  <name value="careplan-medicaldevice" />
+    <status value="draft" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -15,13 +15,11 @@
       <use value="work" />
     </telecom>
   </contact>
-  <purpose value="To search on a DeviceUseStatement resource, referenced from an extension in Procedure. Main purpose is to use this search parameter for including DeviceUseStating resouces in the result for a search on Procedure."/>
+  <purpose value="To search on a DeviceUseStatement resource, referenced from an extension in CarePlan. Main purpose is to use this search parameter for including DeviceUseStating resouces in the result for a search on CarePlan."/>
   <code value="medicaldevice"/>
-  <base value="Procedure"/>
+  <base value="CarePlan"/>
   <type value="reference"/>
   <description value="To alow a search (_include) on the materials used in nursing procedures, such as bandages." />
-  <expression value="Procedure.usedReference.extension('http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice')"/>
-  <xpath value="f:Procedure/usedReference/f:extension[@url='http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice']"/>
-  <xpathUsage value="normal"/>
+  <expression value="CarePlan.activiy.detail.extension('http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice')"/>
 </SearchParameter>
 
