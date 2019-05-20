@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/searchparameter.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<SearchParameter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/searchparameter.xsd">
+  <id value="careplan-activity-outcomereference"/>
+  <url value="http://nictiz.nl/fhir/SearchParameter/careplan-activity-outcomereference" />
+  <version value="1.0.0"/>
+  <name value="careplan-activity-outcomereference" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <purpose value="To search on a outcome Resource, referenced from a CarePlan.activity.outcomeReference. Main purpose is to use this search parameter for including outcome related resouces in the result for a search on CarePlan."/>
+  <code value="activity-outcomereference"/>
+  <base value="CarePlan"/>
+  <type value="reference"/>
+  <description value="To alow a search (_include) resources that are use to describe outcomes of CarePlan activities.." />
+  <expression value="CarePlan.activity.outcomeReference"/>
+</SearchParameter>
+
