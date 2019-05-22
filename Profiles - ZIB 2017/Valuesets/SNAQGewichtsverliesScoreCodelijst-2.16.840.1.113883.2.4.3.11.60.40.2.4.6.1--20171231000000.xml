@@ -1,25 +1,89 @@
-<valueSets>
-	<repository url="http://decor.nictiz.nl/decor/services/" ident="zib2017bbr-" referencedFrom="e-overdracht-">
-		<valueSet id="2.16.840.1.113883.2.4.3.11.60.40.2.4.6.1" name="SNAQGewichtsverliesScoreCodelijst" displayName="SNAQGewichtsverliesScoreCodelijst" effectiveDate="2017-12-31T00:00:00" statusCode="final">
-			<sourceCodeSystem id="2.16.840.1.113883.2.4.3.11.60.40.4.5.1" identifierName="SNAQ_Gewichtsverlies" canonicalUri="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.5.1"/>
-			<publishingAuthority name="Nictiz">
-				<addrLine>Nationaal ICT Instituut in de Zorg</addrLine>
-				<addrLine>Oude Middenweg 55</addrLine>
-				<addrLine>2491 AC Den Haag</addrLine>
-				<addrLine>T 070 317 3450</addrLine>
-				<addrLine>F 070 320 7437</addrLine>
-			</publishingAuthority>
-			<conceptList>
-				<concept code="G0" codeSystem="2.16.840.1.113883.2.4.3.11.60.40.4.5.1" displayName="LossLow" level="0" type="L">
-					<designation language="nl-NL" type="preferred" displayName="Geen gewichtverlies"/>
-				</concept>
-				<concept code="G1" codeSystem="2.16.840.1.113883.2.4.3.11.60.40.4.5.1" displayName="LossAverage" level="0" type="L">
-					<designation language="nl-NL" type="preferred" displayName="Meer dan 3 kg in de laatste maand"/>
-				</concept>
-				<concept code="G2" codeSystem="2.16.840.1.113883.2.4.3.11.60.40.4.5.1" displayName="LossHigh" level="0" type="L">
-					<designation language="nl-NL" type="preferred" displayName="Meer dan 6 kg in de laatste 6 maanden"/>
-				</concept>
-			</conceptList>
-		</valueSet>
-	</repository>
-</valueSets>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="2.16.840.1.113883.2.4.3.11.60.40.2.4.6.1--20171231000000"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/><!--<profile value="http://hl7.org/fhir/3.0/StructureDefinition/ValueSet"/>-->
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+		<valuePeriod>
+			<start value="2017-12-31T00:00:00+02:00"/>
+		</valuePeriod>
+	</extension>
+	<url value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.6.1--20171231000000"/>
+	<identifier>
+		<use value="official"/>
+		<system value="http://art-decor.org/ns/oids/vs"/>
+		<value value="2.16.840.1.113883.2.4.3.11.60.40.2.4.6.1"/>
+	</identifier>
+	<version value="2017-12-31T00:00:00"/>
+	<name value="SNAQGewichtsverliesScoreCodelijst"/>
+	<title value="SNAQGewichtsverliesScoreCodelijst"/>
+	<status value="active"/>
+	<experimental value="false"/>
+	<publisher value="Registratie aan de bron"/>
+	<contact>
+		<name value="Registratie aan de bron"/>
+		<telecom>
+			<system value="url"/>
+			<value value="https://www.registratieaandebron.nl"/>
+		</telecom>
+		<telecom>
+			<system value="url"/>
+			<value value="https://www.zibs.nl"/>
+		</telecom>
+	</contact>
+	<description value="SNAQGewichtsverliesScoreCodelijst"/>
+	<immutable value="false"/>
+	<compose>
+		<include>
+			<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.5.1"/>
+			<concept>
+				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-ordinalValue">
+					<valueDecimal value="0"/>
+				</extension>
+				<code value="G0"/>
+				<display value="LossLow"/>
+				<designation>
+					<language value="nl-NL"/>
+					<use>
+						<system value="http://snomed.info/sct"/>
+						<code value="900000000000013009"/>
+						<display value="Synonym"/>
+					</use>
+					<value value="Geen gewichtverlies"/>
+				</designation>
+			</concept>
+			<concept>
+				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-ordinalValue">
+					<valueDecimal value="2"/>
+				</extension>
+				<code value="G1"/>
+				<display value="LossAverage"/>
+				<designation>
+					<language value="nl-NL"/>
+					<use>
+						<system value="http://snomed.info/sct"/>
+						<code value="900000000000013009"/>
+						<display value="Synonym"/>
+					</use>
+					<value value="Meer dan 3 kg in de laatste maand"/>
+				</designation>
+			</concept>
+			<concept>
+				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-ordinalValue">
+					<valueDecimal value="3"/>
+				</extension>
+				<code value="G2"/>
+				<display value="LossHigh"/>
+				<designation>
+					<language value="nl-NL"/>
+					<use>
+						<system value="http://snomed.info/sct"/>
+						<code value="900000000000013009"/>
+						<display value="Synonym"/>
+					</use>
+					<value value="Meer dan 6 kg in de laatste 6 maanden"/>
+				</designation>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
