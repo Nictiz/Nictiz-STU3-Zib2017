@@ -116,7 +116,6 @@
     </element>
     <element id="Observation.component:FluidTotalIn.code">
       <path value="Observation.component.code" />
-      <short value="FluidTotalIn" />
       <patternCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct" />
@@ -129,30 +128,24 @@
       <sliceName value="valueQuantity" />
       <short value="FluidTotalIn" />
       <definition value="The total of fluid intake (e.g. by mouth, drip or tube feeding) in mL." />
+      <alias value="VochtTotaalIn" />
       <type>
         <code value="Quantity" />
       </type>
+      <example>
+        <label value="example of fluidTotalIn" />
+        <valueQuantity>
+          <value value="560" />
+          <unit value="mL" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="mL" />
+        </valueQuantity>
+      </example>
       <mapping>
         <identity value="hcim-fluidbalance-v1.0-2017EN" />
         <map value="NL-CM:12.15.4" />
         <comment value="FluidTotalIn" />
       </mapping>
-    </element>
-    <element id="Observation.component:FluidTotalIn.value[x]:valueQuantity.unit">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.valueQuantity.unit" />
-      <fixedString value="mL" />
-    </element>
-    <element id="Observation.component:FluidTotalIn.value[x]:valueQuantity.system">
-      <path value="Observation.component.valueQuantity.system" />
-      <fixedUri value="http://unitsofmeasure.org" />
-    </element>
-    <element id="Observation.component:FluidTotalIn.value[x]:valueQuantity.code">
-      <path value="Observation.component.valueQuantity.code" />
-      <short value="milliliter" />
-      <fixedCode value="mL" />
     </element>
     <element id="Observation.component:FluidTotalOut">
       <path value="Observation.component" />
@@ -161,8 +154,6 @@
     </element>
     <element id="Observation.component:FluidTotalOut.code">
       <path value="Observation.component.code" />
-      <short value="FluidTotalOut" />
-      <alias value="VochtTotaalUit" />
       <patternCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct" />
@@ -170,37 +161,28 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:FluidTotalOut.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <short value="Total fluid output" />
-    </element>
     <element id="Observation.component:FluidTotalOut.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
       <sliceName value="valueQuantity" />
       <short value="FluidTotalOut" />
+      <alias value="VochtTotaalUit" />
       <type>
         <code value="Quantity" />
       </type>
+      <example>
+        <label value="example of FLuidTotalOut" />
+        <valueQuantity>
+          <value value="800" />
+          <unit value="mL" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="mL" />
+        </valueQuantity>
+      </example>
       <mapping>
         <identity value="hcim-fluidbalance-v1.0-2017EN" />
         <map value="NL-CM:12.15.5" />
         <comment value="FluidTotalOut" />
       </mapping>
-    </element>
-    <element id="Observation.component:FluidTotalOut.value[x]:valueQuantity.unit">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.valueQuantity.unit" />
-      <fixedString value="mL" />
-    </element>
-    <element id="Observation.component:FluidTotalOut.value[x]:valueQuantity.system">
-      <path value="Observation.component.valueQuantity.system" />
-      <fixedUri value="http://unitsofmeasure.org" />
-    </element>
-    <element id="Observation.component:FluidTotalOut.value[x]:valueQuantity.code">
-      <path value="Observation.component.valueQuantity.code" />
-      <fixedCode value="mL" />
     </element>
   </differential>
 </StructureDefinition>
