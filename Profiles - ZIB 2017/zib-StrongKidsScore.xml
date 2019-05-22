@@ -41,10 +41,13 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Observation.code.coding:strongKidsScoreCode">
       <path value="Observation.code.coding" />
       <sliceName value="strongKidsScoreCode" />
+      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Observation.code.coding:strongKidsScoreCode.system">
       <path value="Observation.code.coding.system" />
@@ -206,7 +209,9 @@
       <binding>
         <strength value="extensible" />
         <description value="SKNutritionScoreCodelist" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.3--20171231000000" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.3--20171231000000" />
+        </valueSetReference>
       </binding>
       <mapping>
         <identity value="hcim-strongkidsscore-v1.0-2017EN" />
@@ -239,7 +244,9 @@
       <binding>
         <strength value="extensible" />
         <description value="SKNutritionStatusScoreCodelist" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.4--20171231000000" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.4--20171231000000" />
+        </valueSetReference>
       </binding>
       <mapping>
         <identity value="hcim-strongkidsscore-v1.0-2017EN" />
