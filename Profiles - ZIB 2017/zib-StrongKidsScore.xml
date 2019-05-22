@@ -42,11 +42,15 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Observation.code.coding.system">
+    <element id="Observation.code.coding:strongKidsScoreCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="strongKidsScoreCode" />
+    </element>
+    <element id="Observation.code.coding:strongKidsScoreCode.system">
       <path value="Observation.code.coding.system" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.code.coding.code">
+    <element id="Observation.code.coding:strongKidsScoreCode.code">
       <path value="Observation.code.coding.code" />
       <fixedCode value="MISSING" />
     </element>
@@ -63,7 +67,7 @@
       <mapping>
         <identity value="hcim-strongkidsscore-v1.0-2017EN" />
         <map value="NL-CM:4.28.6" />
-        <comment value="StrongKidsScore::TotalScore" />
+        <comment value="TotalScore" />
       </mapping>
     </element>
     <element id="Observation.value[x]:valueQuantity">
@@ -78,21 +82,13 @@
       <mapping>
         <identity value="hcim-strongkidsscore-v1.0-2017EN" />
         <map value="NL-CM:4.28.2" />
-        <comment value="StrongKidsScore::ScoreDateTime" />
+        <comment value="ScoreDateTime" />
       </mapping>
     </element>
     <element id="Observation.value[x]:valueQuantity.value">
       <path value="Observation.valueQuantity.value" />
       <minValueDecimal value="0" />
       <maxValueDecimal value="5" />
-    </element>
-    <element id="Observation.value[x]:valueQuantity.system">
-      <path value="Observation.valueQuantity.system" />
-      <fixedUri value="http://unitsofmeasure.org" />
-    </element>
-    <element id="Observation.value[x]:valueQuantity.code">
-      <path value="Observation.valueQuantity.code" />
-      <fixedCode value="{score}" />
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
@@ -102,7 +98,7 @@
       <mapping>
         <identity value="hcim-strongkidsscore-v1.0-2017EN" />
         <map value="NL-CM:4.28.7" />
-        <comment value="StrongKidsScore::Comment" />
+        <comment value="Comment" />
       </mapping>
     </element>
     <element id="Observation.component">
@@ -140,12 +136,14 @@
       <binding>
         <strength value="extensible" />
         <description value="SKWeightLossScoreCodelist" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.1--20171231000000" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.1--20171231000000" />
+        </valueSetReference>
       </binding>
       <mapping>
         <identity value="hcim-strongkidsscore-v1.0-2017EN" />
         <map value="NL-CM:4.28.3" />
-        <comment value="StrongKidsScore::WeightLossScore" />
+        <comment value="WeightLossScore" />
       </mapping>
     </element>
     <element id="Observation.component:ConditionScore">
@@ -173,12 +171,14 @@
       <binding>
         <strength value="extensible" />
         <description value="SKConditionScoreCodelist" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.2--20171231000000" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.2--20171231000000" />
+        </valueSetReference>
       </binding>
       <mapping>
         <identity value="hcim-strongkidsscore-v1.0-2017EN" />
         <map value="NL-CM:4.28.3" />
-        <comment value="StrongKidsScore::ConditionScore" />
+        <comment value="ConditionScore" />
       </mapping>
     </element>
     <element id="Observation.component:NutritionScore">
@@ -211,7 +211,7 @@
       <mapping>
         <identity value="hcim-strongkidsscore-v1.0-2017EN" />
         <map value="NL-CM:4.28.3" />
-        <comment value="StrongKidsScore::NutritionScore" />
+        <comment value="NutritionScore" />
       </mapping>
     </element>
     <element id="Observation.component:NutritionStatusScore">
@@ -244,7 +244,7 @@
       <mapping>
         <identity value="hcim-strongkidsscore-v1.0-2017EN" />
         <map value="NL-CM:4.28.3" />
-        <comment value="StrongKidsScore::NutritionStatusScore" />
+        <comment value="NutritionStatusScore" />
       </mapping>
     </element>
   </differential>
