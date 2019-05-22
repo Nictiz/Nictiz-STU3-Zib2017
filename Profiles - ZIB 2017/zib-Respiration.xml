@@ -65,6 +65,85 @@
         <comment value="AdministeredOxygen" />
       </mapping>
     </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:extraOxygenAdministration">
+      <path value="Observation.extension.extension" />
+      <sliceName value="extraOxygenAdministration" />
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:extraOxygenAdministration.valueBoolean:valueBoolean">
+      <path value="Observation.extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+      <short value="ExtraOxygenAdministration" />
+      <definition value="An indication stating whether the patient is given extra oxygen. In that event, additional information can be recorded in the concepts that are part of the AdministeredOxygen container." />
+      <alias value="ExtraZuurstofToediening" />
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.12" />
+        <comment value="ExtraOxygenAdministration" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:flowRate">
+      <path value="Observation.extension.extension" />
+      <sliceName value="flowRate" />
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:flowRate.valueQuantity:valueQuantity">
+      <path value="Observation.extension.extension.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="FlowRate" />
+      <definition value="The amount of administered oxygen. The value is between 0.0 and 50.0 l/min." />
+      <alias value="FlowRate" />
+      <example>
+        <label value="Example of flow rate" />
+        <valueQuantity>
+          <value value="2" />
+          <unit value="l/min" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="l/min" />
+        </valueQuantity>
+      </example>
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.10" />
+        <comment value="FlowRate" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:flowRate.valueQuantity:valueQuantity.value">
+      <path value="Observation.extension.extension.valueQuantity.value" />
+      <minValueDecimal value="0.0" />
+      <maxValueDecimal value="50.0" />
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:fiO2">
+      <path value="Observation.extension.extension" />
+      <sliceName value="fiO2" />
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:fiO2.valueQuantity:valueQuantity">
+      <path value="Observation.extension.extension.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="FiO2" />
+      <definition value="The fractional concentration of inspired oxygen. Value is between 0.0 and 1.0, with a normal value of 0.21 (no extra oxygen administered)." />
+      <alias value="FiO2" />
+      <example>
+        <label value="Example of FiO2" />
+        <valueQuantity>
+          <value value="0.29" />
+          <unit value="{fraction}" />
+          <system value="http://unitsofmeasure.org" />
+        </valueQuantity>
+      </example>
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.9" />
+        <comment value="FiO2" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:fiO2.valueQuantity:valueQuantity.value">
+      <path value="Observation.extension.extension.valueQuantity.value" />
+      <minValueDecimal value="0.0" />
+      <maxValueDecimal value="1.0" />
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.url">
+      <path value="Observation.extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Respiration-AdministeredOxygen" />
+    </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
       <slicing>
@@ -160,26 +239,20 @@
       <type>
         <code value="Quantity" />
       </type>
+      <example>
+        <label value="Example of breathing frequency" />
+        <valueQuantity>
+          <value value="15" />
+          <unit value="breaths per minute" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="{breaths}/min" />
+        </valueQuantity>
+      </example>
       <mapping>
         <identity value="hcim-respiration-v3.1-2017EN" />
         <map value="NL-CM:12.5.2" />
         <comment value="BreathingFrequency" />
       </mapping>
-    </element>
-    <element id="Observation.component:BreathingFrequency.value[x]:valueQuantity.unit">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.valueQuantity.unit" />
-      <fixedString value="breaths per minute" />
-    </element>
-    <element id="Observation.component:BreathingFrequency.value[x]:valueQuantity.system">
-      <path value="Observation.component.valueQuantity.system" />
-      <fixedUri value="http://unitsofmeasure.org" />
-    </element>
-    <element id="Observation.component:BreathingFrequency.value[x]:valueQuantity.code">
-      <path value="Observation.component.valueQuantity.code" />
-      <fixedCode value="{breaths}/min" />
     </element>
     <element id="Observation.component:Rhythm">
       <path value="Observation.component" />
