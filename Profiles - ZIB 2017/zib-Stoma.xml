@@ -46,32 +46,6 @@
         <comment value="Stoma" />
       </mapping>
     </element>
-    <element id="Observation.extension">
-      <path value="Observation.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Observation.extension:StomaMaterial">
-      <path value="Observation.extension" />
-      <sliceName value="StomaMaterial" />
-      <short value="StomaMaterial" />
-      <definition value="Stoma material describes the medical aids used, such as a skin plate (the adhesive part around the stoma), the stoma pouch (to catch the stoma output) and other stoma aids for caring for the stoma. For tracheostomies, it also describes aids such as voice prostheses and stoma filters.&#xD;&#xA;&#xD;&#xA;Catheters inserted through the stoma such as tracheal cannulas are not described in this concept. These aids must be modeled in a higher information model describing the catheter and referring to the stoma." />
-      <alias value="StomaMateriaal" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice" />
-      </type>
-      <mapping>
-        <identity value="hcim-stoma-v3.2-2017EN" />
-        <map value="NL-CM:5.2.3" />
-        <comment value="StomaMaterial" />
-      </mapping>
-    </element>
     <element id="Observation.identifier">
       <path value="Observation.identifier" />
       <mapping>
