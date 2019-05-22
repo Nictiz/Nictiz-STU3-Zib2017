@@ -195,23 +195,6 @@
     </element>
     <element id="Procedure.code">
       <path value="Procedure.code" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Procedure.code.coding">
-      <path value="Procedure.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
       <short value="ProcedureType" />
       <definition value="The name of the procedure.&#xD;&#xA;&#xD;&#xA;As of 1 January 2013, all procedures in the primary process have to be documented with CBV codes. To meet this requirement, the DHD procedure thesaurus (CBV procedures set) is used to code procedures. It is possible that in addition to the CBV procedures set, the NIC will be used for nurse procedures and that a “coded value set” will be introduced for paramedic procedures." />
       <alias value="VerrichtingType" />
@@ -230,6 +213,16 @@
         <map value="NL-CM:14.1.4" />
         <comment value="ProcedureType" />
       </mapping>
+    </element>
+    <element id="Procedure.code.coding">
+      <path value="Procedure.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
     <element id="Procedure.code.coding:VerrichtingTypeCodelijst">
       <path value="Procedure.code.coding" />

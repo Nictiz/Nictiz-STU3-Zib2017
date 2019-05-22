@@ -44,6 +44,11 @@
     <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
     <name value="HCIM BasicElements-v1.0(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-outcomeofcare-v3.2-2018EN" />
+    <uri value="https://zibs.nl/wiki/OutcomeOfCare-v3.1(2017EN)" />
+    <name value="HCIM OutcomeOfCare-v3.1 (2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Procedure" />
@@ -87,7 +92,11 @@
         <comment value="TreatmentObjective" />
       </mapping>
     </element>
-    <element id="Procedure.extension:TreatmentObjective.valueReference:valueReference">
+    <element id="Procedure.extension:TreatmentObjective.url">
+      <path value="Procedure.extension.url" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/goal-pertainsToGoal" />
+    </element>
+    <element id="Procedure.extension:TreatmentObjective.value[x]:valueReference">
       <path value="Procedure.extension.valueReference" />
       <sliceName value="valueReference" />
       <type>
@@ -111,9 +120,9 @@
         <comment value="Frequency" />
       </mapping>
     </element>
-    <element id="Procedure.extension:Frequency.valueTiming:valueTiming">
-      <path value="Procedure.extension.valueTiming" />
-      <sliceName value="valueTiming" />
+    <element id="Procedure.extension:Frequency.url">
+      <path value="Procedure.extension.url" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/procedure-schedule" />
     </element>
     <element id="Procedure.extension:Interval">
       <path value="Procedure.extension" />
@@ -421,6 +430,18 @@
         <identity value="hcim-nursingintervention-v3.1-2017EN" />
         <map value="NL-CM:14.2.6" />
         <comment value="Indication" />
+      </mapping>
+    </element>
+    <element id="Procedure.report">
+      <path value="Procedure.report" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult" />
+      </type>
+      <mapping>
+        <identity value="hcim-outcomeofcare-v3.2-2018EN" />
+        <map value="NL-CM:13.4.5" />
+        <comment value="HealthcareResult" />
       </mapping>
     </element>
     <element id="Procedure.note.text">
