@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-developmentchild-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-DevelopmentChild"/>
+    </meta>
+    <status value="preliminary"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="251803000"/>
+            <display value="Child developmental finding"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/example"/>
+        <display value="Example Patient"/>
+    </subject>
+    <effectiveDateTime value="2015-02-07T10:00:00+02:00"/>
+    <component>
+        <!--ToiletTrainednessUrine-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="275819003"/> 
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.6.96"/>
+                <code value="26431000146108"/>
+                <display value="Af en toe een ongelukje"/>			
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <!--ToiletTrainednessFeces-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="275818006"/> 
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.6.96"/>
+                <code value="26401000146103"/>
+                <display value="Volledig zindelijk"/>			
+            </coding>
+        </valueCodeableConcept>
+    </component>    
+    <component>
+        <!--DevelopmentLocomotion-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="282716004"/> 
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.6.96"/>
+                <code value="165245003"/>
+                <display value="Kan zonder hulp lopen"/>			
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <!--DevelopmentSocial-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="225597007"/> 
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.6.96"/>
+                <code value="Speelt geven en nemen"/>
+                <display value="Speelt geven en nemen"/>		
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <!--DevelopmentLinguistics-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="61909002"/> 
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.6.96"/>
+                <code value="258116008"/>
+                <display value="Brabbelt"/>		
+            </coding>
+        </valueCodeableConcept>
+    </component>
+</Observation>
