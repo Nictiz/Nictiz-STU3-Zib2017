@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Pregnancy-PregnancyStatus" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy-PregnancyStatus" />
+  <version value="1.0.0" />
+  <name value="Zib Pregnancy PregnancyStatus" />
+  <title value="HCIM Pregnancy PregnancyStatus" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Observation resource as defined by the Dutch HCIM Pregnancy v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Pregnancy or gravidity is the condition in which a woman carries a fertilized egg, which grows into an embryo and then a fetus. A pregnancy of between 37 and 42 weeks is considered normal. “Term pregnancy” is 37 to 42 weeks. The term gravidity is also used for the number of times a woman has been pregnant. This and parity - the number of times a woman has given birth - provides insight into the patient’s obstetric history." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;If the patient is pregnant, it is important to mention this, as it requires specific attention in their care. Pregnancy can influence treatment decisions, the treatment itself and the patient’s care.&#xD;&#xA;&#xD;&#xA;# Purpose of this profile&#xD;&#xA;This profile implements the Pregnancy field of the HCIM, which records whether the patient is pregnant or not. It complements the zib-Pregnancy profile, which tracks the overarching condition. This profile can be referenced with the Observation.zib-Pregnancy field (event-partOf extension)." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-pregnancy-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Pregnancy-v3.1(2017EN)" />
+    <name value="HCIM Pregnancy-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.extension:zib-Pregnancy">
+      <path value="Observation.extension" />
+      <sliceName value="zib-Pregnancy" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/event-partOf" />
+      </type>
+    </element>
+    <element id="Observation.extension:zib-Pregnancy.valueReference:valueReference">
+      <path value="Observation.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy" />
+      </type>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:Pregnant">
+      <path value="Observation.code.coding" />
+      <sliceName value="Pregnant" />
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:Pregnant.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:Pregnant.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="77386006" />
+    </element>
+    <element id="Observation.code.coding:Pregnant.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Pregnant" />
+    </element>
+    <element id="Observation.value[x]:valueBoolean">
+      <path value="Observation.valueBoolean" />
+      <sliceName value="valueBoolean" />
+      <short value="Pregnant" />
+      <definition value="Indicator stating whether the patient is or is not pregnant." />
+      <alias value="Zwanger" />
+      <min value="1" />
+      <type>
+        <code value="boolean" />
+      </type>
+      <mapping>
+        <identity value="hcim-pregnancy-v3.1-2017EN" />
+        <map value="NL-CM:7.14.2" />
+        <comment value="Pregnant" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

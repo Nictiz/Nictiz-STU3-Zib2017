@@ -15,8 +15,8 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="An Observation resource as defined by the Dutch HCIM Pregnancy v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Pregnancy or gravidity is the condition in which a woman carries a fertilized egg, which grows into an embryo and then a fetus. A pregnancy of between 37 and 42 weeks is considered normal. “Term pregnancy” is 37 to 42 weeks. The term gravidity is also used for the number of times a woman has been pregnant. This and parity - the number of times a woman has given birth - provides insight into the patient’s obstetric history. " />
-  <purpose value="# Purpose of HCIM&#xD;&#xA;If the patient is pregnant, it is important to mention this, as it requires specific attention in their care. Pregnancy can influence treatment decisions, the treatment itself and the patient’s care. &#xD;&#xA;&#xD;&#xA;# Rationale for Observation resource&#xD;&#xA;This profile is meant to record the current situation regarding a pregnancy, rather than the overaching concern - i.e. it's an observation of the current status." />
+  <description value="A Condition resource as defined by the Dutch HCIM Pregnancy v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Pregnancy or gravidity is the condition in which a woman carries a fertilized egg, which grows into an embryo and then a fetus. A pregnancy of between 37 and 42 weeks is considered normal. “Term pregnancy” is 37 to 42 weeks. The term gravidity is also used for the number of times a woman has been pregnant. This and parity - the number of times a woman has given birth - provides insight into the patient’s obstetric history." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;If the patient is pregnant, it is important to mention this, as it requires specific attention in their care. Pregnancy can influence treatment decisions, the treatment itself and the patient’s care.&#xD;&#xA;&#xD;&#xA;# Purpose of this profile&#xD;&#xA;This profile specializes the Problem HCIM profile (FHIR Condition) to track the overarching parts of the Pregnancy HCIM. It is complemented by four Observation profiles for the observable/momentary parts of the HCIM: zib-Pregnancy-PregnancyStatus, zib-Pregnancy-TermDate, zib-Pregnancy-DateLastMenstruation and zib-Pregnancy-PregnancyDuration " />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -26,14 +26,14 @@
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
-  <type value="Observation" />
-  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <type value="Condition" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
   <derivation value="constraint" />
   <differential>
-    <element id="Observation">
-      <path value="Observation" />
+    <element id="Condition">
+      <path value="Condition" />
       <short value="Pregnancy" />
-      <definition value="Pregnancy or gravidity is the condition in which a woman carries a fertilized egg, which grows into an embryo and then a fetus. A pregnancy of between 37 and 42 weeks is considered normal. “Term pregnancy” is 37 to 42 weeks. The term gravidity is also used for the number of times a woman has been pregnant. This and parity - the number of times a woman has given birth - provides insight into the patient’s obstetric history." />
+      <definition value="Root concept of the Pregnancy information model. This root concept contains all data elements of the Pregnancy information model." />
       <alias value="Zwangerschap" />
       <mapping>
         <identity value="hcim-pregnancy-v3.1-2017EN" />
@@ -41,352 +41,99 @@
         <comment value="Pregnancy" />
       </mapping>
     </element>
-    <element id="Observation.code.coding">
-      <path value="Observation.code.coding" />
+    <element id="Condition.extension">
+      <path value="Condition.extension" />
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Observation.code.coding:Pregnancy">
-      <path value="Observation.code.coding" />
-      <sliceName value="Pregnancy" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.code.coding:Pregnancy.system">
-      <path value="Observation.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.code.coding:Pregnancy.code">
-      <path value="Observation.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="364320009" />
-    </element>
-    <element id="Observation.code.coding:Pregnancy.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.code.coding.display" />
-      <defaultValueString value="Pregnancy observable" />
-    </element>
-    <element id="Observation.comment">
-      <path value="Observation.comment" />
-      <short value="Comment" />
-      <definition value="Comment on the pregnancy." />
-      <alias value="Toelichting" />
-      <mapping>
-        <identity value="hcim-pregnancy-v3.1-2017EN" />
-        <map value="NL-CM:7.14.7" />
-        <comment value="Comment" />
-      </mapping>
-    </element>
-    <element id="Observation.component">
-      <path value="Observation.component" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code.coding.code" />
+          <path value="url" />
         </discriminator>
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Observation.component:Pregnant">
-      <path value="Observation.component" />
-      <sliceName value="Pregnant" />
-      <short value="Pregnant" />
-      <definition value="Indicator stating whether the patient is or is not pregnant." />
-      <alias value="Zwanger" />
-      <min value="1" />
-      <max value="1" />
-      <mapping>
-        <identity value="hcim-pregnancy-v3.1-2017EN" />
-        <map value="NL-CM:7.14.2" />
-        <comment value="Pregnant" />
-      </mapping>
-    </element>
-    <element id="Observation.component:Pregnant.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:Pregnant.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:Pregnant.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="77386006" />
-    </element>
-    <element id="Observation.component:Pregnant.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <short value="Pregnant" />
-      <alias value="Zwanger" />
-      <min value="1" />
+    <element id="Condition.extension:PregnancyParameters">
+      <path value="Condition.extension" />
+      <sliceName value="PregnancyParameters" />
       <type>
-        <code value="CodeableConcept" />
-      </type>
-      <binding>
-        <strength value="required" />
-        <description value="v2 Y/N Indicator" />
-        <valueSetReference>
-          <reference value="http://hl7.org/fhir/ValueSet/v2-0136" />
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="hcim-pregnancy-v3.1-2017EN" />
-        <map value="NL-CM:7.14.2" />
-        <comment value="Pregnant" />
-      </mapping>
-    </element>
-    <element id="Observation.component:TermDate">
-      <path value="Observation.component" />
-      <sliceName value="TermDate" />
-      <short value="TermDate" />
-      <definition value="The date on which the pregnancy is expected to be 40w 0d (280 days). Different term dates are used at various points in the pregnancy." />
-      <alias value="ATermeDatum" />
-      <max value="1" />
-      <mapping>
-        <identity value="hcim-pregnancy-v3.1-2017EN" />
-        <map value="NL-CM:7.14.3" />
-        <comment value="TermDate" />
-      </mapping>
-    </element>
-    <element id="Observation.component:TermDate.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:TermDate.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://loinc.org" />
-    </element>
-    <element id="Observation.component:TermDate.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="11778-8" />
-    </element>
-    <element id="Observation.component:TermDate.value[x]:valueDateTime">
-      <path value="Observation.component.valueDateTime" />
-      <sliceName value="valueDateTime" />
-      <type>
-        <code value="dateTime" />
-      </type>
-      <constraint>
-        <key value="hcim-pregnancy-1" />
-        <severity value="error" />
-        <human value="TermDate should be a full date, without time" />
-        <expression value="$this.toString().matches('\\d{4}-\\d{2}-\\d{2}')" />
-      </constraint>
-    </element>
-    <element id="Observation.component:DateLastMenstruation">
-      <path value="Observation.component" />
-      <sliceName value="DateLastMenstruation" />
-      <short value="DateLastMenstruation" />
-      <definition value="The date on which the last menstruation started." />
-      <alias value="DatumLaatsteMenstruatie" />
-      <max value="1" />
-      <mapping>
-        <identity value="hcim-pregnancy-v3.1-2017EN" />
-        <map value="NL-CM:7.14.8" />
-        <comment value="DateLastMenstruation" />
-      </mapping>
-    </element>
-    <element id="Observation.component:DateLastMenstruation.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:DateLastMenstruation.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:DateLastMenstruation.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="21840007" />
-    </element>
-    <element id="Observation.component:DateLastMenstruation.value[x]:valueDateTime">
-      <path value="Observation.component.valueDateTime" />
-      <sliceName value="valueDateTime" />
-      <type>
-        <code value="dateTime" />
-      </type>
-      <constraint>
-        <key value="hcim-pregnancy-2" />
-        <severity value="error" />
-        <human value="DateLastMenstruation should be a full date, without time" />
-        <expression value="$this.toString().matches('\\d{4}-\\d{2}-\\d{2}')" />
-      </constraint>
-    </element>
-    <element id="Observation.component:PregnancyDuration">
-      <path value="Observation.component" />
-      <sliceName value="PregnancyDuration" />
-      <short value="PregnancyDuration" />
-      <definition value="Duration of the pregnancy on the day on which the patient was asked. The duration can be entered in days (d) or weeks (wk)." />
-      <alias value="Zwangerschapsduur" />
-      <max value="1" />
-      <mapping>
-        <identity value="hcim-pregnancy-v3.1-2017EN" />
-        <map value="NL-CM:7.14.4" />
-        <comment value="PregnancyDuration" />
-      </mapping>
-    </element>
-    <element id="Observation.component:PregnancyDuration.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:PregnancyDuration.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:PregnancyDuration.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="57036006" />
-    </element>
-    <element id="Observation.component:PregnancyDuration.value[x]">
-      <path value="Observation.component.value[x]" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="closed" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Observation.component:PregnancyDuration.value[x]:PregnancyDurationDays">
-      <path value="Observation.component.value[x]" />
-      <sliceName value="PregnancyDurationDays" />
-      <type>
-        <code value="Quantity" />
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy-PG-extension" />
       </type>
     </element>
-    <element id="Observation.component:PregnancyDuration.value[x]:PregnancyDurationDays.unit">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.value[x].unit" />
-      <fixedString value="days" />
-    </element>
-    <element id="Observation.component:PregnancyDuration.value[x]:PregnancyDurationDays.system">
-      <path value="Observation.component.value[x].system" />
-      <min value="1" />
-      <fixedUri value="http://unitsofmeasure.org" />
-    </element>
-    <element id="Observation.component:PregnancyDuration.value[x]:PregnancyDurationDays.code">
-      <path value="Observation.component.value[x].code" />
-      <min value="1" />
-      <fixedCode value="d" />
-    </element>
-    <element id="Observation.component:PregnancyDuration.value[x]:PregnancyDurationWeeks">
-      <path value="Observation.component.value[x]" />
-      <sliceName value="PregnancyDurationWeeks" />
-      <type>
-        <code value="Quantity" />
-      </type>
-    </element>
-    <element id="Observation.component:PregnancyDuration.value[x]:PregnancyDurationWeeks.unit">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.component.value[x].unit" />
-      <fixedString value="weeks" />
-    </element>
-    <element id="Observation.component:PregnancyDuration.value[x]:PregnancyDurationWeeks.system">
-      <path value="Observation.component.value[x].system" />
-      <min value="1" />
-      <fixedUri value="http://unitsofmeasure.org" />
-    </element>
-    <element id="Observation.component:PregnancyDuration.value[x]:PregnancyDurationWeeks.code">
-      <path value="Observation.component.value[x].code" />
-      <min value="1" />
-      <fixedCode value="wk" />
-    </element>
-    <element id="Observation.component:Gravidity">
-      <path value="Observation.component" />
+    <element id="Condition.extension:PregnancyParameters.extension:Gravidity">
+      <path value="Condition.extension.extension" />
       <sliceName value="Gravidity" />
+      <max value="1" />
+    </element>
+    <element id="Condition.extension:PregnancyParameters.extension:Gravidity.valueInteger:valueInteger">
+      <path value="Condition.extension.extension.valueInteger" />
+      <sliceName value="valueInteger" />
       <short value="Gravidity" />
       <definition value="The number of times the woman has gotten pregnant (including this one)." />
       <alias value="Graviditeit" />
-      <max value="1" />
       <mapping>
         <identity value="hcim-pregnancy-v3.1-2017EN" />
         <map value="NL-CM:7.14.5" />
         <comment value="Gravidity" />
       </mapping>
     </element>
-    <element id="Observation.component:Gravidity.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
+    <element id="Condition.extension:PregnancyParameters.extension:Parity">
+      <path value="Condition.extension.extension" />
+      <sliceName value="Parity" />
       <max value="1" />
     </element>
-    <element id="Observation.component:Gravidity.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://loinc.org" />
-    </element>
-    <element id="Observation.component:Gravidity.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="11996-6" />
-    </element>
-    <element id="Observation.component:Gravidity.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
-      <min value="1" />
-      <type>
-        <code value="Quantity" />
-      </type>
-    </element>
-    <element id="Observation.component:Parity">
-      <path value="Observation.component" />
-      <sliceName value="Parity" />
+    <element id="Condition.extension:PregnancyParameters.extension:Parity.valueInteger:valueInteger">
+      <path value="Condition.extension.extension.valueInteger" />
+      <sliceName value="valueInteger" />
       <short value="Parity" />
       <definition value="Number of previous pregnancies ending in partum (&gt;= 16w 0d / 112 days)." />
       <alias value="Pariteit" />
-      <max value="1" />
       <mapping>
         <identity value="hcim-pregnancy-v3.1-2017EN" />
         <map value="NL-CM:7.14.6" />
         <comment value="Parity" />
       </mapping>
     </element>
-    <element id="Observation.component:Parity.code.coding">
-      <path value="Observation.component.code.coding" />
+    <element id="Condition.code.coding">
+      <path value="Condition.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <min value="1" />
+    </element>
+    <element id="Condition.code.coding:PregnancyObservable">
+      <path value="Condition.code.coding" />
+      <sliceName value="PregnancyObservable" />
+      <min value="1" />
+    </element>
+    <element id="Condition.code.coding:PregnancyObservable.system">
+      <path value="Condition.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Condition.code.coding:PregnancyObservable.code">
+      <path value="Condition.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="364320009" />
+    </element>
+    <element id="Condition.code.coding:PregnancyObservable.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Condition.code.coding.display" />
+      <defaultValueString value="Pregnancy observable" />
+    </element>
+    <element id="Condition.note">
+      <path value="Condition.note" />
       <max value="1" />
-    </element>
-    <element id="Observation.component:Parity.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://loinc.org" />
-    </element>
-    <element id="Observation.component:Parity.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="11977-6" />
-    </element>
-    <element id="Observation.component:Parity.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
-      <min value="1" />
-      <type>
-        <code value="Quantity" />
-      </type>
+      <mapping>
+        <identity value="hcim-pregnancy-v3.1-2017EN" />
+        <map value="NL-CM:7.14.7" />
+        <comment value="Toelichting" />
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>
