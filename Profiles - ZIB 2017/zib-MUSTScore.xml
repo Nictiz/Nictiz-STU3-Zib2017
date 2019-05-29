@@ -53,6 +53,7 @@
     <element id="Observation.code.coding:MUSTScoreCode">
       <path value="Observation.code.coding" />
       <sliceName value="MUSTScoreCode" />
+    </element>  
     <element id="Observation.code.coding:MUSTScoreCode.system">
       <path value="Observation.code.coding.system" />
       <fixedUri value="http://snomed.info/sct" />
@@ -111,6 +112,7 @@
       <mapping>
         <identity value="hcim-MUSTScore-v3.0-2017EN" />
         <map value="NL-CM:4.5.7" />
+        <comment value="Comment" />
       </mapping>
     </element>
     <element id="Observation.component">
@@ -133,6 +135,7 @@
       <patternCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct" />
+          <code value="MISSING"/>
         </coding>
       </patternCodeableConcept>
     </element>
@@ -145,6 +148,16 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of WeightLossScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.4.2" />
+            <code value="G0" />
+            <display value="LossLow" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="MUSTGewichtsverliesScoreCodelijst" />
@@ -181,6 +194,16 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of BMIScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.4.1" />
+            <code value="B0" />
+            <display value="BMIHigh" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="BMIScoreCodelijst" />
