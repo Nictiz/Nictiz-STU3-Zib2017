@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A Observation resource as defined by the Dutch HCIM SNAQrcScore-v1.0(2017EN)" />
+  <description value="A Observation resource as defined by the Dutch HCIM SNAQrcScore-v1.0(2017EN). The Short Nutritional Assessment Questionnaire for Residential Care (SNAQ rc is a (validated) measuring tool for determining the extent of a patient’s malnutrition. The tool comprises three questions, each of which is assigned a score. The total score determines the extent of malnutrition. The SNAQrc helps to recognize and treat malnutrition at an early stage. Four varieties of the measuring tool were developed for different care settings: hospitals (adults and children), nursing and retirement homes and independently living seniors. This concept describes the tool intended for the nursing and retirement homes setting." />
   <purpose value="#Purpose&#xD;&#xA;The SNAQrcscore is used to determine the extent of malnutrition or the risk of malnutrition. To treat malnutrition quickly and effectively, it is important to identify the malnutrition at an early stage.&#xD;&#xA;&#xD;&#xA;#Rationale&#xD;&#xA;HL7 uses observations for defining scores like APGAR, to stay consistent, Nictiz chose to the Observation resource too." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -44,23 +44,26 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Observation.code.coding:SNAQrcScoreCode">
       <path value="Observation.code.coding" />
       <sliceName value="SNAQrcScoreCode" />
+      <min value="1" />
+      <max value="1" />
       <mapping>
         <identity value="hcim-SNAQrcScore-v1.0" />
-        <map value=" NL-CM:4.29.1" />
+        <map value="NL-CM:4.29.1" />
       </mapping>
     </element>
     <element id="Observation.code.coding:SNAQrcScoreCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.code.coding:SNAQrcScoreCode.code">
       <path value="Observation.code.coding.code" />
-      <short value="Short Nutritional Assessment Questionnaire" />
-      <alias value="SNAQrc" />
+      <min value="1" />
       <fixedCode value="MISSING" />
     </element>
     <element id="Observation.code.coding:SNAQrcScoreCode.display">
@@ -135,6 +138,7 @@
       <patternCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
         </coding>
       </patternCodeableConcept>
     </element>
@@ -147,6 +151,16 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of WeightLossScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.19.1" />
+            <code value="G1" />
+            <display value="Meer dan 6 kg in de laatste 6 maanden" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="SNAQrcGewichtsverliesScoreCodelijst" />
@@ -183,10 +197,22 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of AppetiteScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.19.2" />
+            <code value="B1" />
+            <display value="GeenEetlust" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="SNAQrcEetlustScoreCodelijst" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.29.2--20171231000000" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.29.2--20171231000000" />
+        </valueSetReference>
       </binding>
       <mapping>
         <identity value="hcim-SNAQrcScore-v1.0-2017EN" />
@@ -217,6 +243,16 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of BMIScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.19.3" />
+            <code value="B0" />
+            <display value="Gezond (22 &lt;=BMI &lt;28)" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="SNAQrcBMIScoreCodelijst" />
@@ -253,6 +289,16 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of AssistedEating" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="165224005" />
+            <display value="Independent feeding" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="SNAQrcHulpBijEtenCodelijst" />

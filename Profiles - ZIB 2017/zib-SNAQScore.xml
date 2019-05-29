@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A Observation resource as defined by the Dutch HCIM SNAQScore-v3.1(2017EN)" />
+  <description value="A Observation resource as defined by the Dutch HCIM SNAQScore-v3.1(2017EN). The Short Nutritional Assessment Questionnaire (SNAQ) is a (validated) measuring tool for determining the extent of a patient’s malnutrition. The tool comprises three questions, each of which is assigned a score. The total score determines the extent of malnutrition. The SNAQ helps to recognize and treat malnutrition at an early stage. Three varieties of the measuring tool were developed for different care settings: hospitals, nursing and retirement homes and independently living seniors. This concept describes the tool intended for the hospital setting." />
   <purpose value="#Purpose&#xD;&#xA;The SNAQ score is used to determine the extent of malnutrition or the risk of malnutrition. To treat malnutrition quickly and effectively, it is important to identify the malnutrition at an early stage.&#xD;&#xA;&#xD;&#xA;#Rationale&#xD;&#xA;HL7 uses observations for defining scores like APGAR, to stay consistent, Nictiz chose to the Observation resource too." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -44,10 +44,13 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Observation.code.coding:SNAQScoreCode">
       <path value="Observation.code.coding" />
       <sliceName value="SNAQScoreCode" />
+      <min value="1" />
+      <max value="1" />
       <mapping>
         <identity value="hcim-SNAQScore-v3.0" />
         <map value="NL-CM:4.6.1" />
@@ -55,12 +58,12 @@
     </element>
     <element id="Observation.code.coding:SNAQScoreCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.code.coding:SNAQScoreCode.code">
       <path value="Observation.code.coding.code" />
-      <short value="Short Nutritional Assessment Questionnaire" />
-      <alias value="SNAQ" />
+      <min value="1" />
       <fixedCode value="8881000146104" />
     </element>
     <element id="Observation.code.coding:SNAQScoreCode.display">
@@ -135,6 +138,7 @@
       <patternCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
         </coding>
       </patternCodeableConcept>
     </element>
@@ -147,6 +151,16 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of WeightLossScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.5.1" />
+            <code value="G2" />
+            <display value="Meer dan 6 kg in de laatste 6 maanden" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="SNAQGewichtsverliesScoreCodelijst" />
@@ -183,10 +197,22 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of AppetiteScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.5.2" />
+            <code value="B1" />
+            <display value="Verminderde eetlust de afgelopen maand" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="EetlustScoreCodelijst" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/3.0/public/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.4.5.2--20171231000000" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.6.2--20171231000000" />
+        </valueSetReference>
       </binding>
       <mapping>
         <identity value="hcim-SNAQScore-v3.0-2017EN" />
@@ -217,6 +243,16 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of NutritionScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.5.3" />
+            <code value="Z0" />
+            <display value="GeenVoeding" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="VoedingsScoreCodelijst" />
