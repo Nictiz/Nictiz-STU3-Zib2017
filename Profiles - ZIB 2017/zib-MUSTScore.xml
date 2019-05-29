@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-MUSTScore" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MUSTScore" />
+  <version value="1.0.0" />
+  <name value="Zib MUSTScore" />
+  <title value="HCIM MUSTScore" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A Observation resource as defined by the Dutch HCIM MUSTScore-v3.0(2017EN). The Malnutrition Universal Screening Tool (MUST) is a (validated) diagnostic screening tool for determining the extent of a patient’s malnutrition. For this screening tool, every patient’s Body Mass Index (BMI) and weight loss percentage is calculated, after which the patient is assigned a disease factor. The MUST helps to recognize and treat malnutrition at an early stage. (Source: Guidelines for Screening and Treating Malnutrition.)" />
+  <purpose value="#Purpose&#xD;&#xA;The MUST score is used to determine the extent of malnutrition or the risk of malnutrition. To treat malnutrition quickly and effectively, it is important to identify the malnutrition at an early stage.&#xD;&#xA;&#xD;&#xA;#Rationale&#xD;&#xA;HL7 uses observations for defining scores like APGAR, to stay consistent, Nictiz chose to the Observation resource too." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-MUSTscore-v3.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/MUSTScore-v3.0(2017EN)" />
+    <name value="MUSTScore-v3.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="MUST Score" />
+      <definition value="The Malnutrition Universal Screening Tool (MUST) is a (validated) diagnostic screening tool for determining the extent of a patient’s malnutrition.  &#xD;&#xA;For this screening tool, every patient’s Body Mass Index (BMI) and  &#xD;&#xA;weight loss percentage is calculated, after which the patient is assigned a disease factor. The MUST helps to recognize and treat malnutrition at an early stage. &#xD;&#xA; &#xD;&#xA;(Source: Guidelines for Screening and Treating Malnutrition.)" />
+      <mapping>
+        <identity value="hcim-MUSTScore-v3.0" />
+        <map value="NL-CM:4.5.1" />
+        <comment value="MUSTScore" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:MUSTScoreCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="MUSTScoreCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:MUSTScoreCode.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:MUSTScoreCode.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="444297006" />
+    </element>
+    <element id="Observation.code.coding:MUSTScoreCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Malnutrition universal screening tool" />
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <short value="MUSTScoreDateTime" />
+      <definition value="The date and time at which the MUST score was determined." />
+      <alias value="MUSTScoreDatumTijd" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="hcim-MUSTScore-v3.0-2017EN" />
+        <map value="NL-CM:4.5.6" />
+        <comment value="MUSTScoreDateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="TotalScore" />
+      <definition value="The total score is the sum of all the individual scores. The total score has a range from 0 - 6." />
+      <alias value="TotaalScore" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="hcim-MUSTScore-v3.0-2017EN" />
+        <map value="NL-CM:4.5.2" />
+        <comment value="TotalScore" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity.value">
+      <path value="Observation.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="6" />
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <definition value="A comment on the circumstances during the measurement." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-MUSTScore-v3.0-2017EN" />
+        <map value="NL-CM:4.5.7" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:WeightLossScore">
+      <path value="Observation.component" />
+      <sliceName value="WeightLossScore" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:WeightLossScore.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:WeightLossScore.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="WeightLossScore" />
+      <definition value="The score based on undesired weight loss over the past month(s)." />
+      <alias value="GewichtsverliesScore" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of WeightLossScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.4.2" />
+            <code value="G0" />
+            <display value="LossLow" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="MUSTGewichtsverliesScoreCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.5.2--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-MUSTScore-v3.0-2017EN" />
+        <map value="NL-CM:4.5.4" />
+        <comment value="WeightLossScore" />
+      </mapping>
+    </element>
+    <element id="Observation.component:BMIScore">
+      <path value="Observation.component" />
+      <sliceName value="BMIScore" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:BMIScore.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:BMIScore.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="BMIScore" />
+      <definition value="A person’s Body Mass Index (BMI), also known as their Quetelet index (QI), is an index indicating the ratio between a person’s height and weight. This BMI is expressed in kg/m2." />
+      <alias value="BMIScore" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of BMIScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.4.1" />
+            <code value="B0" />
+            <display value="BMIHigh" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="BMIScoreCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.5.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-MUSTScore-v3.0-2017EN" />
+        <map value="NL-CM:4.5.3" />
+        <comment value="BMIScore" />
+      </mapping>
+    </element>
+    <element id="Observation.component:IllnessScore">
+      <path value="Observation.component" />
+      <sliceName value="IllnessScore" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:IllnessScore.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:IllnessScore.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="IllnessScore" />
+      <definition value="Illness can result in reduced food intake, leading to a higher risk of malnutrition.&#xD;&#xA;The IllnessScore concept is used to indicate that the patient is seriously ill and that the patient has not eaten for more than 5 days or that there is a chance that the patient has not eaten for more than 5 days." />
+      <alias value="ZiekteScore" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of IllnessScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.4.3" />
+            <code value="Z1" />
+            <display value="Ziek" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="ZiekteScoreCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.5.3--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-MUSTScore-v3.0-2017EN" />
+        <map value="NL-CM:4.5.5" />
+        <comment value="IllnessScore" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

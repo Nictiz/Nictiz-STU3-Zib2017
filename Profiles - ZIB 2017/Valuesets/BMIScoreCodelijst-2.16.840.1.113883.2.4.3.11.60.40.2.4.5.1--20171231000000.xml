@@ -1,0 +1,89 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.2.4.3.11.60.40.2.4.5.1--20171231000000"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/><!--<profile value="http://hl7.org/fhir/3.0/StructureDefinition/ValueSet"/>-->
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2017-12-31T00:00:00+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.5.1--20171231000000"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://art-decor.org/ns/oids/vs"/>
+        <value value="2.16.840.1.113883.2.4.3.11.60.40.2.4.5.1"/>
+    </identifier>
+    <version value="2017-12-31T00:00:00"/>
+    <name value="BMIScoreCodelijst"/>
+    <title value="BMIScoreCodelijst"/>
+    <status value="active"/>
+    <experimental value="false"/>
+    <publisher value="Registratie aan de bron"/>
+    <contact>
+        <name value="Registratie aan de bron"/>
+        <telecom>
+            <system value="url"/>
+            <value value="https://www.registratieaandebron.nl"/>
+        </telecom>
+        <telecom>
+            <system value="url"/>
+            <value value="https://www.zibs.nl"/>
+        </telecom>
+    </contact>
+    <description value="BMIScoreCodelijst"/>
+    <immutable value="false"/>
+    <compose>
+        <include>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.4.1"/>
+            <concept>
+                <extension url="http://hl7.org/fhir/StructureDefinition/valueset-ordinalValue">
+                    <valueDecimal value="0"/>
+                </extension>
+                <code value="B0"/>
+                <display value="BMIHigh"/>
+                <designation>
+                    <language value="nl-NL"/>
+                    <use>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="900000000000013009"/>
+                        <display value="Synonym"/>
+                    </use>
+                    <value value="BMI &gt;20 kg/m2"/>
+                </designation>
+            </concept>
+            <concept>
+                <extension url="http://hl7.org/fhir/StructureDefinition/valueset-ordinalValue">
+                    <valueDecimal value="1"/>
+                </extension>
+                <code value="B1"/>
+                <display value="BMIAverage"/>
+                <designation>
+                    <language value="nl-NL"/>
+                    <use>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="900000000000013009"/>
+                        <display value="Synonym"/>
+                    </use>
+                    <value value="BMI tussen 18,5-20 kg/m2"/>
+                </designation>
+            </concept>
+            <concept>
+                <extension url="http://hl7.org/fhir/StructureDefinition/valueset-ordinalValue">
+                    <valueDecimal value="2"/>
+                </extension>
+                <code value="B2"/>
+                <display value="BMILow"/>
+                <designation>
+                    <language value="nl-NL"/>
+                    <use>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="900000000000013009"/>
+                        <display value="Synonym"/>
+                    </use>
+                    <value value="BMI &lt; 18,5 kg/m2"/>
+                </designation>
+            </concept>
+        </include>
+    </compose>
+</ValueSet>
