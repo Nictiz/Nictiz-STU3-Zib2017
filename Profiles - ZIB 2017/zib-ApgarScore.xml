@@ -64,6 +64,19 @@
         <comment value="ApgarScore" />
       </mapping>
     </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <example>
+        <label value="Example of 1 Minute ApgarScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://loinc.org" />
+            <code value="9272-6" />
+            <display value="1 minute Apgar Score" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+    </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
       <slicing>
@@ -150,10 +163,27 @@
       <type>
         <code value="Quantity" />
       </type>
+      <minValueQuantity>
+        <value value="0" />
+      </minValueQuantity>
+      <maxValueQuantity>
+        <value value="10" />
+      </maxValueQuantity>
       <mapping>
         <identity value="hcim-apgarscore-v1.0-2017EN" />
         <map value="NL-CM:12.16.2" />
         <comment value="ApgarScoreTotal" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comment on the Apgar score." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-apgarscore-v1.0-2017EN" />
+        <map value="NL-CM:12.16.9" />
+        <comment value="Comment" />
       </mapping>
     </element>
     <element id="Observation.component">
