@@ -8,7 +8,7 @@
   <status value="draft" />
   <publisher value="Nictiz" />
   <description value="An Observation type resource as defined by the Dutch Health Care Information Model BladderFunction-v3.1(2017EN)" />
-  <purpose value="#Purpose&#xD;&#xA;Information on bladder function disorders is important in drawing up the nursing plan and for patient care. In a transfer situation, it offers the ability to anticipate the arrival of the patient and to achieve continuity in healthcare for the patient. This way, material or expertise can be coordinated beforehand, for example.&#xD;&#xA;&#xD;&#xA;#Rationale&#xD;&#xA;Statement about bladderfunction. If bladderfunction is impaired, you could infer a Condition.&#xD;&#xA;" />
+  <purpose value="#Purpose&#xD;&#xA;Information on bladder function disorders is important in drawing up the nursing plan and for patient care. In a transfer situation, it offers the ability to anticipate the arrival of the patient and to achieve continuity in healthcare for the patient. This way, material or expertise can be coordinated beforehand, for example.&#xD;&#xA;&#xD;&#xA;#Rationale&#xD;&#xA;Statement about bladderfunction. If bladderfunction is impaired, you could infer a Condition." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -52,10 +52,12 @@
     </element>
     <element id="Observation.code.coding:BladderFunctionCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.code.coding:BladderFunctionCode.code">
       <path value="Observation.code.coding.code" />
+      <min value="1" />
       <fixedCode value="28278009" />
     </element>
     <element id="Observation.value[x]:valueCodeableConcept">
@@ -65,20 +67,32 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of BladderFunction UrineContinentieCodelijst" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="165232002" />
+            <display value="Incontinent" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="UrineContinentieCodelijst" />
-        <valueSetUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.14.1--20171231000000" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.14.1--20171231000000" />
+        </valueSetReference>
       </binding>
       <mapping>
         <identity value="hcim-bladderfunction-v3.1-2017EN" />
-        <map value=" NL-CM:4.14.2" />
+        <map value="NL-CM:4.14.2" />
         <comment value="UrineContinence" />
       </mapping>
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
-      <definition value=" Comment on the urinary (in)continence and treatment." />
+      <definition value="Comment on the urinary (in)continence and treatment." />
       <alias value="Toelichting" />
       <mapping>
         <identity value="hcim-bladderfunction-v3.1-2017EN" />
