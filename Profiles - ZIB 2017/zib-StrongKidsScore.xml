@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-StrongKidsScore" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-StrongKidsScore" />
+  <version value="1.0.0" />
+  <name value="Zib StrongKidsScore" />
+  <title value="HCIM StrongKidsScore" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <description value="An Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) HCIM StrongKidsScore v1.0 2017EN&#xD;&#xA;&#xD;&#xA;The StrongKids score is a (validated) measuring tool for determining the extent of a child’s malnutrition. &#xD;&#xA;StrongKids is developed to recognize and treat malnutrition in children aged &gt; 1 month to 18 years in a hospital setting.&#xD;&#xA;The tool comprises four questions, each of which is assigned a score. The total score determines the extent of malnutrition.  &#xD;&#xA;(STRONGkids= Screening Tool Risk On Nutritional Status and Growth)" />
+  <purpose value="#Purpose&#xD;&#xA;The StrongKids score is used to determine the extent of malnutrition or the risk of malnutrition. To treat malnutrition quickly and effectively, it is important to identify the malnutrition at an early stage.&#xD;&#xA;&#xD;&#xA;#Rationale&#xD;&#xA;Clinical Assessments are generally Observations. Although a more specialized Resource exists, the ClinicalImpression, it is not suitable because it is too immature and doesn't fit this information model well." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-strongkidsscore-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/StrongKidsScore-v1.0(2017EN)" />
+    <name value="HCIM StrongKidsScore-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="StrongKidsScore" />
+      <alias value="StrongKidsScore" />
+      <mapping>
+        <identity value="hcim-strongkidsscore-v1.0-2017EN" />
+        <map value="NL-CM:4.28.1" />
+        <comment value="StrongKidsScore" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:strongKidsScoreCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="strongKidsScoreCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:strongKidsScoreCode.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:strongKidsScoreCode.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="MISSING" />
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <short value="ScoreDateTime" />
+      <definition value="The date and time at which the StrongKids score was determined." />
+      <alias value="ScoreDatumTijd" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="hcim-strongkidsscore-v1.0-2017EN" />
+        <map value="NL-CM:4.28.6" />
+        <comment value="ScoreDateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="TotalScore" />
+      <definition value="The total score is the sum of all the individual scores. The total score has a range from 0 - 5." />
+      <alias value="TotaalScore" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <example>
+        <label value="Example of StrongKidsScore TotalScore" />
+        <valueQuantity>
+          <value value="2" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="{score}" />
+        </valueQuantity>
+      </example>
+      <mapping>
+        <identity value="hcim-strongkidsscore-v1.0-2017EN" />
+        <map value="NL-CM:4.28.2" />
+        <comment value="TotalScore" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity.value">
+      <path value="Observation.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="5" />
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="A comment on the circumstances during the measurement." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-strongkidsscore-v1.0-2017EN" />
+        <map value="NL-CM:4.28.7" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:WeightLossScore">
+      <path value="Observation.component" />
+      <sliceName value="WeightLossScore" />
+    </element>
+    <element id="Observation.component:WeightLossScore.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:WeightLossScore.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="WeightLossScore" />
+      <definition value="The score based on undesired weight loss or arrest in growth or weight gain over the past weeks to month(s)." />
+      <alias value="GewichtsverliesScore" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of WeightLossScore CodeableConcept" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.17.1" />
+            <code value="G0" />
+            <display value="NoLoss" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="SKWeightLossScoreCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-strongkidsscore-v1.0-2017EN" />
+        <map value="NL-CM:4.28.3" />
+        <comment value="WeightLossScore" />
+      </mapping>
+    </element>
+    <element id="Observation.component:ConditionScore">
+      <path value="Observation.component" />
+      <sliceName value="ConditionScore" />
+    </element>
+    <element id="Observation.component:ConditionScore.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:ConditionScore.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="ConditionScore" />
+      <definition value="The score based on the presence of a condition that can cause an increased risk of malnutrition. A list with conditions with increased risk is given is reference [1]" />
+      <alias value="ZiekteBeeldScore" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of ConditionScore CodeableConcept" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.17.2" />
+            <code value="R0" />
+            <display value="NoRisk" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="SKConditionScoreCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.2--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-strongkidsscore-v1.0-2017EN" />
+        <map value="NL-CM:4.28.3" />
+        <comment value="ConditionScore" />
+      </mapping>
+    </element>
+    <element id="Observation.component:NutritionScore">
+      <path value="Observation.component" />
+      <sliceName value="NutritionScore" />
+    </element>
+    <element id="Observation.component:NutritionScore.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:NutritionScore.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="NutritionScore" />
+      <definition value="The score based on the presence of aspects that indicate a deteriorated nutrition status:&#xD;&#xA;- excessive diarrhea and/or vomiting&#xD;&#xA;- use of fluid or enteral nutrition&#xD;&#xA;- reduced intake of food during the past 1-3 days&#xD;&#xA;- obstruction of food intake by pain" />
+      <alias value="VoedingsScore" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of NutritionScore CodeableConcept" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.2.4.28.3" />
+            <code value="Z0" />
+            <display value="Normaal" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="SKNutritionScoreCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.3--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-strongkidsscore-v1.0-2017EN" />
+        <map value="NL-CM:4.28.3" />
+        <comment value="NutritionScore" />
+      </mapping>
+    </element>
+    <element id="Observation.component:NutritionStatusScore">
+      <path value="Observation.component" />
+      <sliceName value="NutritionStatusScore" />
+    </element>
+    <element id="Observation.component:NutritionStatusScore.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:NutritionStatusScore.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="NutritionStatusScore" />
+      <definition value="The score gives an indication of the nutrition status of the patient based on the professional opinion of the healthcare professional." />
+      <alias value="VoedingstoestandScore" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of NutritionStatusScore CodeableConcept" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.17.4" />
+            <code value="T0" />
+            <display value="Goed" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="SKNutritionStatusScoreCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.28.4--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-strongkidsscore-v1.0-2017EN" />
+        <map value="NL-CM:4.28.3" />
+        <comment value="NutritionStatusScore" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
