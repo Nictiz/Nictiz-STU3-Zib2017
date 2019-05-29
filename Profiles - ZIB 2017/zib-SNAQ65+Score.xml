@@ -44,10 +44,13 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Observation.code.coding:SNAQ65plusScoreCode">
       <path value="Observation.code.coding" />
       <sliceName value="SNAQ65plusScoreCode" />
+      <min value="1" />
+      <max value="1" />
       <mapping>
         <identity value="hcim-SNAQ65plusScore-v1.0" />
         <map value="NL-CM:4.30.1" />
@@ -55,10 +58,12 @@
     </element>
     <element id="Observation.code.coding:SNAQ65plusScoreCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.code.coding:SNAQ65plusScoreCode.code">
       <path value="Observation.code.coding.code" />
+      <min value="1" />
       <fixedCode value="MISSING" />
     </element>
     <element id="Observation.code.coding:SNAQ65plusScoreCode.display">
@@ -133,6 +138,7 @@
       <patternCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
         </coding>
       </patternCodeableConcept>
     </element>
@@ -191,6 +197,16 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of AppetiteScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.18.2" />
+            <code value="B0" />
+            <display value="Normale eetlust" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="SNAQ65+EetlustScoreCodelijst" />
@@ -227,6 +243,16 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of UpperarmCircumference" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.18.4" />
+            <code value="A0" />
+            <display value="Omtrek &gt;= 25cm" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="SNAQ65+BovenarmOmtrekScoreCodelijst" />
@@ -263,6 +289,16 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <example>
+        <label value="Example of ExerciseScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.18.3" />
+            <code value="In0" />
+            <display value="In staat tot fysieke inspanning" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
       <binding>
         <strength value="extensible" />
         <description value="SNAQ65+InspanningsScoreCodelijst" />
