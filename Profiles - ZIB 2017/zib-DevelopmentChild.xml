@@ -48,6 +48,7 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
       <mapping>
         <identity value="hcim-DevelopmentChild-v1.1-2017EN" />
         <map value="NL-CM:4.32.1" />
@@ -57,13 +58,17 @@
     <element id="Observation.code.coding:DevelopmentChildCode">
       <path value="Observation.code.coding" />
       <sliceName value="DevelopmentChildCode" />
+      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Observation.code.coding:DevelopmentChildCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.code.coding:DevelopmentChildCode.code">
       <path value="Observation.code.coding.code" />
+      <min value="1" />
       <fixedCode value="251803000" />
     </element>
     <element id="Observation.code.coding:DevelopmentChildCode.display">
