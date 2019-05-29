@@ -30,6 +30,17 @@
   <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice" />
   <derivation value="constraint" />
   <differential>
+    <element id="DeviceUseStatement">
+      <path value="DeviceUseStatement" />
+      <short value="VisualAid" />
+      <definition value="The medical aids used to support the visual function." />
+      <alias value="ZienHulpmiddel" />
+      <mapping>
+        <identity value="hcim-visualfunction-v3.1-2017EN" />
+        <map value="NL-CM:4.16.4" />
+        <comment value="VisualAid" />
+      </mapping>
+    </element>
     <element id="DeviceUseStatement.extension:reasonReference">
       <path value="DeviceUseStatement.extension" />
       <sliceName value="reasonReference" />
@@ -44,18 +55,10 @@
     </element>
     <element id="DeviceUseStatement.device">
       <path value="DeviceUseStatement.device" />
-      <short value="VisualAid:MedicalDevice" />
-      <definition value="The medical aids used to support the visual function." />
-      <alias value="ZienHulpmiddel::MedischHulpmiddel" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-VisualFunction-VisualAidProduct" />
       </type>
-      <mapping>
-        <identity value="hcim-visualfunction-v3.1-2017EN" />
-        <map value="NL-CM:4.16.4" />
-        <comment value="VisualAid:MedicalDevice" />
-      </mapping>
     </element>
   </differential>
 </StructureDefinition>
