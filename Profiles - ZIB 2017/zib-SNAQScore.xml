@@ -34,6 +34,12 @@
       <path value="Observation" />
       <short value="SNAQ Score" />
       <definition value="The Short Nutritional Assessment Questionnaire (SNAQ) is a (validated) measuring tool for determining the extent of a patient’s malnutrition. The tool comprises three questions, each of which is assigned a score. The total score determines the extent of malnutrition.  &#xD;&#xA;The SNAQ helps to recognize and treat malnutrition at an early stage. &#xD;&#xA;Three varieties of the measuring tool were developed for different care settings: hospitals, nursing and retirement homes and independently living seniors. This concept describes the tool intended for the hospital setting." />
+      <constraint>
+        <key value="Zib-SNAQScore-1" />
+        <severity value="error" />
+        <human value="If one of the component codes is present, all SHALL be present." />
+        <expression value="( component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_NutritionScore').empty() and component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_AppetiteScore').empty() and component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_WeightLossScore').empty() ) or ( component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_NutritionScore').exists() and component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_AppetiteScore').exists() and component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_WeightLossScore').exists() )" />
+      </constraint>
     </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
@@ -138,7 +144,7 @@
       <patternCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct" />
-          <code value="MISSING" />
+          <code value="MISSING_WeightLossScore" />
         </coding>
       </patternCodeableConcept>
     </element>
@@ -184,7 +190,7 @@
       <patternCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct" />
-          <code value="MISSING" />
+          <code value="MISSING_AppetiteScore" />
         </coding>
       </patternCodeableConcept>
     </element>
@@ -230,7 +236,7 @@
       <patternCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct" />
-          <code value="MISSING" />
+          <code value="MISSING_NutritionScore" />
         </coding>
       </patternCodeableConcept>
     </element>
