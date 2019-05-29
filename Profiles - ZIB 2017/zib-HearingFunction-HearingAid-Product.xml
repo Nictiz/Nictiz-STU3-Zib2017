@@ -3,8 +3,8 @@
   <id value="zib-HearingFunction-HearingAid-Product" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingFunction-HearingAid-Product" />
   <version value="1.0.0" />
-  <name value="Zib HearingFunction-HearingAid-Product" />
-  <title value="HCIM HearingFunction-HearingAid-Product" />
+  <name value="Zib HearingFunction HearingAid Product" />
+  <title value="HCIM HearingFunction HearingAid Product" />
   <status value="draft" />
   <publisher value="Nictiz" />
   <contact>
@@ -15,6 +15,8 @@
       <use value="work" />
     </telecom>
   </contact>
+  <description value="A HearingFunction resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) HearingFunction v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Hearing is the ability to observe sound, with the purpose of communicating with others, localizing the source of the sound and recognizing certain sounds. This pertains to observing the sound waves, and not processing the sounds in the brain.&#xD;&#xA;A hearing disorder can lead to things including communication problems." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;Information on hearing function disorders is important in patient nursing and care and particularly in communication with the patient.&#xD;&#xA;&#xD;&#xA;# Purpose of this resource&#xD;&#xA;This HCIM complements the zib-HearingFunction (Observation) profile to note the use of any visual aids. It can be bound to this profile using the zib-HearingFunction-HearingAid (DeviceUseStatement) profile." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -32,16 +34,12 @@
       <path value="Device.type" />
       <binding>
         <strength value="extensible" />
+        <description value="HorenHulpmiddelTypeCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.17.2--20171231000000" />
           <display value="ProductTypeCodelijst" />
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="hcim-hearingfunction-v3.1-2017EN" />
-        <map value="NL-CM:10.1.3" />
-        <comment value="ProductType" />
-      </mapping>
     </element>
   </differential>
 </StructureDefinition>
