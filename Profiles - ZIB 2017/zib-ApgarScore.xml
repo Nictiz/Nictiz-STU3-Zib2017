@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="An Obervation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) ApgarScore v1.0(2017EN)" />
+  <description value="An Obervation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) ApgarScore v1.0(2017EN).&#xD;&#xA;&#xD;&#xA;The Apgar score represents the overall clinical status of a newborn child. This is evaluated one, five and ten minutes after birth based on 5 parameters: Appearance, Pulse, Grimace, Activity, Respiration. If the score measured at 5 minutes is &lt; 8, the Apgar score is measured again at 10, 15, 20 minutes etc. until the score = 8. " />
   <purpose value="# Purpose of HCIM&#xD;&#xA;The Apgar score is primarily meant to rapidly determine the clinical condition of the newborn child and whether extra care is required. A low Apgar score can be caused by developmental disorders, prenatal accidents or negative influences during birth. The Apgar score remains a snapshot in time and cannot be used to predict the locomotive or mental development of a child." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -107,6 +107,13 @@
       <min value="1" />
       <fixedCode value="9272-6" />
     </element>
+    <element id="Observation.code.coding:1MinuteApgarScore.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="1 minute Apgar Score" />
+    </element>
     <element id="Observation.code.coding:5MinuteApgarScore">
       <path value="Observation.code.coding" />
       <sliceName value="5MinuteApgarScore" />
@@ -122,6 +129,13 @@
       <min value="1" />
       <fixedCode value="9274-2" />
     </element>
+    <element id="Observation.code.coding:5MinuteApgarScore.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="5 minute Apgar Score" />
+    </element>
     <element id="Observation.code.coding:10MinuteApgarScore">
       <path value="Observation.code.coding" />
       <sliceName value="10MinuteApgarScore" />
@@ -136,6 +150,13 @@
       <path value="Observation.code.coding.code" />
       <min value="1" />
       <fixedCode value="9271-8" />
+    </element>
+    <element id="Observation.code.coding:10MinuteApgarScore.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="10 minute Apgar Score" />
     </element>
     <element id="Observation.effective[x]:effectiveDateTime">
       <path value="Observation.effectiveDateTime" />
@@ -163,12 +184,6 @@
       <type>
         <code value="Quantity" />
       </type>
-      <minValueQuantity>
-        <value value="0" />
-      </minValueQuantity>
-      <maxValueQuantity>
-        <value value="10" />
-      </maxValueQuantity>
       <mapping>
         <identity value="hcim-apgarscore-v1.0-2017EN" />
         <map value="NL-CM:12.16.2" />
