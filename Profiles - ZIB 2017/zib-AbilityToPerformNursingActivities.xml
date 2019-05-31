@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="An Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) AbilityToPerformNursingActivities v1.0(2017EN).&#xD;&#xA;&#xD;&#xA;When taking care of a patient with a disease or disability, parents, children and other caretakers often carry out nursing interventions. Adults and older children may carry out nursing interventions by themselves. Therefore skills training is needed for caregivers/ children. Qualification is required for correct performing of an intervention and also knowledge about what to do in case of complications.&#xD;&#xA;The assessment of the degree to which the intervention can be performed independently refers only to the indicated intervention. " />
+  <description value="An Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) AbilityToPerformNursingActivities v1.0(2017EN).&#xD;&#xA;&#xD;&#xA;When taking care of a patient with a disease or disability, parents, children and other caretakers often carry out nursing interventions. Adults and older children may carry out nursing interventions by themselves. Therefore skills training is needed for caregivers/ children. Qualification is required for correct performing of an intervention and also knowledge about what to do in case of complications.&#xD;&#xA;The assessment of the degree to which the intervention can be performed independently refers only to the indicated intervention." />
   <purpose value="This profile specifies to what degree a patient is able to perform a specific nursing activity. The activity itself is described in detail using a zib-NursingIntervention profile. The current profile is much simpler and makes on observation on the abilities of the patient in regards to it." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -66,6 +66,10 @@
       <definition value="Specification of nursing interventions where the skills relate to." />
       <alias value="VerpleegkundigeInterventie" />
       <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention" />
+      </type>
       <mapping>
         <identity value="hcim-abilitytoperformnursingactivities-v1.0-2017EN" />
         <map value="NL-CM:4.34.3" />
@@ -84,7 +88,7 @@
     <element id="Observation.extension:focus.valueReference:valueReference">
       <path value="Observation.extension.valueReference" />
       <sliceName value="valueReference" />
-      <alias value="Betrokkene::Contactpersoon" />
+      <alias value="Betrokkene" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
