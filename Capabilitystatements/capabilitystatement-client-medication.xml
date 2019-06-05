@@ -2,10 +2,10 @@
 <?xml-model href="http://hl7.org/fhir/STU3/capabilitystatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
   <url value="http://nictiz.nl/fhir/CapabilityStatement/medication-clientcapabilities" />
-  <version value="1.0.0"/>
+  <version value="1.0.2"/>
   <name value="MedicationClient" />
   <status value="active" />
-  <date value="2017-09-25" />
+  <date value="2019-06-05" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -99,6 +99,11 @@
       <searchParam>
         <name value="periodofuse" />
         <definition value="http://nictiz.nl/fhir/SearchParameter/Medications-periodofuse"/>
+        <type value="date" />
+      </searchParam>
+      <searchParam>
+        <name value="requestdate" />
+        <definition value="http://nictiz.nl/fhir/SearchParameter/MedicationDispense-requestdate"/>
         <type value="date" />
       </searchParam>
       <searchParam>
