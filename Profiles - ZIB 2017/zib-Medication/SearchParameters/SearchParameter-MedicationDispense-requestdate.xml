@@ -1,0 +1,26 @@
+<?xml-model href="http://hl7.org/fhir/STU3/searchparameter.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<SearchParameter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/searchparameter.xsd">
+    <id value="MedicationDispense-requestdate"/>
+    <url value="http://nictiz.nl/fhir/SearchParameter/MedicationDispense-requestdate" />
+    <version value="1.0.0"/>
+    <name value="MedicationDispense-requestdate" />
+    <status value="active" />
+    <experimental value="true"/>
+    <publisher value="Nictiz" />
+    <contact>
+        <name value="Nictiz" />
+        <telecom>
+            <system value="email" />
+            <value value="info@nictiz.nl" />
+            <use value="work" />
+        </telecom>
+    </contact>
+    <purpose value="To select the medication dispense instances based on the requestdate (the time at which a pharmacist records an intended dispense) of the medication."/>
+    <code value="requestdate"/>
+    <base value="MedicationDispense"/>
+    <type value="date"/>
+    <description value="Searches MedicationDispense resources based on the request date (the time at which a pharmacist records an intended dispense), provided in the value of the 'http://nictiz.nl/fhir/StructureDefinition/zib-Dispense-RequestDate' extension."/>
+    <expression value="MedicationDispense.extension('http://nictiz.nl/fhir/StructureDefinition/zib-Dispense-RequestDate')"/>
+    <comparator value="le"/>
+    <comparator value="ge"/>
+</SearchParameter>
