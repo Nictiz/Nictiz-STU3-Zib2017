@@ -164,15 +164,16 @@
     </element>
     <element id="MedicationDispense.authorizingPrescription">
       <path value="MedicationDispense.authorizingPrescription" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-AdministrationAgreement" />
-      </type>
+      <definition value="Relationship to the dispense request. Only a logical identifier could be known of the dispense request in MP-612, hence the 0..0 constrain on reference. " />
       <mapping>
         <identity value="Medication-Process-v09" />
         <map value="mp-dataelement900-22396" />
         <comment value="Relatie naar verstrekkingsverzoek" />
       </mapping>
+    </element>
+    <element id="MedicationDispense.authorizingPrescription.reference">
+      <path value="MedicationDispense.authorizingPrescription.reference" />
+      <max value="0" />
     </element>
     <element id="MedicationDispense.type">
       <path value="MedicationDispense.type" />
