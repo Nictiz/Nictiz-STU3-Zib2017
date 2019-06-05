@@ -15,6 +15,8 @@
       <use value="work" />
     </telecom>
   </contact>
+  <description value="A HearingFunction resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) HearingFunction v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Hearing is the ability to observe sound, with the purpose of communicating with others, localizing the source of the sound and recognizing certain sounds. This pertains to observing the sound waves, and not processing the sounds in the brain.&#xD;&#xA;A hearing disorder can lead to things including communication problems." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;Information on hearing function disorders is important in patient nursing and care and particularly in communication with the patient.&#xD;&#xA;&#xD;&#xA;# Purpose of this resource&#xD;&#xA;This HCIM complements the zib-HearingFunction resource (Observation) to bind a zib-HearingFunction-HearingAidProduct (Device) to it." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -28,15 +30,20 @@
   <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice" />
   <derivation value="constraint" />
   <differential>
+    <element id="DeviceUseStatement">
+      <path value="DeviceUseStatement" />
+      <short value="HearingAid" />
+      <definition value="The medical aid used to help the patient hear." />
+      <alias value="HorenHulpmiddel" />
+      <mapping>
+        <identity value="hcim-hearingfunction-v3.1-2017EN" />
+        <map value="NL-CM:4.17.4" />
+        <comment value="HearingAid" />
+      </mapping>
+    </element>
     <element id="DeviceUseStatement.extension:reasonReference">
       <path value="DeviceUseStatement.extension" />
       <sliceName value="reasonReference" />
-      <alias value="FunctieHoren" />
-      <mapping>
-        <identity value="hcim-hearingfunction-v3.1-2017EN" />
-        <map value="NL-CM:4.17.1" />
-        <comment value="HearingFunction" />
-      </mapping>
     </element>
     <element id="DeviceUseStatement.extension:reasonReference.valueReference:valueReference">
       <path value="DeviceUseStatement.extension.valueReference" />
@@ -48,18 +55,10 @@
     </element>
     <element id="DeviceUseStatement.device">
       <path value="DeviceUseStatement.device" />
-      <short value="ProductType" />
-      <definition value="The type of product used to help the patient hear." />
-      <alias value="ProductType" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingAid-Product" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingAidProduct" />
       </type>
-      <mapping>
-        <identity value="hcim-hearingfunction-v3.1-2017EN" />
-        <map value="NL-CM:10.1.3" />
-        <comment value="ProductType" />
-      </mapping>
     </element>
     <element id="DeviceUseStatement.bodySite">
       <path value="DeviceUseStatement.bodySite" />

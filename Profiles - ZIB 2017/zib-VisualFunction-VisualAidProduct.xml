@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-VisualFunction-VisualAidProduct" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-VisualFunction-VisualAidProduct" />
+  <version value="1.0.0" />
+  <name value="Zib VisualFunction VisualAid Product" />
+  <title value="HCIM VisualFunction VisualAid Product" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) VisualFunction v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Sight is the ability to observe lit objects, with the goal of orienting yourself on objects and people in a lit environment. This pertains to observing the light stimuli, and not processing them in the brain.&#xD;&#xA;A sight disorder can lead to things including orientation problems." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;Information on visual function disorders is important in patient care and treatment and particularly in the communication with the patient. Based on this information, healthcare can be adjusted to the patient’s limitations if needed.&#xD;&#xA;&#xD;&#xA;# Purpose of this resource&#xD;&#xA;This HCIM complements the zib-VisualFunction (Observation) profile to note the use of any visual aids. It can be bound to this profile using the zib-VisualFunction-VisualAid (DeviceUseStatement) profile." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-visualfunction-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/VisualFunction-v3.1(2017EN)" />
+    <name value="HCIM VisualFunction-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Device" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Device.type">
+      <path value="Device.type" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ZienHulpmiddelTypeCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.16.2--20171231000000" />
+          <display value="ProductTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-visualfunction-v3.1-2017EN" />
+        <map value="NL-CM:10.1.3" />
+        <comment value="ProductType" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
