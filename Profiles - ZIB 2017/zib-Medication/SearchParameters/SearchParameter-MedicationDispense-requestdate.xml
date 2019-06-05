@@ -21,6 +21,8 @@
     <type value="date"/>
     <description value="Searches MedicationDispense resources based on the request date (the time at which a pharmacist records an intended dispense), provided in the value of the 'http://nictiz.nl/fhir/StructureDefinition/zib-Dispense-RequestDate' extension."/>
     <expression value="MedicationDispense.extension('http://nictiz.nl/fhir/StructureDefinition/zib-Dispense-RequestDate')"/>
+    <xpath value="f:MedicationDispense/f:extension[@url = 'http://nictiz.nl/fhir/StructureDefinition/zib-Dispense-RequestDate']/f:valueDateTime/@value"/>
+    <xpathUsage value="normal"/>
     <comparator value="le"/>
     <comparator value="ge"/>
 </SearchParameter>
