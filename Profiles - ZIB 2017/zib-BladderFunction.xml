@@ -3,17 +3,24 @@
   <id value="zib-BladderFunction" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction" />
   <version value="1.0.0" />
-  <name value="Zib BladderFunction" />
-  <title value="HCIM Bladderfunction" />
+  <name value="zib BladderFunction" />
+  <title value="HCIM BladderFunction" />
   <status value="draft" />
   <publisher value="Nictiz" />
-  <description value="An Observation type resource as defined by the Dutch Health Care Information Model BladderFunction-v3.1(2017EN)" />
-  <purpose value="#Purpose&#xD;&#xA;Information on bladder function disorders is important in drawing up the nursing plan and for patient care. In a transfer situation, it offers the ability to anticipate the arrival of the patient and to achieve continuity in healthcare for the patient. This way, material or expertise can be coordinated beforehand, for example.&#xD;&#xA;&#xD;&#xA;#Rationale&#xD;&#xA;Statement about bladderfunction. If bladderfunction is impaired, you could infer a Condition." />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The primary function of the bladder is temporary storage of urine. A second important function of the bladder is secretion of the stored urine at the moment there is cause to do so. These functions can be disrupted due to various causes." />
+  <purpose value="Information on bladder function disorders is important in drawing up the nursing plan and for patient care. In a transfer situation, it offers the ability to anticipate the arrival of the patient and to achieve continuity in healthcare for the patient. This way, material or expertise can be coordinated beforehand, for example." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
-    <identity value="hcim-bladderfunction-v3.1-2017EN" />
-    <uri value="https://zibs.nl/wiki/BladderFunction-v3.1(2017EN)" />
+    <identity value="BladderFunction-v3.1-2017EN" />
     <name value="BladderFunction-v3.1(2017EN)" />
   </mapping>
   <kind value="resource" />
@@ -25,10 +32,12 @@
     <element id="Observation">
       <path value="Observation" />
       <short value="BladderFunction" />
-      <definition value="The primary function of the bladder is temporary storage of urine. A second important function of the bladder is secretion of the stored urine at the moment there is cause to do so. These functions can be disrupted due to various causes." />
       <alias value="Blaasfunctie" />
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
       <mapping>
-        <identity value="hcim-bladderfunction-v3.1-2017EN" />
+        <identity value="BladderFunction-v3.1-2017EN" />
         <map value="NL-CM:4.14.1" />
         <comment value="BladderFunction" />
       </mapping>
@@ -49,6 +58,11 @@
       <sliceName value="BladderFunctionCode" />
       <min value="1" />
       <max value="1" />
+      <mapping>
+        <identity value="hcim-Blaasfunctie-v3.0-2017EN" />
+        <map value="NL-CM:4.14.1" />
+        <comment value="UrineContinence" />
+      </mapping>
     </element>
     <element id="Observation.code.coding:BladderFunctionCode.system">
       <path value="Observation.code.coding.system" />
@@ -85,7 +99,7 @@
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="hcim-bladderfunction-v3.1-2017EN" />
+        <identity value="BladderFunction-v3.1-2017EN" />
         <map value="NL-CM:4.14.2" />
         <comment value="UrineContinence" />
       </mapping>
@@ -95,7 +109,7 @@
       <definition value="Comment on the urinary (in)continence and treatment." />
       <alias value="Toelichting" />
       <mapping>
-        <identity value="hcim-bladderfunction-v3.1-2017EN" />
+        <identity value="BladderFunction-v3.1-2017EN" />
         <map value="NL-CM:4.14.6" />
         <comment value="Comment" />
       </mapping>
