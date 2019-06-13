@@ -351,23 +351,25 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
       </type>
     </element>
-    <element id="Condition.onset[x]:onsetPeriod">
-      <path value="Condition.onsetPeriod" />
-      <sliceName value="onsetPeriod" />
+    <element id="Condition.onset[x]:onsetDateTime">
+      <path value="Condition.onsetDateTime" />
+      <short value="ProblemStartDate" />
+      <definition value="Start of the disorder to which the problem applies. Especially in symptoms in which it takes longer for the final diagnosis, it is important to know not only the date of the diagnosis, but also how long the patient has had the disorder. A ‘vague’ date, such as only the year or the month and the year, is permitted." />
+      <alias value="ProbleemBeginDatum" />
+      <sliceName value="onsetDateTime" />
       <type>
-        <code value="Period" />
+        <code value="dateTime" />
       </type>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.14" />
         <comment value="DateTime" />
       </mapping>
-    </element>
-    <element id="Condition.onset[x]:onsetPeriod.start">
-      <path value="Condition.onsetPeriod.start" />
-      <short value="ProblemStartDate" />
-      <definition value="Start of the disorder to which the problem applies. Especially in symptoms in which it takes longer for the final diagnosis, it is important to know not only the date of the diagnosis, but also how long the patient has had the disorder. A ‘vague’ date, such as only the year or the month and the year, is permitted." />
-      <alias value="ProbleemBeginDatum" />
+      <mapping>
+        <identity value="hcim-problem-v1.2-2017EN" />
+        <map value="NL-CM:5.1.6" />
+        <comment value="ProblemStartDate" />
+      </mapping>
       <mapping>
         <identity value="hcim-concernfortransfer-v1.2-2015EN" />
         <map value="NL-CM:5.1.6" />
@@ -378,17 +380,16 @@
         <map value="NL-CM:5.1.6" />
         <comment value="ProblemStartDate" />
       </mapping>
-      <mapping>
-        <identity value="hcim-problem-v1.2-2017EN" />
-        <map value="NL-CM:5.1.6" />
-        <comment value="ProblemStartDate" />
-      </mapping>
     </element>
-    <element id="Condition.onset[x]:onsetPeriod.end">
-      <path value="Condition.onsetPeriod.end" />
+    <element id="Condition.abatement[x]:abatementDateTime">
+      <path value="Condition.abatementDateTime" />
       <short value="ProblemEndDate" />
-      <definition value="Date on which the disorder to which the problem applies, is considered not to be present anymore.This datum needs not to be the same as the date of the change in problem status. A ‘vague’ date, such as only the year or the month and the year, is permitted." />
+      <definition value="Date on which the disorder to which the problem applies, is considered not to be present anymore. This date does not need to be the same as the date of the change in problem status. A ‘vague’ date, such as only the year or the month and the year, is permitted." />
       <alias value="ProbleemEindDatum" />
+      <sliceName value="abatementDateTime" />
+      <type>
+        <code value="dateTime" />
+      </type>
       <mapping>
         <identity value="hcim-problem-v1.2-2017EN" />
         <map value="NL-CM:5.1.9" />
