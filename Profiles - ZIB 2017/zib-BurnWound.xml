@@ -21,6 +21,24 @@
   <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
   <derivation value="constraint" />
   <differential>
+    <element id="Condition.category">
+      <path value="Condition.category" />
+      <short value="BurnType" />
+      <definition value="Indication of the kind of the burn wound, differentiated into the cause of the injury." />
+      <alias value="BrandwondSoort" />
+      <binding>
+        <strength value="extensible" />
+        <description value="BrandwondSoortCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.4.3--20171231000000" />
+          <display value="ProbleemTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-burnwound-v3.1-2017EN" />
+        <map value="NL-CM:19.4.9" />
+      </mapping>
+    </element>
     <element id="Condition.code">
       <path value="Condition.code" />
       <short value="BurnWound" />
