@@ -6,14 +6,23 @@
   <name value="zib BurnWound" />
   <title value="HCIM BurnWound" />
   <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
   <description value="A burn wound is a wound caused by skin being exposed to heat for a certain time above a certain critical temperature. Heat above this critical temperature (+/- 40°C) will cause damage to the skin. There are different types of burn wounds, which are categorized according to the depth of the burn wound.  &#xD;&#xA;The depth of the burn wound depends on:  &#xD;&#xA;-  the temperature of the impacting heat;&#xD;&#xA;-  the duration of the impact of heat on the skin;&#xD;&#xA;-  the source of the burn (e.g. fire, fluid)." />
   <purpose value="The description of the burn wound is of importance for starting or continuing the best possible wound treatment and to be able to properly monitor the wound healing process." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
-    <identity value="hcim-burnwound-v3.1-2017EN" />
-    <uri value="https://zibs.nl/wiki/BurnWound-v3.1(2017EN)" />
-    <name value="HCIM BurnWound-v3.1(2017EN)" />
+    <identity value="hcim-burnwound-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/Burnwound-v3.2(2017EN)" />
+    <name value="HCIM BurnWound-v3.2(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -21,6 +30,16 @@
   <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
   <derivation value="constraint" />
   <differential>
+    <element id="Condition">
+      <path value="Condition" />
+      <short value="BurnWound" />
+      <alias value="Brandwond" />
+      <mapping>
+        <identity value="hcim-burnwound-v3.2-2017EN" />
+        <map value="NL-CM:19.4.1" />
+        <comment value="BurnWound" />
+      </mapping>
+    </element>
     <element id="Condition.category">
       <path value="Condition.category" />
       <short value="BurnType" />
@@ -31,12 +50,13 @@
         <description value="BrandwondSoortCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.4.3--20171231000000" />
-          <display value="ProbleemTypeCodelijst" />
+          <display value="BrandwondSoortCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="hcim-burnwound-v3.1-2017EN" />
+        <identity value="hcim-burnwound-v3.2-2017EN" />
         <map value="NL-CM:19.4.9" />
+        <comment value="BurnType" />
       </mapping>
     </element>
     <element id="Condition.code">
@@ -44,8 +64,9 @@
       <short value="BurnWound" />
       <alias value="Brandwond" />
       <mapping>
-        <identity value="hcim-burnwound-v3.1-2017EN" />
+        <identity value="hcim-burnwound-v3.2-2017EN" />
         <map value="NL-CM:19.4.1" />
+        <comment value="BurnWound" />
       </mapping>
     </element>
     <element id="Condition.code.coding">
@@ -78,8 +99,9 @@
       <short value="AnatomicalLocation" />
       <alias value="AnatomischeLocatie" />
       <mapping>
-        <identity value="hcim-burnwound-v3.1-2017EN" />
+        <identity value="hcim-burnwound-v3.2-2017EN" />
         <map value="NL-CM:19.4.4" />
+        <comment value="AnatomicalLocation" />
       </mapping>
     </element>
     <element id="Condition.bodySite.extension:Laterality">
@@ -88,8 +110,9 @@
       <short value="Laterality" />
       <alias value="Laterality" />
       <mapping>
-        <identity value="hcim-burnwound-v3.1-2017EN" />
+        <identity value="hcim-burnwound-v3.2-2017EN" />
         <map value="NL-CM:19.4.10" />
+        <comment value="Laterality" />
       </mapping>
     </element>
     <element id="Condition.onsetDateTime:onsetDateTime">
@@ -98,15 +121,17 @@
       <short value="DateOfOnset" />
       <alias value="OntstaansDatum" />
       <mapping>
-        <identity value="hcim-burnwound-v3.1-2017EN" />
+        <identity value="hcim-burnwound-v3.2-2017EN" />
         <map value="NL-CM:19.4.3" />
+        <comment value="DateOfOnset" />
       </mapping>
     </element>
     <element id="Condition.note">
       <path value="Condition.note" />
       <mapping>
-        <identity value="hcim-burnwound-v3.1-2017EN" />
+        <identity value="hcim-burnwound-v3.2-2017EN" />
         <map value="NL-CM:19.4.5" />
+        <comment value="Comment" />
       </mapping>
     </element>
   </differential>
