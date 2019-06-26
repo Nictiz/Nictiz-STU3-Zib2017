@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-BurnWound-Extent" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound-Extent" />
+  <version value="1.0.0" />
+  <name value="zib BurnWound Extent" />
+  <title value="HCIM BurnWound Extent" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The extent of a burn wound is indicated in a percentage of the ‘Total Body Surface Area’ (TBSA). For adults, the TBSA can be calculated on the basis of the ‘rule of nines’, in which body parts are expressed in the percentage 9 and multiples of 9. This ‘rule of nines’ cannot be used for children because a child’s body proportions are different from those of an adult. For children, separate tables were developed per age group to determine the extent of burn wounds. Another option is measuring the extent using the patient’s hand surface area. The surface area of a patient’s hand (including the fingers) equals approximately 1% of their total body surface area.  &#xD;&#xA; &#xD;&#xA;(Source: Brandwonden genezen. Hoe verder? [Healing Burn Wounds. What now?)" />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Condition" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Extent" />
+      <definition value="Optional Extension Element - found in all resources." />
+      <alias value="Uitgebreidheid" />
+      <constraint>
+        <key value="ext-1" />
+        <severity value="error" />
+        <human value="Must have either extensions or value[x], not both" />
+        <expression value="extension.exists() != value.exists()" />
+        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
+      </constraint>
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound-Extent" />
+    </element>
+    <element id="Extension.value[x]:valueQuantity">
+      <path value="Extension.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <type>
+        <code value="Quantity" />
+      </type>
+    </element>
+    <element id="Extension.value[x]:valueQuantity.value">
+      <path value="Extension.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="100" />
+    </element>
+    <element id="Extension.value[x]:valueQuantity.unit">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Extension.valueQuantity.unit" />
+      <defaultValueString value="%" />
+    </element>
+    <element id="Extension.value[x]:valueQuantity.system">
+      <path value="Extension.valueQuantity.system" />
+      <defaultValueUri value="www.unitsofmeasure.org" />
+    </element>
+  </differential>
+</StructureDefinition>
