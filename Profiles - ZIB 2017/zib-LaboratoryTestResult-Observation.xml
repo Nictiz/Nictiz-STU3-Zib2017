@@ -212,14 +212,6 @@
       <comment value="This can either be the ZIB concept Test (NL-CM:13.1.4) or TestName (NL-CM:13.1.8) depending on the use of DiagnosticReport resource. This element shall be mapped to TestName if DiagnosticReport is used and .component.code is not used. If component.code is used, the ZIB concept Test shall be mapped to this element." />
       <alias value="TestCode" />
       <alias value="Onderzoek" />
-      <binding>
-        <strength value="extensible" />
-        <description value="LOINC (2.16.840.1.113883.6.1): All values" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.5--20171231000000" />
-          <display value="OnderzoekCodelijst" />
-        </valueSetReference>
-      </binding>
       <mapping>
         <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
         <map value="NL-CM:13.1.4" />
@@ -250,6 +242,38 @@
         <map value="NL-CM:13.1.8" />
         <comment value="TestCode" />
       </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:LOINC">
+      <path value="Observation.code.coding" />
+      <sliceName value="LOINC" />
+      <binding>
+        <strength value="extensible" />
+        <description value="LOINC (2.16.840.1.113883.6.1): All values" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.5--20171231000000" />
+          <display value="OnderzoekCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.code.coding:NHGTable45">
+      <path value="Observation.code.coding" />
+      <sliceName value="NHGTable45" />
+      <definition value="A reference to a code defined by a terminology system. The effective system is the NHG Tabel 45 Diagnostische bepalingen" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:NHGTable45.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen" />
     </element>
     <element id="Observation.subject">
       <path value="Observation.subject" />
