@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-TreatmentDirective" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective" />
-  <version value="2.1.0" />
+  <version value="2.2.0" />
   <name value="Zib TreatmentDirective" />
   <title value="HCIM TreatmentDirective" />
   <status value="active" />
@@ -242,6 +242,33 @@
           <display value="TreatmentCodelist" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Consent.extension:advanceDirective">
+      <path value="Consent.extension" />
+      <sliceName value="advanceDirective" />
+      <short value="AdvanceDirective" />
+      <definition value="A (written) statement in which a person indicates wishes concerning future medical action, in the event that this person is at that point no longer (deemed) capable of taking decisions on the matter." />
+      <comment value="This extension is added to support the cardinality for the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective." />
+      <alias value="Wilsverklaring" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-AdvanceDirective" />
+      </type>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="LivingWill" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="LivingWill" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="AdvanceDirective" />
+      </mapping>
     </element>
     <element id="Consent.modifierExtension">
       <path value="Consent.modifierExtension" />
@@ -509,46 +536,8 @@
     </element>
     <element id="Consent.source[x]">
       <path value="Consent.source[x]" />
-      <short value="AdvanceDirective" />
-      <definition value="A (written) statement in which a person indicates wishes concerning future medical action, in the event that this person is at that point no longer (deemed) capable of taking decisions on the matter." />
-      <alias value="Wilsverklaring" />
-      <type>
-        <code value="Attachment" />
-      </type>
-      <type>
-        <code value="Identifier" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" />
-      </type>
-      <mapping>
-        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
-        <map value="NL-CM:2.1.14" />
-        <comment value="LivingWill" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
-        <map value="NL-CM:2.1.14" />
-        <comment value="LivingWill" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
-        <map value="NL-CM:2.1.14" />
-        <comment value="AdvanceDirective" />
-      </mapping>
+      <comment value="The cardinality of source does not comply with the cardinality of the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective. Therefore, the extension http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-AdvanceDirective is added." />
+      <max value="0" />
     </element>
     <element id="Consent.policy.uri">
       <path value="Consent.policy.uri" />
