@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="eOverdracht-OverdrachtsberichtVolwassenen" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtOverdrachtsberichtVolwassenen" />
+  <version value="0.1" />
+  <name value="eOverdracht Overdrachtsbericht Volwassenen" />
+  <title value="eOverdracht Overdrachtbericht Volwassenen" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Profile on the Composition resource which represents the Overdrachtsbericht Volwassenen for eOverdracht conform information standard ['Verpleegkundige zorg'](https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorg)" />
+  <purpose value="The purpose of an Overdrachtsbericht Volwassenen is to enable the health organization that receives it to continue the care for patient/clients of 18 years and older." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Composition" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Composition.author">
+      <path value="Composition.author" />
+      <short value="Who or what initiated the Overdrachtsbericht" />
+      <definition value="The person that initiated the sending of the Overdrachtsbericht. Alternatively, this may be the sending XIS." />
+    </element>
+  </differential>
+</StructureDefinition>
