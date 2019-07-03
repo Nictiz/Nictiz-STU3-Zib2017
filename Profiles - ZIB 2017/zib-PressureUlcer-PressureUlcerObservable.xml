@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-PressureUlcer-PressureUlcerObservable" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-PressureUlcer-PressureUlcerObservable" />
+  <version value="1.0.0" />
+  <name value="zib PressureUlcer PressureUlcerObservable" />
+  <title value="HCIM PressureUlcer PressureUlcerObservable" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Wound Length, width and depth of the pressure ulcer is registered in this profile." />
+  <purpose value="A seperate Observation is deemed necessary for the observable properties of the Pressure Ulcer." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-PressureUlcer-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/PressureUlcer-v3.2(2017EN)" />
+    <name value="HCIM PressureUlcer-v3.2(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:WoundObervableCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="WoundObervableCode" />
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:WoundObervableCode.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:WoundObervableCode.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="364554009" />
+    </element>
+  </differential>
+</StructureDefinition>
