@@ -29,19 +29,7 @@
     <element id="Extension">
       <path value="Extension" />
       <short value="Extent" />
-      <definition value="Optional Extension Element - found in all resources." />
       <alias value="Uitgebreidheid" />
-      <constraint>
-        <key value="ext-1" />
-        <severity value="error" />
-        <human value="Must have either extensions or value[x], not both" />
-        <expression value="extension.exists() != value.exists()" />
-        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
@@ -68,7 +56,11 @@
     </element>
     <element id="Extension.value[x]:valueQuantity.system">
       <path value="Extension.valueQuantity.system" />
-      <defaultValueUri value="www.unitsofmeasure.org" />
+      <defaultValueUri value="http://unitsofmeasure.org" />
+    </element>
+    <element id="Extension.value[x]:valueQuantity.code">
+      <path value="Extension.valueQuantity.code" />
+      <defaultValueCode value="%" />
     </element>
   </differential>
 </StructureDefinition>

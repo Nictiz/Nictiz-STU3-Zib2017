@@ -6,13 +6,13 @@
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound"/>
     </meta>
-    <clinicalStatus value="inactive"/>
+    <clinicalStatus value="active"/>
     <verificationStatus value="unknown"/>
     <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="125666000"/>
-            <display value="Fracture of wrist (disorder)"/>
+            <display value="Burn (disorder)"/>
         </coding>
     </code>
     <bodySite>
@@ -35,11 +35,29 @@
         <reference value="Patient/medmij-bgz-patient-ts-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <onsetPeriod>
-        <start value="2001"/>
-    </onsetPeriod>
+    <onsetDateTime value="2018-08-16"/>
+    <stage>
+        <summary>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="262588000"/>
+                <display value="3e graad"/>
+            </coding>
+        </summary>
+    </stage>
     <note>
-        <text value="gevallen op de kunstijsbaan"/>
+        <text value="Werkongeval in de hoogovens IJmuiden."/>
     </note>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/DateOfLastDressingChange">
+        <valueDate value="2019-03-07" />      
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound-Extent">
+        <valueQuantity>
+            <value value="1"/>
+            <unit value="%"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="%"/>
+        </valueQuantity>
+    </extension>
 </Condition>
 
