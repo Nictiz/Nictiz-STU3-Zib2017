@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Wound" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound" />
+  <version value="1.0.0" />
+  <name value="Zib Wound" />
+  <title value="HCIM Wound" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A wound is an interruption of the continuity of the skin, often caused by external influences. &#xD;&#xA;A commonly used model for documenting the wound properties is the TIME (‘Tissue’, ‘Infection’, ‘Moisture’, ‘Edge’) model, which can be used to systematically describe the wound. For wound tissue (T in the TIME model), the structure of the WCS model (Woundcare Consultant Society, WCS Kenniscentrum Wondzorg) is used. The WCS model is not suited for describing oncological ulcers. There is a separate classification for that. &#xD;&#xA;Oncological ulcers are skin defects which result from the tumor process. They are different from wounds resulting from cancer treatment, such as radiotherapy, chemotherapy or surgery. &#xD;&#xA; &#xD;&#xA;The concept does not describe decubitus wounds and burn wounds. For these, the relevant information models can be used." />
+  <purpose value="Information on the wound is recorded to share this information with other health professionals. This information can be used to monitor the wound’s healing process and provide insight into the implemented policy. In a transfer situation, it facilitates continuation of the treatment." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-Wound-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/Wound-v3.1(2017EN)" />
+    <name value="HCIM Wound-v3.2(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Condition" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Condition.extension">
+      <path value="Condition.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Condition.extension:DateOfLastDressingChange">
+      <path value="Condition.extension" />
+      <sliceName value="DateOfLastDressingChange" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/DateOfLastDressingChange" />
+      </type>
+    </element>
+    <element id="Condition.extension:DateOfLastDressingChange.valueDate:valueDate">
+      <path value="Condition.extension.valueDate" />
+      <sliceName value="valueDate" />
+      <mapping>
+        <identity value="hcim-Wound-v3.2-2017EN" />
+        <map value="NL-CM:19.2.3" />
+      </mapping>
+    </element>
+    <element id="Condition.code">
+      <path value="Condition.code" />
+      <short value="WoundType" />
+      <definition value="Description of the type of wound." />
+      <alias value="WondSoort" />
+      <binding>
+        <strength value="extensible" />
+        <description value="WondSoortCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.2.4--20171231000000" />
+          <display value="ProbleemNaamCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-Wound-v3.2-2017EN" />
+        <map value="NL-CM:19.2.5" />
+      </mapping>
+    </element>
+    <element id="Condition.bodySite">
+      <path value="Condition.bodySite" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite" />
+        </extension>
+        <strength value="extensible" />
+        <description value="WondAnatomischeLocatieCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.2.6--20171231000000" />
+          <display value="ProbleemAnatomischeLocatieCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-Wound-v3.2-2017EN" />
+        <map value="NL-CM:19.2.18" />
+      </mapping>
+    </element>
+    <element id="Condition.bodySite.extension:Laterality">
+      <path value="Condition.bodySite.extension" />
+      <sliceName value="Laterality" />
+    </element>
+    <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
+      <path value="Condition.bodySite.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="WondLateraliteitCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.2.8--20171231000000" />
+          <display value="ProblemLateralityCodelist" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-Wound-v3.2-2017EN" />
+        <map value="NL-CM:19.2.18" />
+      </mapping>
+    </element>
+    <element id="Condition.onsetDateTime:onsetDateTime">
+      <path value="Condition.onsetDateTime" />
+      <sliceName value="onsetDateTime" />
+      <mapping>
+        <identity value="hcim-Wound-v3.2-2017EN" />
+        <map value="NL-CM:19.2.2" />
+      </mapping>
+    </element>
+    <element id="Condition.note">
+      <path value="Condition.note" />
+      <mapping>
+        <identity value="hcim-Wound-v3.2-2017EN" />
+        <map value="NL-CM:19.2.9" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

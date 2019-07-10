@@ -53,6 +53,53 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/event-reasonReference" />
       </type>
     </element>
+    <element id="Observation.extension:woundPhoto">
+      <path value="Observation.extension" />
+      <sliceName value="woundPhoto" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-woundPhoto" />
+      </type>
+    </element>
+    <element id="Observation.extension:woundPhoto.valueAttachment:valueAttachment">
+      <path value="Observation.extension.valueAttachment" />
+      <sliceName value="valueAttachment" />
+      <mapping>
+        <identity value="hcim-Wound-v3.1-2017EN" />
+        <map value="NL-CM:19.2.15" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:reasonReference">
+      <path value="Observation.extension" />
+      <sliceName value="reasonReference" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/event-reasonReference" />
+      </type>
+    </element>
+    <element id="Observation.extension:reasonReference.value[x]">
+      <path value="Observation.extension.value[x]" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-PressureUlcer" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound" />
+      </type>
+    </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
       <slicing>
@@ -105,21 +152,21 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.component:WoundLength.code.coding:zib-PressureUlcerCodingLOINC">
+    <element id="Observation.component:WoundLength.code.coding:WoundLengthCoding">
       <path value="Observation.component.code.coding" />
-      <sliceName value="zib-PressureUlcerCodingLOINC" />
+      <sliceName value="WoundLengthCoding" />
+      <min value="1" />
+      <max value="1" />
     </element>
-    <element id="Observation.component:WoundLength.code.coding:zib-PressureUlcerCodingLOINC.system">
+    <element id="Observation.component:WoundLength.code.coding:WoundLengthCoding.system">
       <path value="Observation.component.code.coding.system" />
-      <fixedUri value="http://loinc.org" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:WoundLength.code.coding:zib-PressureUlcerCodingLOINC.code">
+    <element id="Observation.component:WoundLength.code.coding:WoundLengthCoding.code">
       <path value="Observation.component.code.coding.code" />
-      <fixedCode value="NL-CM:19.1.9" />
-    </element>
-    <element id="Observation.component:WoundLength.code.coding:zib-WoundCodingSNOMED">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="zib-WoundCodingSNOMED" />
+      <min value="1" />
+      <fixedCode value="401238003" />
     </element>
     <element id="Observation.component:WoundLength.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -154,28 +201,20 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.component:WoundWidth.code.coding:zib-PressureUlcerCodingLOINC">
+    <element id="Observation.component:WoundWidth.code.coding:WoundWidthCoding">
       <path value="Observation.component.code.coding" />
-      <sliceName value="zib-PressureUlcerCodingLOINC" />
+      <sliceName value="WoundWidthCoding" />
+      <min value="1" />
+      <max value="1" />
     </element>
-    <element id="Observation.component:WoundWidth.code.coding:zib-PressureUlcerCodingLOINC.system">
+    <element id="Observation.component:WoundWidth.code.coding:WoundWidthCoding.system">
       <path value="Observation.component.code.coding.system" />
-      <fixedUri value="http://loinc.org" />
-    </element>
-    <element id="Observation.component:WoundWidth.code.coding:zib-PressureUlcerCodingLOINC.code">
-      <path value="Observation.component.code.coding.code" />
-      <fixedCode value="39125-0" />
-    </element>
-    <element id="Observation.component:WoundWidth.code.coding:zib-WoundCodingSNOMED">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="zib-WoundCodingSNOMED" />
-    </element>
-    <element id="Observation.component:WoundWidth.code.coding:zib-WoundCodingSNOMED.system">
-      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:WoundWidth.code.coding:zib-WoundCodingSNOMED.code">
+    <element id="Observation.component:WoundWidth.code.coding:WoundWidthCoding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="401239006" />
     </element>
     <element id="Observation.component:WoundWidth.value[x]:valueQuantity">
@@ -211,28 +250,20 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.component:WoundDepth.code.coding:zib-PressureUlcerCodingLOINC">
+    <element id="Observation.component:WoundDepth.code.coding:WoundDepthCoding">
       <path value="Observation.component.code.coding" />
-      <sliceName value="zib-PressureUlcerCodingLOINC" />
+      <sliceName value="WoundDepthCoding" />
+      <min value="1" />
+      <max value="1" />
     </element>
-    <element id="Observation.component:WoundDepth.code.coding:zib-PressureUlcerCodingLOINC.system">
+    <element id="Observation.component:WoundDepth.code.coding:WoundDepthCoding.system">
       <path value="Observation.component.code.coding.system" />
-      <fixedUri value="http://loinc.org" />
-    </element>
-    <element id="Observation.component:WoundDepth.code.coding:zib-PressureUlcerCodingLOINC.code">
-      <path value="Observation.component.code.coding.code" />
-      <fixedCode value="39127-6" />
-    </element>
-    <element id="Observation.component:WoundDepth.code.coding:zib-WoundCodingSNOMED">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="zib-WoundCodingSNOMED" />
-    </element>
-    <element id="Observation.component:WoundDepth.code.coding:zib-WoundCodingSNOMED.system">
-      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:WoundDepth.code.coding:zib-WoundCodingSNOMED.code">
+    <element id="Observation.component:WoundDepth.code.coding:WoundDepthCoding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="425094009" />
     </element>
     <element id="Observation.component:WoundDepth.value[x]:valueQuantity">
@@ -271,21 +302,25 @@
     <element id="Observation.component:WoundTissue.code.coding:WoundTissueCoding">
       <path value="Observation.component.code.coding" />
       <sliceName value="WoundTissueCoding" />
+      <min value="1" />
       <max value="1" />
     </element>
     <element id="Observation.component:WoundTissue.code.coding:WoundTissueCoding.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.component:WoundTissue.code.coding:WoundTissueCoding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="MISSING" />
     </element>
     <element id="Observation.component:WoundTissue.value[x]">
       <path value="Observation.component.value[x]" />
       <slicing>
         <discriminator>
-          <type value="type" />
+          <type value="value" />
+          <path value="coding.system" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -310,6 +345,14 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue.coding.system">
+      <path value="Observation.component.value[x].coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue.coding.code">
+      <path value="Observation.component.value[x].coding.code" />
+      <min value="1" />
+    </element>
     <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue">
       <path value="Observation.component.value[x]" />
       <sliceName value="WCSCodelistValue" />
@@ -324,9 +367,44 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue.coding.system">
+      <path value="Observation.component.value[x].coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue.coding.code">
+      <path value="Observation.component.value[x].coding.code" />
+      <min value="1" />
+    </element>
     <element id="Observation.component:WoundInfection">
       <path value="Observation.component" />
       <sliceName value="WoundInfection" />
+    </element>
+    <element id="Observation.component:WoundInfection.extension">
+      <path value="Observation.component.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:WoundInfection.extension:extensionValueBoolean">
+      <path value="Observation.component.extension" />
+      <sliceName value="extensionValueBoolean" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-valueBoolean" />
+      </type>
+    </element>
+    <element id="Observation.component:WoundInfection.extension:extensionValueBoolean.valueBoolean:valueBoolean">
+      <path value="Observation.component.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+      <mapping>
+        <identity value="hcim-Wound-v3.1-2017EN" />
+        <map value="NL-CM:19.2.7" />
+      </mapping>
     </element>
     <element id="Observation.component:WoundInfection.code.coding">
       <path value="Observation.component.code.coding" />
@@ -343,6 +421,7 @@
     <element id="Observation.component:WoundInfection.code.coding:WoundInfectionCoding">
       <path value="Observation.component.code.coding" />
       <sliceName value="WoundInfectionCoding" />
+      <min value="1" />
       <max value="1" />
     </element>
     <element id="Observation.component:WoundInfection.code.coding:WoundInfectionCoding.system">
@@ -353,13 +432,9 @@
       <path value="Observation.component.code.coding.code" />
       <fixedCode value="405009004" />
     </element>
-    <element id="Observation.component:WoundInfection.value[x]:valueBoolean">
-      <path value="Observation.component.valueBoolean" />
-      <sliceName value="valueBoolean" />
-      <type>
-        <code value="boolean" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/boolean" />
-      </type>
+    <element id="Observation.component:WoundInfection.value[x]">
+      <path value="Observation.component.value[x]" />
+      <max value="0" />
     </element>
     <element id="Observation.component:WoundMoisture">
       <path value="Observation.component" />
@@ -379,6 +454,7 @@
     <element id="Observation.component:WoundMoisture.code.coding:WoundMoistureCoding">
       <path value="Observation.component.code.coding" />
       <sliceName value="WoundMoistureCoding" />
+      <min value="1" />
       <max value="1" />
     </element>
     <element id="Observation.component:WoundMoisture.code.coding:WoundMoistureCoding.system">
@@ -454,6 +530,10 @@
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.2.5--20171231000000" />
         </valueSetReference>
       </binding>
+      <mapping>
+        <identity value="hcim-Wound-v3.1-2017EN" />
+        <map value=" NL-CM:19.2.11" />
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>
