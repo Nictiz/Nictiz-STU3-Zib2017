@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Wound-WoundDrain" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound-WoundDrain" />
+  <version value="1.0.0" />
+  <name value="zib Wound WoundDrain" />
+  <title value="HCIM Wound WoundDrain" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Condition has to be extended to refer to the used WoundDrain." />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="Wound-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Wound-v3.1(2017EN)" />
+    <name value="Wound-v3.1(2017EN)" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Condition" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Optional Extensions Element" />
+      <definition value="Optional Extension Element - found in all resources." />
+      <base>
+        <path value="Element" />
+        <min value="0" />
+        <max value="*" />
+      </base>
+      <constraint>
+        <key value="ext-1" />
+        <severity value="error" />
+        <human value="Must have either extensions or value[x], not both" />
+        <expression value="extension.exists() != value.exists()" />
+        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
+      </constraint>
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound-WoundDrain" />
+    </element>
+    <element id="Extension.value[x]:valueReference">
+      <path value="Extension.valueReference" />
+      <sliceName value="valueReference" />
+      <short value="Drain" />
+      <definition value="A drain is a medical aid placed to drain blood and exudate from the wound area." />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound-MedicalDevice" />
+      </type>
+      <mapping>
+        <identity value="Wound-v3.1-2017EN" />
+        <map value="NL-CM:19.2.17" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
