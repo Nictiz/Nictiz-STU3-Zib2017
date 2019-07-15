@@ -1,31 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="zib-SkinDisorder"/>
-  <url value="http://example.org/fhir/StructureDefinition/zib-SkinDisorder"/>
-  <version value="1.0.0"/>
-  <name value="zib-SkinDisorder"/>
-  <title value="HCIM SkinDisorder"/>
-  <status value="draft"/>
-  <publisher value="Nictiz"/>
+  <id value="zib-SkinDisorder" />
+  <url value="http://example.org/fhir/StructureDefinition/zib-SkinDisorder" />
+  <version value="1.0.0" />
+  <name value="zib-SkinDisorder" />
+  <title value="HCIM SkinDisorder" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
   <contact>
-    <name value="Nictiz"/>
+    <name value="Nictiz" />
     <telecom>
-      <system value="email"/>
-      <value value="info@nictiz.nl"/>
-      <use value="work"/>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
     </telecom>
   </contact>
-  <description value="A skin condition is a disturbance of the organ skin caused by a source to be specified later on."/>
-  <purpose value="Information on the skin condition is of importance for determining or continuing the required care.  Specific expertise or materials can be facilitated in the event that a patient is transferred. &#xD;&#xA;Any underlying medical afflictions causing the skin condition are not described in this concept but are recorded in the problem list."/>
-  <copyright value="CC0"/>
-  <fhirVersion value="3.0.1"/>
+  <description value="A skin condition is a disturbance of the organ skin caused by a source to be specified later on." />
+  <purpose value="Information on the skin condition is of importance for determining or continuing the required care.  Specific expertise or materials can be facilitated in the event that a patient is transferred. &#xD;&#xA;Any underlying medical afflictions causing the skin condition are not described in this concept but are recorded in the problem list." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
   <mapping>
-    <identity value="SkinDisorder-v3.2-2017EN"/>
-    <uri value="https://zibs.nl/wiki/SkinDisorder-v3.2(2017EN)"/>
-    <name value="SkinDisorder-v3.2(2017EN)"/>
+    <identity value="SkinDisorder-v3.2-2017EN" />
+    <uri value="https://zibs.nl/wiki/SkinDisorder-v3.2(2017EN)" />
+    <name value="SkinDisorder-v3.2(2017EN)" />
   </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="Condition"/>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Condition" />
   <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
-  <derivation value="constraint"/>
+  <derivation value="constraint" />
+  <differential>
+    <element id="Condition.category.coding">
+      <path value="Condition.category.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Condition.category.coding:SkinDisorderCoding">
+      <path value="Condition.category.coding" />
+      <sliceName value="SkinDisorderCoding" />
+    </element>
+    <element id="Condition.category.coding:SkinDisorderCoding.system">
+      <path value="Condition.category.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Condition.category.coding:SkinDisorderCoding.code">
+      <path value="Condition.category.coding.code" />
+      <fixedCode value="95320005" />
+    </element>
+    <element id="Condition.code">
+      <path value="Condition.code" />
+      <short value="TypeOfDisorder" />
+    </element>
+    <element id="Condition.code.coding">
+      <path value="Condition.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Condition.code.coding:TypeOfSkinDisorderCoding">
+      <path value="Condition.code.coding" />
+      <sliceName value="TypeOfSkinDisorderCoding" />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="SoortAandoeningCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.3.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+    </element>
+  </differential>
 </StructureDefinition>
