@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="woundObservable" />
-  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-PressureUlcer-PressureUlcerObservable" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/woundObservable" />
   <version value="1.0.0" />
   <name value="woundObservable" />
   <title value="woundObservable" />
@@ -45,19 +45,9 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Observation.extension:reasonReference">
-      <path value="Observation.extension" />
-      <sliceName value="reasonReference" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/event-reasonReference" />
-      </type>
-    </element>
     <element id="Observation.extension:woundPhoto">
       <path value="Observation.extension" />
       <sliceName value="woundPhoto" />
-      <min value="0" />
-      <max value="*" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-woundPhoto" />
@@ -74,7 +64,6 @@
     <element id="Observation.extension:reasonReference">
       <path value="Observation.extension" />
       <sliceName value="reasonReference" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -504,6 +493,7 @@
     <element id="Observation.component:WoundEdge.code.coding:WoundEdgeCoding">
       <path value="Observation.component.code.coding" />
       <sliceName value="WoundEdgeCoding" />
+      <min value="1" />
       <max value="1" />
     </element>
     <element id="Observation.component:WoundEdge.code.coding:WoundEdgeCoding.system">
@@ -532,7 +522,7 @@
       </binding>
       <mapping>
         <identity value="hcim-Wound-v3.1-2017EN" />
-        <map value=" NL-CM:19.2.11" />
+        <map value="NL-CM:19.2.11" />
       </mapping>
     </element>
   </differential>
