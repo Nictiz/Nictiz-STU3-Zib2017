@@ -70,6 +70,10 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/event-reasonReference" />
       </type>
     </element>
+    <element id="Observation.extension:reasonReference.url">
+      <path value="Observation.extension.url" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/event-reasonReference" />
+    </element>
     <element id="Observation.extension:reasonReference.value[x]">
       <path value="Observation.extension.value[x]" />
       <type>
@@ -377,33 +381,6 @@
       <path value="Observation.component" />
       <sliceName value="WoundInfection" />
       <max value="1" />
-    </element>
-    <element id="Observation.component:WoundInfection.extension">
-      <path value="Observation.component.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Observation.component:WoundInfection.extension:extensionValueBoolean">
-      <path value="Observation.component.extension" />
-      <sliceName value="extensionValueBoolean" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-valueBoolean" />
-      </type>
-    </element>
-    <element id="Observation.component:WoundInfection.extension:extensionValueBoolean.valueBoolean:valueBoolean">
-      <path value="Observation.component.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
-      <mapping>
-        <identity value="hcim-Wound-v3.1-2017EN" />
-        <map value="NL-CM:19.2.7" />
-      </mapping>
     </element>
     <element id="Observation.component:WoundInfection.code.coding">
       <path value="Observation.component.code.coding" />
