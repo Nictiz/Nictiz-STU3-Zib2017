@@ -30,6 +30,37 @@
   <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
   <derivation value="constraint" />
   <differential>
+    <element id="Condition.extension">
+      <path value="Condition.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Condition.extension:dueTo">
+      <path value="Condition.extension" />
+      <sliceName value="dueTo" />
+      <short value="Cause" />
+      <definition value="The cause of the problem underlying the skin disorder." />
+      <alias value="Oorzaak" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.org/fhir/StructureDefinition/zib-SkinDisorder-dueTo" />
+      </type>
+    </element>
+    <element id="Condition.extension:dueTo.valueReference:valueReference">
+      <path value="Condition.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <mapping>
+        <identity value="SkinDisorder-v3.2-2017EN" />
+        <map value="NL-CM:19.3.7" />
+      </mapping>
+    </element>
     <element id="Condition.category.coding">
       <path value="Condition.category.coding" />
       <slicing>
@@ -79,6 +110,58 @@
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.3.1--20171231000000" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Condition.bodySite">
+      <path value="Condition.bodySite" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite" />
+        </extension>
+        <strength value="extensible" />
+        <description value="HuidAnatomischeLocatieCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.3.2--20171231000000" />
+          <display value="ProbleemAnatomischeLocatieCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="SkinDisorder-v3.2-2017EN" />
+        <map value="NL-CM:19.3.4" />
+      </mapping>
+    </element>
+    <element id="Condition.bodySite.extension:Laterality">
+      <path value="Condition.bodySite.extension" />
+      <sliceName value="Laterality" />
+    </element>
+    <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
+      <path value="Condition.bodySite.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Laterality" />
+      <definition value="Laterality adds information about body side to the anatomic location, e.g. left" />
+      <alias value="Lateraliteit" />
+      <binding>
+        <strength value="extensible" />
+        <description value="HuidLateraliteitCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.3.3--20171231000000" />
+          <display value="ProblemLateralityCodelist" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="SkinDisorder-v3.2-2017EN" />
+        <map value="NL-CM:19.3.8" />
+      </mapping>
+    </element>
+    <element id="Condition.onsetDateTime:onsetDateTime">
+      <path value="Condition.onsetDateTime" />
+      <sliceName value="onsetDateTime" />
+      <short value="DateOfOnset" />
+      <definition value="The date on which the skin condition started. A ‘vague’ date, such as only the year, is permitted." />
+      <alias value="OntstaansDatum" />
+      <mapping>
+        <identity value="SkinDisorder-v3.2-2017EN" />
+        <map value="NL-CM:19.3.4" />
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>

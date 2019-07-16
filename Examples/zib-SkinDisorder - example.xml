@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/condition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Condition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd" xmlns="http://hl7.org/fhir">
+    <id value="medmij-bgz-condition-ts-05"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
+    </meta>
+    <extension url="http://nictiz.org/fhir/StructureDefinition/zib-SkinDisorder-dueTo">
+        <valueReference>
+            <reference value="Condition/zib-skindisorder-cause"/>
+        </valueReference>
+    </extension>
+    <clinicalStatus value="active"/>
+    <verificationStatus value="confirmed"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="402276007"/>
+            <display value="irritatief contacteczeem door incontinentie"/>
+        </coding>
+    </code>
+    <bodySite>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="26893007"/>
+            <display value="structuur van regio inguinalis"/>
+        </coding>
+    </bodySite>
+    <subject>
+        <reference value="Patient/medmij-bgz-patient-ts-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+</Condition>
