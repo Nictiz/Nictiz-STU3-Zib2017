@@ -169,15 +169,18 @@
       <mapping>
         <identity value="hcim-PressureUlcer-v3.2-2017EN" />
         <map value="NL-CM:19.1.9" />
+        <comment value="WoundLength" />
       </mapping>
       <mapping>
         <identity value="hcim-Wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.12" />
+        <comment value="WoundLength" />
       </mapping>
     </element>
     <element id="Observation.component:WoundWidth">
       <path value="Observation.component" />
       <sliceName value="WoundWidth" />
+      <max value="1" />
     </element>
     <element id="Observation.component:WoundWidth.code.coding">
       <path value="Observation.component.code.coding" />
@@ -218,15 +221,18 @@
       <mapping>
         <identity value="hcim-Wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.13" />
+        <comment value="WoundWidth" />
       </mapping>
       <mapping>
         <identity value="hcim-PressureUlcer-v3.2-2017EN" />
         <map value="NL-CM:19.1.10" />
+        <comment value="WoundWidth" />
       </mapping>
     </element>
     <element id="Observation.component:WoundDepth">
       <path value="Observation.component" />
       <sliceName value="WoundDepth" />
+      <max value="1" />
     </element>
     <element id="Observation.component:WoundDepth.code.coding">
       <path value="Observation.component.code.coding" />
@@ -267,15 +273,18 @@
       <mapping>
         <identity value="hcim-PressureUlcer-v3.2-2017EN" />
         <map value="NL-CM:19.1.11" />
+        <comment value="WoundDepth" />
       </mapping>
       <mapping>
         <identity value="hcim-Wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.14" />
+        <comment value="WoundDepth" />
       </mapping>
     </element>
     <element id="Observation.component:WoundTissue">
       <path value="Observation.component" />
       <sliceName value="WoundTissue" />
+      <max value="1" />
     </element>
     <element id="Observation.component:WoundTissue.code.coding">
       <path value="Observation.component.code.coding" />
@@ -367,6 +376,7 @@
     <element id="Observation.component:WoundInfection">
       <path value="Observation.component" />
       <sliceName value="WoundInfection" />
+      <max value="1" />
     </element>
     <element id="Observation.component:WoundInfection.extension">
       <path value="Observation.component.extension" />
@@ -421,13 +431,31 @@
       <path value="Observation.component.code.coding.code" />
       <fixedCode value="405009004" />
     </element>
-    <element id="Observation.component:WoundInfection.value[x]">
-      <path value="Observation.component.value[x]" />
-      <max value="0" />
+    <element id="Observation.component:WoundInfection.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="WoundInfection" />
+      <alias value="WondInfectie" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="v2 Yes/no Indicator" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v2-0136" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-Wound-v3.1-2017EN" />
+        <map value="NL-CM:19.2.7" />
+        <comment value="WoundInfection" />
+      </mapping>
     </element>
     <element id="Observation.component:WoundMoisture">
       <path value="Observation.component" />
       <sliceName value="WoundMoisture" />
+      <max value="1" />
     </element>
     <element id="Observation.component:WoundMoisture.code.coding">
       <path value="Observation.component.code.coding" />
@@ -478,6 +506,7 @@
     <element id="Observation.component:WoundEdge">
       <path value="Observation.component" />
       <sliceName value="WoundEdge" />
+      <max value="1" />
     </element>
     <element id="Observation.component:WoundEdge.code.coding">
       <path value="Observation.component.code.coding" />

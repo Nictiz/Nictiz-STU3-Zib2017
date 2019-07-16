@@ -73,10 +73,13 @@
       <mapping>
         <identity value="hcim-Wound-v3.2-2017EN" />
         <map value="NL-CM:19.2.5" />
+        <comment value="WoundType" />
       </mapping>
     </element>
     <element id="Condition.bodySite">
       <path value="Condition.bodySite" />
+      <short value="AnatomicalLocation" />
+      <alias value="AnatomischeLocatie" />
       <binding>
         <strength value="extensible" />
         <description value="WondAnatomischeLocatieCodelijst" />
@@ -93,6 +96,8 @@
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
+      <short value="Laterality" />
+      <alias value="Lateraliteit" />
     </element>
     <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
       <path value="Condition.bodySite.extension.valueCodeableConcept" />
@@ -108,21 +113,25 @@
       <mapping>
         <identity value="hcim-Wound-v3.2-2017EN" />
         <map value="NL-CM:19.2.18" />
+        <comment value="Laterality" />
       </mapping>
     </element>
     <element id="Condition.onsetDateTime:onsetDateTime">
       <path value="Condition.onsetDateTime" />
       <sliceName value="onsetDateTime" />
+      <short value="WoundDateOfOnset" />
+      <alias value="WondOntstaansDatum" />
       <mapping>
         <identity value="hcim-Wound-v3.2-2017EN" />
         <map value="NL-CM:19.2.2" />
       </mapping>
     </element>
-    <element id="Condition.note">
-      <path value="Condition.note" />
+    <element id="Condition.note.text">
+      <path value="Condition.note.text" />
       <mapping>
         <identity value="hcim-Wound-v3.2-2017EN" />
         <map value="NL-CM:19.2.9" />
+        <comment value="Comment" />
       </mapping>
     </element>
   </differential>
