@@ -43,22 +43,26 @@
     <element id="Condition.extension:dueTo">
       <path value="Condition.extension" />
       <sliceName value="dueTo" />
-      <short value="Cause" />
-      <definition value="The cause of the problem underlying the skin disorder." />
-      <alias value="Oorzaak" />
       <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
-        <profile value="http://nictiz.org/fhir/StructureDefinition/zib-SkinDisorder-dueTo" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/condition-dueTo" />
       </type>
     </element>
-    <element id="Condition.extension:dueTo.valueReference:valueReference">
+    <element id="Condition.extension:dueTo.value[x]:valueReference">
       <path value="Condition.extension.valueReference" />
       <sliceName value="valueReference" />
+      <short value="Cause" />
+      <alias value="Oorzaak" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+      </type>
       <mapping>
         <identity value="SkinDisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.7" />
+        <comment value="Cause" />
       </mapping>
     </element>
     <element id="Condition.category.coding">
@@ -70,10 +74,13 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Condition.category.coding:SkinDisorderCoding">
       <path value="Condition.category.coding" />
       <sliceName value="SkinDisorderCoding" />
+      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Condition.category.coding:SkinDisorderCoding.system">
       <path value="Condition.category.coding.system" />
@@ -86,6 +93,11 @@
     <element id="Condition.code">
       <path value="Condition.code" />
       <short value="TypeOfDisorder" />
+      <mapping>
+        <identity value="SkinDisorder-v3.2-2017EN" />
+        <map value="NL-CM:19.3.2" />
+        <comment value="TypeOfDisorder" />
+      </mapping>
     </element>
     <element id="Condition.code.coding">
       <path value="Condition.code.coding" />
@@ -98,9 +110,9 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Condition.code.coding:TypeOfSkinDisorderCoding">
+    <element id="Condition.code.coding:TypeOfDisorderCoding">
       <path value="Condition.code.coding" />
-      <sliceName value="TypeOfSkinDisorderCoding" />
+      <sliceName value="TypeOfDisorderCoding" />
       <min value="1" />
       <max value="1" />
       <binding>
@@ -114,9 +126,6 @@
     <element id="Condition.bodySite">
       <path value="Condition.bodySite" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite" />
-        </extension>
         <strength value="extensible" />
         <description value="HuidAnatomischeLocatieCodelijst" />
         <valueSetReference>
@@ -161,6 +170,14 @@
       <mapping>
         <identity value="SkinDisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.4" />
+      </mapping>
+    </element>
+    <element id="Condition.note">
+      <path value="Condition.note" />
+      <mapping>
+        <identity value="SkinDisorder-v3.2-2017EN" />
+        <map value="NL-CM:19.3.6" />
+        <comment value="Note" />
       </mapping>
     </element>
   </differential>
