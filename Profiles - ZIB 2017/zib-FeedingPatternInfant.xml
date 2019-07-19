@@ -19,6 +19,11 @@
   <purpose value="The purpose is to register which type of feeding the infant receives and when, to enable early estimation whether there are problems or whether the care surrounding feeding the infant can be taken over." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="FeedingPatternInfant-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/FeedingPatternInfant-v1.0(2017EN)" />
+    <name value="FeedingPatternInfant-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
@@ -43,18 +48,203 @@
     <element id="Observation.code.coding:FeedingPatternInfantCoding">
       <path value="Observation.code.coding" />
       <sliceName value="FeedingPatternInfantCoding" />
+      <short value="FeedingPatternInfant" />
+      <alias value="VoedingspatroonZuigeling" />
       <min value="1" />
       <max value="1" />
+      <mapping>
+        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <map value=" NL-CM:4.31.1" />
+        <comment value="FeedingPatternInfant" />
+      </mapping>
     </element>
     <element id="Observation.code.coding:FeedingPatternInfantCoding.system">
       <path value="Observation.code.coding.system" />
       <min value="1" />
-      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+      <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.code.coding:FeedingPatternInfantCoding.code">
       <path value="Observation.code.coding.code" />
       <min value="1" />
-      <fixedCode value="4.31.1" />
+      <fixedCode value="Feed" />
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <short value="FeedingPatternInfantDateTime" />
+      <definition value="The date and time on which the characteristics of feeding of the infant are registered." />
+      <alias value="VoedingspatroonZuigelingDatumTijd" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <map value="NL-CM:4.31.6" />
+        <comment value="FeedingPatternInfantDateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comment on the feeding of the infant." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <map value="NL-CM:4.31.8" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:FeedingSupplement">
+      <path value="Observation.component" />
+      <sliceName value="FeedingSupplement" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:FeedingSupplement.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:FeedingSupplement.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:FeedingSupplement.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="373453009" />
+    </element>
+    <element id="Observation.component:FeedingSupplement.value[x]:valueString">
+      <path value="Observation.component.valueString" />
+      <sliceName value="valueString" />
+      <short value="FeedingSupplement" />
+      <definition value="It is possible to add supplements to breast and formula milk, such as locust bean gum to thicken milk in case of infant reflux." />
+      <alias value="VoedingToevoeging" />
+      <type>
+        <code value="string" />
+      </type>
+      <mapping>
+        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <map value="NL-CM:4.31.7" />
+        <comment value="FeedingSupplement" />
+      </mapping>
+    </element>
+    <element id="Observation.component:FeedingFrequency">
+      <path value="Observation.component" />
+      <sliceName value="FeedingFrequency" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:FeedingFrequency.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:FeedingFrequency.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:FeedingFrequency.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="364653007" />
+    </element>
+    <element id="Observation.component:FeedingFrequency.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="FeedingFrequency" />
+      <definition value="The number of feeding gifts within 24 hours." />
+      <alias value="VoedingFrequentie" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <map value="NL-CM:4.31.5" />
+        <comment value="FeedingFrequency" />
+      </mapping>
+    </element>
+    <element id="Observation.component:FeedingType">
+      <path value="Observation.component" />
+      <sliceName value="FeedingType" />
+    </element>
+    <element id="Observation.component:FeedingType.extension">
+      <path value="Observation.component.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:FeedingType.extension:FeedingMethod">
+      <path value="Observation.component.extension" />
+      <sliceName value="FeedingMethod" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingPatternInfant-FeedingMethod" />
+      </type>
+    </element>
+    <element id="Observation.component:FeedingType.extension:FeedingMethod.valueCodeableConcept:valueCodeableConcept">
+      <path value="Observation.component.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="FeedingMethod " />
+      <definition value="The method how the feeding is given to the infant." />
+      <alias value="VoedingMethode" />
+      <mapping>
+        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <map value="NL-CM:4.31.4" />
+        <comment value="FeedingMethod" />
+      </mapping>
+    </element>
+    <element id="Observation.component:FeedingType.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:FeedingType.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.component:FeedingType.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="MISSING" />
+    </element>
+    <element id="Observation.component:FeedingType.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="FeedingType" />
+      <definition value="The type of feeding (breast or formula milk) that is given to the infant." />
+      <alias value="VoedingSoort" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="VoedingSoortCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.31.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <map value="NL-CM:4.31.3" />
+        <comment value="FeedingType" />
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>
