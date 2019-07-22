@@ -30,6 +30,30 @@
   <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
   <derivation value="constraint" />
   <differential>
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.extension:feeding">
+      <path value="Observation.extension" />
+      <sliceName value="feeding" />
+      <definition value="Container of the Feeding concept. This container contains all data elements of the Feeding concept.&#xD;&#xA;Several combinations are possible: 1) FeedingType breast milk, FeedingMethod breastfed = to give breastfeeding naturally. 2) FeedingType breast milk, FeedingMethod bottle fed = to give expressed breast milk via bottle. 3) FeedingType formula milk, FeedingMethod bottle fed = to give formula milk via bottle. Fill in the container for each relevant combination." />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingPatternInfant-FeedingType-FeedingMethod" />
+      </type>
+      <mapping>
+        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <map value="NL-CM:4.31.2" />
+        <comment value="Feeding" />
+      </mapping>
+    </element>
     <element id="Observation.code">
       <path value="Observation.code" />
       <definition value="Describes what was observed. Sometimes this is called the observation &quot;name &quot;." />
@@ -54,7 +78,7 @@
       <max value="1" />
       <mapping>
         <identity value="FeedingPatternInfant-v1.0-2017EN" />
-        <map value=" NL-CM:4.31.1" />
+        <map value="NL-CM:4.31.1" />
         <comment value="FeedingPatternInfant" />
       </mapping>
     </element>
@@ -171,79 +195,6 @@
         <identity value="FeedingPatternInfant-v1.0-2017EN" />
         <map value="NL-CM:4.31.5" />
         <comment value="FeedingFrequency" />
-      </mapping>
-    </element>
-    <element id="Observation.component:FeedingType">
-      <path value="Observation.component" />
-      <sliceName value="FeedingType" />
-    </element>
-    <element id="Observation.component:FeedingType.extension">
-      <path value="Observation.component.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Observation.component:FeedingType.extension:FeedingMethod">
-      <path value="Observation.component.extension" />
-      <sliceName value="FeedingMethod" />
-      <min value="0" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingPatternInfant-FeedingMethod" />
-      </type>
-    </element>
-    <element id="Observation.component:FeedingType.extension:FeedingMethod.valueCodeableConcept:valueCodeableConcept">
-      <path value="Observation.component.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <short value="FeedingMethod " />
-      <definition value="The method how the feeding is given to the infant." />
-      <alias value="VoedingMethode" />
-      <mapping>
-        <identity value="FeedingPatternInfant-v1.0-2017EN" />
-        <map value="NL-CM:4.31.4" />
-        <comment value="FeedingMethod" />
-      </mapping>
-    </element>
-    <element id="Observation.component:FeedingType.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:FeedingType.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:FeedingType.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="MISSING" />
-    </element>
-    <element id="Observation.component:FeedingType.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <short value="FeedingType" />
-      <definition value="The type of feeding (breast or formula milk) that is given to the infant." />
-      <alias value="VoedingSoort" />
-      <type>
-        <code value="CodeableConcept" />
-      </type>
-      <binding>
-        <strength value="extensible" />
-        <description value="VoedingSoortCodelijst" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.31.1--20171231000000" />
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="FeedingPatternInfant-v1.0-2017EN" />
-        <map value="NL-CM:4.31.3" />
-        <comment value="FeedingType" />
       </mapping>
     </element>
   </differential>
