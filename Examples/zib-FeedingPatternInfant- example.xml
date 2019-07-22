@@ -53,21 +53,32 @@
             </coding>
         </code>
         <valueDateTime value="2015-12-01T00:00:00+02:00" />
-    </component>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingPatternInfant-FeedingType-FeedingMethod">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="226790003"/> 
-                    <display value="Expressed breast milk"/>	
-                </coding>
-            </valueCodeableConcept>
+    </component>       
+    <component>
+        <!-- FeedingMethod -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingPatternInfant-FeedingMethod">
             <valueCodeableConcept>
                 <coding>
                     <system value="http://snomed.info/sct"/>
                     <code value="268472006"/> 
-                    <display value="Infant bottle fed"/>	
+                    <display value="Flesvoeding"/>	
                 </coding>
-            </valueCodeableConcept>       
-    </extension>
+            </valueCodeableConcept>
+        </extension>
+        <!--FeedingType-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="MISSING"/> 
+                <display value="Type Voeding"/>	
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="226790003"/> 
+                <display value="Kunstvoeding"/>	
+            </coding>
+        </valueCodeableConcept>
+    </component>
 </Observation>
