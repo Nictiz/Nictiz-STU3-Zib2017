@@ -146,6 +146,11 @@
     <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
     <name value="HCIM BasicElements-v1.0(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-LifeStance-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/LifeStance-v3.1(2017EN)" />
+    <name value="HCIM LifeStance-v3.1(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Patient" />
@@ -255,21 +260,27 @@
         <comment value="Nationality" />
       </mapping>
     </element>
+    <element id="Patient.extension:nationality.extension">
+      <path value="Patient.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Patient.extension:nationality.extension:code">
       <path value="Patient.extension.extension" />
       <sliceName value="code" />
-    </element>
-    <element id="Patient.extension:nationality.extension:code.valueCodeableConcept:valueCodeableConcept">
-      <path value="Patient.extension.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
     </element>
     <element id="Patient.extension:nationality.extension:period">
       <path value="Patient.extension.extension" />
       <sliceName value="period" />
     </element>
-    <element id="Patient.extension:nationality.extension:period.valuePeriod:valuePeriod">
-      <path value="Patient.extension.extension.valuePeriod" />
-      <sliceName value="valuePeriod" />
+    <element id="Patient.extension:nationality.url">
+      <path value="Patient.extension.url" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-nationality" />
     </element>
     <element id="Patient.extension:legalStatus">
       <path value="Patient.extension" />
@@ -304,6 +315,22 @@
     <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.code">
       <path value="Patient.extension.valueCodeableConcept.coding.code" />
       <min value="1" />
+    </element>
+    <element id="Patient.extension:lifeStance">
+      <path value="Patient.extension" />
+      <sliceName value="lifeStance" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance" />
+      </type>
+    </element>
+    <element id="Patient.extension:lifeStance.valueCodeableConcept:valueCodeableConcept">
+      <path value="Patient.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <definition value="Patient’s life stance and/or religion." />
+      <requirements value="Life stance may have implications for treatment and care, such as in instructions for treatment, diet, or mental care." />
     </element>
     <element id="Patient.identifier">
       <path value="Patient.identifier" />
@@ -705,9 +732,6 @@
       </mapping>
     </element>
     <element id="Patient.contact">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Contact" />
-      </extension>
       <path value="Patient.contact" />
       <short value="ContactPerson" />
       <definition value="Contacts are related persons in some way, but not all related persons are contacts. The HCIM ContactPerson is designed to deal with both related persons and contacts. An HCIM ContactPerson who is a contact, is expected to have an NL-CM:3.1.2 Role primary contact ('Eerste relatie/contactpersoon') or secondary contact ('Tweede relatie/contactpersoon'). See Patient.contact.relationship in slice 'role'." />
@@ -1002,9 +1026,6 @@
       <path value="Patient.communication.extension.extension.valueCoding" />
       <sliceName value="valueCoding" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ProficiencyLevel" />
-        </extension>
         <strength value="extensible" />
       </binding>
     </element>
@@ -1016,9 +1037,6 @@
       <path value="Patient.communication.extension.extension.valueCoding" />
       <sliceName value="valueCoding" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="proficiencyType" />
-        </extension>
         <strength value="extensible" />
       </binding>
     </element>
