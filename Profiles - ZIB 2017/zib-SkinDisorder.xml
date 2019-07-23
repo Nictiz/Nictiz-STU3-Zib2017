@@ -20,9 +20,9 @@
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
-    <identity value="SkinDisorder-v3.2-2017EN" />
+    <identity value="zib-skindisorder-v3.2-2017EN" />
     <uri value="https://zibs.nl/wiki/SkinDisorder-v3.2(2017EN)" />
-    <name value="SkinDisorder-v3.2(2017EN)" />
+    <name value="HCIM SkinDisorder-v3.2(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -43,7 +43,6 @@
     <element id="Condition.extension:dueTo">
       <path value="Condition.extension" />
       <sliceName value="dueTo" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -65,6 +64,13 @@
         <comment value="Cause" />
       </mapping>
     </element>
+    <element id="Condition.category">
+      <path value="Condition.category" />
+      <mapping>
+        <identity value="zib-skindisorder-v3.2-2017EN" />
+        <map value="NL-CM:19.3.1" />
+      </mapping>
+    </element>
     <element id="Condition.category.coding">
       <path value="Condition.category.coding" />
       <slicing>
@@ -84,17 +90,19 @@
     </element>
     <element id="Condition.category.coding:SkinDisorderCoding.system">
       <path value="Condition.category.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Condition.category.coding:SkinDisorderCoding.code">
       <path value="Condition.category.coding.code" />
+      <min value="1" />
       <fixedCode value="95320005" />
     </element>
     <element id="Condition.code">
       <path value="Condition.code" />
       <short value="TypeOfDisorder" />
       <mapping>
-        <identity value="SkinDisorder-v3.2-2017EN" />
+        <identity value="zib-skindisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.2" />
         <comment value="TypeOfDisorder" />
       </mapping>
@@ -168,8 +176,9 @@
       <definition value="The date on which the skin condition started. A ‘vague’ date, such as only the year, is permitted." />
       <alias value="OntstaansDatum" />
       <mapping>
-        <identity value="SkinDisorder-v3.2-2017EN" />
+        <identity value="zib-skindisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.4" />
+        <comment value="DateOfOnset" />
       </mapping>
     </element>
     <element id="Condition.note">
@@ -177,7 +186,7 @@
       <mapping>
         <identity value="SkinDisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.6" />
-        <comment value="Note" />
+        <comment value="Comment" />
       </mapping>
     </element>
   </differential>
