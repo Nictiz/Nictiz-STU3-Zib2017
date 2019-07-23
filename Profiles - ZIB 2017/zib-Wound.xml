@@ -20,9 +20,9 @@
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
-    <identity value="hcim-Wound-v3.2-2017EN" />
+    <identity value="hcim-wound-v3.1-2017EN" />
     <uri value="https://zibs.nl/wiki/Wound-v3.1(2017EN)" />
-    <name value="HCIM Wound-v3.2(2017EN)" />
+    <name value="HCIM Wound-v3.1(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -49,6 +49,15 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/DateOfLastDressingChange" />
       </type>
     </element>
+    <element id="Condition.extension:DateOfLastDressingChange.valueDateTime:valueDateTime">
+      <path value="Condition.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
+      <mapping>
+        <identity value="hcim-wound-v3.1-2017EN" />
+        <map value=" NL-CM:19.2.3" />
+        <comment value="DateOfLastDressingChange" />
+      </mapping>
+    </element>
     <element id="Condition.code">
       <path value="Condition.code" />
       <short value="WoundType" />
@@ -63,7 +72,7 @@
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="hcim-Wound-v3.2-2017EN" />
+        <identity value="hcim-wound-v3.2-2017EN" />
         <map value="NL-CM:19.2.5" />
         <comment value="WoundType" />
       </mapping>
@@ -83,6 +92,7 @@
       <mapping>
         <identity value="hcim-Wound-v3.2-2017EN" />
         <map value="NL-CM:19.2.18" />
+        <comment value="AnatomicalLocation" />
       </mapping>
     </element>
     <element id="Condition.bodySite.extension:Laterality">
@@ -103,7 +113,7 @@
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="hcim-Wound-v3.2-2017EN" />
+        <identity value="hcim-wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.18" />
         <comment value="Laterality" />
       </mapping>
@@ -114,14 +124,15 @@
       <short value="WoundDateOfOnset" />
       <alias value="WondOntstaansDatum" />
       <mapping>
-        <identity value="hcim-Wound-v3.2-2017EN" />
+        <identity value="hcim-wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.2" />
+        <comment value="WoundDateOfOnset" />
       </mapping>
     </element>
     <element id="Condition.note.text">
       <path value="Condition.note.text" />
       <mapping>
-        <identity value="hcim-Wound-v3.2-2017EN" />
+        <identity value="hcim-wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.9" />
         <comment value="Comment" />
       </mapping>

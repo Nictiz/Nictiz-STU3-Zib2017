@@ -20,12 +20,12 @@
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
-    <identity value="hcim-PressureUlcer-v3.2-2017EN" />
+    <identity value="hcim-pressureulcer-v3.2-2017EN" />
     <uri value="https://zibs.nl/wiki/PressureUlcer-v3.2(2017EN)" />
     <name value="HCIM PressureUlcer-v3.2(2017EN)" />
   </mapping>
   <mapping>
-    <identity value="hcim-Wound-v3.1-2017EN" />
+    <identity value="hcim-wound-v3.1-2017EN" />
     <uri value="https://zibs.nl/wiki/Wound-v3.1(2017EN)" />
     <name value="HCIM Wound-v3.1(2017EN)" />
   </mapping>
@@ -57,8 +57,9 @@
       <path value="Observation.extension.valueAttachment" />
       <sliceName value="valueAttachment" />
       <mapping>
-        <identity value="hcim-Wound-v3.1-2017EN" />
+        <identity value="hcim-wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.15" />
+        <comment value="WoundPhoto" />
       </mapping>
     </element>
     <element id="Observation.extension:reasonReference">
@@ -69,10 +70,6 @@
         <code value="Extension" />
         <profile value="http://hl7.org/fhir/StructureDefinition/event-reasonReference" />
       </type>
-    </element>
-    <element id="Observation.extension:reasonReference.url">
-      <path value="Observation.extension.url" />
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/event-reasonReference" />
     </element>
     <element id="Observation.extension:reasonReference.value[x]">
       <path value="Observation.extension.value[x]" />
@@ -92,6 +89,16 @@
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound" />
       </type>
+      <mapping>
+        <identity value="hcim-wound-v3.1-2017EN" />
+        <map value="NL-CM:19.2.1" />
+        <comment value="Wound" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-pressureulcer-v3.2-2017EN" />
+        <map value="NL-CM:19.1.1" />
+        <comment value="PressureUlcer" />
+      </mapping>
     </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
@@ -171,12 +178,12 @@
         <code value="Quantity" />
       </type>
       <mapping>
-        <identity value="hcim-PressureUlcer-v3.2-2017EN" />
+        <identity value="hcim-pressureulcer-v3.2-2017EN" />
         <map value="NL-CM:19.1.9" />
         <comment value="WoundLength" />
       </mapping>
       <mapping>
-        <identity value="hcim-Wound-v3.1-2017EN" />
+        <identity value="hcim-wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.12" />
         <comment value="WoundLength" />
       </mapping>
@@ -223,12 +230,12 @@
         <code value="Quantity" />
       </type>
       <mapping>
-        <identity value="hcim-Wound-v3.1-2017EN" />
+        <identity value="hcim-wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.13" />
         <comment value="WoundWidth" />
       </mapping>
       <mapping>
-        <identity value="hcim-PressureUlcer-v3.2-2017EN" />
+        <identity value="hcim-pressureulcer-v3.2-2017EN" />
         <map value="NL-CM:19.1.10" />
         <comment value="WoundWidth" />
       </mapping>
@@ -275,12 +282,12 @@
         <code value="Quantity" />
       </type>
       <mapping>
-        <identity value="hcim-PressureUlcer-v3.2-2017EN" />
+        <identity value="hcim-pressureulcer-v3.2-2017EN" />
         <map value="NL-CM:19.1.11" />
         <comment value="WoundDepth" />
       </mapping>
       <mapping>
-        <identity value="hcim-Wound-v3.1-2017EN" />
+        <identity value="hcim-wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.14" />
         <comment value="WoundDepth" />
       </mapping>
@@ -329,8 +336,9 @@
       <short value="WoundTissue" />
       <alias value="WondWeefsel" />
       <mapping>
-        <identity value="hcim-Wound-v3.1-2017EN" />
+        <identity value="hcim-wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.4" />
+        <comment value="WoundTissue" />
       </mapping>
     </element>
     <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue">
@@ -424,7 +432,7 @@
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="hcim-Wound-v3.1-2017EN" />
+        <identity value="hcim-wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.7" />
         <comment value="WoundInfection" />
       </mapping>
@@ -476,7 +484,7 @@
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="hcim-Wound-v3.1-2017EN" />
+        <identity value="hcim-wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.6" />
       </mapping>
     </element>
@@ -529,6 +537,7 @@
       <mapping>
         <identity value="hcim-Wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.11" />
+        <comment value="WoundEdge" />
       </mapping>
     </element>
   </differential>
