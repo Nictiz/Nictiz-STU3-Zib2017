@@ -20,9 +20,9 @@
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
-    <identity value="FeedingPatternInfant-v1.0-2017EN" />
+    <identity value="zib-feedingpatterninfant-v1.0-2017EN" />
     <uri value="https://zibs.nl/wiki/FeedingPatternInfant-v1.0(2017EN)" />
-    <name value="FeedingPatternInfant-v1.0(2017EN)" />
+    <name value="HCIM FeedingPatternInfant-v1.0(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -33,6 +33,11 @@
     <element id="Observation.code">
       <path value="Observation.code" />
       <definition value="Describes what was observed. Sometimes this is called the observation &quot;name &quot;." />
+      <mapping>
+        <identity value="zib-feedingpatterninfant-v1.0-2017EN" />
+        <map value="NL-CM:4.31.1" />
+        <comment value="FeedingPatternInfant" />
+      </mapping>
     </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
@@ -52,11 +57,6 @@
       <alias value="VoedingspatroonZuigeling" />
       <min value="1" />
       <max value="1" />
-      <mapping>
-        <identity value="FeedingPatternInfant-v1.0-2017EN" />
-        <map value=" NL-CM:4.31.1" />
-        <comment value="FeedingPatternInfant" />
-      </mapping>
     </element>
     <element id="Observation.code.coding:FeedingPatternInfantCoding.system">
       <path value="Observation.code.coding.system" />
@@ -78,7 +78,7 @@
         <code value="dateTime" />
       </type>
       <mapping>
-        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <identity value="zib-feedingpatterninfant-v1.0-2017EN" />
         <map value="NL-CM:4.31.6" />
         <comment value="FeedingPatternInfantDateTime" />
       </mapping>
@@ -133,7 +133,7 @@
         <code value="string" />
       </type>
       <mapping>
-        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <identity value="zib-feedingpatterninfant-v1.0-2017EN" />
         <map value="NL-CM:4.31.7" />
         <comment value="FeedingSupplement" />
       </mapping>
@@ -168,7 +168,7 @@
         <code value="Quantity" />
       </type>
       <mapping>
-        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <identity value="zib-feedingpatterninfant-v1.0-2017EN" />
         <map value="NL-CM:4.31.5" />
         <comment value="FeedingFrequency" />
       </mapping>
@@ -190,7 +190,6 @@
     <element id="Observation.component:FeedingType.extension:FeedingMethod">
       <path value="Observation.component.extension" />
       <sliceName value="FeedingMethod" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -200,11 +199,11 @@
     <element id="Observation.component:FeedingType.extension:FeedingMethod.valueCodeableConcept:valueCodeableConcept">
       <path value="Observation.component.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
-      <short value="FeedingMethod " />
+      <short value="FeedingMethod" />
       <definition value="The method how the feeding is given to the infant." />
       <alias value="VoedingMethode" />
       <mapping>
-        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <identity value="zib-feedingpatterninfant-v1.0-2017EN" />
         <map value="NL-CM:4.31.4" />
         <comment value="FeedingMethod" />
       </mapping>
@@ -241,7 +240,7 @@
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="FeedingPatternInfant-v1.0-2017EN" />
+        <identity value="zib-feedingpatterninfant-v1.0-2017EN" />
         <map value="NL-CM:4.31.3" />
         <comment value="FeedingType" />
       </mapping>
