@@ -4,6 +4,11 @@
   <name value="Zib BladderFunction Stoma" />
   <status value="draft" />
   <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-BladderFunction-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/BladderFunction-v3.1(2017EN)" />
+    <name value="HCIM BladderFunction-v3.1(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
@@ -15,7 +20,26 @@
       <mapping>
         <identity value="hcim-bladderfunction-v3.1-2017EN" />
         <map value="NL-CM:4.14.3" />
+        <comment value="Stoma" />
       </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:stomaCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="stomaCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:stomaCode.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:stomaCode.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
     </element>
     <element id="Observation.related.target">
       <path value="Observation.related.target" />

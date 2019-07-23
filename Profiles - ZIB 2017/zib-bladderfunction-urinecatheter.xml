@@ -5,6 +5,7 @@
   <name value="zib BladderFunction UrineCatheter" />
   <status value="draft" />
   <description value="UrineCatheter describes the presence of a urine catheter. If this is the case, the date of placement, urine catheter location, comment and catheter identification information can be described in addition to the type of catheter." />
+  <purpose value="UrineCatheter describes the presence of a urine catheter. If this is the case, the date of placement, urine catheter location, comment and catheter identification information can be described in addition to the type of catheter." />
   <fhirVersion value="3.0.1" />
   <mapping>
     <identity value="hcim-bladderfunction-v3.1-2017EN" />
@@ -19,29 +20,26 @@
   <differential>
     <element id="DeviceUseStatement">
       <path value="DeviceUseStatement" />
+      <short value="UrineCatheter" />
       <mapping>
         <identity value="hcim-bladderfunction-v3.0-2017EN" />
         <map value="NL-CM:4.14.4" />
+        <comment value="UrineCatheter" />
       </mapping>
     </element>
     <element id="DeviceUseStatement.extension:reasonReference">
       <path value="DeviceUseStatement.extension" />
       <sliceName value="reasonReference" />
-      <mapping>
-        <identity value="hcim-bladderfunction-v3.1-2017EN" />
-        <map value="NL-CM:4.14.5" />
-      </mapping>
     </element>
-    <element id="DeviceUseStatement.extension:reasonReference.valueReference:valueReference">
+    <element id="DeviceUseStatement.extension:reasonReference.Reference">
       <path value="DeviceUseStatement.extension.value[x]" />
-      <sliceName value="valueReference" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition" />
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction" />
       </type>
       <type>
         <code value="Reference" />
@@ -54,10 +52,6 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Media" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction" />
       </type>
     </element>
     <element id="DeviceUseStatement.device">
