@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-AbilityToPerformNursingActivities" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToPerformNursingActivities" />
+  <version value="1.0.0" />
+  <name value="Zib AbilityToPerformNursingActivities" />
+  <title value="HCIM AbilityToPerformNursingActivities" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) AbilityToPerformNursingActivities v1.0(2017EN).&#xD;&#xA;&#xD;&#xA;When taking care of a patient with a disease or disability, parents, children and other caretakers often carry out nursing interventions. Adults and older children may carry out nursing interventions by themselves. Therefore skills training is needed for caregivers/ children. Qualification is required for correct performing of an intervention and also knowledge about what to do in case of complications.&#xD;&#xA;The assessment of the degree to which the intervention can be performed independently refers only to the indicated intervention." />
+  <purpose value="This profile specifies to what degree a patient is able to perform a specific nursing activity. The activity itself is described in detail using a zib-NursingIntervention profile. The current profile is much simpler and makes on observation on the abilities of the patient in regards to it." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-abilitytoperformnursingactivities-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/AbilityToPerformNursingActivities-v1.0(2017EN)" />
+    <name value="HCIM AbilityToPerformNursingActivities-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <alias value="VermogenTotVerpleegtechnischeHandelingen" />
+      <mapping>
+        <identity value="hcim-abilitytoperformnursingactivities-v1.0-2017EN" />
+        <map value="NL-CM:4.34.1" />
+        <comment value="AbilityToPerformNursingActivities" />
+      </mapping>
+    </element>
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.extension:nursingIntervention">
+      <path value="Observation.extension" />
+      <sliceName value="nursingIntervention" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToPerformNursingActivities-NursingIntervention" />
+      </type>
+    </element>
+    <element id="Observation.extension:nursingIntervention.valueReference:valueReference">
+      <path value="Observation.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <short value="NursingIntervention" />
+      <definition value="Specification of nursing interventions where the skills relate to." />
+      <alias value="VerpleegkundigeInterventie" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention" />
+      </type>
+      <mapping>
+        <identity value="hcim-abilitytoperformnursingactivities-v1.0-2017EN" />
+        <map value="NL-CM:4.34.3" />
+        <comment value="NursingIntervention" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:focus">
+      <path value="Observation.extension" />
+      <sliceName value="focus" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/Observation-focus-stu3" />
+      </type>
+    </element>
+    <element id="Observation.extension:focus.valueReference:valueReference">
+      <path value="Observation.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <alias value="Betrokkene" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:AbilityToPerformNursingActivities">
+      <path value="Observation.code.coding" />
+      <sliceName value="AbilityToPerformNursingActivities" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:AbilityToPerformNursingActivities.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:AbilityToPerformNursingActivities.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="303074009" />
+    </element>
+    <element id="Observation.code.coding:AbilityToPerformNursingActivities.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Ability to manage personal health care" />
+    </element>
+    <element id="Observation.value[x]:valueCodeableConcept">
+      <path value="Observation.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <alias value="VerrichtenVPKHandeling" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="VerrichtenVPKHandelingCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.34.1--20171231000000" />
+          <display value="VerrichtenVPKHandelingCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-abilitytoperformnursingactivities-v1.0-2017EN" />
+        <map value="NL-CM:4.34.2" />
+        <comment value="PerformNursingActivity" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
