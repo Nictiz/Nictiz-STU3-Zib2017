@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A healthy diet means that we do not consume too much or too little (energy intake balanced with energy use) and that the composition of food (mainly important nutrients) follows the recommendations from the Health Council. For an infant, this means that the child receives breastfeeding or formula milk or a combination thereof." />
+  <description value="An Observation as defined by the Dutch HCIM Zorginformatiebouwsteen VoedingsPatroonZuigeling v1.0(2017EN). A healthy diet means that we do not consume too much or too little (energy intake balanced with energy use) and that the composition of food (mainly important nutrients) follows the recommendations from the Health Council. For an infant, this means that the child receives breastfeeding or formula milk or a combination thereof." />
   <purpose value="The purpose is to register which type of feeding the infant receives and when, to enable early estimation whether there are problems or whether the care surrounding feeding the infant can be taken over." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -32,7 +32,9 @@
   <differential>
     <element id="Observation.code">
       <path value="Observation.code" />
-      <definition value="Describes what was observed. Sometimes this is called the observation &quot;name &quot;." />
+      <short value="FeedingPatternInfant" />
+      <definition value="Root concept of the FeedingPatternInfant information model. This root concept contains all data elements of the FeedingPatternInfant information model." />
+      <alias value="VoedingspatroonZuigeling" />
       <mapping>
         <identity value="zib-feedingpatterninfant-v1.0-2017EN" />
         <map value="NL-CM:4.31.1" />
@@ -53,8 +55,6 @@
     <element id="Observation.code.coding:FeedingPatternInfantCoding">
       <path value="Observation.code.coding" />
       <sliceName value="FeedingPatternInfantCoding" />
-      <short value="FeedingPatternInfant" />
-      <alias value="VoedingspatroonZuigeling" />
       <min value="1" />
       <max value="1" />
     </element>
