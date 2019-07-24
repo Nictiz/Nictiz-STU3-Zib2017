@@ -3,7 +3,7 @@
   <id value="zib-Wound" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound" />
   <version value="1.0.0" />
-  <name value="zib Wound" />
+  <name value="Zib Wound" />
   <title value="HCIM Wound" />
   <status value="draft" />
   <publisher value="Nictiz" />
@@ -30,6 +30,11 @@
   <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
   <derivation value="constraint" />
   <differential>
+    <element id="Condition">
+      <path value="Condition" />
+      <short value="Wound" />
+      <alias value="Wond" />
+    </element>
     <element id="Condition.extension">
       <path value="Condition.extension" />
       <slicing>
@@ -54,7 +59,7 @@
       <sliceName value="valueDateTime" />
       <mapping>
         <identity value="hcim-wound-v3.1-2017EN" />
-        <map value=" NL-CM:19.2.3" />
+        <map value="NL-CM:19.2.3" />
         <comment value="DateOfLastDressingChange" />
       </mapping>
     </element>
@@ -122,6 +127,7 @@
       <path value="Condition.onsetDateTime" />
       <sliceName value="onsetDateTime" />
       <short value="WoundDateOfOnset" />
+      <definition value="The date on which the wound appeared." />
       <alias value="WondOntstaansDatum" />
       <mapping>
         <identity value="hcim-wound-v3.1-2017EN" />
@@ -129,8 +135,15 @@
         <comment value="WoundDateOfOnset" />
       </mapping>
     </element>
+    <element id="Condition.note">
+      <path value="Condition.note" />
+      <definition value="Comment on the wound." />
+    </element>
     <element id="Condition.note.text">
       <path value="Condition.note.text" />
+      <short value="Comment" />
+      <definition value="Comment on the wound." />
+      <alias value="Toelichting" />
       <mapping>
         <identity value="hcim-wound-v3.1-2017EN" />
         <map value="NL-CM:19.2.9" />
