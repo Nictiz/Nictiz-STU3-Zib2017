@@ -3,7 +3,7 @@
   <id value="zib-BurnWound" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound" />
   <version value="1.0.0" />
-  <name value="zib BurnWound" />
+  <name value="Zib BurnWound" />
   <title value="HCIM BurnWound" />
   <status value="draft" />
   <publisher value="Nictiz" />
@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A burn wound is a wound caused by skin being exposed to heat for a certain time above a certain critical temperature. Heat above this critical temperature (+/- 40°C) will cause damage to the skin. There are different types of burn wounds, which are categorized according to the depth of the burn wound.  &#xD;&#xA;The depth of the burn wound depends on:  &#xD;&#xA;-  the temperature of the impacting heat;&#xD;&#xA;-  the duration of the impact of heat on the skin;&#xD;&#xA;-  the source of the burn (e.g. fire, fluid)." />
+  <description value="An Condition as defined by the Dutch HCIM Zorginformatiebouwsteen Brandwond v3.2(2017EN). A burn wound is a wound caused by skin being exposed to heat for a certain time above a certain critical temperature. Heat above this critical temperature (+/- 40°C) will cause damage to the skin. There are different types of burn wounds, which are categorized according to the depth of the burn wound.  &#xD;&#xA;The depth of the burn wound depends on:  &#xD;&#xA;-  the temperature of the impacting heat;&#xD;&#xA;-  the duration of the impact of heat on the skin;&#xD;&#xA;-  the source of the burn (e.g. fire, fluid)." />
   <purpose value="The description of the burn wound is of importance for starting or continuing the best possible wound treatment and to be able to properly monitor the wound healing process." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -60,9 +60,12 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/DateOfLastDressingChange" />
       </type>
     </element>
-    <element id="Condition.extension:dateOfLastDressingChange.valueDate:valueDate">
-      <path value="Condition.extension.valueDate" />
-      <sliceName value="valueDate" />
+    <element id="Condition.extension:dateOfLastDressingChange.valueDate:valueDateTime">
+      <path value="Condition.extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
+      <short value="DateOfLastDressingChange"/>
+      <definition value="Date on which the dressing was last changed."/>
+      <alias value="DatumLaatsteVerbandwissel"/>
       <mapping>
         <identity value="hcim-burnwound-v3.2-2017EN" />
         <map value="NL-CM:19.4.8" />
@@ -81,6 +84,9 @@
     <element id="Condition.extension:extent.valueQuantity:valueQuantity">
       <path value="Condition.extension.valueQuantity" />
       <sliceName value="valueQuantity" />
+      <short value="extent"/>
+      <definition value="The extent of a burn wound is indicated in a percentage of the ‘Total Body Surface Area’ (TBSA). For adults, the TBSA can be calculated on the basis of the ‘rule of nines’, in which body parts are expressed in the percentage 9 and multiples of 9. This ‘rule of nines’ cannot be used for children because a child’s body proportions are different from those of an adult. For children, separate tables were developed per age group to determine the extent of burn wounds. Another option is measuring the extent using the patient’s hand surface area. The surface area of a patient’s hand (including the fingers) equals approximately 1% of their total body surface area." />
+      <alias value="Uitgebreidheid"/>
       <mapping>
         <identity value="hcim-burnwound-v3.2-2017EN" />
         <map value="NL-CM:19.4.7" />
@@ -125,9 +131,17 @@
       <min value="1" />
       <fixedCode value="125666000" />
     </element>
+    <element id="Condition.code.coding:BurnWoundCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Condition.code.coding.display" />
+      <defaultValueString value="Brandwond" />
+    </element>
     <element id="Condition.bodySite">
       <path value="Condition.bodySite" />
       <short value="AnatomicalLocation" />
+      <definition value="The location of the burn wound on the body." />
       <alias value="AnatomischeLocatie" />
       <binding>
         <strength value="extensible" />
@@ -147,6 +161,7 @@
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
       <short value="Laterality" />
+      <definition value="Laterality adds information about body side to the anatomic location, e.g. left" />
       <alias value="Laterality" />
       <mapping>
         <identity value="hcim-burnwound-v3.2-2017EN" />
@@ -170,6 +185,7 @@
       <path value="Condition.onsetDateTime" />
       <sliceName value="onsetDateTime" />
       <short value="DateOfOnset" />
+      <definition value="Date on which the burn wound appeared." />
       <alias value="OntstaansDatum" />
       <mapping>
         <identity value="hcim-burnwound-v3.2-2017EN" />
@@ -185,12 +201,14 @@
       <path value="Condition.stage.summary" />
       <short value="Depth" />
       <definition value="Description of the severity of the burn wound, ranging from degree 1 - 3." />
+      <alias value="Dieptegraad" />
       <min value="1" />
       <binding>
         <strength value="extensible" />
         <description value="DieptegraadCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.4.1--20171231000000" />
+          <display value="DieptegraadCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -201,6 +219,9 @@
     </element>
     <element id="Condition.note">
       <path value="Condition.note" />
+      <short value="Comment" />
+      <definition value="Comment on the burn wound." />
+      <alias value="Toelichting" />
       <mapping>
         <identity value="hcim-burnwound-v3.2-2017EN" />
         <map value="NL-CM:19.4.5" />
