@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="dateoflastdressingchange" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/DateOfLastDressingChange" />
+  <name value="Zib DateOfLastDressingChange" />
+  <title value="HCIM DateOfLastDressingChange" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Date on which the dressing was last changed." />
+  <purpose value="Multiple Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or Zib) have a date of last dressing change concept, named DateOfLastDressingChange. This element cannot be mapped into the Condition resource, hence the reaons for this extension." />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Condition" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="DateOfLastDressingChange" />
+      <alias value="DatumLaatsteVerbandwissel" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/DateOfLastDressingChange" />
+    </element>
+    <element id="Extension.value[x]:valueDateTime">
+      <path value="Extension.valueDateTime" />
+      <sliceName value="valueDateTime" />
+      <type>
+        <code value="dateTime" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
