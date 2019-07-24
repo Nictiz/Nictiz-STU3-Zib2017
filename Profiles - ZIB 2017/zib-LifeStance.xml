@@ -3,7 +3,7 @@
   <id value="zib-LifeStance" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance" />
   <version value="1.0.0" />
-  <name value="zib-LifeStance" />
+  <name value="Zib LifeStance" />
   <title value="HCIM LifeStance" />
   <status value="draft" />
   <publisher value="Nictiz" />
@@ -15,12 +15,12 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="Patient’s life stance and/or religion." />
+  <description value="An Extension as defined by the Dutch HCIM Zorginformatiebouwsteen Levensovertuiging v3.1(2017EN). Patient’s life stance and/or religion. " />
   <purpose value="Life stance may have implications for treatment and care, such as in instructions for treatment, diet, or mental care." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
-    <identity value="hcim-LifeStance-v3.1-2017EN" />
+    <identity value="hcim-lifestance-v3.1-2017EN" />
     <uri value="https://zibs.nl/wiki/LifeStance-v3.1(2017EN)" />
     <name value="HCIM LifeStance-v3.1(2017EN)" />
   </mapping>
@@ -32,27 +32,6 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension">
-      <path value="Extension" />
-      <short value="Optional Extensions Element" />
-      <definition value="Optional Extension Element - found in all resources." />
-      <base>
-        <path value="Element" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <constraint>
-        <key value="ext-1" />
-        <severity value="error" />
-        <human value="Must have either extensions or value[x], not both" />
-        <expression value="extension.exists() != value.exists()" />
-        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
-    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance" />
@@ -61,6 +40,7 @@
       <path value="Extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="LifeStance" />
+      <definition value=" Patient’s life stance and/or religion." />
       <alias value="Levensovertuiging" />
       <min value="1" />
       <type>
