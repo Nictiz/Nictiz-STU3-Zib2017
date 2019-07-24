@@ -3,7 +3,7 @@
   <id value="zib-SkinDisorder" />
   <url value="http://example.org/fhir/StructureDefinition/zib-SkinDisorder" />
   <version value="1.0.0" />
-  <name value="zib-SkinDisorder" />
+  <name value="Zib SkinDisorder" />
   <title value="HCIM SkinDisorder" />
   <status value="draft" />
   <publisher value="Nictiz" />
@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A skin condition is a disturbance of the organ skin caused by a source to be specified later on." />
+  <description value="A Condition as defined by the Dutch HCIM Zorginformatiebouwsteen HuidAandoening v3.1(2017EN). A skin condition is a disturbance of the organ skin caused by a source to be specified later on." />
   <purpose value="Information on the skin condition is of importance for determining or continuing the required care.  Specific expertise or materials can be facilitated in the event that a patient is transferred. &#xD;&#xA;Any underlying medical afflictions causing the skin condition are not described in this concept but are recorded in the problem list." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -53,6 +53,7 @@
       <path value="Condition.extension.valueReference" />
       <sliceName value="valueReference" />
       <short value="Cause" />
+      <definition value="The cause of the problem underlying the skin disorder." />
       <alias value="Oorzaak" />
       <type>
         <code value="Reference" />
@@ -66,9 +67,13 @@
     </element>
     <element id="Condition.category">
       <path value="Condition.category" />
+      <short value="SkinDisorder" />
+      <definition value="Root concept of the SkinDisorder information model. This root concept contains all data elements of the SkinDisorder information model." />
+      <alias value="HuidAandoening" />
       <mapping>
         <identity value="zib-skindisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.1" />
+        <comment value="SkinDisorder" />
       </mapping>
     </element>
     <element id="Condition.category.coding">
@@ -101,6 +106,8 @@
     <element id="Condition.code">
       <path value="Condition.code" />
       <short value="TypeOfDisorder" />
+      <definition value="A description of the patient’s type of skin disorder." />
+      <alias value="TypeAandoening" />
       <mapping>
         <identity value="zib-skindisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.2" />
@@ -133,6 +140,9 @@
     </element>
     <element id="Condition.bodySite">
       <path value="Condition.bodySite" />
+      <short value="AnatomicalLocation" />
+      <definition value="The location of the skin condition on the body." />
+      <alias value="AnatomischeLocatie" />
       <binding>
         <strength value="extensible" />
         <description value="HuidAnatomischeLocatieCodelijst" />
@@ -167,6 +177,7 @@
       <mapping>
         <identity value="SkinDisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.8" />
+        <comment value="Laterality" />
       </mapping>
     </element>
     <element id="Condition.onsetDateTime:onsetDateTime">
@@ -183,6 +194,7 @@
     </element>
     <element id="Condition.note">
       <path value="Condition.note" />
+      <definition value="A comment on the skin condition and how to care for it." />
       <mapping>
         <identity value="SkinDisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.6" />
