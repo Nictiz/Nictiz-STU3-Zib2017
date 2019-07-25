@@ -4,6 +4,11 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
       <!--<profile value="http://hl7.org/fhir/3.0/StructureDefinition/ValueSet"/>-->
     </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2011-09-02T00:00:00+02:00"/>
+        </valuePeriod>
+    </extension>
     <url value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.3--20110902000000"/>
     <identifier>
         <use value="official"/>
@@ -76,12 +81,12 @@
                 <display value="overleg"/>
             </concept>
             <concept>
-                <code value="10"/>
-                <display value="herhaalrecept"/>
-            </concept>
-            <concept>
                 <code value="11"/>
                 <display value="notitie/memo"/>
+            </concept>
+            <concept>
+                <code value="12"/>
+                <display value="e-consult"/>
             </concept>
         </include>
     </compose>
