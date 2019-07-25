@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+    <url value="http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressUse"/>
+    <version value="1.0.0"/>
+    <name value="AdresSoortCodelijst-to-AddressUse"/>
+    <status value="active"/>
+    <publisher value="Nictiz"/>
+    <contact>
+      <name value="Nictiz"/>
+      <telecom>
+        <system value="email"/>
+        <value value="info@nictiz.nl"/>
+        <use value="work"/>
+      </telecom>
+    </contact>
+    <sourceReference>
+        <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.20.5.3--20171231000000"/>
+        <display value="NaamgebruikCodelijst"/>
+    </sourceReference>
+    <targetReference>
+        <reference value="http://hl7.org/fhir/ValueSet/address-use"/>
+        <display value="AddressUse"/>
+    </targetReference>
+    <group>
+        <!-- 2.16.840.1.113883.5.1119 -->
+        <source value="http://hl7.org/fhir/v3/AddressUse"/>
+        <target value="http://hl7.org/fhir/address-use"/>
+        <element>
+            <code value="PST"/>
+            <target>
+                <equivalence value="unmatched"/>
+                <comment value="PST: Postal Address/postadres. Postal address are marked in Address.type = poostal"/>
+            </target>
+        </element>
+        <element>
+            <code value="HP"/>
+            <target>
+                <code value="home"/>
+                <equivalence value="specializes"/>
+                <comment value="HP: Primary home/officieel adres. home: Home address. Use in conjunction with extension http://fhir.nl/fhir/StructureDefinition/nl-core-address-official to mark as primary"/>
+            </target>
+        </element>
+        <element>
+            <code value="PHYS"/>
+            <target>
+                <code value="home"/>
+                <equivalence value="equivalent"/>
+                <comment value="PHYS: Visit Address/Woon-/verblijfadres. home: A communication address at a home."/>
+            </target>
+        </element>
+        <element>
+            <code value="TMP"/>
+            <target>
+                <code value="temp"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="WP"/>
+            <target>
+                <code value="work"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="HV"/>
+            <target>
+                <code value="temp"/>
+                <equivalence value="narrower"/>
+                <comment value="HV: Vacation Home. temp: Any temporary address"/>
+            </target>
+        </element>
+    </group>
+    <group>
+        <!-- 2.16.840.1.113883.5.1008 -->
+        <source value="http://hl7.org/fhir/v3/NullFlavor"/>
+        <target value="http://hl7.org/fhir/v3/NullFlavor"/>
+        <element>
+            <code value="UNK"/>
+            <target>
+                <code value="UNK"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+    </group>
+</ConceptMap>
