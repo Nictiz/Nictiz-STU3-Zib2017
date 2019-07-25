@@ -549,18 +549,52 @@
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3" />
+        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-administrative-gender" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3" />
+        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-administrative-gender" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.1-2017EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3" />
+        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-administrative-gender" />
       </mapping>
+    </element>
+    <element id="Patient.gender.extension">
+      <path value="Patient.gender.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Patient.gender.extension:GeslachtCodelijst">
+      <path value="Patient.gender.extension" />
+      <sliceName value="GeslachtCodelijst" />
+      <short value="Gender" />
+      <definition value="Statement on the status of the patient’s hypersensitivity." />
+      <alias value="Geslacht" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+    </element>
+    <element id="Patient.gender.extension:GeslachtCodelijst.valueCodeableConcept:valueCodeableConcept">
+      <path value="Patient.gender.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="GeslachtCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.0.1.1--20171231000000" />
+          <display value="GeslachtCodelijst" />
+        </valueSetReference>
+      </binding>
     </element>
     <element id="Patient.birthDate">
       <path value="Patient.birthDate" />
@@ -705,9 +739,6 @@
       </mapping>
     </element>
     <element id="Patient.contact">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Contact" />
-      </extension>
       <path value="Patient.contact" />
       <short value="ContactPerson" />
       <definition value="Contacts are related persons in some way, but not all related persons are contacts. The HCIM ContactPerson is designed to deal with both related persons and contacts. An HCIM ContactPerson who is a contact, is expected to have an NL-CM:3.1.2 Role primary contact ('Eerste relatie/contactpersoon') or secondary contact ('Tweede relatie/contactpersoon'). See Patient.contact.relationship in slice 'role'." />
@@ -1002,9 +1033,6 @@
       <path value="Patient.communication.extension.extension.valueCoding" />
       <sliceName value="valueCoding" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ProficiencyLevel" />
-        </extension>
         <strength value="extensible" />
       </binding>
     </element>
@@ -1016,9 +1044,6 @@
       <path value="Patient.communication.extension.extension.valueCoding" />
       <sliceName value="valueCoding" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="proficiencyType" />
-        </extension>
         <strength value="extensible" />
       </binding>
     </element>
