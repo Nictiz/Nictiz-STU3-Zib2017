@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://hl7.org/fhir/STU3/capabilitystatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
-    <url value="http://nictiz.nl/fhir/CapabilityStatement/eOverdracht-servercapabilities-phase-one"/>
+    <url value="http://nictiz.nl/fhir/CapabilityStatement/eOverdracht-clientcapabilities-phase-one"/>
     <version value="1.0.0"/>
-    <name value="eOverdrachtServer-phase-one"/>
+    <name value="eOverdrachtClient-phase-one"/>
     <status value="draft"/>
-    <date value="2019-07-24"/>
+    <date value="2019-07-25"/>
     <publisher value="Nictiz"/>
     <contact>
         <name value="Nictiz"/>
@@ -15,7 +15,7 @@
             <use value="work"/>
         </telecom>
     </contact>
-    <description value="This CapabilityStatement describes the minimal requirements for a server to recieve eOverdacht documents based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB), release 2017. The eOverdracht project is divided in multiple phases. This CapabilityStatement describes the minimal capabilities to comply to phase 1. "/>
+    <description value="This CapabilityStatement describes the minimal requirements for a client to send eOverdacht documents based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB), release 2017. The eOverdracht project is divided in multiple phases. This CapabilityStatement describes the minimal capabilities to comply to phase 1. "/>
     <copyright value="CC0"/>
     <kind value="requirements"/>
     <fhirVersion value="3.0.1"/>
@@ -23,7 +23,7 @@
     <format value="application/fhir+xml"/>
     <format value="application/fhir+json"/>
     <document>
-        <mode value="consumer"/>
+        <mode value="producer"/>
         <documentation value="Composition resource which represents a part of the Aanmeldbericht for eOverdracht and is used in phase one of the eOverdracht pilot. More information standard on eOverdracht: https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorg" />
         <profile>
             <reference value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtAanmeldbericht-phase-one"/>
@@ -31,7 +31,7 @@
         </profile>       
     </document>
     <document>
-        <mode value="consumer"/>
+        <mode value="producer"/>
         <documentation value="Composition resource which represents a part of the Overdrachtsbericht volwassenen for eOverdracht and is used in phase one of the eOverdracht pilot. More information standard on eOverdracht: https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorg" />
         <profile>
             <reference value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtOverdrachtsberichtVolwassenen-phase-one"/>
