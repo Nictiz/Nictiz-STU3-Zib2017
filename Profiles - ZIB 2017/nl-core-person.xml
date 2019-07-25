@@ -242,6 +242,10 @@
       <path value="Person.telecom" />
       <short value="ContactInformation" />
       <alias value="Contactgegevens" />
+      <type>
+        <code value="ContactPoint" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
+      </type>
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.5" />
@@ -313,93 +317,6 @@
         <comment value="EmailAddresses" />
       </mapping>
     </element>
-    <element id="Person.telecom.system">
-      <path value="Person.telecom.system" />
-      <min value="1" />
-      <mapping>
-        <identity value="hcim-contactinformation-v3.1-2017EN" />
-        <map value="NL-CM:20.6.6" />
-        <comment value="NumberType" />
-      </mapping>
-    </element>
-    <element id="Person.telecom.value">
-      <path value="Person.telecom.value" />
-      <short value="TelephoneNumber / E-mailAddress" />
-      <alias value="Telefoonnummer" />
-      <alias value="EmailAdres" />
-      <min value="1" />
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.23" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.23" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.4" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.20" />
-        <comment value="E-mailAddress" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.20" />
-        <comment value="E-mailAddress" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v3.1-2017EN" />
-        <map value="NL-CM:20.6.7" />
-        <comment value="EmailAddress" />
-      </mapping>
-    </element>
-    <element id="Person.telecom.use">
-      <path value="Person.telecom.use" />
-      <short value="NumberType / E-mailAddressType" />
-      <alias value="NummerSoort" />
-      <alias value="EmailSoort" />
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.22" />
-        <comment value="NumberType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.22" />
-        <comment value="NumberType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.6" />
-        <comment value="NumberType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.19" />
-        <comment value="E-mailAddressType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.19" />
-        <comment value="E-mailAddressType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.5" />
-        <comment value="TelecomType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.8" />
-        <comment value="EmailAddressType" />
-      </mapping>
-    </element>
     <element id="Person.gender">
       <path value="Person.gender" />
       <short value="Gender" />
@@ -407,17 +324,17 @@
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender" />
+        <comment value="Gender Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-administrative-gender" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender" />
+        <comment value="Gender Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-administrative-gender" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.1-2017EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender" />
+        <comment value="Gender Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-administrative-gender" />
       </mapping>
     </element>
     <element id="Person.birthDate">

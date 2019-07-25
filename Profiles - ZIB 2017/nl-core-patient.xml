@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd" xmlns="http://hl7.org/fhir">
   <id value="nl-core-patient" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
   <version value="2.1.3" />
@@ -408,22 +409,10 @@
       <short value="ContactInformation" />
       <definition value="A contact detail for the individual. Note that there is no support for multiple use values like 'mobile business'." />
       <alias value="Contactgegevens" />
-      <example>
-        <label value="Mobile phone number" />
-        <valueContactPoint>
-          <system value="phone" />
-          <value value="+31611234567" />
-          <use value="mobile" />
-        </valueContactPoint>
-      </example>
-      <example>
-        <label value="Private email address" />
-        <valueContactPoint>
-          <system value="email" />
-          <value value="giesput@myweb.nl" />
-          <use value="home" />
-        </valueContactPoint>
-      </example>
+      <type>
+        <code value="ContactPoint" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
+      </type>
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.5" />
@@ -455,93 +444,6 @@
         <comment value="ContactInformation" />
       </mapping>
     </element>
-    <element id="Patient.telecom.system">
-      <path value="Patient.telecom.system" />
-      <min value="1" />
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.5" />
-        <comment value="TelecomType. Land Line / Mobile = phone | Fax = fax | Email = email | Pager = pager" />
-      </mapping>
-    </element>
-    <element id="Patient.telecom.value">
-      <path value="Patient.telecom.value" />
-      <short value="TelephoneNumber / E-mailAddress" />
-      <alias value="Telefoonnummer" />
-      <alias value="EmailAdres" />
-      <min value="1" />
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.23" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.23" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.4" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.20" />
-        <comment value="EmailAddress" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.20" />
-        <comment value="EmailAddress" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.7" />
-        <comment value="EmailAddress" />
-      </mapping>
-    </element>
-    <element id="Patient.telecom.use">
-      <path value="Patient.telecom.use" />
-      <short value="NumberType / E-mailAddressType" />
-      <alias value="NummerSoort" />
-      <alias value="EmailSoort" />
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.22" />
-        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.22" />
-        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.6" />
-        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.19" />
-        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.19" />
-        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.5" />
-        <comment value="TelecomType. Mobile phone = mobile" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.8" />
-        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
-      </mapping>
-    </element>
     <element id="Patient.gender">
       <path value="Patient.gender" />
       <short value="Gender" />
@@ -559,7 +461,7 @@
       <mapping>
         <identity value="hcim-patient-v3.1-2017EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-administrative-gender" />
+        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-AdministrativeGender" />
       </mapping>
     </element>
     <element id="Patient.gender.extension">
@@ -855,6 +757,10 @@
       <short value="ContactInformation" />
       <comment value="Telecommunication data details (phone/email) is physically modeled in the HCIM Patient, which is why the telecommunication mappings appear to be coming from the HCIM Patient instead of the HCIM ContactPerson" />
       <alias value="Contactgegevens" />
+      <type>
+        <code value="ContactPoint" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
+      </type>
       <mapping>
         <identity value="hcim-contactperson-v1.2-2015EN" />
         <map value="NL-CM:3.1.6" />
@@ -869,93 +775,6 @@
         <identity value="hcim-contactperson-v3.1-2017EN" />
         <map value="NL-CM:3.1.6" />
         <comment value="ContactInformation" />
-      </mapping>
-    </element>
-    <element id="Patient.contact.telecom.system">
-      <path value="Patient.contact.telecom.system" />
-      <min value="1" />
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.5" />
-        <comment value="TelecomType. Land Line / Mobile = phone | Fax = fax | Email = email | Pager = pager" />
-      </mapping>
-    </element>
-    <element id="Patient.contact.telecom.value">
-      <path value="Patient.contact.telecom.value" />
-      <short value="TelephoneNumber / E-mailAddress" />
-      <alias value="Telefoonnummer" />
-      <alias value="EmailAdres" />
-      <min value="1" />
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.23" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.23" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.4" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.20" />
-        <comment value="EmailAddress" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.20" />
-        <comment value="EmailAddress" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.7" />
-        <comment value="EmailAddress" />
-      </mapping>
-    </element>
-    <element id="Patient.contact.telecom.use">
-      <path value="Patient.contact.telecom.use" />
-      <short value="NumberType / E-mailAddressType" />
-      <alias value="NummerSoort" />
-      <alias value="EmailSoort" />
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.22" />
-        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.22" />
-        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.6" />
-        <comment value="NumberType. Primary Home = home | Work Place = work | Temporary Address = temp" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.19" />
-        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-patient-v3.0-2016EN" />
-        <map value="NL-CM:0.1.19" />
-        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.5" />
-        <comment value="TelecomType. Mobile phone = mobile" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.8" />
-        <comment value="EmailAddressType. Primary Home = home | Work Place = work" />
       </mapping>
     </element>
     <element id="Patient.contact.address">
