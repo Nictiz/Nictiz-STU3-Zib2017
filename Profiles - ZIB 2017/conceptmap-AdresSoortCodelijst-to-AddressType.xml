@@ -38,7 +38,7 @@
             <target>
                 <code value="physical"/>
                 <equivalence value="relatedto"/>
-                <comment value="HP: Primary home/officieel adres. physical: A physical address that can be visited. Use in conjunction with Address.use = home and extension http://fhir.nl/fhir/StructureDefinition/nl-core-address-official to mark as primary"/>
+                <comment value="HP: Primary home/officieel adres. physical: A physical address that can be visited. Use in conjunction with Address.use = home, Address.use.extension http://hl7.org/fhir/StructureDefinition/iso21090-AD-use = HP and Address.extension http://fhir.nl/fhir/StructureDefinition/nl-core-address-official = true to mark as primary"/>
             </target>
         </element>
         <element>
@@ -46,21 +46,21 @@
             <target>
                 <code value="physical"/>
                 <equivalence value="equivalent"/>
-                <comment value="PHYS: Visit Address/Woon-/verblijfadres. physical: A physical address that can be visited."/>
+                <comment value="PHYS: Visit Address/Woon-/verblijfadres. physical: A physical address that can be visited. Use in conjunction with Address.use = home, Address.use.extension http://hl7.org/fhir/StructureDefinition/iso21090-AD-use = PHYS"/>
             </target>
         </element>
         <element>
             <code value="TMP"/>
             <target>
                 <equivalence value="unmatched"/>
+                <comment value="Use Address.use = temp"/>
             </target>
         </element>
         <element>
             <code value="WP"/>
             <target>
-                <code value="physical"/>
-                <equivalence value="relatedto"/>
-                <comment value="WP: work place. physical: A physical address that can be visited."/>
+                <equivalence value="unmatched"/>
+                <comment value="WP: work place. Use Address.use = work. A work place could be postal/physical or both. Which it is, is not known from the HCIM AdresSooort WP."/>
             </target>
         </element>
         <element>
@@ -68,7 +68,7 @@
             <target>
                 <code value="physical"/>
                 <equivalence value="narrower"/>
-                <comment value="HV: Vacation Home. physical: A physical address that can be visited."/>
+                <comment value="HV: Vacation Home. physical: A physical address that can be visited. Use in conjunction with Address.use = temp, Address.use.extension http://hl7.org/fhir/StructureDefinition/iso21090-AD-use = HV"/>
             </target>
         </element>
     </group>
