@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="eOverdrachtOverdrachtsberichtVolwassenen-phase-two" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtOverdrachtsberichtVolwassenen-phase-two" />
+  <version value="0.2" />
+  <name value="eOverdracht Overdrachtsbericht Volwassenen Phase Two" />
+  <title value="eOverdracht Overdrachtsbericht Volwassenen Phase Two" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Profile on the Composition resource which represents the Overdrachtsbericht Volwassenen Phase Two for eOverdracht conform information standard ['Verpleegkundige zorg'](https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorg)" />
+  <purpose value="The purpose of an Overdrachtsbericht Volwassenen Phase Two is to enable the health organization that receives it to assess the patient/client's care demands and accept or reject the application." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-patient-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v3.1(2017EN)" />
+    <name value="HCIM Patient-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+    <uri value="https://decor.nictiz.nl/art-decor/decor-scenarios--e-overdracht-?id=2.16.840.1.113883.2.4.3.11.60.30.4.12" />
+    <name value="eOverdracht Transaction 12: send Overdrachtsbericht Volwassenen Phase Two" />
+    <comment value="Source language is in Dutch." />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Composition" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Composition.type.coding">
+      <path value="Composition.type.coding" />
+      <min value="1" />
+    </element>
+    <element id="Composition.type.coding.system">
+      <path value="Composition.type.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Composition.type.coding.code">
+      <path value="Composition.type.coding.code" />
+      <min value="1" />
+      <fixedCode value="57830-2" />
+    </element>
+    <element id="Composition.subject">
+      <path value="Composition.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-patient-v3.1-2017EN" />
+        <map value="NL-CM:0.1.1" />
+        <comment value="Patient" />
+      </mapping>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-Phase-Two" />
+        <map value="e-overdracht-dataelement-v3-39" />
+        <comment value="Persoonsgegevens:Patient" />
+      </mapping>
+    </element>
+    <element id="Composition.author">
+      <path value="Composition.author" />
+      <short value="Who or what initiated the Overdrachtsbericht Volwassenen Phase Two" />
+      <definition value="The person that initiated the sending of the Overdrachtsbericht Volwassenen Phase Two. Alternatively, this may be the sending XIS." />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.9" />
+        <comment value="HealthProfessionalAsAuthor::HealthProfessional" />
+      </mapping>
+    </element>
+    <element id="Composition.title">
+      <path value="Composition.title" />
+      <fixedString value="e-Overdracht Overdrachtsbericht Volwassenen Phase Two" />
+    </element>
+    <element id="Composition.section">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="title" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section:administrativeData">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="administrativeData" />
+      <short value="Administrative data" />
+      <definition value="Section for administrative data, including date of transfer, contact person and payer details, and details of the sending and receiving organizations." />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-1" />
+      </mapping>
+    </element>
+    <element id="Composition.section:administrativeData.extension">
+      <path value="Composition.section.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section:administrativeData.extension:transferDate">
+      <path value="Composition.section.extension" />
+      <sliceName value="transferDate" />
+      <short value="Planned transfer date" />
+      <definition value="Captures the planned transfer date, which can change in the actual transfer phase." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-TransferDate" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-767" />
+        <comment value="Datum overplaatsing" />
+      </mapping>
+    </element>
+    <element id="Composition.section:administrativeData.title">
+      <path value="Composition.section.title" />
+      <short value="Administrative data" />
+      <min value="1" />
+      <fixedString value="Administrative data" />
+    </element>
+    <element id="Composition.section:administrativeData.section">
+      <path value="Composition.section.section" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="title" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData">
+      <path value="Composition.section.section" />
+      <sliceName value="personalData" />
+      <short value="Personal data" />
+      <definition value="Subsection listing personal data of the payer and contact persons that are legal representatives of the patient." />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-6" />
+        <comment value="Persoonsgegevens" />
+      </mapping>
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.title">
+      <path value="Composition.section.section.title" />
+      <short value="Personal data" />
+      <min value="1" />
+      <fixedString value="Personal data" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.entry">
+      <path value="Composition.section.section.entry" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.entry:payer">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="payer" />
+      <short value="A reference to payer data" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-52" />
+        <comment value="Persoonsgegevens:Betaler" />
+      </mapping>
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.entry:contactPerson">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="contactPerson" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-71" />
+        <comment value="Persoonsgevens:Contactpersoon" />
+      </mapping>
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization">
+      <path value="Composition.section.section" />
+      <sliceName value="sendingOrganization" />
+      <short value="Sending Organization" />
+      <definition value="Subsection listing data about the sending organization." />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-7" />
+        <comment value="Sturende organisatie" />
+      </mapping>
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.title">
+      <path value="Composition.section.section.title" />
+      <short value="Sending organization" />
+      <min value="1" />
+      <fixedString value="Sending organization" />
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.entry">
+      <path value="Composition.section.section.entry" />
+      <short value="A reference to data about the sending organization" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-80" />
+        <comment value="Zorgaanbieder" />
+      </mapping>
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization">
+      <path value="Composition.section.section" />
+      <sliceName value="receivingOrganization" />
+      <short value="Receiving organization" />
+      <definition value="Subsection listing data about the receiving organization." />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-8" />
+        <comment value="Ontvangende organisatie" />
+      </mapping>
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.title">
+      <path value="Composition.section.section.title" />
+      <short value="Receiving organization" />
+      <min value="1" />
+      <fixedString value="Receiving organization" />
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.entry">
+      <path value="Composition.section.section.entry" />
+      <short value="A reference to data about the receiving organization" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-102" />
+        <comment value="Zorgaanbieder" />
+      </mapping>
+    </element>
+    <element id="Composition.section:medicalContext">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="medicalContext" />
+      <short value="Medical context" />
+      <definition value="Section for medical context, such as diagnosis, medical history and alerts." />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-3" />
+        <comment value="Medische context" />
+      </mapping>
+    </element>
+    <element id="Composition.section:medicalContext.title">
+      <path value="Composition.section.title" />
+      <short value="Medical context" />
+      <min value="1" />
+      <fixedString value="Medical context" />
+    </element>
+    <element id="Composition.section:medicalContext.section">
+      <path value="Composition.section.section" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="title" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalDiagnosis">
+      <path value="Composition.section.section" />
+      <sliceName value="medicalDiagnosis" />
+      <short value="Medical Diagnosis" />
+      <definition value="Subsection listing data concerning the medical diagnosis." />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-15" />
+        <comment value="Medische diagnose" />
+      </mapping>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalDiagnosis.title">
+      <path value="Composition.section.section.title" />
+      <short value="Medical diagnosis" />
+      <min value="1" />
+      <fixedString value="Medical diagnosis" />
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalDiagnosis.entry">
+      <path value="Composition.section.section.entry" />
+      <short value="A reference to data concerning the medical diagnosis" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-192" />
+        <comment value="Probleem" />
+      </mapping>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalHistory">
+      <path value="Composition.section.section" />
+      <sliceName value="medicalHistory" />
+      <short value="Medical History" />
+      <definition value="Subsection listing relevant medical history." />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-16" />
+        <comment value="Voorgeschiedenis" />
+      </mapping>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalHistory.title">
+      <path value="Composition.section.section.title" />
+      <short value="Medical history" />
+      <min value="1" />
+      <fixedString value="Medical history" />
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalHistory.entry">
+      <path value="Composition.section.section.entry" />
+      <short value="A reference to data concerning medical history" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-200" />
+        <comment value="Probleem" />
+      </mapping>
+    </element>
+    <element id="Composition.section:medicalContext.section:payAttention">
+      <path value="Composition.section.section" />
+      <sliceName value="payAttention" />
+      <short value="Pay Attention" />
+      <definition value="Subsection listing relevant alerts." />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-18" />
+        <comment value="Let op" />
+      </mapping>
+    </element>
+    <element id="Composition.section:medicalContext.section:payAttention.title">
+      <path value="Composition.section.section.title" />
+      <short value="Pay attention" />
+      <min value="1" />
+      <fixedString value="Pay attention" />
+    </element>
+    <element id="Composition.section:medicalContext.section:payAttention.entry">
+      <path value="Composition.section.section.entry" />
+      <short value="A reference to data concerning medical history" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Alert" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-223" />
+        <comment value="Alert" />
+      </mapping>
+    </element>
+    <element id="Composition.section:medicalContext.section:freedomRestriction">
+      <path value="Composition.section.section" />
+      <sliceName value="freedomRestriction" />
+      <short value="Freedom Restriction" />
+      <definition value="Subsection listing relevant freedom restricting measures." />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-19" />
+        <comment value="Vrijheidsbeperking" />
+      </mapping>
+    </element>
+    <element id="Composition.section:medicalContext.section:freedomRestriction.title">
+      <path value="Composition.section.section.title" />
+      <short value="Freedom restriction" />
+      <min value="1" />
+      <fixedString value="Freedom restriction" />
+    </element>
+    <element id="Composition.section:medicalContext.section:freedomRestriction.entry">
+      <path value="Composition.section.section.entry" />
+      <short value="A reference to data concerning freedom restricting measures" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-229" />
+        <comment value="VrijheidsbeperkendeMaatregelen" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="nursingContextPlannedCare" />
+      <short value="Nursing context - planned care" />
+      <definition value="Section for planned care activities in the nursing context, including current problems and patient needs/preferences." />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-4" />
+        <comment value="Verpleegkundige context: zorgplan" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.title">
+      <path value="Composition.section.title" />
+      <short value="Nursing context - planned care" />
+      <min value="1" />
+      <fixedString value="Nursing context - planned care" />
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.section">
+      <path value="Composition.section.section" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="title" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.section:patientProblems">
+      <path value="Composition.section.section" />
+      <sliceName value="patientProblems" />
+      <short value="Patient's current problems" />
+      <definition value="Subsection detailing the current problems of the patient." />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-22" />
+        <comment value="Actuele patiëntproblemen" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.section:patientProblems.title">
+      <path value="Composition.section.section.title" />
+      <short value="Patient problems" />
+      <min value="1" />
+      <fixedString value="Patient problems" />
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.section:patientProblems.entry">
+      <path value="Composition.section.section.entry" />
+      <short value="A reference to data that contains information about the Patient's problems" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-360" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.section:patientPlannedCareActivities">
+      <path value="Composition.section.section" />
+      <sliceName value="patientPlannedCareActivities" />
+      <short value="Planned care activities" />
+      <definition value="Subsection detailing the planned care activities for the patient." />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-26" />
+        <comment value="Afspraken patiënt" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.section:patientPlannedCareActivities.title">
+      <path value="Composition.section.section.title" />
+      <short value="Planned care activities" />
+      <min value="1" />
+      <fixedString value="Planned care activities" />
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.section:patientPlannedCareActivities.entry">
+      <path value="Composition.section.section.entry" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="A reference to data about the planned care activities" />
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.section:patientPlannedCareActivities.entry:nursingProcedure">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="nursingProcedure" />
+      <short value="A reference to nursing procedure data" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-ProcedureRequest" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-1138" />
+        <comment value="Verpleegkundige interventie" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.section:patientNeedsAndPreferences">
+      <path value="Composition.section.section" />
+      <sliceName value="patientNeedsAndPreferences" />
+      <short value="Patient's needs and preferences" />
+      <definition value="This subsection contains text about the patient's needs and wishes, or those of the patient's relatives." />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-27" />
+        <comment value="Wensen en behoeften patiënt en/of naasten" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.section:patientNeedsAndPreferences.title">
+      <path value="Composition.section.section.title" />
+      <short value="Patient's needs and preferences" />
+      <min value="1" />
+      <fixedString value="Patient's needs and preferences" />
+    </element>
+    <element id="Composition.section:nursingContextPlannedCare.section:patientNeedsAndPreferences.text">
+      <path value="Composition.section.section.text" />
+      <min value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-27" />
+        <comment value="Wensen en behoeften patiënt en/of naasten" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextHealthSituation">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="nursingContextHealthSituation" />
+      <short value="Nursing context - health situation" />
+      <definition value="Section for specifying current health situation regarding existing medical aids that are of interest in the nursing context." />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-5" />
+        <comment value="Verpleegkundige context: specificatie gezondheidstoestand" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextHealthSituation.title">
+      <path value="Composition.section.title" />
+      <short value="Nursing context - health situation" />
+      <min value="1" />
+      <fixedString value="Nursing context - health situation" />
+    </element>
+    <element id="Composition.section:nursingContextHealthSituation.section">
+      <path value="Composition.section.section" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="title" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section:nursingContextHealthSituation.section:nutritionOrFluid">
+      <path value="Composition.section.section" />
+      <sliceName value="nutritionOrFluid" />
+      <short value="Nutrition or fluid" />
+      <definition value="This subsection contains information about the patient's infusions and/or feeding tube systems." />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-30" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextHealthSituation.section:nutritionOrFluid.title">
+      <path value="Composition.section.section.title" />
+      <short value="Nutrition or fluid" />
+      <min value="1" />
+      <fixedString value="Nutrition or fluid" />
+    </element>
+    <element id="Composition.section:nursingContextHealthSituation.section:nutritionOrFluid.entry">
+      <path value="Composition.section.section.entry" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section:nursingContextHealthSituation.section:nutritionOrFluid.entry:feedingTubeSystem">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="feedingTubeSystem" />
+      <short value="A reference to data about the patient's feeding tube systems" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-537" />
+        <comment value="SondeSysteem" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextHealthSituation.section:nutritionOrFluid.entry:infusion">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="infusion" />
+      <short value="A reference to data about the patient's infusions" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-560" />
+        <comment value="Infuus" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextHealthSituation.section:excretion">
+      <path value="Composition.section.section" />
+      <sliceName value="excretion" />
+      <short value="Excretion" />
+      <definition value="This subsection contains information about the patient's stomata." />
+      <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-31" />
+        <comment value="Uitscheiding" />
+      </mapping>
+    </element>
+    <element id="Composition.section:nursingContextHealthSituation.section:excretion.title">
+      <path value="Composition.section.section.title" />
+      <short value="Excretion" />
+      <min value="1" />
+      <fixedString value="Excretion" />
+    </element>
+    <element id="Composition.section:nursingContextHealthSituation.section:excretion.entry">
+      <path value="Composition.section.section.entry" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Stoma" />
+      </type>
+      <mapping>
+        <identity value="eOverdracht-OverdrachtsberichtVolwassenen-phase-two" />
+        <map value="e-overdracht-dataelement-v3-622" />
+        <comment value="Stoma" />
+      </mapping>
+    </element>
+    <element id="Composition.section:pdf-file">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section" />
+      </extension>
+      <path value="Composition.section" />
+      <sliceName value="pdf-file" />
+      <short value="PDF file" />
+      <definition value="This section contains a entry with a reference to a Binary resource containing a PDF file in base64 encoded data. The PDF file contains the remaining eOverdracht 'Aanmeldbericht' information." />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:pdf-file.title">
+      <path value="Composition.section.title" />
+      <min value="1" />
+      <fixedString value="PDF file" />
+    </element>
+    <element id="Composition.section:pdf-file.entry">
+      <path value="Composition.section.entry" />
+      <short value="eOverdracht Aanmeldbericht PDF" />
+      <definition value="A reference to a Binary resource containing a PDF file in base64 encoded data. The PDF file contains the remaining eOverdracht 'Aanmeldbericht' information." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary" />
+      </type>
+    </element>
+    <element id="Composition.section:pdf-file.entry.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+  </differential>
+</StructureDefinition>
