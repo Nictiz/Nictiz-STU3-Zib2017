@@ -52,21 +52,28 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.code.coding:FeedingPatternInfantCoding">
+    <element id="Observation.code.coding:FeedingPatternInfantCode">
       <path value="Observation.code.coding" />
-      <sliceName value="FeedingPatternInfantCoding" />
+      <sliceName value="FeedingPatternInfantCode" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.code.coding:FeedingPatternInfantCoding.system">
+    <element id="Observation.code.coding:FeedingPatternInfantCode.system">
       <path value="Observation.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.code.coding:FeedingPatternInfantCoding.code">
+    <element id="Observation.code.coding:FeedingPatternInfantCode.code">
       <path value="Observation.code.coding.code" />
       <min value="1" />
-      <fixedCode value="Feed" />
+      <fixedCode value="289145007" />
+    </element>
+    <element id="Observation.code.coding:FeedingPatternInfantCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Finding of infant feeding pattern" />
     </element>
     <element id="Observation.effective[x]:effectiveDateTime">
       <path value="Observation.effectiveDateTime" />
@@ -109,19 +116,14 @@
       <sliceName value="FeedingSupplement" />
       <max value="1" />
     </element>
-    <element id="Observation.component:FeedingSupplement.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-    </element>
-    <element id="Observation.component:FeedingSupplement.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:FeedingSupplement.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="373453009" />
+    <element id="Observation.component:FeedingSupplement.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="373453009" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:FeedingSupplement.value[x]:valueString">
       <path value="Observation.component.valueString" />
@@ -143,20 +145,14 @@
       <sliceName value="FeedingFrequency" />
       <max value="1" />
     </element>
-    <element id="Observation.component:FeedingFrequency.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:FeedingFrequency.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:FeedingFrequency.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="364653007" />
+    <element id="Observation.component:FeedingFrequency.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="364653007" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:FeedingFrequency.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -187,41 +183,38 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Observation.component:FeedingType.extension:FeedingMethod">
+    <element id="Observation.component:FeedingType.extension:feedingMethod">
       <path value="Observation.component.extension" />
-      <sliceName value="FeedingMethod" />
+      <sliceName value="feedingMethod" />
       <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingPatternInfant-FeedingMethod" />
       </type>
     </element>
-    <element id="Observation.component:FeedingType.extension:FeedingMethod.valueCodeableConcept:valueCodeableConcept">
+    <element id="Observation.component:FeedingType.extension:feedingMethod.valueCodeableConcept:valueCodeableConcept">
       <path value="Observation.component.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="FeedingMethod" />
       <definition value="The method how the feeding is given to the infant." />
       <alias value="VoedingMethode" />
+      <binding>
+        <strength value="extensible" />
+      </binding>
       <mapping>
         <identity value="zib-feedingpatterninfant-v1.0-2017EN" />
         <map value="NL-CM:4.31.4" />
         <comment value="FeedingMethod" />
       </mapping>
     </element>
-    <element id="Observation.component:FeedingType.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Observation.component:FeedingType.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:FeedingType.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="MISSING" />
+    <element id="Observation.component:FeedingType.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:FeedingType.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
