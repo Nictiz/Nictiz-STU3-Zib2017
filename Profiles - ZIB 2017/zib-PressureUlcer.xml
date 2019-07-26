@@ -107,6 +107,13 @@
       <min value="1" />
       <fixedCode value="399912005" />
     </element>
+    <element id="Condition.code.coding:PressureUlcerCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Condition.code.coding.display" />
+      <defaultValueString value="Pressure ulcer" />
+    </element>
     <element id="Condition.bodySite">
       <path value="Condition.bodySite" />
       <short value="AnatomicalLocation" />
@@ -121,6 +128,7 @@
       <mapping>
         <identity value="hcim-PressureUlcer-v3.2-2017EN" />
         <map value="NL-CM:19.1.4" />
+        <comment value="AnatomicalLocation" />
       </mapping>
     </element>
     <element id="Condition.bodySite.extension:Laterality">
@@ -129,6 +137,7 @@
       <mapping>
         <identity value="hcim-PressureUlcer-v3.2-2017EN" />
         <map value="NL-CM:19.1.13" />
+        <comment value="Laterality" />
       </mapping>
     </element>
     <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
@@ -164,6 +173,7 @@
         <description value="DecubitusCategorieCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.1.1--20171231000000" />
+          <display value="DecubitusCategorieCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -175,11 +185,6 @@
     <element id="Condition.note">
       <path value="Condition.note" />
       <definition value="A comment of the decubitus wound." />
-      <mapping>
-        <identity value="hcim-pressureulcer-v3.2-2017EN" />
-        <map value="NL-CM:19.1.5" />
-        <comment value="Comment" />
-      </mapping>
     </element>
     <element id="Condition.note.text">
       <path value="Condition.note.text" />

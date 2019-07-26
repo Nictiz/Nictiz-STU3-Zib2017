@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A wound is an interruption of the continuity of the skin, often caused by external influences. &#xD;&#xA;A commonly used model for documenting the wound properties is the TIME (‘Tissue’, ‘Infection’, ‘Moisture’, ‘Edge’) model, which can be used to systematically describe the wound. For wound tissue (T in the TIME model), the structure of the WCS model (Woundcare Consultant Society, WCS Kenniscentrum Wondzorg) is used. The WCS model is not suited for describing oncological ulcers. There is a separate classification for that. &#xD;&#xA;Oncological ulcers are skin defects which result from the tumor process. They are different from wounds resulting from cancer treatment, such as radiotherapy, chemotherapy or surgery. &#xD;&#xA; &#xD;&#xA;The concept does not describe decubitus wounds and burn wounds. For these, the relevant information models can be used." />
+  <description value="An Condition as defined by the Dutch HCIM Zorginformatiebouwsteen Wound v3.1(2017EN) A wound is an interruption of the continuity of the skin, often caused by external influences. &#xD;&#xA;A commonly used model for documenting the wound properties is the TIME (‘Tissue’, ‘Infection’, ‘Moisture’, ‘Edge’) model, which can be used to systematically describe the wound. For wound tissue (T in the TIME model), the structure of the WCS model (Woundcare Consultant Society, WCS Kenniscentrum Wondzorg) is used. The WCS model is not suited for describing oncological ulcers. There is a separate classification for that. &#xD;&#xA;Oncological ulcers are skin defects which result from the tumor process. They are different from wounds resulting from cancer treatment, such as radiotherapy, chemotherapy or surgery. &#xD;&#xA; &#xD;&#xA;The concept does not describe decubitus wounds and burn wounds. For these, the relevant information models can be used." />
   <purpose value="Information on the wound is recorded to share this information with other health professionals. This information can be used to monitor the wound’s healing process and provide insight into the implemented policy. In a transfer situation, it facilitates continuation of the treatment." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -81,6 +81,18 @@
         <map value="NL-CM:19.2.5" />
         <comment value="WoundType" />
       </mapping>
+    </element>
+    <element id="Condition.code.coding">
+      <path value="Condition.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Condition.code.coding.system">
+      <path value="Condition.code.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Condition.code.coding.code">
+      <path value="Condition.code.coding.code" />
+      <min value="1" />
     </element>
     <element id="Condition.bodySite">
       <path value="Condition.bodySite" />
