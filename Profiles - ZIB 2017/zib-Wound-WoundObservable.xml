@@ -145,26 +145,14 @@
       <sliceName value="WoundLength" />
       <max value="1" />
     </element>
-    <element id="Observation.component:WoundLength.code.coding">
-      <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Observation.component:WoundLength.code.coding:WoundLengthCoding">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="WoundLengthCoding" />
-      <min value="1" />
-      <max value="1" />
-      <patternCoding>
-        <system value="http://snomed.info/sct" />
-        <code value="401238003" />
-      </patternCoding>
+    <element id="Observation.component:WoundLength.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="401238003" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:WoundLength.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -191,26 +179,14 @@
       <sliceName value="WoundWidth" />
       <max value="1" />
     </element>
-    <element id="Observation.component:WoundWidth.code.coding">
-      <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Observation.component:WoundWidth.code.coding:WoundWidthCoding">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="WoundWidthCoding" />
-      <min value="1" />
-      <max value="1" />
-      <patternCoding>
-        <system value="http://snomed.info/sct" />
-        <code value="401239006" />
-      </patternCoding>
+    <element id="Observation.component:WoundWidth.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="401239006" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:WoundWidth.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -237,26 +213,14 @@
       <sliceName value="WoundDepth" />
       <max value="1" />
     </element>
-    <element id="Observation.component:WoundDepth.code.coding">
-      <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Observation.component:WoundDepth.code.coding:WoundDepthCoding">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="WoundDepthCoding" />
-      <min value="1" />
-      <max value="1" />
-      <patternCoding>
-        <system value="http://snomed.info/sct" />
-        <code value="425094009" />
-      </patternCoding>
+    <element id="Observation.component:WoundDepth.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="425094009" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:WoundDepth.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -283,29 +247,18 @@
       <sliceName value="WoundTissue" />
       <max value="1" />
     </element>
-    <element id="Observation.component:WoundTissue.code.coding">
-      <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
+    <element id="Observation.component:WoundTissue.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="MISSING" />
+        </coding>
+      </patternCodeableConcept>
     </element>
-    <element id="Observation.component:WoundTissue.code.coding:WoundTissueCoding">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="WoundTissueCoding" />
-      <min value="1" />
-      <max value="1" />
-      <patternCoding>
-        <system value="http://snomed.info/sct" />
-        <code value="MISSING" />
-      </patternCoding>
-    </element>
-    <element id="Observation.component:WoundTissue.value[x]">
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept">
       <path value="Observation.component.value[x]" />
+      <sliceName value="valueCodeableConcept" />
       <slicing>
         <discriminator>
           <type value="value" />
@@ -324,7 +277,7 @@
         <comment value="WoundTissue" />
       </mapping>
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue">
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:OncoUlcerCodelistValue">
       <path value="Observation.component.value[x]" />
       <sliceName value="OncoUlcerCodelistValue" />
       <type>
@@ -339,15 +292,15 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue.coding.system">
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:OncoUlcerCodelistValue.coding.system">
       <path value="Observation.component.value[x].coding.system" />
       <min value="1" />
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue.coding.code">
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:OncoUlcerCodelistValue.coding.code">
       <path value="Observation.component.value[x].coding.code" />
       <min value="1" />
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue">
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:WCSCodelistValue">
       <path value="Observation.component.value[x]" />
       <sliceName value="WCSCodelistValue" />
       <type>
@@ -362,11 +315,11 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue.coding.system">
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:WCSCodelistValue.coding.system">
       <path value="Observation.component.value[x].coding.system" />
       <min value="1" />
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue.coding.code">
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:WCSCodelistValue.coding.code">
       <path value="Observation.component.value[x].coding.code" />
       <min value="1" />
     </element>
@@ -375,27 +328,18 @@
       <sliceName value="WoundInfection" />
       <max value="1" />
     </element>
+    <element id="Observation.component:WoundInfection.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="405009004" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
     <element id="Observation.component:WoundInfection.code.coding">
       <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
       <max value="1" />
-    </element>
-    <element id="Observation.component:WoundInfection.code.coding:WoundInfectionCoding">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="WoundInfectionCoding" />
-      <min value="1" />
-      <max value="1" />
-      <patternCoding>
-        <system value="http://snomed.info/sct" />
-        <code value="405009004" />
-      </patternCoding>
     </element>
     <element id="Observation.component:WoundInfection.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -423,26 +367,14 @@
       <sliceName value="WoundMoisture" />
       <max value="1" />
     </element>
-    <element id="Observation.component:WoundMoisture.code.coding">
-      <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Observation.component:WoundMoisture.code.coding:WoundMoistureCoding">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="WoundMoistureCoding" />
-      <min value="1" />
-      <max value="1" />
-      <patternCoding>
-        <system value="http://snomed.info/sct" />
-        <code value="298007001" />
-      </patternCoding>
+    <element id="Observation.component:WoundMoisture.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="298007001" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:WoundMoisture.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -471,26 +403,14 @@
       <sliceName value="WoundEdge" />
       <max value="1" />
     </element>
-    <element id="Observation.component:WoundEdge.code.coding">
-      <path value="Observation.component.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Observation.component:WoundEdge.code.coding:WoundEdgeCoding">
-      <path value="Observation.component.code.coding" />
-      <sliceName value="WoundEdgeCoding" />
-      <min value="1" />
-      <max value="1" />
-      <patternCoding>
-        <system value="http://snomed.info/sct" />
-        <code value="449747006" />
-      </patternCoding>
+    <element id="Observation.component:WoundEdge.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="449747006" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:WoundEdge.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
