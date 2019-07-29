@@ -28,6 +28,26 @@
   <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
   <derivation value="constraint" />
   <differential>
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.extension:stoma">
+      <path value="Observation.extension" />
+      <sliceName value="stoma" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-Bowel-BladderFunction-Stoma" />
+      </type>
+    </element>
     <element id="Observation.code">
       <path value="Observation.code" />
       <short value="BowelFunction" />
