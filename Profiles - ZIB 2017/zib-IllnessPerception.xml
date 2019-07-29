@@ -152,7 +152,7 @@
       <path value="Observation.component" />
       <slicing>
         <discriminator>
-          <type value="value" />
+          <type value="pattern" />
           <path value="code" />
         </discriminator>
         <rules value="open" />
@@ -168,13 +168,22 @@
         <map value="NL-CM:18.5.3" />
       </mapping>
     </element>
-    <element id="Observation.component:PatientIllnessInsight.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <fixedUri value="http://snomed.info/sct" />
+    <element id="Observation.component:PatientIllnessInsight.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="27026000" />
+          <display value="Insight, function (observable entity)" />
+        </coding>
+      </patternCodeableConcept>
     </element>
-    <element id="Observation.component:PatientIllnessInsight.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <fixedCode value="27026000" />
+    <element id="Observation.component:PatientIllnessInsight.code.coding">
+      <path value="Observation.component.code.coding" />
+      <patternCoding>
+        <system value="http://snomed.info/sct" />
+        <code value="27026000" />
+      </patternCoding>
     </element>
     <element id="Observation.component:PatientIllnessInsight.value[x]:valueString">
       <path value="Observation.component.valueString" />
@@ -194,13 +203,14 @@
         <comment value="CopingWithIllnessByPatient" />
       </mapping>
     </element>
-    <element id="Observation.component:CopingWithIllnessByPatient.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:CopingWithIllnessByPatient.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <fixedCode value="364667003" />
+    <element id="Observation.component:CopingWithIllnessByPatient.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="364667003" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:CopingWithIllnessByPatient.value[x]:valueString">
       <path value="Observation.component.valueString" />
@@ -220,13 +230,14 @@
         <comment value="CopingWithIllnessByFamily" />
       </mapping>
     </element>
-    <element id="Observation.component:CopingWithIllnessByFamily.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.component:CopingWithIllnessByFamily.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <fixedCode value="405199009" />
+    <element id="Observation.component:CopingWithIllnessByFamily.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="405199009" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:CopingWithIllnessByFamily.value[x]:valueString">
       <path value="Observation.component.valueString" />
