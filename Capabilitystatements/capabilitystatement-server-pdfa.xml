@@ -2,10 +2,10 @@
 <?xml-model href="http://hl7.org/fhir/STU3/capabilitystatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
   <url value="http://nictiz.nl/fhir/CapabilityStatement/pdfa-servercapabilities" />
-  <version value="1.0.0"/>
+  <version value="2.0.0"/>
   <name value="PDFAServer" />
   <status value="active" />
-  <date value="2017-09-25" />
+  <date value="2019-07-29" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This CapabilityStatement describes the minimal requirements for a server to expose PDFA documents. The requirements are based on the IHE technical framework supplement for Mobile access to Health Documents (MHD)." />
+  <description value="This CapabilityStatement describes the minimal requirements for a server to expose and receive PDFA documents. The requirements are based on the IHE technical framework supplement for Mobile access to Health Documents (MHD)." />
   <copyright value="CC0" />
   <kind value="requirements" />
   <fhirVersion value="3.0.1" />
@@ -29,13 +29,19 @@
     <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
   </profile>
   <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+  </profile>
+  <profile>
     <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
   </profile>
   <profile>
-    <reference value="http://ihe.net/fhir/StructureDefinition/IHE.MHD.DocumentManifest" />
+    <reference value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.ProvideDocumentBundle.Minimal" />
+  </profile> 
+  <profile>
+    <reference value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.DocumentManifest" />
   </profile>
   <profile>
-    <reference value="http://ihe.net/fhir/StructureDefinition/IHE.MHD.Query.Comprehensive.DocumentReference" />
+    <reference value="http://ihe.net/fhir/StructureDefinition/IHE.MHD.Provide.Minimal.DocumentReference" />
   </profile>
   <profile>
     <reference value="http://ihe.net/fhir/StructureDefinition/IHE.MHD.Query.Minimal.DocumentReference" />
