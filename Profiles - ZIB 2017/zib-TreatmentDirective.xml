@@ -98,16 +98,6 @@
         <comment value="Verification" />
       </mapping>
     </element>
-    <element id="Consent.extension:verification.extension">
-      <path value="Consent.extension.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Consent.extension:verification.extension:Verified">
       <path value="Consent.extension.extension" />
       <sliceName value="Verified" />
@@ -152,8 +142,9 @@
         <comment value="VerifiedWith" />
       </mapping>
     </element>
-    <element id="Consent.extension:verification.extension:VerifiedWith.value[x]">
-      <path value="Consent.extension.extension.value[x]" />
+    <element id="Consent.extension:verification.extension:VerifiedWith.valueCodeableConcept:valueCodeableConcept">
+      <path value="Consent.extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
         <description value="The person with whom the treatment instruction was discussed and verified." />
@@ -184,10 +175,6 @@
         <map value="NL-CM:2.1.10" />
         <comment value="VerificationDate" />
       </mapping>
-    </element>
-    <element id="Consent.extension:verification.url">
-      <path value="Consent.extension.url" />
-      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification" />
     </element>
     <element id="Consent.extension:comment">
       <path value="Consent.extension" />
@@ -240,12 +227,9 @@
         <comment value="Treatment" />
       </mapping>
     </element>
-    <element id="Consent.extension:treatment.url">
-      <path value="Consent.extension.url" />
-      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment" />
-    </element>
-    <element id="Consent.extension:treatment.value[x]">
-      <path value="Consent.extension.value[x]" />
+    <element id="Consent.extension:treatment.valueCodeableConcept:valueCodeableConcept">
+      <path value="Consent.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
         <description value="The medical treatment to which the treatment instruction applies." />
@@ -321,12 +305,9 @@
         <comment value="TreatmentPermitted" />
       </mapping>
     </element>
-    <element id="Consent.modifierExtension:treatmentPermitted.url">
-      <path value="Consent.modifierExtension.url" />
-      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-TreatmentPermitted" />
-    </element>
-    <element id="Consent.modifierExtension:treatmentPermitted.value[x]">
-      <path value="Consent.modifierExtension.value[x]" />
+    <element id="Consent.modifierExtension:treatmentPermitted.valueCodeableConcept:valueCodeableConcept">
+      <path value="Consent.modifierExtension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
         <description value="Indication of permission for the treatment, no permission for the treatment, or permission for the treatment with constraints." />
