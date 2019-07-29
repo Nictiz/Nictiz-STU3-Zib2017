@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Nictiz.IHE.MHD.ProvideDocumentBundle.Minimal" />
+  <text>
+    <status value="additional" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+	StructureDefinition for Provide Document Bundle (ITI-65) transaction between the MHD Document Source and the MHD Document Recipient with Minimal metadata compliance in the 
+    IHE IT Infrastructure Technical Framework Supplement <a href="http://wiki.ihe.net/index.php/Mobile_access_to_Health_Documents_(MHD)">Mobile access to Health Documents (MHD) Rev. 2.3</a>.
+	The IHE MHD Profile text is Normative, this conformance resource is Informative.
+		</div>
+  </text>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.ProvideDocumentBundle.Minimal" />
+  <version value="1.0.0" />
+  <name value="Nictiz.IHE.MHD.ProvideDocumentBundle.Minimal" />
+  <title value="Nictiz IHE MHD profile on Provide Document Bundle (ITI-65) transaction with Minimal Metadata" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2019-07-29" />
+  <publisher value="HL7 Netherlands" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Profile on Transaction Bundle based on IHE IT Infrastructure Technical Framework Supplement - Mobile access to Health Documents (MHD) Rev. 2.3. - revised by Nictiz to replace reference to corrected DocumentManifest profile and removed meta.profile claim tag.&#xD;&#xA;&#xD;&#xA;See http://wiki.ihe.net/index.php/Mobile_access_to_Health_Documents_(MHD)   The IHE MHD Profile text is Normative, this conformance resource is Informative." />
+  <purpose value="Copied profile from IHE MHD. This revised profile by Nictiz replaces the .entry.resource DocumentManifest profile reference to a corrected version of that profile. " />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Bundle" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Bundle" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Bundle.type">
+      <path value="Bundle.type" />
+      <short value="transaction" />
+      <fixedCode value="transaction" />
+    </element>
+    <element id="Bundle.entry">
+      <path value="Bundle.entry" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="resource" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Bundle.entry:DocumentManifest">
+      <path value="Bundle.entry" />
+      <sliceName value="DocumentManifest" />
+      <short value="DocumentManifest" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Bundle.entry:DocumentManifest.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:DocumentManifest.resource">
+      <path value="Bundle.entry.resource" />
+      <comment value="Nictiz: replaced profile reference to corrected IHE MHD DocumentManifest profile." />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.DocumentManifest" />
+      </type>
+    </element>
+    <element id="Bundle.entry:DocumentManifest.request">
+      <path value="Bundle.entry.request" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:DocumentManifest.request.method">
+      <path value="Bundle.entry.request.method" />
+      <fixedCode value="POST" />
+    </element>
+    <element id="Bundle.entry:DocumentReference">
+      <path value="Bundle.entry" />
+      <sliceName value="DocumentReference" />
+      <short value="DocumentReference" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:DocumentReference.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:DocumentReference.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="http://ihe.net/fhir/StructureDefinition/IHE.MHD.Provide.Minimal.DocumentReference" />
+      </type>
+    </element>
+    <element id="Bundle.entry:DocumentReference.request">
+      <path value="Bundle.entry.request" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:DocumentReference.request.method">
+      <path value="Bundle.entry.request.method" />
+      <fixedCode value="POST" />
+    </element>
+    <element id="Bundle.entry:List">
+      <path value="Bundle.entry" />
+      <sliceName value="List" />
+      <short value="List" />
+    </element>
+    <element id="Bundle.entry:List.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:List.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="http://ihe.net/fhir/StructureDefinition/IHE.MHD.List" />
+      </type>
+    </element>
+    <element id="Bundle.entry:List.request">
+      <path value="Bundle.entry.request" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:List.request.method">
+      <path value="Bundle.entry.request.method" />
+      <fixedCode value="POST" />
+    </element>
+    <element id="Bundle.entry:Binary">
+      <path value="Bundle.entry" />
+      <sliceName value="Binary" />
+      <short value="Binary" />
+      <definition value="Entry for the actual document in a Binary resource." />
+    </element>
+    <element id="Bundle.entry:Binary.fullUrl">
+      <path value="Bundle.entry.fullUrl" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:Binary.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/Binary" />
+      </type>
+    </element>
+    <element id="Bundle.entry:Binary.request">
+      <path value="Bundle.entry.request" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:Binary.request.method">
+      <path value="Bundle.entry.request.method" />
+      <fixedCode value="POST" />
+    </element>
+  </differential>
+</StructureDefinition>
