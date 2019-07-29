@@ -98,6 +98,16 @@
         <comment value="Verification" />
       </mapping>
     </element>
+    <element id="Consent.extension:verification.extension">
+      <path value="Consent.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Consent.extension:verification.extension:Verified">
       <path value="Consent.extension.extension" />
       <sliceName value="Verified" />
@@ -142,9 +152,8 @@
         <comment value="VerifiedWith" />
       </mapping>
     </element>
-    <element id="Consent.extension:verification.extension:VerifiedWith.valueCodeableConcept:valueCodeableConcept">
-      <path value="Consent.extension.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Consent.extension:verification.extension:VerifiedWith.value[x]">
+      <path value="Consent.extension.extension.value[x]" />
       <binding>
         <strength value="extensible" />
         <description value="The person with whom the treatment instruction was discussed and verified." />
@@ -231,9 +240,12 @@
         <comment value="Treatment" />
       </mapping>
     </element>
-    <element id="Consent.extension:treatment.valueCodeableConcept:valueCodeableConcept">
-      <path value="Consent.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Consent.extension:treatment.url">
+      <path value="Consent.extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment" />
+    </element>
+    <element id="Consent.extension:treatment.value[x]">
+      <path value="Consent.extension.value[x]" />
       <binding>
         <strength value="extensible" />
         <description value="The medical treatment to which the treatment instruction applies." />
@@ -248,7 +260,7 @@
       <sliceName value="advanceDirective" />
       <short value="AdvanceDirective" />
       <definition value="A (written) statement in which a person indicates wishes concerning future medical action, in the event that this person is at that point no longer (deemed) capable of taking decisions on the matter." />
-      <comment value="This extension is added to support the cardinality for the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective." />
+      <comment value="This extension is added to support the cardinality of 0..* for the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective." />
       <alias value="Wilsverklaring" />
       <type>
         <code value="Extension" />
@@ -309,9 +321,12 @@
         <comment value="TreatmentPermitted" />
       </mapping>
     </element>
-    <element id="Consent.modifierExtension:treatmentPermitted.valueCodeableConcept:valueCodeableConcept">
-      <path value="Consent.modifierExtension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Consent.modifierExtension:treatmentPermitted.url">
+      <path value="Consent.modifierExtension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-TreatmentPermitted" />
+    </element>
+    <element id="Consent.modifierExtension:treatmentPermitted.value[x]">
+      <path value="Consent.modifierExtension.value[x]" />
       <binding>
         <strength value="extensible" />
         <description value="Indication of permission for the treatment, no permission for the treatment, or permission for the treatment with constraints." />
@@ -536,8 +551,22 @@
     </element>
     <element id="Consent.source[x]">
       <path value="Consent.source[x]" />
-      <comment value="The cardinality of source does not comply with the cardinality of the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective. Therefore, the extension http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-AdvanceDirective is added." />
-      <max value="0" />
+      <comment value="The cardinality of source does not comply with the cardinality of the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective. To support multiple AdvanceDirective references, the extension http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-AdvanceDirective is added." />
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="LivingWill" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="LivingWill" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="AdvanceDirective" />
+      </mapping>
     </element>
     <element id="Consent.policy.uri">
       <path value="Consent.policy.uri" />
