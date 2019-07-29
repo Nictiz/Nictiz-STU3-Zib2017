@@ -188,6 +188,13 @@
         </coding>
       </patternCodeableConcept>
     </element>
+    <element id="Observation.component:WoundWidth.code.coding">
+      <path value="Observation.component.code.coding" />
+      <patternCoding>
+        <system value="http://snomed.info/sct" />
+        <code value="401239006" />
+      </patternCoding>
+    </element>
     <element id="Observation.component:WoundWidth.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
       <sliceName value="valueQuantity" />
@@ -256,6 +263,16 @@
         </coding>
       </patternCodeableConcept>
     </element>
+    <element id="Observation.component:WoundTissue.value[x]">
+      <path value="Observation.component.value[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept">
       <path value="Observation.component.value[x]" />
       <sliceName value="valueCodeableConcept" />
@@ -277,7 +294,7 @@
         <comment value="WoundTissue" />
       </mapping>
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:OncoUlcerCodelistValue">
+    <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue">
       <path value="Observation.component.value[x]" />
       <sliceName value="OncoUlcerCodelistValue" />
       <type>
@@ -292,15 +309,15 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:OncoUlcerCodelistValue.coding.system">
+    <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue.coding.system">
       <path value="Observation.component.value[x].coding.system" />
       <min value="1" />
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:OncoUlcerCodelistValue.coding.code">
+    <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue.coding.code">
       <path value="Observation.component.value[x].coding.code" />
       <min value="1" />
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:WCSCodelistValue">
+    <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue">
       <path value="Observation.component.value[x]" />
       <sliceName value="WCSCodelistValue" />
       <type>
@@ -315,11 +332,11 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:WCSCodelistValue.coding.system">
+    <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue.coding.system">
       <path value="Observation.component.value[x].coding.system" />
       <min value="1" />
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept:WCSCodelistValue.coding.code">
+    <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue.coding.code">
       <path value="Observation.component.value[x].coding.code" />
       <min value="1" />
     </element>
