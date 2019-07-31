@@ -13,65 +13,14 @@
 	<entry> 
 		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Composition/eOverdracht-Aanmeldbericht-example-1"/> 
 		<resource> 
-			<Composition xmlns="http://hl7.org/fhir">
-				<id value="eOverdracht-Aanmeldbericht-example-1" />
+			<Composition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd" xmlns="http://hl7.org/fhir">
+				<id value="eOverdracht-Aanmeldbericht-phase-one-example-1" />
 				<meta>
 					<lastUpdated value="2019-03-20T11:51:36.392+01:00" />
-					<profile value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtAanmeldbericht" />
+					<profile value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtAanmeldbericht-phase-one" />
 				</meta>
-			    <text>
-                    <status value="generated"/>
-			        <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Verdana, Arial, sans-serif;">
-			            <h1>e-Overdracht Aanmeldbericht</h1>
-			            <hr/>
-			            <div>
-			                <h2>Administrative data</h2>
-			                <div>
-			                    <h3>Personal data</h3>
-			                </div>
-			                <div>
-			                    <h3>Sending organization</h3>
-			                </div>
-			                <div>
-			                    <h3>Receiving organization</h3>
-			                </div>
-			            </div>
-			            <div>
-			                <h2>Medical context</h2>
-			                <div>
-			                    <h3>Medical diagnosis</h3>
-			                </div>
-			                <div>
-			                    <h3>Pay attention</h3>
-			                </div>
-			            </div>
-			            <div>
-			                <h2>Nursing context - planned care</h2>
-			                <div>
-			                    <h3>Patient problems</h3>
-			                </div>
-			                <div>
-			                    <h3>Patient's needs and preferences</h3>
-			                    <div style="font-family: Verdana, Arial, sans-serif;">
-			                        <span>Patient is geen ochtendmens en wenst niet voor 8 uur gewekt te worden.</span>
-			                    </div>
-			                </div>
-			                <div>
-			                    <h3>Patient's needs and preferences</h3>
-			                    <div style="font-family: Verdana, Arial, sans-serif;">
-			                        <span>Naasten willen graag wekelijks geinformeerd.</span>
-			                    </div>
-			                </div>
-			            </div>
-			            <div>
-			                <h2>Nursing context - health situation</h2>
-			                <div>
-			                    <h3>Nutrition or fluid</h3>
-			                </div>
-			            </div>
-                    </div>
-			    </text>
-			    <status value="preliminary" />
+				<status value="preliminary" />
 				<type>
 					<coding>
 						<system value="http://loinc.org" />
@@ -79,12 +28,12 @@
 					</coding>
 				</type>
 				<subject>
-					<reference value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01" />
+					<reference value="Patient/medmij-bgz-patient-ts-01" />
 					<display value="Johan XXX_Helleman" />
 				</subject>
 				<date value="2019-03-20T11:43:40.0004456+01:00" />
 				<author>
-					<reference value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Practitioner/medmij-bgz-practitioner-ts-01" />
+					<reference value="Practitioner/medmij-bgz-practitioner-ts-01" />
 					<display value="G.Z.M. de Wit" />
 				</author>
 				<title value="e-Overdracht Aanmeldbericht" />
@@ -116,62 +65,11 @@
 					</section>
 				</section>
 				<section>
-					<title value="Medical context"/>
-					<section>
-						<title value="Medical diagnosis"/>
-						<entry>
-							<reference value="Condition/medmij-bgz-condition-ts-01" />
-							<display value="Amyotrofe laterale sclerose" />
-						</entry>
-					</section>
-					<section>
-						<title value="Pay attention"/>
-						<entry>
-							<reference value="Flag/medmij-bgz-flag-ts-01" />
-							<display value="MRSA carrier" />
-						</entry>
-					</section>
-				</section>
-				<section>
-					<title value="Nursing context - planned care"/>
-					<section>
-						<title value="Patient problems"/>
-						<entry>
-							<reference value="Condition/medmij-bgz-condition-ts-03" />
-							<display value="Presbycusis" />
-						</entry>
-						<entry>
-							<reference value="Condition/medmij-bgz-condition-ts-04" />
-							<display value="Arthropathy" />
-						</entry>
-					</section>
-					<section>
-						<title value="Patient's needs and preferences"/>
-						<text>
-							<status value="additional"/>
-						    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Verdana, Arial, sans-serif;">
-						        <span>Patient is geen ochtendmens en wenst niet voor 8 uur gewekt te worden.</span>
-						    </div>
-						</text>
-					</section>
-					<section>
-						<title value="Patient's needs and preferences"/>
-						<text>
-							<status value="additional"/>
-                            <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Verdana, Arial, sans-serif;">
-                                <span>Naasten willen graag wekelijks geinformeerd.</span>
-                            </div>
-						</text>
-					</section>
-				</section>
-				<section>
-					<title value="Nursing context - health situation"/>
-					<section>
-						<title value="Nutrition or fluid"/>
-						<entry>
-							<reference value="DeviceUseStatement/infusion" />
-						</entry>
-					</section>
+					<title value="PDF file"/>
+					<entry>
+						<reference value="Binary/pdf-file-01" />
+						<display value="Aanmelding informatie" />
+					</entry>
 				</section>
 			</Composition>
 		</resource> 

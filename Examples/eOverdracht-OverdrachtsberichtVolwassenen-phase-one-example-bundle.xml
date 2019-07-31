@@ -10,16 +10,16 @@
 		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Composition/eOverdracht-OverdrachtsberichtVolwassenen-phase-one-example-1"/> 
 		<resource> 
 			<Composition xmlns="http://hl7.org/fhir">
-				<id value="eOverdracht-Aanmeldbericht-example-1" />
+				<id value="eOverdracht-overdrachtsbericht-volwassenen-example-phase-one" />
 				<meta>
 					<lastUpdated value="2019-03-20T11:51:36.392+01:00" />
-					<profile value="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-OverdrachtsberichtVolwassenen-phase-one" />
+					<profile value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtOverdrachtsberichtVolwassenen-phase-one" />
 				</meta>
-			    <status value="preliminary" />
+				<status value="preliminary" />
 				<type>
 					<coding>
 						<system value="http://loinc.org" />
-						<code value="MISSING" />
+						<code value="57830-2" />
 					</coding>
 				</type>
 				<subject>
@@ -39,17 +39,31 @@
 					<title value="Administrative data"/>
 					<section>
 						<title value="Personal data"/>
-						<entry>
-							<reference value="Coverage/medmij-bgz-coverage-ts-01" />
-							<display value="Basisverzekerd Menzis Zorgverzekeraar N.V." />
-						</entry>
+						<section>
+							<title value="payer" />
+							<entry>
+								<reference value="Coverage/medmij-bgz-coverage-ts-01" />
+								<display value="Basisverzekerd Menzis Zorgverzekeraar N.V." />
+							</entry>
+						</section>
 					</section>
 					<section>
 						<title value="Sending organization"/>
 						<entry>
-							<reference value="Organization/nl-core-organization-example-1" />
-							<display value="Ziekenhuis Gooi en Overvecht" />
+							<reference value="Organization/medmij-bgz-healthcareprovider-ts-03"/>
+							<display value="Maatschap Vaste Huisarts"/>
 						</entry>
+						<section>
+							<title value="Sending Practioner" />
+							<entry>
+								<reference value="Practioner/medmij-bgz-practitioner-ts-02" />
+								<display value="Vaste Huisarts 1" />
+							</entry>
+							<entry>
+								<reference value="PractionerRole/medmij-bgz-practitionerrole-ts-01" />
+								<display value="Huisarts" />
+							</entry>
+						</section>
 					</section>
 					<section>
 						<title value="Receiving organization"/>
@@ -63,7 +77,7 @@
 					<title value="PDF file"/>
 					<entry>
 						<reference value="Binary/example-pdfa-file" />
-						<display value="Aanmeldbericht Johan XXX_Helleman in PDF" />
+						<display value="Overdrachtsbericht Johan XXX_Helleman in PDF" />
 					</entry>
 				</section>
 			</Composition>
@@ -220,30 +234,75 @@
 			</Patient>
 		</resource> 
 	</entry> 
-	<!--      The Practitioner Resource. In this document they are the author of the document -->
 	<entry> 
-		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Practitioner/medmij-bgz-practitioner-ts-01"/> 
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Practitioner/medmij-bgz-practitionerrole-ts-01"/>
+		<resource>
+			<PractitionerRole xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-practitionerrole-ts-01"/>
+				<meta>
+					<profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+				</meta>
+				<practitioner>
+					<reference value="Practitioner/medmij-bgz-practitioner-ts-02"/>
+					<display value="Vaste Huisarts 1"/>
+				</practitioner>
+				<organization>
+					<reference value="Organization/medmij-bgz-healthcareprovider-ts-03"/>
+					<display value="Maatschap Vaste Huisarts"/>
+				</organization>
+				<code>
+					<coding>
+						<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+						<code value="PRF"/>
+						<display value="Performer"/>
+					</coding>
+				</code>
+				<specialty>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+						<code value="0100"/>
+						<display value="Huisartsen, niet nader gespecificeerd"/>
+					</coding>
+				</specialty>
+			</PractitionerRole>
+		</resource>
+	</entry>
+	<!--      The Practitioner Resource. -->
+	<entry> 
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Practitioner/medmij-bgz-practitioner-ts-02"/> 
 		<resource> 
-			<Practitioner>
-				<id value="medmij-bgz-practitioner-ts-01" />
+			<Practitioner xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-practitioner-ts-02"/>
+				<meta>
+					<profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+				</meta>
 				<name>
-					<extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
-						<valueCode value="NL1" />
-					</extension>
-					<family value="de Wit">
-						<extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
-							<valueString value="de" />
-						</extension>
-						<extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
-							<valueString value="Wit" />
-						</extension>
-					</family>
-					<given value="G.Z.M.">
-						<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
-							<valueCode value="IN" />
-						</extension>
-					</given>
+					<family value="Vaste Huisarts 1"/>
 				</name>
+				<telecom>
+					<system value="phone"/>
+					<value value="+31434073576"/>
+					<use value="work"/>
+				</telecom>
+				<telecom>
+					<system value="email"/>
+					<value value="huisarts@huisarts.nl"/>
+					<use value="work"/>
+				</telecom>
+				<address>
+					<use value="work"/>
+					<line value="Valkendael 45">
+						<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+							<valueString value="Valkendael"/>
+						</extension>
+						<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+							<valueString value="45"/>
+						</extension>
+					</line>
+					<city value="Maastricht"/>
+					<postalCode value="6245HK"/>
+					<country value="Nederland"/>
+				</address>
 			</Practitioner>
 		</resource> 
 	</entry> 
