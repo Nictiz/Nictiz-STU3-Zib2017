@@ -189,35 +189,42 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <max value="0" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.section">
+      <path value="Composition.section.section.section" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="title" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <min value="1" />
     </element>
-    <element id="Composition.section:administrativeData.section:personalData.entry:payer">
-      <path value="Composition.section.section.entry" />
+    <element id="Composition.section:administrativeData.section:personalData.section:payer">
+      <path value="Composition.section.section.section" />
       <sliceName value="payer" />
-      <short value="A reference to payer data" />
       <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.section:payer.title">
+      <path value="Composition.section.section.section.title" />
+      <short value="payer" />
+      <min value="1" />
+      <fixedString value="payer" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.section:payer.entry">
+      <path value="Composition.section.section.section.entry" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+      </type>
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer" />
       </type>
-      <mapping>
-        <identity value="eOverdracht-Aanmeldbericht" />
-        <map value="e-overdracht-dataelement-v3-52" />
-        <comment value="Persoonsgegevens:Betaler" />
-      </mapping>
-    </element>
-    <element id="Composition.section:administrativeData.section:personalData.entry:contactPerson">
-      <path value="Composition.section.section.entry" />
-      <sliceName value="contactPerson" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
-      <mapping>
-        <identity value="eOverdracht-Aanmeldbericht" />
-        <map value="e-overdracht-dataelement-v3-71" />
-        <comment value="Persoonsgevens:Contactpersoon" />
-      </mapping>
     </element>
     <element id="Composition.section:administrativeData.section:sendingOrganization">
       <path value="Composition.section.section" />
@@ -252,6 +259,16 @@
         <map value="e-overdracht-dataelement-v3-80" />
         <comment value="Zorgaanbieder" />
       </mapping>
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.section">
+      <path value="Composition.section.section.section" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="title" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
     <element id="Composition.section:administrativeData.section:receivingOrganization">
       <path value="Composition.section.section" />
