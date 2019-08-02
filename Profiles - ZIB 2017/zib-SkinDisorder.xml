@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-SkinDisorder" />
-  <url value="http://example.org/fhir/StructureDefinition/zib-SkinDisorder" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-SkinDisorder" />
   <version value="1.0.0" />
   <name value="Zib SkinDisorder" />
   <title value="HCIM SkinDisorder" />
@@ -135,8 +135,17 @@
         <description value="SoortAandoeningCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.3.1--20171231000000" />
+          <display value="SoortAandoeningCodelijst" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Condition.code.coding:TypeOfDisorderCoding.system">
+      <path value="Condition.code.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Condition.code.coding:TypeOfDisorderCoding.code">
+      <path value="Condition.code.coding.code" />
+      <min value="1" />
     </element>
     <element id="Condition.bodySite">
       <path value="Condition.bodySite" />
@@ -154,6 +163,7 @@
       <mapping>
         <identity value="SkinDisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.4" />
+        <comment value="AnatomicalLocation" />
       </mapping>
     </element>
     <element id="Condition.bodySite.extension:Laterality">
