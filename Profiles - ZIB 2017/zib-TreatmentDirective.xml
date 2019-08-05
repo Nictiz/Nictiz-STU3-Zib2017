@@ -242,14 +242,18 @@
     <element id="Consent.extension:advanceDirective">
       <path value="Consent.extension" />
       <sliceName value="advanceDirective" />
-      <short value="AdvanceDirective" />
-      <definition value="A (written) statement in which a person indicates wishes concerning future medical action, in the event that this person is at that point no longer (deemed) capable of taking decisions on the matter." />
-      <comment value="This extension is added to support the cardinality of 0..* for the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective." />
+      <comment value="This extension is added to support the cardinality of 0..* for the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective. An AdvanceDirective reference may also be present in the .source element." />
       <alias value="Wilsverklaring" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-AdvanceDirective" />
       </type>
+    </element>
+    <element id="Consent.extension:advanceDirective.valueReference:valueReference">
+      <path value="Consent.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <short value="AdvanceDirective" />
+      <definition value="A (written) statement in which a person indicates wishes concerning future medical action, in the event that this person is at that point no longer (deemed) capable of taking decisions on the matter." />
       <mapping>
         <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
         <map value="NL-CM:2.1.14" />
@@ -532,7 +536,8 @@
     </element>
     <element id="Consent.source[x]">
       <path value="Consent.source[x]" />
-      <comment value="The cardinality of source does not comply with the cardinality of the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective. To support multiple AdvanceDirective references, the extension http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-AdvanceDirective is added." />
+      <definition value="A (written) statement in which a person indicates wishes concerning future medical action, in the event that this person is at that point no longer (deemed) capable of taking decisions on the matter." />
+      <comment value="The cardinality of the source element does not comply with the cardinality of the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective. To support multiple AdvanceDirective references, the extension http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-AdvanceDirective is added." />
       <mapping>
         <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
         <map value="NL-CM:2.1.14" />
