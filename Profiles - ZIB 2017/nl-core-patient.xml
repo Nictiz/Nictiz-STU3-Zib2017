@@ -160,6 +160,11 @@
     <uri value="https://zibs.nl/wiki/FamilySituation-v3.0(2017EN)" />
     <name value="HCIM FamilySituation-v3.0(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-LifeStance-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/LifeStance-v3.1(2017EN)" />
+    <name value="HCIM LifeStance-v3.1(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Patient" />
@@ -319,6 +324,25 @@
       <path value="Patient.extension.valueCodeableConcept.coding.code" />
       <min value="1" />
     </element>
+    <element id="Patient.extension:lifeStance">
+      <path value="Patient.extension" />
+      <sliceName value="lifeStance" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance" />
+      </type>
+    </element>
+    <element id="Patient.extension:lifeStance.valueCodeableConcept:valueCodeableConcept">
+      <path value="Patient.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <mapping>
+        <identity value="hcim-LifeStance-v3.1-2017EN" />
+        <map value="NL-CM:7.5.2" />
+        <comment value="LifeStance" />
+      </mapping>
+    </element>
     <element id="Patient.identifier">
       <path value="Patient.identifier" />
       <slicing>
@@ -367,8 +391,8 @@
     <element id="Patient.identifier:BSN.value">
       <path value="Patient.identifier.value" />
       <short value="BSN (Burgerservicenummer (Dutch person identification number))" />
-      <definition value="Burgerservicenummer is the Dutch person identification number which is also allowed for use in healthcare." />
-      <comment value="The official format according to the 'Logisch Ontwerp BSN 1.4.pdf' is N8..9 and SHALL conform to an 11-proof algorithm. In order to check if the number is 11-proof the number, if N8, SHALL be prefixed with a leading zero. The expected format in FHIR is N9 with leading zero applied to any N8 bsn." />
+      <definition value="Burgerservicenummer is the Dutch person identification number which is also allowed for use in healthcare."/>
+      <comment value="The official format according to the 'Logisch Ontwerp BSN 1.4.pdf' is N8..9 and SHALL conform to an 11-proof algorithm. In order to check if the number is 11-proof the number, if N8, SHALL be prefixed with a leading zero. The expected format in FHIR is N9 with leading zero applied to any N8 bsn."/>
       <alias value="BSN" />
       <min value="1" />
       <example>
