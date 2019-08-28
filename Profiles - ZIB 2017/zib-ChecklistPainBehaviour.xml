@@ -1,438 +1,447 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-	<id value="zib-ChecklistPainBehaviour" />
-	<url value="http://nictiz.nl/fhir/StructureDefinition/zib-ChecklistPainBehaviour" />
-	<name value="Zib ChecklistPainBehaviour" />
-	<status value="draft" />
-	<publisher value="Nictiz" />
-	<contact>
-		<name value="Nictiz" />
-	</contact>
-	<description value="A(n) Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB)  ChecklistPainBehavior-v1.0(2017EN)&#xD;&#xA;&#xD;&#xA;The CPB (Checklist Pain Behaviour) is a pain assessment tool, that is used to assess pain in children with a limited expressive repertoire or with a profound cognitive impairment, by observing their behaviour&#xD;&#xA;The CPB has ten observations that need te be addressed. The final score indicates whether the observed child suffers pain and 'how much'. The score is often combined with a VAS score that is completed by the nurses on basis of clinical experience.&#xD;&#xA;" />
-	<purpose value="A pain assessment tool is an instrument for determining the intensity of pain and can be useful in order to determine the effectiveness of pain treatment interventions (pharmacological or non-pharmacological). For children with a limited expressive repertoire it is nevertheless difficult to differentiate between pain or distress/anxiety. This difference is relevant in determining the treatment. The score on a pain observation instrument remains a snapshot in time." />
-	<copyright value="CC0" />
-	<fhirVersion value="3.0.1" />
-	<mapping>
-		<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-		<name value="ChecklistPainBehavior-v1.0(2017EN)" />
-	</mapping>
-	<kind value="resource" />
-	<abstract value="false" />
-	<type value="Observation" />
-	<baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
-	<derivation value="constraint" />
-	<differential>
-		<element id="Observation">
-			<path value="Observation" />
-			<short value="ChecklistPainBehaviour" />
-			<alias value="ChecklistPijnGedrag" />
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.1" />
-			</mapping>
-		</element>
-		<element id="Observation.code.coding">
-			<path value="Observation.code.coding" />
-			<slicing>
-				<discriminator>
-					<type value="value" />
-					<path value="code" />
-				</discriminator>
-				<rules value="open" />
-			</slicing>
-			<min value="1" />
-		</element>
-		<element id="Observation.code.coding:ChecklistPainBehaviourCode">
-			<path value="Observation.code.coding" />
-			<sliceName value="ChecklistPainBehaviourCode" />
-			<min value="1" />
-			<max value="1" />
-		</element>
-		<element id="Observation.code.coding:ChecklistPainBehaviourCode.system">
-			<path value="Observation.code.coding.system" />
-			<min value="1" />
-			<fixedUri value="http://snomed.info/sct" />
-		</element>
-		<element id="Observation.code.coding:ChecklistPainBehaviourCode.code">
-			<path value="Observation.code.coding.code" />
-			<min value="1" />
-			<fixedCode value="108331000146104" />
-		</element>
-		<element id="Observation.effective[x]:effectiveDateTime">
-			<path value="Observation.effectiveDateTime" />
-			<sliceName value="effectiveDateTime" />
-			<short value="ScoreDateTime" />
-			<definition value="The date and time at which the CPB score was determined." />
-			<alias value="ScoreDatumTijd" />
-			<min value="1" />
-			<type>
-				<code value="dateTime" />
-			</type>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.13" />
-				<comment value="ScoreDateTime" />
-			</mapping>
-		</element>
-		<element id="Observation.value[x]:valueQuantity">
-			<path value="Observation.valueQuantity" />
-			<sliceName value="valueQuantity" />
-			<short value="TotalScore" />
-			<definition value="The total score is the sum of all the individual scores. The total score has a range from 0 - 10." />
-			<alias value="TotaalScore" />
-			<type>
-				<code value="Quantity" />
-			</type>
-			<minValueQuantity>
-				<value value="0" />
-			</minValueQuantity>
-			<maxValueQuantity>
-				<value value="10" />
-			</maxValueQuantity>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.2" />
-			</mapping>
-		</element>
-		<element id="Observation.comment">
-			<path value="Observation.comment" />
-			<short value="Comment" />
-			<alias value="Toelichting" />
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.14" />
-				<comment value="Comment" />
-			</mapping>
-		</element>
-		<element id="Observation.component">
-			<path value="Observation.component" />
-			<slicing>
-				<discriminator>
-					<type value="pattern" />
-					<path value="code" />
-				</discriminator>
-				<rules value="open" />
-			</slicing>
-		</element>
-		<element id="Observation.component:Face">
-			<path value="Observation.component" />
-			<sliceName value="Face" />
-		</element>
-		<element id="Observation.component:Face.code">
-			<path value="Observation.component.code" />
-			<patternCodeableConcept>
-				<coding>
-					<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
-					<code value="12.17.3" />
-				</coding>
-			</patternCodeableConcept>
-		</element>
-		<element id="Observation.component:Face.value[x]:valueQuantity">
-			<path value="Observation.component.valueQuantity" />
-			<sliceName value="valueQuantity" />
-			<short value="Face" />
-			<definition value="Tense face; one or more muscles in the face are tensed." />
-			<alias value="Gezicht" />
-			<type>
-				<code value="Quantity" />
-			</type>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.3" />
-			</mapping>
-		</element>
-		<element id="Observation.component:Face.value[x]:valueQuantity.value">
-			<path value="Observation.component.valueQuantity.value" />
-			<minValueDecimal value="0" />
-			<maxValueDecimal value="1" />
-		</element>
-		<element id="Observation.component:Mouth">
-			<path value="Observation.component" />
-			<sliceName value="Mouth" />
-		</element>
-		<element id="Observation.component:Mouth.code">
-			<path value="Observation.component.code" />
-			<patternCodeableConcept>
-				<coding>
-					<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
-					<code value="12.17.4" />
-				</coding>
-			</patternCodeableConcept>
-		</element>
-		<element id="Observation.component:Mouth.value[x]:valueQuantity">
-			<path value="Observation.component.valueQuantity" />
-			<sliceName value="valueQuantity" />
-			<short value="Mouth" />
-			<definition value="Deeper naso-labial furrow; the line between the nose and mouth (naso-labial furrow) is deeper and aside." />
-			<alias value="Mond" />
-			<type>
-				<code value="Quantity" />
-			</type>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.4" />
-			</mapping>
-		</element>
-		<element id="Observation.component:Mouth.value[x]:valueQuantity.value">
-			<path value="Observation.component.valueQuantity.value" />
-			<minValueDecimal value="0" />
-			<maxValueDecimal value="1" />
-		</element>		
-		<element id="Observation.component:Grimace">
-			<path value="Observation.component" />
-			<sliceName value="Grimace" />
-		</element>
-		<element id="Observation.component:Grimace.code">
-			<path value="Observation.component.code" />
-			<patternCodeableConcept>
-				<coding>
-					<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
-					<code value="12.17.5" />
-				</coding>
-			</patternCodeableConcept>
-		</element>
-		<element id="Observation.component:Grimace.value[x]:valueQuantity">
-			<path value="Observation.component.valueQuantity" />
-			<sliceName value="valueQuantity" />
-			<short value="Grimace" />
-			<definition value="Grimace; the co-occurrence of: furrowed eyebrows; eyes that are composed or pinched; a deeper line between the nose and mouth; opened mouth." />
-			<alias value="Grimas" />
-			<type>
-				<code value="Quantity" />
-			</type>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.5" />
-			</mapping>
-		</element>
-		<element id="Observation.component:Grimace.value[x]:valueQuantity.value">
-			<path value="Observation.component.valueQuantity.value" />
-			<minValueDecimal value="0" />
-			<maxValueDecimal value="1" />
-		</element>
-		<element id="Observation.component:LookingSad">
-			<path value="Observation.component" />
-			<sliceName value="LookingSad" />
-		</element>
-		<element id="Observation.component:LookingSad.code">
-			<path value="Observation.component.code" />
-			<patternCodeableConcept>
-				<coding>
-					<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
-					<code value="12.17.6" />
-				</coding>
-			</patternCodeableConcept>
-		</element>
-				<element id="Observation.component:LookingSad.value[x]:valueQuantity">
-			<path value="Observation.component.valueQuantity" />
-			<sliceName value="valueQuantity" />
-			<short value="LookingSad" />
-			<definition value="Looking sad, almost in tears: eyebrows which have been pulled up laterally on the inner sides; wrinkles in the forehead, especially over the nose; eyes are squeezed; mouth drawn down possibly combined with a pout." />
-			<alias value="VerdrietigeBlik" />
-			<type>
-				<code value="Quantity" />
-			</type>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.6" />
-			</mapping>
-		</element>
-		<element id="Observation.component:LookingSad.value[x]:valueQuantity.value">
-			<path value="Observation.component.valueQuantity.value" />
-			<minValueDecimal value="0" />
-			<maxValueDecimal value="1" />
-		</element>
-		<element id="Observation.component:Eyes">
-			<path value="Observation.component" />
-			<sliceName value="Eyes" />
-		</element>
-		<element id="Observation.component:Eyes.code">
-			<path value="Observation.component.code" />
-			<patternCodeableConcept>
-				<coding>
-					<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
-					<code value="12.17.7" />
-				</coding>
-			</patternCodeableConcept>
-		</element>
-		<element id="Observation.component:Eyes.value[x]:valueQuantity">
-			<path value="Observation.component.valueQuantity" />
-			<sliceName value="valueQuantity" />
-			<short value="Eyes" />
-			<definition value="Eyes squeezed. Note: Do NOT score as present when the child is blinking or when the eyes are still closed without blinking." />
-			<alias value="Ogen" />
-			<type>
-				<code value="Quantity" />
-			</type>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.7" />
-			</mapping>
-		</element>
-		<element id="Observation.component:Eyes.value[x]:valueQuantity.value">
-			<path value="Observation.component.valueQuantity.value" />
-			<minValueDecimal value="0" />
-			<maxValueDecimal value="1" />
-		</element>
-		<element id="Observation.component:Panic">
-			<path value="Observation.component" />
-			<sliceName value="Panic" />
-		</element>
-		<element id="Observation.component:Panic.code">
-			<path value="Observation.component.code" />
-			<patternCodeableConcept>
-				<coding>
-					<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
-					<code value="12.17.8" />
-				</coding>
-			</patternCodeableConcept>
-		</element>
-		<element id="Observation.component:Panic.value[x]:valueQuantity">
-			<path value="Observation.component.valueQuantity" />
-			<sliceName value="valueQuantity" />
-			<short value="Panic" />
-			<definition value="Panics, panic attack: an extreme form of anxiety which manifests itself in random restless body movements or violent resistance. This may be associated with an anxious look characterized by large widely opened eyes and eyebrows which are on the inner side raised up." />
-			<alias value="Paniek" />
-			<type>
-				<code value="Quantity" />
-			</type>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.8" />
-			</mapping>
-		</element>
-		<element id="Observation.component:Panic.value[x]:valueQuantity.value">
-			<path value="Observation.component.valueQuantity.value" />
-			<minValueDecimal value="0" />
-			<maxValueDecimal value="1" />
-		</element>
-		<element id="Observation.component:Moaning">
-			<path value="Observation.component" />
-			<sliceName value="Moaning" />
-		</element>
-		<element id="Observation.component:Moaning.code">
-			<path value="Observation.component.code" />
-			<patternCodeableConcept>
-				<coding>
-					<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0"/>
-					<code value="12.17.9" />
-				</coding>
-			</patternCodeableConcept>
-		</element>
-		<element id="Observation.component:Moaning.value[x]:valueQuantity">
-			<path value="Observation.component.valueQuantity" />
-			<sliceName value="valueQuantity" />
-			<short value="Moaning" />
-			<definition value="Moaning, groaning; monotonous sound on plaintive tone" />
-			<alias value="Kreunen" />
-			<type>
-				<code value="Quantity" />
-			</type>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.9" />
-			</mapping>
-		</element>
-		<element id="Observation.component:Moaning.value[x]:valueQuantity.value">
-			<path value="Observation.component.valueQuantity.value" />
-			<minValueDecimal value="0" />
-			<maxValueDecimal value="1" />
-		</element>
-		<element id="Observation.component:Cry">
-			<path value="Observation.component" />
-			<sliceName value="Cry" />
-		</element>
-		<element id="Observation.component:Cry.code">
-			<path value="Observation.component.code" />
-			<patternCodeableConcept>
-				<coding>
-					<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
-					<code value="12.17.10"" />
-				</coding>
-			</patternCodeableConcept>
-		</element>
-				<element id="Observation.component:Cry.value[x]:valueQuantity">
-			<path value="Observation.component.valueQuantity" />
-			<sliceName value="valueQuantity" />
-			<short value="Cry" />
-			<definition value="Cries softly; crying is accompanied by a shocking breath." />
-			<alias value="Huilen" />
-			<type>
-				<code value="Quantity" />
-			</type>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.10" />
-			</mapping>
-		</element>
-		<element id="Observation.component:Cry.value[x]:valueQuantity.value">
-			<path value="Observation.component.valueQuantity.value" />
-			<minValueDecimal value="0" />
-			<maxValueDecimal value="1" />
-		</element>
-		<element id="Observation.component:SoundsOfRestlessness">
-			<path value="Observation.component" />
-			<sliceName value="SoundsOfRestlessness" />
-		</element>
-		<element id="Observation.component:SoundsOfRestlessness.code">
-			<path value="Observation.component.code" />
-			<patternCodeableConcept>
-				<coding>
-					<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0"/>
-					<code value="12.17.11" />
-				</coding>
-			</patternCodeableConcept>
-		</element>
-				<element id="Observation.component:SoundsOfRestlessness.value[x]:valueQuantity">
-			<path value="Observation.component.valueQuantity" />
-			<sliceName value="valueQuantity" />
-			<short value="SoundsOfRestlessness" />
-			<definition value="Penetrating sounds of restlessness: sudden or longer lasting intense cries or verbal expressions of pain, such as &quot;au&quot; or &apos;you hurt me&apos;" />
-			<alias value="OnrustigeGeluiden" />
-			<type>
-				<code value="Quantity" />
-			</type>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.11" />
-			</mapping>
-		</element>
-		<element id="Observation.component:SoundsOfRestlessness.value[x]:valueQuantity.value">
-			<path value="Observation.component.valueQuantity.value" />
-			<minValueDecimal value="0" />
-			<maxValueDecimal value="1" />
-		</element>
-		<element id="Observation.component:Tears">
-			<path value="Observation.component" />
-			<sliceName value="Tears" />
-		</element>
-		<element id="Observation.component:Tears.code">
-			<path value="Observation.component.code" />
-			<patternCodeableConcept>
-				<coding>
-					<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
-					<code value="12.17.12"" />
-				</coding>
-			</patternCodeableConcept>
-		</element>
-		<element id="Observation.component:Tears.value[x]:valueQuantity">
-			<path value="Observation.component.valueQuantity" />
-			<sliceName value="valueQuantity" />
-			<short value="Tears" />
-			<definition value="Tears: child produces tears in at least one eye, so more than just watery eyes." />
-			<alias value="Tranen" />
-			<type>
-				<code value="Quantity" />
-			</type>
-			<mapping>
-				<identity value="ChecklistPainBehavior-v1.0-2017EN" />
-				<map value="NL-CM:12.17.12" />
-			</mapping>
-		</element>
-		<element id="Observation.component:Tears.value[x]:valueQuantity.value">
-			<path value="Observation.component.valueQuantity.value" />
-			<minValueDecimal value="0" />
-			<maxValueDecimal value="1" />
-		</element>
-	</differential>
+  <id value="zib-ChecklistPainBehaviour" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-ChecklistPainBehaviour" />
+  <version value="1.0.0" />
+  <name value="Zib ChecklistPainBehaviour" />
+  <title value="HCIM ChecklistPainBehaviour" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+  </contact>
+  <description value="A(n) Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB)  ChecklistPainBehavior-v1.0(2017EN)&#xD;&#xA;&#xD;&#xA;The CPB (Checklist Pain Behaviour) is a pain assessment tool, that is used to assess pain in children with a limited expressive repertoire or with a profound cognitive impairment, by observing their behaviour&#xD;&#xA;The CPB has ten observations that need te be addressed. The final score indicates whether the observed child suffers pain and 'how much'. The score is often combined with a VAS score that is completed by the nurses on basis of clinical experience." />
+  <purpose value="A pain assessment tool is an instrument for determining the intensity of pain and can be useful in order to determine the effectiveness of pain treatment interventions (pharmacological or non-pharmacological). For children with a limited expressive repertoire it is nevertheless difficult to differentiate between pain or distress/anxiety. This difference is relevant in determining the treatment. The score on a pain observation instrument remains a snapshot in time." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="zib-checklistpainbehavior-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/ChecklistPainBehavior-v1.0(2017EN)" />
+    <name value="HCIM ChecklistPainBehavior-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="ChecklistPainBehaviour" />
+      <alias value="ChecklistPijnGedrag" />
+      <mapping>
+        <identity value="zib-checklistpainbehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.1" />
+        <comment value="ChecklistPainBehaviour" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:ChecklistPainBehaviourCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="ChecklistPainBehaviourCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:ChecklistPainBehaviourCode.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:ChecklistPainBehaviourCode.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="108331000146104" />
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <short value="ScoreDateTime" />
+      <definition value="The date and time at which the CPB score was determined." />
+      <alias value="ScoreDatumTijd" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="ChecklistPainBehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.13" />
+        <comment value="ScoreDateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="TotalScore" />
+      <definition value="The total score is the sum of all the individual scores. The total score has a range from 0 - 10." />
+      <alias value="TotaalScore" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="ChecklistPainBehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.2" />
+        <comment value="TotalScore" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="ChecklistPainBehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.14" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:Face">
+      <path value="Observation.component" />
+      <sliceName value="Face" />
+    </element>
+    <element id="Observation.component:Face.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="12.17.3" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Face.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Face" />
+      <definition value="Tense face; one or more muscles in the face are tensed." />
+      <alias value="Gezicht" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="zib-checklistpainbehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.3" />
+        <comment value="Face" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Face.value[x]:valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="1" />
+    </element>
+    <element id="Observation.component:Mouth">
+      <path value="Observation.component" />
+      <sliceName value="Mouth" />
+    </element>
+    <element id="Observation.component:Mouth.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="12.17.4" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Mouth.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Mouth" />
+      <definition value="Deeper naso-labial furrow; the line between the nose and mouth (naso-labial furrow) is deeper and aside." />
+      <alias value="Mond" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="zib-checklistpainbehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.4" />
+        <comment value="Mouth" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Mouth.value[x]:valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="1" />
+    </element>
+    <element id="Observation.component:Grimace">
+      <path value="Observation.component" />
+      <sliceName value="Grimace" />
+    </element>
+    <element id="Observation.component:Grimace.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="12.17.5" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Grimace.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Grimace" />
+      <definition value="Grimace; the co-occurrence of: furrowed eyebrows; eyes that are composed or pinched; a deeper line between the nose and mouth; opened mouth." />
+      <alias value="Grimas" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="zib-checklistpainbehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.5" />
+        <comment value="Grimace" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Grimace.value[x]:valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="1" />
+    </element>
+    <element id="Observation.component:LookingSad">
+      <path value="Observation.component" />
+      <sliceName value="LookingSad" />
+    </element>
+    <element id="Observation.component:LookingSad.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="12.17.6" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:LookingSad.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="LookingSad" />
+      <definition value="Looking sad, almost in tears: eyebrows which have been pulled up laterally on the inner sides; wrinkles in the forehead, especially over the nose; eyes are squeezed; mouth drawn down possibly combined with a pout." />
+      <alias value="VerdrietigeBlik" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="zib-checklistpainbehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.6" />
+        <comment value="LookingSad" />
+      </mapping>
+    </element>
+    <element id="Observation.component:LookingSad.value[x]:valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="1" />
+    </element>
+    <element id="Observation.component:Eyes">
+      <path value="Observation.component" />
+      <sliceName value="Eyes" />
+    </element>
+    <element id="Observation.component:Eyes.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="12.17.7" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Eyes.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Eyes" />
+      <definition value="Eyes squeezed. Note: Do NOT score as present when the child is blinking or when the eyes are still closed without blinking." />
+      <alias value="Ogen" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="zib-checklistpainbehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.7" />
+        <comment value="Eyes" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Eyes.value[x]:valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="1" />
+    </element>
+    <element id="Observation.component:Panic">
+      <path value="Observation.component" />
+      <sliceName value="Panic" />
+    </element>
+    <element id="Observation.component:Panic.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="12.17.8" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Panic.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Panic" />
+      <definition value="Panics, panic attack: an extreme form of anxiety which manifests itself in random restless body movements or violent resistance. This may be associated with an anxious look characterized by large widely opened eyes and eyebrows which are on the inner side raised up." />
+      <alias value="Paniek" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="zib-checklistpainbehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.8" />
+        <comment value="Panic" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Panic.value[x]:valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="1" />
+    </element>
+    <element id="Observation.component:Moaning">
+      <path value="Observation.component" />
+      <sliceName value="Moaning" />
+    </element>
+    <element id="Observation.component:Moaning.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="12.17.9" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Moaning.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Moaning" />
+      <definition value="Moaning, groaning; monotonous sound on plaintive tone" />
+      <alias value="Kreunen" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="ChecklistPainBehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.9" />
+        <comment value="Moaning" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Moaning.value[x]:valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="1" />
+    </element>
+    <element id="Observation.component:Cry">
+      <path value="Observation.component" />
+      <sliceName value="Cry" />
+    </element>
+    <element id="Observation.component:Cry.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="12.17.10" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Cry.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Cry" />
+      <definition value="Cries softly; crying is accompanied by a shocking breath." />
+      <alias value="Huilen" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="zib-checklistpainbehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.10" />
+        <comment value="Cry" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Cry.value[x]:valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="1" />
+    </element>
+    <element id="Observation.component:SoundsOfRestlessness">
+      <path value="Observation.component" />
+      <sliceName value="SoundsOfRestlessness" />
+    </element>
+    <element id="Observation.component:SoundsOfRestlessness.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="12.17.11" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:SoundsOfRestlessness.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="SoundsOfRestlessness" />
+      <definition value="Penetrating sounds of restlessness: sudden or longer lasting intense cries or verbal expressions of pain, such as &quot;au&quot; or 'you hurt me'" />
+      <alias value="OnrustigeGeluiden" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="zib-checklistpainbehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.11" />
+        <comment value="SoundsOfRestlessness" />
+      </mapping>
+    </element>
+    <element id="Observation.component:SoundsOfRestlessness.value[x]:valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="1" />
+    </element>
+    <element id="Observation.component:Tears">
+      <path value="Observation.component" />
+      <sliceName value="Tears" />
+    </element>
+    <element id="Observation.component:Tears.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="12.17.12" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Tears.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="Tears" />
+      <definition value="Tears: child produces tears in at least one eye, so more than just watery eyes." />
+      <alias value="Tranen" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="zib-checklistpainbehavior-v1.0-2017EN" />
+        <map value="NL-CM:12.17.12" />
+        <comment value="Tears" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Tears.value[x]:valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="1" />
+    </element>
+  </differential>
 </StructureDefinition>
