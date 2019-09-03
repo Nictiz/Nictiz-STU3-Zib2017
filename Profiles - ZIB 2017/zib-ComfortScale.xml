@@ -51,23 +51,23 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.code.coding:MISSING">
+    <element id="Observation.code.coding:comfortScoreCoding">
       <path value="Observation.code.coding" />
-      <sliceName value="MISSING" />
+      <sliceName value="comfortScoreCoding" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.code.coding:MISSING.system">
+    <element id="Observation.code.coding:comfortScoreCoding.system">
       <path value="Observation.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.code.coding:MISSING.code">
+    <element id="Observation.code.coding:comfortScoreCoding.code">
       <path value="Observation.code.coding.code" />
       <min value="1" />
-      <fixedCode value="MISSING" />
+      <fixedCode value="108301000146109" />
     </element>
-    <element id="Observation.code.coding:MISSING.display">
+    <element id="Observation.code.coding:comfortScoreCoding.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
@@ -99,14 +99,6 @@
       <type>
         <code value="Quantity" />
       </type>
-      <example>
-        <label value="Example of ComfortScale" />
-        <valueQuantity>
-          <value value="14" />
-          <system value="http://unitsofmeasure.org" />
-          <code value="{score}" />
-        </valueQuantity>
-      </example>
       <mapping>
         <identity value="hcim-comfortscale-v1.0-2017EN" />
         <map value="NL-CM:12.12.2" />
@@ -139,12 +131,20 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Observation.component:ALERTNESS_CODEMISSING">
+    <element id="Observation.component:Alertness">
       <path value="Observation.component" />
-      <sliceName value="ALERTNESS_CODEMISSING" />
+      <sliceName value="Alertness" />
       <max value="1" />
     </element>
-    <element id="Observation.component:ALERTNESS_CODEMISSING.value[x]:valueCodeableConcept">
+    <element id="Observation.component:Alertness.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+    </element>
+    <element id="Observation.component:Alertness.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="12.12.3" />
+    </element>
+    <element id="Observation.component:Alertness.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="Alertness" />
@@ -166,12 +166,20 @@
         <comment value="Alertness" />
       </mapping>
     </element>
-    <element id="Observation.component:CALMNESS_AGITATION_CODEMISSING">
+    <element id="Observation.component:CalmnessAgitation">
       <path value="Observation.component" />
-      <sliceName value="CALMNESS_AGITATION_CODEMISSING" />
+      <sliceName value="CalmnessAgitation" />
       <max value="1" />
     </element>
-    <element id="Observation.component:CALMNESS_AGITATION_CODEMISSING.value[x]:valueCodeableConcept">
+    <element id="Observation.component:CalmnessAgitation.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+    </element>
+    <element id="Observation.component:CalmnessAgitation.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="12.12.4" />
+    </element>
+    <element id="Observation.component:CalmnessAgitation.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="Calmness_Agitation" />
@@ -193,12 +201,20 @@
         <comment value="Calmness_Agitation" />
       </mapping>
     </element>
-    <element id="Observation.component:RESPIRATORYRESPONSE_CODEMISSING">
+    <element id="Observation.component:RespiratoryResponse">
       <path value="Observation.component" />
-      <sliceName value="RESPIRATORYRESPONSE_CODEMISSING" />
+      <sliceName value="RespiratoryResponse" />
       <max value="1" />
     </element>
-    <element id="Observation.component:RESPIRATORYRESPONSE_CODEMISSING.value[x]:valueCodeableConcept">
+    <element id="Observation.component:RespiratoryResponse.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+    </element>
+    <element id="Observation.component:RespiratoryResponse.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="12.12.5" />
+    </element>
+    <element id="Observation.component:RespiratoryResponse.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="RespiratoryResponse" />
@@ -220,12 +236,20 @@
         <comment value="RespiratoryResponse" />
       </mapping>
     </element>
-    <element id="Observation.component:CRYING_CODEMISSING">
+    <element id="Observation.component:Crying">
       <path value="Observation.component" />
-      <sliceName value="CRYING_CODEMISSING" />
+      <sliceName value="Crying" />
       <max value="1" />
     </element>
-    <element id="Observation.component:CRYING_CODEMISSING.value[x]:valueCodeableConcept">
+    <element id="Observation.component:Crying.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+    </element>
+    <element id="Observation.component:Crying.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="12.12.6" />
+    </element>
+    <element id="Observation.component:Crying.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="RespiratoryResponse" />
@@ -243,16 +267,24 @@
       </binding>
       <mapping>
         <identity value="hcim-comfortscale-v1.0-2017EN" />
-        <map value="NL-CM:12.12.5" />
-        <comment value="RespiratoryResponse" />
+        <map value="NL-CM:12.12.6" />
+        <comment value="Crying" />
       </mapping>
     </element>
-    <element id="Observation.component:BODYMOVEMENT_CODEMISSING">
+    <element id="Observation.component:BodyMovement">
       <path value="Observation.component" />
-      <sliceName value="BODYMOVEMENT_CODEMISSING" />
+      <sliceName value="BodyMovement" />
       <max value="1" />
     </element>
-    <element id="Observation.component:BODYMOVEMENT_CODEMISSING.value[x]:valueCodeableConcept">
+    <element id="Observation.component:BodyMovement.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+    </element>
+    <element id="Observation.component:BodyMovement.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="12.12.8" />
+    </element>
+    <element id="Observation.component:BodyMovement.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="BodyMovement" />
@@ -274,12 +306,20 @@
         <comment value="BodyMovement" />
       </mapping>
     </element>
-    <element id="Observation.component:FACIALTONE_CODEMISSING">
+    <element id="Observation.component:FacialTone">
       <path value="Observation.component" />
-      <sliceName value="FACIALTONE_CODEMISSING" />
+      <sliceName value="FacialTone" />
       <max value="1" />
     </element>
-    <element id="Observation.component:FACIALTONE_CODEMISSING.value[x]:valueCodeableConcept">
+    <element id="Observation.component:FacialTone.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+    </element>
+    <element id="Observation.component:FacialTone.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="12.12.9" />
+    </element>
+    <element id="Observation.component:FacialTone.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="FacialTone" />
@@ -301,12 +341,20 @@
         <comment value="FacialTone" />
       </mapping>
     </element>
-    <element id="Observation.component:BODYMUSCLETONE_CODEMISSING">
+    <element id="Observation.component:BodyMuscleTone">
       <path value="Observation.component" />
-      <sliceName value="BODYMUSCLETONE_CODEMISSING" />
+      <sliceName value="BodyMuscleTone" />
       <max value="1" />
     </element>
-    <element id="Observation.component:BODYMUSCLETONE_CODEMISSING.value[x]:valueCodeableConcept">
+    <element id="Observation.component:BodyMuscleTone.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+    </element>
+    <element id="Observation.component:BodyMuscleTone.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <fixedCode value="12.12.10" />
+    </element>
+    <element id="Observation.component:BodyMuscleTone.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="BodyMuscleTone" />
