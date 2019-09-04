@@ -5,7 +5,7 @@
   <version value="1.0.0" />
   <name value="nl-core-careplan" />
   <title value="nl-core-careplan" />
-  <status value="draft" />
+  <status value="active" />
   <publisher value="HL7 Netherlands" />
   <contact>
     <name value="Nictiz" />
@@ -15,15 +15,10 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A nl-core base CarePlan profile, that references to all relating Dutch Health and Care Information models or HCIM (Dutch: Zorginformatiebouwsteen or ZIB) profiles.  This profile is not based on a ZIB, beceause no ZIB exists for the CarePlan concept." />
+  <description value="A nl-core base CarePlan profile, that references to all relating Dutch Health and Care Information models or HCIM (Dutch: Zorginformatiebouwsteen or ZIB) profiles.  This profile is not based on a HCIM, beceause no HCIM exists for a CarePlan concept." />
   <purpose value="Multiple HCIM are better interperted in a coherent set then by them selfs. These are the HCIMs NursingIntervention, TreatmentObjective, and TreatmentOutcome. They consistute a CarePlan, hence the reason to create a CarePlan profile." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
-  <mapping>
-    <identity value="hcim-healthprofessional-v3.2-2017EN" />
-    <uri value="https://zibs.nl/wiki/HealthProfessional-v3.2(2017EN)" />
-    <name value="HCIM HealthProfessional-v3.2(2017EN)" />
-  </mapping>
   <mapping>
     <identity value="hcim-nursingintervention-v3.2-2018EN" />
     <uri value="https://zibs.nl/wiki/NursingIntervention-v3.2(2018EN)" />
@@ -125,7 +120,6 @@
     <element id="CarePlan.author.extension:practitionerRole">
       <path value="CarePlan.author.extension" />
       <sliceName value="practitionerRole" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -157,6 +151,12 @@
     <element id="CarePlan.activity:nursingIntervention">
       <path value="CarePlan.activity" />
       <sliceName value="nursingIntervention" />
+      <constraint>
+        <key value="hicm-outcomeofcare-1" />
+        <severity value="error" />
+        <human value="Provide a HealthcareResult text or a reference, not both" />
+        <expression value="outcomeCodeableConcept.empty() or outcomeReference.empty()" />
+      </constraint>
       <mapping>
         <identity value="hcim-outcomeofcare-v3.2-2018EN" />
         <map value="NL-CM:13.4.4" />
@@ -181,10 +181,7 @@
     <element id="CarePlan.activity:nursingIntervention.extension:comment">
       <path value="CarePlan.activity.extension" />
       <sliceName value="comment" />
-      <short value="Comment" />
-      <definition value="Comment on the nursing intervention.&#xD;&#xA;" />
-      <alias value="Toelichting" />
-      <min value="0" />
+      <definition value="Comment on the nursing intervention." />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -199,29 +196,46 @@
         <map value="NL-CM:14.2.5" />
       </mapping>
     </element>
+    <element id="CarePlan.activity:nursingIntervention.outcomeCodeableConcept">
+      <path value="CarePlan.activity.outcomeCodeableConcept" />
+      <max value="1" />
+    </element>
+    <element id="CarePlan.activity:nursingIntervention.outcomeCodeableConcept.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="CarePlan.activity.outcomeCodeableConcept.text" />
+      <short value="HealthcareResult" />
+      <definition value="The textual account of the healthcare result. If HealthcareResult cannot be entered as a measurement value or functional/mental status, it can be described as free text in the healthcare result." />
+      <alias value="Zorgresultaat" />
+      <mapping>
+        <identity value="hcim-outcomeofcare-v3.1-2017EN" />
+        <map value="NL-CM:13.4.5" />
+        <comment value="HealthcareResult" />
+      </mapping>
+    </element>
     <element id="CarePlan.activity:nursingIntervention.outcomeReference">
       <path value="CarePlan.activity.outcomeReference" />
+      <short value="MeasurementValue / HealthCondition" />
+      <definition value="Measurements in which an observation, carried out with a (measuring) tool if possible, is translated to a relevant unit or a description of the patient’s health condition in the form of a functional and/or mental status." />
+      <alias value="Meetwaarde" />
+      <alias value="Gezondheidstoestand" />
       <max value="1" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
       </type>
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-FunctionalOrMentalStatus" />
       </type>
       <mapping>
-        <identity value="hcim-outcomeofcare-v3.2-2018EN" />
-        <map value="NL-CM:13.4.5" />
-        <comment value="NL-CM:13.4.5" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-outcomeofcare-v3.2-2018EN" />
+        <identity value="hcim-outcomeofcare-v3.1-2017EN" />
         <map value="NL-CM:13.4.2" />
         <comment value="MeasurementValue" />
       </mapping>
       <mapping>
-        <identity value="hcim-nursingintervention-v3.2-2018EN" />
+        <identity value="hcim-outcomeofcare-v3.1-2017EN" />
         <map value="NL-CM:13.4.3" />
         <comment value="HealthCondition" />
       </mapping>
@@ -292,8 +306,6 @@
       <short value="MedicalDevice" />
       <definition value="Description of the materials used for the nursing procedure, such as bandages." />
       <alias value="MedischHulpmiddel" />
-      <min value="0" />
-      <max value="*" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice" />
@@ -543,7 +555,6 @@
     <element id="CarePlan.activity:nursingIntervention.detail.performer.extension:practitionerRole">
       <path value="CarePlan.activity.detail.performer.extension" />
       <sliceName value="practitionerRole" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
