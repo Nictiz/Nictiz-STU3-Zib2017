@@ -57,6 +57,13 @@
       <path value="Observation.code.coding.code" />
       <fixedCode value="108341000146107" />
     </element>
+    <element id="Observation.code.coding:strongKidsScoreCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="STRONGkids risk screening tool (assessment scale)" />
+    </element>
     <element id="Observation.effective[x]:effectiveDateTime">
       <path value="Observation.effectiveDateTime" />
       <sliceName value="effectiveDateTime" />
@@ -82,14 +89,6 @@
       <type>
         <code value="Quantity" />
       </type>
-      <example>
-        <label value="Example of StrongKidsScore TotalScore" />
-        <valueQuantity>
-          <value value="2" />
-          <system value="http://unitsofmeasure.org" />
-          <code value="{score}" />
-        </valueQuantity>
-      </example>
       <mapping>
         <identity value="hcim-strongkidsscore-v1.0-2017EN" />
         <map value="NL-CM:4.28.2" />
@@ -134,6 +133,13 @@
           <code value="4.28.3" />
         </coding>
       </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:WeightLossScore.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Weightloss score" />
     </element>
     <element id="Observation.component:WeightLossScore.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -180,6 +186,13 @@
         </coding>
       </patternCodeableConcept>
     </element>
+    <element id="Observation.component:ConditionScore.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Condition score" />
+    </element>
     <element id="Observation.component:ConditionScore.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
@@ -225,6 +238,13 @@
         </coding>
       </patternCodeableConcept>
     </element>
+    <element id="Observation.component:NutritionScore.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Nutrition score" />
+    </element>
     <element id="Observation.component:NutritionScore.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
@@ -269,6 +289,13 @@
           <code value="4.28.8" />
         </coding>
       </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:NutritionStatusScore.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Nutrition status score" />
     </element>
     <element id="Observation.component:NutritionStatusScore.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
