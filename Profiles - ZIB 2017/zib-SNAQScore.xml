@@ -38,7 +38,7 @@
         <key value="Zib-SNAQScore-1" />
         <severity value="error" />
         <human value="If one of the component codes is present, all SHALL be present." />
-        <expression value="( component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_NutritionScore').empty() and component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_AppetiteScore').empty() and component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_WeightLossScore').empty() ) or ( component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_NutritionScore').exists() and component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_AppetiteScore').exists() and component.code.coding.where(system='http://snomed.info/sct').where(code='MISSING_WeightLossScore').exists() )" />
+        <expression value="( component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.5').empty() and component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.4').empty() and component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.3').empty() ) or ( component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.5').exists() and component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.4').exists() and component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.3').exists() )" />
       </constraint>
     </element>
     <element id="Observation.code.coding">
@@ -143,8 +143,8 @@
       <path value="Observation.component.code" />
       <patternCodeableConcept>
         <coding>
-          <system value="http://snomed.info/sct" />
-          <code value="MISSING_WeightLossScore" />
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="4.6.3" />
         </coding>
       </patternCodeableConcept>
     </element>
@@ -189,10 +189,17 @@
       <path value="Observation.component.code" />
       <patternCodeableConcept>
         <coding>
-          <system value="http://snomed.info/sct" />
-          <code value="MISSING_AppetiteScore" />
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="4.6.4" />
         </coding>
       </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:AppetiteScore.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Appetite score" />
     </element>
     <element id="Observation.component:AppetiteScore.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -235,10 +242,17 @@
       <path value="Observation.component.code" />
       <patternCodeableConcept>
         <coding>
-          <system value="http://snomed.info/sct" />
-          <code value="MISSING_NutritionScore" />
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="4.6.5" />
         </coding>
       </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:NutritionScore.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Nutrition score" />
     </element>
     <element id="Observation.component:NutritionScore.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
