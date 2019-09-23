@@ -24,10 +24,15 @@
     <uri value="https://zibs.nl/wiki/PressureUlcer-v3.2(2017EN)" />
     <name value="HCIM PressureUlcer-v3.2(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Condition" />
-  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Condition" />
   <derivation value="constraint" />
   <differential>
     <element id="Condition">
@@ -131,6 +136,16 @@
         <comment value="AnatomicalLocation" />
       </mapping>
     </element>
+    <element id="Condition.bodySite.extension">
+      <path value="Condition.bodySite.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
@@ -140,9 +155,8 @@
         <comment value="Laterality" />
       </mapping>
     </element>
-    <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
-      <path value="Condition.bodySite.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Condition.bodySite.extension:Laterality.value[x]">
+      <path value="Condition.bodySite.extension.value[x]" />
       <binding>
         <strength value="extensible" />
         <description value="DecubitusWondLateraliteitCodelijst" />
@@ -152,9 +166,20 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Condition.onsetDateTime:onsetDateTime">
-      <path value="Condition.onsetDateTime" />
-      <sliceName value="onsetDateTime" />
+    <element id="Condition.subject">
+      <path value="Condition.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Condition.onset[x]">
+      <path value="Condition.onset[x]" />
       <short value="DateOfOnset" />
       <definition value="The date on which the pressure ulcer appeared." />
       <alias value="OntstaansDatum" />
