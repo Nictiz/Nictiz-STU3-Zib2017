@@ -1,0 +1,484 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.2.4.3.11.60.7.4.2.16.1--20171231000000"/>
+    <language value="en-US"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2017-12-31T00:00:00+02:00"/>
+        </valuePeriod>
+    </extension><!-- http:/decor.nictiz.nl/fhir/3.0/zib2017bbr-/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.7.4.2.16.1-\-20171231000000 -->
+    <url value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.7.4.2.16.1--20171231000000"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://art-decor.org/ns/oids/sd"/>
+        <value value="2.16.840.1.113883.2.4.3.11.60.7.4.2.16.1"/>
+    </identifier>
+    <version value="3.1.0"/>
+    <name value="nl.zorg.PlannedCareActivityForTransfer">
+        <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+            <extension url="lang">
+                <valueCode value="nl-NL"/>
+            </extension>
+            <extension url="content">
+                <valueMarkdown value="nl.zorg.OverdrachtGeplandeZorgActiviteit"/>
+            </extension>
+        </extension>
+    </name>
+    <status value="active"/>
+    <publisher value="Kerngroep Registratie aan de Bron"/>
+    <description value="&lt;p&gt;&#xA;    &lt;b&gt;Concept&lt;/b&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;All planned appointments, referrals, treatments and diagnostic procedures, open orders and orders of which the results are not yet known that are relevant to the patient’s care may be included. &lt;i&gt;Clinical reminders &lt;/i&gt;can also be included here. These are postponed orders that are not yet active. (For example: please note! patient still needs a booster vaccination in x weeks; or please note! check the oral mucosa next time). The PlannedCareActivity concept is a line from the treatment plan. &lt;br/&gt;This gives every recipient, user or healthcare facility insight into the&#xA;                    planned care for this patient.&lt;br/&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&#xA;    &lt;b&gt;Purpose&lt;/b&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Recording planned appointments, referrals, treatments, diagnostic procedures, open orders and orders of which the results are not yet known gives every recipient, user or healthcare facility insight in the planned healthcare for this patient. This can prevent situations in which diagnostics and treatment can conflict with each other. &lt;br/&gt;This will give the recipient the option to place an order, cancel the order or act in any other way in accordance with their own policy. &lt;br/&gt;For orders that do not yet have results, the recipient is informed of the fact that potentially&#xA;                    relevant results will be made available (which have to be requested).&lt;br/&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&#xA;    &lt;b&gt;Evidence Base&lt;/b&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;The scope is limited to planned and desired orders and appointments. The composition of the current information model is not yet suitable for transferring a treatment plan. At this point, it also lacks accepted healthcare standards and transmural care processes.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;    &lt;b&gt;Example Instances&lt;/b&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&#xA;    &lt;img src=&#34;http://decor.nictiz.nl/decor/data/projects/zib2017bbr/zib2017bbr-images/nl.zorg.OverdrachtGeplandeZorgActiviteit-3.1-ExampleInstances-1632912834-1.png&#34; alt=&#34;nl.zorg.OverdrachtGeplandeZorgActiviteit-3.1-ExampleInstances-1632912834-1.png&#34; style=&#34;width:755px; height:572px;&#34;/&gt;&#xA;&lt;/p&gt;">
+        <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+            <extension url="lang">
+                <valueCode value="nl-NL"/>
+            </extension>
+            <extension url="content">
+                <valueMarkdown value="&lt;p&gt;&#xA;    &lt;b&gt;Concept&lt;/b&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Alle geplande afspraken, verwijzingen, behandelingen en diagnostische procedures, uitstaande orders en orders waarvan de uitslag nog niet bekend is, relevant voor de zorg van de patiënt, kunnen worden vermeld. Ook kunnen hier &lt;i&gt;Clinical reminders &lt;/i&gt;worden geplaatst. Dit zijn uitgestelde orders, die nog niet actief zijn. (Bijvoorbeeld: let op! patiënt moet nog een booster vaccinatie hebben over x weken; let op! controleer de volgende keer de wangslijmvliezen). Het concept GeplandeZorgActiviteit is een regel uit het behandelplan. &lt;br/&gt;Hiermee kan elke ontvanger, raadpleger&#xA;                    of zorginstelling inzicht krijgen in de geplande zorg voor deze patiënt.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;    &lt;b&gt;Purpose&lt;/b&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Het vastleggen van de geplande afspraken, verwijzingen, behandelingen, diagnostische procedures, uitstaande orders en orders waarvan de uitslag nog niet bekend is, geeft elke ontvanger, raadpleger of zorginstelling inzicht in de geplande zorg voor deze patiënt. Hiermee kunnen situaties voorkomen worden waarin diagnostiek en behandeling met elkaar in conflict kunnen komen.&lt;br/&gt;De ontvanger heeft hiermee de mogelijkheid om een order alsnog te plaatsen, in te trekken of anderszins te handelen en ze zo in te passen in het eigen beleid.&lt;br/&gt;Voor orders, waarvan de uitslag nog&#xA;                    niet bekend is, attendeert het de ontvanger erop dat er nog mogelijk relevante uitslagen beschikbaar komen die opgevraagd moeten worden.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;    &lt;b&gt;Evidence Base&lt;/b&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;De scope is beperkt tot geplande en gewenste orders en afspraken. De samenstelling van de huidige bouwsteen is nog niet geschikt om een behandelplan over te dragen. Tevens ontbreekt het op dit moment aan geaccepteerde zorgstandaarden of transmurale zorgpaden. &lt;/p&gt;&#xA;&lt;p&gt;&#xA;    &lt;b&gt;Example Instances&lt;/b&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&#xA;    &lt;img src=&#34;http://decor.nictiz.nl/decor/data/projects/zib2017bbr/zib2017bbr-images/nl.zorg.OverdrachtGeplandeZorgActiviteit-3.1-ExampleInstances-1632912834-1.png&#34; alt=&#34;nl.zorg.OverdrachtGeplandeZorgActiviteit-3.1-ExampleInstances-1632912834-1.png&#34; style=&#34;width:755px; height:572px;&#34;/&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&#xA;    &lt;b&gt;Revision History&lt;/b&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&#xA;    &lt;u&gt;Publicatieversie 1.0&lt;/u&gt; (15-02-2013)&lt;br/&gt;&#xA;    &lt;br/&gt;&#xA;    &lt;u&gt;Publicatieversie 1.1&lt;/u&gt; (01-07-2013)&lt;br/&gt;Bevat: &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-46&#34; target=&#34;_new&#34;&gt;ZIB-46&lt;/a&gt;.&lt;br/&gt;&#xA;    &lt;br/&gt;&#xA;    &lt;u&gt;Publicatieversie 1.2&lt;/u&gt; (01-04-2015)&lt;br/&gt;Bevat: &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-115&#34; target=&#34;_new&#34;&gt;ZIB-115&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-149&#34; target=&#34;_new&#34;&gt;ZIB-149&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-264&#34; target=&#34;_new&#34;&gt;ZIB-264&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-265&#34; target=&#34;_new&#34;&gt;ZIB-265&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-306&#34; target=&#34;_new&#34;&gt;ZIB-306&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-328&#34; target=&#34;_new&#34;&gt;ZIB-328&lt;/a&gt;.&lt;br/&gt;&#xA;    &lt;br/&gt;Incl. algemene wijzigingsverzoeken: &lt;br/&gt;&#xA;    &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-94&#34; target=&#34;_new&#34;&gt;ZIB-94&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-154&#34; target=&#34;_new&#34;&gt;ZIB-154&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-200&#34; target=&#34;_new&#34;&gt;ZIB-200&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-201&#34; target=&#34;_new&#34;&gt;ZIB-201&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-309&#34; target=&#34;_new&#34;&gt;ZIB-309&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-324&#34; target=&#34;_new&#34;&gt;ZIB-324&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-326&#34; target=&#34;_new&#34;&gt;ZIB-326&lt;/a&gt;.&lt;br/&gt;&#xA;    &lt;br/&gt;&#xA;    &lt;u&gt;Publicatieversie 1.2.1&lt;/u&gt; (22-05-2015)&lt;br/&gt;Bevat: &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-402&#34; target=&#34;_new&#34;&gt;ZIB-402&lt;/a&gt;.&lt;br/&gt;&#xA;    &lt;br/&gt;&#xA;    &lt;u&gt;Publicatieversie 3.0&lt;/u&gt; (01-05-2016)&lt;br/&gt;Bevat: &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-453&#34; target=&#34;_new&#34;&gt;ZIB-453&lt;/a&gt;.&lt;br/&gt;&#xA;    &lt;br/&gt;&#xA;    &lt;u&gt;Publicatieversie 3.1&lt;/u&gt; (04-09-2017)&lt;br/&gt;Bevat: &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-549&#34; target=&#34;_new&#34;&gt;ZIB-549&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-564&#34; target=&#34;_new&#34;&gt;ZIB-564&lt;/a&gt;, &lt;a href=&#34;https://bits.nictiz.nl/browse/ZIB-607&#34; target=&#34;_new&#34;&gt;ZIB-607&lt;/a&gt;.&lt;/p&gt;"/>
+            </extension>
+        </extension>
+    </description>
+    <fhirVersion value="3.0.1"/>
+    <kind value="logical"/>
+    <abstract value="true"/>
+    <type value="geplande_zorg_activiteit"/>
+    <snapshot>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.1--20171231000000">
+            <path value="geplande_zorg_activiteit"/>
+            <short value="PlannedCareActivity">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="GeplandeZorgActiviteit"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="Root concept of the PlannedCareActivityTransfer information model. This root concept contains all data elements of the PlannedCareActivityTransfer information model.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Rootconcept van de bouwsteen OverdrachtGeplandeZorgActiviteit. Dit rootconcept bevat alle gegevenselementen van de bouwsteen OverdrachtGeplandeZorgActiviteit."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="*"/>
+            <constraint>
+                <key value="NL-CM-16.1.1-1"/>
+                <severity value="error"/>
+                <human value="One concept must be selected in the selection box. [Vaccinatie | MedicatieToediening2 | Verrichting | OrderOverige | Afspraak | MedischHulpmiddel | VerpleegkundigeInterventie]">
+                    <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                        <extension url="lang">
+                            <valueCode value="nl-NL"/>
+                        </extension>
+                        <extension url="content">
+                            <valueMarkdown value="Precies één concept uit de keuze box moet gekozen worden [Vaccinatie | MedicatieToediening2 | Verrichting | OrderOverige | Afspraak | MedischHulpmiddel | VerpleegkundigeInterventie]"/>
+                        </extension>
+                    </extension>
+                </human>
+                <expression value="geplande_zorg_activiteit.where(afspraak or medicatie_toediening2 or medisch_hulpmiddel or order_overige or vaccinatie or verpleegkundige_interventie or verrichting).count() = 1"/>
+            </constraint>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.9--20171231000000">
+            <path value="geplande_zorg_activiteit.order_status"/>
+            <short value="OrderStatus">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="OrderStatus"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="The status of the order.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Status van de order."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <condition value="NL-CM-16.1.2-1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000"/>
+                    <display value="OrderStatusCodelijst"/>
+                </valueSetReference>
+            </binding>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.10--20171231000000">
+            <path value="geplande_zorg_activiteit.begin_datum"/>
+            <short value="StartDate">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="BeginDatum"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="Planned or requested date. Clinical reminders can be used to indicate from when the procedure can take place. A vague date (such as only the month and year) is permitted.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Geplande of gewenste datum van uitvoering. Bij Clinical reminders kan hiermee aangegeven worden vanaf wanneer de handeling uitgevoerd mag worden. Een vage datum (bv. alleen maand en jaar is toegestaan)."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="dateTime"/>
+            </type>
+            <condition value="NL-CM-16.1.2-1"/>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.11--20171231000000">
+            <path value="geplande_zorg_activiteit.eind_datum"/>
+            <short value="EndDate">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="EindDatum"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="The planned end date of the procedure can be included as well if needed. Depending on the type of procedure, this can also be used to indicate before which time it has to have been completed.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Eventueel kan de geplande einddatum van de handeling vastgelegd worden. Tevens kan afhankelijk van het type handeling hiermee aangegeven worden voor wanneer deze uitgevoerd moet worden. "/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="dateTime"/>
+            </type>
+            <condition value="NL-CM-16.1.2-1"/>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.8--20171231000000">
+            <path value="geplande_zorg_activiteit.order_type"/>
+            <short value="OrderType">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="OrderType"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="Type of order, request or reminder.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Type order, verzoek of reminder."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <condition value="NL-CM-16.1.2-1"/>
+            <binding>
+                <strength value="required"/>
+                <valueSetReference>
+                    <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.1--20171231000000"/>
+                    <display value="OrderTypeCodelijst"/>
+                </valueSetReference>
+            </binding>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.2--20171231000000">
+            <path value="geplande_zorg_activiteit.order_overige"/>
+            <short value="OrderOther">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="OrderOverige"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="Orders that do not fit in any of the other concepts can be described in free text.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Orders die niet passen binnen één van de andere concepten, kunnen in vrije tekst beschreven worden."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <condition value="NL-CM-16.1.2-1"/>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.3--20171231000000">
+            <path value="geplande_zorg_activiteit.medicatie_toediening2"/>
+            <short value="MedicationAdministration">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="MedicatieToediening2"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="The medication for which future administration still has to be agreed on. This information is usually included in the Medication section.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="De medicatie waarvan het toediening in de toekomst nog moet worden afgesproken. Doorgaans zullen deze gegevens in de sectie Medicatie zijn opgenomen."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="BackboneElement"/>
+            </type>
+            <condition value="NL-CM-16.1.2-1"/>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.7.2.134--20171231000000">
+            <path value="geplande_zorg_activiteit.medicatie_toediening2.medicatie_toediening"/>
+            <code>
+                <system value="http://snomed.info/sct"/>
+                <code value="18629005"/>
+                <display value="Administration of drug or medicament"/>
+            </code>
+            <short value="MedicationAdministration">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="MedicatieToediening"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="Root concept of the MedicationAdministration information model. This root concept contains all data elements of the MedicationAdministration information model.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Rootconcept van de bouwsteen MedicatieToediening. Dit rootconcept bevat alle gegevenselementen van de bouwsteen MedicatieToediening."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="Reference"/>
+                <profile value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.40.1.9.13.20928--20171231000000"/>
+            </type>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.4--20171231000000">
+            <path value="geplande_zorg_activiteit.verrichting"/>
+            <short value="Procedure">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Verrichting"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="A planned procedure including things like the indication and location.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Een voorgenomen verrichting inclusief o.a. indicatie en locatie."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="Reference"/>
+                <profile value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.40.1.14.1.1--20171231000000"/>
+            </type>
+            <condition value="NL-CM-16.1.2-1"/>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.12--20171231000000">
+            <path value="geplande_zorg_activiteit.verpleegkundige_interventie"/>
+            <short value="NursingProcedure">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="VerpleegkundigeInterventie"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="A planned nursing intervention.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Een voorgenomen verpleegkundige interventie."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="Reference"/>
+                <profile value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.40.1.14.2.1--20171231000000"/>
+            </type>
+            <condition value="NL-CM-16.1.2-1"/>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.5--20171231000000">
+            <path value="geplande_zorg_activiteit.vaccinatie"/>
+            <short value="Vaccination">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Vaccinatie"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="A planned vaccination.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Een voorgenomen vaccinatie."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="Reference"/>
+                <profile value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.40.1.11.1.1--20171231000000"/>
+            </type>
+            <condition value="NL-CM-16.1.2-1"/>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.6--20171231000000">
+            <path value="geplande_zorg_activiteit.afspraak"/>
+            <short value="Appointment">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Afspraak"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="An appointment including the location and reason for contact.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Een afspraak inclusief o.a. reden van contact en locatie."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="BackboneElement"/>
+            </type>
+            <condition value="NL-CM-16.1.2-1"/>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.7.2.138--20171231000000">
+            <path value="geplande_zorg_activiteit.afspraak.contact"/>
+            <short value="Encounter">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Contact"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="Root concept of the Contact information model. This concept contains all data elements of the Contact information model.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Rootconcept van de bouwsteen Contact. Dit concept bevat alle gegevenselementen van de bouwsteen Contact."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="Reference"/>
+                <profile value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.40.1.15.1.1--20171231000000"/>
+            </type>
+        </element>
+        <element id="2.16.840.1.113883.2.4.3.11.60.40.1.16.1.7--20171231000000">
+            <path value="geplande_zorg_activiteit.medisch_hulpmiddel"/>
+            <short value="MedicalDevice">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="MedischHulpmiddel"/>
+                    </extension>
+                </extension>
+            </short>
+            <definition value="A requested medical device.">
+                <extension url="http://hl7.org/fhir/StructureDefinition/translation">
+                    <extension url="lang">
+                        <valueCode value="nl-NL"/>
+                    </extension>
+                    <extension url="content">
+                        <valueMarkdown value="Een gewenst medisch hulpmiddel."/>
+                    </extension>
+                </extension>
+            </definition>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="Reference"/>
+                <profile value="http://decor.nictiz.nl/fhir/StructureDefinition/2.16.840.1.113883.2.4.3.11.60.40.1.10.1.1--20171231000000"/>
+            </type>
+            <condition value="NL-CM-16.1.2-1"/>
+        </element>
+    </snapshot>
+</StructureDefinition>
