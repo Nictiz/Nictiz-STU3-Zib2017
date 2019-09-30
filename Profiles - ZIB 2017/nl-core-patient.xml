@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd" xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-patient" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-  <version value="2.1.3" />
+  <version value="2.1.4" />
   <name value="nl-core-patient" />
   <title value="nl-core-patient" />
   <status value="active" />
@@ -478,7 +477,7 @@
       <path value="Patient.gender.extension" />
       <sliceName value="GeslachtCodelijst" />
       <short value="Gender" />
-      <definition value="Statement on the status of the patient’s hypersensitivity." />
+      <definition value="Patient’s administrative gender." />
       <alias value="Geslacht" />
       <max value="1" />
       <type>
@@ -645,7 +644,6 @@
       <short value="ContactPerson" />
       <definition value="Contacts are related persons in some way, but not all related persons are contacts. The HCIM ContactPerson is designed to deal with both related persons and contacts. An HCIM ContactPerson who is a contact, is expected to have an NL-CM:3.1.2 Role primary contact ('Eerste relatie/contactpersoon') or secondary contact ('Tweede relatie/contactpersoon'). See Patient.contact.relationship in slice 'role'." />
       <alias value="Contactpersoon" />
-      <min value="0"/>
       <mapping>
         <identity value="hcim-contactperson-v1.2-2015EN" />
         <map value="NL-CM:3.1.1" />
