@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="nl-core-contactpoint" />
+  <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
+  <version value="1.0.0" />
+  <name value="nl-core-contactpoint" />
+  <title value="nl-core-contactpoint" />
+  <status value="active" />
+  <publisher value="HL7 Netherlands" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Base StructureDefinition for Address Type with additions for Dutch realm addresses. Dutch addresses break down Address.line in several parts and it is important to mark an address as being 'officially registered'." />
+  <purpose value="Address information is used for visiting a person or organization and for addressing of mail." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v2.0.1(2015EN)" />
+    <name value="ContactInformation as part of HCIM Patient-v2.0.1(2015EN)" />
+    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactinformation-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
+    <name value="ContactInformation as part of HCIM Patient-v3.0(2016EN)" />
+    <comment value="ContactInformation has become an independent information model as of release 2017 of the HCIMs" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-contactinformation-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/ContactInformation-v1.0(2017EN)" />
+    <name value="HCIM ContactInformation-v1.0.1(2017EN)" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <type value="ContactPoint" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ContactPoint" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ContactPoint">
+      <path value="ContactPoint" />
+      <short value="ContactInformation" />
+      <definition value="Contact information includes a person's telephone numbers en e-mail addresses." />
+      <alias value="Contactgegevens" />
+      <example>
+        <label value="Mobile business phone number. Note: the mobile nature stems from the number being an 06-* number." />
+        <valueContactPoint>
+          <system value="phone" />
+          <value value="+31611234567" />
+          <use value="work" />
+        </valueContactPoint>
+      </example>
+      <example>
+        <label value="Mobile phone number undetermined private/business. Note: the mobile nature stems from the number being an 06-* number." />
+        <valueContactPoint>
+          <system value="phone" />
+          <value value="+31611234567" />
+          <use value="mobile" />
+        </valueContactPoint>
+      </example>
+      <example>
+        <label value="Private email address" />
+        <valueContactPoint>
+          <system value="email" />
+          <value value="giesput@myweb.nl" />
+          <use value="home" />
+        </valueContactPoint>
+      </example>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.5" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.5" />
+        <comment value="ContactInformation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.1" />
+        <comment value="ContactInformation" />
+      </mapping>
+    </element>
+    <element id="ContactPoint.system">
+      <path value="ContactPoint.system" />
+      <short value="TelecomType / EmailAddressType" />
+      <alias value="TelecomSoort / EmailSoort" />
+      <min value="1" />
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.5" />
+        <comment value="TelecomType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/TelecomSoortCodelijst-to-ContactPointSystem" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.19" />
+        <comment value="EmailAddressType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/EmailSoortCodelijst-to-ContactPointSystem" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.19" />
+        <comment value="EmailAddressType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/EmailSoortCodelijst-to-ContactPointSystem" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.8" />
+        <comment value="EmailAddressType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/EmailSoortCodelijst-to-ContactPointSystem" />
+      </mapping>
+    </element>
+    <element id="ContactPoint.value">
+      <path value="ContactPoint.value" />
+      <short value="TelephoneNumber / EmailAddress" />
+      <alias value="Telefoonnummer / E-mailadres" />
+      <example>
+        <label value="Example TelephoneNumber international" />
+        <valueString value="+31611234567" />
+      </example>
+      <example>
+        <label value="Example EmailAddress" />
+        <valueString value="giesput@myweb.nl" />
+      </example>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.23" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.23" />
+        <comment value="TelephoneNumber" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.4" />
+        <comment value="EmailAddress" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.20" />
+        <comment value="EmailAddress" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.20" />
+        <comment value="EmailAddress" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.7" />
+        <comment value="EmailAddress" />
+      </mapping>
+    </element>
+    <element id="ContactPoint.use">
+      <path value="ContactPoint.use" />
+      <short value="TelecomType / NumberType / EmailAddressType" />
+      <definition value="Purpose of this contact point" />
+      <alias value="TelecomSoort / NummerSoort / EmailSoort" />
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.5" />
+        <comment value="TelecomType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/TelecomSoortCodelijst-to-ContactPointUse" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.22" />
+        <comment value="NumberType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/NummerSoortCodelijst-to-ContactPointUse" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.22" />
+        <comment value="NumberType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/NummerSoortCodelijst-to-ContactPointUse" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.6" />
+        <comment value="NumberType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/NummerSoortCodelijst-to-ContactPointUse" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.19" />
+        <comment value="EmailAddressType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/EmailSoortCodelijst-to-ContactPointUse" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.19" />
+        <comment value="EmailAddressType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/EmailSoortCodelijst-to-ContactPointUse" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.8" />
+        <comment value="EmailAddressType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/EmailSoortCodelijst-to-ContactPointUse" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

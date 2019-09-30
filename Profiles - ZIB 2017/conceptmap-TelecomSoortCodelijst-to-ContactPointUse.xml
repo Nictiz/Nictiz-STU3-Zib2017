@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+    <url value="http://nictiz.nl/fhir/ConceptMap/TelecomSoortCodelijst-to-ContactPointUse"/>
+    <version value="1.0.0"/>
+    <name value="TelecomSoortCodelijst-to-ContactPointUse"/>
+    <status value="active"/>
+    <publisher value="Nictiz"/>
+    <contact>
+      <name value="Nictiz"/>
+      <telecom>
+        <system value="email"/>
+        <value value="info@nictiz.nl"/>
+        <use value="work"/>
+      </telecom>
+    </contact>
+    <sourceReference>
+        <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.20.6.1--20171231000000"/>
+        <display value="TelecomSoortCodelijst"/>
+    </sourceReference>
+    <targetReference>
+        <reference value="http://hl7.org/fhir/ValueSet/contact-point-use"/>
+        <display value="ContactPointUse"/>
+    </targetReference>
+    <group>
+        <!-- 2.16.840.1.113883.5.1119 -->
+        <source value="http://hl7.org/fhir/v3/AddressUse"/>
+        <target value="http://hl7.org/fhir/contact-point-system"/>
+        <element>
+            <code value="MC"/>
+            <target>
+                <code value="mobile"/>
+                <equivalence value="equal"/>
+                <comment value="MC: mobile contact/mobiel telefoonnummer. Although the ContactPoint.system offers mobile as one of its values, it would mean that it's not possible to mark it as business or private too. If it is not necessary to mark the number as work/private, you may use ContactPoint.use = mobile, otherwise it is better to mark it as work/private and leave the determination of the number being a mobile number or not up to the ContactPoint.value. Dutch mobile numbers always start with 06 so in that sense the information 'mobile' here would be redundant."/>
+            </target>
+        </element>
+    </group>
+</ConceptMap>

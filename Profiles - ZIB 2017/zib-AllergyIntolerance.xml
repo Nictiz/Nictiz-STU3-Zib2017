@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AllergyIntolerance" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance" />
-  <version value="2.1.0" />
+  <version value="2.1.1" />
   <name value="Zib AllergyIntolerance" />
   <title value="HCIM AllergyIntolerance" />
   <status value="active" />
@@ -99,17 +99,17 @@
       <mapping>
         <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
         <map value="NL-CM:8.2.5" />
-        <comment value="AllergyStatus" />
+        <comment value="AllergyStatus. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status" />
       </mapping>
       <mapping>
         <identity value="hcim-allergyintolerance-v3.0-2016EN" />
         <map value="NL-CM:8.2.5" />
-        <comment value="AllergyStatus" />
+        <comment value="AllergyStatus. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status" />
       </mapping>
       <mapping>
         <identity value="hcim-allergyintolerance-v3.2-2017EN" />
         <map value="NL-CM:8.2.5" />
-        <comment value="AllergyStatus" />
+        <comment value="AllergyStatus. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status" />
       </mapping>
     </element>
     <element id="AllergyIntolerance.clinicalStatus.extension:AllergieStatusCodelijst.valueCodeableConcept:valueCodeableConcept">
@@ -175,7 +175,6 @@
     </element>
     <element id="AllergyIntolerance.criticality">
       <path value="AllergyIntolerance.criticality" />
-      <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality) is available that maps CriticalExtentCodelist to the allergy-intolerance-criticality valueset." />
     </element>
     <element id="AllergyIntolerance.criticality.extension">
       <path value="AllergyIntolerance.criticality.extension" />
@@ -201,17 +200,17 @@
       <mapping>
         <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
         <map value="NL-CM:8.2.7" />
-        <comment value="CriticalExtent" />
+        <comment value="CriticalExtent. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality." />
       </mapping>
       <mapping>
         <identity value="hcim-allergyintolerance-v3.0-2016EN" />
         <map value="NL-CM:8.2.7" />
-        <comment value="CriticalExtent" />
+        <comment value="CriticalExtent. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality." />
       </mapping>
       <mapping>
         <identity value="hcim-allergyintolerance-v3.2-2017EN" />
         <map value="NL-CM:8.2.7" />
-        <comment value="Criticality" />
+        <comment value="Criticality. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality." />
       </mapping>
     </element>
     <element id="AllergyIntolerance.criticality.extension:CriticalExtentCodelist.valueCodeableConcept:valueCodeableConcept">
@@ -479,7 +478,7 @@
         <rules value="open" />
       </slicing>
   </element>
-  <element id="AllergyIntolerance.note.author[x].extension:practitionerrolereference">
+  <element id="AllergyIntolerance.note.author[x].extension:practitionerRole">
     <path value="AllergyIntolerance.note.author[x].extension" />
     <sliceName value="practitionerRole" />
     <max value="1" />
@@ -698,7 +697,6 @@
       <path value="AllergyIntolerance.reaction.severity" />
       <short value="Severity" />
       <definition value="The severity of the reaction as a result of exposure to the causative substance." />
-      <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/ErnstCodelijst-to-AllergyIntoleranceSeverity) is available that maps SeverityCodelist to the reaction-event-severity valueset." />
       <alias value="Ernst" />
       <mapping>
         <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
@@ -713,7 +711,7 @@
       <mapping>
         <identity value="hcim-allergyintolerance-v3.2-2017EN" />
         <map value="NL-CM:8.2.14" />
-        <comment value="Severity. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/ErnstCodelijst-to-AllergyIntoleranceSeverity" />
+        <comment value="Severity. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/ErnstCodelijst-to-AllergyIntoleranceSeverity" />
       </mapping>
     </element>
     <element id="AllergyIntolerance.reaction.exposureRoute">

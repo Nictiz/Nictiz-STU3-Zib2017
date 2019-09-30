@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+    <url value="http://nictiz.nl/fhir/ConceptMap/NummerSoortCodelijst-to-ContactPointUse"/>
+    <version value="1.0.0"/>
+    <name value="NummerSoortCodelijst-to-ContactPointUse"/>
+    <status value="active"/>
+    <publisher value="Nictiz"/>
+    <contact>
+      <name value="Nictiz"/>
+      <telecom>
+        <system value="email"/>
+        <value value="info@nictiz.nl"/>
+        <use value="work"/>
+      </telecom>
+    </contact>
+    <sourceReference>
+        <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.20.6.2--20171231000000"/>
+        <display value="NummerSoortCodelijst"/>
+    </sourceReference>
+    <targetReference>
+        <reference value="http://hl7.org/fhir/ValueSet/contact-point-use"/>
+        <display value="ContactPointUse"/>
+    </targetReference>
+    <group>
+        <!-- 2.16.840.1.113883.5.1119 -->
+        <source value="http://hl7.org/fhir/v3/AddressUse"/>
+        <target value="http://hl7.org/fhir/contact-point-use"/>
+        <element>
+            <code value="HP"/>
+            <target>
+                <code value="home"/>
+                <equivalence value="equal"/>
+                <comment value="HP: Primary home/Telefoonnummer thuis."/>
+            </target>
+        </element>
+        <element>
+            <code value="TMP"/>
+            <target>
+                <code value="temp"/>
+                <equivalence value="equal"/>
+                <comment value="WP: work place/Tijdelijk telefoonnummer."/>
+            </target>
+        </element>
+        <element>
+            <code value="WP"/>
+            <target>
+                <code value="work"/>
+                <equivalence value="equal"/>
+                <comment value="WP: work place/Zakelijk telefoonnummer."/>
+            </target>
+        </element>
+    </group>
+</ConceptMap>

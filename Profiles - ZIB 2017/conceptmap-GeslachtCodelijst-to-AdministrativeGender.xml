@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+    <url value="http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-AdministrativeGender"/>
+    <version value="1.0.0"/>
+    <name value="GeslachtCodelijst-to-AdministrativeGender"/>
+    <status value="active"/>
+    <publisher value="Nictiz"/>
+    <contact>
+      <name value="Nictiz"/>
+      <telecom>
+        <system value="email"/>
+        <value value="info@nictiz.nl"/>
+        <use value="work"/>
+      </telecom>
+    </contact>
+    <sourceReference>
+        <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.0.1.1--20171231000000"/>
+        <display value="GeslachtCodelijst"/>
+    </sourceReference>
+    <targetReference>
+        <reference value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+        <display value="AdministrativeGender"/>
+    </targetReference>
+    <group>
+        <!-- 2.16.840.1.113883.5.1 -->
+        <source value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+        <target value="http://hl7.org/fhir/administrative-gender"/>
+        <element>
+            <code value="M"/>
+            <target>
+                <code value="male"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="F"/>
+            <target>
+                <code value="female"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="UN"/>
+            <target>
+                <code value="other"/>
+                <equivalence value="narrower"/>
+                <comment value="Undifferentiated: The gender of a person could not be uniquely defined as male or female, such as hermaphrodite. Other: 'neither male nor female and not unknown'"/>
+            </target>
+        </element>
+    </group>
+    <group>
+        <!-- 2.16.840.1.113883.5.1008 -->
+        <source value="http://hl7.org/fhir/v3/NullFlavor"/>
+        <target value="http://hl7.org/fhir/administrative-gender"/>
+        <element>
+            <code value="UNK"/>
+            <target>
+                <code value="unknown"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+    </group>
+</ConceptMap>

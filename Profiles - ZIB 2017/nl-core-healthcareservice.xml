@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-healthcareservice" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-healthcareservice" />
-  <version value="2.0.0" />
+  <version value="2.0.1" />
   <name value="nl-core-healthcareservice" />
   <title value="nl-core-healthcareservice" />
   <status value="active" />
@@ -60,6 +60,10 @@
       <path value="HealthcareService.telecom" />
       <short value="ContactInformation" />
       <alias value="Contactgegevens" />
+      <type>
+        <code value="ContactPoint" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
+      </type>
       <mapping>
         <identity value="hcim-contactinformation-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.5" />
@@ -74,83 +78,6 @@
         <identity value="hcim-contactinformation-v1.0-2017EN" />
         <map value="NL-CM:20.6.4" />
         <comment value="TelephoneNumber" />
-      </mapping>
-    </element>
-    <element id="HealthcareService.telecom.system">
-      <path value="HealthcareService.telecom.system" />
-      <min value="1" />
-    </element>
-    <element id="HealthcareService.telecom.value">
-      <path value="HealthcareService.telecom.value" />
-      <short value="TelephoneNumber / E-mailAddress" />
-      <alias value="Telefoonnummer" />
-      <alias value="EmailAdres" />
-      <min value="1" />
-      <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.23" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.23" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.4" />
-        <comment value="TelephoneNumber" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.20" />
-        <comment value="EmailAddress" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.20" />
-        <comment value="EmailAddress" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.7" />
-        <comment value="EmailAddress" />
-      </mapping>
-    </element>
-    <element id="HealthcareService.telecom.use">
-      <path value="HealthcareService.telecom.use" />
-      <short value="NumberType / E-mailAddressType" />
-      <alias value="NummerSoort" />
-      <alias value="EmailSoort" />
-      <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.22" />
-        <comment value="EmailAddressType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.22" />
-        <comment value="EmailAddressType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.8" />
-        <comment value="EmailAddressType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.19" />
-        <comment value="NumberType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.19" />
-        <comment value="NumberType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.6" />
-        <comment value="NumberType" />
       </mapping>
     </element>
     <element id="HealthcareService.coverageArea">
