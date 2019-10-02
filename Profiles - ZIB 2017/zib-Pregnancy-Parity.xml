@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Pregnancy-Parity" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy-Parity" />
+  <version value="1.0.0" />
+  <name value="Zib Pregnancy Parity" />
+  <title value="HCIM Pregnancy Parity" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Observation resource as defined by the Dutch HCIM Pregnancy v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Pregnancy or gravidity is the condition in which a woman carries a fertilized egg, which grows into an embryo and then a fetus. A pregnancy of between 37 and 42 weeks is considered normal. “Term pregnancy” is 37 to 42 weeks. The term gravidity is also used for the number of times a woman has been pregnant. This and parity - the number of times a woman has given birth - provides insight into the patient’s obstetric history." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;If the patient is pregnant, it is important to mention this, as it requires specific attention in their care. Pregnancy can influence treatment decisions, the treatment itself and the patient’s care.&#xD;&#xA;&#xD;&#xA;# Purpose of this profile&#xD;&#xA;This profile implements the Parity field of the HCIM, the number of previous pregnancies ending in partum (&gt;= 16w 0d / 112 days). It complements the zib-Pregnancy profile, which tracks the overarching condition. This profile can be referenced with the Observation.zib-Pregnancy field (event-partOf extension)." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-pregnancy-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Pregnancy-v3.1(2017EN)" />
+    <name value="HCIM Pregnancy-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.extension:zib-Pregnancy">
+      <path value="Observation.extension" />
+      <sliceName value="zib-Pregnancy" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/event-partOf" />
+      </type>
+    </element>
+    <element id="Observation.extension:zib-Pregnancy.valueReference:valueReference">
+      <path value="Observation.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy" />
+      </type>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:Parity">
+      <path value="Observation.code.coding" />
+      <sliceName value="Parity" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:Parity.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.code.coding:Parity.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="11977-6" />
+    </element>
+    <element id="Observation.code.coding:Parity.display">
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Parity" />
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <min value="1" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="hcim-pregnancy-v3.1-2017EN" />
+        <map value="NL-CM:7.14.6" />
+        <comment value="Parity" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
