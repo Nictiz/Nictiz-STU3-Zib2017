@@ -49,6 +49,18 @@
       <path value="Consent" />
       <short value="TreatmentDirective" />
       <alias value="BehandelAanwijzing" />
+      <constraint>
+        <key value="hcim-treatmentdirective-1" />
+        <severity value="error" />
+        <human value="source.additionalSources may only be used for AdvanceDirective references in addition to first reference in source" />
+        <expression value="sourceReference.extension.empty() or sourceReference.reference.exists()" />
+      </constraint>
+      <constraint>
+        <key value="hcim-treatmentdirective-2" />
+        <severity value="error" />
+        <human value="source.additionalSources may only be used for AdvanceDirective references in addition to first reference in source" />
+        <expression value="(sourceReference.reference in sourceReference.extension.valueReference.reference).not()" />
+      </constraint>
       <mapping>
         <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
         <map value="NL-CM:2.1.1" />
@@ -239,36 +251,14 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Consent.extension:advanceDirective">
+    <element id="Consent.Extension:additionalSources">
       <path value="Consent.extension" />
-      <sliceName value="advanceDirective" />
-      <comment value="This extension is added to support the cardinality of 0..* for the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective. An AdvanceDirective reference may also be present in the .source element." />
-      <alias value="Wilsverklaring" />
+      <sliceName value="additionalSources" />
+      <max value="1" />
       <type>
         <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-AdvanceDirective" />
+        <profile value="http://fhir.org/fhir/StructureDefinition/consent-additionalSources" />
       </type>
-    </element>
-    <element id="Consent.extension:advanceDirective.valueReference:valueReference">
-      <path value="Consent.extension.valueReference" />
-      <sliceName value="valueReference" />
-      <short value="AdvanceDirective" />
-      <definition value="A (written) statement in which a person indicates wishes concerning future medical action, in the event that this person is at that point no longer (deemed) capable of taking decisions on the matter." />
-      <mapping>
-        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
-        <map value="NL-CM:2.1.14" />
-        <comment value="LivingWill" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
-        <map value="NL-CM:2.1.14" />
-        <comment value="LivingWill" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
-        <map value="NL-CM:2.1.14" />
-        <comment value="AdvanceDirective" />
-      </mapping>
     </element>
     <element id="Consent.modifierExtension">
       <path value="Consent.modifierExtension" />
@@ -366,9 +356,6 @@
       <fixedCode value="11291000146105" />
     </element>
     <element id="Consent.category.coding:treatmentDirective.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Consent.category.coding.display" />
       <defaultValueString value="Treatment instructions (record artifact)" />
     </element>
@@ -537,7 +524,95 @@
     <element id="Consent.source[x]">
       <path value="Consent.source[x]" />
       <definition value="A (written) statement in which a person indicates wishes concerning future medical action, in the event that this person is at that point no longer (deemed) capable of taking decisions on the matter." />
-      <comment value="The cardinality of the source element does not comply with the cardinality of the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective. To support multiple AdvanceDirective references, the extension http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-AdvanceDirective is added." />
+      <comment value="The cardinality of the source element does not comply with the cardinality of the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective. Additional AdvanceDirective references can be added using the extension in the additionalSources element." />
+      <alias value="Wilsverklaring" />
+      <type>
+        <code value="Attachment" />
+      </type>
+      <type>
+        <code value="Identifier" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" />
+      </type>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="LivingWill" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.0-2016EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="LivingWill" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-treatmentdirective-v3.1-2017EN" />
+        <map value="NL-CM:2.1.14" />
+        <comment value="AdvanceDirective" />
+      </mapping>
+    </element>
+    <element id="Consent.source[x].extension">
+      <path value="Consent.source[x].extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Consent.source[x].extension:additionalSources">
+      <path value="Consent.source[x].extension" />
+      <sliceName value="additionalSources" />
+      <short value="Additional sources from which this consent is taken" />
+      <comment value="The cardinality of the source element does not comply with the cardinality of the AdvanceDirective concept (NL-CM:2.1.14) specified in the HCIM TreatmentDirective. Additional AdvanceDirective references can be added using the extension in the additionalSources element." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://fhir.org/fhir/StructureDefinition/consent-additionalSources" />
+      </type>
+    </element>
+    <element id="Consent.source[x].extension:additionalSources.value[x]">
+      <path value="Consent.source[x].extension.value[x]" />
+      <short value="Source from which this consent is taken" />
+      <definition value="A (written) statement in which a person indicates wishes concerning future medical action, in the event that this person is at that point no longer (deemed) capable of taking decisions on the matter." />
+      <alias value="Wilsverklaring" />
+      <type>
+        <code value="Attachment" />
+      </type>
+      <type>
+        <code value="Identifier" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" />
+      </type>
       <mapping>
         <identity value="hcim-treatmentdirective-v1.0.1-2015EN" />
         <map value="NL-CM:2.1.14" />
@@ -562,9 +637,6 @@
       </example>
     </element>
     <element id="Consent.except">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Except" />
-      </extension>
       <path value="Consent.except" />
       <comment value="If a Consent.except is used in accordance with the HCIM TreatmentDirective, then the only time an except is in order, is when the value of the element NL-CM:2.1.4 TreatmentPermitted is YES_BUT/JA_MAAR." />
     </element>
