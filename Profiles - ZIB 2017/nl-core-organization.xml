@@ -204,7 +204,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="coding.system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -216,7 +216,7 @@
       <definition value="The type of healthcare provider, such as general hospital, or nursing home. If this field is filled in and an AGB code is used for the HealthcareProviderIdentificationNumber, the type must match the type implicitly contained in the AGB code." />
       <alias value="OrganisatieType" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.2.3--20171231000000" />
           <display value="OrganisatieTypeCodelijst" />
@@ -245,7 +245,7 @@
       <definition value="The specialty of the healthcare provider’s department, e.g. Cardiology. The departmental specialty can be filled in if further indication of the healthcare provider is needed. This refers to the recognized medical specialties as stated in the BIG Act." />
       <alias value="AfdelingSpecialisme" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.2.4--20171231000000" />
           <display value="AfdelingSpecialismeCodelijst" />

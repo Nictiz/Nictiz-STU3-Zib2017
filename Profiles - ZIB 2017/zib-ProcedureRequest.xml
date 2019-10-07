@@ -206,7 +206,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -219,7 +219,7 @@
       <alias value="VerrichtingTypeCodelijst" />
       <max value="1" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="The name of the procedure using the Verrichtingenthesaurus DHD." />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.1.2--20171231000000" />
@@ -440,7 +440,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -452,7 +452,7 @@
       <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
       <alias value="ZorgverlenerRol" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
           <display value="ZorgverlenerRolCodelijst" />

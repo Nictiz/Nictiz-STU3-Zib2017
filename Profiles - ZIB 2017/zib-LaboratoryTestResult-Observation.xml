@@ -139,11 +139,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="coding.code" />
-        </discriminator>
-        <discriminator>
-          <type value="value" />
-          <path value="coding.system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -182,7 +178,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationCategory" />
         </extension>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="ResultaatTypeCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.1--20171231000000" />
@@ -248,7 +244,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -257,7 +253,7 @@
       <path value="Observation.code.coding" />
       <sliceName value="LOINC" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="LOINC (2.16.840.1.113883.6.1): All values" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.5--20171231000000" />
