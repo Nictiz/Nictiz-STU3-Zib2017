@@ -706,7 +706,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="coding.system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -717,7 +717,7 @@
       <short value="Relationship" />
       <alias value="Relatie" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.1--20171231000000" />
           <display value="RelatieCodelijst" />
@@ -746,7 +746,7 @@
       <definition value="Expectation is to have at least one of primary contact ('Eerste relatie/contactpersoon') or secondary contact ('Tweede relatie/contactpersoon')" />
       <alias value="Rol" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.2--20171231000000" />
           <display value="RolCodelijst" />
