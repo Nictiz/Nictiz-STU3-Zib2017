@@ -232,7 +232,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -241,25 +241,35 @@
       <path value="Procedure.code.coding" />
       <sliceName value="interventionNICCodelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="NIC - All Values" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.2.2--20171231000000" />
-          <display value="InterventionNICCodelist" />
+          <display value="InterventieNICCodelist" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Procedure.code.coding:interventionNICCodelist.system">
+      <path value="Procedure.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.6.15" />
     </element>
     <element id="Procedure.code.coding:interventionSnomedCodelist">
       <path value="Procedure.code.coding" />
       <sliceName value="interventionSnomedCodelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="SNOMED CT - SNOMED CT: &lt;&lt;71388002 | procedure |" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.2.4--20171231000000" />
-          <display value="InterventionSnomedCodelist" />
+          <display value="InterventieSnomedCodelist" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Procedure.code.coding:interventionSnomedCodelist.system">
+      <path value="Procedure.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Procedure.subject">
       <path value="Procedure.subject" />
@@ -328,7 +338,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -340,7 +350,7 @@
       <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
       <alias value="ZorgverlenerRol" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
           <display value="ZorgverlenerRolCodelijst" />
