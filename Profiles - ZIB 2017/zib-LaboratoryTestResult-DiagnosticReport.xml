@@ -102,9 +102,6 @@
       </mapping>
     </element>
     <element id="DiagnosticReport.status">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-        <valueString value="default: final" />
-      </extension>
       <path value="DiagnosticReport.status" />
       <short value="ResultStatus" />
       <alias value="ResultaatStatus" />
@@ -123,13 +120,18 @@
       <path value="DiagnosticReport.status.extension" />
       <sliceName value="ResultStatus" />
       <short value="Provides the specific HCIM code for ResultStatus" />
-      <definition value="Defines a more specific value to a code. Especially useful for FHIRs required ValueSets." />
+      <definition value="Defines a more specific value for a code. Especially useful for FHIRs required ValueSets." />
       <alias value="ResultaatStatus" />
       <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
       </type>
+    </element>
+    <element id="DiagnosticReport.status.extension:ResultStatus.valueCodeableConcept:valueCodeableConcept">
+      <path value="DiagnosticReport.status.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <max value="1" />
       <binding>
         <strength value="extensible" />
         <valueSetReference>
@@ -185,9 +187,6 @@
       <fixedCode value="4241000179101" />
     </element>
     <element id="DiagnosticReport.category.coding:laboratoryTestResultCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="DiagnosticReport.category.coding.display" />
       <defaultValueString value="Laboratory report (record artifact)" />
     </element>
