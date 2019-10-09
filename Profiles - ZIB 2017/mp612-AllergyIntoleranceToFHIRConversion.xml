@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="mp612-AllergyIntoleranceToFHIRConversion" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/mp612-AllergyIntoleranceToFHIRConversion" />
+  <version value="1.0.0" />
+  <name value="MP612 AllergyIntoleranceToFHIRConversion" />
+  <title value="MP612 AllergyIntoleranceToFHIRConversion" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A profile, based on the zib-AllergyIntolerance profile, that defines the retrieve AllergyIntolerance612ToFHIRConversion transaction to retrieve &quot;6.12-based&quot; allergy and intolerance information. This information is based on a conversion from the 6.12 standard. A XIS converts the requested information to FHIR-resources. The 6.12 AllergyIntolerance information is originally exchanged in HL7v3-messaging format following the 6.12 information standard." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="Contra-indicaties-en-overgevoeligheden" />
+    <uri value="https://decor.nictiz.nl/art-decor/decor-scenarios--cio-?id=2.16.840.1.113883.2.4.3.11.60.26.4.6&amp;effectiveDate=2019-08-28T13%3A33%3A41&amp;datasetId=2.16.840.1.113883.2.4.3.11.60.26.1.1&amp;datasetEffectiveDate=2019-07-01T11%3A11%3A01&amp;conceptId=2.16.840.1.113883.2.4.3.11.60.26.2.1&amp;conceptEffectiveDate=2019-07-01T11%3A11%3A01&amp;language=nl-NL&amp;scenariotree=true" />
+    <name value="Contra-indicaties en overgevoeligheden - AllergieIntolerantieVertaling" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="AllergyIntolerance" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="AllergyIntolerance.text">
+      <path value="AllergyIntolerance.text" />
+      <mapping>
+        <identity value="Contra-indicaties-en-overgevoeligheden" />
+        <map value="cio-dataelement-277" />
+        <comment value="Omschrijving" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.identifier">
+      <path value="AllergyIntolerance.identifier" />
+      <min value="1" />
+      <mapping>
+        <identity value="Contra-indicaties-en-overgevoeligheden" />
+        <map value="cio-dataelement-55" />
+        <comment value="Identificatienummer" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.clinicalStatus.extension:AllergieStatusCodelijst">
+      <path value="AllergyIntolerance.clinicalStatus.extension" />
+      <sliceName value="AllergieStatusCodelijst" />
+      <mapping>
+        <identity value="Contra-indicaties-en-overgevoeligheden" />
+        <map value="cio-dataelement-4" />
+        <comment value="AllergieStatus" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.type">
+      <path value="AllergyIntolerance.type" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.category.extension:AllergieCategorieCodelijst">
+      <path value="AllergyIntolerance.category.extension" />
+      <sliceName value="AllergieCategorieCodelijst" />
+      <mapping>
+        <identity value="Contra-indicaties-en-overgevoeligheden" />
+        <map value="cio-dataelement-3" />
+        <comment value="AllergieCategorie" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.criticality">
+      <path value="AllergyIntolerance.criticality" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.code">
+      <path value="AllergyIntolerance.code" />
+      <min value="1" />
+      <mapping>
+        <identity value="Contra-indicaties-en-overgevoeligheden" />
+        <map value="cio-dataelement-2" />
+        <comment value="VeroorzakendeStof" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.patient">
+      <path value="AllergyIntolerance.patient" />
+      <mapping>
+        <identity value="Contra-indicaties-en-overgevoeligheden" />
+        <map value="cio-dataelement-70" />
+        <comment value="Onderwerp" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.onset[x]">
+      <path value="AllergyIntolerance.onset[x]" />
+      <mapping>
+        <identity value="Contra-indicaties-en-overgevoeligheden" />
+        <map value="cio-dataelement-5" />
+        <comment value="BeginDatumTijd" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.assertedDate">
+      <path value="AllergyIntolerance.assertedDate" />
+      <mapping>
+        <identity value="Contra-indicaties-en-overgevoeligheden" />
+        <map value="cio-dataelement-75" />
+        <comment value="DatumTijd" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.recorder">
+      <path value="AllergyIntolerance.recorder" />
+      <mapping>
+        <identity value="Contra-indicaties-en-overgevoeligheden" />
+        <map value="cio-dataelement-63" />
+        <comment value="Auteur" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.asserter">
+      <path value="AllergyIntolerance.asserter" />
+      <mapping>
+        <identity value="Contra-indicaties-en-overgevoeligheden" />
+        <map value="cio-dataelement-56" />
+        <comment value="Informatiebron" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.lastOccurrence">
+      <path value="AllergyIntolerance.lastOccurrence" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.note.text">
+      <path value="AllergyIntolerance.note.text" />
+      <mapping>
+        <identity value="Contra-indicaties-en-overgevoeligheden" />
+        <map value="cio-dataelement-8" />
+        <comment value="Toelichting" />
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction">
+      <path value="AllergyIntolerance.reaction" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>
