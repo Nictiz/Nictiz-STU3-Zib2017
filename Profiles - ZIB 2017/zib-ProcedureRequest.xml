@@ -206,7 +206,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="$this" />
+          <path value="system" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -226,6 +226,11 @@
           <display value="VerrichtingTypeCodelijst" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="ProcedureRequest.code.coding:VerrichtingTypeCodelijst.system">
+      <path value="ProcedureRequest.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="ProcedureRequest.subject">
       <path value="ProcedureRequest.subject" />

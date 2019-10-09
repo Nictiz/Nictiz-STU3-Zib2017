@@ -154,10 +154,12 @@
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.system">
       <path value="Observation.category.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.code">
       <path value="Observation.category.coding.code" />
+      <min value="1" />
       <fixedCode value="49581000146104" />
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.display">
@@ -244,7 +246,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="$this" />
+          <path value="system" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -261,6 +263,11 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="Observation.code.coding:LOINC.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://loinc.org"/>
+    </element>
     <element id="Observation.code.coding:NHGTable45">
       <path value="Observation.code.coding" />
       <sliceName value="NHGTable45" />
@@ -269,6 +276,7 @@
     </element>
     <element id="Observation.code.coding:NHGTable45.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen" />
     </element>
     <element id="Observation.subject">
