@@ -233,7 +233,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="$this" />
+          <path value="coding.system" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -259,6 +259,11 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="Appointment.specialty:specialtyAGB.coding.system">
+      <path value="Appointment.specialty.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.6.7" />
+    </element>
     <element id="Appointment.specialty:specialtyUZI">
       <path value="Appointment.specialty" />
       <sliceName value="specialtyUZI" />
@@ -273,6 +278,11 @@
           <display value="SpecialismeUZICodelijst" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Appointment.specialty:specialtyUZI.coding.system">
+      <path value="Appointment.specialty.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://fhir.nl/fhir/NamingSystem/uzi-rolcode" />
     </element>
     <element id="Appointment.appointmentType">
       <path value="Appointment.appointmentType" />
