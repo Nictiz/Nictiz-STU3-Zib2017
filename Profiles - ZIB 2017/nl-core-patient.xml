@@ -231,14 +231,6 @@
         <code value="Extension" />
         <profile value="http://hl7.org/fhir/StructureDefinition/patient-nationality" />
       </type>
-      <binding>
-        <strength value="extensible" />
-        <description value="Indicates the country of citizenship." />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.6.3--20171231000000" />
-          <display value="NationaliteitCodelijst" />
-        </valueSetReference>
-      </binding>
       <mapping>
         <identity value="hcim-nationality-v2.0-2015EN" />
         <map value="NL-CM:7.6.3" />
@@ -262,6 +254,20 @@
     <element id="Patient.extension:nationality.extension:code.valueCodeableConcept:valueCodeableConcept">
       <path value="Patient.extension.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
+      <min value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="Indicates the country of citizenship." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.6.3--20171231000000" />
+          <display value="NationaliteitCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Patient.extension:nationality.extension:code.valueCodeableConcept:valueCodeableConcept.coding.system">
+      <path value="Patient.extension.extension.valueCodeableConcept.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.16.32" />
     </element>
     <element id="Patient.extension:nationality.extension:period">
       <path value="Patient.extension.extension" />
@@ -405,9 +411,7 @@
     </element>
     <element id="Patient.telecom">
       <path value="Patient.telecom" />
-      <short value="ContactInformation" />
       <definition value="A contact detail for the individual. Note that there is no support for multiple use values like 'mobile business'." />
-      <alias value="Contactgegevens" />
       <type>
         <code value="ContactPoint" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
@@ -753,9 +757,7 @@
     </element>
     <element id="Patient.contact.telecom">
       <path value="Patient.contact.telecom" />
-      <short value="ContactInformation" />
       <comment value="Telecommunication data details (phone/email) is physically modeled in the HCIM Patient, which is why the telecommunication mappings appear to be coming from the HCIM Patient instead of the HCIM ContactPerson" />
-      <alias value="Contactgegevens" />
       <type>
         <code value="ContactPoint" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
