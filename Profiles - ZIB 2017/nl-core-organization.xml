@@ -204,7 +204,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="$this" />
+          <path value="coding.system" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -238,6 +238,11 @@
         <comment value="OrganizationType" />
       </mapping>
     </element>
+    <element id="Organization.type:organizationType.coding.system">
+      <path value="Organization.type.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://nictiz.nl/fhir/NamingSystem/organization-type" />
+    </element>
     <element id="Organization.type:departmentSpecialty">
       <path value="Organization.type" />
       <sliceName value="departmentSpecialty" />
@@ -266,6 +271,11 @@
         <map value="NL-CM:17.2.7" />
         <comment value="DepartmentSpecialty" />
       </mapping>
+    </element>
+    <element id="Organization.type:departmentSpecialty.coding.system">
+      <path value="Organization.type.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.6.7" />
     </element>
     <element id="Organization.name">
       <path value="Organization.name" />

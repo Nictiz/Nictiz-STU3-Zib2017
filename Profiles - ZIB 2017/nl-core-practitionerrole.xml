@@ -137,7 +137,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="$this" />
+          <path value="system" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -158,6 +158,11 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="PractitionerRole.specialty.coding:SpecialtyUZI.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://fhir.nl/fhir/NamingSystem/uzi-rolcode" />
+    </element>
     <element id="PractitionerRole.specialty.coding:SpecialtyAGB">
       <path value="PractitionerRole.specialty.coding" />
       <sliceName value="SpecialtyAGB" />
@@ -173,6 +178,11 @@
           <display value="SpecialismeAGBCodelijst" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="PractitionerRole.specialty.coding:SpecialtyAGB.system">
+      <path value="PractitionerRole.specialty.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.6.7" />
     </element>
     <element id="PractitionerRole.telecom">
       <path value="PractitionerRole.telecom" />

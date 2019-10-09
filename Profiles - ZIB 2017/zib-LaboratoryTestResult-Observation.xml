@@ -154,10 +154,12 @@
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.system">
       <path value="Observation.category.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.code">
       <path value="Observation.category.coding.code" />
+      <min value="1" />
       <fixedCode value="49581000146104" />
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.display">
@@ -208,14 +210,6 @@
       <comment value="This can either be the ZIB concept Test (NL-CM:13.1.4) or TestName (NL-CM:13.1.8) depending on the use of DiagnosticReport resource. This element shall be mapped to TestName if DiagnosticReport is used and .component.code is not used. If component.code is used, the ZIB concept Test shall be mapped to this element." />
       <alias value="TestCode" />
       <alias value="Onderzoek" />
-      <binding>
-        <strength value="required" />
-        <description value="LOINC (2.16.840.1.113883.6.1): All values" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.5--20171231000000" />
-          <display value="OnderzoekCodelijst" />
-        </valueSetReference>
-      </binding>
       <mapping>
         <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
         <map value="NL-CM:13.1.4" />
