@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-organization" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-  <version value="2.0.1" />
+  <version value="2.0.2" />
   <name value="nl-core-organization" />
   <title value="nl-core-organization" />
   <status value="active" />
@@ -216,7 +216,7 @@
       <definition value="The type of healthcare provider, such as general hospital, or nursing home. If this field is filled in and an AGB code is used for the HealthcareProviderIdentificationNumber, the type must match the type implicitly contained in the AGB code." />
       <alias value="OrganisatieType" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.2.3--20171231000000" />
           <display value="OrganisatieTypeCodelijst" />
@@ -238,6 +238,11 @@
         <comment value="OrganizationType" />
       </mapping>
     </element>
+    <element id="Organization.type:organizationType.coding.system">
+      <path value="Organization.type.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://nictiz.nl/fhir/NamingSystem/organization-type" />
+    </element>
     <element id="Organization.type:departmentSpecialty">
       <path value="Organization.type" />
       <sliceName value="departmentSpecialty" />
@@ -245,7 +250,7 @@
       <definition value="The specialty of the healthcare provider’s department, e.g. Cardiology. The departmental specialty can be filled in if further indication of the healthcare provider is needed. This refers to the recognized medical specialties as stated in the BIG Act." />
       <alias value="AfdelingSpecialisme" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.2.4--20171231000000" />
           <display value="AfdelingSpecialismeCodelijst" />
@@ -266,6 +271,11 @@
         <map value="NL-CM:17.2.7" />
         <comment value="DepartmentSpecialty" />
       </mapping>
+    </element>
+    <element id="Organization.type:departmentSpecialty.coding.system">
+      <path value="Organization.type.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.6.7" />
     </element>
     <element id="Organization.name">
       <path value="Organization.name" />

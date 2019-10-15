@@ -1,0 +1,56 @@
+﻿<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd" xmlns="http://hl7.org/fhir">
+    <id value="zib-fluidbalance-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FluidBalance"/>
+    </meta>
+    <status value="preliminary"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="364396009"/>
+            <display value="Fluid balance observable"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-example-1"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <effectivePeriod>
+        <start value="2018-03-11T10:00:00+02:00"/>
+        <end value="2018-03-11T17:30:00+02:00"/>
+    </effectivePeriod>
+    <comment value="meting output via catheterzak"/>
+    <component>
+        <!--FluidTotalIn-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="251852001"/>
+                <display value="Total fluid input"/>
+            </coding>
+        </code>
+        <valueQuantity>
+            <value value="800"/>
+            <unit value="mL"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mL"/>
+        </valueQuantity>
+    </component>
+    <component>
+        <!--FluidTotalOut-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="251841007"/>
+                <display value="Total fluid output"/>
+            </coding>
+        </code>
+        <valueQuantity>
+            <value value="1300"/>
+            <unit value="mL"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mL"/>
+        </valueQuantity>
+    </component>
+</Observation>

@@ -163,9 +163,6 @@
         <code value="CodeableConcept" />
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceRequestCode" />
-        </extension>
         <strength value="extensible" />
         <description value="ProductTypeCodelist" />
         <valueSetReference>
@@ -356,7 +353,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -368,7 +365,7 @@
       <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
       <alias value="ZorgverlenerRol" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
           <display value="ZorgverlenerRolCodelijst" />
@@ -438,6 +435,13 @@
     </element>
     <element id="DeviceRequest.note.author[x]">
       <path value="DeviceRequest.note.author[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
@@ -454,7 +458,15 @@
         <code value="string" />
       </type>
     </element>
-    <element id="DeviceRequest.note.author[x].extension">
+    <element id="DeviceRequest.note.author[x]:practitioner">
+      <path value="DeviceRequest.note.author[x]" />
+      <sliceName value="authorReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+      </type>
+    </element>
+    <element id="DeviceRequest.note.author[x]:practitionerRole.extension">
       <path value="DeviceRequest.note.author[x].extension" />
       <slicing>
         <discriminator>
@@ -464,10 +476,9 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="DeviceRequest.note.author[x].extension:practitionerRole">
+    <element id="DeviceRequest.note.author[x]:practitioner.extension:practitionerRole">
       <path value="DeviceRequest.note.author[x].extension" />
       <sliceName value="practitionerRole" />
-      <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />

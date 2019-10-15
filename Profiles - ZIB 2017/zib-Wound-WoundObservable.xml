@@ -155,11 +155,8 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:WoundLength.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
-      <defaultValueString value=" Length of wound" />
+      <defaultValueString value="Length of wound" />
     </element>
     <element id="Observation.component:WoundLength.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -203,9 +200,6 @@
       </patternCoding>
     </element>
     <element id="Observation.component:WoundWidth.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Width of wound" />
     </element>
@@ -244,9 +238,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:WoundDepth.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Depth of wound" />
     </element>
@@ -285,9 +276,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:WoundTissue.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Wound tissue" />
     </element>
@@ -304,15 +292,9 @@
     <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept">
       <path value="Observation.component.value[x]" />
       <sliceName value="valueCodeableConcept" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="coding.system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
       <short value="WoundTissue" />
       <alias value="WondWeefsel" />
+      <min value="1" />
       <type>
         <code value="CodeableConcept" />
       </type>
@@ -322,14 +304,23 @@
         <comment value="WoundTissue" />
       </mapping>
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue">
-      <path value="Observation.component.value[x]" />
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept.coding">
+      <path value="Observation.component.value[x].coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <max value="1" />
+    </element>
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept.coding:OncoUlcerCodelistValue">
+      <path value="Observation.component.value[x].coding" />
       <sliceName value="OncoUlcerCodelistValue" />
-      <type>
-        <code value="CodeableConcept" />
-      </type>
+      <max value="1" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="WondWeefselOncoUlcerCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.2.2--20171231000000" />
@@ -337,22 +328,21 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue.coding.system">
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept.coding:OncoUlcerCodelistValue.system">
       <path value="Observation.component.value[x].coding.system" />
       <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.7.1" />
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:OncoUlcerCodelistValue.coding.code">
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept.coding:OncoUlcerCodelistValue.code">
       <path value="Observation.component.value[x].coding.code" />
       <min value="1" />
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue">
-      <path value="Observation.component.value[x]" />
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept.coding:WCSCodelistValue">
+      <path value="Observation.component.value[x].coding" />
       <sliceName value="WCSCodelistValue" />
-      <type>
-        <code value="CodeableConcept" />
-      </type>
+      <max value="1" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="WondWeefselWCSCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.2.1--20171231000000" />
@@ -360,11 +350,12 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue.coding.system">
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept.coding:WCSCodelistValue.system">
       <path value="Observation.component.value[x].coding.system" />
       <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.7.2" />
     </element>
-    <element id="Observation.component:WoundTissue.value[x]:WCSCodelistValue.coding.code">
+    <element id="Observation.component:WoundTissue.value[x]:valueCodeableConcept.coding:WCSCodelistValue.code">
       <path value="Observation.component.value[x].coding.code" />
       <min value="1" />
     </element>
@@ -387,9 +378,6 @@
       <max value="1" />
     </element>
     <element id="Observation.component:WoundInfection.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Infection status" />
     </element>
@@ -465,9 +453,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:WoundEdge.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Wound edge finding" />
     </element>

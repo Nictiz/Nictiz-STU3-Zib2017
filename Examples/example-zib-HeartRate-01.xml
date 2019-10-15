@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-heartrate-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-HeartRate"/>
+    </meta>
+    <status value="final"/>
+    <category>
+        <coding>
+            <system value="http://hl7.org/fhir/observation-category"/>
+            <code value="vital-signs"/>
+            <display value="Vital Signs"/>
+        </coding>
+    </category>
+    <code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="8867-4"/>
+            <display value="Heart rate"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-example-1"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <effectiveDateTime value="2013-02-08T06:43:00+02:00"/>
+    <performer>
+        <reference value="Practitioner/example"/>
+        <display value="Example Practitioner"/>
+    </performer>
+    <valueQuantity>
+        <value value="126"/>
+        <unit value="/min"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="/min"/>
+    </valueQuantity>
+    <interpretation>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="248650006"/>
+            <display value="Heart irregular"/>
+        </coding>
+    </interpretation>
+    <comment value="Misschien bigeminie?"/>
+    <method>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="37931006"/>
+            <display value="Auscultation"/>
+        </coding>
+    </method>
+</Observation>

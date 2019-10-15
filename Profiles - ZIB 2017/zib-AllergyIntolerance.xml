@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AllergyIntolerance" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance" />
-  <version value="2.1.0" />
+  <version value="2.1.1" />
   <name value="Zib AllergyIntolerance" />
   <title value="HCIM AllergyIntolerance" />
   <status value="active" />
@@ -99,17 +99,17 @@
       <mapping>
         <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
         <map value="NL-CM:8.2.5" />
-        <comment value="AllergyStatus. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status" />
+        <comment value="AllergyStatus. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status" />
       </mapping>
       <mapping>
         <identity value="hcim-allergyintolerance-v3.0-2016EN" />
         <map value="NL-CM:8.2.5" />
-        <comment value="AllergyStatus. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status" />
+        <comment value="AllergyStatus. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status" />
       </mapping>
       <mapping>
         <identity value="hcim-allergyintolerance-v3.2-2017EN" />
         <map value="NL-CM:8.2.5" />
-        <comment value="AllergyStatus. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status" />
+        <comment value="AllergyStatus. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status" />
       </mapping>
     </element>
     <element id="AllergyIntolerance.clinicalStatus.extension:AllergieStatusCodelijst.valueCodeableConcept:valueCodeableConcept">
@@ -173,9 +173,6 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="AllergyIntolerance.criticality">
-      <path value="AllergyIntolerance.criticality" />
-    </element>
     <element id="AllergyIntolerance.criticality.extension">
       <path value="AllergyIntolerance.criticality.extension" />
       <slicing>
@@ -200,17 +197,17 @@
       <mapping>
         <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
         <map value="NL-CM:8.2.7" />
-        <comment value="CriticalExtent. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality." />
+        <comment value="CriticalExtent. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality." />
       </mapping>
       <mapping>
         <identity value="hcim-allergyintolerance-v3.0-2016EN" />
         <map value="NL-CM:8.2.7" />
-        <comment value="CriticalExtent. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality." />
+        <comment value="CriticalExtent. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality." />
       </mapping>
       <mapping>
         <identity value="hcim-allergyintolerance-v3.2-2017EN" />
         <map value="NL-CM:8.2.7" />
-        <comment value="Criticality. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality." />
+        <comment value="Criticality. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality." />
       </mapping>
     </element>
     <element id="AllergyIntolerance.criticality.extension:CriticalExtentCodelist.valueCodeableConcept:valueCodeableConcept">
@@ -259,7 +256,7 @@
       <path value="AllergyIntolerance.code.coding" />
       <sliceName value="causativeAgentAllergicAgentCodelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="SNOMED CT - Alle waarden" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.17--20171231000000" />
@@ -267,11 +264,16 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="AllergyIntolerance.code.coding:causativeAgentAllergicAgentCodelist.system">
+      <path value="AllergyIntolerance.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
     <element id="AllergyIntolerance.code.coding:causativeAgentHPKCodelist">
       <path value="AllergyIntolerance.code.coding" />
       <sliceName value="causativeAgentHPKCodelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="G-Standaard Handels Product Kode (HPK) - Alle waarden" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.19--20171231000000" />
@@ -279,11 +281,16 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="AllergyIntolerance.code.coding:causativeAgentHPKCodelist.system">
+      <path value="AllergyIntolerance.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.7" />
+    </element>
     <element id="AllergyIntolerance.code.coding:causativeAgentSNKCodelist">
       <path value="AllergyIntolerance.code.coding" />
       <sliceName value="causativeAgentSNKCodelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="G-standaard Stofnaamcode (SNK) - Alle waarden" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.14--20171231000000" />
@@ -291,11 +298,16 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="AllergyIntolerance.code.coding:causativeAgentSNKCodelist.system">
+      <path value="AllergyIntolerance.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.1.750" />
+    </element>
     <element id="AllergyIntolerance.code.coding:causativeAgentSSKCodelist">
       <path value="AllergyIntolerance.code.coding" />
       <sliceName value="causativeAgentSSKCodelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="G-standaard Stofnaamcode i.c.m. toedieningsweg (SSK) - Alle waarden" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.13--20171231000000" />
@@ -303,17 +315,27 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="AllergyIntolerance.code.coding:causativeAgentSSKCodelist.system">
+      <path value="AllergyIntolerance.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.1.725" />
+    </element>
     <element id="AllergyIntolerance.code.coding:causativeAgentThesaurus122Codelist">
       <path value="AllergyIntolerance.code.coding" />
       <sliceName value="causativeAgentThesaurus122Codelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="G-standaard Ongewenste medicatiegroepen - Alle waarden" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.15--20171231000000" />
           <display value="VeroorzakendeStofThesaurus122Codelijst" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="AllergyIntolerance.code.coding:causativeAgentThesaurus122Codelist.system">
+      <path value="AllergyIntolerance.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.1.902.122" />
     </element>
     <element id="AllergyIntolerance.patient">
       <path value="AllergyIntolerance.patient" />
@@ -450,6 +472,13 @@
     </element>
     <element id="AllergyIntolerance.note.author[x]">
       <path value="AllergyIntolerance.note.author[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
       <short value="Author" />
       <alias value="Auteur" />
       <type>
@@ -468,7 +497,15 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
       </type>
     </element>
-    <element id="AllergyIntolerance.note.author[x].extension">
+    <element id="AllergyIntolerance.note.author[x]:practitioner">
+      <path value="AllergyIntolerance.note.author[x]" />
+      <sliceName value="authorReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+      </type>
+    </element>
+    <element id="AllergyIntolerance.note.author[x]:practitioner.extension">
       <path value="AllergyIntolerance.note.author[x].extension" />
       <slicing>
         <discriminator>
@@ -477,10 +514,11 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-  </element>
-    <element id="AllergyIntolerance.note.author[x].extension:practitionerRole">
+    </element>
+    <element id="AllergyIntolerance.note.author[x]:practitioner.extension:practitionerRole">
       <path value="AllergyIntolerance.note.author[x].extension" />
       <sliceName value="practitionerRole" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -563,7 +601,7 @@
       <path value="AllergyIntolerance.reaction.substance.coding" />
       <sliceName value="specificSubstanceAllergicAgentCodelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="SNOMED CT - SNOMED CT: ^42931000146101| Dutch non-drug allergen simple reference set (foundation metadata concept)" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.16--20171231000000" />
@@ -571,11 +609,16 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="AllergyIntolerance.reaction.substance.coding:specificSubstanceAllergicAgentCodelist.system">
+      <path value="AllergyIntolerance.reaction.substance.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
     <element id="AllergyIntolerance.reaction.substance.coding:specificSubstanceHPKCodelist">
       <path value="AllergyIntolerance.reaction.substance.coding" />
       <sliceName value="specificSubstanceHPKCodelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="G-Standaard Handels Product Kode (HPK) - Alle waarden" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.18--20171231000000" />
@@ -583,11 +626,16 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="AllergyIntolerance.reaction.substance.coding:specificSubstanceHPKCodelist.system">
+      <path value="AllergyIntolerance.reaction.substance.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.7" />
+    </element>
     <element id="AllergyIntolerance.reaction.substance.coding:specificSubstanceSNKCodelist">
       <path value="AllergyIntolerance.reaction.substance.coding" />
       <sliceName value="specificSubstanceSNKCodelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="G-standaard Stofnaamcode (SNK) - Alle waarden" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.10--20171231000000" />
@@ -595,11 +643,16 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="AllergyIntolerance.reaction.substance.coding:specificSubstanceSNKCodelist.system">
+      <path value="AllergyIntolerance.reaction.substance.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.1.750" />
+    </element>
     <element id="AllergyIntolerance.reaction.substance.coding:specificSubstanceSSKCodelist">
       <path value="AllergyIntolerance.reaction.substance.coding" />
       <sliceName value="specificSubstanceSSKCodelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="SpecifiekeStofSSKCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.9--20171231000000" />
@@ -607,11 +660,16 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="AllergyIntolerance.reaction.substance.coding:specificSubstanceSSKCodelist.system">
+      <path value="AllergyIntolerance.reaction.substance.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.1.725" />
+    </element>
     <element id="AllergyIntolerance.reaction.substance.coding:specificSubstanceThesaurus122Codelist">
       <path value="AllergyIntolerance.reaction.substance.coding" />
       <sliceName value="specificSubstanceThesaurus122Codelist" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="G-standaard Ongewenste medicatiegroepen - Alle waarden" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.11--20171231000000" />
@@ -619,13 +677,18 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="AllergyIntolerance.reaction.substance.coding:specificSubstanceThesaurus122Codelist.system">
+      <path value="AllergyIntolerance.reaction.substance.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.1.902.122" />
+    </element>
     <element id="AllergyIntolerance.reaction.manifestation">
       <path value="AllergyIntolerance.reaction.manifestation" />
       <short value="Symptom" />
       <definition value="The content specifications of the reaction that takes place when the patient is exposed to the causative substance." />
       <alias value="Symptoom" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.5--20171231000000" />
           <display value="SymptoomCodelijst" />
@@ -711,7 +774,7 @@
       <mapping>
         <identity value="hcim-allergyintolerance-v3.2-2017EN" />
         <map value="NL-CM:8.2.14" />
-        <comment value="Severity. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/ErnstCodelijst-to-AllergyIntoleranceSeverity" />
+        <comment value="Severity. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/ErnstCodelijst-to-AllergyIntoleranceSeverity" />
       </mapping>
     </element>
     <element id="AllergyIntolerance.reaction.exposureRoute">
