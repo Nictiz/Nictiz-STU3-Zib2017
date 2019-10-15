@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="Profile on the Composition resource which represents a part of the Aanmeldbericht for eOverdracht and is used in phase one of the eOverdracht pilot. More information standard on eOverdracht: https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorg" />
+  <description value="Profile on the Composition resource which represents a part of the Aanmeldbericht for eOverdracht and is used in phase one of the eOverdracht pilot. More information standard on eOverdracht: https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorgs" />
   <purpose value="The purpose of an Aanmeldbericht is to enable the health organization that receives it to assess the patient/client's care demands and accept or reject the application." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -31,7 +31,7 @@
   </mapping>
   <mapping>
     <identity value="eOverdracht-Aanmeldbericht" />
-    <uri value="https://decor.nictiz.nl/art-decor/decor-scenarios--e-overdracht-?id=2.16.840.1.113883.2.4.3.11.60.30.4.12" />
+    <uri value="https://decor.nictiz.nl/art-decor/decor-scenarios--e-overdracht-?id=2.16.840.1.113883.2.4.3.11.60.30.4.30" />
     <name value="Aanmeldbericht: proeftuin InZicht fase 1 (PUSH)" />
     <comment value="Source language is in Dutch." />
   </mapping>
@@ -88,7 +88,7 @@
     </element>
     <element id="Composition.title">
       <path value="Composition.title" />
-      <fixedString value="e-Overdracht Aanmeldbericht" />
+      <fixedString value="Aanmeldbericht" />
     </element>
     <element id="Composition.section">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -116,6 +116,7 @@
       <mapping>
         <identity value="eOverdracht-Aanmeldbericht" />
         <map value="e-overdracht-dataelement-v3-1" />
+        <comment value="Administratieve gegevens" />
       </mapping>
     </element>
     <element id="Composition.section:administrativeData.extension">
@@ -188,47 +189,31 @@
       <path value="Composition.section.section.entry" />
       <slicing>
         <discriminator>
-          <type value="type" />
-          <path value="$this" />
+          <type value="profile" />
+          <path value="resolve()" />
         </discriminator>
         <rules value="open" />
       </slicing>
-      <max value="0" />
-    </element>
-    <element id="Composition.section:administrativeData.section:personalData.section">
-      <path value="Composition.section.section.section" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="title" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Composition.section:administrativeData.section:personalData.section:payer">
-      <path value="Composition.section.section.section" />
-      <sliceName value="payer" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Composition.section:administrativeData.section:personalData.section:payer.title">
-      <path value="Composition.section.section.section.title" />
-      <short value="payer" />
+    <element id="Composition.section:administrativeData.section:personalData.entry:payer">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="payer" />
       <min value="1" />
-      <fixedString value="payer" />
-    </element>
-    <element id="Composition.section:administrativeData.section:personalData.section:payer.entry">
-      <path value="Composition.section.section.section.entry" />
-      <min value="1" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
-      </type>
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer" />
       </type>
+      <mapping>
+        <identity value="eOverdracht-Aanmeldbericht" />
+        <map value="e-overdracht-dataelement-v3-52" />
+        <comment value="Betaler" />
+      </mapping>
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.section">
+      <path value="Composition.section.section.section" />
+      <max value="0" />
     </element>
     <element id="Composition.section:administrativeData.section:sendingOrganization">
       <path value="Composition.section.section" />
@@ -263,16 +248,6 @@
         <map value="e-overdracht-dataelement-v3-80" />
         <comment value="Zorgaanbieder" />
       </mapping>
-    </element>
-    <element id="Composition.section:administrativeData.section:sendingOrganization.section">
-      <path value="Composition.section.section.section" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="title" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
     <element id="Composition.section:administrativeData.section:receivingOrganization">
       <path value="Composition.section.section" />
