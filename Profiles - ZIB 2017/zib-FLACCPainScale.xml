@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-FLACCPainScale" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FLACCPainScale" />
+  <version value="1.0.0" />
+  <name value="Zib FLACCPainScale" />
+  <title value="HCIM FLACCPainScale" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) FLACCpainScale v1.0(2017EN).&#xD;&#xA;&#xD;&#xA;The FLACC (Faces, Legs, Activity, Cry and Consolability) is a pain assessment tool, that is used to assess pain in children aged 0-7 years old by observing their behaviour.&#xD;&#xA;The FLACC has five subscales that need to be addressed. The final score indicates whether the observed child suffers pain and 'how much'. The score is often combined with a NRS-score that is completed by the nurses on basis of clinical experience." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;A pain assessment instrument is a tool in determining the intensity of pain and can be useful in order to determine the effectiveness of pain treatment interventions (pharmacological or non-pharmacological). For young children, it is nevertheless difficult to differentiate between pain or distress/anxiety. This difference is relevant in determining the treatment. The score on a pain assessment instrument remains a snapshot in time." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-flaccpainscale-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/FLACCpainScale-v1.0(2017EN)" />
+    <name value="HCIM FLACCPainScale-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="FLACCpainScore" />
+      <definition value="Root concept of the FLACCpainScale information model. This root concept contains all data elements of the FLACCpainScale information model." />
+      <alias value="FLACCpijnScore" />
+      <mapping>
+        <identity value="hcim-flaccpainscale-v1.0-2017EN" />
+        <map value="NL-CM:12.13.1" />
+        <comment value="FLACCpainScore" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:FLACCPainScaleCoding">
+      <path value="Observation.code.coding" />
+      <sliceName value="FLACCPainScaleCoding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:FLACCPainScaleCoding.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.code.coding:FLACCPainScaleCoding.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="38213-5" />
+    </element>
+    <element id="Observation.code.coding:FLACCPainScaleCoding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="FLACC pain assessment panel" />
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <short value="ScoreDateTime" />
+      <definition value="The date and time at which the FLACC score was determined." />
+      <alias value="ScoreDatumTijd" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="hcim-flaccpainscale-v1.0-2017EN" />
+        <map value="NL-CM:12.13.11" />
+        <comment value="ScoreDateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="TotalScore" />
+      <definition value="The total score is the sum of all the individual scores. The total score has a range from 0 - 10." />
+      <alias value="TotaalScore" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <minValueQuantity>
+        <value value="0" />
+      </minValueQuantity>
+      <maxValueQuantity>
+        <value value="10" />
+      </maxValueQuantity>
+      <mapping>
+        <identity value="hcim-flaccpainscale-v1.0-2017EN" />
+        <map value="NL-CM:12.13.2" />
+        <comment value="TotalScore" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="A comment on the circumstances during the measurement." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-flaccpainscale-v1.0-2017EN" />
+        <map value="NL-CM:12.13.12" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:Face">
+      <path value="Observation.component" />
+      <sliceName value="Face" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Face.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://loinc.org" />
+          <code value="38216-8" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Face.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Pain severity Face FLACC" />
+    </element>
+    <element id="Observation.component:Face.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Face" />
+      <definition value="Observation faces; The extent to which the child’s expression on the face is tensed, grimace, tension of jaws." />
+      <alias value="Gezicht" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="GezichtCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.13.1--20171231000000" />
+          <display value="GezichtCodelijst"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-flaccpainscale-v1.0-2017EN" />
+        <map value="NL-CM:12.13.3" />
+        <comment value="Face" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Legs">
+      <path value="Observation.component" />
+      <sliceName value="Legs" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Legs.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://loinc.org" />
+          <code value="38217-6" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Legs.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Pain severity Legs FLACC" />
+    </element>
+    <element id="Observation.component:Legs.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Legs" />
+      <definition value="Observation legs: the extent to which the child is restless (body and legs)." />
+      <alias value="Benen" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="BenenCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.13.2--20171231000000" />
+          <display value="BenenCodelijst"/>        
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-flaccpainscale-v1.0-2017EN" />
+        <map value="NL-CM:12.13.4" />
+        <comment value="Legs" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Activity">
+      <path value="Observation.component" />
+      <sliceName value="Activity" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Activity.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://loinc.org" />
+          <code value="38218-4" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Activity.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Pain severity Activity FLACC" />
+    </element>
+    <element id="Observation.component:Activity.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Activity" />
+      <definition value="Observation activity: the extent to which the child is restless and has tense muscles." />
+      <alias value="Activiteit" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="ActiviteitCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.13.3--20171231000000" />
+          <display value="ActiviteitCodelijst"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-flaccpainscale-v1.0-2017EN" />
+        <map value="NL-CM:12.13.5" />
+        <comment value="Activity" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Cry">
+      <path value="Observation.component" />
+      <sliceName value="Cry" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Cry.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://loinc.org" />
+          <code value="38219-2" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Cry.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Pain severity Cry FLACC" />
+    </element>
+    <element id="Observation.component:Cry.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Cry" />
+      <definition value="Observation Crying: the extent to which the child is crying, whimpers or laments." />
+      <alias value="Huilen" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="HuilenCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.13.4--20171231000000" />
+          <display value="HuilenCodelijst"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-flaccpainscale-v1.0-2017EN" />
+        <map value="NL-CM:12.13.6" />
+        <comment value="Cry" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Consolability">
+      <path value="Observation.component" />
+      <sliceName value="Consolability" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Consolability.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://loinc.org" />
+          <code value="38220-0" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Consolability.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Pain severity Consolability FLACC" />
+    </element>
+    <element id="Observation.component:Consolability.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Consolability" />
+      <definition value="Observation Consolability: the extent to which the child is consolable." />
+      <alias value="Troostbaar" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="TroostbaarCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.13.5--20171231000000" />
+          <display value="TroostbaarCodelijst"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-flaccpainscale-v1.0-2017EN" />
+        <map value="NL-CM:12.13.9" />
+        <comment value="Consolability" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

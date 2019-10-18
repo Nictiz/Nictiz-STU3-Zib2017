@@ -139,11 +139,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="coding.code" />
-        </discriminator>
-        <discriminator>
-          <type value="value" />
-          <path value="coding.system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -158,10 +154,12 @@
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.system">
       <path value="Observation.category.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.code">
       <path value="Observation.category.coding.code" />
+      <min value="1" />
       <fixedCode value="49581000146104" />
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.display">
@@ -182,7 +180,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationCategory" />
         </extension>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="ResultaatTypeCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.1--20171231000000" />
@@ -257,13 +255,18 @@
       <path value="Observation.code.coding" />
       <sliceName value="LOINC" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="LOINC (2.16.840.1.113883.6.1): All values" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.5--20171231000000" />
           <display value="OnderzoekCodelijst" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Observation.code.coding:LOINC.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://loinc.org"/>
     </element>
     <element id="Observation.code.coding:NHGTable45">
       <path value="Observation.code.coding" />
@@ -273,6 +276,7 @@
     </element>
     <element id="Observation.code.coding:NHGTable45.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen" />
     </element>
     <element id="Observation.subject">
@@ -413,7 +417,7 @@
       <path value="Observation.interpretation" />
       <short value="ResultFlags" />
       <definition value="Attention codes indicating whether the result is above or below certain reference values or interpreting the result otherwise. (Resistent)" />
-      <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/InterpretatieVlaggenCodelijst-to-observation-interpretation) is available that maps ResultFlagsCodelist to the observation-interpretation valueset." />
+      <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/InterpretatieVlaggenCodelijst-to-observation-interpretation) is available that explains the relationship between the FHIR observation-interpretation value set and the HCIM ResultFlagsCodelist." />
       <alias value="InterpretatieVlaggen" />
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

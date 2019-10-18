@@ -20,7 +20,7 @@
   <fhirVersion value="3.0.1" />
   <mapping>
     <identity value="art-decor-eafspraak" />
-    <uri value="https://decor.nictiz.nl/art-decor/decor-datasets--eafspraken-?id=2.16.840.1.113883.2.4.3.11.60.61.1.1" />
+    <uri value="https://decor.nictiz.nl/art-decor/decor-datasets--eafspraken-?id=2.16.840.1.113883.2.4.3.11.60.61.1.1&amp;effectiveDate=2017-08-01T00:00:00&amp;language=nl-NL" />
     <name value="ART-DECOR Dataset eAfspraak" />
   </mapping>
   <mapping>
@@ -80,13 +80,18 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="specialty" />
         </extension>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="COD016-VEKT (Vektis AGB-medische specialismen) - Alle waarden" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.7--20171231000000" />
           <display value="SpecialismeAGBCodelijst" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Slot.specialty:AgbSpecialty.coding.system">
+      <path value="Slot.specialty.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.6.7" />
     </element>
     <element id="Slot.specialty:UziSpecialty">
       <path value="Slot.specialty" />
@@ -95,13 +100,18 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="specialty" />
         </extension>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="RoleCodeNL (Zorgverlenertype (personen)) - Alle waarden" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.6--20171231000000" />
           <display value="SpecialismeUZICodelijst" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Slot.specialty:UziSpecialty.coding.system">
+      <path value="Slot.specialty.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://fhir.nl/fhir/NamingSystem/uzi-rolcode" />
     </element>
     <element id="Slot.appointmentType">
       <path value="Slot.appointmentType" />

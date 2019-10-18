@@ -24,10 +24,15 @@
     <uri value="https://zibs.nl/wiki/Wound-v3.1(2017EN)" />
     <name value="HCIM Wound-v3.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Condition" />
-  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Condition" />
   <derivation value="constraint" />
   <differential>
     <element id="Condition">
@@ -73,7 +78,7 @@
         <description value="WondSoortCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.2.4--20171231000000" />
-          <display value="ProbleemNaamCodelijst" />
+          <display value="WondSoortCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -103,7 +108,7 @@
         <description value="WondAnatomischeLocatieCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.2.6--20171231000000" />
-          <display value="ProbleemAnatomischeLocatieCodelijst" />
+          <display value="WondAnatomischeLocatieCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -112,21 +117,30 @@
         <comment value="AnatomicalLocation" />
       </mapping>
     </element>
+    <element id="Condition.bodySite.extension">
+      <path value="Condition.bodySite.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
       <short value="Laterality" />
       <alias value="Lateraliteit" />
     </element>
-    <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
-      <path value="Condition.bodySite.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Condition.bodySite.extension:Laterality.value[x]">
+      <path value="Condition.bodySite.extension.value[x]" />
       <binding>
         <strength value="extensible" />
         <description value="WondLateraliteitCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.2.8--20171231000000" />
-          <display value="ProblemLateralityCodelist" />
+          <display value="WondLateraliteitCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -135,9 +149,20 @@
         <comment value="Laterality" />
       </mapping>
     </element>
-    <element id="Condition.onsetDateTime:onsetDateTime">
-      <path value="Condition.onsetDateTime" />
-      <sliceName value="onsetDateTime" />
+    <element id="Condition.subject">
+      <path value="Condition.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Condition.onset[x]">
+      <path value="Condition.onset[x]" />
       <short value="WoundDateOfOnset" />
       <definition value="The date on which the wound appeared." />
       <alias value="WondOntstaansDatum" />

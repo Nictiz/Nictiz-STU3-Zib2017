@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-snaqscore-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-SNAQScore"/>
+    </meta>
+    <status value="preliminary"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="8881000146104"/>
+            <display value="Short Nutritional Assessment Questionnaire"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-example-1"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <effectiveDateTime value="2018-02-07T10:00:00+02:00"/>
+    <valueQuantity>
+        <value value="4"/>
+    </valueQuantity>
+    <component>
+        <!--WeightLossScore-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="4.6.3"/>
+                <display value="WeightLoss Score"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.5.1"/>
+                <code value="G2"/>
+                <display value="LossAverage"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <!--NutritionScore-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="4.6.5"/>
+                <display value="Nutrition Score"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.5.3"/>
+                <code value="Z1"/>
+                <display value="Voeding"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <!--AppetiteScore-->
+        <code>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0"/>
+                <code value="4.6.4"/>
+                <display value="Appetite Score"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.5.2"/>
+                <code value="B1"/>
+                <display value="GeenEetlust"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+</Observation>
