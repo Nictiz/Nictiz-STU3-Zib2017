@@ -15,15 +15,10 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="An Extension as defined by the Dutch HCIM Zorginformatiebouwsteen Levensovertuiging v3.1(2017EN). Patient’s life stance and/or religion. " />
+  <description value="An Extension as defined by the Dutch HCIM Zorginformatiebouwsteen Levensovertuiging v3.1(2017EN). Patient’s life stance and/or religion.&#xD;&#xA;Extension is mocked from the offical HL7 core extension in STU3 FHIR build specification, with different preferred  (nictiz) valueSet." />
   <purpose value="Life stance may have implications for treatment and care, such as in instructions for treatment, diet, or mental care." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
-  <mapping>
-    <identity value="hcim-lifestance-v3.1-2017EN" />
-    <uri value="https://zibs.nl/wiki/LifeStance-v3.1(2017EN)" />
-    <name value="HCIM LifeStance-v3.1(2017EN)" />
-  </mapping>
   <kind value="complex-type" />
   <abstract value="false" />
   <contextType value="resource" />
@@ -40,24 +35,19 @@
       <path value="Extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="LifeStance" />
-      <definition value=" Patient’s life stance and/or religion." />
+      <definition value="Patient’s life stance and/or religion." />
       <alias value="Levensovertuiging" />
       <min value="1" />
       <type>
         <code value="CodeableConcept" />
       </type>
       <binding>
-        <strength value="extensible" />
+        <strength value="preferred" />
         <description value="LevensovertuigingCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.5.1--20171231000000" />
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="LifeStance-v3.1-2017EN" />
-        <map value="NL-CM:7.5.2" />
-        <comment value="LifeStance" />
-      </mapping>
     </element>
     <element id="Extension.value[x]:valueCodeableConcept.coding">
       <path value="Extension.valueCodeableConcept.coding" />

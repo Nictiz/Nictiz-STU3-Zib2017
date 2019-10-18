@@ -260,21 +260,35 @@
         <comment value="Nationality" />
       </mapping>
     </element>
+    <element id="Patient.extension:nationality.extension">
+      <path value="Patient.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Patient.extension:nationality.extension:code">
       <path value="Patient.extension.extension" />
       <sliceName value="code" />
     </element>
-    <element id="Patient.extension:nationality.extension:code.valueCodeableConcept:valueCodeableConcept">
-      <path value="Patient.extension.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Patient.extension:nationality.extension:code.url">
+      <path value="Patient.extension.extension.url" />
+      <fixedUri value="code" />
     </element>
     <element id="Patient.extension:nationality.extension:period">
       <path value="Patient.extension.extension" />
       <sliceName value="period" />
     </element>
-    <element id="Patient.extension:nationality.extension:period.valuePeriod:valuePeriod">
-      <path value="Patient.extension.extension.valuePeriod" />
-      <sliceName value="valuePeriod" />
+    <element id="Patient.extension:nationality.extension:period.url">
+      <path value="Patient.extension.extension.url" />
+      <fixedUri value="period" />
+    </element>
+    <element id="Patient.extension:nationality.url">
+      <path value="Patient.extension.url" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-nationality" />
     </element>
     <element id="Patient.extension:legalStatus">
       <path value="Patient.extension" />
@@ -313,8 +327,7 @@
     <element id="Patient.extension:lifeStance">
       <path value="Patient.extension" />
       <sliceName value="lifeStance" />
-      <min value="0" />
-      <max value="*" />
+      <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance" />
@@ -323,6 +336,9 @@
     <element id="Patient.extension:lifeStance.valueCodeableConcept:valueCodeableConcept">
       <path value="Patient.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+      </binding>
       <mapping>
         <identity value="hcim-LifeStance-v3.1-2017EN" />
         <map value="NL-CM:7.5.2" />
@@ -429,9 +445,7 @@
     </element>
     <element id="Patient.telecom">
       <path value="Patient.telecom" />
-      <short value="ContactInformation" />
       <definition value="A contact detail for the individual. Note that there is no support for multiple use values like 'mobile business'." />
-      <alias value="Contactgegevens" />
       <type>
         <code value="ContactPoint" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
@@ -780,9 +794,7 @@
     </element>
     <element id="Patient.contact.telecom">
       <path value="Patient.contact.telecom" />
-      <short value="ContactInformation" />
       <comment value="Telecommunication data details (phone/email) is physically modeled in the HCIM Patient, which is why the telecommunication mappings appear to be coming from the HCIM Patient instead of the HCIM ContactPerson" />
-      <alias value="Contactgegevens" />
       <type>
         <code value="ContactPoint" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
