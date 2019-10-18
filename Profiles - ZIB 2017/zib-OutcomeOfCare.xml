@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-OutcomeOfCare" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-OutcomeOfCare" />
-  <version value="0.1.0" />
+  <version value="1.0.0" />
   <name value="zib-OutcomeOfCare" />
   <title value="HCIM OutcomeOfCare" />
   <status value="draft" />
@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A profile on nl-core-observation to represent the the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) OutcomeOfCare version 3.1, release 2017.&#xD;&#xA;&#xD;&#xA;The OutcomeOfCare concept describes the determined status of the patient in terms of a certain problem. Comparing the healthcare result with the treatment objective provides insight into the effectively of the nursing interventions/activities carried out for this problem. It is a part of the nursing process, together with nursing diagnoses/problems, the treatment objective and nursing interventions." />
+  <description value="A derived profile on Zib-TextResult to represent the the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) OutcomeOfCare version 3.1, release 2017. The OutcomeOfCare concept describes the determined status of the patient in terms of a certain problem. Comparing the healthcare result with the treatment objective provides insight into the effectively of the nursing interventions/activities carried out for this problem. It is a part of the nursing process, together with nursing diagnoses/problems, the treatment objective and nursing interventions." />
   <purpose value="Healthcare results are important parameters for evaluating the patient’s health and monitoring the effectivity of the medical treatment and nursing interventions." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -26,63 +26,166 @@
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
-  <type value="Observation" />
-  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <type value="DiagnosticReport" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult" />
   <derivation value="constraint" />
   <differential>
-    <element id="Observation">
-      <path value="Observation" />
-      <short value="OutcomeOfCare" />
-      <definition value="Root concept of the OutcomeOfCare information model. This root concept contains all data elements of the OutcomeOfCare information model." />
-      <alias value="UitkomstVanZorg" />
-      <mapping>
-        <identity value="hcim-outcomeofcare-v3.1-2017EN" />
-        <map value="NL-CM:13.4.1" />
-        <comment value="OutcomeOfCare" />
-      </mapping>
+    <element id="DiagnosticReport">
+      <path value="DiagnosticReport" />
+      <constraint>
+        <key value="hicm-outcomeofcare-1" />
+        <severity value="error" />
+        <human value="Provide a HealthcareResult text or a reference, not both" />
+        <expression value="conclusion.empty() or result.empty()" />
+      </constraint>
     </element>
-    <element id="Observation.code.coding">
-      <path value="Observation.code.coding" />
+    <element id="DiagnosticReport.extension">
+      <path value="DiagnosticReport.extension" />
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="coding.code" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DiagnosticReport.extension:Intervention">
+      <path value="DiagnosticReport.extension" />
+      <sliceName value="Intervention" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/event-partOf" />
+      </type>
+    </element>
+    <element id="DiagnosticReport.extension:Intervention.valueReference:valueReference">
+      <path value="DiagnosticReport.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <short value="Interventie" />
+      <definition value="A description of the nursing intervention of which the effectivity is evaluated with the healthcare result." />
+      <alias value="Interventie" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention" />
+      </type>
+      <mapping>
+        <identity value="hcim-outcomeofcare-v3.1-2017EN" />
+        <map value="NL-CM:13.4.4" />
+        <comment value="Interventie" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.basedOn">
+      <path value="DiagnosticReport.basedOn" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-careplan" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ProcedureRequest" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ReferralRequest" />
+      </type>
+    </element>
+    <element id="DiagnosticReport.code.coding">
+      <path value="DiagnosticReport.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
         </discriminator>
         <rules value="open" />
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.code.coding:outcomOfCareCode">
-      <path value="Observation.code.coding" />
+    <element id="DiagnosticReport.code.coding:outcomOfCareCode">
+      <path value="DiagnosticReport.code.coding" />
       <sliceName value="outcomOfCareCode" />
       <min value="1" />
+      <max value="1" />
     </element>
-    <element id="Observation.code.coding:outcomOfCareCode.system">
-      <path value="Observation.code.coding.system" />
+    <element id="DiagnosticReport.code.coding:outcomOfCareCode.system">
+      <path value="DiagnosticReport.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://loinc.org" />
     </element>
-    <element id="Observation.code.coding:outcomOfCareCode.code">
-      <path value="Observation.code.coding.code" />
+    <element id="DiagnosticReport.code.coding:outcomOfCareCode.code">
+      <path value="DiagnosticReport.code.coding.code" />
       <min value="1" />
       <fixedCode value="27574-3" />
     </element>
-    <element id="Observation.code.coding:outcomOfCareCode.display">
+    <element id="DiagnosticReport.code.coding:outcomOfCareCode.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
-      <path value="Observation.code.coding.display" />
+      <path value="DiagnosticReport.code.coding.display" />
       <defaultValueString value="Skilled nursing treatment plan Progress note and attainment of goals (narrative)" />
     </element>
-    <element id="Observation.value[x]:valueString">
-      <path value="Observation.valueString" />
-      <sliceName value="valueString" />
+    <element id="DiagnosticReport.result">
+      <path value="DiagnosticReport.result" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="resolve()" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <max value="1" />
+    </element>
+    <element id="DiagnosticReport.result:MeasurementValue">
+      <path value="DiagnosticReport.result" />
+      <sliceName value="MeasurementValue" />
+      <short value="MeasurementValue" />
+      <definition value="Measurements in which an observation, carried out with a (measuring) tool if possible, is translated to a relevant unit." />
+      <alias value="Meetwaarde" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
+      </type>
+      <mapping>
+        <identity value="hcim-outcomeofcare-v3.1-2017EN" />
+        <map value="NL-CM:13.4.2" />
+        <comment value="MeasurementValue" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.result:HealthCondition">
+      <path value="DiagnosticReport.result" />
+      <sliceName value="HealthCondition" />
+      <short value="HealthCondition" />
+      <definition value="A description of the patient’s health condition in the form of a functional and/or mental status." />
+      <alias value="Gezondheidstoestand" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-FunctionalOrMentalStatus" />
+      </type>
+      <mapping>
+        <identity value="hcim-outcomeofcare-v3.1-2017EN" />
+        <map value="NL-CM:13.4.3" />
+        <comment value="HealthCondition" />
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.conclusion">
+      <path value="DiagnosticReport.conclusion" />
       <short value="HealthcareResult" />
       <definition value="The textual account of the healthcare result. If HealthcareResult cannot be entered as a measurement value or functional/mental status, it can be described as free text in the healthcare result." />
       <alias value="Zorgresultaat" />
-      <type>
-        <code value="string" />
-      </type>
       <mapping>
         <identity value="hcim-outcomeofcare-v3.1-2017EN" />
         <map value="NL-CM:13.4.5" />

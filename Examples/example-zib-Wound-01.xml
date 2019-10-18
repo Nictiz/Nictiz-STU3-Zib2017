@@ -1,0 +1,50 @@
+﻿<?xml-model href="http://hl7.org/fhir/STU3/condition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Condition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd" xmlns="http://hl7.org/fhir">
+    <id value="example-zib-wound"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound"/>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/DateOfLastDressingChange">
+        <valueDate value="2019-07-15"/>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Wound-WoundDrain">
+        <valueReference>
+            <reference value="DeviceUseStatement/example-zib-wound-wounddrain"/>
+            <display value="wounddrain type x"/>
+        </valueReference>
+    </extension>
+    <clinicalStatus value="active"/>
+    <verificationStatus value="confirmed"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="112633009"/>
+            <display value="Chirurgische wond"/>
+        </coding>
+    </code>
+    <bodySite>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="7771000"/>
+                    <display value="Left"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="29836001"/>
+            <display value="Heup"/>
+        </coding>
+    </bodySite>
+    <subject>
+        <reference value="Patient/medmij-bgz-patient-ts-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <onsetDateTime value="2019-07-14T11:00:00.000+01:00"/>
+    <note>
+        <time value="2019-07-14T11:00:00.000+01:00"/>
+        <text value="Wond lekt steeds meer."/>
+    </note>
+</Condition>

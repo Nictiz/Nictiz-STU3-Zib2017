@@ -145,7 +145,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="code" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -156,7 +156,7 @@
       <sliceName value="ArgusPermissionCode" />
       <max value="1" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="ArgusInstemmingCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.5--20171231000000" />
@@ -177,7 +177,7 @@
       <sliceName value="permissionCode" />
       <max value="1" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="ToestemmingCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.1--20171231000000" />
@@ -263,7 +263,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="code" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -274,7 +274,7 @@
       <sliceName value="typeOfInterventionCode" />
       <max value="1" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="TypeOfInterventionCodelist" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.3--20171231000000" />
@@ -295,7 +295,7 @@
       <sliceName value="argusTypeOfInterventionCode" />
       <max value="1" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="ArgusTypeOfInterventionCodelist" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.3.4--20171231000000" />
@@ -327,20 +327,30 @@
         <comment value="Subject" />
       </mapping>
     </element>
-    <element id="Procedure.performed[x]:performedPeriod">
-      <path value="Procedure.performedPeriod" />
-      <sliceName value="performedPeriod" />
-      <type>
-        <code value="Period" />
-      </type>
+    <element id="Procedure.performed[x]">
+      <path value="Procedure.performed[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.14" />
         <comment value="DateTime" />
       </mapping>
     </element>
+    <element id="Procedure.performed[x]:performedPeriod">
+      <path value="Procedure.performed[x]" />
+      <sliceName value="performedPeriod" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
     <element id="Procedure.performed[x]:performedPeriod.start">
-      <path value="Procedure.performedPeriod.start" />
+      <path value="Procedure.performed[x].start" />
       <short value="StartEpisode" />
       <definition value="The date and time at which the restraints started" />
       <alias value="AanvangEpisode" />
@@ -351,7 +361,7 @@
       </mapping>
     </element>
     <element id="Procedure.performed[x]:performedPeriod.end">
-      <path value="Procedure.performedPeriod.end" />
+      <path value="Procedure.performed[x].end" />
       <short value="EndOfEpisode" />
       <definition value="The date and time at which the restraints ended." />
       <alias value="EindeEpisode" />

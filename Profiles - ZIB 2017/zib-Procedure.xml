@@ -231,13 +231,18 @@
       <definition value="DHD procedure thesaurus" />
       <alias value="VerrichtingType" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="The name of the procedure using the Verrichtingenthesaurus DHD." />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.1.2--20171231000000" />
           <display value="VerrichtingTypeCodelijst" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Procedure.code.coding:VerrichtingTypeCodelijst.system">
+      <path value="Procedure.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Procedure.subject">
       <path value="Procedure.subject" />
@@ -255,22 +260,32 @@
         <comment value="Subject" />
       </mapping>
     </element>
-    <element id="Procedure.performed[x]:performedPeriod">
-      <path value="Procedure.performedPeriod" />
-      <sliceName value="performedPeriod" />
-      <type>
-        <code value="Period" />
-      </type>
+    <element id="Procedure.performed[x]">
+      <path value="Procedure.performed[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.14" />
         <comment value="DateTime" />
       </mapping>
     </element>
+    <element id="Procedure.performed[x]:performedPeriod">
+      <path value="Procedure.performed[x]" />
+      <sliceName value="performedPeriod" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
     <element id="Procedure.performed[x]:performedPeriod.start">
-      <path value="Procedure.performedPeriod.start" />
+      <path value="Procedure.performed[x].start" />
       <short value="ProcedureStartDate" />
-      <definition value="The start date (and if possible start time) of the procedure. A ‘vague’ date, such as only the year, is permitted.&#xD;&#xA;The element offers the option to indicate the start of the period of a series of related procedures." />
+      <definition value="The start date (and if possible start time) of the procedure. A ‘vague’ date, such as only the year, is permitted.&amp;#xD;&amp;#xA;The element offers the option to indicate the start of the period of a series of related procedures." />
       <alias value="VerrichtingStartDatum" />
       <mapping>
         <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
@@ -289,9 +304,9 @@
       </mapping>
     </element>
     <element id="Procedure.performed[x]:performedPeriod.end">
-      <path value="Procedure.performedPeriod.end" />
+      <path value="Procedure.performed[x].end" />
       <short value="ProcedureEndDate" />
-      <definition value="The end date (and if possible end time) of the procedure. A ‘vague’ date, such as only the year, is permitted.&#xD;&#xA;The element offers the option to indicate the end of the period of a series of related procedures." />
+      <definition value="The end date (and if possible end time) of the procedure. A ‘vague’ date, such as only the year, is permitted.&amp;#xD;&amp;#xA;The element offers the option to indicate the end of the period of a series of related procedures." />
       <alias value="VerrichtingEindDatum" />
       <mapping>
         <identity value="hcim-procedurefortransfer-v1.2-2015EN" />
@@ -312,7 +327,7 @@
     <element id="Procedure.performer">
       <path value="Procedure.performer" />
       <short value="HealthProfessional | Location::HealthcareProvider" />
-      <definition value="The healthcare professional that carried out the procedure.                  The healthcare center (location) where the procedure was or is carried out." />
+      <definition value="The healthcare professional that carried out the procedure. The healthcare center (location) where the procedure was or is carried out." />
       <comment value="Note: Procedure.location could have been used for mapping the Location::HealthcareProvider. In most anticipated cases this would lead to an empty Location resource except for Location.managingOrganization. For efficiency the mapping has thus been done here. Should a Location::HealthcareProvider with an OrganizationLocation be targeted, then this may be solved using Organization.name 'OrganizationLocation' + Organization.partOf 'HealthcareProvider'" />
       <alias value="UitgevoerdDoor" />
       <alias value="Locatie" />
@@ -352,7 +367,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -364,7 +379,7 @@
       <definition value="The role the healthcare provider fulfils in the healthcare process. For healthcare providers, this could be for example main practitioner, referrer or general practitioner." />
       <alias value="ZorgverlenerRol" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5--20171231000000" />
           <display value="ZorgverlenerRolCodelijst" />
