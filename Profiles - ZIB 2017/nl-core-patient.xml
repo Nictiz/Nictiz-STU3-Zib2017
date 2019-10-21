@@ -149,6 +149,7 @@
   <mapping>
     <identity value="hcim-lifestance-v3.1-2017EN" />
     <uri value="https://zibs.nl/wiki/LifeStance-v3.1(2017EN)" />
+    <name value="HCIM LifeStance-v3.1(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -251,26 +252,13 @@
         <comment value="Nationality" />
       </mapping>
     </element>
-    <element id="Patient.extension:nationality.extension">
-      <path value="Patient.extension.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Patient.extension:nationality.extension:code">
       <path value="Patient.extension.extension" />
       <sliceName value="code" />
     </element>
-    <element id="Patient.extension:nationality.extension:code.url">
-      <path value="Patient.extension.extension.url" />
-      <fixedUri value="code" />
-    </element>
-    <element id="Patient.extension:nationality.extension:code.value[x]">
-      <path value="Patient.extension.extension.value[x]" />
+    <element id="Patient.extension:nationality.extension:code.valueCodeableConcept:valueCodeableConcept">
+      <path value="Patient.extension.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <min value="1" />
       <binding>
         <strength value="extensible" />
@@ -281,20 +269,18 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Patient.extension:nationality.extension:code.coding">
-      <path value="Patient.extension.extension.coding" />
+    <element id="Patient.extension:nationality.extension:code.valueCodeableConcept:valueCodeableConcept.coding.system">
+      <path value="Patient.extension.extension.valueCodeableConcept.coding.system" />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.16.32" />
     </element>
     <element id="Patient.extension:nationality.extension:period">
       <path value="Patient.extension.extension" />
       <sliceName value="period" />
     </element>
-    <element id="Patient.extension:nationality.extension:period.url">
-      <path value="Patient.extension.extension.url" />
-      <fixedUri value="period" />
-    </element>
-    <element id="Patient.extension:nationality.url">
-      <path value="Patient.extension.url" />
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-nationality" />
+    <element id="Patient.extension:nationality.extension:period.valuePeriod:valuePeriod">
+      <path value="Patient.extension.extension.valuePeriod" />
+      <sliceName value="valuePeriod" />
     </element>
     <element id="Patient.extension:legalStatus">
       <path value="Patient.extension" />
@@ -333,9 +319,11 @@
     <element id="Patient.extension:lifeStance">
       <path value="Patient.extension" />
       <sliceName value="lifeStance" />
-      <short value="lifeStance" />
-      <definition value=" Patient’s life stance and/or religion." />
+      <short value="LifeStance" />
+      <definition value="Patient’s life stance and/or religion." />
+      <comment value="We capture the HCIM LifeStance in an extension of the resource patient to adhere to the HL7 fhir spec. The STU3 FHIR spec also defines religion in an extension to patient." />
       <alias value="Levensovertuiging" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -680,9 +668,6 @@
       </mapping>
     </element>
     <element id="Patient.contact">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Contact" />
-      </extension>
       <path value="Patient.contact" />
       <short value="ContactPerson" />
       <definition value="Contacts are related persons in some way, but not all related persons are contacts. The HCIM ContactPerson is designed to deal with both related persons and contacts. An HCIM ContactPerson who is a contact, is expected to have an NL-CM:3.1.2 Role primary contact ('Eerste relatie/contactpersoon') or secondary contact ('Tweede relatie/contactpersoon'). See Patient.contact.relationship in slice 'role'." />
