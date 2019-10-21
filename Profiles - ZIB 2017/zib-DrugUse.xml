@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-DrugUse" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-DrugUse" />
-  <version value="2.1.0" />
+  <version value="2.1.1" />
   <name value="Zib DrugUse" />
   <title value="HCIM DrugUse" />
   <status value="active" />
@@ -42,7 +42,7 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation">
@@ -64,14 +64,6 @@
         <identity value="hcim-druguse-v3.2-2017EN" />
         <map value="NL-CM:7.4.1" />
         <comment value="DrugUse" />
-      </mapping>
-    </element>
-    <element id="Observation.identifier">
-      <path value="Observation.identifier" />
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.6" />
-        <comment value="IdentificationNumber" />
       </mapping>
     </element>
     <element id="Observation.code.coding">
@@ -98,36 +90,31 @@
       <fixedCode value="228366006" />
     </element>
     <element id="Observation.code.coding:drugUseCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Finding relating to drug misuse behavior (finding)" />
     </element>
-    <element id="Observation.subject">
-      <path value="Observation.subject" />
-      <min value="1" />
+    <element id="Observation.context">
+      <path value="Observation.context" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" />
       </type>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.11" />
-        <comment value="Subject" />
-      </mapping>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter" />
+      </type>
     </element>
     <element id="Observation.effective[x]:effectivePeriod">
       <path value="Observation.effectivePeriod" />
@@ -135,11 +122,6 @@
       <type>
         <code value="Period" />
       </type>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.14" />
-        <comment value="DateTime" />
-      </mapping>
     </element>
     <element id="Observation.effective[x]:effectivePeriod.start">
       <path value="Observation.effectivePeriod.start" />
@@ -182,49 +164,6 @@
         <map value="NL-CM:7.4.7" />
         <comment value="StopDate" />
       </mapping>
-    </element>
-    <element id="Observation.performer">
-      <path value="Observation.performer" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.7" />
-        <comment value="Author" />
-      </mapping>
-    </element>
-    <element id="Observation.performer.extension">
-      <path value="Observation.performer.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Observation.performer.extension:practitionerRole">
-      <path value="Observation.performer.extension" />
-      <sliceName value="practitionerRole" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-      </type>
     </element>
     <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
@@ -316,9 +255,6 @@
       <fixedCode value="410942007" />
     </element>
     <element id="Observation.component:DrugOrMedicationType.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Drug or medicament (substance)" />
     </element>
@@ -378,9 +314,6 @@
       <fixedCode value="410675002" />
     </element>
     <element id="Observation.component:RouteOfAdministration.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Route of administration (attribute)" />
     </element>
@@ -440,9 +373,6 @@
       <fixedCode value="228390007" />
     </element>
     <element id="Observation.component:Amount.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Frequency of drug misuse (observable entity)" />
     </element>
