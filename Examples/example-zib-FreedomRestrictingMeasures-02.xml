@@ -1,0 +1,57 @@
+﻿<?xml-model href="http://hl7.org/fhir/STU3/procedure.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Procedure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/procedure.xsd" xmlns="http://hl7.org/fhir">
+    <id value="zib-freedomrestrictingmeasures-example-02"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures"/>
+    </meta>
+    <!-- LegallyCapable -->
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures-LegallyCapable">
+        <!-- LegallyCapableIndicator -->
+        <extension url="LegallyCapableIndicator">
+            <valueBoolean value="false"/>
+        </extension>
+        <!-- LegallyCapableComment -->
+        <extension url="legallyCapableComment">
+            <valueString value="Wilsonbekwaam t.a.v. geldzaken."/>
+        </extension>
+    </extension>
+    <!-- Permission -->
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures-Permission">
+        <!--<extension url="Permission">-->
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.6.1"/>
+                <code value="4"/>
+                <display value="Instemming wettelijke vertegenwoordiger"/>
+            </coding>
+        </valueCodeableConcept>
+        <!--</extension>-->
+    </extension>
+    <status value="completed"/>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="225214000"/>
+            <display value="Procedures relating to control, restraint, seclusion and segregation (procedure)"/>
+        </coding>
+    </category>
+    <!-- TypeOfInterventionCode -->
+    <code>
+        <coding>
+            <!-- TypeOfInterventionCodelist -->
+            <system value="http://snomed.info/sct"/>
+            <code value="225317005"/>
+            <display value="Restriction of movement"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/medmij-bgz-patient-ts-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <performedPeriod>
+        <!-- StartEpisode -->
+        <start value="2014-05-01"/>
+        <!-- EndOfEpisode -->
+        <end value="2014-05-05"/>
+    </performedPeriod>
+</Procedure>
