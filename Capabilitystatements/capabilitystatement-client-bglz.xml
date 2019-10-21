@@ -4,8 +4,8 @@
     <url value="http://nictiz.nl/fhir/CapabilityStatement/bglz-clientcapabilities"/>
     <version value="1.0.0"/>
     <name value="bglzClient"/>
-    <status value="draft"/>
-    <date value="2019-05-20"/>
+    <status value="active"/>
+    <date value="2019-09-05"/>
     <publisher value="Nictiz"/>
     <contact>
         <name value="Nictiz"/>
@@ -43,6 +43,10 @@
         <display value="nl-core-careteam"/>
     </profile>
     <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-careplan"/>
+        <display value="nl-core-careplan"/>
+    </profile>
+    <profile>
         <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective"/>
         <display value="zib-TreatmentDirective"/>
     </profile>
@@ -73,10 +77,6 @@
     <profile>
         <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice"/>
         <display value="zib-MedicalDevice"/>
-    </profile>
-    <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-OutcomeOfCare"/>
-        <display value="zib-OutcomeOfCare"/>
     </profile>
     <rest>
         <mode value="client"/>
@@ -162,6 +162,16 @@
             </searchParam>
         </resource>
         <resource>
+            <type value="Condition"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchParam>
+                <name value="patient"/>
+                <type value="reference"/>
+            </searchParam>
+        </resource>
+        <resource>
             <type value="CareTeam"/>
             <interaction>
                 <code value="search-type"/>
@@ -173,12 +183,30 @@
             </searchParam>
         </resource>
         <resource>
-            <type value="Condition"/>
+            <type value="CarePlan"/>
             <interaction>
                 <code value="search-type"/>
             </interaction>
+            <searchInclude value="activity-goal"/>
+            <searchInclude value="activity-outcomereference"/>
+            <searchInclude value="medicaldevice"/>
             <searchParam>
                 <name value="patient"/>
+                <type value="reference"/>
+            </searchParam>
+            <searchParam>
+                <name value="activity-goal"/>
+                <definition value="http://nictiz.nl/fhir/SearchParameter/careplan-activity-goal"/>
+                <type value="reference"/>
+            </searchParam>
+            <searchParam>
+                <name value="activity-outcomereference"/>
+                <definition value="http://nictiz.nl/fhir/SearchParameter/careplan-activity-outcomereference"/>
+                <type value="reference"/>
+            </searchParam>
+            <searchParam>
+                <name value="medicaldevice"/>
+                <definition value="http://nictiz.nl/fhir/SearchParameter/careplan-medicaldevice"/>
                 <type value="reference"/>
             </searchParam>
         </resource>

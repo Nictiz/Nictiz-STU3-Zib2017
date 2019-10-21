@@ -1,0 +1,50 @@
+﻿<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd" xmlns="http://hl7.org/fhir">
+    <id value="medmij-bgz-illnessperception-ts-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-IllnessPerception"/>
+    </meta>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="363910003"/>
+            <display value="Characteristic of psychosocial functioning (observable entity)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/medmij-bgz-patient-ts-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <effectiveDateTime value="2019-03-31"/>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="27026000"/>
+                <display value="Patient Illness Insight"/>
+            </coding>
+        </code>
+        <valueString value="Kan niet overzien wat de ziekte betekent in het dagelijks leven."/>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="364667003"/>
+                <display value="Coping With Illness By Patient"/>
+            </coding>
+        </code>
+        <valueString value="Patiënt wil niet praten over de toekomst."/>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="405199009"/>
+                <display value="Coping With Illness By Family"/>
+            </coding>
+        </code>
+        <valueString value="Partner heeft veel vragen over hoe de toekomst er uit ziet."/>
+    </component>
+</Observation>

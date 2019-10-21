@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-flaccpainscale-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FLACCPainScale"/>
+    </meta>
+    <status value="preliminary"/>
+    <code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="38213-5"/>
+            <display value="FLACC pain assessment panel"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-example-1"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <effectiveDateTime value="2013-02-08T06:43:00+02:00"/>
+    <valueQuantity>
+        <value value="6"/>
+    </valueQuantity>
+    <comment value="Controle voor toediening pijnmedicatie"/>
+    <component>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="38216-8"/>
+                <display value="Pain severity Face FLACC"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.21.1"/>
+                <code value="Face1"/>
+                <display value="Fronst af en toe of trekt een grimas, is teruggetrokken, ongeïnteresseerd"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="38217-6"/>
+                <display value="Pain severity Legs FLACC"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.21.2"/>
+                <code value="Legs2"/>
+                <display value="Schopt of heeft opgetrokken benen"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="38218-4"/>
+                <display value="Pain severity Activity FLACC"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.21.3"/>
+                <code value="Act1"/>
+                <display value="Kronkelt, wringt zich in bochten, verandert steeds van houding,is gespannen"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="38219-2"/>
+                <display value="Pain severity Cry FLACC"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.21.3"/>
+                <code value="Act1"/>
+                <display value="Kronkelt, wringt zich in bochten, verandert steeds van houding,is gespannen"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="38219-2"/>
+                <display value="Pain severity Cry FLACC"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.21.4"/>
+                <code value="Cry0"/>
+                <display value="Huilt niet (wakker of slapend)"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+</Observation>

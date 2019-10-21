@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Pregnancy" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy" />
+  <version value="1.0.0" />
+  <name value="Zib Pregnancy" />
+  <title value="HCIM Pregnancy" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A Condition resource as defined by the Dutch HCIM Pregnancy v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Pregnancy or gravidity is the condition in which a woman carries a fertilized egg, which grows into an embryo and then a fetus. A pregnancy of between 37 and 42 weeks is considered normal. “Term pregnancy” is 37 to 42 weeks. The term gravidity is also used for the number of times a woman has been pregnant. This and parity - the number of times a woman has given birth - provides insight into the patient’s obstetric history." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;If the patient is pregnant, it is important to mention this, as it requires specific attention in their care. Pregnancy can influence treatment decisions, the treatment itself and the patient’s care.&#xD;&#xA;&#xD;&#xA;# Purpose of this profile&#xD;&#xA;This profile specializes the Problem HCIM profile (FHIR Condition) to track the overarching parts of the Pregnancy HCIM. It is complemented by four Observation profiles for the observable/momentary parts of the HCIM: zib-Pregnancy-PregnancyStatus, zib-Pregnancy-TermDate, zib-Pregnancy-DateLastMenstruation and zib-Pregnancy-PregnancyDuration" />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-pregnancy-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Pregnancy-v3.1(2017EN)" />
+    <name value="HCIM Pregnancy-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Condition" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Condition">
+      <path value="Condition" />
+      <short value="Pregnancy" />
+      <definition value="Root concept of the Pregnancy information model. This root concept contains all data elements of the Pregnancy information model." />
+      <alias value="Zwangerschap" />
+      <mapping>
+        <identity value="hcim-pregnancy-v3.1-2017EN" />
+        <map value="NL-CM:7.14.1" />
+        <comment value="Pregnancy" />
+      </mapping>
+    </element>
+    <element id="Condition.code.coding">
+      <path value="Condition.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Condition.code.coding:PregnancyObservable">
+      <path value="Condition.code.coding" />
+      <sliceName value="PregnancyObservable" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Condition.code.coding:PregnancyObservable.system">
+      <path value="Condition.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Condition.code.coding:PregnancyObservable.code">
+      <path value="Condition.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="364320009" />
+    </element>
+    <element id="Condition.code.coding:PregnancyObservable.display">
+      <path value="Condition.code.coding.display" />
+      <defaultValueString value="Pregnancy observable" />
+    </element>
+    <element id="Condition.note">
+      <path value="Condition.note" />
+      <definition value="Comment on the pregnancy." />
+      <max value="1" />
+      <mapping>
+        <identity value="hcim-pregnancy-v3.1-2017EN" />
+        <map value="NL-CM:7.14.7" />
+        <comment value="Toelichting" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

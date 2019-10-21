@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Nictiz.IHE.MHD.DocumentManifest" />
+  <text>
+    <status value="additional" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+	StructureDefinition for DocumentManifest as represented in the Provide and Query interactions in the 
+    IHE IT Infrastructure Technical Framework Supplement <a href="http://wiki.ihe.net/index.php/Mobile_access_to_Health_Documents_(MHD)">Mobile access to Health Documents (MHD) Rev. 2.3</a>.
+	The IHE MHD Profile text is Normative, this conformance resource is Informative.</div>
+  </text>
+  <url value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.DocumentManifest" />
+  <name value="Nictiz.IHE.MHD.DocumentManifest" />
+  <title value="Nictiz IHE MHD Profile on DocumentManifest (SubmissionSet)" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2019-07-29" />
+  <publisher value="HL7 Netherlands" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Profile on DocumentManifest based on IHE IT Infrastructure Technical Framework Supplement - Mobile access to Health Documents (MHD) Rev. 2.3.  - revised by Nictiz to add a correct slicing on .content.p[x] and replaces incorrect references.&#xD;&#xA;&#xD;&#xA;See http://wiki.ihe.net/index.php/Mobile_access_to_Health_Documents_(MHD)  The IHE MHD Profile text is Normative, this conformance resource is Informative." />
+  <purpose value="Copied profile from IHE MHD - revised by Nictiz to add a correct slicing on .content.p[x] and replaces incorrect references." />
+  <fhirVersion value="3.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DocumentManifest" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DocumentManifest" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DocumentManifest.text">
+      <path value="DocumentManifest.text" />
+      <mapping>
+        <identity value="XDS" />
+        <map value="SubmissionSet.comment" />
+      </mapping>
+    </element>
+    <element id="DocumentManifest.masterIdentifier">
+      <path value="DocumentManifest.masterIdentifier" />
+      <min value="1" />
+    </element>
+    <element id="DocumentManifest.identifier">
+      <path value="DocumentManifest.identifier" />
+      <min value="1" />
+    </element>
+    <element id="DocumentManifest.status">
+      <path value="DocumentManifest.status" />
+      <comment value="approved -&gt; status=current" />
+    </element>
+    <element id="DocumentManifest.type">
+      <path value="DocumentManifest.type" />
+      <min value="1" />
+    </element>
+    <element id="DocumentManifest.subject">
+      <path value="DocumentManifest.subject" />
+      <comment value="Not a contained resource. URL Points to an existing Patient resource representing Affinity Domain Patient" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+      </type>
+    </element>
+    <element id="DocumentManifest.created">
+      <path value="DocumentManifest.created" />
+      <min value="1" />
+    </element>
+    <element id="DocumentManifest.author">
+      <path value="DocumentManifest.author" />
+      <comment value="Contained resource of type Practitioner or Organization with:&#xD;&#xA;* authorInstitution: Organization&#xD;&#xA;For Practionioner, also with:&#xD;&#xA;* authorPerson: Practitioner.identifier and Practitioner.name&#xD;&#xA;* authorRole:—Not supported in STU3&#xD;&#xA;* authorSpecialty: Practitioner.qualification&#xD;&#xA;* authorTelecommunication: Practitioner.telecom" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="DocumentManifest.source">
+      <path value="DocumentManifest.source" />
+      <min value="1" />
+    </element>
+    <element id="DocumentManifest.content.p[x]">
+      <path value="DocumentManifest.content.p[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <comment value="DocumentManifest.content.pAttachment is not used in XDS, therefore would not be present. Document Consumers should be robust to these elements holding values. Added a type slice and set the rules to closed to enforce constraining of pAttachment." />
+    </element>
+    <element id="DocumentManifest.content.p[x]:pReference">
+      <path value="DocumentManifest.content.p[x]" />
+      <sliceName value="pReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.Provide.Minimal.DocumentReference" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference" />
+      </type>
+    </element>
+    <element id="DocumentManifest.related">
+      <path value="DocumentManifest.related" />
+      <comment value="These HL7 FHIR STU3 elements are not used in XDS, therefore would not be present. Document Consumers should be robust to these elements holding values." />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

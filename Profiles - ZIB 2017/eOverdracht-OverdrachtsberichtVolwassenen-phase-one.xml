@@ -15,8 +15,8 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="Profile on the Composition resource which represents a part of the Overdrachtsbericht Volwassenen for eOverdracht and is used in phase one of the eOverdracht pilot. More on information standard eOverdracht: https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorg" />
-  <purpose value="The purpose of an Overdrachtsbericht Volwassenen is to enable the health organization that receives it to continue the care of patient/clients of 18 years and older" />
+  <description value="Profile on the Composition resource which represents a part of the Overdrachtsbericht Volwassenen for eOverdracht and is used in phase one of the eOverdracht pilot. More information on the standard eOverdracht: https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorg" />
+  <purpose value="The purpose of an Overdrachtsbericht Volwassenen is to enable the health organization that receives it to continue the care of patient/clients of 18 years and older." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
   <mapping>
@@ -88,7 +88,7 @@
     </element>
     <element id="Composition.title">
       <path value="Composition.title" />
-      <fixedString value="e-Overdracht Overdrachtbericht Volwassenen" />
+      <fixedString value="Overdrachtsbericht Volwassenen" />
     </element>
     <element id="Composition.section">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -116,6 +116,7 @@
       <mapping>
         <identity value="eOverdracht-OverdrachtsberichtVolwassenen" />
         <map value="e-overdracht-dataelement-v3-1" />
+        <comment value="Administratieve gegevens" />
       </mapping>
     </element>
     <element id="Composition.section:administrativeData.extension">
@@ -151,6 +152,10 @@
       <min value="1" />
       <fixedString value="Administrative data" />
     </element>
+    <element id="Composition.section:administrativeData.entry">
+      <path value="Composition.section.entry" />
+      <max value="0" />
+    </element>
     <element id="Composition.section:administrativeData.section">
       <path value="Composition.section.section" />
       <slicing>
@@ -184,46 +189,37 @@
       <path value="Composition.section.section.entry" />
       <slicing>
         <discriminator>
-          <type value="type" />
-          <path value="$this" />
+          <type value="profile" />
+          <path value="resolve()" />
         </discriminator>
         <rules value="open" />
       </slicing>
       <min value="1" />
+      <max value="1" />
     </element>
     <element id="Composition.section:administrativeData.section:personalData.entry:payer">
       <path value="Composition.section.section.entry" />
       <sliceName value="payer" />
-      <short value="A reference to payer data" />
       <min value="1" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer" />
       </type>
       <mapping>
-        <identity value="eOverdracht-OverdrachtsberichtVolwassenen" />
+        <identity value="eOverdracht-Aanmeldbericht" />
         <map value="e-overdracht-dataelement-v3-52" />
-        <comment value="Persoonsgegevens:Betaler" />
+        <comment value="Betaler" />
       </mapping>
     </element>
-    <element id="Composition.section:administrativeData.section:personalData.entry:contactPerson">
-      <path value="Composition.section.section.entry" />
-      <sliceName value="contactPerson" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
-      <mapping>
-        <identity value="eOverdracht-OverdrachtsberichtVolwassenen" />
-        <map value="e-overdracht-dataelement-v3-71" />
-        <comment value="Persoonsgevens:Contactpersoon" />
-      </mapping>
+    <element id="Composition.section:administrativeData.section:personalData.section">
+      <path value="Composition.section.section.section" />
+      <max value="0" />
     </element>
     <element id="Composition.section:administrativeData.section:sendingOrganization">
       <path value="Composition.section.section" />
       <sliceName value="sendingOrganization" />
       <short value="Sending Organization" />
-      <definition value="Subsection listing data about the sending organization." />
+      <definition value="Subsection listing data about the sending organization.[" />
       <min value="1" />
       <max value="1" />
       <mapping>
@@ -240,19 +236,55 @@
     </element>
     <element id="Composition.section:administrativeData.section:sendingOrganization.entry">
       <path value="Composition.section.section.entry" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="resolve()" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <short value="A reference to data about the sending organization" />
       <min value="1" />
-      <max value="1" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
       <mapping>
         <identity value="eOverdracht-OverdrachtsberichtVolwassenen" />
         <map value="e-overdracht-dataelement-v3-80" />
         <comment value="Zorgaanbieder" />
       </mapping>
     </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.entry:organization">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="organization" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.entry:practitioner">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="practitioner" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.entry:practitionerRole">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="practitionerRole" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+      </type>
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.section">
+      <path value="Composition.section.section.section" />
+      <max value="0" />
+    </element>
+
     <element id="Composition.section:administrativeData.section:receivingOrganization">
       <path value="Composition.section.section" />
       <sliceName value="receivingOrganization" />
@@ -274,16 +306,46 @@
     <element id="Composition.section:administrativeData.section:receivingOrganization.entry">
       <path value="Composition.section.section.entry" />
       <short value="A reference to data about the receiving organization" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="resolve()" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.entry:organization">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="organization" />
+      <min value="1" />
       <max value="1" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
       </type>
-      <mapping>
-        <identity value="eOverdracht-OverdrachtsberichtVolwassenen" />
-        <map value="e-overdracht-dataelement-v3-102" />
-        <comment value="Zorgaanbieder" />
-      </mapping>
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.entry:practitioner">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="practitioner" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.entry:practitionerRole">
+      <path value="Composition.section.section.entry" />
+      <sliceName value="practitionerRole" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
+      </type>
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.section">
+      <path value="Composition.section.section.section" />
+      <max value="0" />
     </element>
     <element id="Composition.section:pdf-file">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -292,7 +354,7 @@
       <path value="Composition.section" />
       <sliceName value="pdf-file" />
       <short value="PDF file" />
-      <definition value="This section contains a entry with a reference to a Binary resource containing a PDF file in base64 encoded data. The PDF file contains the remaining eOverdracht 'Aanmeldbericht' information." />
+      <definition value="This section contains a entry with a reference to a Binary resource containing a PDF file in base64 encoded data. The PDF file contains the remaining eOverdracht 'OverdrachtsberichtVolwassenen' information." />
       <max value="1" />
     </element>
     <element id="Composition.section:pdf-file.title">
@@ -302,8 +364,8 @@
     </element>
     <element id="Composition.section:pdf-file.entry">
       <path value="Composition.section.entry" />
-      <short value="eOverdracht Aanmeldbericht PDF" />
-      <definition value="A reference to a Binary resource containing a PDF file in base64 encoded data. The PDF file contains the remaining eOverdracht 'Aanmeldbericht' information." />
+      <short value="eOverdracht OverdrachtsberichtVolwassenen PDF" />
+      <definition value="A reference to a Binary resource containing a PDF file in base64 encoded data. The PDF file contains the remaining eOverdracht 'OverdrachtsberichtVolwassenen' information." />
       <min value="1" />
       <max value="1" />
       <type>

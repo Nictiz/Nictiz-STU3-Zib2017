@@ -1,0 +1,66 @@
+<?xml-model href="http://hl7.org/fhir/STU3/media.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Media xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/media.xsd">
+    <id value="eczema-detail-acute-media"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/images-Media"/>
+        <security>
+            <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+            <code value="V"/>
+            <display value="very restricted"/>
+            <userSelected value="true"/>
+        </security>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/images-recipient">
+        <valueReference>
+            <reference value="PractitionerRole/example"/>
+            <display value="Vaste Huisarts 1"/>
+        </valueReference>
+    </extension>
+    <identifier>
+        <system value="http://example-xis.org/fhir/NamingSystem/imageID"/>
+        <value value="1000002123"/>
+    </identifier>
+    <type value="photo"/>
+    <subtype>
+        <coding>
+            <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+            <code value="XC"/>
+            <display value="External-camera Photography"/>
+        </coding>
+    </subtype>
+    <subject>
+        <reference value="Patient/xxx-baltus"/>
+        <display value="E XXX_Baltus"/>
+    </subject>
+    <occurrenceDateTime value="2018-12-04T15:38:01+01:00"/>
+    <reasonCode>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="703938007"/>
+            <display value="Inflammatory dermatosis (disorder)"/>
+        </coding>
+    </reasonCode>
+    <bodySite>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="7311008"/>
+            <display value="Anterior surface of arm"/>
+        </coding>
+    </bodySite>
+    <device>
+        <reference value="Device/example-camera"/>
+        <display value="Iphone 7"/>
+    </device>
+    <height value="1000"/>
+    <width value="662"/>
+    <content>
+        <contentType value="image/jpeg"/>
+        <url value="Binary/eczema-detail-acute-binary"/>
+        <size value="128000"/>
+        <hash value="3G+rTEx+TdWrmPJ6qqZBb2UEbQo="/>
+        <title value="Eczema close up"/>
+    </content>
+    <note>
+        <text value="Sinds gister werd de eczeem heftiger. De zalf lijkt niet te werken. Wat denkt u?"/>
+    </note>
+</Media>

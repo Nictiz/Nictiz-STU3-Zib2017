@@ -1,0 +1,81 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="event-reasonReference" />
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/event-reasonReference" />
+  <name value="reasonReference" />
+  <title value="Reason Reference" />
+  <status value="draft" />
+  <date value="2014-01-31" />
+  <publisher value="Health Level Seven, Inc. - FHIR WG" />
+  <contact>
+    <telecom>
+      <system value="url" />
+      <value value="http://hl7.org/special/committees/fwg" />
+    </telecom>
+  </contact>
+  <description value="Indicates another resource whose existence justifies this event." />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Observation" />
+  <context value="DiagnosticReport" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Why was event performed?" />
+      <definition value="Indicates another resource whose existence justifies this event." />
+      <min value="0" />
+      <max value="*" />
+      <mapping>
+        <identity value="v2" />
+        <map value="EVN.4 or by domain" />
+      </mapping>
+      <mapping>
+        <identity value="rim" />
+        <map value=".outboundRelationship[typeCode=RSON].target" />
+      </mapping>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <max value="0" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/event-reasonReference" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition> 
