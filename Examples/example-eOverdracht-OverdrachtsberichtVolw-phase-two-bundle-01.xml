@@ -87,7 +87,7 @@
 							<display value="Medisch specialisten, geriatrie"/>
 						</entry>
 						<entry>
-							<reference value="Practitioner/zib-zorgverlener-practitionerrole-01"/>
+							<reference value="Practitioner/zib-zorgverlener-practitioner-01"/>
 							<display value="Medisch specialisten, geriatrie"/>
 						</entry>
 					</section>
@@ -983,6 +983,224 @@
 					</coding>
 				</bodySite>
 			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Organization/medmij-bgz-healthcareprovider-ts-03" />
+		<resource>
+			<Organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/organization.xsd" xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-healthcareprovider-ts-03"/>
+				<meta>
+					<profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+				</meta>
+				<type>
+					<coding>
+						<system value="http://nictiz.nl/fhir/NamingSystem/organization-type"/>
+						<code value="Z3"/>
+						<display value="Huisartspraktijk (zelfstandig of groepspraktijk)"/>
+					</coding>
+				</type>
+				<name value="Maatschap Vaste Huisarts"/>
+			</Organization>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<resource>
+			<PractitionerRole xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitionerrole.xsd" xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-practitionerrole-ts-01"/>
+				<meta>
+					<profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+				</meta>
+				<practitioner>
+					<reference value="Practitioner/medmij-bgz-practitioner-ts-02"/>
+					<display value="Vaste Huisarts 1"/>
+				</practitioner>
+				<organization>
+					<reference value="Organization/medmij-bgz-healthcareprovider-ts-03"/>
+					<display value="Maatschap Vaste Huisarts"/>
+				</organization>
+				<code>
+					<coding>
+						<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+						<code value="PRF"/>
+						<display value="Performer"/>
+					</coding>
+				</code>
+				<specialty>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+						<code value="0100"/>
+						<display value="Huisartsen, niet nader gespecificeerd"/>
+					</coding>
+				</specialty>
+			</PractitionerRole>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/PractitionerRole/zib-zorgverlener-practitionerrole-01" />
+		<resource>
+			<PractitionerRole xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitionerrole.xsd" xmlns="http://hl7.org/fhir">
+				<id value="zib-zorgverlener-practitionerrole-01"/>
+				<meta>
+					<profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+				</meta>
+				<practitioner>
+					<reference value="Practitioner/zib-zorgverlener-practitionerrole-01"/>
+					<display value="Dirk de Vries"/>
+				</practitioner>
+				<code>
+					<coding>
+						<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+						<code value="RESP"/>
+						<display value="Responsible Party"/>
+					</coding>
+				</code>
+				<specialty>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+						<code value="0335"/>
+						<display value="Medisch specialisten, geriatrie"/>
+					</coding>
+				</specialty>
+			</PractitionerRole>		
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Practitioner/zib-zorgverlener-practitioner-01" />
+		<resource>
+			<Practitioner xmlns="http://hl7.org/fhir">
+				<id value="zib-zorgverlener-practitioner-01"/>
+				<meta>
+					<profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+				</meta>
+				<identifier>
+					<system value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"/>
+					<value value="000432123"/>
+				</identifier>
+				<name>
+					<family value="de Vries">
+						<extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+							<valueString value="de"/>
+						</extension>
+						<extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+							<valueString value="Vries"/>
+						</extension>
+					</family>
+					<given value="Dirk">
+						<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+							<valueCode value="BR"/>
+						</extension>
+					</given>
+				</name>
+			</Practitioner>
+			
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Condition/medmij-bgz-condition-ts-02" />
+		<resource>
+			<Condition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd" xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-condition-ts-02"/>
+				<meta>
+					<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
+				</meta>
+				<clinicalStatus value="inactive"/>
+				<verificationStatus value="unknown"/>
+				<code>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="31641000146105"/>
+						<display value="Fracture of wrist (disorder)"/>
+					</coding>
+				</code>
+				<bodySite>
+					<extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
+						<valueCodeableConcept>
+							<coding>
+								<system value="http://snomed.info/sct"/>
+								<code value="24028007"/>
+								<display value="Right"/>
+							</coding>
+						</valueCodeableConcept>
+					</extension>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="361289009"/>
+						<display value="Entire wrist region"/>
+					</coding>
+				</bodySite>
+				<subject>
+					<reference value="Patient/medmij-bgz-patient-ts-01"/>
+					<display value="Johan XXX_Helleman"/>
+				</subject>
+				<onsetPeriod>
+					<start value="2001"/>
+				</onsetPeriod>
+				<note>
+					<text value="gevallen op de kunstijsbaan"/>
+				</note>
+			</Condition>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Observation/Stoma" />
+		<resource>
+			<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd" xmlns="http://hl7.org/fhir">
+				<id value="stoma"/>
+				<meta>
+					<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Stoma"/>
+				</meta>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="245857005"/>
+						<display value="Stoma (morphologic abnormality)"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/nl-core-patient-example-1"/>
+					<display value="I. Jongeneel-de Haas"/>
+				</subject>
+				<effectiveDateTime value="2014"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="261030007"/>
+						<display value="end colostomy stoma"/>
+					</coding>
+				</valueCodeableConcept>
+				<comment value="Patient heeft veel last van dit type stoma."/>
+				<bodySite>
+					<extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
+						<valueCodeableConcept>
+							<coding>
+								<system value="http://snomed.info/sct"/>
+								<code value="24028007"/>
+								<display value="Right"/>
+							</coding>
+						</valueCodeableConcept>
+					</extension>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="362692001"/>
+						<display value="Entire lower abdomen"/>
+					</coding>
+				</bodySite>
+			</Observation>		
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<resource>
+			
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<resource>
+			
 		</resource>
 	</entry>
 	<entry> 
