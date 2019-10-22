@@ -1,0 +1,73 @@
+<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+    <url value="http://nictiz.nl/fhir/ConceptMap/AllergieCategorieCodelijst-to-allergy-intolerance-category"/>
+    <version value="2.0.0"/>
+    <name value="AllergieCategorieCodelijst-to-allergy-intolerance-category"/>
+    <title value="HCIM AllergieCategorieCodelijst to allergy intolerance category"/>
+    <status value="active"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="Maps the HCIM AllergyIntolerance release 2017 terminology for AllergyCategorie to the FHIR STU3 terminology"/>
+    <purpose value="To aid in mapping from HCIM AllergyIntolerance value set AllergieCategorieCodelijst to FHIR STU3 AllergyIntoleranceCategory"/>
+    <copyright value="CC0"/>
+    <sourceUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.2--20171231000000"/>
+    <targetUri value="http://hl7.org/fhir/ValueSet/allergy-intolerance-category"/>
+    <group>
+        <source value="http://snomed.info/sct"/>
+        <target value="http://hl7.org/fhir/allergy-intolerance-category"/>
+        <element>
+            <code value="418471000"/>
+            <display value="neiging tot ongewenste reactie op voedsel (aandoening)"/>
+            <target>
+                <code value="food"/>
+                <display value="Food"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="419511003"/>
+            <display value="neiging tot ongewenste reactie op geneesmiddel (bevinding)"/>
+            <target>
+                <code value="medication"/>
+                <display value="Medication"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="426232007"/>
+            <display value="omgevingsgerelateerde allergie (bevinding)"/>
+            <target>
+                <code value="environment"/>
+                <display value="Environment"/>
+                <equivalence value="equal"/>
+            </target>
+        </element>
+        <element>
+            <code value="419199007"/>
+            <display value="allergie voor substantie (bevinding)"/>
+            <target>
+                <code value="biologic"/>
+                <display value="Biologic"/>
+                <equivalence value="specializes"/>
+            </target>
+        </element>
+    </group>
+    <group>
+        <source value="http://hl7.org/fhir/v3/NullFlavor"/>
+        <element>
+            <code value="OTH"/>
+            <display value="anders"/>
+            <target>
+                <equivalence value="unmatched"/>
+                <comment value="The HCIM defines that 'other' is a possible value for the AllergyCategory. The required AllergyIntolerance.category binding does not recognize this use case. If transmitting the value under OTH is not required, omit the AllergyIntolerance.category. If the actual value associated with OTH is known and relevant, use AllergyIntolerance.category + extension http://hl7.org/fhir/data-absent-reason 'unsupported' + extension http://nictiz.nl/fhir/StructureDefinition/code-specification with the description under valueCodeableConcept.text"/>
+            </target>
+        </element>
+    </group>
+</ConceptMap>
