@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/deviceusestatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<DeviceUseStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd" xmlns="http://hl7.org/fhir">
+    <id value="infusion"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion"/>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine">
+        <extension url="LineStatus">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.12.1"/>
+                    <code value="LNP"/>
+                    <display value="Lopend"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="LumenLocation">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="40415009"/>
+                    <display value="Proximal"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="AdministeringSystem">
+            <valueReference>
+                <reference value="MedicationAdministration/infusionfluid-tpv-example"/>
+                <display value="TPV 1 liter per 24 uur"/>
+            </valueReference>
+        </extension>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine">
+        <extension url="LineStatus">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.12.1"/>
+                    <code value="DOP"/>
+                    <display value="Afgedopt"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="LumenLocation">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="255561001"/>
+                    <display value="Medial"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="LockFluid">
+            <valueReference>
+                <reference value="MedicationAdministration/lockfluid-nacl-example"/>
+                <display value="Lockfluid NaCl 0.9 %"/>
+            </valueReference>
+        </extension>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine">
+        <extension url="LineStatus">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.12.1"/>
+                    <code value="LNP"/>
+                    <display value="Lopend"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="LumenLocation">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="46053002"/>
+                    <display value="Distal"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="AdministeringSystem">
+            <valueReference>
+                <reference value="MedicationAdministration/infusionfluid-nacl-example"/>
+                <display value="NaCl 0.9 % 500 ml per 24 uur"/>
+            </valueReference>
+        </extension>
+    </extension>
+    <status value="active"/>
+    <subject>
+        <reference value="Patient/nl-core-patient-example-1"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <whenUsed>
+        <start value="2014-11-30"/>
+    </whenUsed>
+    <device>
+        <reference value="Device/infusion-product"/>
+        <display value="Centraal veneuze katheter"/>
+    </device>
+    <bodySite>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="734747003"/>
+            <display value="Structure of left subclavian vein (body structure)"/>
+        </coding>
+    </bodySite>
+</DeviceUseStatement>
