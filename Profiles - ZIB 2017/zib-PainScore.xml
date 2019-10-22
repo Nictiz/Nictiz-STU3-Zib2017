@@ -31,7 +31,7 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation">
@@ -59,10 +59,6 @@
     <element id="Observation.identifier">
       <path value="Observation.identifier" />
       <max value="1" />
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.6" />
-      </mapping>
     </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
@@ -88,16 +84,10 @@
     </element>
     <element id="Observation.subject">
       <path value="Observation.subject" />
-      <min value="1" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.11" />
-        <comment value="Subject" />
-      </mapping>
     </element>
     <element id="Observation.effective[x]:effectiveDateTime">
       <path value="Observation.effectiveDateTime" />
@@ -109,30 +99,6 @@
       <mapping>
         <identity value="hcim-painscore-v3.1-2017EN" />
         <map value="NL-CM:12.9.3" />
-      </mapping>
-    </element>
-    <element id="Observation.performer">
-      <path value="Observation.performer" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.7" />
-        <comment value="Author" />
       </mapping>
     </element>
     <element id="Observation.value[x]:valueQuantity">
@@ -168,9 +134,6 @@
       <definition value="Anatomical location which is the focus of the procedure." />
       <alias value="AnatomischeLocatie" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite" />
-        </extension>
         <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.9.2--20171231000000" />
@@ -225,9 +188,6 @@
       <alias value="PijnMeetmethode" />
       <min value="1" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationMethod" />
-        </extension>
         <strength value="required" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.9.1--20171231000000" />

@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-FamilySituation" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation" />
-  <version value="1.1.0" />
+  <version value="1.1.1" />
   <name value="Zib FamilySituation" />
   <title value="HCIM FamilySituation" />
   <status value="active" />
@@ -32,7 +32,7 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation">
@@ -44,14 +44,6 @@
         <identity value="hcim-familysituation-v3.0-2017EN" />
         <map value="NL-CM:7.13.1" />
         <comment value="FamilySituation" />
-      </mapping>
-    </element>
-    <element id="Observation.identifier">
-      <path value="Observation.identifier" />
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.6" />
-        <comment value="IdentificationNumber" />
       </mapping>
     </element>
     <element id="Observation.code.coding">
@@ -83,15 +75,11 @@
       <fixedCode value="365470003" />
     </element>
     <element id="Observation.code.coding:familySituationCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Finding of family details and household composition (finding)" />
     </element>
     <element id="Observation.subject">
       <path value="Observation.subject" />
-      <min value="1" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
@@ -111,77 +99,6 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.11" />
-        <comment value="Subject" />
-      </mapping>
-    </element>
-    <element id="Observation.context">
-      <path value="Observation.context" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
-      </type>
-    </element>
-    <element id="Observation.effective[x]">
-      <path value="Observation.effective[x]" />
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.14" />
-        <comment value="DateTime" />
-      </mapping>
-    </element>
-    <element id="Observation.performer">
-      <path value="Observation.performer" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.7" />
-        <comment value="Author" />
-      </mapping>
-    </element>
-    <element id="Observation.performer.extension">
-      <path value="Observation.performer.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Observation.performer.extension:practitionerRole">
-      <path value="Observation.performer.extension" />
-      <sliceName value="practitionerRole" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
       </type>
     </element>
     <element id="Observation.comment">
@@ -225,9 +142,6 @@
       <fixedCode value="224130005" />
     </element>
     <element id="Observation.component:familyComposition.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Household composition (observable entity)" />
     </element>
@@ -284,9 +198,6 @@
       <fixedCode value="224118004" />
     </element>
     <element id="Observation.component:numberOfChildren.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Number of offspring (observable entity)" />
     </element>
@@ -327,9 +238,6 @@
       <fixedCode value="55811000146107" />
     </element>
     <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:numberOfChildrenLivingAtHomeCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Number of children living at home (observable entity)" />
     </element>
@@ -367,9 +275,6 @@
       <fixedCode value="406192005" />
     </element>
     <element id="Observation.component:careResponsibility.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Caregiver behavior (observable entity)" />
     </element>
@@ -436,9 +341,6 @@
       <fixedCode value="67822003" />
     </element>
     <element id="Observation.component:child.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Child (person)" />
     </element>

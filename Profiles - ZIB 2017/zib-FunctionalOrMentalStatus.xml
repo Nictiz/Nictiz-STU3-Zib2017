@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-FunctionalOrMentalStatus" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FunctionalOrMentalStatus" />
-  <version value="2.1.0" />
+  <version value="2.1.1" />
   <name value="Zib FunctionalOrMentalStatus" />
   <title value="HCIM FunctionalOrMentalStatus" />
   <status value="active" />
@@ -47,7 +47,7 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation">
@@ -111,14 +111,6 @@
         <comment value="MedicalDevice" />
       </mapping>
     </element>
-    <element id="Observation.identifier">
-      <path value="Observation.identifier" />
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.6" />
-        <comment value="IdentificationNumber" />
-      </mapping>
-    </element>
     <element id="Observation.category">
       <path value="Observation.category" />
       <comment value="Either a snomed code for functional or mental status is provided for indexing and retrieval of this this concept." />
@@ -150,9 +142,6 @@
       <fixedCode value="118228005" />
     </element>
     <element id="Observation.category.coding:functionalCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.category.coding.display" />
       <defaultValueString value="Functional finding (finding)" />
     </element>
@@ -172,9 +161,6 @@
       <fixedCode value="384821006" />
     </element>
     <element id="Observation.category.coding:mentalCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.category.coding.display" />
       <defaultValueString value="Mental state, behavior and/or psychosocial function finding (finding)" />
     </element>
@@ -285,43 +271,6 @@
       <path value="Observation.subject" />
       <short value="Patient" />
       <alias value="Patiënt" />
-      <min value="1" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.11" />
-        <comment value="Subject" />
-      </mapping>
-    </element>
-    <element id="Observation.context">
-      <path value="Observation.context" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
-      </type>
     </element>
     <element id="Observation.effective[x]:effectivePeriod">
       <path value="Observation.effectivePeriod" />
@@ -330,11 +279,6 @@
       <type>
         <code value="Period" />
       </type>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.14" />
-        <comment value="DateTime" />
-      </mapping>
     </element>
     <element id="Observation.effective[x]:effectivePeriod.start">
       <path value="Observation.effectivePeriod.start" />
@@ -356,49 +300,6 @@
         <map value="NL-CM:4.26.6" />
         <comment value="StatusDate" />
       </mapping>
-    </element>
-    <element id="Observation.performer">
-      <path value="Observation.performer" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.7" />
-        <comment value="Author" />
-      </mapping>
-    </element>
-    <element id="Observation.performer.extension">
-      <path value="Observation.performer.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Observation.performer.extension:practitionerRole">
-      <path value="Observation.performer.extension" />
-      <sliceName value="practitionerRole" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-      </type>
     </element>
     <element id="Observation.value[x]:valueCodeableConcept">
       <path value="Observation.valueCodeableConcept" />
