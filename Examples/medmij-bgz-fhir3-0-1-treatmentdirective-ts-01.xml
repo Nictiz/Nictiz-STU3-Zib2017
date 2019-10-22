@@ -1,0 +1,66 @@
+﻿<?xml-model href="http://hl7.org/fhir/STU3/consent.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/consent.xsd" xmlns="http://hl7.org/fhir">
+    <id value="medmij-bgz-treatmentdirective-ts-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective"/>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification">
+        <extension url="Verified">
+            <valueBoolean value="true"/>
+        </extension>
+        <extension url="VerifiedWith">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="116154003"/>
+                    <display value="Patient"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="VerificationDate">
+            <valueDateTime value="2018-04-09"/>
+        </extension>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment">
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="40617009"/>
+                <display value="Artificial respiration (procedure)"/>
+            </coding>
+        </valueCodeableConcept>
+    </extension>
+    <modifierExtension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-TreatmentPermitted">
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4"/>
+                <code value="JA_MAAR"/>
+                <display value="Ja, maar met beperkingen"/>
+            </coding>
+        </valueCodeableConcept>
+    </modifierExtension>
+    <status value="active"/>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="11291000146105"/>
+            <display value="Treatment instructions (record artifact)"/>
+        </coding>
+    </category>
+    <patient>
+        <reference value="Patient/medmij-bgz-patient-ts-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </patient>
+    <period>
+        <start value="2018-04-09"/>
+    </period>
+    <policy>
+        <uri value="http://wetten.overheid.nl/"/>
+    </policy>
+    <except>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Restrictions">
+            <valueString value="Eerst overleg met echtgenote"/>
+        </extension>
+        <type value="deny"/>
+    </except>
+</Consent>

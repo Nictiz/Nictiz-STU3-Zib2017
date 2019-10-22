@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/immunization.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ImmunizationRecommendation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/immunizationrecommendation.xsd" xmlns="http://hl7.org/fhir">
+    <id value="medmij-bgz-vaccinationrequest-ts-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation"/>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation-OrderStatus">
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://hl7.org/fhir/v3/ActStatus"/>
+                <code value="new"/>
+                <display value="Ordered"/>
+            </coding>
+        </valueCodeableConcept>
+    </extension>
+    <patient>
+        <reference value="Patient/medmij-bgz-patient-ts-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </patient>
+    <recommendation>
+        <date value="2019"/>
+        <vaccineCode>
+            <coding>
+                <system value="http://www.whocc.no/atc"/>
+                <code value="J06BB11"/>
+                <display value="hepatitis A immunoglobulin"/>
+            </coding>
+        </vaccineCode>
+        <forecastStatus>
+            <coding>
+                <system value="http://hl7.org/fhir/immunization-recommendation-status"/>
+                <code value="due"/>
+                <display value="Due"/>
+            </coding>
+        </forecastStatus>
+        <dateCriterion>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+                    <code value="recommended"/>
+                    <display value="Recommended"/>
+                </coding>
+            </code>
+            <value value="2018"/>
+        </dateCriterion>
+        <supportingImmunization>
+            <reference value="Immunization/medmij-bgz-vaccination-ts-01"/>
+            <display value="hepatitis A immunoglobulin"/>
+        </supportingImmunization>
+    </recommendation>
+</ImmunizationRecommendation>
