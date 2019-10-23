@@ -1,6 +1,6 @@
 <Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd" xmlns="http://hl7.org/fhir">
-	<id value="eOverdracht-Aanmeldbericht-example-bundle"/> 
+	<id value="overdrachtsbericht-volwassenen-example-phase-two"/> 
 	<meta> 
 		<lastUpdated value="2019-03-20T22:12:21Z"/> 
 	</meta>
@@ -1005,7 +1005,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/PractitionerRole/medmij-bgz-practitionerrole-ts-01" />
 		<resource>
 			<PractitionerRole xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitionerrole.xsd" xmlns="http://hl7.org/fhir">
 				<id value="medmij-bgz-practitionerrole-ts-01"/>
@@ -1201,6 +1201,90 @@
 		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
 		<resource>
 			
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/RelatedPerson/nl-core-relatedperson-example-1"/>
+		<resource>
+			<RelatedPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
+				<id value="nl-core-relatedperson-example-1"/>
+				<meta>
+					<versionId value="3"/>
+					<lastUpdated value="2016-12-08T14:07:59.978+00:00"/>
+					<profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
+				</meta>
+				<text>
+					<status value="additional"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<ol>
+							<li>Henk de Haas is initial contact person and spouse of patient Irma Jongeneel-de Haas</li>
+						</ol>
+					</div>
+				</text>
+				<extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
+					<valueCodeableConcept>
+						<coding>
+							<system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
+							<code value="1"/>
+							<display value="Eerste relatie/contactpersoon"/>
+						</coding>
+					</valueCodeableConcept>
+				</extension>
+				<patient>
+					<reference value="Patient/nl-core-patient-example-1"/>
+					<display value="Irma Jongeneel-de Haas"/>
+				</patient>
+				<relationship>
+					<coding>
+						<system value="http://hl7.org/fhir/v3/RoleCode"/>
+						<code value="HUSB"/>
+						<display value="husband"/>
+					</coding>
+				</relationship>
+				<name>
+					<family value="de Haas">
+						<extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+							<valueString value="de "/>
+						</extension>
+						<extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+							<valueString value="Haas"/>
+						</extension>
+					</family>
+					<given value="Henk"/>
+				</name>
+				<telecom>
+					<system value="phone"/>
+					<value value="0612345990"/>
+					<use value="work"/>
+				</telecom>
+				<telecom>
+					<system value="email"/>
+					<value value="dehaas@work.com"/>
+					<use value="work"/>
+				</telecom>
+				<address>
+					<extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+						<valueBoolean value="true"/>
+					</extension>
+					<use value="home"/>
+					<type value="both"/>
+					<line value="Straatweg 12bII">
+						<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+							<valueString value="Straatweg"/>
+						</extension>
+						<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+							<valueString value="12"/>
+						</extension>
+						<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+							<valueString value="bII"/>
+						</extension>
+					</line>
+					<city value="Woonplaats"/>
+					<district value="Amsterdam"/>
+					<postalCode value="1200AA"/>
+					<country value="NLD"/>
+				</address>
+			</RelatedPerson>
 		</resource>
 	</entry>
 	<entry> 
