@@ -1,0 +1,40 @@
+<?xml-model href="http://hl7.org/fhir/STU3/goal.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Goal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/goal.xsd" xmlns="http://hl7.org/fhir">
+    <id value="example-zib-treatmentobjective-02" />
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentObjective"/>
+    </meta>
+    <status value="accepted"/>
+    <category>
+        <coding>
+            <system value="http://hl7.org/fhir/goal-category"/>
+            <code value="nursing"/>
+            <display value="Nursing"/>
+        </coding>
+    </category>
+    <description>
+        <text value="Pijnscore onder VAS 4"/>
+    </description>
+    <subject>
+        <reference value="Patient/medmij-bgz-patient-ts-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <startDate value="2015-04-05"/>
+    <target>
+        <measure>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="225908003"/>
+                <display value="Pain Score"/>
+            </coding>
+        </measure>
+        <detailRange>
+            <min value="0" />
+            <max value="4" />
+        </detailRange>
+    </target>
+    <addresses>
+        <reference value="Condition/medmij-bgz-condition-ts-04"/>
+        <display value="Arthropathy (disorder)"/>
+    </addresses>
+</Goal>

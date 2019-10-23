@@ -1,0 +1,1499 @@
+<Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd"
+	xmlns="http://hl7.org/fhir">
+	<id value="example-eOverdracht-overdrachtsbericht-volwassenen-bundle"/>
+	<meta>
+		<lastUpdated value="2019-10-20T22:12:21Z"/>
+	</meta>
+	<type value="document"/>
+	<!--      The Composition resource      -->
+	<entry>
+		<fullUrl
+			value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Composition/eOverdracht-overdrachtsbericht-volwassenen-example"/>
+		<resource>
+			<Composition xmlns="http://hl7.org/fhir">
+				<id value="eOverdracht-overdrachtsbericht-volwassenen-example"/>
+				<meta>
+					<lastUpdated value="2019-10-20T11:51:36.392+01:00"/>
+					<profile
+						value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtOverdrachtsberichtVolwassenen"
+					/>
+				</meta>
+				<status value="preliminary"/>
+				<type>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="MISSING"/>
+					</coding>
+				</type>
+				<subject>
+					<reference
+						value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01"/>
+					<display value="Johan XXX_Helleman"/>
+				</subject>
+				<date value="2019-03-20T11:43:40.0004456+01:00"/>
+				<author>
+					<reference value="Practitioner/medmij-bgz-practitioner-ts-01"/>
+					<display value="G.Z.M. de Wit"/>
+				</author>
+				<title value="Overdrachtsbericht Volwassenen"/>
+				<section>
+					<extension
+						url="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-TransferDate">
+						<valueDateTime value="2019-05-01"/>
+					</extension>
+					<title value="Administrative data"/>
+					<section>
+						<title value="Personal data"/>
+						<entry>
+							<reference value="Coverage/medmij-bgz-coverage-ts-01"/>
+							<display value="Basisverzekerd Menzis Zorgverzekeraar N.V."/>
+						</entry>
+						<entry>
+							<reference value="RelatedPerson/nl-core-relatedperson-example-1"/>
+							<display value="Irma Jongeneel-de Haas"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Sending organization"/>
+						<entry>
+							<reference value="Organization/medmij-bgz-healthcareprovider-ts-03"/>
+							<display value="Maatschap Vaste Huisarts"/>
+						</entry>
+						<entry>
+							<reference value="Practioner/medmij-bgz-practitioner-ts-02"/>
+							<display value="Vaste Huisarts 1"/>
+						</entry>
+						<entry>
+							<reference value="PractionerRole/medmij-bgz-practitionerrole-ts-01"/>
+							<display value="Huisarts"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Receiving organization"/>
+						<entry>
+							<reference value="Organization/medmij-bgz-healthcareprovider-ts-01"/>
+							<display value="Test Medisch Centrum"/>
+						</entry>
+					</section>
+				</section>
+				<section>
+					<title value="General Patient Context"/>
+					<section>
+						<title value="Family Situation"/>
+						<entry>
+							<reference value="Observation/zib-familysituation-example"/>
+							<display value="Household composition (observable entity)"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Living Situation"/>
+						<entry>
+							<reference value="Observation/medmij-bgz-livingsituation-ts-01"/>
+							<display
+								value="Finding of residence and accommodation circumstances (finding)"
+							/>
+						</entry>
+					</section>
+					<section>
+						<title value="Life stance"/>
+						<entry>
+							<reference value="Consent/medmij-bgz-advancedirective-ts-01"/>
+							<display
+								value="Living will and advance directive record (record artifact)"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Social environment"/>
+						<entry>
+							<reference value="Observation/zib-participationinsociety-example"/>
+							<display value="Patient participation status"/>
+						</entry>
+						<entry>
+							<reference value="Careplan/zib-HelpFromOthers-example"/>
+							<display value="Supportive care"/>
+						</entry>
+					</section>
+				</section>
+				<section>
+					<title value="Medical context"/>
+					<section>
+						<title value="practitioner"/>
+						<entry>
+							<reference value="PractitionerRole/zib-zorgverlener-practitionerrole-01"/>
+							<display value="Medisch specialisten, geriatrie"/>
+						</entry>
+						<entry>
+							<reference value="Practitioner/zib-zorgverlener-practitioner-01"/>
+							<display value="Dirk de vries"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Medical diagnosis"/>
+						<entry>
+							<reference value="Condition/medmij-bgz-condition-ts-01"/>
+							<display value="Amyotrofe laterale sclerose"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Medical History"/>
+						<entry>
+							<reference value="Condition/medmij-bgz-condition-ts-02"/>
+							<display value="Fracture of wrist (disorder)"/>
+						</entry>
+						<entry>
+							<reference value="Condition/medmij-bgz-condition-ts-04"/>
+							<display value="Arthropathy (disorder)"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Allergy"/>
+						<entry>
+							<reference
+								value="AllergyIntolerance/medmij-bgz-allergyintolerance-ts-01"/>
+							<display value="Bee venom"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Pay attention"/>
+						<entry>
+							<reference value="Flag/medmij-bgz-flag-ts-01"/>
+							<display value="Methicillin resistant staphylococcus aureus carrier"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Freedom restriction"/>
+						<entry>
+							<reference value="Procedure/zib-freedomrestrictingmeasures-example"/>
+							<display value="Restriction of movement"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Measurements"/>
+						<entry>
+							<reference value="Observation/medmij-bgz-bloodpressure-ts-01"/>
+							<display value="Blood pressure panel with all children optional"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-pulserate-example"/>
+							<display value="Heart rate Peripheral artery by palpation"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-bodytemperatyre-example"/>
+							<display value="Body temperature"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-bodytemperatyre-example"/>
+							<display value="Body temperature"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-respiration-example"/>
+							<display value="Respiratory assessment"/>
+						</entry>
+						<entry>
+							<reference value="Observation/medmij-bgz-bodyweight-ts-01"/>
+							<display value="Body weight"/>
+						</entry>
+						<entry>
+							<reference value="Observation/medmij-bgz-bodyheight-ts-01"/>
+							<display value="Body height --standing"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-generalmeasurement-example"/>
+							<display value="Score list delirium (record artifact)"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Pain score"/>
+						<entry>
+							<reference value="Observation/zib-painscore-example"/>
+							<display value="Pain score (observable entity)"/>
+						</entry>
+					</section>
+				</section>
+				<section>
+					<title value="Care plan"/>
+					<section>
+						<title value="Current patient problems"/>
+						<entry>
+							<reference value="Procedure/zib-nursingintervention-example"/>
+							<display value="Pain relief by medication (finding)"/>
+						</entry>
+						<entry>
+							<reference value="Goal/zib-TreatmentObjective-example-02"/>
+							<display value="Pijnscore onder VAS 4"/>
+						</entry>
+						<entry>
+							<reference value="Condition/medmij-bgz-condition-ts-04"/>
+							<display value="Arthropathy (disorder)"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Outcome of Care"/>
+						<entry>
+							<reference value="Observation/zib-outcomeofcare-example"/>
+							<display
+								value="Skilled nursing treatment plan Progress note and attainment of goals (narrative)"
+							/>
+						</entry>
+					</section>
+					<section>
+						<title value="Patient appointments"/>
+						<entry>
+							<reference value="ProcedureRequest/medmij-bgz-procedurerequest-ts-01"/>
+							<display value="Biopsy of skin (procedure)"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Patient's needs and preferences"/>
+						<text>
+							<status value="additional"/>
+							<div xmlns="http://www.w3.org/1999/xhtml">Patient eet geen varkensvlees.</div>
+						</text>
+					</section>
+				</section>
+				<section>
+					<title value="Health state"/>
+					<section>
+						<title value="Self care"/>
+						<entry>
+							<reference value="Observation/zib-abilitytodrink-example"/>
+							<display value="Drinken"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-abilitytoeat-example"/>
+							<display value="Eten"/>
+						</entry>
+						<entry>
+							<reference
+								value="Observation/zib-abilitytoperformmouthcareactivities-example"/>
+							<display value="VerzorgenTanden"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-abilitytowashonself-example"/>
+							<display value="ZichWassen"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-abilitytodressoneself-example"/>
+							<display value="ZichKleden"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-abilitytogroome-example"/>
+							<display value="UiterlijkeVerzorging"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-abilitytousetoilet-example"/>
+							<display value="Toiletgebruik"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-abilitytomanagemedication-example"/>
+							<display value="ZelfstandigMedicatieGebruik"/>
+						</entry>
+						<entry>
+							<reference
+								value="Observation/zib-abilitytoperformnursingactivities-example"/>
+							<display value="assisteren bij verrichting (verrichting)"/>
+						</entry>
+						<section>
+							<title value="Self care comment"/>
+							<text>
+								<status value="additional"/>
+								<div value="&lt;div&gt;Geen opmerkingen.&lt;/div&gt;"/>
+							</text>
+						</section>
+					</section>
+					<section>
+						<title value="Mobility"/>
+						<entry>
+							<reference value="Observation/zib-mobility-example"/>
+							<display value="vermogen om zich te verplaatsen"/>
+						</entry>
+					</section>
+					<section>
+						<title value="intake"/>
+						<entry>
+							<reference value="NutritionOrder/medmij-bgz-nutritionadvice-ts-01"/>
+							<display value="Energie verrijkt Dikvloeibaar"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-snaqscore-example"/>
+							<display value="Short Nutritional Assessment Questionnaire"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-snaqrcscore-example"/>
+							<display
+								value="Short Nutritional Assessment Questionnaire for Residential Care"
+							/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-snaq65plusscore-example"/>
+							<display value="Short Nutritional Assessment Questionnaire 65+"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-mustscore-example"/>
+							<display value="MUST (Malnutrition universal screening tool) score"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-fluidbalance-example"/>
+							<display value="Fluid balance observable"/>
+						</entry>
+						<entry>
+							<reference value="DeviceUseStatement/feedingtubesystem"/>
+							<display value="Feeding tube system"/>
+						</entry>
+						<entry>
+							<reference value="DeviceUseStatement/infusion"/>
+							<display value="Centraal veneuze katheter"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Excretion"/>
+						<entry>
+							<reference value="Observation/zib-bladderfunction-example"/>
+							<display value="Micturition (observable entity)"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-bowelfunction-example"/>
+							<display value="Defecation (observable entity)"/>
+						</entry>
+						<entry>
+							<reference value="Observation/stoma"/>
+							<display value="Stoma (morphologic abnormality)"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Skin"/>
+						<entry>
+							<reference value="Condition/zib-burnwound"/>
+							<display value="Burn (disorder)"/>
+						</entry>
+						<entry>
+							<reference value="Condition/example-zib-PressureUlcer"/>
+							<display value="Doorligplek"/>
+						</entry>
+						<entry>
+							<reference value="Condition/exampleid"/>
+							<display value="irritatief contacteczeem door incontinentie"/>
+						</entry>
+						<entry>
+							<reference value="Condition/example-zib-wound"/>
+							<display value="Chirurgische wond"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Senses"/>
+						<entry>
+							<reference value="Observation/zib-hearingfunction-example"/>
+							<display value="HoorFunctie"/>
+						</entry>
+						<entry>
+							<reference value="Observation/zib-visualfunction-example"/>
+							<display value="Visuele functie"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Illness perception"/>
+						<entry>
+							<reference value="Observation/medmij-bgz-illnessperception-ts-01"/>
+							<display
+								value="Characteristic of psychosocial functioning (observable entity)"
+							/>
+						</entry>
+					</section>
+					<section>
+						<title value="Mental status"/>
+						<entry>
+							<reference value="Condition/eOverdracht-example-IllnessPerception"/>
+							<display value="eOverdracht-example-IllnessPerception"/>
+						</entry>
+					</section>
+					<section>
+						<title value="Reproduction"/>
+						<entry>
+							<reference value="Condition/zib-pregnancy-example"/>
+							<display value="Pregnancy"/>
+						</entry>
+					</section>
+				</section>
+			</Composition>
+		</resource>
+	</entry>
+	<!--      The Patient who is the subject of the document.      -->
+	<entry>
+		<fullUrl
+			value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01"/>
+		<resource>
+			<Patient xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-patient-ts-01"/>
+				<meta>
+					<versionId value="5"/>
+					<lastUpdated value="2019-03-11T13:54:14.5477544+00:00"/>
+					<profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+				</meta>
+				<identifier>
+					<use value="official"/>
+					<system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
+					<value value="999911120"/>
+				</identifier>
+				<active value="true"/>
+				<name>
+					<extension
+						url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
+						<valueCode value="NL4"/>
+					</extension>
+					<use value="official"/>
+					<family value="XXX_Helleman">
+						<extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+							<valueString value="XXX_Helleman"/>
+						</extension>
+					</family>
+					<given value="Johan">
+						<extension
+							url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+							<valueCode value="CL"/>
+						</extension>
+					</given>
+					<given value="J.">
+						<extension
+							url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+							<valueCode value="IN"/>
+						</extension>
+					</given>
+				</name>
+				<telecom>
+					<system value="phone"/>
+					<value value="06-12345678"/>
+					<use value="mobile"/>
+				</telecom>
+				<telecom>
+					<system value="email"/>
+					<value value="XXX_Helleman@hotmail.com"/>
+					<use value="home"/>
+				</telecom>
+				<gender value="male"/>
+				<birthDate value="1964-07-25"/>
+				<deceasedBoolean value="false"/>
+				<address>
+					<extension
+						url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+						<valueBoolean value="true"/>
+					</extension>
+					<use value="home"/>
+					<type value="both"/>
+					<line value="Knolweg 1000">
+						<extension
+							url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+							<valueString value="Knolweg"/>
+						</extension>
+						<extension
+							url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+							<valueString value="1000"/>
+						</extension>
+					</line>
+					<city value="Stitswerd"/>
+					<district value="Nederland"/>
+					<postalCode value="9999XA"/>
+					<country value="NLD"/>
+				</address>
+				<maritalStatus>
+					<coding>
+						<system value="http://hl7.org/fhir/v3/MaritalStatus"/>
+						<code value="M"/>
+						<display value="Married"/>
+					</coding>
+				</maritalStatus>
+				<multipleBirthBoolean value="false"/>
+				<contact>
+					<relationship>
+						<coding>
+							<system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
+							<code value="1"/>
+							<display value="Eerste relatie/contactpersoon"/>
+						</coding>
+					</relationship>
+					<relationship>
+						<coding>
+							<system value="http://hl7.org/fhir/v3/RoleCode"/>
+							<code value="WIFE"/>
+							<display value="Wife"/>
+						</coding>
+					</relationship>
+					<name>
+						<extension
+							url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
+							<valueCode value="NL4"/>
+						</extension>
+						<use value="official"/>
+						<family value="van Putten XXX_Helleman">
+							<extension
+								url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+								<valueString value="van"/>
+							</extension>
+							<extension
+								url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+								<valueString value="Putten"/>
+							</extension>
+							<extension
+								url="http://hl7.org/fhir/StructureDefinition/humanname-partner-name">
+								<valueString value="XXX_Helleman"/>
+							</extension>
+						</family>
+						<given value="Jannie">
+							<extension
+								url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+								<valueCode value="CL"/>
+							</extension>
+						</given>
+						<given value="J.P.M.">
+							<extension
+								url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+								<valueCode value="IN"/>
+							</extension>
+						</given>
+					</name>
+					<telecom>
+						<system value="phone"/>
+						<value value="06-12345645"/>
+						<use value="mobile"/>
+					</telecom>
+					<telecom>
+						<system value="email"/>
+						<value value="j.vanderjutte@example.com"/>
+					</telecom>
+					<address>
+						<use value="home"/>
+						<line value="Knolweg 1000">
+							<extension
+								url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+								<valueString value="Knolweg"/>
+							</extension>
+							<extension
+								url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+								<valueString value="1000"/>
+							</extension>
+						</line>
+						<city value="Sitswerd"/>
+						<postalCode value="9999XA"/>
+						<country value="Nederland"/>
+					</address>
+				</contact>
+				<generalPractitioner>
+					<reference
+						value="https://stu3.simplifier.net/nictizstu3-zib2017/Organization/medmij-bgz-healthcareprovider-ts-02"/>
+					<display value="Vaste Huisarts 1"/>
+				</generalPractitioner>
+			</Patient>
+		</resource>
+	</entry>
+	<!--      The Practitioner Resource. In this document they are the author of the document -->
+	<entry>
+		<fullUrl
+			value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Practitioner/medmij-bgz-practitioner-ts-01"/>
+		<resource>
+			<Practitioner>
+				<id value="medmij-bgz-practitioner-ts-01"/>
+				<name>
+					<extension
+						url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
+						<valueCode value="NL1"/>
+					</extension>
+					<family value="de Wit">
+						<extension
+							url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+							<valueString value="de"/>
+						</extension>
+						<extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+							<valueString value="Wit"/>
+						</extension>
+					</family>
+					<given value="G.Z.M.">
+						<extension
+							url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+							<valueCode value="IN"/>
+						</extension>
+					</given>
+				</name>
+			</Practitioner>
+		</resource>
+	</entry>
+	<!--      The rest of the referenced resources    -->
+	<entry>
+		<fullUrl
+			value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Coverage/medmij-bgz-coverage-ts-01"/>
+		<resource>
+			<Coverage xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-coverage-ts-01"/>
+				<meta>
+					<versionId value="3"/>
+					<lastUpdated value="2019-03-11T13:54:12.766429+00:00"/>
+					<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer"/>
+				</meta>
+				<type>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.101.5.1"/>
+						<code value="B"/>
+						<display value="Basis verzekerd"/>
+					</coding>
+				</type>
+				<subscriber>
+					<reference
+						value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01"/>
+					<display value="Johan XXX_Helleman"/>
+				</subscriber>
+				<beneficiary>
+					<reference
+						value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01"/>
+					<display value="Johan XXX_Helleman"/>
+				</beneficiary>
+				<period>
+					<start value="2018-01-01"/>
+					<end value="2019-01-31"/>
+				</period>
+				<payor>
+					<reference
+						value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Organization/medmij-bgz-insurer-ts-01"/>
+					<display value="Menzis Zorgverzekeraar N.V."/>
+				</payor>
+			</Coverage>
+		</resource>
+	</entry>
+    <entry>
+        <fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/RelatedPerson/nl-core-relatedperson-example-1"/>
+        <resource>
+            <RelatedPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
+                <id value="nl-core-relatedperson-example-1"/>
+                <meta>
+                    <versionId value="3"/>
+                    <lastUpdated value="2016-12-08T14:07:59.978+00:00"/>
+                    <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
+                </meta>
+                <text>
+                    <status value="additional"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">
+                        <ol>
+                            <li>Henk de Haas is initial contact person and spouse of patient Irma Jongeneel-de Haas</li>
+                        </ol>
+                    </div>
+                </text>
+                <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
+                            <code value="1"/>
+                            <display value="Eerste relatie/contactpersoon"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+                <patient>
+                    <reference value="Patient/nl-core-patient-example-1"/>
+                    <display value="Irma Jongeneel-de Haas"/>
+                </patient>
+                <relationship>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+                        <code value="HUSB"/>
+                        <display value="husband"/>
+                    </coding>
+                </relationship>
+                <name>
+                    <family value="de Haas">
+                        <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+                            <valueString value="de "/>
+                        </extension>
+                        <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                            <valueString value="Haas"/>
+                        </extension>
+                    </family>
+                    <given value="Henk"/>
+                </name>
+                <telecom>
+                    <system value="phone"/>
+                    <value value="0612345990"/>
+                    <use value="work"/>
+                </telecom>
+                <telecom>
+                    <system value="email"/>
+                    <value value="dehaas@work.com"/>
+                    <use value="work"/>
+                </telecom>
+                <address>
+                    <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+                        <valueBoolean value="true"/>
+                    </extension>
+                    <use value="home"/>
+                    <type value="both"/>
+                    <line value="Straatweg 12bII">
+                        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                            <valueString value="Straatweg"/>
+                        </extension>
+                        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                            <valueString value="12"/>
+                        </extension>
+                        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+                            <valueString value="bII"/>
+                        </extension>
+                    </line>
+                    <city value="Woonplaats"/>
+                    <district value="Amsterdam"/>
+                    <postalCode value="1200AA"/>
+                    <country value="NLD"/>
+                </address>
+            </RelatedPerson>
+        </resource>
+    </entry>
+	<entry>
+		<fullUrl
+			value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Organization/medmij-bgz-healthcareprovider-ts-03"/>
+		<resource>
+		    <Organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/organization.xsd" xmlns="http://hl7.org/fhir">
+		        <id value="medmij-bgz-healthcareprovider-ts-03"/>
+		        <meta>
+		            <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+		        </meta>
+		        <type>
+		            <coding>
+		                <system value="http://nictiz.nl/fhir/NamingSystem/organization-type"/>
+		                <code value="Z3"/>
+		                <display value="Huisartspraktijk (zelfstandig of groepspraktijk)"/>
+		            </coding>
+		        </type>
+		        <name value="Maatschap Vaste Huisarts"/>
+		    </Organization>
+		</resource>
+	</entry>
+    <entry>
+        <fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Practitioner/medmij-bgz-practitioner-ts-01" />
+        <resource>
+            <Practitioner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/procedure.xsd" xmlns="http://hl7.org/fhir">
+                <id value="medmij-bgz-practitioner-ts-01"/>
+                <name>
+                    <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
+                        <valueCode value="NL1"/>
+                    </extension>
+                    <family value="de Wit">
+                        <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+                            <valueString value="de"/>
+                        </extension>
+                        <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                            <valueString value="Wit"/>
+                        </extension>
+                    </family>
+                    <given value="G.Z.M.">
+                        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                            <valueCode value="IN"/>
+                        </extension>
+                    </given>
+                </name>
+            </Practitioner>
+        </resource>
+    </entry>
+    <entry>
+        <fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/PractitionerRole/medmij-bgz-practitionerrole-ts-01" />
+        <resource>
+            <PractitionerRole xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitionerrole.xsd" xmlns="http://hl7.org/fhir">
+                <id value="medmij-bgz-practitionerrole-ts-01"/>
+                <meta>
+                    <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+                </meta>
+                <practitioner>
+                    <reference value="Practitioner/medmij-bgz-practitioner-ts-02"/>
+                    <display value="Vaste Huisarts 1"/>
+                </practitioner>
+                <organization>
+                    <reference value="Organization/medmij-bgz-healthcareprovider-ts-03"/>
+                    <display value="Maatschap Vaste Huisarts"/>
+                </organization>
+                <code>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+                        <code value="PRF"/>
+                        <display value="Performer"/>
+                    </coding>
+                </code>
+                <specialty>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+                        <code value="0100"/>
+                        <display value="Huisartsen, niet nader gespecificeerd"/>
+                    </coding>
+                </specialty>
+            </PractitionerRole>            
+        </resource>
+    </entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Practitioner/medmij-bgz-practitioner-ts-02"/> 
+		<resource>
+			<Practitioner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitioner.xsd" xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-practitioner-ts-02"/>
+				<meta>
+					<profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+				</meta>
+				<name>
+					<family value="Vaste Huisarts 1"/>
+				</name>
+				<telecom>
+					<system value="phone"/>
+					<value value="+31434073576"/>
+					<use value="work"/>
+				</telecom>
+				<telecom>
+					<system value="email"/>
+					<value value="huisarts@huisarts.nl"/>
+					<use value="work"/>
+				</telecom>
+				<address>
+					<use value="work"/>
+					<line value="Valkendael 45">
+						<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+							<valueString value="Valkendael"/>
+						</extension>
+						<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+							<valueString value="45"/>
+						</extension>
+					</line>
+					<city value="Maastricht"/>
+					<postalCode value="6245HK"/>
+					<country value="Nederland"/>
+				</address>
+			</Practitioner>
+		</resource>
+	</entry>
+    <entry>
+        <fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Organization/medmij-bgz-healthcareprovider-ts-01" />
+        <resource>
+            <Organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/organization.xsd" xmlns="http://hl7.org/fhir">
+                <id value="medmij-bgz-healthcareprovider-ts-01"/>
+                <meta>
+                    <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+                </meta>
+                <name value="Test Medisch Centrum"/>
+            </Organization>
+        </resource>
+    </entry>
+    <entry>
+    	<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Observation/zib-familysituation-example" />
+        <resource>
+            <Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd" xmlns="http://hl7.org/fhir">
+                <id value="zib-familysituation-example"/>
+                <meta>
+                    <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation"/>
+                </meta>
+                <status value="final"/>
+                <code>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="365470003"/>
+                        <display value="Finding of family details and household composition (finding)"/>
+                    </coding>
+                </code>
+                <subject>
+                    <reference value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01"/>
+                    <display value="Johan XXX_Helleman"/>
+                </subject>
+                <effectiveDateTime value="2018-08-10"/>
+                <comment value="Beide inwonende kinderen zijn zeer zelfstandig."/>
+                <component>
+                    <!-- familyComposition -->
+                    <code>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="224130005"/>
+                            <display value="Household composition (observable entity)"/>
+                        </coding>
+                    </code>
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="160756002"/>
+                            <display value="Lives with relatives (finding)"/>
+                        </coding>
+                        <text value="Woont samen met familie"/>
+                    </valueCodeableConcept>
+                </component>
+                <component>
+                    <!-- numberOfChildren -->
+                    <code>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="224118004"/>
+                            <display value="Number of offspring (observable entity)"/>
+                        </coding>
+                    </code>
+                    <valueQuantity>
+                        <value value="3"/>
+                    </valueQuantity>
+                </component>
+                <component>
+                    <!-- numberOfChildrenLivingAtHome -->
+                    <code>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="55811000146107"/>
+                            <display value="Number of children living at home (observable entity)"/>
+                        </coding>
+                    </code>
+                    <valueQuantity>
+                        <value value="2"/>
+                    </valueQuantity>
+                </component>
+                <component>
+                    <!-- careResponsibility -->
+                    <code>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="406192005"/>
+                            <display value="Caregiver behavior (observable entity)"/>
+                        </coding>
+                    </code>
+                    <valueString value="Heeft zorg voor vader die in huis woont. "/>
+                </component>
+                <component>
+                    <!-- child #1 -->
+                    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LivingAtHomeIndicator">
+                        <valueBoolean value="true"/>
+                    </extension>
+                    <code>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="67822003"/>
+                            <display value="Child"/>
+                        </coding>
+                    </code>
+                    <valueDateTime value="2009-08-02"/>
+                </component>
+                <component>
+                    <!-- child #2 -->
+                    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LivingAtHomeIndicator">
+                        <valueBoolean value="true"/>
+                    </extension>
+                    <code>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="67822003"/>
+                            <display value="Child"/>
+                        </coding>
+                    </code>
+                    <valueDateTime value="2011-04-02"/>
+                </component>
+                <component>
+                    <!-- child #3 -->
+                    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LivingAtHomeIndicator">
+                        <valueBoolean value="false"/>
+                    </extension>
+                    <code>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="67822003"/>
+                            <display value="Child"/>
+                        </coding>
+                    </code>
+                    <valueDateTime value="2006-04-02"/>
+                </component>
+            </Observation>           
+        </resource>
+    </entry>
+    <entry>
+    	<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Observation/medmij-bgz-livingsituation-ts-01" />
+        <resource>
+        	<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd" xmlns="http://hl7.org/fhir">
+        		<id value="medmij-bgz-livingsituation-ts-01"/>
+        		<meta>
+        			<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LivingSituation"/>
+        		</meta>
+        		<status value="final"/>
+        		<code>
+        			<coding>
+        				<system value="http://snomed.info/sct"/>
+        				<code value="365508006"/>
+        				<display value="Finding of residence and accommodation circumstances (finding)"/>
+        			</coding>
+        		</code>
+        		<subject>
+        			<reference value="Patient/medmij-bgz-patient-ts-01"/>
+        			<display value="Johan XXX_Helleman"/>
+        		</subject>
+        		<valueCodeableConcept>
+        			<coding>
+        				<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.13.1"/>
+        				<code value="EENGEZW"/>
+        				<display value="Eengezinswoning"/>
+        			</coding>
+        		</valueCodeableConcept>
+        	</Observation>
+        </resource>
+    </entry>
+    <entry>
+    	<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Consent/medmij-bgz-advancedirective-ts-01" />
+        <resource>
+        	<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/consent.xsd" xmlns="http://hl7.org/fhir">
+        		<id value="medmij-bgz-advancedirective-ts-01"/>
+        		<meta>
+        			<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective"/>
+        		</meta>
+        		<extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective-Disorder">
+        			<valueReference>
+        				<reference value="Condition/medmij-bgz-condition-ts-01"/>
+        				<display value="ALS"/>
+        			</valueReference>
+        		</extension>
+        		<extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
+        			<valueString value="Niet-reanimerenpenning"/>
+        		</extension>
+        		<status value="active"/>
+        		<category>
+        			<coding>
+        				<system value="http://snomed.info/sct"/>
+        				<code value="11341000146107"/>
+        				<display value="Living will and advance directive record (record artifact)"/>
+        			</coding>
+        		</category>
+        		<category>
+        			<coding>
+        				<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.14.1"/>
+        				<code value="NR"/>
+        				<display value="Niet reanimeren verklaring"/>
+        			</coding>
+        		</category>
+        		<patient>
+        			<reference value="Patient/medmij-bgz-patient-ts-01"/>
+        			<display value="Johan XXX_Helleman"/>
+        		</patient>
+        		<dateTime value="2018-04-09"/>
+        		<consentingParty>
+        			<reference value="RelatedPerson/nl-core-relatedperson-example-1"/>
+        			<display value="Irma Jongeneel-de Haas"/>
+        		</consentingParty>
+        		<policy>
+        			<uri value="http://wetten.overheid.nl/"/>
+        		</policy>
+        	</Consent>           
+        </resource>
+    </entry>   
+    <entry>
+    	<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Observation/zib-participationinsociety-example" />
+        <resource>
+        	<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        		xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd"
+        		xmlns="http://hl7.org/fhir">
+        		<id value="zib-participationinsociety-example"/>
+        		<meta>
+        			<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-ParticipationInSociety"/>
+        		</meta>
+        		<status value="final"/>
+        		<code>
+        			<coding>
+        				<system value="http://snomed.info/sct"/>
+        				<code value="314845004"/>
+        				<display value="Patient participation status"/>
+        			</coding>
+        		</code>
+        		<subject>
+        			<reference  value="Patient/medmij-bgz-patient-ts-01"/>
+        			<display value="Johan XXX_Helleman"/>
+        		</subject>
+        		<effectiveDateTime value="2018-08-10"/>
+        		<comment value="Bezoekt activiteitencentrum 2 maal per week."/>
+        		<component>
+        			<code>
+        				<coding>
+        					<system value="http://snomed.info/sct"/>
+        					<code value="365469004"/>
+        					<display value="Household, family and support network finding (finding)"/>
+        				</coding>
+        			</code>
+        			<valueString value="Heeft veel aanloop van buren"/>
+        		</component>
+        		<component>
+        			<code>
+        				<coding>
+        					<system value="http://snomed.info/sct"/>
+        					<code value="405081003"/>
+        					<display value="Leisure behavior (observable entity)"/>
+        				</coding>
+        			</code>
+        			<valueString value="Nordic walking"/>            
+        		</component>
+        		<component>
+        			<code>
+        				<coding>
+        					<system value="http://snomed.info/sct"/>
+        					<code value="364703007"/>
+        					<display value="Employment detail (observable entity)"/>
+        				</coding>
+        			</code>
+        			<valueString value="ICT-er"/>
+        		</component>
+        	</Observation>
+        </resource>
+    </entry>
+    <entry>
+    	<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Careplan/zib-HelpFromOthers-example" />
+        <resource>
+        	<CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careplan.xsd" xmlns="http://hl7.org/fhir">
+        		<id value="zib-HelpFromOthers-example"/>
+        		<meta>
+        			<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-HelpFromOthers"/>
+        		</meta>
+        		<status value="draft"/>
+        		<intent value="plan"/>
+        		<category>
+        			<coding>
+        				<system value="http://snomed.info/sct"/>
+        				<code value="243114000"/>
+        				<display value="Supportive care"/>
+        			</coding>
+        		</category>
+        		<subject>
+        			<reference value="Patient/nl-core-patient-example-1"/>
+        			<display value="Irma Jongeneel-de Haas"/>
+        		</subject>
+        		<activity>
+        			<detail>
+        				<category>
+        					<coding>
+        						<system value="http://snomed.info/sct"/>
+        						<code value="60689008"/>
+        						<display value="Home care of patient"/>
+        					</coding>
+        				</category>
+        				<code>
+        					<text value="Ondersteuning bij wassen"/>
+        				</code>
+        				<status value="scheduled"/>
+        				<scheduledString value="Dagelijks"/>
+        				<performer>
+        					<reference value="Organization/example"/>
+        					<display value="Thuiszorg X"/>
+        				</performer>
+        				<description value="Thuiszorg komt langs"/>
+        			</detail>
+        		</activity>
+        	</CarePlan>           
+        </resource>
+    </entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<resource>         
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<resource>         
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<resource>         
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<resource>         
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<resource>         
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<resource>         
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<resource>         
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/" />
+		<resource>         
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl
+			value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Condition/medmij-bgz-condition-ts-01"/>
+		<resource>
+			<Condition xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-condition-ts-01"/>
+				<meta>
+					<versionId value="3"/>
+					<lastUpdated value="2019-03-11T13:54:12.0508281+00:00"/>
+					<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
+				</meta>
+				<clinicalStatus value="active"/>
+				<code>
+					<coding>
+						<system value="http://hl7.org/fhir/sid/icd-10-nl"/>
+						<code value="G12.2"/>
+						<display value="Amyotrofe laterale sclerose"/>
+					</coding>
+				</code>
+				<subject>
+					<reference
+						value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01"/>
+					<display value="Johan XXX_Helleman"/>
+				</subject>
+			</Condition>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl
+			value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Organization/medmij-bgz-insurer-ts-01"/>
+		<resource>
+			<Organization xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-insurer-ts-01"/>
+				<meta>
+					<profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+				</meta>
+				<identifier>
+					<system value="http://fhir.nl/fhir/NamingSystem/uzovi"/>
+					<value value="3332"/>
+				</identifier>
+				<name value="Menzis Zorgverzekeraar N.V."/>
+			</Organization>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Flag/medmij-bgz-flag-ts-01"/>
+		<resource>
+			<Flag xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-flag-ts-01"/>
+				<meta>
+					<versionId value="3"/>
+					<lastUpdated value="2019-03-11T13:54:13.3934574+00:00"/>
+					<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Alert"/>
+				</meta>
+				<status value="active"/>
+				<category>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="75323-6"/>
+						<display value="condition"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="432415000"/>
+						<display value="Methicillin resistant staphylococcus aureus carrier"/>
+					</coding>
+				</code>
+				<subject>
+					<reference
+						value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01"/>
+					<display value="Johan XXX_Helleman"/>
+				</subject>
+				<period>
+					<start value="2010-06-01"/>
+				</period>
+			</Flag>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl
+			value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Condition/medmij-bgz-condition-ts-03"/>
+		<resource>
+			<Condition xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-condition-ts-03"/>
+				<meta>
+					<versionId value="3"/>
+					<lastUpdated value="2019-03-11T13:54:12.3012415+00:00"/>
+					<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
+				</meta>
+				<clinicalStatus value="active"/>
+				<verificationStatus value="confirmed"/>
+				<code>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="49526009"/>
+						<display value="Presbycusis (disorder)"/>
+					</coding>
+				</code>
+				<subject>
+					<reference
+						value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01"/>
+					<display value="Johan XXX_Helleman"/>
+				</subject>
+			</Condition>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl
+			value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Condition/medmij-bgz-condition-ts-04"/>
+		<resource>
+			<Condition xmlns="http://hl7.org/fhir">
+				<id value="medmij-bgz-condition-ts-04"/>
+				<meta>
+					<versionId value="3"/>
+					<lastUpdated value="2019-03-11T13:54:12.4070511+00:00"/>
+					<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
+				</meta>
+				<clinicalStatus value="active"/>
+				<verificationStatus value="confirmed"/>
+				<code>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="399269003"/>
+						<display value="Arthropathy (disorder)"/>
+					</coding>
+				</code>
+				<subject>
+					<reference
+						value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01"/>
+					<display value="Johan XXX_Helleman"/>
+				</subject>
+				<note>
+					<text
+						value="Beperking bij het bewegen van het gewricht, drukpijn door slijtage van twee compartimenten van de linker knie."
+					/>
+				</note>
+			</Condition>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/DeviceUseStatement/infusion"/>
+		<resource>
+			<DeviceUseStatement xmlns="http://hl7.org/fhir">
+				<id value="infusion"/>
+				<meta>
+					<versionId value="2"/>
+					<lastUpdated value="2019-03-11T13:54:10.6469689+00:00"/>
+					<profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion"/>
+				</meta>
+				<extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine">
+					<extension url="LineStatus">
+						<valueCodeableConcept>
+							<coding>
+								<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.12.1"/>
+								<code value="LNP"/>
+								<display value="Lopend"/>
+							</coding>
+						</valueCodeableConcept>
+					</extension>
+					<extension url="LumenLocation">
+						<valueCodeableConcept>
+							<coding>
+								<system value="http://snomed.info/sct"/>
+								<code value="40415009"/>
+								<display value="Proximal"/>
+							</coding>
+						</valueCodeableConcept>
+					</extension>
+					<extension url="AdministeringSystem">
+						<valueReference>
+							<reference
+								value="https://stu3.simplifier.net/NictizSTU3-Zib2017/MedicationAdministration/infusionfluid-tpv-example"/>
+							<display value="TPV 1 liter per 24 uur"/>
+						</valueReference>
+					</extension>
+				</extension>
+				<extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine">
+					<extension url="LineStatus">
+						<valueCodeableConcept>
+							<coding>
+								<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.12.1"/>
+								<code value="DOP"/>
+								<display value="Afgedopt"/>
+							</coding>
+						</valueCodeableConcept>
+					</extension>
+					<extension url="LumenLocation">
+						<valueCodeableConcept>
+							<coding>
+								<system value="http://snomed.info/sct"/>
+								<code value="255561001"/>
+								<display value="Medial"/>
+							</coding>
+						</valueCodeableConcept>
+					</extension>
+					<extension url="LockFluid">
+						<valueReference>
+							<reference
+								value="https://stu3.simplifier.net/NictizSTU3-Zib2017/MedicationAdministration/lockfluid-nacl-example"/>
+							<display value="Lockfluid NaCl 0.9 %"/>
+						</valueReference>
+					</extension>
+				</extension>
+				<extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine">
+					<extension url="LineStatus">
+						<valueCodeableConcept>
+							<coding>
+								<system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.12.1"/>
+								<code value="LNP"/>
+								<display value="Lopend"/>
+							</coding>
+						</valueCodeableConcept>
+					</extension>
+					<extension url="LumenLocation">
+						<valueCodeableConcept>
+							<coding>
+								<system value="http://snomed.info/sct"/>
+								<code value="46053002"/>
+								<display value="Distal"/>
+							</coding>
+						</valueCodeableConcept>
+					</extension>
+					<extension url="AdministeringSystem">
+						<valueReference>
+							<reference
+								value="https://stu3.simplifier.net/NictizSTU3-Zib2017/MedicationAdministration/infusionfluid-nacl-example"/>
+							<display value="NaCl 0.9 % 500 ml per 24 uur"/>
+						</valueReference>
+					</extension>
+				</extension>
+				<status value="active"/>
+				<subject>
+					<reference
+						value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/example"/>
+					<display value="Johan XXX_Helleman"/>
+				</subject>
+				<whenUsed>
+					<start value="2014-11-30"/>
+				</whenUsed>
+				<device>
+					<reference
+						value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Device/infusion-product"/>
+					<display value="Centraal veneuze katheter"/>
+				</device>
+				<bodySite>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="734747003"/>
+						<display value="Structure of left subclavian vein (body structure)"/>
+					</coding>
+				</bodySite>
+			</DeviceUseStatement>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://stu3.simplifier.net/NictizSTU3-Zib2017/PractitionerRole/zib-zorgverlener-practitionerrole-01"/>
+		<resource>
+			<PractitionerRole xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitionerrole.xsd" xmlns="http://hl7.org/fhir">
+				<id value="zib-zorgverlener-practitionerrole-01"/>
+				<meta>
+					<profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+				</meta>
+				<practitioner>
+					<reference value="Practitioner/zib-zorgverlener-practitionerrole-01"/>
+					<display value="Dirk de Vries"/>
+				</practitioner>
+				<code>
+					<coding>
+						<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+						<code value="RESP"/>
+						<display value="Responsible Party"/>
+					</coding>
+				</code>
+				<specialty>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+						<code value="0335"/>
+						<display value="Medisch specialisten, geriatrie"/>
+					</coding>
+				</specialty>
+			</PractitionerRole>
+		</resource>
+	</entry>
+</Bundle>

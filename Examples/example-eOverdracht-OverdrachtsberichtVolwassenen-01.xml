@@ -1,0 +1,392 @@
+<Composition xmlns="http://hl7.org/fhir">
+    <id value="eOverdracht-overdrachtsbericht-volwassenen-example"/>
+    <meta>
+        <lastUpdated value="2019-03-20T11:51:36.392+01:00"/>
+        <profile
+            value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtOverdrachtsberichtVolwassenen"
+        />
+    </meta>
+    <status value="preliminary"/>
+    <type>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="MISSING"/>
+        </coding>
+    </type>
+    <subject>
+        <reference  value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <date value="2019-03-20T11:43:40.0004456+01:00"/>
+    <author>
+        <reference value="Practitioner/medmij-bgz-practitioner-ts-01"/>
+        <display value="G.Z.M. de Wit"/>
+    </author>
+    <title value="Overdrachtsbericht Volwassenen"/>
+    <section>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-TransferDate">
+            <valueDateTime value="2019-05-01"/>
+        </extension>
+        <title value="Administrative data"/>
+        <section>
+            <title value="Personal data"/>
+            <entry>
+                <reference value="Coverage/medmij-bgz-coverage-ts-01"/>
+                <display value="Basisverzekerd Menzis Zorgverzekeraar N.V."/>
+            </entry>
+            <entry>
+                <reference value="RelatedPerson/nl-core-relatedperson-example-1"/>
+                <display value="Irma Jongeneel-de Haas"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Sending organization"/>
+            <entry>
+                <reference value="Organization/medmij-bgz-healthcareprovider-ts-03"/>
+                <display value="Maatschap Vaste Huisarts"/>
+            </entry>
+            <entry>
+                <reference value="Practioner/medmij-bgz-practitioner-ts-02"/>
+                <display value="Vaste Huisarts 1"/>
+            </entry>
+            <entry>
+                <reference value="PractionerRole/medmij-bgz-practitionerrole-ts-01"/>
+                <display value="Huisarts"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Receiving organization"/>
+            <entry>
+                <reference value="Organization/medmij-bgz-healthcareprovider-ts-01"/>
+                <display value="Test Medisch Centrum"/>
+            </entry>
+        </section>
+    </section>
+    <section>
+        <title value="General Patient Context"/>
+        <section>
+            <title value="Family Situation"/>
+            <entry>
+                <reference value="Observation/zib-familysituation-example"/>
+                <display value="Household composition (observable entity)"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Living Situation"/>
+            <entry>
+                <reference value="Observation/medmij-bgz-livingsituation-ts-01"/>
+                <display value="Finding of residence and accommodation circumstances (finding)"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Life stance"/>
+            <entry>
+                <reference value="Consent/medmij-bgz-advancedirective-ts-01"/>
+                <display value="Living will and advance directive record (record artifact)"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Social environment"/>
+            <entry>
+                <reference value="Observation/zib-participationinsociety-example"/>
+                <display value="Patient participation status"/>
+            </entry>
+            <entry>
+                <reference value="Careplan/zib-HelpFromOthers-example"/>
+                <display value="Supportive care"/>
+            </entry>
+        </section>
+    </section>
+    <section>
+        <title value="Medical context"/>
+        <section>
+            <title value="practitioner"/>
+            <entry>
+                <reference value="PractitionerRole/zib-zorgverlener-practitionerrole-01"/>
+                <display value="Medisch specialisten, geriatrie"/>
+            </entry>
+            <entry>
+                <reference value="Practitioner/zib-zorgverlener-practitionerrole-01"/>
+                <display value="Medisch specialisten, geriatrie"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Medical diagnosis"/>
+            <entry>
+                <reference value="Condition/medmij-bgz-condition-ts-01"/>
+                <display value="Amyotrofe laterale sclerose"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Medical History"/>
+            <entry>
+                <reference value="Condition/medmij-bgz-condition-ts-02"/>
+                <display value="Fracture of wrist (disorder)"/>
+            </entry>
+            <entry>
+                <reference value="Condition/medmij-bgz-condition-ts-04"/>
+                <display value="Arthropathy (disorder)"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Allergy"/>
+            <entry>
+                <reference value="AllergyIntolerance/medmij-bgz-allergyintolerance-ts-01"/>
+                <display value="Bee venom"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Pay attention"/>
+            <entry>
+                <reference value="Flag/medmij-bgz-flag-ts-01"/>
+                <display value="Methicillin resistant staphylococcus aureus carrier"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Freedom restriction"/>
+            <entry>
+                <reference value="Procedure/zib-freedomrestrictingmeasures-example"/>
+                <display value="Restriction of movement"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Measurements"/>
+            <entry>
+                <reference value="Observation/medmij-bgz-bloodpressure-ts-01"/>
+                <display value="Blood pressure panel with all children optional"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-pulserate-example"/>
+                <display value="Heart rate Peripheral artery by palpation"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-bodytemperatyre-example"/>
+                <display value="Body temperature"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-bodytemperatyre-example"/>
+                <display value="Body temperature"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-respiration-example"/>
+                <display value="Respiratory assessment"/>
+            </entry>
+            <entry>
+                <reference value="Observation/medmij-bgz-bodyweight-ts-01"/>
+                <display value="Body weight"/>
+            </entry>
+            <entry>
+                <reference value="Observation/medmij-bgz-bodyheight-ts-01"/>
+                <display value="Body height --standing"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-generalmeasurement-example"/>
+                <display value="Score list delirium (record artifact)"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Pain score"/>
+            <entry>
+                <reference value="Observation/zib-painscore-example"/>
+                <display value="Pain score (observable entity)"/>
+            </entry>
+        </section>
+    </section>
+    <section>
+        <title value="Care plan"/>
+        <section>
+            <title value="Current patient problems"/>
+            <entry>
+                <reference value="Procedure/zib-nursingintervention-example"/>
+                <display value="Pain relief by medication (finding)"/>
+            </entry>
+            <entry>
+                <reference value="Goal/zib-TreatmentObjective-example-02"/>
+                <display value="Pijnscore onder VAS 4"/>
+            </entry>
+            <entry>
+                <reference value="Condition/medmij-bgz-condition-ts-04"/>
+                <display value="Arthropathy (disorder)"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Outcome of Care"/>
+            <entry>
+                <reference value="Observation/zib-outcomeofcare-example"/>
+                <display
+                    value="Skilled nursing treatment plan Progress note and attainment of goals (narrative)" />
+            </entry>
+        </section>
+        <section>
+            <title value="Patient appointments"/>
+            <entry>
+                <reference value="ProcedureRequest/medmij-bgz-procedurerequest-ts-01"/>
+                <display value="Biopsy of skin (procedure)"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Patient's needs and preferences"/>
+            <text>
+                <status value="additional"/>
+                <div xmlns="http://www.w3.org/1999/xhtml">Patient eet geen varkensvlees.</div>
+            </text>
+        </section>
+    </section>
+    <section>
+        <title value="Health state"/>
+        <section>
+            <title value="Self care"/>
+            <entry>
+                <reference value="Observation/zib-abilitytodrink-example"/>
+                <display value="Drinken"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-abilitytoeat-example"/>
+                <display value="Eten"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-abilitytoperformmouthcareactivities-example"/>
+                <display value="VerzorgenTanden"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-abilitytowashonself-example"/>
+                <display value="ZichWassen"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-abilitytodressoneself-example"/>
+                <display value="ZichKleden"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-abilitytogroome-example"/>
+                <display value="UiterlijkeVerzorging"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-abilitytousetoilet-example"/>
+                <display value="Toiletgebruik"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-abilitytomanagemedication-example"/>
+                <display value="ZelfstandigMedicatieGebruik"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-abilitytoperformnursingactivities-example"/>
+                <display value="assisteren bij verrichting (verrichting)"/>
+            </entry>
+            <section>
+                <title value="Self care comment"/>
+                <text>
+                    <status value="additional"/>
+                    <div value="&lt;div&gt;Geen opmerkingen.&lt;/div&gt;"/>
+                </text>
+            </section>
+        </section>
+        <section>
+            <title value="Mobility"/>
+            <entry>
+                <reference value="Observation/zib-mobility-example"/>
+                <display value="vermogen om zich te verplaatsen"/>
+            </entry>
+        </section>
+        <section>
+            <title value="intake"/>
+            <entry>
+                <reference value="NutritionOrder/medmij-bgz-nutritionadvice-ts-01"/>
+                <display value="Energie verrijkt Dikvloeibaar"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-snaqscore-example"/>
+                <display value="Short Nutritional Assessment Questionnaire"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-snaqrcscore-example"/>
+                <display value="Short Nutritional Assessment Questionnaire for Residential Care"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-snaq65plusscore-example"/>
+                <display value="Short Nutritional Assessment Questionnaire 65+"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-mustscore-example"/>
+                <display value="MUST (Malnutrition universal screening tool) score"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-fluidbalance-example"/>
+                <display value="Fluid balance observable"/>
+            </entry>
+            <entry>
+                <reference value="DeviceUseStatement/feedingtubesystem"/>
+                <display value="Feeding tube system"/>
+            </entry>
+            <entry>
+                <reference value="DeviceUseStatement/infusion"/>
+                <display value="Centraal veneuze katheter"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Excretion"/>
+            <entry>
+                <reference value="Observation/zib-bladderfunction-example"/>
+                <display value="Micturition (observable entity)"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-bowelfunction-example"/>
+                <display value="Defecation (observable entity)"/>
+            </entry>
+            <entry>
+                <reference value="Observation/stoma"/>
+                <display value="Stoma (morphologic abnormality)"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Skin"/>
+            <entry>
+                <reference value="Condition/zib-burnwound"/>
+                <display value="Burn (disorder)"/>
+            </entry>
+            <entry>
+                <reference value="Condition/example-zib-PressureUlcer"/>
+                <display value="Doorligplek"/>
+            </entry>
+            <entry>
+                <reference value="Condition/exampleid"/>
+                <display value="irritatief contacteczeem door incontinentie"/>
+            </entry>
+            <entry>
+                <reference value="Condition/example-zib-wound"/>
+                <display value="Chirurgische wond"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Senses"/>
+            <entry>
+                <reference value="Observation/zib-hearingfunction-example"/>
+                <display value="HoorFunctie"/>
+            </entry>
+            <entry>
+                <reference value="Observation/zib-visualfunction-example"/>
+                <display value="Visuele functie"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Illness perception"/>
+            <entry>
+                <reference value="Observation/medmij-bgz-illnessperception-ts-01"/>
+                <display value="Characteristic of psychosocial functioning (observable entity)"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Mental status"/>
+            <entry>
+                <reference value="Condition/eOverdracht-example-IllnessPerception"/>
+                <display value="eOverdracht-example-IllnessPerception"/>
+            </entry>
+        </section>
+        <section>
+            <title value="Reproduction"/>
+            <entry>
+                <reference value="Condition/zib-pregnancy-example"/>
+                <display value="Pregnancy"/>
+            </entry>
+        </section>
+    </section>
+</Composition>
