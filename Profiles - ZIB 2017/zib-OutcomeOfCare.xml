@@ -52,14 +52,17 @@
     <element id="DiagnosticReport.extension:Intervention">
       <path value="DiagnosticReport.extension" />
       <sliceName value="Intervention" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://hl7.org/fhir/StructureDefinition/event-partOf" />
       </type>
     </element>
-    <element id="DiagnosticReport.extension:Intervention.valueReference:valueReference">
+    <element id="DiagnosticReport.extension:Intervention.url">
+      <path value="DiagnosticReport.extension.url" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/event-partOf" />
+    </element>
+    <element id="DiagnosticReport.extension:Intervention.value[x]:valueReference">
       <path value="DiagnosticReport.extension.valueReference" />
       <sliceName value="valueReference" />
       <short value="Interventie" />
@@ -135,6 +138,10 @@
       </extension>
       <path value="DiagnosticReport.code.coding.display" />
       <defaultValueString value="Skilled nursing treatment plan Progress note and attainment of goals (narrative)" />
+    </element>
+    <element id="DiagnosticReport.subject">
+      <path value="DiagnosticReport.subject" />
+      <min value="1" />
     </element>
     <element id="DiagnosticReport.result">
       <path value="DiagnosticReport.result" />
