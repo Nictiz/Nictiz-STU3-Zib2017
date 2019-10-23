@@ -130,7 +130,7 @@
       <path value="Observation.category" />
       <slicing>
         <discriminator>
-          <type value="value" />
+          <type value="pattern" />
           <path value="$this" />
         </discriminator>
         <rules value="open" />
@@ -143,6 +143,12 @@
       <short value="LaboratoryTestResultCode" />
       <min value="1" />
       <max value="1" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="49581000146104" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.system">
       <path value="Observation.category.coding.system" />
