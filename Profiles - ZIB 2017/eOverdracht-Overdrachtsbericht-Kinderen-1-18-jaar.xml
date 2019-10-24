@@ -91,9 +91,6 @@
       <fixedString value="Overdrachtsbericht Volwassenen" />
     </element>
     <element id="Composition.section">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Section" />
-      </extension>
       <path value="Composition.section" />
       <slicing>
         <discriminator>
@@ -105,9 +102,6 @@
       <min value="1" />
     </element>
     <element id="Composition.section:administrativeData">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Section" />
-      </extension>
       <path value="Composition.section" />
       <sliceName value="administrativeData" />
       <short value="Administrative data" />
@@ -393,9 +387,6 @@
       <max value="0" />
     </element>
     <element id="Composition.section:generalPatientContext">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Section" />
-      </extension>
       <path value="Composition.section" />
       <sliceName value="generalPatientContext" />
       <short value="General Patient Context" />
@@ -404,6 +395,7 @@
       <mapping>
         <identity value="eOverdracht-overdrachtsbericht-kinderen-1-18-jaar" />
         <map value="e-overdracht-dataelement-v3-2" />
+        <comment value="Algemene patiënten context" />
       </mapping>
     </element>
     <element id="Composition.section:generalPatientContext.title">
@@ -595,9 +587,6 @@
       <max value="0" />
     </element>
     <element id="Composition.section:medicalContext">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Section" />
-      </extension>
       <path value="Composition.section" />
       <sliceName value="medicalContext" />
       <short value="Medical Context" />
@@ -858,6 +847,11 @@
       <sliceName value="measurements" />
       <short value="Measurements" />
       <max value="1" />
+      <mapping>
+        <identity value="eOverdracht-overdrachtsbericht-kinderen-1-18-jaar" />
+        <map value="e-overdracht-dataelement-v3-20" />
+        <comment value="Meetwaarden" />
+      </mapping>
     </element>
     <element id="Composition.section:medicalContext.section:measurements.title">
       <path value="Composition.section.section.title" />
@@ -1070,9 +1064,6 @@
       <max value="0" />
     </element>
     <element id="Composition.section:carePlan">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Section" />
-      </extension>
       <path value="Composition.section" />
       <sliceName value="carePlan" />
       <short value="Care Plan" />
@@ -1234,6 +1225,11 @@
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-ProcedureRequest" />
       </type>
+      <mapping>
+        <identity value="eOverdracht-overdrachtsbericht-kinderen-1-18-jaar" />
+        <map value="e-overdracht-dataelement-v3-409" />
+        <comment value="GeplandeZorgActiviteit" />
+      </mapping>
     </element>
     <element id="Composition.section:carePlan.section:patientAppointments.section">
       <path value="Composition.section.section.section" />
@@ -1277,9 +1273,6 @@
       <max value="0" />
     </element>
     <element id="Composition.section:healthState">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Section" />
-      </extension>
       <path value="Composition.section" />
       <sliceName value="healthState" />
       <short value="Health State" />
@@ -1480,6 +1473,11 @@
       <path value="Composition.section.section.section" />
       <sliceName value="selfCareComment" />
       <short value="Self Care Comment" />
+      <mapping>
+        <identity value="eOverdracht-overdrachtsbericht-kinderen-1-18-jaar" />
+        <map value="e-overdracht-dataelement-v3-1453" />
+        <comment value="Toelichting zelfzorg" />
+      </mapping>
     </element>
     <element id="Composition.section:healthState.section:selfCare.section:selfCareComment.title">
       <path value="Composition.section.section.section.title" />
@@ -1577,7 +1575,6 @@
         <comment value="Voedingsadvies" />
       </mapping>
     </element>
-  
     <element id="Composition.section:healthState.section:nutritionOrFluid.entry:strongKidsScore">
       <path value="Composition.section.section.entry" />
       <sliceName value="strongKidsScore" />
@@ -1718,7 +1715,7 @@
       <mapping>
         <identity value="eOverdracht-overdrachtsbericht-kinderen-1-18-jaar" />
         <map value="e-overdracht-dataelement-v3-32" />
-        <comment value="huid" />
+        <comment value="Huid" />
       </mapping>
     </element>
     <element id="Composition.section:healthState.section:skin.title">
@@ -1804,7 +1801,7 @@
       <mapping>
         <identity value="eOverdracht-overdrachtsbericht-kinderen-1-18-jaar" />
         <map value="e-overdracht-dataelement-v3-33" />
-        <comment value="zintuigen" />
+        <comment value="Zintuigen" />
       </mapping>
     </element>
     <element id="Composition.section:healthState.section:senses.title">
@@ -1923,7 +1920,6 @@
       <path value="Composition.section.section.section" />
       <max value="0" />
     </element>
-    
     <element id="Composition.section:healthState.section:developmentChild">
       <path value="Composition.section.section" />
       <sliceName value="developmentChild" />
@@ -1957,7 +1953,7 @@
     <element id="Composition.section:healthState.section:developmentChild.section">
       <path value="Composition.section.section.section" />
       <max value="0" />
-    </element> 
+    </element>
     <element id="Composition.section:healthState.section:reproduction">
       <path value="Composition.section.section" />
       <sliceName value="reproduction" />
@@ -1992,7 +1988,6 @@
       <path value="Composition.section.section.section" />
       <max value="0" />
     </element>
-    
     <element id="Composition.section:healthState.section:otherDetailsChild">
       <path value="Composition.section.section" />
       <sliceName value="otherDetailsChild" />
@@ -2007,7 +2002,6 @@
       <path value="Composition.section.section.title" />
       <short value="Other Details Child" />
       <min value="1" />
-      <max value="1" />
       <fixedString value="Other Details Child" />
     </element>
     <element id="Composition.section:healthState.section:otherDetailsChild.text">
