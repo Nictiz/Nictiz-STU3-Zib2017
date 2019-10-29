@@ -102,6 +102,7 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+    <min value="1" />
     </element>
     <element id="Composition.section:administrativeData">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -717,6 +718,13 @@
       <min value="1" />
       <fixedCode value="773130005" />
     </element>
+    <element id="Composition.section:carePlan.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.code.coding.display"/>
+      <defaultValueString value="Nursing care plan (record artifact)"/>
+    </element>
     <element id="Composition.section:carePlan.entry">
       <path value="Composition.section.entry" />
       <max value="0" />
@@ -830,64 +838,6 @@
       </mapping>
     </element>
     <element id="Composition.section:carePlan.section:currentPatientProblems.section">
-      <path value="Composition.section.section.section" />
-      <max value="0" />
-    </element>
-    <element id="Composition.section:carePlan.section:outcomeOfCare">
-      <path value="Composition.section.section" />
-      <sliceName value="outcomeOfCare" />
-      <short value="Outcome Of Care" />
-      <max value="1" />
-      <mapping>
-        <identity value="eOverdracht-overdrachtsbericht-volwassenen" />
-        <map value="e-overdracht-dataelement-v3-25" />
-        <comment value="Zorgresultaat" />
-      </mapping>
-    </element>
-    <element id="Composition.section:carePlan.section:outcomeOfCare.title">
-      <path value="Composition.section.section.title" />
-      <defaultValueString value="Outcome of Care" />
-    </element>
-    <element id="Composition.section:carePlan.section:outcomeOfCare.code">
-      <path value="Composition.section.section.code" />
-      <min value="1" />
-    </element>
-    <element id="Composition.section:carePlan.section:outcomeOfCare.code.coding">
-      <path value="Composition.section.section.code.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Composition.section:carePlan.section:outcomeOfCare.code.coding.system">
-      <path value="Composition.section.section.code.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Composition.section:carePlan.section:outcomeOfCare.code.coding.code">
-      <path value="Composition.section.section.code.coding.code" />
-      <min value="1" />
-      <fixedCode value="722091001" />
-    </element>
-    <element id="Composition.section:carePlan.section:outcomeOfCare.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Composition.section.section.code.coding.display" />
-      <defaultValueString value="Conclusion interpretation document (record artifact)" />
-    </element>
-    <element id="Composition.section:carePlan.section:outcomeOfCare.entry">
-      <path value="Composition.section.section.entry" />
-      <min value="1" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-OutcomeOfCare" />
-      </type>
-      <mapping>
-        <identity value="eOverdracht-overdrachtsbericht-volwassenen" />
-        <map value="e-overdracht-dataelement-v3-401" />
-        <comment value="UitkomstVanZorg" />
-      </mapping>
-    </element>
-    <element id="Composition.section:carePlan.section:outcomeOfCare.section">
       <path value="Composition.section.section.section" />
       <max value="0" />
     </element>
