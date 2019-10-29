@@ -97,8 +97,8 @@
       <path value="Composition.section" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="title" />
+          <type value="value"/>
+          <path value="code.coding.code"/>
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -186,8 +186,8 @@
       <path value="Composition.section.section" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="title" />
+          <type value="value"/>
+          <path value="code.coding.code"/>
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -213,6 +213,12 @@
     <element id="Composition.section:administrativeData.section:personalData.code">
       <path value="Composition.section.section.code" />
       <min value="1" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="302147001" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Composition.section:administrativeData.section:personalData.code.coding">
       <path value="Composition.section.section.code.coding" />

@@ -97,8 +97,8 @@
       <path value="Composition.section" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="title" />
+          <type value="value"/>
+          <path value="code.coding.code"/>
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -149,8 +149,34 @@
     <element id="Composition.section:administrativeData.title">
       <path value="Composition.section.title" />
       <short value="Administrative data" />
+      <defaultValueString value="Administrative data" />
+    </element>
+    <element id="Composition.section:administrativeData.code">
+      <path value="Composition.section.code" />
       <min value="1" />
-      <fixedString value="Administrative data" />
+    </element>
+    <element id="Composition.section:administrativeData.code.coding">
+      <path value="Composition.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:administrativeData.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Composition.section:administrativeData.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <short value="Administrative documentation (record artifact)" />
+      <min value="1" />
+      <fixedCode value="405624007" />
+    </element>
+    <element id="Composition.section:administrativeData.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Composition.section.code.coding.display" />
+      <defaultValueString value="Administrative documentation (record artifact)" />
     </element>
     <element id="Composition.section:administrativeData.entry">
       <path value="Composition.section.entry" />
@@ -160,8 +186,8 @@
       <path value="Composition.section.section" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="title" />
+          <type value="value"/>
+          <path value="code.coding.code"/>
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -182,8 +208,34 @@
     <element id="Composition.section:administrativeData.section:personalData.title">
       <path value="Composition.section.section.title" />
       <short value="Personal data" />
+      <defaultValueString value="Personal data" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.code">
+      <path value="Composition.section.section.code" />
       <min value="1" />
-      <fixedString value="Personal data" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.code.coding">
+      <path value="Composition.section.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.code.coding.system">
+      <path value="Composition.section.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.code.coding.code">
+      <path value="Composition.section.section.code.coding.code" />
+      <short value="Demographic history detail (observable entity)" />
+      <min value="1" />
+      <fixedCode value="302147001" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Composition.section.section.code.coding.display" />
+      <defaultValueString value="Demographic history detail (observable entity)" />
     </element>
     <element id="Composition.section:administrativeData.section:personalData.entry">
       <path value="Composition.section.section.entry" />
