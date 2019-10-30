@@ -999,9 +999,36 @@
       </mapping>
     </element>
     <element id="Composition.section:medicalContext.section:medicalDiagnosis.title">
-      <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Medical diagnosis" />
+      <path value="Composition.section.section.title"/>
+      <short value="Medical diagnosis"/>
+      <defaultValueString value="Medical diagnosis"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalDiagnosis.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalDiagnosis.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalDiagnosis.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalDiagnosis.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="52870002"/>
+    </element>
+    <element
+      id="Composition.section:medicalContext.section:medicalDiagnosis.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="Referral diagnosis (qualifier value)"/>
     </element>
     <element id="Composition.section:medicalContext.section:medicalDiagnosis.entry">
       <path value="Composition.section.section.entry" />

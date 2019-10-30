@@ -637,10 +637,37 @@
       </mapping>
     </element>
     <element id="Composition.section:generalPatientContext.section:livingSituation.title">
-      <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Living Situation" />
+      <path value="Composition.section.section.title"/>
+      <short value="Living Situation"/>
+      <defaultValueString value="Living situation"/>
     </element>
+    <element id="Composition.section:generalPatientContext.section:livingSituation.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:generalPatientContext.section:livingSituation.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:generalPatientContext.section:livingSituation.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:generalPatientContext.section:livingSituation.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="365512000"/>
+    </element>
+    <element
+      id="Composition.section:generalPatientContext.section:livingSituation.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="Finding of characteristics of home environment (finding)"/>
+    </element> 
     <element id="Composition.section:generalPatientContext.section:livingSituation.entry">
       <path value="Composition.section.section.entry" />
       <max value="1" />
@@ -670,10 +697,37 @@
       </mapping>
     </element>
     <element id="Composition.section:generalPatientContext.section:lifeStance.title">
-      <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Life stance" />
+      <path value="Composition.section.section.title"/>
+      <short value="Life Stance"/>
+      <defaultValueString value="Life stance"/>
     </element>
+    <element id="Composition.section:generalPatientContext.section:lifeStance.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:generalPatientContext.section:lifeStance.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:generalPatientContext.section:lifeStance.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:generalPatientContext.section:lifeStance.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="108329005"/>
+    </element>
+    <element
+      id="Composition.section:generalPatientContext.section:lifeStance.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="Social context finding (finding)"/>
+    </element> 
     <element id="Composition.section:generalPatientContext.section:lifeStance.entry">
       <path value="Composition.section.section.entry" />
       <slicing>
@@ -716,9 +770,36 @@
       </mapping>
     </element>
     <element id="Composition.section:generalPatientContext.section:socialEnvironment.title">
-      <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Social environment" />
+      <path value="Composition.section.section.title"/>
+      <short value="Life Stance"/>
+      <defaultValueString value="Life stance"/>
+    </element>
+    <element id="Composition.section:generalPatientContext.section:socialEnvironment.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:generalPatientContext.section:socialEnvironment.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:generalPatientContext.section:socialEnvironment.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:generalPatientContext.section:socialEnvironment.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="365448001"/>
+    </element>
+    <element
+      id="Composition.section:generalPatientContext.section:socialEnvironment.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="Social and personal history finding (finding)"/>
     </element>
     <element id="Composition.section:generalPatientContext.section:socialEnvironment.entry">
       <path value="Composition.section.section.entry" />
@@ -761,9 +842,35 @@
       </mapping>
     </element>
     <element id="Composition.section:medicalContext.title">
-      <path value="Composition.section.title" />
-      <min value="1" />
-      <fixedString value="Medical context" />
+      <path value="Composition.section.title"/>
+      <short value="Medical context"/>
+      <defaultValueString value="Medical context"/>
+    </element>
+    <element id="Composition.section:medicalContext.code">
+      <path value="Composition.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.code.coding">
+      <path value="Composition.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.code.coding.system">
+      <path value="Composition.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:medicalContext.code.coding.code">
+      <path value="Composition.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="371524004"/>
+    </element>
+    <element id="Composition.section:medicalContext.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.code.coding.display"/>
+      <defaultValueString value="Clinical report (record artifact)"/>
     </element>
     <element id="Composition.section:medicalContext.entry">
       <path value="Composition.section.entry" />
@@ -793,10 +900,37 @@
       </mapping>
     </element>
     <element id="Composition.section:medicalContext.section:practitioner.title">
-      <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="practitioner" />
+      <path value="Composition.section.section.title"/>
+      <short value="Practitioner"/>
+      <defaultValueString value="Practitioner"/>
     </element>
+    <element id="Composition.section:medicalContext.section:practitioner.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:practitioner.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:practitioner.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:practitioner.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="405623001"/>
+    </element>
+    <element
+      id="Composition.section:medicalContext.section:practitioner.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="Assigned practitioner (occupation)"/>
+    </element> 
     <element id="Composition.section:medicalContext.section:practitioner.entry">
       <path value="Composition.section.section.entry" />
       <slicing>
@@ -850,9 +984,36 @@
       </mapping>
     </element>
     <element id="Composition.section:medicalContext.section:medicalDiagnosis.title">
-      <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Medical diagnosis" />
+      <path value="Composition.section.section.title"/>
+      <short value="Medical diagnosis"/>
+      <defaultValueString value="Medical diagnosis"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalDiagnosis.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalDiagnosis.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalDiagnosis.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalDiagnosis.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="52870002"/>
+    </element>
+    <element
+      id="Composition.section:medicalContext.section:medicalDiagnosis.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="Referral diagnosis (qualifier value)"/>
     </element>
     <element id="Composition.section:medicalContext.section:medicalDiagnosis.entry">
       <path value="Composition.section.section.entry" />
@@ -883,9 +1044,35 @@
       </mapping>
     </element>
     <element id="Composition.section:medicalContext.section:medicalHistory.title">
-      <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Medical History" />
+      <path value="Composition.section.section.title"/>
+      <short value="Medical history"/>
+      <defaultValueString value="Medical history"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalHistory.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalHistory.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalHistory.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalHistory.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="417662000"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:medicalHistory.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="klinische bevinding in voorgeschiedenis (situatie)"/>
     </element>
     <element id="Composition.section:medicalContext.section:medicalHistory.entry">
       <path value="Composition.section.section.entry" />
@@ -917,8 +1104,33 @@
     </element>
     <element id="Composition.section:medicalContext.section:allergy.title">
       <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Allergy" />
+      <defaultValueString value="Pay attention" />
+    </element>
+    <element id="Composition.section:medicalContext.section:allergy.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:allergy.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:allergy.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:allergy.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="420134006"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:allergy.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="neiging tot ongewenste reactie (bevinding)"/>
     </element>
     <element id="Composition.section:medicalContext.section:allergy.entry">
       <path value="Composition.section.section.entry" />
@@ -950,8 +1162,33 @@
     </element>
     <element id="Composition.section:medicalContext.section:payAttention.title">
       <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Pay attention" />
+      <defaultValueString value="Pay attention" />
+    </element>
+    <element id="Composition.section:medicalContext.section:payAttention.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:payAttention.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:payAttention.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:payAttention.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="308813009"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:payAttention.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="Notification status (finding)"/>
     </element>
     <element id="Composition.section:medicalContext.section:payAttention.entry">
       <path value="Composition.section.section.entry" />
@@ -982,9 +1219,34 @@
       </mapping>
     </element>
     <element id="Composition.section:medicalContext.section:freedomRestriction.title">
-      <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Freedom restriction" />
+      <path value="Composition.section.section.title"/>
+      <short value="Freedom restriction"/>
+      <defaultValueString value="Freedom restriction"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:freedomRestriction.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:freedomRestriction.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:freedomRestriction.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:freedomRestriction.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <fixedCode value="225317005"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:freedomRestriction.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="beperking van bewegingsvrijheid (regime/therapie)"/>
     </element>
     <element id="Composition.section:medicalContext.section:freedomRestriction.entry">
       <path value="Composition.section.section.entry" />
@@ -1016,9 +1278,34 @@
       </mapping>
     </element>
     <element id="Composition.section:medicalContext.section:measurements.title">
-      <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Measurements" />
+      <path value="Composition.section.section.title"/>
+      <short value="Measurements"/>
+      <defaultValueString value="Measurements"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:measurements.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:measurements.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:measurements.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:measurements.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <fixedCode value="225317005"/>
+    </element>
+    <element id="Composition.section:medicalContext.section:measurements.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="beperking van bewegingsvrijheid (regime/therapie)"/>
     </element>
     <element id="Composition.section:medicalContext.section:measurements.entry">
       <path value="Composition.section.section.entry" />
@@ -1176,8 +1463,33 @@
     </element>
     <element id="Composition.section:medicalContext.section:painScore.title">
       <path value="Composition.section.section.title" />
+      <short value="Pain Score" />
+      <defaultValueString value="Pain score" />
+    </element>
+    <element id="Composition.section:medicalContext.section:painScore.code">
+      <path value="Composition.section.section.code" />
       <min value="1" />
-      <fixedString value="Pain score" />
+    </element>
+    <element id="Composition.section:medicalContext.section:painScore.code.coding">
+      <path value="Composition.section.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:medicalContext.section:painScore.code.coding.system">
+      <path value="Composition.section.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Composition.section:medicalContext.section:painScore.code.coding.code">
+      <path value="Composition.section.section.code.coding.code" />
+      <fixedCode value="11011000146108" />
+    </element>
+    <element id="Composition.section:medicalContext.section:painScore.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Composition.section.section.code.coding.display" />
+      <defaultValueString value="Score list pain (record artifact)" />
     </element>
     <element id="Composition.section:medicalContext.section:painScore.entry">
       <path value="Composition.section.section.entry" />
@@ -1268,8 +1580,33 @@
     </element>
     <element id="Composition.section:carePlan.title">
       <path value="Composition.section.title" />
+      <defaultValueString value="Careplan" />
+    </element>
+    <element id="Composition.section:carePlan.code">
+      <path value="Composition.section.code" />
       <min value="1" />
-      <fixedString value="Careplan" />
+    </element>
+    <element id="Composition.section:carePlan.code.coding">
+      <path value="Composition.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:carePlan.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Composition.section:carePlan.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="773130005" />
+    </element>
+    <element id="Composition.section:carePlan.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.code.coding.display"/>
+      <defaultValueString value="Nursing care plan (record artifact)"/>
     </element>
     <element id="Composition.section:carePlan.entry">
       <path value="Composition.section.entry" />
@@ -1299,9 +1636,34 @@
       </mapping>
     </element>
     <element id="Composition.section:carePlan.section:currentPatientProblems.title">
-      <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Current patient problems" />
+      <path value="Composition.section.section.title"/>
+      <defaultValueString value="Current patient problems"/>
+    </element>
+    <element id="Composition.section:carePlan.section:currentPatientProblems.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:carePlan.section:currentPatientProblems.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Composition.section:carePlan.section:currentPatientProblems.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element id="Composition.section:carePlan.section:currentPatientProblems.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="86644006"/>
+    </element>
+    <element id="Composition.section:carePlan.section:currentPatientProblems.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="Nursing diagnosis (finding)"/>
     </element>
     <element id="Composition.section:carePlan.section:currentPatientProblems.entry">
       <path value="Composition.section.section.entry" />
@@ -1373,11 +1735,36 @@
         <comment value="Zorgresultaat" />
       </mapping>
     </element>
-    <element id="Composition.section:carePlan.section:outcomeOfCare.title">
-      <path value="Composition.section.section.title" />
-      <min value="1" />
-      <fixedString value="Outcome of Care" />
-    </element>
+    <element id="Composition.section:carePlan.section:outcomeOfCare.title"> 
+      <path value="Composition.section.section.title" /> 
+      <defaultValueString value="Outcome of Care" /> 
+    </element> 
+    <element id="Composition.section:carePlan.section:outcomeOfCare.code"> 
+      <path value="Composition.section.section.code" /> 
+      <min value="1" /> 
+    </element> 
+    <element id="Composition.section:carePlan.section:outcomeOfCare.code.coding"> 
+      <path value="Composition.section.section.code.coding" /> 
+      <min value="1" /> 
+      <max value="1" /> 
+    </element> 
+    <element id="Composition.section:carePlan.section:outcomeOfCare.code.coding.system"> 
+      <path value="Composition.section.section.code.coding.system" /> 
+      <min value="1" /> 
+      <fixedUri value="http://snomed.info/sct" /> 
+    </element> 
+    <element id="Composition.section:carePlan.section:outcomeOfCare.code.coding.code"> 
+      <path value="Composition.section.section.code.coding.code" /> 
+      <min value="1" /> 
+      <fixedCode value="722091001" /> 
+    </element> 
+    <element id="Composition.section:carePlan.section:outcomeOfCare.code.coding.display"> 
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable"> 
+        <valueBoolean value="true" /> 
+      </extension> 
+      <path value="Composition.section.section.code.coding.display" /> 
+      <defaultValueString value="Conclusion interpretation document (record artifact)" /> 
+    </element> 
     <element id="Composition.section:carePlan.section:outcomeOfCare.entry">
       <path value="Composition.section.section.entry" />
       <min value="1" />
