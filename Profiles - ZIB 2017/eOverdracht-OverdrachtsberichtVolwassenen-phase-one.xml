@@ -271,7 +271,7 @@
       <path value="Composition.section.section" />
       <sliceName value="sendingOrganization" />
       <short value="Sending Organization" />
-      <definition value="Subsection listing data about the sending organization.[" />
+      <definition value="Subsection listing data about the sending organization." />
       <min value="1" />
       <max value="1" />
       <mapping>
@@ -281,10 +281,38 @@
       </mapping>
     </element>
     <element id="Composition.section:administrativeData.section:sendingOrganization.title">
-      <path value="Composition.section.section.title" />
-      <short value="Sending organization" />
-      <min value="1" />
-      <fixedString value="Sending organization" />
+      <path value="Composition.section.section.title"/>
+      <short value="Sending organization"/>
+      <defaultValueString value="Sending organization"/>
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element
+      id="Composition.section:administrativeData.section:sendingOrganization.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element
+      id="Composition.section:administrativeData.section:sendingOrganization.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="185362004"/>
+    </element>
+    <element
+      id="Composition.section:administrativeData.section:sendingOrganization.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="Referred by nurse (finding)"/>
     </element>
     <element id="Composition.section:administrativeData.section:sendingOrganization.entry">
       <path value="Composition.section.section.entry" />
@@ -350,10 +378,39 @@
       </mapping>
     </element>
     <element id="Composition.section:administrativeData.section:receivingOrganization.title">
-      <path value="Composition.section.section.title" />
-      <short value="Receiving organization" />
-      <min value="1" />
-      <fixedString value="Receiving organization" />
+      <path value="Composition.section.section.title"/>
+      <short value="Receiving organization"/>
+      <defaultValueString value="Receiving organization"/>
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.code">
+      <path value="Composition.section.section.code"/>
+      <min value="1"/>
+    </element>
+    <element
+      id="Composition.section:administrativeData.section:receivingOrganization.code.coding">
+      <path value="Composition.section.section.code.coding"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element
+      id="Composition.section:administrativeData.section:receivingOrganization.code.coding.system">
+      <path value="Composition.section.section.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://snomed.info/sct"/>
+    </element>
+    <element
+      id="Composition.section:administrativeData.section:receivingOrganization.code.coding.code">
+      <path value="Composition.section.section.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="275645009"/>
+    </element>
+    <element
+      id="Composition.section:administrativeData.section:receivingOrganization.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Composition.section.section.code.coding.display"/>
+      <defaultValueString value="Nurse: referred to (finding)"/>
     </element>
     <element id="Composition.section:administrativeData.section:receivingOrganization.entry">
       <path value="Composition.section.section.entry" />
