@@ -97,8 +97,8 @@
       <path value="Composition.section" />
       <slicing>
         <discriminator>
-          <type value="value"/>
-          <path value="code.coding.code"/>
+          <type value="value" />
+          <path value="code.coding.code" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -186,8 +186,8 @@
       <path value="Composition.section.section" />
       <slicing>
         <discriminator>
-          <type value="value"/>
-          <path value="code.coding.code"/>
+          <type value="value" />
+          <path value="code.coding.code" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -397,8 +397,33 @@
     <element id="Composition.section:pdf-file.title">
       <path value="Composition.section.title" />
       <comment value="There's no SNOMED code available for PDF file. Therefore we discriminate on title." />
+      <defaultValueString value="PDF file" />
+    </element>
+    <element id="Composition.section:pdf-file.code">
+      <path value="Composition.section.code" />
       <min value="1" />
-      <fixedString value="PDF file" />
+    </element>
+    <element id="Composition.section:pdf-file.code.coding">
+      <path value="Composition.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:pdf-file.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Composition.section:pdf-file.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="422522004" />
+    </element>
+    <element id="Composition.section:pdf-file.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Composition.section.code.coding.display" />
+      <defaultValueString value="Record document part (record artifact)" />
     </element>
     <element id="Composition.section:pdf-file.entry">
       <path value="Composition.section.entry" />
