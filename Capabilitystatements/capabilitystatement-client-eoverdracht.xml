@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/capabilitystatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
+    <url value="http://nictiz.nl/fhir/CapabilityStatement/eOverdracht-clientcapabilities"/>
+    <version value="1.0.0"/>
+    <name value="eOverdrachtClient"/>
+    <status value="draft"/>
+    <date value="2019-10-28"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This CapabilityStatement describes the minimal requirements for a client to send eOverdacht documents based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB), release 2017. The eOverdracht project is divided in multiple phases. This CapabilityStatement describes the minimal capabilities to comply to phase 1. "/>
+    <copyright value="CC0"/>
+    <kind value="requirements"/>
+    <fhirVersion value="3.0.1"/>
+    <acceptUnknown value="both"/>
+    <format value="application/fhir+xml"/>
+    <format value="application/fhir+json"/>
+    <document>
+        <mode value="producer"/>
+        <documentation value="Composition resource which representsthe Aanmeldbericht for eOverdracht. More information on eOverdracht standard: https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorg" />
+        <profile>
+            <reference value="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-aanmeldbericht"/>
+            <display value="eOverdracht Aanmeldbericht"/>
+        </profile>       
+    </document>
+    <document>
+        <mode value="producer"/>
+        <documentation value="Composition resource which represents the Overdrachtsbericht volwassenen for eOverdracht. More information on eOverdracht standard: https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorg" />
+        <profile>
+            <reference value="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-overdrachtsbericht-volwassenen"/>
+            <display value="eOverdracht Overdrachtsbericht Volwassenen"/>
+        </profile>       
+    </document>
+    <document>
+        <mode value="producer"/>
+        <documentation value="Composition resource which represents the Overdrachtsbericht Kinderen 0-1 jaar for eOverdracht. More information on eOverdracht standard: https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorg" />
+        <profile>
+            <reference value="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-overdrachtsbericht-kinderen-0-1-jaar"/>
+            <display value="eOverdracht Overdrachtsbericht Kinderen 0 tot 1 jaar"/>
+        </profile>       
+    </document>
+    <document>
+        <mode value="producer"/>
+        <documentation value="Composition resource which represents the Overdrachtsbericht Kinderen 1-18 jaar for eOverdracht. More information on eOverdracht standard: https://informatiestandaarden.nictiz.nl/wiki/Landingspagina_Verpleegkundige_Zorg" />
+        <profile>
+            <reference value="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-overdrachtsbericht-kinderen-1-18-jaar"/>
+            <display value="eOverdracht Overdrachtsbericht Kinderen 1 tot 18 jaar"/>
+        </profile>       
+    </document>
+</CapabilityStatement>
