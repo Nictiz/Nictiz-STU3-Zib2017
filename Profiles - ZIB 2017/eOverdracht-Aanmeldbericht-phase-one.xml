@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="eOverdrachtAanmeldbericht-phase-one" />
-  <url value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtAanmeldbericht-phase-one" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-aanmeldbericht-phase-one" />
   <version value="0.1" />
   <name value="eOverdracht Aanmeldbericht phase one" />
   <title value="eOverdracht Aanmeldbericht phase one" />
@@ -98,7 +98,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="title" />
+          <path value="code.coding.code" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -149,8 +149,34 @@
     <element id="Composition.section:administrativeData.title">
       <path value="Composition.section.title" />
       <short value="Administrative data" />
+      <defaultValueString value="Administrative data" />
+    </element>
+    <element id="Composition.section:administrativeData.code">
+      <path value="Composition.section.code" />
       <min value="1" />
-      <fixedString value="Administrative data" />
+    </element>
+    <element id="Composition.section:administrativeData.code.coding">
+      <path value="Composition.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:administrativeData.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Composition.section:administrativeData.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <short value="Administrative documentation (record artifact)" />
+      <min value="1" />
+      <fixedCode value="405624007" />
+    </element>
+    <element id="Composition.section:administrativeData.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Composition.section.code.coding.display" />
+      <defaultValueString value="Administrative documentation (record artifact)" />
     </element>
     <element id="Composition.section:administrativeData.entry">
       <path value="Composition.section.entry" />
@@ -161,7 +187,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="title" />
+          <path value="code.coding.code" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -182,15 +208,41 @@
     <element id="Composition.section:administrativeData.section:personalData.title">
       <path value="Composition.section.section.title" />
       <short value="Personal data" />
+      <defaultValueString value="Personal data" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.code">
+      <path value="Composition.section.section.code" />
       <min value="1" />
-      <fixedString value="Personal data" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.code.coding">
+      <path value="Composition.section.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.code.coding.system">
+      <path value="Composition.section.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.code.coding.code">
+      <path value="Composition.section.section.code.coding.code" />
+      <short value="Demographic history detail (observable entity)" />
+      <min value="1" />
+      <fixedCode value="302147001" />
+    </element>
+    <element id="Composition.section:administrativeData.section:personalData.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Composition.section.section.code.coding.display" />
+      <defaultValueString value="Demographic history detail (observable entity)" />
     </element>
     <element id="Composition.section:administrativeData.section:personalData.entry">
       <path value="Composition.section.section.entry" />
       <slicing>
         <discriminator>
-          <type value="profile" />
-          <path value="resolve()" />
+          <type value="type" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -200,6 +252,7 @@
     <element id="Composition.section:administrativeData.section:personalData.entry:payer">
       <path value="Composition.section.section.entry" />
       <sliceName value="payer" />
+      <short value="A reference to payer data" />
       <min value="1" />
       <type>
         <code value="Reference" />
@@ -231,8 +284,33 @@
     <element id="Composition.section:administrativeData.section:sendingOrganization.title">
       <path value="Composition.section.section.title" />
       <short value="Sending organization" />
+      <defaultValueString value="Sending organization" />
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.code">
+      <path value="Composition.section.section.code" />
       <min value="1" />
-      <fixedString value="Sending organization" />
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.code.coding">
+      <path value="Composition.section.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.code.coding.system">
+      <path value="Composition.section.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.code.coding.code">
+      <path value="Composition.section.section.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="185362004" />
+    </element>
+    <element id="Composition.section:administrativeData.section:sendingOrganization.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Composition.section.section.code.coding.display" />
+      <defaultValueString value="Referred by nurse (finding)" />
     </element>
     <element id="Composition.section:administrativeData.section:sendingOrganization.entry">
       <path value="Composition.section.section.entry" />
@@ -264,8 +342,33 @@
     <element id="Composition.section:administrativeData.section:receivingOrganization.title">
       <path value="Composition.section.section.title" />
       <short value="Receiving organization" />
+      <defaultValueString value="Receiving organization" />
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.code">
+      <path value="Composition.section.section.code" />
       <min value="1" />
-      <fixedString value="Receiving organization" />
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.code.coding">
+      <path value="Composition.section.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.code.coding.system">
+      <path value="Composition.section.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.code.coding.code">
+      <path value="Composition.section.section.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="275645009" />
+    </element>
+    <element id="Composition.section:administrativeData.section:receivingOrganization.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Composition.section.section.code.coding.display" />
+      <defaultValueString value="Nurse: referred to (finding)" />
     </element>
     <element id="Composition.section:administrativeData.section:receivingOrganization.entry">
       <path value="Composition.section.section.entry" />
@@ -293,8 +396,34 @@
     </element>
     <element id="Composition.section:pdf-file.title">
       <path value="Composition.section.title" />
+      <comment value="There's no SNOMED code available for PDF file. Therefore we discriminate on title." />
+      <defaultValueString value="PDF file" />
+    </element>
+    <element id="Composition.section:pdf-file.code">
+      <path value="Composition.section.code" />
       <min value="1" />
-      <fixedString value="PDF file" />
+    </element>
+    <element id="Composition.section:pdf-file.code.coding">
+      <path value="Composition.section.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:pdf-file.code.coding.system">
+      <path value="Composition.section.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Composition.section:pdf-file.code.coding.code">
+      <path value="Composition.section.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="422522004" />
+    </element>
+    <element id="Composition.section:pdf-file.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Composition.section.code.coding.display" />
+      <defaultValueString value="Record document part (record artifact)" />
     </element>
     <element id="Composition.section:pdf-file.entry">
       <path value="Composition.section.entry" />
