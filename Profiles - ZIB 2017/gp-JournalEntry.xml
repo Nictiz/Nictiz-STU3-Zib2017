@@ -20,7 +20,7 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
   <derivation value="constraint" />
   <differential>
     <element id="Observation.identifier">
@@ -45,9 +45,6 @@
       <short value="NHG SOAP Code" />
       <definition value="Subjective, Objective, Evaluation, Plan" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationCode" />
-        </extension>
         <strength value="required" />
         <description value="NHG SOAP codes" />
         <valueSetReference>
@@ -81,44 +78,6 @@
     <element id="Observation.issued">
       <path value="Observation.issued" />
       <max value="0" />
-    </element>
-    <element id="Observation.performer">
-      <path value="Observation.performer" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
-    </element>
-    <element id="Observation.performer.extension">
-      <path value="Observation.performer.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Observation.performer.extension:practitionerRole">
-      <path value="Observation.performer.extension" />
-      <sliceName value="practitionerRole" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-      </type>
     </element>
     <element id="Observation.value[x]:valueString">
       <path value="Observation.valueString" />
