@@ -85,7 +85,7 @@
             <interaction>
                 <code value="search-type"/>
             </interaction>
-            <searchInclude value="general-practitioner"/>
+            <searchInclude value="Patient:general-practitioner"/>
             <searchParam>
                 <name value="identifier"/>
                 <type value="token"/>
@@ -96,8 +96,8 @@
             <interaction>
                 <code value="search-type"/>
             </interaction>
-            <searchInclude value="related-target"/>
-            <searchInclude value="specimen"/>
+            <searchInclude value="Observation:related-target"/>
+            <searchInclude value="Observation:specimen"/>
             <searchParam>
                 <name value="patient"/>
                 <type value="reference"/>
@@ -130,24 +130,8 @@
             <interaction>
                 <code value="search-type"/>
             </interaction>
-            <searchInclude value="treatmentobjective"/>
-            <searchInclude value="medicaldevice"/>
             <searchParam>
                 <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
-            <searchParam>
-                <name value="category"/>
-                <type value="token"/>
-            </searchParam>
-            <searchParam>
-                <name value="treatmentobjective"/>
-                <definition value="http://nictiz.nl/fhir/SearchParameter/procedure-treatmentobjective"/>
-                <type value="reference"/>
-            </searchParam>
-            <searchParam>
-                <name value="medicaldevice"/>
-                <definition value="http://nictiz.nl/fhir/SearchParameter/procedure-medicaldevice"/>
                 <type value="reference"/>
             </searchParam>
         </resource>
@@ -176,7 +160,7 @@
             <interaction>
                 <code value="search-type"/>
             </interaction>
-            <searchInclude value="participant"/>
+            <searchInclude value="CareTeam:participant"/>
             <searchParam>
                 <name value="patient"/>
                 <type value="reference"/>
@@ -187,8 +171,8 @@
             <interaction>
                 <code value="search-type"/>
             </interaction>
-            <searchInclude value="activity-goal"/>
-            <searchInclude value="activity-outcomereference"/>
+            <searchInclude value="CarePlan:goal"/>
+            <searchInclude value="CarePlan:activity-reference"/>
             <searchInclude value="medicaldevice"/>
             <searchParam>
                 <name value="patient"/>
