@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationAgreement" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
-  <version value="2.2.1" />
+  <version value="2.2.2" />
   <name value="Zib MedicationAgreement" />
   <title value="HCIM MedicationAgreement" />
   <status value="active" />
@@ -260,12 +260,12 @@
     <element id="MedicationRequest.status">
       <path value="MedicationRequest.status" />
       <short value="CanceledIndicator" />
-      <definition value="A code specifying the current state of the order. Generally this will be active or completed state." />
+      <definition value="In the event of an error correction, the value of this element shall be 'entered-in-error'." />
       <alias value="GeannuleerdIndicator" />
       <mapping>
         <identity value="hcim-medicationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.6.23033" />
-        <comment value="CanceledIndicator" />
+        <comment value="CanceledIndicator. Use status code entered-in-error" />
       </mapping>
     </element>
     <element id="MedicationRequest.intent">
