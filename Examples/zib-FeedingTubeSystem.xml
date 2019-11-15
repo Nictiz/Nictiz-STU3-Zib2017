@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/deviceusestatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<DeviceUseStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd" xmlns="http://hl7.org/fhir">
+    <id value="feedingtubesystem"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem"/>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-FeedingTubeLength">
+        <valueQuantity>
+            <value value="52"/>
+            <unit value="cm"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="cm"/>
+        </valueQuantity>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-EnteralNutrition">
+        <valueReference>
+            <reference value="MedicationAdministration/example-sondevoeding"/>
+            <display value="XXX Nutrition"/>
+        </valueReference>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
+        <valueReference>
+            <reference value="DeviceUseStatement/example-feedingpump"/>
+            <display value="Enteral feeding pump "/>
+        </valueReference>
+    </extension>
+    <status value="active"/>
+    <subject>
+        <reference value="Patient/nl-core-patient"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <whenUsed>
+        <start value="2018-12-22"/>
+    </whenUsed>
+    <device>
+        <reference value="Device/feedingtubesystem-product"/>
+        <display value="Percutaneous endoscopic gastrostomy catheter"/>
+    </device>
+    <note>
+        <text value="Sonde is met spoed toegebracht."/>
+    </note>
+</DeviceUseStatement>

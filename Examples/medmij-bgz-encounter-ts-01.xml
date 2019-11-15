@@ -1,0 +1,43 @@
+<?xml-model href="http://hl7.org/fhir/STU3/encounter.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Encounter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd" xmlns="http://hl7.org/fhir">
+    <id value="medmij-bgz-encounter-ts-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
+    </meta>
+    <status value="finished"/>
+    <class>
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="IMP"/>
+        <display value="inpatient encounter"/>
+    </class>
+    <subject>
+        <reference value="Patient/medmij-bgz-patient-ts-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <participant>
+        <individual>
+            <reference value="Practitioner/medmij-bgz-practitioner-ts-01"/>
+            <display value="G.Z.M. de Wit"/>
+        </individual>
+    </participant>
+    <period>
+        <start value="2012-08-16"/>
+        <end value="2012-08-19"/>
+    </period>
+    <diagnosis>
+        <condition>
+            <reference value="Condition/medmij-bgz-condition-ts-05"/>
+            <display value="Fracture of lower limb (disorder)"/>
+        </condition>
+    </diagnosis>
+    <diagnosis>
+        <condition>
+            <reference value="Procedure/medmij-bgz-procedure-ts-02"/>
+            <display value="Surgical reduction of fracture (procedure)"/>
+        </condition>
+    </diagnosis>
+    <serviceProvider>
+        <reference value="Organization/medmij-bgz-orgnization-ts-02"/>
+        <display value="UMCG - Afdeling Orthopedie"/>
+    </serviceProvider>
+</Encounter>

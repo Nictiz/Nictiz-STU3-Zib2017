@@ -1,0 +1,72 @@
+<Composition xmlns="http://hl7.org/fhir">
+    <id value="eOverdracht-overdrachtsbericht-volw-phase-1" />
+    <meta>
+        <lastUpdated value="2019-03-20T11:51:36.392+01:00" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/eOverdrachtOverdrachtsberichtVolwassenen-phase-one" />
+    </meta>
+    <status value="preliminary" />
+    <type>
+        <coding>
+            <system value="http://loinc.org" />
+            <code value="57830-2" />
+        </coding>
+    </type>
+    <subject>
+        <reference value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Patient/medmij-bgz-patient-ts-01" />
+            <display value="Johan XXX_Helleman" />
+    </subject>
+    <date value="2019-03-20T11:43:40.0004456+01:00" />
+    <author>
+        <reference value="https://stu3.simplifier.net/NictizSTU3-Zib2017/Practitioner/medmij-bgz-practitioner-ts-01" />
+        <display value="G.Z.M. de Wit" />
+    </author>
+    <title value="e-Overdracht Aanmeldbericht" />
+    <section>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-TransferDate">
+            <valueDateTime value="2019-05-01"/>
+        </extension>
+        <title value="Administrative data"/>
+        <section>
+            <title value="Personal data"/>
+            <section>
+                <title value="payer" />
+                <entry>
+                    <reference value="Coverage/medmij-bgz-coverage-ts-01" />
+                    <display value="Basisverzekerd Menzis Zorgverzekeraar N.V." />
+                </entry>
+            </section>
+        </section>
+        <section>
+            <title value="Sending organization"/>
+            <entry>
+               <reference value="Organization/medmij-bgz-healthcareprovider-ts-03"/>
+               <display value="Maatschap Vaste Huisarts"/>
+            </entry>
+            <section>
+                <title value="Sending Practioner" />
+                <entry>
+                    <reference value="Practioner/medmij-bgz-practitioner-ts-02" />
+                    <display value="Vaste Huisarts 1" />
+                </entry>
+                <entry>
+                    <reference value="PractionerRole/medmij-bgz-practitionerrole-ts-01" />
+                    <display value="Huisarts" />
+                </entry>
+            </section>
+        </section>
+        <section>
+            <title value="Receiving organization"/>
+            <entry>
+                <reference value="Organization/medmij-bgz-healthcareprovider-ts-01" />
+                <display value="Test Medisch Centrum" />
+            </entry>
+        </section>
+    </section>
+    <section>
+        <title value="PDF file"/>
+        <entry>
+            <reference value="Binary/example-pdfa-file" />
+            <display value="Overdrachtsbericht Johan XXX_Helleman in PDF" />
+        </entry>
+    </section>
+</Composition>

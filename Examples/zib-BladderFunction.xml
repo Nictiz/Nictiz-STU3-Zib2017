@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-bladderfunction"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction"/>
+    </meta>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="28278009"/>
+            <display value="Micturition (observable entity)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <effectiveDateTime value="2013-02-08T06:48:30+02:00"/>
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="165232002"/>
+            <display value="Incontinent"/>
+        </coding>
+    </valueCodeableConcept>
+    <related>
+        <target>
+            <reference value="Observation/urinary-stoma"/>
+            <display value="Example Stoma instance"/>
+        </target>
+    </related>
+</Observation>

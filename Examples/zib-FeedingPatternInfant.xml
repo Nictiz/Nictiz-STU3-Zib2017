@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-feedingpatterninfant"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingPatternInfant"/>
+    </meta>
+    <status value="preliminary"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="289145007"/>
+            <display value="Finding of infant feeding pattern (finding)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <effectiveDateTime value="2019-02-10T10:00:00+02:00"/>
+    <component>
+        <!--FeedingSupplement-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="373453009"/>
+                <display value="Nutritional supplement (substance)"/>
+            </coding>
+        </code>
+        <valueString value="Geen"/>
+    </component>
+    <component>
+        <!--FeedingFrequency-->
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="364653007"/>
+                <display value="Frequency of infant feeding (observable entity)"/>
+            </coding>
+        </code>
+        <valueQuantity>
+            <value value="6"/>
+            <unit value="per day"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="6/d"/>
+        </valueQuantity>
+    </component>
+    <component>
+        <!-- FeedingMethod -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingPatternInfant-FeedingMethod">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="268472006"/>
+                    <display value="Flesvoeding"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <!--FeedingType-->
+        <code>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0"/>
+                <code value="4.31.3"/>
+                <display value="Type Voeding"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="226790003"/>
+                <display value="Kunstvoeding"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+</Observation>

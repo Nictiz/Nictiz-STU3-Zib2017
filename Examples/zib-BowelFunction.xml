@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-bladderfunction"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction"/>
+    </meta>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="111989001"/>
+            <display value="Micturition (observable entity)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <effectiveDateTime value="2013-02-08T06:48:30+02:00"/>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="129008009"/>
+                <display value="Bowel control, function (observable entity)"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="165230005"/>
+                <display value="Af en toe een ongelukje"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="162098000"/>
+                <display value="Frequency of defecation (observable entity)"/>
+            </coding>
+        </code>
+        <valueQuantity>
+            <value value="5"/>
+        </valueQuantity>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="443172007"/>
+                <display value="Bristol stool form score (observable entity)"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.3.1"/>
+                <code value="Type 6"/>
+                <display value="Zachte stukjes met gehavende randen"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="9397-1"/>
+                <display value="Color of Stool"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="167609007"/>
+                <display value="Feces color: green"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+</Observation>

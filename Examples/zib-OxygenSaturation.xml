@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-oxygensaturation"/>
     <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-HeadCircumference"/>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-OxygenSaturation"/>
     </meta>
     <status value="final"/>
     <category>
@@ -15,30 +16,24 @@
     <code>
         <coding>
             <system value="http://loinc.org"/>
-            <code value="8287-5"/>
-            <display value="Head Occipital-frontal circumference by Tape measure"/>
+            <code value="59408-5"/>
+            <display value="Oxygen saturation in Arterial blood by Pulse oximetry"/>
         </coding>
     </code>
     <subject>
         <reference value="Patient/nl-core-patient"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <effectiveDateTime value="2019-02-08T10:00:00+01:00"/>
+    <effectiveDateTime value="2013-02-08T06:43:00+02:00"/>
     <performer>
-        <reference value="Practitioner/medmij-bgz-practitioner-ts-01"/>
-        <display value="G.Z.M. de Wit"/>
+        <reference value="Practitioner/example"/>
+        <display value="Example Practitioner"/>
     </performer>
     <valueQuantity>
-        <value value="35"/>
-        <unit value="cm"/>
+        <value value="92"/>
+        <unit value="%"/>
         <system value="http://unitsofmeasure.org"/>
-        <code value="cm"/>
+        <code value="%"/>
     </valueQuantity>
-    <method>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="31551000146109"/>
-            <display value="Measurement of skull circumference with measuring tape"/>
-        </coding>
-    </method>
+    <comment value="Stijgt snel bij aanspreken"/>
 </Observation>

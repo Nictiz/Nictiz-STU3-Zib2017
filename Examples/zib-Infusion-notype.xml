@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/deviceusestatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<DeviceUseStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd" xmlns="http://hl7.org/fhir">
+    <id value="infusion-notype"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion"/>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine">
+        <extension url="LineStatus">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.12.1"/>
+                    <code value="LNP"/>
+                    <display value="Lopend"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="LumenLocation">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="40415009"/>
+                    <display value="Proximal"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="LockFluid">
+            <valueReference>
+                <reference value="MedicationAdministration/lockfluid-example"/>
+                <display value="Lockfluid NaCl 0.9 %"/>
+            </valueReference>
+        </extension>
+        <extension url="AdministeringSystem">
+            <valueReference>
+                <reference value="MedicationAdministration/infusionfluid-example"/>
+                <display value="NaCl 0,9% + medicatie 5000 E heparine (totaal 48ml)"/>
+            </valueReference>
+        </extension>
+    </extension>
+    <status value="active"/>
+    <subject>
+        <reference value="Patient/nl-core-patient"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <whenUsed>
+        <start value="2018-11-01"/>
+    </whenUsed>
+    <device>
+        <reference value="Device/infusion-product-standard"/>
+        <display value="Catheter, device (physical object)"/>
+    </device>
+    <note>
+        <text value="Het systeem is op 2018-10-28 schoon gemaakt"/>
+    </note>
+</DeviceUseStatement>
