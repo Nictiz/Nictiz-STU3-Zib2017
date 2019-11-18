@@ -33,6 +33,11 @@
     <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)" />
     <name value="HCIM LaboratoryTestResult-v4.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-laboratorytestresult-v4.4-2019EN" />
+    <uri value="https://zibs.nl/wiki/LaboratoriumUitslag-v4.4(2019NL)" />
+    <name value="HCIM LaboratoryTestResult-v4.4(2019EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Specimen" />
@@ -163,6 +168,33 @@
         <comment value="Specimen" />
       </mapping>
     </element>
+    <element id="Specimen.collection.extension">
+      <path value="Specimen.collection.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Specimen.collection.extension:duration">
+      <path value="Specimen.collection.extension" />
+      <sliceName value="duration" />
+      <short value="CollectionPeriod Duration" />
+      <definition value="Duration of the collection procedure period." />
+      <requirements value="In zib LaboratoryResult release 2017 there is a problem in the definition of NL-CM:13.1.24 CollectionPeriod as it is defined as a TS (Timestamp). This has been changed to a TimeInterval in later releases (start | end | duration) based on https://bits.nictiz.nl/browse/ZIB-669. &#xD;&#xA;However in FHIR STU3 there is a problem in Specimen.collection as it does not support duration. This has been added in FHIR R4. So for full support for CollectionPeriod as duration (e.g. 24 hour urine) in FHIR STU3, we need a pre-adopt of both a newer version of the zib LaboratoryResult and a FHIR extension." />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Specimen-CollectionDuration" />
+      </type>
+      <mapping>
+        <identity value="hcim-laboratorytestresult-v4.4-2019EN" />
+        <map value="NL-CM:13.1.24" />
+        <comment value="CollectionPeriod::TimeInterval Duration" />
+      </mapping>
+    </element>
     <element id="Specimen.collection.collected[x]">
       <path value="Specimen.collection.collected[x]" />
       <short value="CollectionDateTime" />
@@ -189,6 +221,11 @@
         <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.24" />
         <comment value="CollectionPeriod" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresult-v4.4-2019EN" />
+        <map value="NL-CM:13.1.24" />
+        <comment value="CollectionPeriod::TimeInterval Duration" />
       </mapping>
     </element>
     <element id="Specimen.collection.quantity">
@@ -236,9 +273,6 @@
       <definition value="Anatomic location where the material is collected, e.g. elbow." />
       <alias value="AnatomischeLocatie" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite" />
-        </extension>
         <strength value="extensible" />
         <description value="SpecimenAnatomicalLocationCodelist" />
         <valueSetReference>
@@ -339,9 +373,6 @@
       <definition value="Container type describes the envelope in which the material is collected or sent. Examples include blood tubes, transport container, possibly including culture medium." />
       <alias value="Containertype" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SpecimenContainerType" />
-        </extension>
         <strength value="extensible" />
         <description value="ContainerTypeCodelist" />
         <valueSetReference>
