@@ -1,13 +1,13 @@
 ﻿<?xml-model href="http://hl7.org/fhir/STU3/consent.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/consent.xsd" xmlns="http://hl7.org/fhir">
-    <id value="medmij-bgz-advancedirective-ts-01"/>
+    <id value="zib-advancedirective-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective"/>
     </meta>
     <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective-Disorder">
         <valueReference>
-            <reference value="Condition/medmij-bgz-condition-ts-01"/>
-            <display value="ALS"/>
+            <reference value="Condition/zib-problem-01"/>
+            <display value="Amyotrofe laterale sclerose"/>
         </valueReference>
     </extension>
     <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
@@ -29,12 +29,12 @@
         </coding>
     </category>
     <patient>
-        <reference value="Patient/medmij-bgz-patient-ts-01"/>
+        <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </patient>
     <dateTime value="2018-04-09"/>
     <consentingParty>
-        <reference value="RelatedPerson/medmij-bgz-relatedperson-ts-01"/>
+        <reference value="RelatedPerson/nl-core-relatedperson-01"/>
         <display value="Janni van Putten-van der Giessen"/>
     </consentingParty>
     <policy>
