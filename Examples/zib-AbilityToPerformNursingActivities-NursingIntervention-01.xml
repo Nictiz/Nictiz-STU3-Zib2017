@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/procedure.xsd">
+    <id value="zib-abilitytoperformnursinginterventions-intervention-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/procedure-schedule">
+        <valueTiming>
+            <repeat>
+                <frequency value="3"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </valueTiming>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
+        <valueString value="Toezicht bij uitvoer, en instructie hygiënisch werken"/>
+    </extension>
+    <status value="in-progress"/>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="9632001"/>
+            <display value="verpleegkundige verrichting"/>
+        </coding>
+    </category>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="45211000"/>
+            <display value="Katheteriseren"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <performedPeriod>
+        <start value="2016-12-18"/>
+    </performedPeriod>
+</Procedure>
