@@ -70,9 +70,6 @@
       <definition value="The additional instructions contain extra information on the use of or considerations for the current prescription.                                 This can also include all instructions for use. The text can come from the original 'paper' medication prescription, but can also be generated from the coded information.                  This concept may contain more information than what is structurally coded in the information below, but may not conflict with it.                  The instructions may not conflict with other components of the request for administration.                  The instructions can also refer to an existing protocol.                                  The G standard contains many texts that can support this attribute, in for example G standard table 362, which contains texts from the general practitioners’ standard WCIA table 25. If desired, these texts can be used to structure this concept." />
       <alias value="AanvullendeInstructie" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdditionalInstruction" />
-        </extension>
         <strength value="extensible" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.9--20160407000000" />
@@ -105,9 +102,6 @@
         <code value="CodeableConcept" />
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicationAsNeededReason" />
-        </extension>
         <strength value="extensible" />
         <description value="ZonodigCriteriumCodelijst" />
         <valueSetReference>
@@ -173,7 +167,7 @@
         <comment value="Dose" />
       </mapping>
     </element>
-    <element id="Dosage.dose[x]:DoseQuantity">
+    <element id="Dosage.dose[x]:doseQuantity">
       <path value="Dosage.dose[x]" />
       <sliceName value="doseQuantity" />
       <type>
@@ -189,14 +183,14 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Dosage.dose[x]:DoseRange">
+    <element id="Dosage.dose[x]:doseRange">
       <path value="Dosage.dose[x]" />
       <sliceName value="doseRange" />
       <type>
         <code value="Range" />
       </type>
     </element>
-    <element id="Dosage.dose[x]:DoseRange.low">
+    <element id="Dosage.dose[x]:doseRange.low">
       <path value="Dosage.dose[x].low" />
       <binding>
         <strength value="required" />
@@ -207,7 +201,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Dosage.dose[x]:DoseRange.high">
+    <element id="Dosage.dose[x]:doseRange.high">
       <path value="Dosage.dose[x].high" />
       <binding>
         <strength value="required" />
