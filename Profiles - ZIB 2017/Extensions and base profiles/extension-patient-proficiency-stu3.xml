@@ -43,11 +43,40 @@
         <rules value="open" />
       </slicing>
     </element>
+    <element id="Extension.extension:type">
+      <path value="Extension.extension" />
+      <sliceName value="type" />
+      <short value="The proficiency type of the communication" />
+      <definition value="What type of communication for the proficiency (spoken, written, etc.)." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:type.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="type" />
+    </element>
+    <element id="Extension.extension:type.value[x]:valueCoding">
+      <path value="Extension.extension.valueCoding" />
+      <sliceName value="valueCoding" />
+      <min value="1" />
+      <type>
+        <code value="Coding" />
+      </type>
+      <binding>
+        <strength value="preferred" />
+        <description value="The proficiency type for the communication." />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-LanguageAbilityMode" />
+          <display value="TaalvaardigheidBegrijpenCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
     <element id="Extension.extension:level">
       <path value="Extension.extension" />
       <sliceName value="level" />
       <short value="The proficiency level of the communication" />
       <definition value="How well the patient can communicate this communication (good, poor, etc.)." />
+      <min value="1" />
       <max value="1" />
     </element>
     <element id="Extension.extension:level.url">
@@ -57,45 +86,15 @@
     <element id="Extension.extension:level.value[x]:valueCoding">
       <path value="Extension.extension.valueCoding" />
       <sliceName value="valueCoding" />
+      <min value="1" />
       <type>
         <code value="Coding" />
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ProficiencyLevel" />
-        </extension>
         <strength value="preferred" />
         <description value="The proficiency level for the communication." />
         <valueSetReference>
           <reference value="http://hl7.org/fhir/ValueSet/v3-LanguageAbilityProficiency" />
-          <display value="TaalvaardigheidBegrijpenCodelijst" />
-        </valueSetReference>
-      </binding>
-    </element>
-    <element id="Extension.extension:type">
-      <path value="Extension.extension" />
-      <sliceName value="type" />
-      <short value="The proficiency type of the communication" />
-      <definition value="What type of communication for the proficiency (spoken, written, etc.)." />
-    </element>
-    <element id="Extension.extension:type.url">
-      <path value="Extension.extension.url" />
-      <fixedUri value="type" />
-    </element>
-    <element id="Extension.extension:type.value[x]:valueCoding">
-      <path value="Extension.extension.valueCoding" />
-      <sliceName value="valueCoding" />
-      <type>
-        <code value="Coding" />
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="proficiencyType" />
-        </extension>
-        <strength value="preferred" />
-        <description value="The proficiency type for the communication." />
-        <valueSetReference>
-          <reference value="http://hl7.org/fhir/ValueSet/v3-LanguageAbilityMode" />
           <display value="TaalvaardigheidBegrijpenCodelijst" />
         </valueSetReference>
       </binding>
