@@ -1,9 +1,18 @@
-﻿<?xml-model href="http://hl7.org/fhir/STU3/patient.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="http://hl7.org/fhir/STU3/patient.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/patient.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-languageproficiency"/>
+    <id value="zib-lifestance-01"/>
     <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
     </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance">
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="428821008"/>
+                <display value="Zevendedagsadventist"/>
+            </coding>
+        </valueCodeableConcept>
+    </extension>
     <identifier>
         <use value="official"/>
         <system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
@@ -140,53 +149,6 @@
             <country value="Nederland"/>
         </address>
     </contact>
-    <communication>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/patient-proficiency">
-            <extension url="languageProficiency">
-                <extension url="level">
-                    <valueCoding>
-                        <system value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityProficiency"/>
-                        <code value="p"/>
-                        <display value="Poor"/>
-                    </valueCoding>
-                </extension>
-                <extension url="type">
-                    <valueCoding>
-                        <system value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityMode"/>
-                        <code value="ESGN"/>
-                        <display value="Expressed signed"/>
-                    </valueCoding>
-                </extension>
-            </extension>
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/patient-proficiency">
-                <extension url="level">
-                    <valueCoding>
-                        <system value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityProficiency"/>
-                        <code value="p"/>
-                        <display value="Poor"/>
-                    </valueCoding>
-                </extension>
-                <extension url="type">
-                    <valueCoding>
-                        <system value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityMode"/>
-                        <code value="ESP"/>
-                        <display value="Expressed spoken"/>
-                    </valueCoding>
-                </extension>
-            </extension>
-        </extension>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
-            <valueString value="Bij gesprek met arts zoon uitnodigen voor vertalen"/>
-        </extension>
-        <language>
-            <coding>
-                <system value="urn:ietf:bcp:47"/>
-                <code value="nl-NL"/>
-                <display value="Dutch (Netherlands)"/>
-            </coding>
-        </language>
-        <preferred value="true"/>
-    </communication>
     <generalPractitioner>
         <reference value="Practitioner/nl-core-organization-02"/>
         <display value="Vaste Huisarts 1"/>
