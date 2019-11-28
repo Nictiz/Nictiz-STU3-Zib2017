@@ -1,0 +1,33 @@
+<?xml-model href="http://hl7.org/fhir/STU3/consent.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/consent.xsd" xmlns="http://hl7.org/fhir">
+    <id value="example-zib-advancedirective-03"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective"/>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
+        <valueString value="Mondelinge afspraak"/>
+    </extension>
+    <status value="active"/>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="11341000146107"/>
+            <display value="Living will and advance directive record (record artifact)"/>
+        </coding>
+    </category>
+    <category>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.14.1"/>
+            <code value="MON"/>
+            <display value="Mondelinge afspraak"/>
+        </coding>
+    </category>
+    <patient>
+        <reference value="Patient/example-patient"/>
+        <display value="Example Patient"/>
+    </patient>
+    <dateTime value="2018-04-09"/>
+    <policy>
+        <uri value="http://wetten.overheid.nl/"/>
+    </policy>
+</Consent>
