@@ -96,74 +96,28 @@
         <code value="dateTime" />
       </type>
     </element>
-    <element id="Observation.value[x]">
-      <path value="Observation.value[x]" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="code" />
-        </discriminator>
-        <rules value="closed" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Observation.value[x]:PregnancyDurationDays">
-      <path value="Observation.value[x]" />
-      <sliceName value="PregnancyDurationDays" />
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
       <short value="PregnancyDuration" />
       <definition value="Duration of the pregnancy on the day on which the patient was asked. The duration can be entered in days (d) or weeks (wk)." />
       <alias value="Zwangerschapsduur" />
       <type>
         <code value="Quantity" />
       </type>
+      <binding>
+        <strength value="required" />
+        <description value="ZwangerschapsduurEenheidCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.7.11.2--20171231000000" />
+          <display value="ZwangerschapsduurEenheidCodelijst" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-pregnancy-v3.1-2017EN" />
         <map value="NL-CM:7.14.4" />
         <comment value="PregnancyDuration" />
       </mapping>
-    </element>
-    <element id="Observation.value[x]:PregnancyDurationDays.unit">
-      <path value="Observation.value[x].unit" />
-      <defaultValueString value="days" />
-    </element>
-    <element id="Observation.value[x]:PregnancyDurationDays.system">
-      <path value="Observation.value[x].system" />
-      <min value="1" />
-      <fixedUri value="http://unitsofmeasure.org" />
-    </element>
-    <element id="Observation.value[x]:PregnancyDurationDays.code">
-      <path value="Observation.value[x].code" />
-      <min value="1" />
-      <fixedCode value="d" />
-    </element>
-    <element id="Observation.value[x]:PregnancyDurationWeeks">
-      <path value="Observation.value[x]" />
-      <sliceName value="PregnancyDurationWeeks" />
-      <short value="PregnancyDuration" />
-      <definition value="Duration of the pregnancy on the day on which the patient was asked. The duration can be entered in days (d) or weeks (wk)." />
-      <alias value="Zwangerschapsduur" />
-      <type>
-        <code value="Quantity" />
-      </type>
-      <mapping>
-        <identity value="hcim-pregnancy-v3.1-2017EN" />
-        <map value="NL-CM:7.14.4" />
-        <comment value="PregnancyDuration" />
-      </mapping>
-    </element>
-    <element id="Observation.value[x]:PregnancyDurationWeeks.unit">
-      <path value="Observation.value[x].unit" />
-      <defaultValueString value="weeks" />
-    </element>
-    <element id="Observation.value[x]:PregnancyDurationWeeks.system">
-      <path value="Observation.value[x].system" />
-      <min value="1" />
-      <fixedUri value="http://unitsofmeasure.org" />
-    </element>
-    <element id="Observation.value[x]:PregnancyDurationWeeks.code">
-      <path value="Observation.value[x].code" />
-      <min value="1" />
-      <fixedCode value="wk" />
     </element>
   </differential>
 </StructureDefinition>
