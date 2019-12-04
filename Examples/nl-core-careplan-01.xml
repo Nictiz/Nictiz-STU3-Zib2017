@@ -11,27 +11,27 @@
     <status value="active"/>
     <intent value="plan"/>
     <subject>
-        <reference value="Patient/1234"/>
-        <display value="Mr. A. Gert"/>
+        <reference value="Patient/nl-core-patient-02"/>
+        <display value="Paul XXX_Mesker"/>
     </subject>
     <context>
-        <reference value="EpisodeOfCare/3216"/>
+        <reference value="EpisodeOfCare/nl-core-episodeofcare-02"/>
         <display value="Gebroken been"/>
     </context>
     <period>
         <start value="2019-02-06"/>
     </period>
     <author>
-        <reference value="Practitioner/789456"/>
-        <display value="Dr. J. Jansen"/>
+        <reference value="Practitioner/nl-core-practitioner-04"/>
+        <display value="Dr. D. de Vries"/>
     </author>
     <goal>
-        <reference value="Goal/123"/>
+        <reference value="Goal/zib-treatmentdirective-01"/>
         <display value="Volledig herstel met betrekking tot het kunnen lopen"/>
     </goal>
     <activity>
         <reference>
-            <reference value="ProcedureRequest/78945"/>
+            <reference value="ProcedureRequest/zib-procedurerequest-02"/>
             <display value="Aanvrager: Dr. J. Jansen"/>
         </reference>
     </activity>
@@ -40,13 +40,13 @@
             <valueString value="De interventie verliep zeer soepel."/>
         </extension>
         <outcomeReference>
-            <reference value="DiagnosticReport/4566554"/>
+            <reference value="DiagnosticReport/zib-outcomeofcare-02"/>
             <display value="Pijn is onder controle"/>
         </outcomeReference>
         <detail>
             <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
                 <valueReference>
-                    <reference value="DeviceUseStatement/1543"/>
+                    <reference value="DeviceUseStatement/zib-wound-medicaldevice-01"/>
                     <display value="Verband"/>
                 </valueReference>
             </extension>
@@ -65,11 +65,11 @@
                 </coding>
             </code>
             <reasonReference>
-                <reference value="Condition/789456"/>
+                <reference value="Condition/zib-problem-09"/>
                 <display value="Gebroken Been"/>
             </reasonReference>
             <goal>
-                <reference value="Goal/741852"/>
+                <reference value="Goal/zib-treatmentobjective-02"/>
                 <display value="Pijn verminderen"/>
             </goal>
             <status value="completed"/>
@@ -84,11 +84,6 @@
                     <periodUnit value="d"/>
                 </repeat>
             </scheduledTiming>
-            <performer>
-                <reference value="CareTeam/1458"/>
-                <display value="Wijkteam VV Almelo"/>
-            </performer>
-            <description value="Vanaf onder beginngen."/>
         </detail>
     </activity>
 </CarePlan>

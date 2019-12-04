@@ -1,0 +1,43 @@
+<?xml-model href="http://hl7.org/fhir/STU3/episodeofcare.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<EpisodeOfCare xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/episodeofcare.xsd">
+    <id value="nl-core-episodeofcare-02"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare"/>
+    </meta>
+    <text>
+        <status value="additional"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">Open fractuur van femur (aandoening)</div>
+    </text>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-Title">
+        <valueString value="Gebroken been"/>
+    </extension>
+    <status value="active"/>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="123037004"/>
+            <display value="Lichaamsstructuur"/>
+        </coding>
+    </type>
+    <diagnosis>
+        <condition>
+            <reference value="Condition/zib-problem-07"/>
+            <display value="Gebroken dijbeen"/>
+        </condition>
+    </diagnosis>
+    <patient>
+        <reference value="Patient/nl-core-patient-02"/>
+        <display value="Paul XXX_Mesker"/>
+    </patient>
+    <managingOrganization>
+        <reference value="Organization/nl-core-organization-05"/>
+        <display value="Ziekenhuis Gooi en Overvecht"/>
+    </managingOrganization>
+    <period>
+        <start value="2019-02-06"/>
+    </period>
+    <careManager>
+        <reference value="Practitioner/nl-core-practitioner-04"/>
+        <display value="Dr. D. de Vries"/>
+    </careManager>
+</EpisodeOfCare>
