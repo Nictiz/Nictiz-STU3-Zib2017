@@ -46,21 +46,35 @@
         <comment value="HeadCircumference" />
       </mapping>
     </element>
-    <element id="Observation.identifier">
-      <path value="Observation.identifier" />
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.6" />
-        <comment value="IdentificationNumber" />
-      </mapping>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <min value="1" />
     </element>
-    <element id="Observation.subject">
-      <path value="Observation.subject" />
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.11" />
-        <comment value="Subject" />
-      </mapping>
+    <element id="Observation.code.coding:HeadCircumCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="HeadCircumCode" />
+    </element>
+    <element id="Observation.code.coding:HeadCircumCode.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:HeadCircumCode.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:HCIMHeadCircumCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="HCIMHeadCircumCode" />
+    </element>
+    <element id="Observation.code.coding:HCIMHeadCircumCode.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:HCIMHeadCircumCode.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="56792006" />
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]" />
@@ -68,14 +82,6 @@
         <identity value="hcim-HeadCircumference-v3.1-2018EN" />
         <map value="NL-CM:12.14.2" />
         <comment value="HeadCircumferenceDate" />
-      </mapping>
-    </element>
-    <element id="Observation.performer">
-      <path value="Observation.performer" />
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.7" />
-        <comment value="Author" />
       </mapping>
     </element>
     <element id="Observation.valueQuantity:valueQuantity">
@@ -106,9 +112,6 @@
       <definition value="There are different methods to measure the head circumference: prenatal measurement using ultrasound or postnatal measurement using a measuring tape by measuring from the backside of the head (occiput) to above the eyes (supraorbital)." />
       <alias value="SchedelomvangMeetmethode" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationMethod" />
-        </extension>
         <strength value="extensible" />
         <description value="SchedelomvangMeetmethodeCodelijst" />
         <valueSetReference>
