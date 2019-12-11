@@ -38,9 +38,6 @@
       </constraint>
     </element>
     <element id="Observation.status">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-        <valueString value="default: final" />
-      </extension>
       <path value="Observation.status" />
       <mustSupport value="true" />
     </element>
@@ -65,9 +62,6 @@
       <alias value="Gecodeerde antwoorden uit Vital Signs resultaten" />
       <mustSupport value="true" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="VitalSigns" />
-        </extension>
         <strength value="extensible" />
         <description value="This identifies the vital sign result type." />
         <valueSetReference>
@@ -78,27 +72,11 @@
     </element>
     <element id="Observation.subject">
       <path value="Observation.subject" />
-      <min value="1" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
       <mustSupport value="true" />
-    </element>
-    <element id="Observation.context">
-      <path value="Observation.context" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
-      </type>
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]" />
@@ -111,45 +89,10 @@
     <element id="Observation.performer">
       <path value="Observation.performer" />
       <min value="1" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
       <mustSupport value="true" />
     </element>
-    <element id="Observation.performer.extension">
-      <path value="Observation.performer.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Observation.performer.extension:practitionerRole">
-      <path value="Observation.performer.extension" />
-      <sliceName value="practitionerRole" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-      </type>
-    </element>
     <element id="Observation.value[x]:valueQuantity">
-      <path value="Observation.valueQuantity" />
+      <path value="Observation.value[x]" />
       <sliceName value="valueQuantity" />
       <short value="Vital Sign Value recorded with UCUM" />
       <definition value="Vital Sign Value recorded with UCUM." />
@@ -161,9 +104,6 @@
       <condition value="vs-2" />
       <mustSupport value="true" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="VitalSignsUnits" />
-        </extension>
         <strength value="required" />
         <description value="Common UCUM units for recording Vital Signs" />
         <valueSetReference>
@@ -173,26 +113,23 @@
       </binding>
     </element>
     <element id="Observation.value[x]:valueQuantity.value">
-      <path value="Observation.valueQuantity.value" />
+      <path value="Observation.value[x].value" />
       <min value="1" />
       <mustSupport value="true" />
     </element>
     <element id="Observation.value[x]:valueQuantity.unit">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
-      <path value="Observation.valueQuantity.unit" />
+      <path value="Observation.value[x].unit" />
       <min value="1" />
       <mustSupport value="true" />
     </element>
     <element id="Observation.value[x]:valueQuantity.system">
-      <path value="Observation.valueQuantity.system" />
+      <path value="Observation.value[x].system" />
       <min value="1" />
       <fixedUri value="http://unitsofmeasure.org" />
       <mustSupport value="true" />
     </element>
     <element id="Observation.value[x]:valueQuantity.code">
-      <path value="Observation.valueQuantity.code" />
+      <path value="Observation.value[x].code" />
       <short value="Coded responses from the common UCUM units for vital signs value set." />
       <definition value="Coded responses from the common UCUM units for vital signs value set." />
       <alias value="Gecodeerde antwoorden van de algemene UCUM-eenheden voor vital signs waardelijst." />
@@ -247,9 +184,6 @@
       <path value="Observation.component.code" />
       <mustSupport value="true" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="VitalSigns" />
-        </extension>
         <strength value="extensible" />
         <description value="This identifies the vital sign result type." />
         <valueSetReference>

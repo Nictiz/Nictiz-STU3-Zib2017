@@ -70,16 +70,9 @@
       <path value="Observation.code.coding.code" />
       <fixedCode value="8310-5" />
     </element>
-    <element id="Observation.value[x]:valueQuantity">
-      <path value="Observation.valueQuantity" />
-      <sliceName value="valueQuantity" />
-    </element>
-    <element id="Observation.value[x]:valueQuantity.code">
-      <path value="Observation.valueQuantity.code" />
+    <element id="Observation.valueQuantity:valueQuantity.code">
+      <path value="Observation.value[x].code" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodyTempUnits" />
-        </extension>
         <strength value="required" />
         <description value="Common UCUM units for Body Temperature" />
         <valueSetReference>

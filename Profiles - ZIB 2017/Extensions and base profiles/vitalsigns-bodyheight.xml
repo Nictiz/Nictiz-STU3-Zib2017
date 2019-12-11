@@ -60,16 +60,9 @@
       <path value="Observation.code.coding.code" />
       <fixedCode value="8302-2" />
     </element>
-    <element id="Observation.value[x]:valueQuantity">
-      <path value="Observation.valueQuantity" />
-      <sliceName value="valueQuantity" />
-    </element>
     <element id="Observation.value[x]:valueQuantity.code">
-      <path value="Observation.valueQuantity.code" />
+      <path value="Observation.value[x].code" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodyLengthUnits" />
-        </extension>
         <strength value="required" />
         <description value="Common UCUM units for Body Length measures such as Body Height and Head Circumference" />
         <valueSetReference>
