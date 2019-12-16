@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> <?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd" xmlns="http://hl7.org/fhir">
+    <id value="zib-stoma-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Stoma"/>
+    </meta>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="245857005"/>
+            <display value="Stoma (morphologic abnormality)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-03"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <effectiveDateTime value="2014"/>
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="261030007"/>
+            <display value="end colostomy stoma"/>
+        </coding>
+    </valueCodeableConcept>
+    <comment value="Patient heeft veel last van dit type stoma."/>
+    <bodySite>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="24028007"/>
+                    <display value="Right"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="362692001"/>
+            <display value="Entire lower abdomen"/>
+        </coding>
+    </bodySite>
+</Observation>

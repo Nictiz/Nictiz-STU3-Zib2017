@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?> <?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd" xmlns="http://hl7.org/fhir">
+    <id value="zib-tobaccouse-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TobaccoUse"/>
+    </meta>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="365980008"/>
+            <display value="Finding of tobacco use and exposure (finding)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <effectivePeriod>
+        <start value="1980"/>
+        <end value="1983"/>
+    </effectivePeriod>
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="8517006"/>
+            <display value="Ex-smoker (finding)"/>
+        </coding>
+    </valueCodeableConcept>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="53661000146106"/>
+                <display value="Type of tobacco used (observable entity)"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="65568007"/>
+                <display value="Cigarette smoker (finding)"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="266918002"/>
+                <display value="Tobacco smoking consumption (observable entity)"/>
+            </coding>
+        </code>
+        <valueQuantity>
+            <value value="2"/>
+            <unit value="packs per week"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="{packs}/wk"/>
+        </valueQuantity>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="401201003"/>
+                <display value="Cigarette pack-years (observable entity)"/>
+            </coding>
+        </code>
+        <valueQuantity>
+            <value value="1"/>
+            <unit value="PackYears"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="{PackYears}"/>
+        </valueQuantity>
+    </component>
+</Observation>

@@ -1,0 +1,36 @@
+<?xml-model href="http://hl7.org/fhir/STU3/patient.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/patient.xsd">
+    <id value="eafspraak-patient-01"/>
+    <identifier>
+        <system value="http://example-xis.org/fhir/NamingSystem/patientID"/>
+        <value value="1000000001"/>
+    </identifier>
+    <name>
+        <use value="official"/>
+        <family value="XXX_Verweij"/>
+        <given value="Alex">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                <valueCode value="BR"/>
+            </extension>
+        </given>
+        <given value="A">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                <valueCode value="IN"/>
+            </extension>
+        </given>
+    </name>
+    <gender value="male"/>
+    <birthDate value="1964-08-02"/>
+    <address>
+        <line value="Knolweg 1000">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                <valueString value="Knolweg"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                <valueString value="1001"/>
+            </extension>
+        </line>
+        <city value="Stitswerd"/>
+        <postalCode value="9999XA"/>
+    </address>
+</Patient>

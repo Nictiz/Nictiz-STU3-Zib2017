@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?> <?xml-model href="http://hl7.org/fhir/STU3/practitioner.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Practitioner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitioner.xsd">
+    <id value="nl-core-practitioner-01"/>
+    <meta>
+        <versionId value="5"/>
+        <lastUpdated value="2016-12-08T14:05:42.283+00:00"/>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+    </meta>
+    <text>
+        <status value="additional"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <tbody>
+                    <tr>
+                        <th style="text-align: center;" colspan="2">Practitioner (since April, 2015)</th>
+                    </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr>
+                        <td>01069857 (AGB)<br/>129854656 (UZI)<br/>12345678912 (BIG)</td>
+                        <td>Huisarts H. de Vries</td>
+                    </tr>
+                    <tr>
+                        <th>Contact</th>
+                        <th>Address</th>
+                    </tr>
+                    <tr>
+                        <td>work phone: <a href="tel:+31612345990">0612345990</a><br/>work email: devries@work.com</td>
+                        <td>Straatweg 12 bII<br/>1200 AA<br/>Amsterdam</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <identifier>
+        <system value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"/>
+        <value value="129854656"/>
+    </identifier>
+    <identifier>
+        <system value="http://fhir.nl/fhir/NamingSystem/agb-z"/>
+        <value value="01069857"/>
+    </identifier>
+    <identifier>
+        <system value="http://fhir.nl/fhir/NamingSystem/big"/>
+        <value value="12345678912"/>
+    </identifier>
+    <name>
+        <family value="de Vries">
+            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+                <valueString value="de "/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                <valueString value="Vries"/>
+            </extension>
+        </family>
+        <given value="Henk"/>
+    </name>
+    <telecom>
+        <system value="phone"/>
+        <value value="0612345990"/>
+        <use value="work"/>
+    </telecom>
+    <telecom>
+        <system value="email"/>
+        <value value="devries@work.com"/>
+        <use value="work"/>
+    </telecom>
+    <address>
+        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+            <valueBoolean value="true"/>
+        </extension>
+        <use value="home"/>
+        <type value="both"/>
+        <line value="Straatweg 12bII">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                <valueString value="Straatweg"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                <valueString value="12"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+                <valueString value="bII"/>
+            </extension>
+        </line>
+        <city value="Woonplaats"/>
+        <district value="Amsterdam"/>
+        <postalCode value="1200 AA"/>
+        <country value="NLD"/>
+        <period>
+            <start value="2015-04"/>
+        </period>
+    </address>
+</Practitioner>

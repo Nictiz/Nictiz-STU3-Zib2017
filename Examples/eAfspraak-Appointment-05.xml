@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Appointment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/appointment.xsd" xmlns="http://hl7.org/fhir">
+    <id value="eafspraak-appointment-05"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment"/>
+    </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment-PatientInstructions">
+        <valueString value="Please park in P2; P1 is under construction"/>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment-OnlineEditable">
+        <extension url="indication">
+            <valueBoolean value="true"/>
+        </extension>
+        <extension url="OnlineEditableUntil">
+            <valueDateTime value="2017-12-31T10:00:00+01:00"/>
+        </extension>
+    </extension>
+    <identifier>
+        <system value="http://example-xis.org/fhir/appointmentID"/>
+        <value value="0000000010"/>
+    </identifier>
+    <status value="booked"/>
+    <serviceCategory>
+        <coding>
+            <system value=" http://hl7.org/fhir/service-category"/>
+            <code value="27"/>
+            <display value="Specialist Medical"/>
+        </coding>
+    </serviceCategory>
+    <serviceType>
+        <coding>
+            <system value="http://hl7.org/fhir/service-type"/>
+            <code value="276"/>
+            <display value="Cardiovascular Disea"/>
+        </coding>
+    </serviceType>
+    <specialty>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/>
+            <code value="0320"/>
+            <display value="Medisch specialisten, cardiologie"/>
+        </coding>
+    </specialty>
+    <appointmentType>
+        <coding>
+            <system value="http://hl7.org/fhir/v2/0276"/>
+            <code value="CHECKUP"/>
+            <display value="A routine check-up, such as an annual physical"/>
+        </coding>
+    </appointmentType>
+    <description value="Controleafspraak Cardiologie"/>
+    <start value="2018-01-01T10:00:00+01:00"/>
+    <end value="2018-01-01T11:00:00+01:00"/>
+    <minutesDuration value="60"/>
+    <created value="2017-06-01T14:32:16+01:00"/>
+    <comment value="Controleafspraak bij de cardiologie"/>
+    <participant>
+        <actor>
+            <reference value="Patient/nl-core-patient-03"/>
+            <display value="Irma Jongeneel-de Haas"/>
+        </actor>
+        <status value="accepted"/>
+    </participant>
+    <participant>
+        <actor>
+            <reference value="Practitioner/nl-core-practitioner-01"/>
+            <display value="Huisarts H. de Vries"/>
+        </actor>
+        <status value="accepted"/>
+    </participant>
+</Appointment>
