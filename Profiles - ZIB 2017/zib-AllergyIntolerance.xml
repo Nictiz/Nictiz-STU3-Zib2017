@@ -379,9 +379,23 @@
     </element>
     <element id="AllergyIntolerance.onset[x]">
       <path value="AllergyIntolerance.onset[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="AllergyIntolerance.onset[x]:onsetDateTime">
+      <path value="AllergyIntolerance.onset[x]" />
+      <sliceName value="onsetDateTime" />
       <short value="StartDateTime" />
       <definition value="The date and time at which the allergy or undesired reaction was determined.  &#xD;&#xA;This can be an exact date and time, or a rough indication of the date (such as only the year, or the month and the year)." />
       <alias value="BeginDatumTijd" />
+      <type>
+        <code value="dateTime" />
+      </type>
       <mapping>
         <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
         <map value="NL-CM:8.2.6" />
@@ -395,6 +409,11 @@
       <mapping>
         <identity value="hcim-allergyintolerance-v3.2-2017EN" />
         <map value="NL-CM:8.2.6" />
+        <comment value="StartDateTime" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.14" />
         <comment value="StartDateTime" />
       </mapping>
     </element>
@@ -790,11 +809,6 @@
         <identity value="hcim-allergyintolerance-v3.2-2017EN" />
         <map value="NL-CM:8.2.17" />
         <comment value="ReactionTime" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.14" />
-        <comment value="DateTime" />
       </mapping>
     </element>
     <element id="AllergyIntolerance.reaction.severity">
