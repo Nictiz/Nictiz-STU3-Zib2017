@@ -1,4 +1,5 @@
 <Composition xmlns="http://hl7.org/fhir">
+    <!-- Overdrachtsbericht Volwassenen phase one -->
     <id value="eoverdracht-overdrachtsberichtvolwassenen-phase-one-01"/>
     <meta>
         <lastUpdated value="2019-03-20T11:51:36.392+01:00"/>
@@ -13,7 +14,7 @@
     </type>
     <subject>
         <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
+            <display value="Johan XXX_Helleman"/>
     </subject>
     <date value="2019-03-20T11:43:40.0004456+01:00"/>
     <author>
@@ -25,11 +26,11 @@
         <extension url="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-TransferDate">
             <valueDateTime value="2019-05-01"/>
         </extension>
-        <title value="Administratieve gegevens"/>
+        <title value="Administrative data"/>
         <section>
-            <title value="Persooonlijke gegevens"/>
+            <title value="Personal data"/>
             <section>
-                <title value="Betaler"/>
+                <title value="payer"/>
                 <entry>
                     <reference value="Coverage/zib-payer-01"/>
                     <display value="Basisverzekerd Menzis Zorgverzekeraar N.V."/>
@@ -37,13 +38,13 @@
             </section>
         </section>
         <section>
-            <title value="Versturende instelling"/>
+            <title value="Sending organization"/>
             <entry>
-                <reference value="Organization/nl-core-organization-01"/>
-                <display value="Maatschap Vaste Huisarts"/>
+               <reference value="Organization/nl-core-organization-01"/>
+               <display value="Maatschap Vaste Huisarts"/>
             </entry>
             <section>
-                <title value="Versturende zorgverlener"/>
+                <title value="Sending Practioner"/>
                 <entry>
                     <reference value="Practioner/nl-core-practitioner-02"/>
                     <display value="Vaste Huisarts 1"/>
@@ -55,7 +56,7 @@
             </section>
         </section>
         <section>
-            <title value="Ontvangende instelling"/>
+            <title value="Receiving organization"/>
             <entry>
                 <reference value="Organization/nl-core-organization-03"/>
                 <display value="Test Medisch Centrum"/>
@@ -63,7 +64,7 @@
         </section>
     </section>
     <section>
-        <title value="PDF-bestand"/>
+        <title value="PDF file"/>
         <entry>
             <reference value="Binary/eoverdracht-aanmeldbericht-binary-01"/>
             <display value="Overdrachtsbericht Johan XXX_Helleman in PDF"/>
