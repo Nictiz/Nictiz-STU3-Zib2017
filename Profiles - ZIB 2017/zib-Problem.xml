@@ -108,6 +108,55 @@
         <map value="NL-CM:5.1.4" />
         <comment value="ProblemStatus. The relationship between the HCIM codes and the Resource codes is covered in the ConceptMaps: ProbleemStatusCodelijst-to-Condition-Clinical-Status-Codes and Condition-Clinical-Status-Codes-to-ProbleemStatusCodelijst" />
       </mapping>
+    </element> 
+    <element id="Condition.clinicalStatus.extension">
+      <path value="Condition.clinicalStatus.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Condition.clinicalStatus.extension:ProbleemstatusCodelijst">
+      <path value="Condition.clinicalStatus.extension" />
+      <sliceName value="ProbleemstatusCodelijst" />
+      <short value="clinicalstatus" />
+      <definition value="Describes the condition of the problem, use this extension to include the original ZIB code" />
+      <alias value="Probleemstatus" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+      <mapping>
+        <identity value="hcim-concernfortransfer-v1.2-2015EN" />
+        <map value="NL-CM:5.1.4" />
+        <comment value="ProblemStatus" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-concernfortransfer-v3.0-2016EN" />
+        <map value="NL-CM:5.1.4" />
+        <comment value="ProblemStatus" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-problem-v1.2-2017EN" />
+        <map value="NL-CM:5.1.4" />
+        <comment value="ProblemStatus. The relationship between the HCIM codes and the Resource codes is covered in the ConceptMaps: ProbleemStatusCodelijst-to-Condition-Clinical-Status-Codes and Condition-Clinical-Status-Codes-to-ProbleemStatusCodelijst" />
+      </mapping>
+    </element>
+    <element id="Condition.clinicalStatus.extension:ProbleemstatusCodelijst.valueCodeableConcept:valueCodeableConcept">
+      <path value="Condition.clinicalStatus.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProbleemStatusCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.5.1.2--20171231000000" />
+          <display value="ProbleemStatusCodelijst" />
+        </valueSetReference>
+      </binding>
     </element>
     <element id="Condition.verificationStatus">
       <path value="Condition.verificationStatus" />
@@ -120,6 +169,45 @@
         <map value="NL-CM:5.1.10" />
         <comment value="VerificationStatus" />
       </mapping>
+    </element>
+    <element id="Condition.verificationStatus.extension">
+      <path value="Condition.verificationStatus.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Condition.verificationStatus.extension:VerificatieStatusCodelijst">
+      <path value="Condition.verificationStatus.extension" />
+      <sliceName value="VerificatieStatusCodelijst" />
+      <short value="Verificationstatus" />
+      <definition value="Describes the verification status of the problem, use this extension to include the original ZIB code" />
+      <alias value="VerificatieStatusCodelijst" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+      <mapping>
+        <identity value="hcim-problem-v1.2-2017EN" />
+        <map value="NL-CM:5.1.10" />
+        <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/VerificatieStatusCodelijst-to-ConditionVerificationStatus) is available" />
+      </mapping>
+    </element>
+    <element id="Condition.verificationStatus.extension:VerificatieStatusCodelijst.valueCodeableConcept:valueCodeableConcept">
+      <path value="Condition.verificationStatus.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="VerificatieStatusCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.5.1.4--20171231000000" />
+          <display value="VerificatieStatusCodelijst" />
+        </valueSetReference>
+      </binding>
     </element>
     <element id="Condition.category">
       <path value="Condition.category" />
