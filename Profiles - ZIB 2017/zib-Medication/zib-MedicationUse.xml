@@ -182,6 +182,11 @@
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-ReasonForChangeOrDiscontinuationOfUse" />
       </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22493" />
+        <comment value="Reden wijzigen of stoppen gebruik" />
+      </mapping>
     </element>
     <element id="MedicationStatement.extension:reasonForChangeOrDiscontinuationOfUse.valueCodeableConcept:valueCodeableConcept">
       <path value="MedicationStatement.extension.valueCodeableConcept" />
@@ -199,11 +204,6 @@
       <binding>
         <strength value="extensible" />
       </binding>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22493" />
-        <comment value="Reden wijzigen of stoppen gebruik" />
-      </mapping>
     </element>
     <element id="MedicationStatement.extension:instructionsForUseDescription">
       <path value="MedicationStatement.extension" />
@@ -264,13 +264,13 @@
     </element>
     <element id="MedicationStatement.status">
       <path value="MedicationStatement.status" />
-      <short value="MedicationUseStopType" />
-      <comment value="MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xD;&#xA;&#xD;&#xA;This element is also used for the concept 'Stop type'; the manner in which this medication is discontinued (temporary or definitive).  A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus) is available that maps MedicationUseStopTypeCodeLijst to the MedicationStatementStatus valueset." />
-      <alias value="MedicatieGebruikStopType" />
+      <short value="Stoptype" />
+      <comment value="MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xD;&#xA;&#xD;&#xA;This element is also used for the concept 'Stop type'; the manner in which this medication is discontinued (temporary or definitive).  A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/MedicatieafspraakStopTypeCodelijst-to-MedicationStatementStatus) is available that maps MedicatieafspraakStopTypeCodelijst to the MedicationStatementStatus valueset. Mapping: 112171000146100 (Drug therapy temporarily stopped) maps to on-hold and 112161000146106 (Drug therapy definitively stopped) maps to stopped." />
+      <alias value="Stoptype" />
       <mapping>
-        <identity value="hcim-medicationuse2-v1.0-2017EN" />
-        <map value="NL-CM:9.11.23132" />
-        <comment value="MedicationUseStopType" />
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-23132" />
+        <comment value="Stoptype" />
       </mapping>
     </element>
     <element id="MedicationStatement.category">
@@ -590,6 +590,16 @@
         <map value="NL-CM:9.11.22504" />
         <comment value="InstructionsForUse" />
       </mapping>
+    </element>
+    <element id="MedicationStatement.dosage.dose[x]">
+      <path value="MedicationStatement.dosage.dose[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
   </differential>
 </StructureDefinition>

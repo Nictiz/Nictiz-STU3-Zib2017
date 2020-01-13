@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+      <url value="http://nictiz.nl/fhir/ConceptMap/MedicatieafspraakStopTypeCodelijst-to-MedicationStatementStatus"/>
+      <version value="1.0.0"/>
+      <name value="MedicatieafspraakStopTypeCodelijst-to-MedicationStatementStatus"/>
+      <title value="MP9 MedicatieafspraakStopTypeCodelijst to MedicationStatementStatus"/>
+      <status value="active"/>
+      <publisher value="Nictiz"/>
+      <contact>
+            <name value="Nictiz"/>
+            <telecom>
+                  <system value="email"/>
+                  <value value="info@nictiz.nl"/>
+                  <use value="work"/>
+            </telecom>
+      </contact>
+      <description value="Maps the MP9 MedicatieafspraakStopTypeCodelijst terminology for the concept MedicationUseStopType to the FHIR STU3 terminology associated with MedicationStatement.status."/>
+      <purpose value="To aid in mapping from MP9 ValueSet MedicatieafspraakStopTypeCodelijst to FHIR STU3 MedicationStatement.status."/>
+      <copyright value="CC0"/>
+      <sourceUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.6.1--20191217145436"/>
+      <targetUri value="http://hl7.org/fhir/medication-statement-status"/>
+      <group>
+            <source value="http://snomed.info/sct"/>
+            <target value="http://hl7.org/fhir/medication-statement-status"/>
+            <targetVersion value="http://hl7.org/fhir/medication-statement-status 3.0.1"/>
+            <element>
+                  <code value="112171000146100"/>
+                  <display value="Drug therapy temporarily stopped (finding)"/>
+                  <target>
+                        <code value="on-hold"/>
+                        <display value="On Hold"/>
+                        <equivalence value="equal"/>
+                  </target>
+            </element>
+            <element>
+                  <code value="112161000146106"/>
+                  <display value="Drug therapy definitively stopped (finding)"/>
+                  <target>
+                        <code value="stopped"/>
+                        <display value="Stopped"/>
+                        <equivalence value="equal"/>
+                  </target>
+            </element>
+      </group>
+</ConceptMap>
