@@ -341,32 +341,6 @@
         <comment value="Relaties ketenzorg" />
       </mapping>
     </element>
-    <element id="MedicationRequest.supportingInformation">
-      <path value="MedicationRequest.supportingInformation" />
-      <slicing>
-        <discriminator>
-          <type value="profile" />
-          <path value="reference.resolve()" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="MedicationRequest.supportingInformation:BodyWeight">
-      <path value="MedicationRequest.supportingInformation" />
-      <sliceName value="BodyWeight" />
-      <short value="MedicationAgreementAdditionalInformation: BodyWeight" />
-      <definition value="Weight the dose is based on, relevant to this agreement." />
-      <alias value="Lichaamsgewicht" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyWeight" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.23028" />
-        <comment value="BodyWeight" />
-      </mapping>
-    </element>
     <element id="MedicationRequest.authoredOn">
       <path value="MedicationRequest.authoredOn" />
       <short value="MedicationAgreementDateTime" />
