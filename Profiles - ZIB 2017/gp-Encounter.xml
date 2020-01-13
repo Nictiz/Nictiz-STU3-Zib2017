@@ -27,40 +27,6 @@
       <path value="Encounter.class" />
       <definition value="The type of contact. Normally ambulatory or home visit." />
     </element>
-    <element id="Encounter.class.extension">
-      <path value="Encounter.class.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Encounter.class.extension:ContactTypeCodelijst">
-      <path value="Encounter.class.extension" />
-      <sliceName value="ContactTypeCodelijst" />
-      <short value="ActEncounter" />
-      <definition value="The type of contact. Normally ambulatory or home visit, use this extension to include the original ZIB code" />
-      <alias value="ContactTypeCodelijst" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
-      </type>
-    </element>
-    <element id="Encounter.class.extension:ContactTypeCodelijst.valueCodeableConcept:valueCodeableConcept">
-      <path value="Encounter.class.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <binding>
-        <strength value="extensible" />
-        <description value="ContactTypeCodelijst" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.15.1.1--20171231000000" />
-          <display value="ContactTypeCodelijst" />
-        </valueSetReference>
-      </binding>
-    </element>
     <element id="Encounter.type">
       <path value="Encounter.type" />
       <definition value="The type of encounter as defined in NHG Table 14 ContactWijze" />

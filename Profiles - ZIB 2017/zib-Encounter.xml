@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Encounter" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
-  <version value="2.1.1" />
+  <version value="2.1.2" />
   <name value="Zib Encounter" />
   <title value="HCIM Encounter" />
   <status value="active" />
@@ -95,6 +95,50 @@
       <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode) is available that maps ContactTypeCodelist to the ActEncounterCode valueset." />
       <alias value="ContactType" />
       <min value="1" />
+      <mapping>
+        <identity value="hcim-encounter-v1.2-2015EN" />
+        <map value="NL-CM:15.1.2" />
+        <comment value="ContactType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-encounter-v3.0-2016EN" />
+        <map value="NL-CM:15.1.2" />
+        <comment value="ContactType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-encounter-v3.1-2017EN" />
+        <map value="NL-CM:15.1.2" />
+        <comment value="ContactType" />
+      </mapping>
+    </element>
+    <element id="Encounter.class.extension">
+      <path value="Encounter.class.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Encounter.class.extension:ContactTypeCodelist">
+      <path value="Encounter.class.extension" />
+      <sliceName value="ContactTypeCodelist" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+    </element>
+    <element id="Encounter.class.extension:ContactTypeCodelist.valueCodeableConcept:valueCodeableConcept">
+      <path value="Encounter.class.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ContactTypeCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.15.1.1--20171231000000" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-encounter-v1.2-2015EN" />
         <map value="NL-CM:15.1.2" />
