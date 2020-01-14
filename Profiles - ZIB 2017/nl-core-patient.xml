@@ -821,7 +821,7 @@
     <element id="Patient.communication.extension:languageProficiency">
       <path value="Patient.communication.extension" />
       <sliceName value="languageProficiency" />
-      <comment value="A mocked offical HL7 core extension from the R4 FHIR specification is used as extension. This extension is used to capture the three ZIB concepts: LanguageControlListening, LanguageControlSpeaking, LanguageControlReading." />
+      <comment value="The HCIM concepts LanguageControlListening, LanguageControlReading, LanguageControlSpeaking are captuperd using a mocked offical HL7 core extension from the R4 FHIR specification. Each of these three concepts is encoded as a copy of the extension, typed using the code in the type slice according to the following mapping:&#xD;&#xA;* LanguaneControlListening maps to code 'RSP' (Received spoken)&#xD;&#xA;* LanguageControlReading maps to code 'RWR' (Received written)&#xD;&#xA;* LanguageControlSpeaking maps to code 'ESP' (Expressed spoken)" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/patient-proficiency" />
@@ -842,22 +842,22 @@
         <comment value="LanguageControlReading" />
       </mapping>
     </element>
-    <element id="Patient.communication.extension:languageProficiency.extension:level">
+    <element id="Patient.communication.extension:languageProficiency.extension:type">
       <path value="Patient.communication.extension.extension" />
-      <sliceName value="level" />
+      <sliceName value="type" />
     </element>
-    <element id="Patient.communication.extension:languageProficiency.extension:level.valueCoding:valueCoding">
+    <element id="Patient.communication.extension:languageProficiency.extension:type.valueCoding:valueCoding">
       <path value="Patient.communication.extension.extension.valueCoding" />
       <sliceName value="valueCoding" />
       <binding>
         <strength value="extensible" />
       </binding>
     </element>
-    <element id="Patient.communication.extension:languageProficiency.extension:type">
+    <element id="Patient.communication.extension:languageProficiency.extension:level">
       <path value="Patient.communication.extension.extension" />
-      <sliceName value="type" />
+      <sliceName value="level" />
     </element>
-    <element id="Patient.communication.extension:languageProficiency.extension:type.valueCoding:valueCoding">
+    <element id="Patient.communication.extension:languageProficiency.extension:level.valueCoding:valueCoding">
       <path value="Patient.communication.extension.extension.valueCoding" />
       <sliceName value="valueCoding" />
       <binding>
