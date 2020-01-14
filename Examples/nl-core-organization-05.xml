@@ -1,0 +1,121 @@
+<?xml-model href="http://hl7.org/fhir/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/organization.xsd" xmlns="http://hl7.org/fhir">
+    <id value="nl-core-organization-05"/>
+    <meta>
+        <versionId value="6"/>
+        <lastUpdated value="2016-11-09T17:27:51.255+00:00"/>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+    </meta>
+    <text>
+        <status value="additional"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <tbody>
+                    <tr>
+                        <th style="text-align: center;" colspan="2">Organization</th>
+                    </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr>
+                        <td>12341234 (AGB)<br/>12341234 (URA)</td>
+                        <td>Ziekenhuis Gooi en Overvecht</td>
+                    </tr>
+                    <tr>
+                        <th>Contact</th>
+                        <th>Address</th>
+                    </tr>
+                    <tr>
+                        <td>work phone: <a href="tel:+3130-1234567">030-1234567</a></td>
+                        <td>Ventweg 12<br/>1000 AA<br/>Utrecht</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center;" colspan="2">Contact Persons</th>
+                    </tr>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Details</th>
+                    </tr>
+                    <tr>
+                        <td>Administrative</td>
+                        <td>work phone: <a href="tel:+3130-1234567">030-1234567</a> - Mevrouw Pietersen</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-weight: bold;">Open issues</p>
+            <p>None</p>
+        </div>
+    </text>
+    <identifier>
+        <system value="http://fhir.nl/fhir/NamingSystem/agb-z"/>
+        <value value="12341234"/>
+    </identifier>
+    <identifier>
+        <system value="http://fhir.nl/fhir/NamingSystem/ura"/>
+        <value value="12341234"/>
+    </identifier>
+    <active value="true"/>
+    <type>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+            <code value="0329"/>
+            <display value="Psychiatrie"/>
+        </coding>
+    </type>
+    <type>
+        <coding>
+            <system value="http://nictiz.nl/fhir/NamingSystem/organization-type"/>
+            <code value="V4"/>
+            <display value="Ziekenhuis"/>
+        </coding>
+    </type>
+    <name value="Ziekenhuis Gooi en Overvecht"/>
+    <alias value="ZGO"/>
+    <telecom>
+        <system value="phone"/>
+        <value value="030-1234567"/>
+        <use value="work"/>
+    </telecom>
+    <address>
+        <use value="work"/>
+        <line value="Ventweg 12">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                <valueString value="Ventweg"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                <valueString value="12"/>
+            </extension>
+        </line>
+        <city value="Utrecht"/>
+        <postalCode value="1000 AA"/>
+        <country value="NLD">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                        <code value="6030"/>
+                        <display value="Nederland"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </country>
+    </address>
+    <contact>
+        <purpose>
+            <coding>
+                <system value="http://hl7.org/fhir/contactentity-type"/>
+                <code value="ADMIN"/>
+                <display value="Administrative"/>
+            </coding>
+        </purpose>
+        <name>
+            <text value="Mevrouw Pietersen"/>
+        </name>
+        <telecom>
+            <system value="phone"/>
+            <value value="030-1234567"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+</Organization>

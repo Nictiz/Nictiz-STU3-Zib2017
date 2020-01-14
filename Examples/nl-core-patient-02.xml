@@ -1,0 +1,84 @@
+<?xml-model href="http://hl7.org/fhir/STU3/patient.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/patient.xsd" xmlns="http://hl7.org/fhir">
+    <id value="nl-core-patient-02"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+    </meta>
+    <identifier>
+        <use value="official"/>
+        <system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
+        <value value="999911284"/>
+    </identifier>
+    <active value="true"/>
+    <name>
+        <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
+            <valueCode value="NL4"/>
+        </extension>
+        <use value="official"/>
+        <family value="XXX_Mesker">
+            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                <valueString value="XXX_Mesker"/>
+            </extension>
+        </family>
+        <given value="Paul">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                <valueCode value="CL"/>
+            </extension>
+        </given>
+        <given value="P.">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                <valueCode value="IN"/>
+            </extension>
+        </given>
+    </name>
+    <telecom>
+        <system value="phone"/>
+        <value value="06-23456789"/>
+        <use value="mobile"/>
+    </telecom>
+    <telecom>
+        <system value="email"/>
+        <value value="XXX_Mesker@hotmail.com"/>
+        <use value="home"/>
+    </telecom>
+    <gender value="male"/>
+    <birthDate value="1964-08-01"/>
+    <deceasedBoolean value="false"/>
+    <address>
+        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+            <valueBoolean value="true"/>
+        </extension>
+        <use value="home"/>
+        <type value="both"/>
+        <line value="Knolweg 1002">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                <valueString value="Knolweg"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                <valueString value="1002"/>
+            </extension>
+        </line>
+        <city value="Stitswerd"/>
+        <district value="Nederland"/>
+        <postalCode value="9999ZZ"/>
+        <country value="NLD">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                        <code value="6030"/>
+                        <display value="Nederland"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </country>
+    </address>
+    <maritalStatus>
+        <coding>
+            <system value="http://hl7.org/fhir/v3/MaritalStatus"/>
+            <code value="T"/>
+            <display value="Domestic partner"/>
+        </coding>
+    </maritalStatus>
+    <multipleBirthBoolean value="false"/>
+</Patient>

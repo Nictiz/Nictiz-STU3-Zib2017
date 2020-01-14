@@ -1,0 +1,38 @@
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd" xmlns="http://hl7.org/fhir">
+    <id value="zib-bodyheight-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyHeight"/>
+    </meta>
+    <status value="final"/>
+    <category>
+        <coding>
+            <system value="http://hl7.org/fhir/observation-category"/>
+            <code value="vital-signs"/>
+            <display value="Vital Signs"/>
+        </coding>
+    </category>
+    <code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="8308-9"/>
+            <display value="Body height --standing"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <effectiveDateTime value="2013-02-08"/>
+    <performer>
+        <reference value="Practitioner/nl-core-practitioner-02"/>
+        <display value="Vaste Huisarts 1"/>
+    </performer>
+    <valueQuantity>
+        <value value="183"/>
+        <unit value="cm"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="cm"/>
+    </valueQuantity>
+    <comment value="met schoenen aan"/>
+</Observation>

@@ -1,0 +1,83 @@
+<?xml-model href="http://hl7.org/fhir/STU3/careteam.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<CareTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careteam.xsd" xmlns="http://hl7.org/fhir">
+    <id value="nl-core-careteam-01"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-careteam"/>
+    </meta>
+    <identifier>
+        <system value="http://example.nl/careteamid"/>
+        <value value="15689532"/>
+    </identifier>
+    <status value="active"/>
+    <category>
+        <coding>
+            <system value="http://hl7.org/fhir/care-team-category"/>
+            <code value="episode"/>
+            <display value="Episode"/>
+        </coding>
+    </category>
+    <context>
+        <reference value="EpisodeOfCare/nl-core-episodeofcare-02"/>
+        <display value="Drug and alcohol rehabilitation"/>
+    </context>
+    <period>
+        <start value="2013-02-01T08:53:00+01:00"/>
+    </period>
+    <participant>
+        <role>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="59944000"/>
+                <display value="Psychologist"/>
+            </coding>
+        </role>
+        <member>
+            <reference value="Practitioner/nl-core-practitioner-01"/>
+            <display value="H. de Vries"/>
+        </member>
+        <period>
+            <start value="2013-02-01T08:53:00+01:00"/>
+            <end value="2015-02-01T08:53:00+01:00"/>
+        </period>
+    </participant>
+    <participant>
+        <role>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="59944000"/>
+                <display value="Psychologist"/>
+            </coding>
+        </role>
+        <member>
+            <reference value="Practitioner/nl-core-practitioner-04"/>
+            <display value="D. de Vries"/>
+        </member>
+        <period>
+            <start value="2015-02-01T08:53:00+01:00"/>
+        </period>
+    </participant>
+    <participant>
+        <role>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="446701002"/>
+                <display value="Addiction medicine specialist"/>
+            </coding>
+        </role>
+        <member>
+            <reference value="Practitioner/nl-core-practitioner-03"/>
+            <display value="G.Z.M. de Wit"/>
+        </member>
+        <period>
+            <start value="2013-02-01T08:53:00+01:00"/>
+        </period>
+    </participant>
+    <reasonReference>
+        <reference value="Condition/zib-problem-08"/>
+        <display value="Syndroom van Korsakov"/>
+    </reasonReference>
+    <managingOrganization>
+        <reference value="Organization/nl-core-organization-01"/>
+        <display value="Maatschap Vaste Huisarts"/>
+    </managingOrganization>
+</CareTeam>

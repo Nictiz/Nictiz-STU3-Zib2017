@@ -1,0 +1,38 @@
+<?xml-model href="http://hl7.org/fhir/STU3/procedure.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Procedure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/procedure.xsd" xmlns="http://hl7.org/fhir">
+    <id value="zib-procedure-02"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure"/>
+    </meta>
+    <status value="completed"/>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="387713003"/>
+            <display value="Surgical procedure"/>
+        </coding>
+    </category>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="274051007"/>
+            <display value="Surgical reduction of fracture (procedure)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <performer>
+        <actor>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                <valueReference>
+                    <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
+                    <display value="Medisch specialisten, orthopedie"/>
+                </valueReference>
+            </extension>
+            <reference value="Organization/nl-core-organization-02"/>
+            <display value="UMCG - Afdeling Orthopedie"/>
+        </actor>
+    </performer>
+</Procedure>

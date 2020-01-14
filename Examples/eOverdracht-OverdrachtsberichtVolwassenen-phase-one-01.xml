@@ -1,0 +1,73 @@
+<Composition xmlns="http://hl7.org/fhir">
+    <!-- Overdrachtsbericht Volwassenen phase one -->
+    <id value="eoverdracht-overdrachtsberichtvolwassenen-phase-one-01"/>
+    <meta>
+        <lastUpdated value="2019-03-20T11:51:36.392+01:00"/>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-OverdrachtsberichtVolwassenen-phase-one"/>
+    </meta>
+    <status value="preliminary"/>
+    <type>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="57830-2"/>
+        </coding>
+    </type>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+            <display value="Johan XXX_Helleman"/>
+    </subject>
+    <date value="2019-03-20T11:43:40.0004456+01:00"/>
+    <author>
+        <reference value="Practitioner/nl-core-practitioner-03"/>
+        <display value="G.Z.M. de Wit"/>
+    </author>
+    <title value="e-Overdracht Aanmeldbericht"/>
+    <section>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/eOverdracht-TransferDate">
+            <valueDateTime value="2019-05-01"/>
+        </extension>
+        <title value="Administrative data"/>
+        <section>
+            <title value="Personal data"/>
+            <section>
+                <title value="payer"/>
+                <entry>
+                    <reference value="Coverage/zib-payer-01"/>
+                    <display value="Basisverzekerd Menzis Zorgverzekeraar N.V."/>
+                </entry>
+            </section>
+        </section>
+        <section>
+            <title value="Sending organization"/>
+            <entry>
+               <reference value="Organization/nl-core-organization-01"/>
+               <display value="Maatschap Vaste Huisarts"/>
+            </entry>
+            <section>
+                <title value="Sending Practioner"/>
+                <entry>
+                    <reference value="Practioner/nl-core-practitioner-02"/>
+                    <display value="Vaste Huisarts 1"/>
+                </entry>
+                <entry>
+                    <reference value="PractionerRole/nl-core-practitionerrole-02"/>
+                    <display value="Huisarts"/>
+                </entry>
+            </section>
+        </section>
+        <section>
+            <title value="Receiving organization"/>
+            <entry>
+                <reference value="Organization/nl-core-organization-03"/>
+                <display value="Test Medisch Centrum"/>
+            </entry>
+        </section>
+    </section>
+    <section>
+        <title value="PDF file"/>
+        <entry>
+            <reference value="Binary/eoverdracht-aanmeldbericht-binary-01"/>
+            <display value="Overdrachtsbericht Johan XXX_Helleman in PDF"/>
+        </entry>
+    </section>
+</Composition>

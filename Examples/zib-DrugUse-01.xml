@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?> <?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd" xmlns="http://hl7.org/fhir">
+    <id value="zib-druguse-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-DrugUse"/>
+    </meta>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="228366006"/>
+            <display value="Finding relating to drug misuse behavior (finding)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <effectivePeriod>
+        <start value="1981"/>
+        <end value="1983"/>
+    </effectivePeriod>
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="44870007"/>
+            <display value="Misused drugs in past (finding)"/>
+        </coding>
+    </valueCodeableConcept>
+    <comment value="Op feestjes en in uitgaanscircuit."/>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="410942007"/>
+                <display value="Drug or medicament (substance)"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="703842006"/>
+                <display value="Amphetamine (substance)"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="410675002"/>
+                <display value="Route of administration (attribute)"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                <code value="6"/>
+                <display value="NASAAL"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+    <component>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="228390007"/>
+                <display value="Frequency of drug misuse (observable entity)"/>
+            </coding>
+        </code>
+        <valueString value="3 times a year"/>        
+    </component>
+</Observation>

@@ -1,0 +1,44 @@
+<?xml-model href="http://hl7.org/fhir/STU3/practitioner.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Practitioner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitioner.xsd" xmlns="http://hl7.org/fhir">
+    <id value="nl-core-practitioner-02"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+    </meta>
+    <name>
+        <family value="Vaste Huisarts 1"/>
+    </name>
+    <telecom>
+        <system value="phone"/>
+        <value value="+31434073576"/>
+        <use value="work"/>
+    </telecom>
+    <telecom>
+        <system value="email"/>
+        <value value="huisarts@huisarts.nl"/>
+        <use value="work"/>
+    </telecom>
+    <address>
+        <use value="work"/>
+        <line value="Valkendael 45">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                <valueString value="Valkendael"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                <valueString value="45"/>
+            </extension>
+        </line>
+        <city value="Maastricht"/>
+        <postalCode value="6245HK"/>
+        <country value="Nederland">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                        <code value="6030"/>
+                        <display value="Nederland"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </country>
+    </address>
+</Practitioner>
