@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Problem" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
-  <version value="2.2.0" />
+  <version value="2.2.1" />
   <name value="Zib Problem" />
   <title value="HCIM Problem" />
   <status value="active" />
@@ -108,7 +108,7 @@
         <map value="NL-CM:5.1.4" />
         <comment value="ProblemStatus. The relationship between the HCIM codes and the Resource codes is covered in the ConceptMaps: ProbleemStatusCodelijst-to-Condition-Clinical-Status-Codes and Condition-Clinical-Status-Codes-to-ProbleemStatusCodelijst" />
       </mapping>
-    </element> 
+    </element>
     <element id="Condition.clinicalStatus.extension">
       <path value="Condition.clinicalStatus.extension" />
       <slicing>
@@ -119,17 +119,28 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Condition.clinicalStatus.extension:ProbleemstatusCodelijst">
+    <element id="Condition.clinicalStatus.extension:ProblemStatusCodelist">
       <path value="Condition.clinicalStatus.extension" />
-      <sliceName value="ProbleemstatusCodelijst" />
+      <sliceName value="ProblemStatusCodelist" />
       <short value="clinicalstatus" />
       <definition value="Describes the condition of the problem, use this extension to include the original ZIB code" />
       <alias value="Probleemstatus" />
-      <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
       </type>
+    </element>
+    <element id="Condition.clinicalStatus.extension:ProblemStatusCodelist.valueCodeableConcept:valueCodeableConcept">
+      <path value="Condition.clinicalStatus.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProbleemStatusCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.5.1.2--20171231000000" />
+          <display value="ProbleemStatusCodelijst" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-concernfortransfer-v1.2-2015EN" />
         <map value="NL-CM:5.1.4" />
@@ -145,18 +156,6 @@
         <map value="NL-CM:5.1.4" />
         <comment value="ProblemStatus. The relationship between the HCIM codes and the Resource codes is covered in the ConceptMaps: ProbleemStatusCodelijst-to-Condition-Clinical-Status-Codes and Condition-Clinical-Status-Codes-to-ProbleemStatusCodelijst" />
       </mapping>
-    </element>
-    <element id="Condition.clinicalStatus.extension:ProbleemstatusCodelijst.valueCodeableConcept:valueCodeableConcept">
-      <path value="Condition.clinicalStatus.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <binding>
-        <strength value="extensible" />
-        <description value="ProbleemStatusCodelijst" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.5.1.2--20171231000000" />
-          <display value="ProbleemStatusCodelijst" />
-        </valueSetReference>
-      </binding>
     </element>
     <element id="Condition.verificationStatus">
       <path value="Condition.verificationStatus" />
@@ -274,9 +273,6 @@
       <definition value="Anatomical location which is the focus of the procedure." />
       <alias value="ProbleemAnatomischeLocatie" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite" />
-        </extension>
         <strength value="extensible" />
         <description value="ProbleemAnatomischeLocatieCodelijst" />
         <valueSetReference>
