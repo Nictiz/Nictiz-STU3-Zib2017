@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AllergyIntolerance" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance" />
-  <version value="2.1.2" />
+  <version value="2.1.3" />
   <name value="Zib AllergyIntolerance" />
   <title value="HCIM AllergyIntolerance" />
   <status value="active" />
@@ -48,6 +48,7 @@
     <element id="AllergyIntolerance">
       <path value="AllergyIntolerance" />
       <short value="AllergyIntolerance" />
+      <comment value="Substances include, but are not limited to: a therapeutic substance administered correctly at an appropriate dosage for the individual; food; material derived from plants or animals; or venom from insect stings.  The HCIM defines certain allergy statuses in the AllergieStatusCodelijst. These are represented using the FHIR element clinicalStatus and verificationStatus. The mapping from the HCIM to these elements is summarized below, because there is no one-to-one relationship. Additionally, there is a ConceptMap (https://simplifier.net/search?canonical=http://nictiz.nl/fhir/conceptmap/allergiestatuscodelijst-to-allergy-status) to define this relationship.&#xD;&#xA;HCIM NL-CM:8.2.5 AllergyStatus 'Active' maps to AllergyIntolerance.clinicalStatus 'active' + AllergyIntolerance.clinicalStatus.extension(code-specification) 'active' + AllergyIntolerance.verificationStatus.extension(dataAbsentReason) 'unknown'&#xD;&#xA;HCIM NL-CM:8.2.5 AllergyStatus 'Completed' maps to AllergyIntolerance.clinicalStatus 'resolved' + AllergyIntolerance.clinicalStatus.extension(code-specification) 'completed' + AllergyIntolerance.verificationStatus.extension(dataAbsentReason) 'unknown'&#xD;&#xA;HCIM NL-CM:8.2.5 AllergyStatus 'Obsolete' maps to AllergyIntolerance.clinicalStatus 'inactive' + AllergyIntolerance.clinicalStatus.extension(code-specification) 'obsolete' + AllergyIntolerance.verificationStatus.extension(dataAbsentReason) 'unknown'&#xD;&#xA;HCIM NL-CM:8.2.5 AllergyStatus 'Nullified' maps to AllergyIntolerance.clinicalStatus.extension(code-specification) 'nullified' + AllergyIntolerance.verificationStatus 'entered-in-error'" />
       <alias value="AllergieIntolerantie" />
       <mapping>
         <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
@@ -90,6 +91,7 @@
       <sliceName value="AllergieStatusCodelijst" />
       <short value="AllergyStatus" />
       <definition value="Statement on the status of the patient’s hypersensitivity." />
+      <comment value="Refer to the AllergyIntolerance.comment for instructions on mapping the HCIM codes to this element." />
       <alias value="AllergieStatus" />
       <max value="1" />
       <type>
@@ -123,6 +125,29 @@
           <display value="AllergieStatusCodelijst" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="AllergyIntolerance.verificationStatus.extension">
+      <path value="AllergyIntolerance.verificationStatus.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="AllergyIntolerance.verificationStatus.extension:dataAbsentReason">
+      <path value="AllergyIntolerance.verificationStatus.extension" />
+      <sliceName value="dataAbsentReason" />
+      <comment value="Refer to the AllergyIntolerance.comment for instructions on mapping the HCIM codes to this element." />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/data-absent-reason" />
+      </type>
+    </element>
+    <element id="AllergyIntolerance.verificationStatus.extension:dataAbsentReason.valueCode:valueCode">
+      <path value="AllergyIntolerance.verificationStatus.extension.valueCode" />
+      <sliceName value="valueCode" />
     </element>
     <element id="AllergyIntolerance.category.extension">
       <path value="AllergyIntolerance.category.extension" />
