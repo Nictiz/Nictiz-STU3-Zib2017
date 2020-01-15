@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationAgreement" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
-  <version value="2.2.2" />
+  <version value="2.2.3" />
   <name value="Zib MedicationAgreement" />
   <title value="HCIM MedicationAgreement" />
   <status value="active" />
@@ -506,6 +506,7 @@
       <path value="MedicationRequest.reasonCode" />
       <short value="ReasonForChangeOrDiscontinuationOfUse" />
       <definition value="Reason for this agreement. This can be the reason to start, change or stop the medication treatment." />
+      <comment value="In Medication Process v9 a change in the bound ValueSet MedicationAgreementReasonCodeList was adopted which is not available in the HCIM release 2017. Therefore, the mapping to HCIM MedicationAgreement concept ReasonMedicationAgreement (ID = NL-CM:9.6.22094) has been removed because the latest information that should be used is given in the Medication Process v9 dataset (ID = mp-dataelement900-22094)." />
       <alias value="RedenWijzigenOfStaken" />
       <example>
         <label value="Example of MedicationAgreement ReasonForChangeOrDiscontinuationOfUse" />
