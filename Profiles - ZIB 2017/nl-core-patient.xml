@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir https://hl7.org/fhir/STU3/fhir-all.xsd" xmlns="http://hl7.org/fhir">
   <id value="nl-core-patient" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
   <version value="2.1.5" />
@@ -353,6 +354,8 @@
     <element id="Patient.identifier:BSN.value">
       <path value="Patient.identifier.value" />
       <short value="BSN (Burgerservicenummer (Dutch person identification number))" />
+      <definition value="Burgerservicenummer is the Dutch person identification number which is also allowed for use in healthcare."/>
+      <comment value="The official format according to the 'Logisch Ontwerp BSN 1.4.pdf' is N8..9 and SHALL conform to an 11-proof algorithm. In order to check if the number is 11-proof the number, if N8, SHALL be prefixed with a leading zero. The expected format in FHIR is N9 with leading zero applied to any N8 bsn."/>
       <alias value="BSN" />
       <min value="1" />
       <example>
