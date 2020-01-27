@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationUse" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse" />
-  <version value="2.2.3" />
+  <version value="2.2.4" />
   <name value="Zib MedicationUse" />
   <title value="HCIM MedicationUse" />
   <status value="active" />
@@ -464,33 +464,59 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-    </element>
-    <element id="MedicationStatement.derivedFrom:relatedAgreement">
-      <path value="MedicationStatement.derivedFrom" />
-      <sliceName value="relatedAgreement" />
-      <short value="Related Agreement" />
-      <definition value="A reference to a medication or dispense request that have been the medication usage has been based on." />
+      <short value="Related Agreement and Dispense" />
+      <definition value="A reference to the underlying MedicatationAgreement, MedicationAgreement or Dispense of this MedicationUse." />
       <alias value="Gerelateerde afspraak" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
-      </type>
+      <alias value="Gerelateerde verstrekking" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22402" />
+        <comment value="Gerelateerde afspraak" />
+      </mapping>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22404" />
+        <comment value="Gerelateerde verstrekking" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.derivedFrom:relatedMedicationAgreement">
+      <path value="MedicationStatement.derivedFrom" />
+      <sliceName value="relatedMedicationAgreement" />
+      <short value="Related MedicationAgreement" />
+      <definition value="A reference to the underlying MedicationAgreement." />
+      <alias value="Identificatie medicatieafspraak" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
       </type>
       <mapping>
         <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22402" />
-        <comment value="Gerelateerde afspraak" />
+        <map value="mp-dataelement900-22403" />
+        <comment value="Identificatie medicatieafspraak" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.derivedFrom:relatedAdministrationAgreement">
+      <path value="MedicationStatement.derivedFrom" />
+      <sliceName value="relatedAdministrationAgreement" />
+      <short value="Related AdministrationAgreement" />
+      <definition value="A reference to the underlying AdministrationAgreement." />
+      <alias value="Identificatie toedieningsafspraak" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
+      </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-23236" />
+        <comment value="Identificatie toedieningsafspraak" />
       </mapping>
     </element>
     <element id="MedicationStatement.derivedFrom:relatedDispense">
       <path value="MedicationStatement.derivedFrom" />
       <sliceName value="relatedDispense" />
       <short value="Related Dispense" />
-      <definition value="A reference to the dispense that has provided the basis for indicating use." />
-      <alias value="Gerelateerde verstrekking" />
+      <definition value="A reference to the underlying Dispense." />
+      <alias value="Identificatie verstrekking" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense" />
@@ -498,7 +524,7 @@
       <mapping>
         <identity value="Medication-Process-v09" />
         <map value="mp-dataelement900-22404" />
-        <comment value="Gerelateerde verstrekking" />
+        <comment value="Identificatie" />
       </mapping>
     </element>
     <element id="MedicationStatement.taken">
@@ -517,9 +543,6 @@
       </mapping>
     </element>
     <element id="MedicationStatement.reasonCode.text">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="MedicationStatement.reasonCode.text" />
       <short value="ReasonForUse" />
       <definition value="The reason for using the medication, particularly in self-care medicine purchased by the patient themselves." />
@@ -552,24 +575,6 @@
         <map value="NL-CM:9.11.22504" />
         <comment value="InstructionsForUse" />
       </mapping>
-    </element>
-    <element id="MedicationStatement.dosage.timing.repeat.extension:exact">
-      <path value="MedicationStatement.dosage.timing.repeat.extension" />
-      <sliceName value="exact" />
-    </element>
-    <element id="MedicationStatement.dosage.timing.repeat.extension:exact.valueBoolean:valueBoolean">
-      <path value="MedicationStatement.dosage.timing.repeat.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
-    </element>
-    <element id="MedicationStatement.dosage.dose[x]">
-      <path value="MedicationStatement.dosage.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
   </differential>
 </StructureDefinition>
