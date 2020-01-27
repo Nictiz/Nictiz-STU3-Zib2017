@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Medication-InstructionsForUseDescription" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-InstructionsForUseDescription" />
+  <version value="1.0.0" />
+  <name value="Zib InstructionsForUseDescription" />
+  <title value="HCIM InstructionsForUseDescription" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="MP9 and the HCIM InstructionForUse define a description for the Medication InstructionForUse (in FHIR named DosageInstruction) on a higher level than FHIR core model. In the FHIR core model, it is only possible to have a InstructionForUse description per instance of the datatype DosageInstruction. In MP9 and HCIM, the InstructionForUse description concept concerns all instances of DosageInstructions. Therefore this extension can be used to capture the InstructionForUse at the Resource level instead of in the datatype DosageInstruction." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="MedicationRequest" />
+  <context value="MedicationDispense" />
+  <context value="MedicationStatement" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Description" />
+      <definition value="Textual description of the complete medication instructions for use (dosageInstruction) including the period of use." />
+      <comment value="MP9 and the HCIM InstructionForUse define a description for the Medication InstructionForUse (in FHIR named DosageInstruction) on a higher level than FHIR core model. In the FHIR core model, it is only possible to have a InstructionForUse description per instance of the datatype DosageInstruction. In MP9 and HCIM, the InstructionForUse description concept concerns all instances of DosageInstructions. Therefore, this extension is created to capture the the InstructionForUse at the Resource level instead of in the datatype DosageInstruction." />
+      <alias value="GebruiksInstructie Omschrijving" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-InstructionsForUseDescription" />
+    </element>
+    <element id="Extension.value[x]:valueString">
+      <path value="Extension.valueString" />
+      <sliceName value="valueString" />
+      <definition value="Textual description of the complete medication instructions for use (dosageInstruction) including the period of use." />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
