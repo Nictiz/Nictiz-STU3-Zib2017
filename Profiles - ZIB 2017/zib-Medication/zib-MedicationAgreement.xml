@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAgreement version 1.0.1, year 2017. A medication agreement is a prescriber’s proposal for a patient to use medication. An agreement to discontinue the use of medication is also a medication agreement." />
+  <description value="This profile is based on Medicatieproces V9.1 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAgreement version 1.0.1, year 2017. A medication agreement is a prescriber’s proposal for a patient to use medication. An agreement to discontinue the use of medication is also a medication agreement." />
   <purpose value="The goal of the medication agreement is to provide insight into the agreements reached between the prescriber and the patient on the use of medication." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -26,7 +26,7 @@
   </mapping>
   <mapping>
     <identity value="Medication-Process-v09" />
-    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20181220T121121/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
+    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20200122T161947/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
     <name value="Medication Process v09" />
     <comment value="Language of Medication Process is Dutch." />
   </mapping>
@@ -189,6 +189,20 @@
         <comment value="Relatie naar afspraak of gebruik" />
       </mapping>
     </element>
+    <element id="MedicationRequest.extension:instructionsForUseDescription">
+      <path value="MedicationRequest.extension" />
+      <sliceName value="instructionsForUseDescription" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-InstructionsForUseDescription" />
+      </type>
+      <mapping>
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.9581" />
+        <comment value="Description" />
+      </mapping>
+    </element>
     <element id="MedicationRequest.modifierExtension">
       <path value="MedicationRequest.modifierExtension" />
       <slicing>
@@ -208,11 +222,6 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-StopType" />
       </type>
       <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.19954" />
-        <comment value="MedicationAgreementStopType" />
-      </mapping>
-      <mapping>
         <identity value="Medication-Process-v09" />
         <map value="mp-dataelement900-19954" />
         <comment value="Stoptype" />
@@ -223,6 +232,7 @@
       <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="required" />
+        <description value="MedicatieafspraakStopType" />
       </binding>
     </element>
     <element id="MedicationRequest.modifierExtension:repeatPeriodCyclicalSchedule">
@@ -255,17 +265,6 @@
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.6" />
         <comment value="IdentificationNumber" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.status">
-      <path value="MedicationRequest.status" />
-      <short value="CanceledIndicator" />
-      <definition value="In the event of an error correction, the value of this element shall be 'entered-in-error'." />
-      <alias value="GeannuleerdIndicator" />
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.23033" />
-        <comment value="CanceledIndicator. Use status code entered-in-error when CanceledIndicator = true." />
       </mapping>
     </element>
     <element id="MedicationRequest.intent">
@@ -301,9 +300,6 @@
       <fixedCode value="16076005" />
     </element>
     <element id="MedicationRequest.category.coding:medicationAgreementCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="MedicationRequest.category.coding.display" />
       <defaultValueString value="Prescription (procedure)" />
     </element>
@@ -353,48 +349,6 @@
         <identity value="Medication-Process-v09" />
         <map value="mp-dataelement900-24024" />
         <comment value="Relaties ketenzorg" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.supportingInformation">
-      <path value="MedicationRequest.supportingInformation" />
-      <slicing>
-        <discriminator>
-          <type value="profile" />
-          <path value="reference.resolve()" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="MedicationRequest.supportingInformation:BodyWeight">
-      <path value="MedicationRequest.supportingInformation" />
-      <sliceName value="BodyWeight" />
-      <short value="MedicationAgreementAdditionalInformation: BodyWeight" />
-      <definition value="Weight the dose is based on, relevant to this agreement." />
-      <alias value="Lichaamsgewicht" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyWeight" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.23028" />
-        <comment value="BodyWeight" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.supportingInformation:BodyHeight">
-      <path value="MedicationRequest.supportingInformation" />
-      <sliceName value="BodyHeight" />
-      <short value="MedicationAgreementAdditionalInformation: BodyHeight" />
-      <definition value="Height the dose is based on, relevant to this agreement." />
-      <alias value="Lichaamslengte" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyHeight" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.23023" />
-        <comment value="BodyHeight" />
       </mapping>
     </element>
     <element id="MedicationRequest.authoredOn">
@@ -522,7 +476,7 @@
         <strength value="extensible" />
         <description value="RedenWijzigenOfStakenCodelijst" />
         <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.21--20181218104051" />
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.20.77.11.21--20191010152509" />
           <display value="RedenWijzigenOfStakenCodelijst" />
         </valueSetReference>
       </binding>
@@ -579,24 +533,6 @@
         <map value="NL-CM:0.0.14" />
         <comment value="DateTime" />
       </mapping>
-    </element>
-    <element id="MedicationRequest.dosageInstruction.timing.repeat.extension:exact">
-      <path value="MedicationRequest.dosageInstruction.timing.repeat.extension" />
-      <sliceName value="exact" />
-    </element>
-    <element id="MedicationRequest.dosageInstruction.timing.repeat.extension:exact.valueBoolean:valueBoolean">
-      <path value="MedicationRequest.dosageInstruction.timing.repeat.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
-    </element>
-    <element id="MedicationRequest.dosageInstruction.dose[x]">
-      <path value="MedicationRequest.dosageInstruction.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
   </differential>
 </StructureDefinition>

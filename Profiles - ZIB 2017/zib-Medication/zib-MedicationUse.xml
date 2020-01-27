@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationUse" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse" />
-  <version value="2.2.3" />
+  <version value="2.2.4" />
   <name value="Zib MedicationUse" />
   <title value="HCIM MedicationUse" />
   <status value="active" />
@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationUse version 1.0.1, year 2017.&#xD;&#xA;&#xD;&#xA;MedicationUse is a statement on the historic, current or intended use of a certain medicine." />
+  <description value="This profile is based on Medicatieproces V9.1 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationUse version 1.0.1, year 2017.&#xD;&#xA;&#xD;&#xA;MedicationUse is a statement on the historic, current or intended use of a certain medicine." />
   <purpose value="The goal of the medication use is to provide insight into the patient’s pattern of use." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.1" />
@@ -31,7 +31,7 @@
   </mapping>
   <mapping>
     <identity value="Medication-Process-v09" />
-    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20181220T121121/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
+    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20200122T161947/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
     <name value="Medication Process v09" />
     <comment value="Language of Medication Process is Dutch." />
   </mapping>
@@ -182,6 +182,11 @@
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-ReasonForChangeOrDiscontinuationOfUse" />
       </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22493" />
+        <comment value="Reden wijzigen of stoppen gebruik" />
+      </mapping>
     </element>
     <element id="MedicationStatement.extension:reasonForChangeOrDiscontinuationOfUse.valueCodeableConcept:valueCodeableConcept">
       <path value="MedicationStatement.extension.valueCodeableConcept" />
@@ -199,10 +204,19 @@
       <binding>
         <strength value="extensible" />
       </binding>
+    </element>
+    <element id="MedicationStatement.extension:instructionsForUseDescription">
+      <path value="MedicationStatement.extension" />
+      <sliceName value="instructionsForUseDescription" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-InstructionsForUseDescription" />
+      </type>
       <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22493" />
-        <comment value="Reden wijzigen of stoppen gebruik" />
+        <identity value="hcim-instructionsforuse-v1.0-2017EN" />
+        <map value="NL-CM:9.12.9581" />
+        <comment value="Description" />
       </mapping>
     </element>
     <element id="MedicationStatement.modifierExtension">
@@ -249,13 +263,13 @@
     </element>
     <element id="MedicationStatement.status">
       <path value="MedicationStatement.status" />
-      <short value="MedicationUseStopType" />
-      <comment value="MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xD;&#xA;&#xD;&#xA;This element is also used for the concept 'Stop type'; the manner in which this medication is discontinued (temporary or definitive).  A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus) is available that maps MedicationUseStopTypeCodeLijst to the MedicationStatementStatus valueset." />
-      <alias value="MedicatieGebruikStopType" />
+      <short value="Stoptype" />
+      <comment value="MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xD;&#xA;&#xD;&#xA;This element is also used for the concept 'Stop type'; the manner in which this medication is discontinued (temporary or definitive).  A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/MedicatieafspraakStopTypeCodelijst-to-MedicationStatementStatus) is available that maps MedicatieafspraakStopTypeCodelijst to the MedicationStatementStatus valueset. Mapping: 112171000146100 (Drug therapy temporarily stopped) maps to on-hold and 112161000146106 (Drug therapy definitively stopped) maps to stopped." />
+      <alias value="Stoptype" />
       <mapping>
-        <identity value="hcim-medicationuse2-v1.0-2017EN" />
-        <map value="NL-CM:9.11.23132" />
-        <comment value="MedicationUseStopType" />
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-23132" />
+        <comment value="Stoptype" />
       </mapping>
     </element>
     <element id="MedicationStatement.category">
@@ -464,33 +478,59 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-    </element>
-    <element id="MedicationStatement.derivedFrom:relatedAgreement">
-      <path value="MedicationStatement.derivedFrom" />
-      <sliceName value="relatedAgreement" />
-      <short value="Related Agreement" />
-      <definition value="A reference to a medication or dispense request that have been the medication usage has been based on." />
+      <short value="Related Agreement and Dispense" />
+      <definition value="A reference to the underlying MedicatationAgreement, MedicationAgreement or Dispense of this MedicationUse." />
       <alias value="Gerelateerde afspraak" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
-      </type>
+      <alias value="Gerelateerde verstrekking" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22402" />
+        <comment value="Gerelateerde afspraak" />
+      </mapping>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22404" />
+        <comment value="Gerelateerde verstrekking" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.derivedFrom:relatedMedicationAgreement">
+      <path value="MedicationStatement.derivedFrom" />
+      <sliceName value="relatedMedicationAgreement" />
+      <short value="Related MedicationAgreement" />
+      <definition value="A reference to the underlying MedicationAgreement." />
+      <alias value="Identificatie medicatieafspraak" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
       </type>
       <mapping>
         <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22402" />
-        <comment value="Gerelateerde afspraak" />
+        <map value="mp-dataelement900-22403" />
+        <comment value="Identificatie medicatieafspraak" />
+      </mapping>
+    </element>
+    <element id="MedicationStatement.derivedFrom:relatedAdministrationAgreement">
+      <path value="MedicationStatement.derivedFrom" />
+      <sliceName value="relatedAdministrationAgreement" />
+      <short value="Related AdministrationAgreement" />
+      <definition value="A reference to the underlying AdministrationAgreement." />
+      <alias value="Identificatie toedieningsafspraak" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
+      </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-23236" />
+        <comment value="Identificatie toedieningsafspraak" />
       </mapping>
     </element>
     <element id="MedicationStatement.derivedFrom:relatedDispense">
       <path value="MedicationStatement.derivedFrom" />
       <sliceName value="relatedDispense" />
       <short value="Related Dispense" />
-      <definition value="A reference to the dispense that has provided the basis for indicating use." />
-      <alias value="Gerelateerde verstrekking" />
+      <definition value="A reference to the underlying Dispense." />
+      <alias value="Identificatie verstrekking" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense" />
@@ -498,7 +538,7 @@
       <mapping>
         <identity value="Medication-Process-v09" />
         <map value="mp-dataelement900-22404" />
-        <comment value="Gerelateerde verstrekking" />
+        <comment value="Identificatie" />
       </mapping>
     </element>
     <element id="MedicationStatement.taken">
@@ -517,9 +557,6 @@
       </mapping>
     </element>
     <element id="MedicationStatement.reasonCode.text">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="MedicationStatement.reasonCode.text" />
       <short value="ReasonForUse" />
       <definition value="The reason for using the medication, particularly in self-care medicine purchased by the patient themselves." />
@@ -552,24 +589,6 @@
         <map value="NL-CM:9.11.22504" />
         <comment value="InstructionsForUse" />
       </mapping>
-    </element>
-    <element id="MedicationStatement.dosage.timing.repeat.extension:exact">
-      <path value="MedicationStatement.dosage.timing.repeat.extension" />
-      <sliceName value="exact" />
-    </element>
-    <element id="MedicationStatement.dosage.timing.repeat.extension:exact.valueBoolean:valueBoolean">
-      <path value="MedicationStatement.dosage.timing.repeat.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
-    </element>
-    <element id="MedicationStatement.dosage.dose[x]">
-      <path value="MedicationStatement.dosage.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
   </differential>
 </StructureDefinition>
