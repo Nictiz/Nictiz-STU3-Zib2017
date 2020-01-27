@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationAgreement" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
-  <version value="2.2.3" />
+  <version value="2.2.2" />
   <name value="Zib MedicationAgreement" />
   <title value="HCIM MedicationAgreement" />
   <status value="active" />
@@ -290,9 +290,6 @@
       <fixedCode value="16076005" />
     </element>
     <element id="MedicationRequest.category.coding:medicationAgreementCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="MedicationRequest.category.coding.display" />
       <defaultValueString value="Prescription (procedure)" />
     </element>
@@ -368,22 +365,6 @@
         <identity value="hcim-medicationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.6.23028" />
         <comment value="BodyWeight" />
-      </mapping>
-    </element>
-    <element id="MedicationRequest.supportingInformation:BodyHeight">
-      <path value="MedicationRequest.supportingInformation" />
-      <sliceName value="BodyHeight" />
-      <short value="MedicationAgreementAdditionalInformation: BodyHeight" />
-      <definition value="Height the dose is based on, relevant to this agreement." />
-      <alias value="Lichaamslengte" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyHeight" />
-      </type>
-      <mapping>
-        <identity value="hcim-medicationagreement-v1.0-2017EN" />
-        <map value="NL-CM:9.6.23023" />
-        <comment value="BodyHeight" />
       </mapping>
     </element>
     <element id="MedicationRequest.authoredOn">
@@ -568,24 +549,6 @@
         <map value="NL-CM:0.0.14" />
         <comment value="DateTime" />
       </mapping>
-    </element>
-    <element id="MedicationRequest.dosageInstruction.timing.repeat.extension:exact">
-      <path value="MedicationRequest.dosageInstruction.timing.repeat.extension" />
-      <sliceName value="exact" />
-    </element>
-    <element id="MedicationRequest.dosageInstruction.timing.repeat.extension:exact.valueBoolean:valueBoolean">
-      <path value="MedicationRequest.dosageInstruction.timing.repeat.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
-    </element>
-    <element id="MedicationRequest.dosageInstruction.dose[x]">
-      <path value="MedicationRequest.dosageInstruction.dose[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
   </differential>
 </StructureDefinition>
