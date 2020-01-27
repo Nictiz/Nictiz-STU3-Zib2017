@@ -1,5 +1,5 @@
 # Nictiz-STU3-Zib2017
-This repository contains HL7 FHIR STU3 compliant profiles. The FHIR profiles in this repository are based on the Release 2017 of the Dutch Clinical Building Blocks / Healthcare Information models (Dutch: [Zorginformatiebouwsteen or ZIB](https://zibs.nl/wiki/Zorginformatiebouwstenen "Zorginformatiebouwstenen")). 
+This repository contains HL7 FHIR STU3 compliant profiles. The FHIR profiles in this repository are based on the Release 2017 of the Dutch Clinical Building Blocks / Healthcare Information models (Dutch: [Zorginformatiebouwsteen or ZIB](https://zibs.nl/wiki/Zorginformatiebouwstenen "Zorginformatiebouwstenen")). This is the stable branch for the **1.x.x version** of the package.
 
 Among other things  these FHIR profiles cover the HCIMs/Zibs that are part of the [Basisgegevensset Zorg](https://www.registratieaandebron.nl/wat-is-registreren-aan-de-bron/de-kern-van-registreren-aan-de-bron/basisgegevensset/ "Basisgegevensset Zorg") (BGZ).
 
