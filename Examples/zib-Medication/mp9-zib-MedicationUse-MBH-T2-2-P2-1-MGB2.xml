@@ -1,20 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <MedicationStatement xmlns="http://hl7.org/fhir">
    <id value="MBH-T2-2-P2-1-MGB2"/>
    <meta>
       <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse"/>
    </meta>
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>MedicationStatement. Subject: <a href="Patient/XXX-Bals">A XXX_Bals</a>Id: MBH_T2.2_P2_1_MGB2 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1), Categorie: <span title="Medicatiegebruik (6 - 2.16.840.1.113883.2.4.3.11.60.20.77.5.3)">Medicatiegebruik</span>, Status: <i>onbekend (ontbrekend gegeven)</i>
+               <br/>Auteur: <a href="Patient/XXX-Bals">A XXX_Bals</a>
+            </caption>
+            <tbody>
+               <tr>
+                  <th>Medicamenteuze behandel-id</th>
+                  <td>MBH_T2.2_P2_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1)</td>
+               </tr>
+               <tr>
+                  <th>Voorschrijver</th>
+                  <td>
+                     <a href="PractitionerRole/027ab99a-41e9-11ea-2807-020000000000">Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners</a>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Medicatie</th>
+                  <td>
+                     <a href="Medication/17469-2-16-840-1-113883-2-4-4-10">IBUPROFEN PCH TABLET 600MG</a>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Datum/tijd</th>
+                  <td>[Language: en]18 September 2018 08:00:00 - [Language: en]20 September 2018 21:00:00</td>
+               </tr>
+               <tr>
+                  <th>Ondersteunende informatie</th>
+                  <td>relatie naar medicatieafspraak (Id: MBH_T2.2_P2_1_MA1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1))</td>
+               </tr>
+               <tr>
+                  <th>Dosering</th>
+                  <td>
+                     <div>Volgnummer: 1</div>
+                     <div>Timing: <div>, eenmalig per dag</div>
+                     </div>
+                     <div>Toedieningsweg: <span title="oraal (9 - G-Standaard thesaurus subtabel 0007)">oraal</span>
+                     </div>
+                     <div>Dosering: 1 stuk</div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Medicatie gebruikt</th>
+                  <td>nee</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Prescriber">
-      <extension url="agent">
-         <valueReference>
-            <reference value="PractitionerRole/d5e79"/>
-            <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
-         </valueReference>
-      </extension>
+      <valueReference>
+         <reference value="PractitionerRole/027ab99a-41e9-11ea-2807-020000000000"/>
+         <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+      </valueReference>
    </extension>
    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author">
       <valueReference>
-         <reference value="Patient/XXX-BALS"/>
+         <reference value="Patient/XXX-Bals"/>
          <display value="A XXX_Bals"/>
       </valueReference>
    </extension>
@@ -24,11 +72,18 @@
          <value value="MBH_T2.2_P2_1"/>
       </valueIdentifier>
    </extension>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-InstructionsForUseDescription">
+      <valueString value="Vanaf 18 sep 2018, t/m 20 sep 2018, 1 maal per dag 1 stuk, oraal"/>
+   </extension>
    <identifier>
       <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
       <value value="MBH_T2.2_P2_1_MGB2"/>
    </identifier>
-   <status value="active"/>
+   <status>
+      <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+         <valueCode value="unknown"/>
+      </extension>
+   </status>
    <category>
       <coding>
          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3"/>
@@ -45,9 +100,8 @@
       <start value="2018-09-18T08:00:00+02:00"/>
       <end value="2018-09-20T21:00:00+02:00"/>
    </effectivePeriod>
-   <dateAsserted value="2018-09-20T21:00:00+02:00"/>
    <subject>
-      <reference value="Patient/XXX-BALS"/>
+      <reference value="Patient/XXX-Bals"/>
       <display value="A XXX_Bals"/>
    </subject>
    <derivedFrom>
@@ -57,12 +111,14 @@
       </identifier>
       <display value="relatie naar medicatieafspraak"/>
    </derivedFrom>
-   <taken value="y"/>
+   <taken value="n"/>
    <dosage>
       <sequence value="1"/>
-      <text value="Vanaf 18 sep 2018, t/m 20 sep 2018, 1 maal per dag 1 stuk, oraal"/>
       <timing>
          <repeat>
+            <extension url="http://hl7.org/fhir/StructureDefinition/timing-exact">
+               <valueBoolean value="false"/>
+            </extension>
             <frequency value="1"/>
             <period value="1"/>
             <periodUnit value="d"/>
@@ -72,8 +128,8 @@
          <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
             <code value="9"/>
+            <display value="oraal"/>
          </coding>
-         <text value="oraal"/>
       </route>
       <doseQuantity>
          <value value="1"/>

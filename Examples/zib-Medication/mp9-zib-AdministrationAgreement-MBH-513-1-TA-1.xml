@@ -1,35 +1,36 @@
-<MedicationRequest xmlns="http://hl7.org/fhir">
-   <id value="MBH-T2-2-P2-1-MA1"/>
+<MedicationDispense xmlns="http://hl7.org/fhir">
+   <id value="MBH-513-1-TA-1"/>
    <meta>
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement"/>
    </meta>
    <text>
       <status value="generated"/>
       <div xmlns="http://www.w3.org/1999/xhtml">
          <table>
-            <caption>Medicatieafspraak. Subject: <a href="Patient/XXX-Bals">A XXX_Bals</a>Id: MBH_T2.2_P2_1_MA1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1), Categorie: <span title="Prescription (procedure) (16076005 - SNOMED CT)">Prescription (procedure)</span>, <br/>Intentie: aanvraag<br/>Aangevraagd door: <a href="PractitionerRole/000001111010000001111">Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners</a>
+            <caption>Toedieningsafspraak. Subject: <a href="Patient/XXX-Herweijer">A XXX_Herweijer</a>Id: MBH_513_1_TA_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.422037009.1), Categorie: <span title="Provider medication administration instructions (procedure) (422037009 - SNOMED CT)">Provider medication administration instructions (procedure)</span>
+               <br/>Uitvoerende: <a href="Organization/01236578APOTHEEKDEGULLEGAPER">Apotheek De Gulle Gaper</a>
             </caption>
             <tbody>
                <tr>
                   <th>Medicamenteuze behandel-id</th>
-                  <td>MBH_T2.2_P2_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1)</td>
+                  <td>MBH_Balts_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1)</td>
+               </tr>
+               <tr>
+                  <th>Gebaseerd op</th>
+                  <td>relatie naar medicatieafspraak: MBH_513_1_MA_2 || 2.16.840.1.113883.2.4.3.11.999.77.16076005.1 (Id: MBH_513_1_MA_2 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1))</td>
                </tr>
                <tr>
                   <th>Medicatie</th>
                   <td>
-                     <a href="Medication/17469-2-16-840-1-113883-2-4-4-10">IBUPROFEN PCH TABLET 600MG</a>
+                     <a href="Medication/1110837-2-16-840-1-113883-2-4-4-7">ASPIRINE PROTECT EC TABLET MSR 100MG</a>
                   </td>
-               </tr>
-               <tr>
-                  <th>Gemaakt op</th>
-                  <td>2018-09-17T11:25:00+02:00</td>
                </tr>
                <tr>
                   <th>Gebruiksduur</th>
                   <td>
                      <ul>
-                        <li>Vanaf 2018-09-17T00:00:00+02:00</li>
-                        <li>1 week</li>
+                        <li>Vanaf 2018-09-03T00:00:00+02:00</li>
+                        <li>1 jaar</li>
                      </ul>
                   </td>
                </tr>
@@ -50,60 +51,59 @@
    </text>
    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
       <valuePeriod>
-         <start value="2018-09-17T00:00:00+02:00"/>
+         <start value="2018-09-03T00:00:00+02:00"/>
       </valuePeriod>
    </extension>
    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration">
       <valueDuration>
          <value value="1"/>
-         <unit value="week"/>
+         <unit value="jaar"/>
          <system value="http://unitsofmeasure.org"/>
-         <code value="wk"/>
+         <code value="a"/>
       </valueDuration>
    </extension>
    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
       <valueIdentifier>
          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
-         <value value="MBH_T2.2_P2_1"/>
+         <value value="MBH_Balts_1"/>
       </valueIdentifier>
    </extension>
    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-InstructionsForUseDescription">
-      <valueString value="Vanaf 17 sep 2018, gedurende 1 week, 1 maal per dag 1 stuk, oraal"/>
+      <valueString value="Vanaf 3 sep 2018, gedurende 1 jaar, 1 maal per dag 1 stuk, oraal"/>
    </extension>
    <identifier>
-      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
-      <value value="MBH_T2.2_P2_1_MA1"/>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.422037009.1"/>
+      <value value="MBH_513_1_TA_1"/>
    </identifier>
-   <intent value="order"/>
    <category>
       <coding>
          <system value="http://snomed.info/sct"/>
-         <code value="16076005"/>
-         <display value="Prescription (procedure)"/>
+         <code value="422037009"/>
+         <display value="Provider medication administration instructions (procedure)"/>
       </coding>
-      <text value="Medicatieafspraak"/>
+      <text value="Toedieningsafspraak"/>
    </category>
    <medicationReference>
-      <reference value="Medication/17469-2-16-840-1-113883-2-4-4-10"/>
-      <display value="IBUPROFEN PCH TABLET 600MG"/>
+      <reference value="Medication/1110837-2-16-840-1-113883-2-4-4-7"/>
+      <display value="ASPIRINE PROTECT EC TABLET MSR 100MG"/>
    </medicationReference>
    <subject>
-      <reference value="Patient/XXX-Bals"/>
-      <display value="A XXX_Bals"/>
+      <reference value="Patient/XXX-Herweijer"/>
+      <display value="A XXX_Herweijer"/>
    </subject>
-   <authoredOn value="2018-09-17T11:25:00+02:00"/>
-   <requester>
-      <agent>
-         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-            <valueReference>
-               <reference value="PractitionerRole/000001111010000001111"/>
-               <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
-            </valueReference>
-         </extension>
-         <reference value="Practitioner/0000011112-16-528-1-1007-3-1"/>
-         <display value="Peter van Pulver"/>
-      </agent>
-   </requester>
+   <performer>
+      <actor>
+         <reference value="Organization/01236578APOTHEEKDEGULLEGAPER"/>
+         <display value="Apotheek De Gulle Gaper"/>
+      </actor>
+   </performer>
+   <authorizingPrescription>
+      <identifier>
+         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+         <value value="MBH_513_1_MA_2"/>
+      </identifier>
+      <display value="relatie naar medicatieafspraak: MBH_513_1_MA_2 || 2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+   </authorizingPrescription>
    <dosageInstruction>
       <sequence value="1"/>
       <timing>
@@ -130,4 +130,4 @@
          <code value="245"/>
       </doseQuantity>
    </dosageInstruction>
-</MedicationRequest>
+</MedicationDispense>

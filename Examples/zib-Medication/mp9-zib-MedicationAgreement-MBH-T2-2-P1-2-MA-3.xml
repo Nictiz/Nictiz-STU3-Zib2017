@@ -1,9 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <MedicationRequest xmlns="http://hl7.org/fhir">
    <id value="MBH-T2-2-P1-2-MA-3"/>
    <meta>
       <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
    </meta>
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Medicatieafspraak. Subject: <a href="Patient/XXX-Herweijer">A XXX_Herweijer</a>Id: MBH_T2.2_P1_2_MA_3 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1), Categorie: <span title="Prescription (procedure) (16076005 - SNOMED CT)">Prescription (procedure)</span>, <br/>Intentie: aanvraag<br/>Aangevraagd door: <a href="PractitionerRole/000001111010000001111">Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners</a>
+            </caption>
+            <tbody>
+               <tr>
+                  <th>Medicamenteuze behandel-id</th>
+                  <td>MBH_T2.2_P1_2 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1)</td>
+               </tr>
+               <tr>
+                  <th>Gebaseerd op</th>
+                  <td>relatie naar medicatieafspraak: MBH_T2.2_P1_2_MA_2 || 2.16.840.1.113883.2.4.3.11.999.77.16076005.1 (Id: MBH_T2.2_P1_2_MA_2 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1))</td>
+               </tr>
+               <tr>
+                  <th>Medicatie</th>
+                  <td>
+                     <a href="Medication/81442-2-16-840-1-113883-2-4-4-10">PARACETAMOL SANDOZ TABLET 1000MG</a>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Gemaakt op</th>
+                  <td>2018-09-20T11:20:10+02:00</td>
+               </tr>
+               <tr>
+                  <th>Reden</th>
+                  <td>
+                     <span title="Geen of onvoldoende effect (5 - 2.16.840.1.113883.2.4.3.11.60.20.77.5.2.2)">Geen of onvoldoende effect</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Gebruiksduur</th>
+                  <td>[Language: en]20 September 2018 11:20:10 - [Language: en]27 September 2018 00:00:00</td>
+               </tr>
+               <tr>
+                  <th>Doseerinstructie</th>
+                  <td>
+                     <div>Volgnummer: 1</div>
+                     <div>Timing: <div>, 3 maal per dag</div>
+                     </div>
+                     <div>Toedieningsweg: <span title="oraal (9 - G-Standaard thesaurus subtabel 0007)">oraal</span>
+                     </div>
+                     <div>Dosering: 1 stuk</div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
+      <valuePeriod>
+         <start value="2018-09-20T11:20:10+02:00"/>
+         <end value="2018-09-27T00:00:00+02:00"/>
+      </valuePeriod>
+   </extension>
    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
       <valueIdentifier>
          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
@@ -18,6 +73,9 @@
          </identifier>
          <display value="relatie naar medicatieafspraak: MBH_T2.2_P1_2_MA_2 || 2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
       </valueReference>
+   </extension>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-InstructionsForUseDescription">
+      <valueString value="Vanaf 20 sep, t/m 27 sep, 3 maal daags 1 stuk, oraal"/>
    </extension>
    <identifier>
       <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
@@ -37,19 +95,19 @@
       <display value="PARACETAMOL SANDOZ TABLET 1000MG"/>
    </medicationReference>
    <subject>
-      <reference value="Patient/XXX-HERWEIJER"/>
+      <reference value="Patient/XXX-Herweijer"/>
       <display value="A XXX_Herweijer"/>
    </subject>
-   <authoredOn value="2018-09-20T11:20:00+02:00"/>
+   <authoredOn value="2018-09-20T11:20:10+02:00"/>
    <requester>
       <agent>
          <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>
-               <reference value="PractitionerRole/d5e21"/>
+               <reference value="PractitionerRole/000001111010000001111"/>
                <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
             </valueReference>
          </extension>
-         <reference value="Practitioner/000001111PETERVANPULVER1"/>
+         <reference value="Practitioner/0000011112-16-528-1-1007-3-1"/>
          <display value="Peter van Pulver"/>
       </agent>
    </requester>
@@ -57,14 +115,16 @@
       <coding>
          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.2"/>
          <code value="5"/>
+         <display value="Geen of onvoldoende effect"/>
       </coding>
-      <text value="Geen of onvoldoende effect"/>
    </reasonCode>
    <dosageInstruction>
       <sequence value="1"/>
-      <text value="Vanaf 20 sep, t/m 27 sep, 3 maal daags 1 stuk, oraal"/>
       <timing>
          <repeat>
+            <extension url="http://hl7.org/fhir/StructureDefinition/timing-exact">
+               <valueBoolean value="false"/>
+            </extension>
             <frequency value="3"/>
             <period value="1"/>
             <periodUnit value="d"/>
@@ -74,8 +134,8 @@
          <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
             <code value="9"/>
+            <display value="oraal"/>
          </coding>
-         <text value="oraal"/>
       </route>
       <doseQuantity>
          <value value="1"/>

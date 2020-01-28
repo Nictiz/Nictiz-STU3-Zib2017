@@ -1,17 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <MedicationRequest xmlns="http://hl7.org/fhir">
    <id value="MBH-T2-2-P1-1-MA2"/>
    <meta>
       <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
    </meta>
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Medicatieafspraak. Subject: <a href="Patient/XXX-Herweijer">A XXX_Herweijer</a>Id: MBH_T2.2_P1_1_MA2 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1), Categorie: <span title="Prescription (procedure) (16076005 - SNOMED CT)">Prescription (procedure)</span>, <br/>Intentie: aanvraag<br/>Aangevraagd door: <a href="PractitionerRole/000001111010000001111">Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners</a>
+            </caption>
+            <tbody>
+               <tr>
+                  <th colspan="2">Medicatie is gestopt: <span title="Tijdelijke onderbreking van medicamenteuze behandeling (bijvoorbeeld tijdelijk stoppen gebruik vanwege operatie). (112171000146100 - SNOMED CT)">Tijdelijke onderbreking van medicamenteuze behandeling (bijvoorbeeld tijdelijk stoppen gebruik vanwege operatie).</span>
+                  </th>
+               </tr>
+               <tr>
+                  <th>Medicamenteuze behandel-id</th>
+                  <td>MBH_T2.2_P1_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1)</td>
+               </tr>
+               <tr>
+                  <th>Gebaseerd op</th>
+                  <td>relatie naar medicatieafspraak: MBH_T2.2_P1_1_MA1 || 2.16.840.1.113883.2.4.3.11.999.77.16076005.1 (Id: MBH_T2.2_P1_1_MA1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1))</td>
+               </tr>
+               <tr>
+                  <th>Medicatie</th>
+                  <td>
+                     <a href="Medication/17469-2-16-840-1-113883-2-4-4-7">IBUPROFEN PCH TABLET 600MG</a>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Gemaakt op</th>
+                  <td>2018-09-20T09:00:00+02:00</td>
+               </tr>
+               <tr>
+                  <th>Reden</th>
+                  <td>
+                     <span title="Geplande procedure (15 - 2.16.840.1.113883.2.4.3.11.60.20.77.5.2.2)">Geplande procedure</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Gebruiksduur</th>
+                  <td>[Language: en]17 September 2018 00:00:00 - [Language: en]20 September 2018 10:00:00</td>
+               </tr>
+               <tr>
+                  <th>Doseerinstructie</th>
+                  <td>
+                     <div>Volgnummer: 1</div>
+                     <div>Timing: <div>, eenmalig per dag</div>
+                     </div>
+                     <div>Toedieningsweg: <span title="Oraal (9 - G-Standaard thesaurus subtabel 0007)">Oraal</span>
+                     </div>
+                     <div>Dosering: 1 stuk</div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
+      <valuePeriod>
+         <start value="2018-09-17T00:00:00+02:00"/>
+         <end value="2018-09-20T10:00:00+02:00"/>
+      </valuePeriod>
+   </extension>
    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
       <valueIdentifier>
          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
          <value value="MBH_T2.2_P1_1"/>
       </valueIdentifier>
-   </extension>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-InstructionsForUseDescription">
-      <valueString value="Vanaf 17 sep 2018, t/m 20 sep, 1 maal per dag 1 stuk, oraal" />
    </extension>
    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse">
       <valueReference>
@@ -25,12 +81,15 @@
    <modifierExtension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-StopType">
       <valueCodeableConcept>
          <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.1"/>
-            <code value="1"/>
+            <system value="http://snomed.info/sct"/>
+            <code value="112171000146100"/>
+            <display value="Tijdelijke onderbreking van medicamenteuze behandeling (bijvoorbeeld tijdelijk stoppen gebruik vanwege operatie)."/>
          </coding>
-         <text value="Onderbreking"/>
       </valueCodeableConcept>
    </modifierExtension>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-InstructionsForUseDescription">
+      <valueString value="Vanaf 17 sep 2018, t/m 20 sep, 1 maal per dag 1 stuk, oraal"/>
+   </extension>
    <identifier>
       <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
       <value value="MBH_T2.2_P1_1_MA2"/>
@@ -45,11 +104,11 @@
       <text value="Medicatieafspraak"/>
    </category>
    <medicationReference>
-      <reference value="Medication/17469-2-16-840-1-113883-2-4-4-10"/>
+      <reference value="Medication/17469-2-16-840-1-113883-2-4-4-7"/>
       <display value="IBUPROFEN PCH TABLET 600MG"/>
    </medicationReference>
    <subject>
-      <reference value="Patient/XXX-HERWEIJER"/>
+      <reference value="Patient/XXX-Herweijer"/>
       <display value="A XXX_Herweijer"/>
    </subject>
    <authoredOn value="2018-09-20T09:00:00+02:00"/>
@@ -57,11 +116,11 @@
       <agent>
          <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>
-               <reference value="PractitionerRole/d5e21"/>
+               <reference value="PractitionerRole/000001111010000001111"/>
                <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
             </valueReference>
          </extension>
-         <reference value="Practitioner/000001111PETERVANPULVER1"/>
+         <reference value="Practitioner/0000011112-16-528-1-1007-3-1"/>
          <display value="Peter van Pulver"/>
       </agent>
    </requester>
@@ -69,13 +128,16 @@
       <coding>
          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.2"/>
          <code value="15"/>
+         <display value="Geplande procedure"/>
       </coding>
-      <text value="Geplande procedure"/>
    </reasonCode>
    <dosageInstruction>
       <sequence value="1"/>
       <timing>
          <repeat>
+            <extension url="http://hl7.org/fhir/StructureDefinition/timing-exact">
+               <valueBoolean value="false"/>
+            </extension>
             <frequency value="1"/>
             <period value="1"/>
             <periodUnit value="d"/>
@@ -85,8 +147,8 @@
          <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
             <code value="9"/>
+            <display value="Oraal"/>
          </coding>
-         <text value="Oraal"/>
       </route>
       <doseQuantity>
          <value value="1"/>
