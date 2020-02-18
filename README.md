@@ -33,20 +33,20 @@ The following illustration visualizes this workflow
 stable-1.x
 -----x-----------------x------------+--x-----------------
      |                 |            |  |
-	 | release-1.3.5   |            |  | release-1.3.6
+     | release-1.3.5   |            |  | release-1.3.6
      \----x---------+--|------------/  \-----+-----------
-	      |         |  |                     |
+          |         |  |                     |
           | MM-1024 |  | MM-2048             |
           \---------/  \--\------------------/
                           |
 stable-2.x                |
 ---------x----------------|----+--x----------------------
          |                |    |  |
-		 | release-2.0.1  |    |  | release-2.0.2
+         | release-2.0.1  |    |  | release-2.0.2
          \--x---------+---+----/  \----------------------
-		    |         |
-			| MM-4096 |
-			\---------/
+            |         |
+            | MM-4096 |
+            \---------/
 ```
 Things to note:
 * Both major versions have independent life cycles. For example, the release cycle for 2.0.1 starts and ends at a different point in time than the release cycle for 1.3.5.
