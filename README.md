@@ -51,5 +51,5 @@ stable-2.x                |
 Things to note:
 * Both major versions have independent life cycles. For example, the release cycle for 2.0.1 starts and ends at a different point in time than the release cycle for 1.3.5.
 * Topic branches may be branched from a release branch (MM-1024) or a stable branch (MM-2048), at the developer's discretion.
-* Topic branches may be relevant for a single major version (MM-1024, MM-4096) or both major versions (MM-2048).
+* Topic branches may be relevant for a single major version (MM-1024, MM-4096) or both major versions (MM-2048). For a merge to the "non-native" branch, cherry-picking or (preferably) a `rebase --onto` is required (for example: `git rebase --onto release-2.0.1 stable-1.x MM-2048` before merging MM-2048 into release-2.0.1).
 * Topic branches may have a life cycle independent from the releases (MM-2048).
