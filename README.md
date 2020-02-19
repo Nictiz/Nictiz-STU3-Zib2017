@@ -23,7 +23,7 @@ These branches correspond to the HL7 FHIR packages that Nictiz publishes.
 
 Nictiz uses the following branching strategy for development:
 * Releases correspond with the "stable-xxx" branches. These branches are only updated when there is a new release.
-* Integrating of fixes and features is done on integration branches, called "release-xxx", where "xxx" is the version number of the upcoming release. Integration branches are created for each new release cycle and deleted after they are merged to the "stable-xxx" branches.
+* Integration of fixes and features is done on integration branches, called "release-xxx", where "xxx" is the version number of the upcoming release. Integration branches are created for each new release cycle and deleted after they are merged to the "stable-xxx" branches.
 * Development of fixes and features is done:
 	* Hotfixes (typo's etc.) are usually directly applied on the integration branch(es).
 	* Larger issues are developed in topic branches. These issues are usually tracked in [BITS](https://bits.nictiz.nl) and the topic branches are called accordingly. Topic branches are merged into the integration branches when they are ready to be released. They are deleted after they are merged to all relevant integration branches.
