@@ -85,11 +85,14 @@
       <comment value="Contained resource of type Practitioner with:&#xD;&#xA;* authorInstitution: Organization&#xD;&#xA;* authorPerson: Practitioner.identifier and Practitioner.name&#xD;&#xA;* authorRole: — Not supported in STU3&#xD;&#xA;* authorSpecialty: Practitioner.qualification&#xD;&#xA;* authorTelecommunication: Practitioner.telecom" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />									
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+        <aggregation value="contained" />
       </type>
       <type>
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+        <aggregation value="contained" />
+      </type>
       <mustSupport value="true" />
     </element>
     <element id="DocumentReference.authenticator">
