@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AdministrationSchedule" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationSchedule" />
-  <version value="2.1.1" />
+  <version value="2.1.2" />
   <name value="Zib AdministrationSchedule" />
   <title value="HCIM AdministrationSchedule" />
   <status value="active" />
@@ -27,6 +27,12 @@
     <identity value="hcim-range-v1.0-2017EN" />
     <uri value="https://zibs.nl/wiki/Range-v1.0(2017EN)" />
     <name value="HCIM Part Range-v1.0(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="Medication-Process-v09" />
+    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20181220T121121/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
+    <name value="Medication Process v09" />
+    <comment value="Language of Medication Process is Dutch." />
   </mapping>
   <kind value="primitive-type" />
   <abstract value="false" />
@@ -61,10 +67,16 @@
       <short value="exact" />
       <definition value="If true, indicates that the specified times, frequencies, periods are expected to be adhered to as precisely as possible. If false, indicates that a typical degree of variability based on institutional and/or patient convenience is acceptable.&#xD;&#xA;Use on data type: Timing.repeat" />
       <comment value="For MP: In practice, this means that when you define a frequency (3x a day) this flag should false, but when you define an interval (every 8 hours) you set this flag to true." />
+      <alias value="IsFlexibel" />
       <type>
         <code value="Extension" />
         <profile value="http://hl7.org/fhir/StructureDefinition/timing-exact" />
       </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-24131" />
+        <comment value="IsFlexibel" />
+      </mapping>
     </element>
     <element id="Timing.repeat.extension:exact.valueBoolean:valueBoolean">
       <path value="Timing.repeat.extension.valueBoolean" />
