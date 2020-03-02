@@ -27,6 +27,7 @@ Nictiz uses the following branching strategy for development:
 * Development of fixes and features is done:
 	* Hotfixes (typo's etc.) are usually directly applied on the integration branch(es).
 	* Larger issues are developed in topic branches. These issues are usually tracked in [BITS](https://bits.nictiz.nl) and the topic branches are called accordingly. Topic branches are merged into the integration branches when they are ready to be released. They are deleted after they are merged to all relevant integration branches.
+	* _NOTE: version numbers of FHIR materials should not be changed as part of the development process. This should be part of the release process._
 
 The following illustration visualizes this workflow
 ```
