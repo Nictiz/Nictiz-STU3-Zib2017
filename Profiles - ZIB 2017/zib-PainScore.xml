@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-PainScore" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-PainScore" />
+  <version value="0.1.0"/>
+  <name value="Zib PainScore" />
+  <title value="HCIM PainScore" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is derived from the HL7 Observation profile in order to add mappings from the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) PainScore version 3.1, release 2017 and to provide extensions for missing concepts if needed.&#xD;&#xA;&#xD;&#xA;The pain score is a general measurement for pain experience, not a description of specific, localized pain." />
+  <purpose value="The purpose of the pain score is to quantify and objectify the patient’s subjective pain experience." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-painscore-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/PainScore-v3.1(2017EN)" />
+    <name value="HCIM PainScore-v3.1-2017EN" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0-2017EN" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="PainScore" />
+      <definition value="The pain score is a general measurement for pain experience, not a description of specific, localized pain.&#xD;&#xA;&#xD;&#xA;The following are used as an easily reproducible measurement for pain experience:&#xD;&#xA;&#xD;&#xA;    NRS (Numeric Rating Scale) in which the patient gives the pain a number on a scale of 1 (no pain) to 10 (unbearable pain).&#xD;&#xA;    VAS (Visual Analogue Score), in which the patient points to a bar with a line to indicate the pain they feel. The back of the bar has a scale from 0 (no pain) to 10 (unbearable pain) on it.&#xD;&#xA;&#xD;&#xA;The results of both scores have the same meaning, but the visual analogue method (VAS) is seen as more reliable than the NRS pain score." />
+      <alias value="Pijnscore" />
+      <constraint>
+        <key value="maxValue-for-method" />
+        <severity value="error" />
+        <human value="maxValue of 10 if method is VAS10 or NRS or 100 if VAS100" />
+        <expression value="((method.coding.code = 'VAS10' or method.coding.code = 'NRS') and valueQuantity.value &lt;= 10) or (method.coding.code='VAS100' and valueQuantity.value &lt;= 100)" />
+      </constraint>
+      <constraint>
+        <key value="minValue-for-method" />
+        <severity value="error" />
+        <human value="minValue of 1 if method is NRS or 0 if VAS" />
+        <expression value="((method.coding.code = 'VAS10' or method.coding.code = 'VAS100') and valueQuantity.value &gt;= 0) or (method.coding.code='NRS' and valueQuantity.value &gt;= 1)" />
+      </constraint>
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.1" />
+      </mapping>
+    </element>
+    <element id="Observation.identifier">
+      <path value="Observation.identifier" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:PainScoreCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="PainScoreCode" />
+    </element>
+    <element id="Observation.code.coding:PainScoreCode.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:PainScoreCode.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="225908003" />
+    </element>
+    <element id="Observation.subject">
+      <path value="Observation.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.3" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.value[x]" />
+      <sliceName value="valueQuantity" />
+      <min value="1" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <example>
+        <label value="Example of PainScore" />
+        <valueQuantity>
+          <value value="7" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="{score}" />
+        </valueQuantity>
+      </example>
+    </element>
+    <element id="Observation.value[x]:valueQuantity.value">
+      <path value="Observation.value[x].value" />
+      <min value="1" />
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.5" />
+      </mapping>
+    </element>
+    <element id="Observation.bodySite">
+      <path value="Observation.bodySite" />
+      <label value="AnatomicalLocation" />
+      <definition value="Anatomical location which is the focus of the procedure." />
+      <alias value="AnatomischeLocatie" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.9.2--20171231000000" />
+          <display value="PijnAnatomischeLocatieCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.6" />
+        <comment value="PainMeasuringMethodCodelist" />
+      </mapping>
+    </element>
+    <element id="Observation.bodySite.extension">
+      <path value="Observation.bodySite.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.bodySite.extension:Laterality">
+      <path value="Observation.bodySite.extension" />
+      <sliceName value="Laterality" />
+      <alias value="Lateraliteit" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
+      </type>
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.7" />
+        <comment value="Laterality" />
+      </mapping>
+    </element>
+    <element id="Observation.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
+      <path value="Observation.bodySite.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="Laterality" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.9.3--20171231000000" />
+          <display value="PijnLateraliteitCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.method">
+      <path value="Observation.method" />
+      <label value="PainMeasuringMethod" />
+      <alias value="PijnMeetmethode" />
+      <min value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.9.1--20171231000000" />
+          <display value="PijnMeetMethodeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.4" />
+        <comment value="PainMeasuringMethod" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

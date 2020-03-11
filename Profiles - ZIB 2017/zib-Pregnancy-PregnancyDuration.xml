@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Pregnancy-PregnancyDuration" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy-PregnancyDuration" />
+  <version value="0.1.0" />
+  <name value="Zib Pregnancy PregnancyDuration" />
+  <title value="HCIM Pregnancy PregnancyDuration" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Observation resource as defined by the Dutch HCIM Pregnancy v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Pregnancy or gravidity is the condition in which a woman carries a fertilized egg, which grows into an embryo and then a fetus. A pregnancy of between 37 and 42 weeks is considered normal. “Term pregnancy” is 37 to 42 weeks. The term gravidity is also used for the number of times a woman has been pregnant. This and parity - the number of times a woman has given birth - provides insight into the patient’s obstetric history." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;If the patient is pregnant, it is important to mention this, as it requires specific attention in their care. Pregnancy can influence treatment decisions, the treatment itself and the patient’s care.&#xD;&#xA;&#xD;&#xA;# Purpose of this profile&#xD;&#xA;This profile implements the PregnancyDurationfield of the HCIM, which can be used to record the duration of the pregnancy at a specific moment in time. It complements the zib-Pregnancy profile, which tracks the overarching condition. This profile can be referenced with the Observation.zib-Pregnancy field (event-partOf extension)." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-pregnancy-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Pregnancy-v3.1(2017EN)" />
+    <name value="HCIM Pregnancy-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.extension:zib-Pregnancy">
+      <path value="Observation.extension" />
+      <sliceName value="zib-Pregnancy" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/Observation-focus-stu3" />
+      </type>
+    </element>
+    <element id="Observation.extension:zib-Pregnancy.valueReference:valueReference">
+      <path value="Observation.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy" />
+      </type>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:FetalGestationalAge">
+      <path value="Observation.code.coding" />
+      <sliceName value="FetalGestationalAge" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:FetalGestationalAge.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:FetalGestationalAge.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="57036006" />
+    </element>
+    <element id="Observation.code.coding:FetalGestationalAge.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Fetal gestational age" />
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.value[x]" />
+      <sliceName value="valueQuantity" />
+      <short value="PregnancyDuration" />
+      <definition value="Duration of the pregnancy on the day on which the patient was asked. The duration can be entered in days (d) or weeks (wk)." />
+      <alias value="Zwangerschapsduur" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="ZwangerschapsduurEenheidCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.7.11.2--20171231000000" />
+          <display value="ZwangerschapsduurEenheidCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-pregnancy-v3.1-2017EN" />
+        <map value="NL-CM:7.14.4" />
+        <comment value="PregnancyDuration" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

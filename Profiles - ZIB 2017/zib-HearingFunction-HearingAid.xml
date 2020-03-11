@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-HearingFunction-HearingAid" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingFunction-HearingAid" />
+  <version value="0.1.0" />
+  <name value="Zib HearingFunction HearingAid" />
+  <title value="HCIM HearingFunction HearingAid" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A HearingFunction resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) HearingFunction v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Hearing is the ability to observe sound, with the purpose of communicating with others, localizing the source of the sound and recognizing certain sounds. This pertains to observing the sound waves, and not processing the sounds in the brain.&#xD;&#xA;A hearing disorder can lead to things including communication problems." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;Information on hearing function disorders is important in patient nursing and care and particularly in communication with the patient.&#xD;&#xA;&#xD;&#xA;# Purpose of this resource&#xD;&#xA;This HCIM complements the zib-HearingFunction resource (Observation) to bind a zib-HearingFunction-HearingAidProduct (Device) to it." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-hearingfunction-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/HearingFunction-v3.1(2017EN)" />
+    <name value="HCIM HearingFunction-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DeviceUseStatement" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DeviceUseStatement">
+      <path value="DeviceUseStatement" />
+      <short value="HearingAid" />
+      <definition value="The medical aid used to help the patient hear." />
+      <alias value="HorenHulpmiddel" />
+      <mapping>
+        <identity value="hcim-hearingfunction-v3.1-2017EN" />
+        <map value="NL-CM:4.17.4" />
+        <comment value="HearingAid" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:reasonReference">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="reasonReference" />
+    </element>
+    <element id="DeviceUseStatement.extension:reasonReference.valueReference:valueReference">
+      <path value="DeviceUseStatement.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingFunction" />
+      </type>
+    </element>
+    <element id="DeviceUseStatement.device">
+      <path value="DeviceUseStatement.device" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingAidProduct" />
+      </type>
+    </element>
+    <element id="DeviceUseStatement.bodySite">
+      <path value="DeviceUseStatement.bodySite" />
+      <short value="DeviceAnatomicalLocation" />
+      <definition value="The anatomical location of the hearing aid, such as: ‘left ear’." />
+      <alias value="HulpmiddelAnatomischeLocatie" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.17.3--20171231000000" />
+          <display value="HulpmiddelAnatomischeLocatieCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-hearingfunction-v3.1-2017EN" />
+        <map value="NL-CM:10.1.6" />
+        <comment value="DeviceAnatomicalLocation" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
