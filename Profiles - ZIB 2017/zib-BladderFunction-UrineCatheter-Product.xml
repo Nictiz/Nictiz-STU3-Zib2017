@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-BladderFunction-UrineCatheter-Product" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct-UrineCatheter" />
+  <version value="0.1.0" />
+  <name value="Zib BladderFunction UrineCatheter Product" />
+  <title value="HCIM BladderFunction UrineCatheter Product" />
+  <status value="draft" />
+  <description value="Resource describes what product is used as an urine catheter." />
+  <purpose value="Resource necessary for the capture the usage of an urine catheter of a certain type." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-bladderfunction-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/BladderFunction-v3.1(2017EN)" />
+    <name value="HCIM BladderFunction-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Device" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Device">
+      <path value="Device" />
+      <mapping>
+        <identity value="hcim-bladderfunction-v3.1-2017EN" />
+        <map value="NL-CM:10.1.3" />
+        <comment value="ProductType" />
+      </mapping>
+    </element>
+    <element id="Device.type">
+      <path value="Device.type" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.14.2--20171231000000" />
+          <display value="ProductTypeCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

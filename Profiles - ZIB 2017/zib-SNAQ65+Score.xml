@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-SNAQ65plusScore" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-SNAQ65+Score" />
+  <version value="0.1.0" />
+  <name value="Zib SNAQ65+Score" />
+  <title value="HCIM SNAQ65+Score" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="A Observation resource as defined by the Dutch HCIM SNAQ65+Score-v1.0(2017EN). The Short Nutritional Assessment Questionnaire 65+ (SNAQ65+) is a (validated) measuring tool for determining the extent of a patient’s malnutrition. The tool comprises a number of questions, each of which is assigned a score. The total score determines the extent of malnutrition. The SNAQ helps to recognize and treat malnutrition at an early stage. Three varieties of the measuring tool were developed for different care settings: hospitals (adults and children), nursing and retirement homes and independently living seniors. This concept describes the tool intended for the setting of independently living elderly." />
+  <purpose value="#Purpose&#xD;&#xA;The SNAQ65+score is used to determine the extent of malnutrition or the risk of malnutrition. To treat malnutrition quickly and effectively, it is important to identify the malnutrition at an early stage.&#xD;&#xA;&#xD;&#xA;#Rationale&#xD;&#xA;HL7 uses observations for defining scores like APGAR, to stay consistent, Nictiz chose to the Observation resource too." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-SNAQ65plusScore-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/SNAQ65+Score-v1.0(2017EN)" />
+    <name value="SNAQ65+Score-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="SNAQ65plusScore" />
+      <definition value="The Short Nutritional Assessment Questionnaire (SNAQ) is a (validated) measuring tool for determining the extent of a patient’s malnutrition. The tool comprises three questions, each of which is assigned a score. The total score determines the extent of malnutrition.  &#xD;&#xA;The SNAQ helps to recognize and treat malnutrition at an early stage. &#xD;&#xA;Three varieties of the measuring tool were developed for different care settings: hospitals, nursing and retirement homes and independently living seniors. This concept describes the tool intended for the hospital setting." />
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:SNAQ65plusScoreCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="SNAQ65plusScoreCode" />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="hcim-SNAQ65plusScore-v1.0" />
+        <map value="NL-CM:4.30.1" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding:SNAQ65plusScoreCode.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:SNAQ65plusScoreCode.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="108321000146101" />
+    </element>
+    <element id="Observation.code.coding:SNAQ65plusScoreCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Short Nutritional Questionaire for 65+ (assessment scale)" />
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <short value="SNAQ65+ScoreDateTime" />
+      <definition value="The date and time at which the SNAQ score was determined." />
+      <alias value="SNAQ65+ScoreDatumTijd" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="hcim-SNAQ65plusScore-v1.0-2017EN" />
+        <map value="NL-CM:4.30.6" />
+        <comment value="SNAQ65+ScoreDateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity">
+      <path value="Observation.value[x]" />
+      <sliceName value="valueQuantity" />
+      <short value="TotalScore" />
+      <definition value="The total score is the sum of all the individual scores. The total score has a range from 0 - 5." />
+      <alias value="TotaalScore" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <mapping>
+        <identity value="hcim-SNAQ65plusScore-v1.0-2017EN" />
+        <map value="NL-CM:4.30.2" />
+        <comment value="TotalScore" />
+      </mapping>
+    </element>
+    <element id="Observation.value[x]:valueQuantity.value">
+      <path value="Observation.value[x].value" />
+      <minValueDecimal value="0" />
+      <maxValueDecimal value="5" />
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <definition value="A comment on the circumstances during the measurement." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-SNAQ65plusScore-v1.0-2017EN" />
+        <map value="NL-CM:4.30.7" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:WeightLossScore">
+      <path value="Observation.component" />
+      <sliceName value="WeightLossScore" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:WeightLossScore.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="4.30.3" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:WeightLossScore.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Weightloss score" />
+    </element>
+    <element id="Observation.component:WeightLossScore.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="WeightLossScore" />
+      <definition value="The score based on undesired weight loss over the past month(s)." />
+      <alias value="GewichtsverliesScore" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of WeightLossScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.18.1" />
+            <code value="G2" />
+            <display value="LossHigh" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="SNAQ65+GewichtsverliesScoreCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.30.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-SNAQ65plusScore-v1.0-2017EN" />
+        <map value="NL-CM:4.30.3" />
+        <comment value="WeightLossScore" />
+      </mapping>
+    </element>
+    <element id="Observation.component:AppetiteScore">
+      <path value="Observation.component" />
+      <sliceName value="AppetiteScore" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:AppetiteScore.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="4.30.4" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:AppetiteScore.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Appetite score" />
+    </element>
+    <element id="Observation.component:AppetiteScore.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="AppetiteScore" />
+      <definition value="The score based on a reduced appetite over the past month." />
+      <alias value="EetlustScore" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of AppetiteScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.18.2" />
+            <code value="B0" />
+            <display value="Eetlust" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="SNAQ65+EetlustScoreCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.30.2--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-SNAQ65plusScore-v1.0-2017EN" />
+        <map value="NL-CM:4.30.4" />
+        <comment value="AppetiteScore" />
+      </mapping>
+    </element>
+    <element id="Observation.component:UpperarmCircumference">
+      <path value="Observation.component" />
+      <sliceName value="UpperarmCircumference" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:UpperarmCircumference.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="4.30.8" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:UpperarmCircumference.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Upperarm Circumference" />
+    </element>
+    <element id="Observation.component:UpperarmCircumference.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="UpperarmCircumference" />
+      <definition value="The score based on circumference of the upper arm." />
+      <alias value="BovenarmOmtrekScore" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of UpperarmCircumference" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.18.4" />
+            <code value="A0" />
+            <display value="Normaal" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="SNAQ65+BovenarmOmtrekScoreCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.30.4--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-SNAQ65plusScore-v1.0-2017EN" />
+        <map value="NL-CM:4.30.8" />
+        <comment value="UpperarmCircumference" />
+      </mapping>
+    </element>
+    <element id="Observation.component:ExerciseScore">
+      <path value="Observation.component" />
+      <sliceName value="ExerciseScore" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:ExerciseScore.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
+          <code value="4.30.5" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:ExerciseScore.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Exercise score" />
+    </element>
+    <element id="Observation.component:ExerciseScore.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="ExerciseScore" />
+      <definition value="The score based on the ability of the patient to eat and drink without assistance." />
+      <alias value="InspanningsScore" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <example>
+        <label value="Example of ExerciseScore" />
+        <valueCodeableConcept>
+          <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.18.3" />
+            <code value="In0" />
+            <display value="Mogelijk" />
+          </coding>
+        </valueCodeableConcept>
+      </example>
+      <binding>
+        <strength value="extensible" />
+        <description value="SNAQ65+InspanningsScoreCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.30.3--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-SNAQ65plusScore-v1.0-2017EN" />
+        <map value="NL-CM:4.30.5" />
+        <comment value="ExerciseScore" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?> <?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="zib-pregnancy-gravidity-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy-Gravidity"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/event-partOf">
+        <valueReference>
+            <reference value="Observation/zib-pregnancy-01"/>
+            <display value="Observatie betreffende zwangerschap (waarneembare entiteit)"/>
+        </valueReference>
+    </extension>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="11996-6"/>
+            <display value="Gravidity"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-03"/>
+        <display value="Irma Jongeneel-de Haas"/>
+    </subject>
+    <valueQuantity>
+        <value value="2"/>
+        <unit value="times"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="1"/>
+    </valueQuantity> 
+</Observation>

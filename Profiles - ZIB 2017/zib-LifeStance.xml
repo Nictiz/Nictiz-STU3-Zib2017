@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-LifeStance" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance" />
+  <version value="0.1.0" />
+  <name value="Zib LifeStance" />
+  <title value="HCIM LifeStance" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Extension as defined by the Dutch HCIM Zorginformatiebouwsteen Levensovertuiging v3.1(2017EN). Patient’s life stance and/or religion.&#xD;&#xA;Extension is mocked from the offical HL7 core extension in STU3 FHIR build specification, with different preferred  (Nictiz) valueSet." />
+  <purpose value="Life stance may have implications for treatment and care, such as in instructions for treatment, diet, or mental care." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="Patient" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance" />
+    </element>
+    <element id="Extension.value[x]:valueCodeableConcept">
+      <path value="Extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="LifeStance" />
+      <definition value="Patient’s life stance and/or religion." />
+      <alias value="Levensovertuiging" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="preferred" />
+        <description value="LevensovertuigingCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.5.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Extension.value[x]:valueCodeableConcept.coding">
+      <path value="Extension.valueCodeableConcept.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Extension.value[x]:valueCodeableConcept.coding.system">
+      <path value="Extension.valueCodeableConcept.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Extension.value[x]:valueCodeableConcept.coding.code">
+      <path value="Extension.valueCodeableConcept.coding.code" />
+      <min value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-FluidBalance" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FluidBalance" />
+  <version value="0.1.0" />
+  <name value="Zib FluidBalance" />
+  <title value="HCIM FluidBalance" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <description value="An Observation type resource as defined by the Dutch Health Care Information Model FluidBalance 1.0 - 2017EN" />
+  <purpose value="#Purpose&#xD;&#xA;Information about the water balance provides insight in the care plan for drinking and possibly administering extra fluids, when the balance is disrupted such as dehydration or overfilling.&#xD;&#xA;&#xD;&#xA;#Rationale&#xD;&#xA;HCIM FluidBalance fits in Observation.  No known arguments for other resources" />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-fluidbalance-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/FluidBalance-v1.0(2017EN)" />
+    <name value="HCIM FluidBalance-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="FluidBalance" />
+      <definition value="Root concept of the FluidBalance information model. This root concept contains all data elements of the FluidBalance information model." />
+      <alias value="Vochtbalans" />
+      <mapping>
+        <identity value="hcim-fluidbalance-v1.0-2017EN" />
+        <map value="NL-CM:12.15.1" />
+        <comment value="FluidBalance" />
+      </mapping>
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <short value="FluidBalance" />
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:FluidBalanceCode">
+      <path value="Observation.code.coding" />
+      <sliceName value="FluidBalanceCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:FluidBalanceCode.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:FluidBalanceCode.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="364396009" />
+    </element>
+    <element id="Observation.code.coding:FluidBalanceCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <min value="1" />
+      <defaultValueString value="Fluid balance observable" />
+    </element>
+    <element id="Observation.effective[x]:effectivePeriod">
+      <path value="Observation.effectivePeriod" />
+      <sliceName value="effectivePeriod" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+    <element id="Observation.effective[x]:effectivePeriod.start">
+      <path value="Observation.effectivePeriod.start" />
+      <short value="FluidBalanceStartTime" />
+      <definition value="The time at which the measurement of the fluid balance was started." />
+      <alias value="VochtbalansStarttijd" />
+      <mapping>
+        <identity value="hcim-fluidbalance-v1.0-2017EN" />
+        <map value="NL-CM:12.15.2" />
+        <comment value="FluidBalanceStartTime" />
+      </mapping>
+    </element>
+    <element id="Observation.effective[x]:effectivePeriod.end">
+      <path value="Observation.effectivePeriod.end" />
+      <short value="FluidBalanceStopTime" />
+      <definition value="The time at which the measurement of the fluid balance was stopped." />
+      <alias value="VochtbalansStoptijd" />
+      <mapping>
+        <identity value="hcim-fluidbalance-v1.0-2017EN" />
+        <map value="NL-CM:12.15.3" />
+        <comment value="FluidBalanceStopTime" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comment on the fluid balance." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-fluidbalance-v1.0-2017EN" />
+        <map value="NL-CM:12.15.6" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:FluidTotalIn">
+      <path value="Observation.component" />
+      <sliceName value="FluidTotalIn" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:FluidTotalIn.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="251852001" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:FluidTotalIn.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="FluidTotalIn" />
+      <definition value="The total of fluid intake (e.g. by mouth, drip or tube feeding) in mL." />
+      <alias value="VochtTotaalIn" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <example>
+        <label value="example of fluidTotalIn" />
+        <valueQuantity>
+          <value value="560" />
+          <unit value="mL" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="mL" />
+        </valueQuantity>
+      </example>
+      <mapping>
+        <identity value="hcim-fluidbalance-v1.0-2017EN" />
+        <map value="NL-CM:12.15.4" />
+        <comment value="FluidTotalIn" />
+      </mapping>
+    </element>
+    <element id="Observation.component:FluidTotalOut">
+      <path value="Observation.component" />
+      <sliceName value="FluidTotalOut" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:FluidTotalOut.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="251841007" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:FluidTotalOut.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="FluidTotalOut" />
+      <alias value="VochtTotaalUit" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <example>
+        <label value="example of FLuidTotalOut" />
+        <valueQuantity>
+          <value value="800" />
+          <unit value="mL" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="mL" />
+        </valueQuantity>
+      </example>
+      <mapping>
+        <identity value="hcim-fluidbalance-v1.0-2017EN" />
+        <map value="NL-CM:12.15.5" />
+        <comment value="FluidTotalOut" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
