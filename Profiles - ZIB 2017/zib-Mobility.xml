@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Mobility" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Mobility" />
+  <version value="0.1.0" />
+  <name value="Zib Mobility" />
+  <title value="HCIM Mobility" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) Mobility v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Mobility describes the abilities and any limitations in all aspects of mobility, such as changing position, walking and moving forward, in some cases with the help of an aid. " />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;The abilities and any limitations to mobility are documented:&#xD;&#xA;&#xD;&#xA;* to be able to take this into account when in contact with the patient and when providing care to the patient;&#xD;&#xA;* so as to monitor mobility in the event that mobility limitations are the subject of treatment;&#xD;&#xA;* to be able to warrant the continuity of care in transfers.&#xD;&#xA;&#xD;&#xA;# Purpose of this resource&#xD;&#xA;This HCIM defines an observation of the current situation. These observations could be used in a HCIM Problem resource to track the overaching concern." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-mobility-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Mobility-v3.1(2017EN)" />
+    <name value="HCIM Mobility-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <alias value="Mobiliteit" />
+      <mapping>
+        <identity value="hcim-mobility-v3.1-2017EN" />
+        <map value="NL-CM:4.3.1" />
+        <comment value="Mobility" />
+      </mapping>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:Mobility">
+      <path value="Observation.code.coding" />
+      <sliceName value="Mobility" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:Mobility.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:Mobility.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="301438001" />
+    </element>
+    <element id="Observation.code.coding:Mobility.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Ability to mobilise" />
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="A comment on the patient’s mobility." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-mobility-v3.1-2017EN" />
+        <map value="NL-CM:4.3.16" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:Walking">
+      <path value="Observation.component" />
+      <sliceName value="Walking" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Walking.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="282097004" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Walking.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Walking" />
+      <definition value="Walking is moving body from one place to another by moving legs stepwise by self, capacity to bear weight of body and walk with effective gait within the range of speed from slow, moderate and fast pace." />
+      <alias value="Lopen" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="LopenCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.3.9--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-mobility-v3.1-2017EN" />
+        <map value="NL-CM:4.3.3" />
+        <comment value="Walking" />
+      </mapping>
+    </element>
+    <element id="Observation.component:ClimbingStairs">
+      <path value="Observation.component" />
+      <sliceName value="ClimbingStairs" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:ClimbingStairs.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="301587001" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:ClimbingStairs.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="ClimbingStairs" />
+      <definition value="ClimbingStairs indicates the extent to which a patient is capable of going up and down stairs independently." />
+      <alias value="Traplopen" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="TraplopenCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.3.12--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-mobility-v3.1-2017EN" />
+        <map value="NL-CM:4.3.18" />
+        <comment value="ClimbingStairs" />
+      </mapping>
+    </element>
+    <element id="Observation.component:ChangingPosition">
+      <path value="Observation.component" />
+      <sliceName value="ChangingPosition" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:ChangingPosition.code">
+      <path value="Observation.component.code" />
+      <min value="1" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="282869009" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:ChangingPosition.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="ChangingPosition" />
+      <definition value="Changing position entails the body going from one position to another and going from one location to the next, such as getting out of a chair and into bed, or kneeling or crouching and getting back up." />
+      <alias value="HoudingVeranderen" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="HoudingVeranderenCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.3.1--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-mobility-v3.1-2017EN" />
+        <map value="NL-CM:4.3.8" />
+        <comment value="ChangingPosition" />
+      </mapping>
+    </element>
+    <element id="Observation.component:MaintainingPosition">
+      <path value="Observation.component" />
+      <sliceName value="MaintainingPosition" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:MaintainingPosition.code">
+      <path value="Observation.component.code" />
+      <min value="1" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="249868004" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:MaintainingPosition.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="MaintainingPosition" />
+      <definition value="Maintaining position is staying in the same position, such as sitting in a chair or standing, when required." />
+      <alias value="HoudingHandhaven" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="HoudingHandhavenCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.3.4--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-mobility-v3.1-2017EN" />
+        <map value="NL-CM:4.3.12" />
+        <comment value="MaintainingPosition" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Transfer">
+      <path value="Observation.component" />
+      <sliceName value="Transfer" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Transfer.code">
+      <path value="Observation.component.code" />
+      <min value="1" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="364666007" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Transfer.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Transfer" />
+      <definition value="A transfer is moving from one surface to another without changing the body’s position, such as sliding across a couch or moving from the bed to a chair." />
+      <alias value="UitvoerenTransfer" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="UitvoerenTransferCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.4.3.7--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-mobility-v3.1-2017EN" />
+        <map value="NL-CM:4.3.5" />
+        <comment value="Transfer" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

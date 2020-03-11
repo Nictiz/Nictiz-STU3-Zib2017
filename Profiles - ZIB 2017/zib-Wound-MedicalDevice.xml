@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Wound-MedicalDevice" />
+  <url value="http://example.org/fhir/StructureDefinition/zib-Wound-MedicalDevice" />
+  <version value="0.1.0" />
+  <name value="Zib Wound MedicalDevice" />
+  <title value="HCIM Wound MedicalDevice" />
+  <status value="draft" />
+  <description value="A Device as defined by the Dutch HCIM Zorginformatiebouwsteen Wond v3.1(2017EN). A drain is a medical aid placed to drain blood and exudate from the wound area.&#xD;&#xA;&#xD;&#xA;" />
+  <purpose value="Profiles purpose is to define the usage of a wounddrain." />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="zib-wound-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Wound-v3.1(2017EN)" />
+    <name value="HCIM Wound-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DeviceUseStatement" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DeviceUseStatement">
+      <path value="DeviceUseStatement" />
+      <mapping>
+        <identity value="Wound-v3.1-2017EN" />
+        <map value="NL-CM:19.2.17" />
+        <comment value="MedicalDevice" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.device">
+      <path value="DeviceUseStatement.device" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound-MedicalDeviceProduct" />
+      </type>
+      <mapping>
+        <identity value="Wound-v3.1-2017EN" />
+        <map value="NL-CM:10.1.3" />
+        <comment value="Follow reference for ProductType" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

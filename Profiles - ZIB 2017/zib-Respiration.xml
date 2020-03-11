@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Respiration" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Respiration" />
+  <version value="0.1.0" />
+  <name value="Zib Respiration" />
+  <title value="HCIM Respiration" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Observation resource as defined by the Dutch HCIM Respiration v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;During breathing or respiration, air flows to and from the lungs, where gas exchange occurs, absorbing oxygen from the air into the blood and exhaling carbon dioxide into the air. Observations of spontaneous breathing, usually registered as part of the observation of vital functions." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;Observing a person’s spontaneous breathing, including recording breathing frequency, depth and rhythm, is done to gain an indication of the health condition of the patient’s pulmonary system.&#xD;&#xA;&#xD;&#xA;# Purpose of this profile&#xD;&#xA;This profile defines the main building block for observing a patients respiratory parameters, including spontaneous breathing and info about administered oxygen (via the extension zib-Respiration-AdministeredOxygen). It is complemented by the profiles zib-Respiration-AdministeredOxygen-MedicalDevice (DeviceUseStatement) and zib-Respiration-AdministeredOxygen-MedicalDeviceProduct (Device) to register the device used to administer extra oxygen." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-respiration-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Respiration-v3.1(2017EN)" />
+    <name value="HCIM Respiration-v3.12017-EN" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.1" />
+        <comment value="Respiration" />
+      </mapping>
+    </element>
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.extension:AdministeredOxygen">
+      <path value="Observation.extension" />
+      <sliceName value="AdministeredOxygen" />
+      <short value="AdministeredOxygen" />
+      <definition value="Container of the AdministeredOxygen concept. This container contains all data elements of the AdministeredOxygen concept." />
+      <alias value="ToegediendeZuurstof" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Respiration-AdministeredOxygen" />
+      </type>
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.8" />
+        <comment value="AdministeredOxygen" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:extraOxygenAdministration">
+      <path value="Observation.extension.extension" />
+      <sliceName value="extraOxygenAdministration" />
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:extraOxygenAdministration.valueBoolean:valueBoolean">
+      <path value="Observation.extension.extension.valueBoolean" />
+      <sliceName value="valueBoolean" />
+      <short value="ExtraOxygenAdministration" />
+      <definition value="An indication stating whether the patient is given extra oxygen. In that event, additional information can be recorded in the concepts that are part of the AdministeredOxygen container." />
+      <alias value="ExtraZuurstofToediening" />
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.12" />
+        <comment value="ExtraOxygenAdministration" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:flowRate">
+      <path value="Observation.extension.extension" />
+      <sliceName value="flowRate" />
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:flowRate.valueQuantity:valueQuantity">
+      <path value="Observation.extension.extension.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="FlowRate" />
+      <definition value="The amount of administered oxygen. The value is between 0.0 and 50.0 l/min." />
+      <alias value="FlowRate" />
+      <example>
+        <label value="Example of flow rate" />
+        <valueQuantity>
+          <value value="2" />
+          <unit value="l/min" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="l/min" />
+        </valueQuantity>
+      </example>
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.10" />
+        <comment value="FlowRate" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:flowRate.valueQuantity:valueQuantity.value">
+      <path value="Observation.extension.extension.valueQuantity.value" />
+      <minValueDecimal value="0.0" />
+      <maxValueDecimal value="50.0" />
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:fiO2">
+      <path value="Observation.extension.extension" />
+      <sliceName value="fiO2" />
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:fiO2.valueQuantity:valueQuantity">
+      <path value="Observation.extension.extension.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="FiO2" />
+      <definition value="The fractional concentration of inspired oxygen. Value is between 0.0 and 1.0, with a normal value of 0.21 (no extra oxygen administered)." />
+      <alias value="FiO2" />
+      <example>
+        <label value="Example of FiO2" />
+        <valueQuantity>
+          <value value="0.29" />
+          <unit value="{fraction}" />
+          <system value="http://unitsofmeasure.org" />
+        </valueQuantity>
+      </example>
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.9" />
+        <comment value="FiO2" />
+      </mapping>
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.extension:fiO2.valueQuantity:valueQuantity.value">
+      <path value="Observation.extension.extension.valueQuantity.value" />
+      <minValueDecimal value="0.0" />
+      <maxValueDecimal value="1.0" />
+    </element>
+    <element id="Observation.extension:AdministeredOxygen.url">
+      <path value="Observation.extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Respiration-AdministeredOxygen" />
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:RespiratoryAssessment">
+      <path value="Observation.code.coding" />
+      <sliceName value="RespiratoryAssessment" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.code.coding:RespiratoryAssessment.system">
+      <path value="Observation.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.code.coding:RespiratoryAssessment.code">
+      <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="422834003" />
+    </element>
+    <element id="Observation.code.coding:RespiratoryAssessment.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Respiratory assessment" />
+    </element>
+    <element id="Observation.effective[x]:effectiveDateTime">
+      <path value="Observation.effectiveDateTime" />
+      <sliceName value="effectiveDateTime" />
+      <short value="BreathingDateTime" />
+      <definition value="Date and if possible time of measurement." />
+      <alias value="AdemhalingDatumTijd" />
+      <min value="1" />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.4" />
+        <comment value="BreathingDateTime" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="Comment on additional factors that can influence breathing such as the extent of fear, pain, nutrition in the case of infants or a tracheostomy." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.3" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+    <element id="Observation.component">
+      <path value="Observation.component" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="code" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.component:BreathingFrequency">
+      <path value="Observation.component" />
+      <sliceName value="BreathingFrequency" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:BreathingFrequency.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://loinc.org" />
+          <code value="9279-1" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:BreathingFrequency.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <short value="BreathingFrequency" />
+      <definition value="The value of the measured breathing frequency. The breathing frequency is the number of breaths per minute." />
+      <alias value="Ademfrequentie" />
+      <type>
+        <code value="Quantity" />
+      </type>
+      <example>
+        <label value="Example of breathing frequency" />
+        <valueQuantity>
+          <value value="15" />
+          <unit value="breaths per minute" />
+          <system value="http://unitsofmeasure.org" />
+          <code value="{breaths}/min" />
+        </valueQuantity>
+      </example>
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.2" />
+        <comment value="BreathingFrequency" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Rhythm">
+      <path value="Observation.component" />
+      <sliceName value="Rhythm" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Rhythm.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="48064009" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Rhythm.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Rhythm" />
+      <definition value="The rhythm or regularity of breathing." />
+      <alias value="Ritme" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="RitmeCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.5.1--20171231000000" />
+          <display value="RitmeCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.5" />
+        <comment value="Rhythm" />
+      </mapping>
+    </element>
+    <element id="Observation.component:Depth">
+      <path value="Observation.component" />
+      <sliceName value="Depth" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:Depth.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="271626009" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:Depth.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="Depth" />
+      <definition value="The depth of the breaths." />
+      <alias value="Diepte" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="DiepteCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.5.2--20171231000000" />
+          <display value="DiepteCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.6" />
+        <comment value="Depth" />
+      </mapping>
+    </element>
+    <element id="Observation.component:DeviatingBreathingPattern">
+      <path value="Observation.component" />
+      <sliceName value="DeviatingBreathingPattern" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:DeviatingBreathingPattern.code">
+      <path value="Observation.component.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="278907009" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.component:DeviatingBreathingPattern.value[x]:valueCodeableConcept">
+      <path value="Observation.component.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="DeviatingBreathingPattern" />
+      <definition value="Specific, abnormal breathing patterns." />
+      <alias value="AfwijkendAdemhalingspatroon" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <description value="AfwijkendAdemhalingspatroonCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.5.3--20171231000000" />
+          <display value="AfwijkendAdemhalingspatroonCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-respiration-v3.1-2017EN" />
+        <map value="NL-CM:12.5.7" />
+        <comment value="DeviatingBreathingPattern" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

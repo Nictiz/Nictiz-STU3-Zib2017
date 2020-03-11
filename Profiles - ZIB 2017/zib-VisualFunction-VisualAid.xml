@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-VisualFunction-VisualAid" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-VisualFunction-VisualAid" />
+  <version value="0.1.0" />
+  <name value="Zib VisualFunction VisualAid" />
+  <title value="HCIM VisualFunction VisualAid" />
+  <status value="draft" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="An Observation resource as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) VisualFunction v3.1(2017EN).&#xD;&#xA;&#xD;&#xA;Sight is the ability to observe lit objects, with the goal of orienting yourself on objects and people in a lit environment. This pertains to observing the light stimuli, and not processing them in the brain.&#xD;&#xA;A sight disorder can lead to things including orientation problems." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;Information on visual function disorders is important in patient care and treatment and particularly in the communication with the patient. Based on this information, healthcare can be adjusted to the patient’s limitations if needed.&#xD;&#xA;&#xD;&#xA;# Purpose of this resource&#xD;&#xA;This HCIM complements the zib-VisualFunction (Observation) resource to bind a zib-HearingFunction-HearingAidProduct (Device) to it." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.1" />
+  <mapping>
+    <identity value="hcim-visualfunction-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/VisualFunction-v3.1(2017EN)" />
+    <name value="HCIM VisualFunction-v3.1(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="DeviceUseStatement" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="DeviceUseStatement">
+      <path value="DeviceUseStatement" />
+      <short value="VisualAid" />
+      <definition value="The medical aids used to support the visual function." />
+      <alias value="ZienHulpmiddel" />
+      <mapping>
+        <identity value="hcim-visualfunction-v3.1-2017EN" />
+        <map value="NL-CM:4.16.4" />
+        <comment value="VisualAid" />
+      </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:reasonReference">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="reasonReference" />
+    </element>
+    <element id="DeviceUseStatement.extension:reasonReference.valueReference:valueReference">
+      <path value="DeviceUseStatement.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-VisualFunction" />
+      </type>
+    </element>
+    <element id="DeviceUseStatement.device">
+      <path value="DeviceUseStatement.device" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-VisualFunction-VisualAidProduct" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
