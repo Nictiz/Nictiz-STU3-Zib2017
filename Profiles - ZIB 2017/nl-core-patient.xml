@@ -147,6 +147,11 @@
     <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
     <name value="HCIM BasicElements-v1.0(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-lifestance-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/LifeStance-v3.1(2017EN)" />
+    <name value="HCIM LifeStance-v3.1(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Patient" />
@@ -305,6 +310,24 @@
     <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.code">
       <path value="Patient.extension.valueCodeableConcept.coding.code" />
       <min value="1" />
+    </element>
+    <element id="Patient.extension:lifeStance">
+      <path value="Patient.extension" />
+      <sliceName value="lifeStance" />
+      <short value="LifeStance" />
+      <definition value="Patient’s life stance and/or religion." />
+      <comment value="We capture the HCIM LifeStance in an extension of the resource patient to adhere to the HL7 fhir spec. The STU3 FHIR spec also defines religion in an extension to patient." />
+      <alias value="Levensovertuiging" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance" />
+      </type>
+      <mapping>
+        <identity value="hcim-lifestance-v3.1-2017EN" />
+        <map value="NL-CM:7.5.1" />
+        <comment value="LifeStanceRC" />
+      </mapping>
     </element>
     <element id="Patient.identifier">
       <path value="Patient.identifier" />
