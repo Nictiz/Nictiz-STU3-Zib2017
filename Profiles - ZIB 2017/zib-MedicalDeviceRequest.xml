@@ -438,6 +438,13 @@
     </element>
     <element id="DeviceRequest.note.author[x]">
       <path value="DeviceRequest.note.author[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
@@ -454,7 +461,23 @@
         <code value="string" />
       </type>
     </element>
-    <element id="DeviceRequest.note.author[x].extension">
+    <element id="DeviceRequest.note.author[x]:authorReference">
+      <path value="DeviceRequest.note.author[x]" />
+      <sliceName value="authorReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
+      </type>
+    </element>
+    <element id="DeviceRequest.note.author[x]:authorReference.extension">
       <path value="DeviceRequest.note.author[x].extension" />
       <slicing>
         <discriminator>
@@ -464,13 +487,22 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="DeviceRequest.note.author[x].extension:practitionerRole">
+    <element id="DeviceRequest.note.author[x]:authorReference.extension:practitionerRole">
       <path value="DeviceRequest.note.author[x].extension" />
       <sliceName value="practitionerRole" />
+      <comment value="Relevant only in combination with Reference(Practitioner)" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+    <element id="DeviceRequest.note.author[x]:authorString">
+      <path value="DeviceRequest.note.author[x]" />
+      <sliceName value="authorString" />
+      <type>
+        <code value="string" />
       </type>
     </element>
   </differential>
