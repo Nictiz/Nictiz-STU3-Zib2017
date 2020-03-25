@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicalDeviceRequest" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceRequest" />
-  <version value="2.1.1" />
+  <version value="2.1.2" />
   <name value="Zib MedicalDevice Request" />
   <title value="HCIM MedicalDevice Request" />
   <status value="active" />
@@ -18,7 +18,7 @@
   <description value="MedicalDevice Request as defined by the Dutch Health and Care Information model for PlannedCareActivity (Dutch: Zorginformatiebouwsteen or ZIB) version 3.1, release 2017." />
   <purpose value="Recording planned appointments, referrals, treatments, diagnostic procedures, open orders and orders of which the results are not yet known gives every recipient, user or healthcare facility insight in the planned healthcare for this patient. This can prevent situations in which diagnostics and treatment can conflict with each other.&#xD;&#xA;This will give the recipient the option to place an order, cancel the order or act in any other way in accordance with their own policy.&#xD;&#xA;For orders that do not yet have results, the recipient is informed of the fact that potentially relevant results will be made available (which have to be requested)." />
   <copyright value="CC0" />
-  <fhirVersion value="3.0.1" />
+  <fhirVersion value="3.0.2" />
   <mapping>
     <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
     <uri value="https://zibs.nl/wiki/PlannedCareActivityForTransfer-v1.2.1(2015EN)" />
@@ -438,6 +438,13 @@
     </element>
     <element id="DeviceRequest.note.author[x]">
       <path value="DeviceRequest.note.author[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
@@ -454,7 +461,23 @@
         <code value="string" />
       </type>
     </element>
-    <element id="DeviceRequest.note.author[x].extension">
+    <element id="DeviceRequest.note.author[x]:authorReference">
+      <path value="DeviceRequest.note.author[x]" />
+      <sliceName value="authorReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
+      </type>
+    </element>
+    <element id="DeviceRequest.note.author[x]:authorReference.extension">
       <path value="DeviceRequest.note.author[x].extension" />
       <slicing>
         <discriminator>
@@ -464,13 +487,22 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="DeviceRequest.note.author[x].extension:practitionerRole">
+    <element id="DeviceRequest.note.author[x]:authorReference.extension:practitionerRole">
       <path value="DeviceRequest.note.author[x].extension" />
       <sliceName value="practitionerRole" />
+      <comment value="Relevant only in combination with Reference(Practitioner)" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+    <element id="DeviceRequest.note.author[x]:authorString">
+      <path value="DeviceRequest.note.author[x]" />
+      <sliceName value="authorString" />
+      <type>
+        <code value="string" />
       </type>
     </element>
   </differential>

@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-InstructionsForUse" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-InstructionsForUse" />
-  <version value="3.0.0" />
+  <version value="3.0.1" />
   <name value="Zib InstructionsForUse" />
   <title value="HCIM InstructionsForUse" />
   <status value="active" />
@@ -18,7 +18,7 @@
   <description value="This profile is based on Medicatieproces V9.1 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) InstructionsForUse version 1.1, year 2017. Instructions for the use or administration of the medication, e.g. dose and route of administration. In the event of medication use, this is the pattern of use established by the patient or which the patient followed" />
   <purpose value="InstructionsForUse gives an insight into the manner a drug is to be used." />
   <copyright value="CC0" />
-  <fhirVersion value="3.0.1" />
+  <fhirVersion value="3.0.2" />
   <mapping>
     <identity value="hcim-instructionsforuse-v1.0-2017EN" />
     <uri value="https://zibs.nl/wiki/InstructionsForUse-v1.0(2017EN)" />
@@ -162,9 +162,9 @@
         <comment value="Dose" />
       </mapping>
     </element>
-    <element id="Dosage.dose[x]:DoseQuantity">
+    <element id="Dosage.dose[x]:doseQuantity">
       <path value="Dosage.dose[x]" />
-      <sliceName value="DoseQuantity" />
+      <sliceName value="doseQuantity" />
       <type>
         <code value="Quantity" />
         <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity" />
@@ -178,14 +178,14 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Dosage.dose[x]:DoseRange">
+    <element id="Dosage.dose[x]:doseRange">
       <path value="Dosage.dose[x]" />
-      <sliceName value="DoseRange" />
+      <sliceName value="doseRange" />
       <type>
         <code value="Range" />
       </type>
     </element>
-    <element id="Dosage.dose[x]:DoseRange.low">
+    <element id="Dosage.dose[x]:doseRange.low">
       <path value="Dosage.dose[x].low" />
       <binding>
         <strength value="required" />
@@ -196,7 +196,7 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Dosage.dose[x]:DoseRange.high">
+    <element id="Dosage.dose[x]:doseRange.high">
       <path value="Dosage.dose[x].high" />
       <binding>
         <strength value="required" />

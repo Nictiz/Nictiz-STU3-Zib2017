@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-FamilySituation" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation" />
-  <version value="1.1.1" />
+  <version value="1.1.2" />
   <name value="Zib FamilySituation" />
   <title value="HCIM FamilySituation" />
   <status value="active" />
@@ -18,7 +18,7 @@
   <description value="FamilySituation defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.0, release 2017.&#xD;&#xA;&#xD;&#xA;Traditionally, a family is defined as a group of people of one or more adults who carry responsibility for caring for and raising one or more children.     Currently, the term is used more broadly for all forms of cohabitation which form a recognizable social unit, of people who are or who are not related and who have long-lasting, affective bonds and provide each other with support and care." />
   <purpose value="Information on the patient’s family situation is important in determining the extent to which the patient receives and can receive care and support. For example, the age of the patient’s children partially determines whether they can play a role in caregiving.     It is also important to know whether the patient needs support for daycare and/or care for dependent family members.     Situations in which this information is important include for example being discharged from the hospital or nursing home." />
   <copyright value="CC0" />
-  <fhirVersion value="3.0.1" />
+  <fhirVersion value="3.0.2" />
   <mapping>
     <identity value="hcim-familysituation-v3.0-2017EN" />
     <uri value="https://zibs.nl/wiki/FamilySituation-v3.0(2017EN)" />
@@ -75,31 +75,11 @@
       <fixedCode value="365470003" />
     </element>
     <element id="Observation.code.coding:familySituationCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Finding of family details and household composition (finding)" />
-    </element>
-    <element id="Observation.subject">
-      <path value="Observation.subject" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
-      </type>
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
@@ -142,6 +122,9 @@
       <fixedCode value="224130005" />
     </element>
     <element id="Observation.component:familyComposition.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Household composition (observable entity)" />
     </element>
@@ -198,6 +181,9 @@
       <fixedCode value="224118004" />
     </element>
     <element id="Observation.component:numberOfChildren.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Number of offspring (observable entity)" />
     </element>
@@ -238,6 +224,9 @@
       <fixedCode value="55811000146107" />
     </element>
     <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:numberOfChildrenLivingAtHomeCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Number of children living at home (observable entity)" />
     </element>
@@ -275,6 +264,9 @@
       <fixedCode value="406192005" />
     </element>
     <element id="Observation.component:careResponsibility.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Caregiver behavior (observable entity)" />
     </element>
@@ -341,6 +333,9 @@
       <fixedCode value="67822003" />
     </element>
     <element id="Observation.component:child.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Child (person)" />
     </element>

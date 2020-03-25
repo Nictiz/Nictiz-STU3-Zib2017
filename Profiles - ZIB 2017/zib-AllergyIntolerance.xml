@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AllergyIntolerance" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance" />
-  <version value="2.1.4" />
+  <version value="2.1.5" />
   <name value="Zib AllergyIntolerance" />
   <title value="HCIM AllergyIntolerance" />
   <status value="active" />
@@ -18,7 +18,7 @@
   <description value="AllergyIntolerance as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 3.2, release 2017. An allergy or intolerance describes a patient’s tendency towards hypersensitivity to a certain substance, so that an unwanted physiological reaction is expected after exposure to the substance, while most people would not exhibit such a reaction to that amount. The observed physiological changes are usually the result of an immunological reaction. The substances can be categorized as follows:&#xD;&#xA;* Medicine&#xD;&#xA;* Medicine category&#xD;&#xA;* Ingredient/addition&#xD;&#xA;* Nutrition&#xD;&#xA;* Environmental factor&#xD;&#xA;* Animal&#xD;&#xA;* Plants&#xD;&#xA;* Chemicals&#xD;&#xA;* Inhaled allergenic" />
   <purpose value="Documenting and communicating allergies and intolerances is an important part of medical registration. It concerns the core of patient safety in general and medication safety in particular. In the execution of research, treatment and care, these patient characteristics constantly have to be taken into account. &#xD;&#xA;In principle, allergies and intolerances are also disorders and also could be entered as a problem. Nevertheless, these are usually entered separately.&#xD;&#xA;Allergies/Intolerances have a lot in common with warnings (Alert). An important difference is that with allergies and intolerances, a lot of detailed information is recorded on things such as the reactions to the causative substance. Furthermore, not every warning is a problem or medical condition. Every allergy/intolerance is, however, while not every allergy or intolerance implies a warning." />
   <copyright value="CC0" />
-  <fhirVersion value="3.0.1" />
+  <fhirVersion value="3.0.2" />
   <mapping>
     <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
     <uri value="https://zibs.nl/wiki/AllergyIntolerance-v1.0.2(2015EN)" />
@@ -475,6 +475,13 @@
     </element>
     <element id="AllergyIntolerance.note.author[x]">
       <path value="AllergyIntolerance.note.author[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <short value="Author" />
       <alias value="Auteur" />
       <type>
@@ -493,7 +500,23 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
       </type>
     </element>
-    <element id="AllergyIntolerance.note.author[x].extension">
+    <element id="AllergyIntolerance.note.author[x]:authorReference">
+      <path value="AllergyIntolerance.note.author[x]" />
+      <sliceName value="authorReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
+      </type>
+    </element>
+    <element id="AllergyIntolerance.note.author[x]:authorReference.extension">
       <path value="AllergyIntolerance.note.author[x].extension" />
       <slicing>
         <discriminator>
@@ -502,16 +525,24 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-  </element>
-  <element id="AllergyIntolerance.note.author[x].extension:practitionerRole">
-    <path value="AllergyIntolerance.note.author[x].extension" />
-    <sliceName value="practitionerRole" />
-    <max value="1" />
-    <type>
-      <code value="Extension" />
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-    </type>
-  </element>
+    </element>
+    <element id="AllergyIntolerance.note.author[x]:authorReference.extension:practitionerRole">
+      <path value="AllergyIntolerance.note.author[x].extension" />
+      <sliceName value="practitionerRole" />
+      <comment value="Relevant only in combination with Reference(Practitioner)" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+    <element id="AllergyIntolerance.note.author[x]:authorString">
+      <path value="AllergyIntolerance.note.author[x]" />
+      <sliceName value="authorString" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
     <element id="AllergyIntolerance.note.text">
       <path value="AllergyIntolerance.note.text" />
       <short value="Comment" />

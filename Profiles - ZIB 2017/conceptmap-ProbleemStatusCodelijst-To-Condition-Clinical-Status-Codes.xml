@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://hl7.org/fhir/STU3/conceptmap.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+  <id value="ProbleemStatusCodelijst-to-Condition-Clinical-Status-Codes"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/concept-bidirectional">
     <valueBoolean value="false"/>
   </extension>
   <url value="http://nictiz.nl/fhir/ConceptMap/ProbleemStatusCodelijst-to-Condition-Clinical-Status-Codes"/>
-  <version value="2.1.0"/>
+  <version value="2.1.1"/>
   <name value="ProbleemStatusCodelijst-to-Condition-Clinical-Status-Codes"/>
   <title value="HCIM ProbleemStatusCodelijst to Condition Clinical Status Codes"/>
   <status value="active"/>
@@ -43,6 +43,7 @@
         <code value="recurrence" />
         <display value="Recurrence" />
         <equivalence value="specializes" />
+        <comment value="When problem is recurring, it is active, but recurrence also tells you there has been a period of inactivity before. Recurrence thus provides more context than just 'active'."/>
       </target>
     </element>
     <element>
@@ -61,6 +62,7 @@
         <code value="remission" />
         <display value="Remission" />
         <equivalence value="specializes" />
+        <comment value="When problem is in remission, it is considered inactive, but remission gives more context on the expectation of the problem returning. Remission thus provides more context than just 'inactive'."/>
       </target>
     </element>
     <element>
@@ -70,6 +72,7 @@
         <code value="resolved" />
         <display value="Resolved" />
         <equivalence value="specializes" />
+        <comment value="When problem is resolved, it is considered inactive, but resolved gives more context on the expectation of the problem returning. Resolved thus provides more context than just 'inactive'."/>
       </target>
     </element>
   </group>
