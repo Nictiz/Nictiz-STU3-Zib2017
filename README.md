@@ -5,6 +5,8 @@ Among other things  these FHIR profiles cover the HCIMs/Zibs that are part of th
 
 The Dutch National ICT institute in the Netherlands (Nictiz) maintains this repository and its contents. A number of contained core profiles have been developed under HL7 Netherlands responsability in cooperation with Nictiz and other parties. These profiles are marked slightly different in the name (nl-core-\*), the url (http://fhir.nl/*) and their publisher (HL7 Netherlands). Profiles by HL7 Netherlands are Patient, Organization, Practitioner, RelatedPerson, HealthcareService, EpisodeOfCare, Location, and datatypes Address and HumanName.
 
+This repository also contains draft materials such as newly designed FHIR profiles that have not gone through a complete review process. Draft materials are differentiated from normative materials by a FHIR status of ‘draft’ and a business version lower than 1.0.0. In addition, draft materials will not be included in the FHIR NPM packages. Normative materials will have an ‘active’ FHIR status.
+
 - - - -
 
 ## Git workflow
