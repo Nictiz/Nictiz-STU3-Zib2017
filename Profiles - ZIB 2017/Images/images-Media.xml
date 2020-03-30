@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="images-Media" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/images-Media" />
-  <version value="1.0.0" />
+  <version value="1.0.1" />
   <name value="images-Media" />
   <title value="Images Media" />
   <status value="active" />
@@ -68,23 +68,9 @@
     </element>
     <element id="Media.identifier">
       <path value="Media.identifier" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
+      <definition value="Image identifier as assigned by the source of the image / Media. &#xD;&#xA;The Media SHALL contain a &quot;Master Version Specific Identifier&quot; which is specific to this version of the image. This unique identifier may be used elsewhere to identify this version of the image." />
       <alias value="Identifier" />
       <min value="1" />
-    </element>
-    <element id="Media.identifier:masterIdentifier">
-      <path value="Media.identifier" />
-      <sliceName value="masterIdentifier" />
-      <short value="Master Version Specific Identifier" />
-      <definition value="Image identifier as assigned by the source of the image / Media. This identifier is specific to this version of the image. This unique identifier may be used elsewhere to identify this version of the image." />
-      <min value="1" />
-      <max value="1" />
       <mapping>
         <identity value="ihe-mhd-documentreference-xds-on-fhir" />
         <map value="DocumentReference.masterIdentifier" />
@@ -98,14 +84,6 @@
         <map value="bd-dataelement-40" />
         <comment value="Identificatie" />
       </mapping>
-    </element>
-    <element id="Media.identifier:masterIdentifier.system">
-      <path value="Media.identifier.system" />
-      <min value="1" />
-    </element>
-    <element id="Media.identifier:masterIdentifier.value">
-      <path value="Media.identifier.value" />
-      <min value="1" />
     </element>
     <element id="Media.basedOn">
       <path value="Media.basedOn" />
