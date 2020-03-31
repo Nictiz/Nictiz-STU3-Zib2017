@@ -1,66 +1,109 @@
-<Procedure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/procedure.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-procedure-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure"/>
-    </meta>
-    <status value="completed"/>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="387713003"/>
-            <display value="Surgical procedure"/>
-        </coding>
-    </category>
-    <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="60159002"/>
-            <display value="Implantation of Swanson prosthesis of knee (procedure)"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <performedPeriod>
-        <start value="2012-06-05"/>
-    </performedPeriod>
-    <performer>
-        <actor>
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-                <valueReference>
-                    <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
-                    <display value="Medisch specialisten, orthopedie"/>
-                </valueReference>
-            </extension>
-            <reference value="Organization/nl-core-organization-02"/>
-            <display value="UMCG - Afdeling Orthopedie"/>
-        </actor>
-    </performer>
-    <reasonReference>
-        <reference value="Condition/zib-problem-02"/>
-        <display value="Arthropathy (disorder)"/>
-    </reasonReference>
-    <bodySite>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="7771000"/>
-                    <display value="Left"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="72696002"/>
-            <display value="Knee region structure (body structure)"/>
-        </coding>
-    </bodySite>
-    <focalDevice>
-        <manipulated>
-            <reference value="Device/zib-medicaldeviceproduct-01"/>
-            <display value="Knee joint prosthesis, device (physical object)"/>
-        </manipulated>
-    </focalDevice>
+<Procedure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://hl7.org/fhir"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/procedure.xsd">
+   <id value="zib-procedure-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure"/>
+   </meta>
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Verrichting. Subject: <a href="Patient/nl-core-patient-01">Johan XXX_Helleman</a>. Categorie: <span title="Surgical procedure (387713003 - SNOMED CT)">Surgical procedure</span>, Status: voltooid<br/>Uitvoerende: <a href="Organization/nl-core-organization-02">UMCG - Afdeling Orthopedie</a>
+               <br/>Zorgverlenerrol: <a href="PractitionerRole/nl-core-practitionerrole-01">Medisch specialisten, orthopedie</a>
+            </caption>
+            <tbody>
+               <tr>
+                  <td>
+                     <span title="Implantation of Swanson prosthesis of knee (procedure) (60159002 - SNOMED CT)">Implantation of Swanson prosthesis of knee (procedure)</span>
+                  </td>
+                  <td>
+                     <div>Uitgevoerd: Vanaf 2012-06-05</div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Deel van lichaam</th>
+                  <td>
+                     <span title="Knee region structure (body structure) (72696002 - SNOMED CT)">Knee region structure (body structure)</span>
+                     <div>
+                        <span title="Left (7771000 - SNOMED CT)">Left</span>
+                     </div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Reden</th>
+                  <td>
+                     <a href="Condition/zib-problem-02">Arthropathy (disorder)</a>
+                  </td>
+               </tr>
+               <tr>
+                  <th>apparaat</th>
+                  <td>
+                     <a href="Device/zib-medicaldeviceproduct-01">Knee joint prosthesis, device (physical object)</a>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <status value="completed"/>
+   <category>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="387713003"/>
+         <display value="Surgical procedure"/>
+      </coding>
+   </category>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="60159002"/>
+         <display value="Implantation of Swanson prosthesis of knee (procedure)"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <performedPeriod>
+      <start value="2012-06-05"/>
+   </performedPeriod>
+   <performer>
+      <actor>
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+               <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
+               <display value="Medisch specialisten, orthopedie"/>
+            </valueReference>
+         </extension>
+         <reference value="Organization/nl-core-organization-02"/>
+         <display value="UMCG - Afdeling Orthopedie"/>
+      </actor>
+   </performer>
+   <reasonReference>
+      <reference value="Condition/zib-problem-02"/>
+      <display value="Arthropathy (disorder)"/>
+   </reasonReference>
+   <bodySite>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://snomed.info/sct"/>
+               <code value="7771000"/>
+               <display value="Left"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="72696002"/>
+         <display value="Knee region structure (body structure)"/>
+      </coding>
+   </bodySite>
+   <focalDevice>
+      <manipulated>
+         <reference value="Device/zib-medicaldeviceproduct-01"/>
+         <display value="Knee joint prosthesis, device (physical object)"/>
+      </manipulated>
+   </focalDevice>
 </Procedure>

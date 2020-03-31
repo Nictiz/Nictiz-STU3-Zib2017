@@ -1,42 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?> <Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/consent.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-advancedirective-02"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective"/>
-    </meta>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective-Disorder">
-        <valueReference>
-            <reference value="Condition/zib-problem-01"/>
-            <display value="ALS"/>
-        </valueReference>
-    </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
-        <valueString value="Niet-reanimerenpenning"/>
-    </extension>
-    <status value="active"/>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="11341000146107"/>
-            <display value="Living will and advance directive record (record artifact)"/>
-        </coding>
-    </category>
-    <category>
-        <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.14.1"/>
-            <code value="NR"/>
-            <display value="Niet reanimeren verklaring"/>
-        </coding>
-    </category>
-    <patient>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </patient>
-    <dateTime value="2011-08-15"/>
-    <consentingParty>
-        <reference value="RelatedPerson/nl-core-relatedperson-01"/>
-        <display value="J.P.M. van Putten-van der Giessen"/>
-    </consentingParty>
-    <policy>
-        <uri value="http://wetten.overheid.nl/"/>
-    </policy>
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://hl7.org/fhir"
+         xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/consent.xsd">
+   <id value="zib-advancedirective-02"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective"/>
+   </meta>
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Toestemming. Patiënt: <a href="Patient/nl-core-patient-01">Johan XXX_Helleman</a>. Categorie: <span title="Living will and advance directive record (record artifact) (11341000146107 - SNOMED CT)">Living will and advance directive record (record artifact)</span>, <span title="Niet reanimeren verklaring (NR - 2.16.840.1.113883.2.4.3.11.60.40.4.14.1)">Niet reanimeren verklaring</span>, Status: actief<br/>Toestemminggevende partij: : <a href="RelatedPerson/nl-core-relatedperson-01">J.P.M. van Putten-van der Giessen</a>
+            </caption>
+            <tbody>
+               <tr>
+                  <th>Gemaakt op</th>
+                  <td>Vanaf </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AdvanceDirective-Disorder">
+      <valueReference>
+         <reference value="Condition/zib-problem-01"/>
+         <display value="ALS"/>
+      </valueReference>
+   </extension>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
+      <valueString value="Niet-reanimerenpenning"/>
+   </extension>
+   <status value="active"/>
+   <category>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="11341000146107"/>
+         <display value="Living will and advance directive record (record artifact)"/>
+      </coding>
+   </category>
+   <category>
+      <coding>
+         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.14.1"/>
+         <code value="NR"/>
+         <display value="Niet reanimeren verklaring"/>
+      </coding>
+   </category>
+   <patient>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </patient>
+   <dateTime value="2011-08-15"/>
+   <consentingParty>
+      <reference value="RelatedPerson/nl-core-relatedperson-01"/>
+      <display value="J.P.M. van Putten-van der Giessen"/>
+   </consentingParty>
+   <policy>
+      <uri value="http://wetten.overheid.nl/"/>
+   </policy>
 </Consent>

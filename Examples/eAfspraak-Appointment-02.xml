@@ -1,52 +1,101 @@
-﻿<Appointment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/appointment.xsd">
-    <id value="eafspraak-appointment-02"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment"/>
-    </meta>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment-PatientInstructions">
-        <valueString value="Sportschoenen mee"/>
-    </extension>
-    <identifier>
-        <system value="http://example-xis.org/fhir/appointmentID"/>
-        <value value="0000000002"/>
-    </identifier>
-    <status value="booked"/>
-    <specialty>
-        <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
-            <code value="0408"/>
-            <display value="Fysiotherapeuten, sportfysiotherapie"/>
-        </coding>
-    </specialty>
-    <appointmentType>
-        <coding>
-            <system value="http://hl7.org/fhir/v3/ActCode"/>
-            <code value="AMB"/>
-            <display value="Ambulatory"/>
-        </coding>
-    </appointmentType>
-    <description value="Fysiotherapie Controle afspraak"/>
-    <start value="2018-07-12T10:30:00+01:00"/>
-    <end value="2018-07-12T11:00:00+01:00"/>
-    <participant>
-        <actor>
-            <reference value="Patient/eafspraak-patient-01"/>
-            <display value="Alex XXX_Verweij"/>
-        </actor>
-        <status value="accepted"/>
-    </participant>
-    <participant>
-        <actor>
-            <reference value="Practitioner/eafspraak-practitioner-02"/>
-            <display value="B. Kneder"/>
-        </actor>
-        <status value="accepted"/>
-    </participant>
-    <participant>
-        <actor>
-            <reference value="Location/eafspraak-location-03"/>
-            <display value="Fysiotherapie Kneder"/>
-        </actor>
-        <status value="accepted"/>
-    </participant>
+<Appointment xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/appointment.xsd">
+   <id value="eafspraak-appointment-02"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment"/>
+   </meta>
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>AfspraakId: 0000000002 (http://example-xis.org/fhir/appointmentID), Status: geboekt</caption>
+            <tbody>
+               <tr>
+                  <th>Patiëntinstructies</th>
+                  <td>Sportschoenen mee</td>
+               </tr>
+               <tr>
+                  <th>Specialisme</th>
+                  <td>
+                     <span title="Fysiotherapeuten, sportfysiotherapie (0408 - AGB-medisch specialisme)">Fysiotherapeuten, sportfysiotherapie</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Type</th>
+                  <td>
+                     <span title="Ambulatory (AMB - v3/ActCode)">Ambulatory</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Omschrjving</th>
+                  <td>Fysiotherapie Controle afspraak</td>
+               </tr>
+               <tr>
+                  <th>Timing</th>
+                  <td>10:30 - 11:00 op [Language: en]12 July 2018</td>
+               </tr>
+               <tr>
+                  <th>Deelnemers</th>
+                  <td>
+                     <ul>
+                        <li>geaccepteerd - <a href="Patient/eafspraak-patient-01">Alex XXX_Verweij</a>
+                        </li>
+                        <li>geaccepteerd - <a href="Practitioner/eafspraak-practitioner-02">B. Kneder</a>
+                        </li>
+                        <li>geaccepteerd - <a href="Location/eafspraak-location-03">Fysiotherapie Kneder</a>
+                        </li>
+                     </ul>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment-PatientInstructions">
+      <valueString value="Sportschoenen mee"/>
+   </extension>
+   <identifier>
+      <system value="http://example-xis.org/fhir/appointmentID"/>
+      <value value="0000000002"/>
+   </identifier>
+   <status value="booked"/>
+   <specialty>
+      <coding>
+         <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+         <code value="0408"/>
+         <display value="Fysiotherapeuten, sportfysiotherapie"/>
+      </coding>
+   </specialty>
+   <appointmentType>
+      <coding>
+         <system value="http://hl7.org/fhir/v3/ActCode"/>
+         <code value="AMB"/>
+         <display value="Ambulatory"/>
+      </coding>
+   </appointmentType>
+   <description value="Fysiotherapie Controle afspraak"/>
+   <start value="2018-07-12T10:30:00+01:00"/>
+   <end value="2018-07-12T11:00:00+01:00"/>
+   <participant>
+      <actor>
+         <reference value="Patient/eafspraak-patient-01"/>
+         <display value="Alex XXX_Verweij"/>
+      </actor>
+      <status value="accepted"/>
+   </participant>
+   <participant>
+      <actor>
+         <reference value="Practitioner/eafspraak-practitioner-02"/>
+         <display value="B. Kneder"/>
+      </actor>
+      <status value="accepted"/>
+   </participant>
+   <participant>
+      <actor>
+         <reference value="Location/eafspraak-location-03"/>
+         <display value="Fysiotherapie Kneder"/>
+      </actor>
+      <status value="accepted"/>
+   </participant>
 </Appointment>

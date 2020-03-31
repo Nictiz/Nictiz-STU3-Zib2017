@@ -1,66 +1,106 @@
-﻿<?xml version="1.0" encoding="UTF-8"?> <MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationadministration.xsd" xmlns="http://hl7.org/fhir">
-    <id value="zib-infusion-administeringsystem-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-AdministeringSystem"/>
-    </meta>
-    <status value="in-progress"/>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="18629005"/>
-            <display value="Administration of drug or medicament (procedure)"/>
-        </coding>
-    </category>
-    <medicationReference>
-        <reference value="Medication/76333-2-16-830-1-112183-2-4-4-10"/>
-        <display value="Tipranavir (TPV)"/>
-    </medicationReference>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
-    </subject>
-    <effectivePeriod>
-        <start value="2014-11-30"/>
-    </effectivePeriod>
-    <device>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
-            <valueReference>
-                <reference value="DeviceUseStatement/zib-infusion-02"/>
-                <display value="Infuuspomp"/>
-            </valueReference>
-        </extension>
-        <!-- Or use direct reference to Device when no meta data about the use of the device is required.  -->
-        <reference value="Device/zib-infusion-product-02"/>
-        <display value="Catheter, device (physical object)"/>
-    </device>
-    <dosage>
-        <text value="1 liter per 24 uur"/>
-        <route>
-            <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
-                <code value="10"/>
-                <display value="parenteraal"/>
-            </coding>
-        </route>
-        <dose>
-            <value value="1"/>
-            <unit value="stuk"/>
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                          xmlns="http://hl7.org/fhir"
+                          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationadministration.xsd">
+   <id value="zib-infusion-administeringsystem-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-AdministeringSystem"/>
+   </meta>
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Medicatietoediening. Subject: <a href="Patient/nl-core-patient-03">I. Jongeneel-de Haas</a>. Categorie: <span title="Administration of drug or medicament (procedure) (18629005 - SNOMED CT)">Administration of drug or medicament (procedure)</span>, Status: is bezig</caption>
+            <tbody>
+               <tr>
+                  <th>Medicatie</th>
+                  <td>
+                     <a href="Medication/76333-2-16-830-1-112183-2-4-4-10">Tipranavir (TPV)</a>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Datum/tijd</th>
+                  <td>Vanaf 2014-11-30</td>
+               </tr>
+               <tr>
+                  <th>Apparaat/Systeem</th>
+                  <td>
+                     <a href="Device/zib-infusion-product-02">Catheter, device (physical object)</a>
+                     <div>Medisch hulpmiddel: <a href="DeviceUseStatement/zib-infusion-02">Infuuspomp</a>
+                     </div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Dosering</th>
+                  <td>
+                     <div>Tekst: 1 liter per 24 uur</div>
+                     <div>Toedieningsweg: <span title="parenteraal (10 - G-Standaard thesaurus subtabel 0007)">parenteraal</span>
+                     </div>
+                     <div>Dosering: dose TODO</div>
+                     <div>Doseerverhouding: 1000 milliliter / 24 uur</div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <status value="in-progress"/>
+   <category>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="18629005"/>
+         <display value="Administration of drug or medicament (procedure)"/>
+      </coding>
+   </category>
+   <medicationReference>
+      <reference value="Medication/76333-2-16-830-1-112183-2-4-4-10"/>
+      <display value="Tipranavir (TPV)"/>
+   </medicationReference>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="I. Jongeneel-de Haas"/>
+   </subject>
+   <effectivePeriod>
+      <start value="2014-11-30"/>
+   </effectivePeriod>
+   <device>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
+         <valueReference>
+            <reference value="DeviceUseStatement/zib-infusion-02"/>
+            <display value="Infuuspomp"/>
+         </valueReference>
+      </extension>
+      <!-- Or use direct reference to Device when no meta data about the use of the device is required.  -->
+      <reference value="Device/zib-infusion-product-02"/>
+      <display value="Catheter, device (physical object)"/>
+   </device>
+   <dosage>
+      <text value="1 liter per 24 uur"/>
+      <route>
+         <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+            <code value="10"/>
+            <display value="parenteraal"/>
+         </coding>
+      </route>
+      <dose>
+         <value value="1"/>
+         <unit value="stuk"/>
+         <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+         <code value="245"/>
+      </dose>
+      <rateRatio>
+         <numerator>
+            <value value="1000"/>
+            <unit value="milliliter"/>
             <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
-            <code value="245"/>
-        </dose>
-        <rateRatio>
-            <numerator>
-                <value value="1000"/>
-                <unit value="milliliter"/>
-                <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
-                <code value="233"/>
-            </numerator>
-            <denominator>
-                <value value="24"/>
-                <unit value="uur"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="h"/>
-            </denominator>
-        </rateRatio>
-    </dosage>
+            <code value="233"/>
+         </numerator>
+         <denominator>
+            <value value="24"/>
+            <unit value="uur"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="h"/>
+         </denominator>
+      </rateRatio>
+   </dosage>
 </MedicationAdministration>

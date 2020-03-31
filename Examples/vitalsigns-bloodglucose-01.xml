@@ -1,54 +1,77 @@
-﻿<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="vitalsigns-bloodglucose-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/vitalsign-bloodglucose"/>
-    </meta>
-    <extension url="http://hl7.org/fhir/StructureDefinition/observation-eventTiming">
-        <extension url="code">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/TimingEvent"/>
-                    <code value="PCD"/>
-                    <display value="PCD"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <extension url="offset">
-            <valueQuantity>
-                <value value="120"/>
-                <unit value="min"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="min"/>
-            </valueQuantity>
-        </extension>
-    </extension>
-    <status value="final"/>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="49581000146104"/>
-            <display value="Laboratory test finding (finding)"/>
-        </coding>
-    </category>
-    <code>
-        <coding>
-            <system value="http://loinc.org"/>
-            <code value="14760-3"/>
-            <display value="Glucose [Moles/volume] in Capillary blood --2 hours post meal"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
-    </subject>
-    <performer>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
-    </performer>
-    <valueQuantity>
-        <value value="6.3"/>
-        <unit value="mmol/l"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mmol/L"/>
-    </valueQuantity>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="vitalsigns-bloodglucose-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/vitalsign-bloodglucose"/>
+   </meta>
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Observatie/bepaling. Subject: <a href="Patient/nl-core-patient-03">I. Jongeneel-de Haas</a>. Categorie: <span title="Laboratory test finding (finding) (49581000146104 - SNOMED CT)">Laboratory test finding (finding)</span>, Status: definitief<br/>Uitvoerende: <a href="Patient/nl-core-patient-03">I. Jongeneel-de Haas</a>
+            </caption>
+            <tbody>
+               <tr>
+                  <th>Code</th>
+                  <th>Waarde</th>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Glucose [Moles/volume] in Capillary blood --2 hours post meal (14760-3 - LOINC)">Glucose [Moles/volume] in Capillary blood --2 hours post meal</span>
+                  </td>
+                  <td>6.3 mmol/l</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://hl7.org/fhir/StructureDefinition/observation-eventTiming">
+      <extension url="code">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+               <code value="PCD"/>
+               <display value="PCD"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <extension url="offset">
+         <valueQuantity>
+            <value value="120"/>
+            <unit value="min"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="min"/>
+         </valueQuantity>
+      </extension>
+   </extension>
+   <status value="final"/>
+   <category>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="49581000146104"/>
+         <display value="Laboratory test finding (finding)"/>
+      </coding>
+   </category>
+   <code>
+      <coding>
+         <system value="http://loinc.org"/>
+         <code value="14760-3"/>
+         <display value="Glucose [Moles/volume] in Capillary blood --2 hours post meal"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="I. Jongeneel-de Haas"/>
+   </subject>
+   <performer>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="I. Jongeneel-de Haas"/>
+   </performer>
+   <valueQuantity>
+      <value value="6.3"/>
+      <unit value="mmol/l"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mmol/L"/>
+   </valueQuantity>
 </Observation>

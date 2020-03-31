@@ -1,51 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?> <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-bodytemperature-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyTemperature"/>
-    </meta>
-    <status value="final"/>
-    <category>
-        <coding>
-            <system value="http://hl7.org/fhir/observation-category"/>
-            <code value="vital-signs"/>
-            <display value="Vital Signs"/>
-        </coding>
-    </category>
-    <code>
-        <coding>
-            <system value="http://loinc.org"/>
-            <code value="8310-5"/>
-            <display value="Body temperature"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
-    </subject>
-    <effectiveDateTime value="2013-02-08T06:43:00+02:00"/>
-    <performer>
-        <reference value="Practitioner/nl-core-practitioner-01"/>
-        <display value="Practitioner H. de Vries"/>
-    </performer>
-    <valueQuantity>
-        <value value="38.6"/>
-        <unit value="Cel"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="Cel"/>
-    </valueQuantity>
-    <interpretation>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="248650006"/>
-            <display value="Heart irregular"/>
-        </coding>
-    </interpretation>
-    <comment value="Voeten voelen heel koud aan"/>
-    <method>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="415974002"/>
-            <display value="Tympanic temperature"/>
-        </coding>
-    </method>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-bodytemperature-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyTemperature"/>
+   </meta>
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Observatie/bepaling. Subject: <a href="Patient/nl-core-patient-03">I. Jongeneel-de Haas</a>. Categorie: <span title="Vital Signs (vital-signs - observation-category)">Vital Signs</span>, Status: definitief<br/>Uitvoerende: <a href="Practitioner/nl-core-practitioner-01">Practitioner H. de Vries</a>
+            </caption>
+            <tfoot>
+               <tr>
+                  <td colspan="3"/>
+               </tr>
+            </tfoot>
+            <tbody>
+               <tr>
+                  <th>Bepalingdatum/tijd</th>
+                  <td colspan="2">2013-02-08T06:43:00+02:00</td>
+               </tr>
+               <tr>
+                  <th>Methode</th>
+                  <td colspan="2">
+                     <span title="Tympanic temperature (415974002 - SNOMED CT)">Tympanic temperature</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Code</th>
+                  <th>Waarde</th>
+                  <th>Interpretatie</th>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Body temperature (8310-5 - LOINC)">Body temperature</span>
+                  </td>
+                  <td>38.6 Cel</td>
+                  <td>
+                     <span title="Heart irregular (248650006 - SNOMED CT)">Heart irregular</span>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <status value="final"/>
+   <category>
+      <coding>
+         <system value="http://hl7.org/fhir/observation-category"/>
+         <code value="vital-signs"/>
+         <display value="Vital Signs"/>
+      </coding>
+   </category>
+   <code>
+      <coding>
+         <system value="http://loinc.org"/>
+         <code value="8310-5"/>
+         <display value="Body temperature"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="I. Jongeneel-de Haas"/>
+   </subject>
+   <effectiveDateTime value="2013-02-08T06:43:00+02:00"/>
+   <performer>
+      <reference value="Practitioner/nl-core-practitioner-01"/>
+      <display value="Practitioner H. de Vries"/>
+   </performer>
+   <valueQuantity>
+      <value value="38.6"/>
+      <unit value="Cel"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="Cel"/>
+   </valueQuantity>
+   <interpretation>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="248650006"/>
+         <display value="Heart irregular"/>
+      </coding>
+   </interpretation>
+   <comment value="Voeten voelen heel koud aan"/>
+   <method>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="415974002"/>
+         <display value="Tympanic temperature"/>
+      </coding>
+   </method>
 </Observation>
