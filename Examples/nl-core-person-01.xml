@@ -1,4 +1,5 @@
-<Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/person.xsd">
+<Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/person.xsd">
     <id value="nl-core-person-01"/>
     <meta>
         <versionId value="1"/>
@@ -8,9 +9,13 @@
     <text>
         <status value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
-            <ol>
-                <li>Person Henk de Haas (male), work phone 0612345990, work email dehaas@work.com, official address Straatweg 12bII 1200AA Amsterdam, is connected to patient record nl-core-patient</li>
-            </ol>
+            <div>Henk de Haas, Man</div>
+            <div>
+                <a href="tel:0612345990">0612345990</a> (Tel Werk), <a href="mailto:dehaas@work.com"
+                    >dehaas@work.com</a> (E-mail Werk)</div>
+            <div>Straatweg 12bII, 1012AB Weesp Amsterdam, NLD (officieel Privé Post/Bezoek)</div>
+            <div>Gekoppeld aan: <a href="Patient/nl-core-patient-03">Irma Jongeneel-de Haas</a>
+            </div>
         </div>
     </text>
     <name>
@@ -79,7 +84,7 @@
             <valueCodeableConcept>
                 <coding>
                     <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-                    <code value ="M"/>
+                    <code value="M"/>
                     <display value="Man"/>
                 </coding>
             </valueCodeableConcept>
@@ -98,7 +103,8 @@
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
                 <valueString value="12"/>
             </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+            <extension
+                url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
                 <valueString value="bII"/>
             </extension>
         </line>
