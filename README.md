@@ -11,17 +11,9 @@ This repository also contains draft materials such as newly designed FHIR profil
 
 ## Git workflow
 
-### Stable branches: v1.x and v2.x
-
-Since 27th of January 2020 this project has two stable ("master") branches:
-* stable-1.x (default on GitHub)
-* stable-2.x
-
-These branches correspond to the HL7 FHIR packages that Nictiz publishes.
-
-*The current development branch will not be used anymore!*
-
 ### Branching strategy
+
+Since 27th of January 2020, the branch "stable-1.x" (default on GitHub) is considered the stable branch, not "master". The reason for this is that there may be multiple stable branches being maintained simultaniously. This branch corresponds to the HL7 FHIR package that Nictiz publishes.
 
 Nictiz uses the following branching strategy for development:
 * Releases correspond with the "stable-xxx" branches. These branches are only updated when there is a new release.
@@ -31,7 +23,7 @@ Nictiz uses the following branching strategy for development:
 	* Larger issues are developed in topic branches. These issues are usually tracked in [BITS](https://bits.nictiz.nl) and the topic branches are called accordingly. Topic branches are merged into the integration branches when they are ready to be released. They are deleted after they are merged to all relevant integration branches.
 	* _NOTE: version numbers of FHIR materials should not be changed as part of the development process. This should be part of the release process._
 
-The following illustration visualizes this workflow
+The following illustration visualizes how this workflow might look like
 ```
 stable-1.x
 -----x-----------------x------------+--x-----------------
