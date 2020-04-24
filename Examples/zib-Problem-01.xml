@@ -1,10 +1,10 @@
 <Condition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns="http://hl7.org/fhir"
            xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
-    <id value="zib-problem-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
-    </meta>
+   <id value="zib-problem-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
+   </meta>
    <text>
       <status value="generated"/>
       <div xmlns="http://www.w3.org/1999/xhtml">
@@ -21,16 +21,26 @@
          </table>
       </div>
    </text>
-    <clinicalStatus value="active"/>
-    <code>
-        <coding>
-            <system value="http://hl7.org/fhir/sid/icd-10-nl"/>
-            <code value="G12.2"/>
-            <display value="Amyotrofe laterale sclerose"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
+   <clinicalStatus value="active">
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://snomed.info/sct"/>
+               <code value="55561003"/>
+               <display value="Active"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+   </clinicalStatus>
+   <code>
+      <coding>
+         <system value="http://hl7.org/fhir/sid/icd-10-nl"/>
+         <code value="G12.2"/>
+         <display value="Amyotrofe laterale sclerose"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
 </Condition>

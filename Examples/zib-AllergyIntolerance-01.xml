@@ -1,10 +1,10 @@
 <AllergyIntolerance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xmlns="http://hl7.org/fhir"
                     xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/allergyintolerance.xsd">
-    <id value="zib-allergyintolerance-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance"/>
-    </meta>
+   <id value="zib-allergyintolerance-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance"/>
+   </meta>
    <text>
       <status value="generated"/>
       <div xmlns="http://www.w3.org/1999/xhtml">
@@ -30,7 +30,9 @@
                   <td>
                      <ul>
                         <li>
-                           <div>severe</div>
+                           <div>
+                              <span title="Severe (24484000 - SNOMED CT)">Severe</span>
+                           </div>
                            <div>
                               <span title="Nausea and vomiting (16932000 - SNOMED CT)">Nausea and vomiting</span>
                            </div>
@@ -42,61 +44,61 @@
          </table>
       </div>
    </text>
-    <clinicalStatus value="active">
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/ActStatus"/>
-                    <code value="active"/>
-                    <display value="Active"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-    </clinicalStatus>
-    <verificationStatus value="confirmed"/>
-    <category value="environment">
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="419199007"/>
-                    <display value="Allergy to substance"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-    </category>
-    <criticality value="high">
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="24484000"/>
-                    <display value="Severe"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-    </criticality>
-    <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="288328004"/>
-            <display value="Bee venom"/>
-        </coding>
-    </code>
-    <patient>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </patient>
-    <onsetDateTime value="2008-11-08"/>
-    <lastOccurrence value="2009-11-15"/>
-    <reaction>
-        <manifestation>
+   <clinicalStatus value="active">
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+         <valueCodeableConcept>
             <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="16932000"/>
-                <display value="Nausea and vomiting"/>
+               <system value="http://hl7.org/fhir/v3/ActStatus"/>
+               <code value="active"/>
+               <display value="Active"/>
             </coding>
-        </manifestation>
+         </valueCodeableConcept>
+      </extension>
+   </clinicalStatus>
+   <verificationStatus value="confirmed"/>
+   <category value="environment">
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://snomed.info/sct"/>
+               <code value="419199007"/>
+               <display value="Allergy to substance"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+   </category>
+   <criticality value="high">
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://snomed.info/sct"/>
+               <code value="24484000"/>
+               <display value="Severe"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+   </criticality>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="288328004"/>
+         <display value="Bee venom"/>
+      </coding>
+   </code>
+   <patient>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </patient>
+   <onsetDateTime value="2008-11-08"/>
+   <lastOccurrence value="2009-11-15"/>
+   <reaction>
+      <manifestation>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="16932000"/>
+            <display value="Nausea and vomiting"/>
+         </coding>
+      </manifestation>
         <severity value="severe">
             <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
                 <valueCodeableConcept>
@@ -108,5 +110,5 @@
                 </valueCodeableConcept>
             </extension>
         </severity>
-    </reaction>
+   </reaction>
 </AllergyIntolerance>
