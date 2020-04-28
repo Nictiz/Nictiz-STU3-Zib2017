@@ -1,10 +1,25 @@
-<RelatedPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
+<RelatedPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
     <id value="nl-core-releatedperson-02"/>
     <meta>
         <versionId value="3"/>
         <lastUpdated value="2016-12-08T14:07:59.978+00:00"/>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
     </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <div>Henk de Haas</div>
+            <div>
+                <a href="tel:0612345990">0612345990</a> (Tel Werk), <a href="mailto:dehaas@work.com"
+                    >dehaas@work.com</a> (E-mail Werk)</div>
+            <div>Straatweg 12bII, 1200AA Woonplaats, NLD (officieel Privé Post/Bezoek)</div>
+            <div>
+                <span title="husband (HUSB - v3/RoleCode)">husband</span> van <a
+                    href="Patient/nl-core-patient-03">Irma Jongeneel-de Haas</a>
+            </div>
+        </div>
+    </text>
     <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
         <valueCodeableConcept>
             <coding>
@@ -37,9 +52,29 @@
         <given value="Henk"/>
     </name>
     <telecom>
-        <system value="phone"/>
+        <system value="phone">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="MC"/>
+                        <display value="Mobiel telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </system>
         <value value="0612345990"/>
-        <use value="work"/>
+        <use value="work">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="MC"/>
+                        <display value="Mobiel telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </use>
     </telecom>
     <telecom>
         <system value="email"/>
@@ -59,7 +94,8 @@
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
                 <valueString value="12"/>
             </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+            <extension
+                url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
                 <valueString value="bII"/>
             </extension>
         </line>

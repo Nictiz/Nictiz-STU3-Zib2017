@@ -1,8 +1,40 @@
-﻿<Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/patient.xsd" xmlns="http://hl7.org/fhir">
+<Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/patient.xsd">
     <id value="zib-languageproficiency-01"/>
     <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
     </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <div>Id 999911120 (BSN), A. XXX_Helleman (Alex), Man, 1964-08-02, <span
+                    title="Married (M - v3/MaritalStatus)">Married</span>
+            </div>
+            <div>
+                <a href="tel:06-12345678">06-12345678</a> (Tel Mobiel), <a
+                    href="mailto:XXX_Helleman@hotmail.com">XXX_Helleman@hotmail.com</a> (E-mail
+                Privé)</div>
+            <div>Knolweg 1020, 9999XB Stitswerd, NLD (officieel Privé Post/Bezoek)</div>
+            <div>
+                <span title="Eerste relatie/contactpersoon (1 - RoleCodeLijst (COD472-VEKT))">Eerste
+                    relatie/contactpersoon</span>, <span title="Husband (HUSB - v3/RoleCode)"
+                    >Husband</span> J.P.M. van Molenaar van der Jutte (Janni)<div>
+                    <a href="tel:06-12345645">06-12345645</a> (Tel Mobiel), <a
+                        href="mailto:j.vanderjutte@example.com">j.vanderjutte@example.com</a>
+                    (E-mail), Knolweg 1020, 9999XB Sitswerd, Nederland (Privé)</div>
+            </div>
+            <ul>
+                <li>
+                    <span title="Dutch (Netherlands) (nl-NL - urn:ietf:bcp:47)">Dutch
+                        (Netherlands)</span> (voorkeur)<div>Received spoken: Good, Expressed spoken:
+                        Fair, Received written: Good</div>
+                    <div>Bij gesprek met arts zoon uitnodigen voor vertalen</div>
+                </li>
+            </ul>
+            <div>Huisarts: <a href="Practitioner/nl-core-organization-02">Vaste Huisarts 1</a>
+            </div>
+        </div>
+    </text>
     <identifier>
         <use value="official"/>
         <system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
@@ -31,16 +63,66 @@
         </given>
     </name>
     <telecom>
-        <system value="phone"/>
+        <system value="phone">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="MC"/>
+                        <display value="Mobiel telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </system>
         <value value="06-12345678"/>
-        <use value="mobile"/>
+        <use value="mobile">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="MC"/>
+                        <display value="Mobiel telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </use>
     </telecom>
     <telecom>
-        <system value="email"/>
+        <system value="email">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="HP"/>
+                        <display value="Privé e-mailadres"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </system>
         <value value="XXX_Helleman@hotmail.com"/>
-        <use value="home"/>
+        <use value="home">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="HP"/>
+                        <display value="Privé e-mailadres"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </use>
     </telecom>
-    <gender value="male"/>
+    <gender value="male">
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+                    <code value="M"/>
+                    <display value="Man"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+    </gender>
     <birthDate value="1964-08-02"/>
     <deceasedBoolean value="false"/>
     <address>
@@ -125,9 +207,29 @@
             </given>
         </name>
         <telecom>
-            <system value="phone"/>
+            <system value="phone">
+                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                            <code value="MC"/>
+                            <display value="Mobiel telefoonnummer"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+            </system>
             <value value="06-12345645"/>
-            <use value="mobile"/>
+            <use value="mobile">
+                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                            <code value="MC"/>
+                            <display value="Mobiel telefoonnummer"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+            </use>
         </telecom>
         <telecom>
             <system value="email"/>
@@ -169,7 +271,8 @@
             </extension>
             <extension url="level">
                 <valueCoding>
-                    <system value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityProficiency"/>
+                    <system
+                        value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityProficiency"/>
                     <code value="G"/>
                     <display value="Good"/>
                 </valueCoding>
@@ -185,7 +288,8 @@
             </extension>
             <extension url="level">
                 <valueCoding>
-                    <system value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityProficiency"/>
+                    <system
+                        value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityProficiency"/>
                     <code value="F"/>
                     <display value="Fair"/>
                 </valueCoding>
@@ -201,7 +305,8 @@
             </extension>
             <extension url="level">
                 <valueCoding>
-                    <system value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityProficiency"/>
+                    <system
+                        value="http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityProficiency"/>
                     <code value="G"/>
                     <display value="Good"/>
                 </valueCoding>

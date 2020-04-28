@@ -1,5 +1,6 @@
 <?xml-model href="http://hl7.org/fhir/structuredefinition.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<Organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/organization.xsd" xmlns="http://hl7.org/fhir">
+<Organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/organization.xsd">
     <id value="nl-core-organization-05"/>
     <meta>
         <versionId value="6"/>
@@ -7,44 +8,55 @@
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
     </meta>
     <text>
-        <status value="additional"/>
+        <status value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
+                <caption>OrganisatieId: 12341234 (AGB-Z), 12341234 (URA)</caption>
                 <tbody>
                     <tr>
-                        <th style="text-align: center;" colspan="2">Organization</th>
+                        <th>Naam</th>
+                        <td>Ziekenhuis Gooi en Overvecht<div>Alias: ZGO</div>
+                        </td>
                     </tr>
                     <tr>
-                        <th>ID</th>
-                        <th>Name</th>
+                        <th>Type</th>
+                        <td>
+                            <div>
+                                <span title="Psychiatrie (0329 - AGB-medisch specialisme)"
+                                    >Psychiatrie</span>
+                            </div>
+                            <div>
+                                <span title="Ziekenhuis (V4 - organization-type)">Ziekenhuis</span>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
-                        <td>12341234 (AGB)<br/>12341234 (URA)</td>
-                        <td>Ziekenhuis Gooi en Overvecht</td>
+                        <th>Contactgegevens</th>
+                        <td>
+                            <a href="tel:030-1234567">030-1234567</a> (Tel Werk)</td>
                     </tr>
                     <tr>
-                        <th>Contact</th>
-                        <th>Address</th>
+                        <th>Adres</th>
+                        <td>Ventweg 12, 1000AA Utrecht, NLD (Werk)</td>
                     </tr>
                     <tr>
-                        <td>work phone: <a href="tel:+3130-1234567">030-1234567</a></td>
-                        <td>Ventweg 12<br/>1000AA<br/>Utrecht</td>
+                        <th colspan="2">
+                            <hr/>
+                        </th>
                     </tr>
                     <tr>
-                        <th style="text-align: center;" colspan="2">Contact Persons</th>
-                    </tr>
-                    <tr>
-                        <th>Purpose</th>
-                        <th>Details</th>
-                    </tr>
-                    <tr>
-                        <td>Administrative</td>
-                        <td>work phone: <a href="tel:+3130-1234567">030-1234567</a> - Mevrouw Pietersen</td>
+                        <th>
+                            <span title="Administrative (ADMIN - contactentity-type)"
+                                >Administrative</span>
+                        </th>
+                        <td>
+                            <div>Mevrouw Pietersen</div>
+                            <div>
+                                <a href="tel:030-1234567">030-1234567</a> (Tel Werk)</div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <p style="font-weight: bold;">Open issues</p>
-            <p>None</p>
         </div>
     </text>
     <identifier>
@@ -73,9 +85,29 @@
     <name value="Ziekenhuis Gooi en Overvecht"/>
     <alias value="ZGO"/>
     <telecom>
-        <system value="phone"/>
+        <system value="phone">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                        <code value="LL"/>
+                        <display value="Vast telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </system>
         <value value="030-1234567"/>
-        <use value="work"/>
+        <use value="work">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                        <code value="LL"/>
+                        <display value="Vast telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </use>
     </telecom>
     <address>
         <use value="work"/>
@@ -113,9 +145,29 @@
             <text value="Mevrouw Pietersen"/>
         </name>
         <telecom>
-            <system value="phone"/>
+            <system value="phone">
+                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                            <code value="LL"/>
+                            <display value="Vast telefoonnummer"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+            </system>
             <value value="030-1234567"/>
-            <use value="work"/>
+            <use value="work">
+                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                            <code value="LL"/>
+                            <display value="Vast telefoonnummer"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+            </use>
         </telecom>
     </contact>
 </Organization>

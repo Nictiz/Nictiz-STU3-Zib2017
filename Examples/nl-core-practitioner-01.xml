@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?> <Practitioner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitioner.xsd">
+<Practitioner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitioner.xsd">
     <id value="nl-core-practitioner-01"/>
     <meta>
         <versionId value="5"/>
@@ -11,7 +12,8 @@
             <table>
                 <tbody>
                     <tr>
-                        <th style="text-align: center;" colspan="2">Practitioner (since April, 2015)</th>
+                        <th style="text-align: center;" colspan="2">Practitioner (since April,
+                            2015)</th>
                     </tr>
                     <tr>
                         <th>ID</th>
@@ -26,7 +28,8 @@
                         <th>Address</th>
                     </tr>
                     <tr>
-                        <td>work phone: <a href="tel:+31612345990">0612345990</a><br/>work email: devries@work.com</td>
+                        <td>work phone: <a href="tel:+31612345990">0612345990</a>
+                            <br/>work email: devries@work.com</td>
                         <td>Straatweg 12 bII<br/>1200AA<br/>Amsterdam</td>
                     </tr>
                 </tbody>
@@ -57,14 +60,54 @@
         <given value="Henk"/>
     </name>
     <telecom>
-        <system value="phone"/>
+        <system value="phone">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="MC"/>
+                        <display value="Mobiel telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </system>
         <value value="0612345990"/>
-        <use value="work"/>
+        <use value="work">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="MC"/>
+                        <display value="Mobiel telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </use>
     </telecom>
     <telecom>
-        <system value="email"/>
+        <system value="email">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="WP"/>
+                        <display value="Zakelijk e-mailadres"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </system>
         <value value="devries@work.com"/>
-        <use value="work"/>
+        <use value="work">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="WP"/>
+                        <display value="Zakelijk e-mailadres"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </use>
     </telecom>
     <address>
         <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
@@ -79,7 +122,8 @@
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
                 <valueString value="12"/>
             </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+            <extension
+                url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
                 <valueString value="bII"/>
             </extension>
         </line>

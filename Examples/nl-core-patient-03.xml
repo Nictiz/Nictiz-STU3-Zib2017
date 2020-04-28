@@ -1,4 +1,5 @@
-<Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/patient.xsd" xmlns="http://hl7.org/fhir">
+<Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/patient.xsd">
     <id value="nl-core-patient-03"/>
     <meta>
         <versionId value="15"/>
@@ -17,7 +18,8 @@
                 <p>E-mail: user@home.nl</p>
                 <p>Adres: Straatweg 12bII, 1000AA Amsterdam</p>
                 <p>Burgerlijke staat: gehuwd</p>
-                <p>Eerste relatie/contactpersoon is haar man Gerard Eckdom via telefoonnummer 015-23456789</p>
+                <p>Eerste relatie/contactpersoon is haar man Gerard Eckdom via telefoonnummer
+                    015-23456789</p>
                 <p>Huisarts: Huisartsenpraktijk Van Eijk</p>
             </div>
         </div>
@@ -56,16 +58,46 @@
         </given>
     </name>
     <telecom>
-        <system value="phone"/>
+        <system value="phone">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                        <code value="LL"/>
+                        <display value="Vast telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </system>
         <value value="030-23454567"/>
-        <use value="home"/>
+        <use value="home">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                        <code value="LL"/>
+                        <display value="Vast telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </use>
     </telecom>
     <telecom>
         <system value="email"/>
         <value value="user@home.nl"/>
         <use value="home"/>
     </telecom>
-    <gender value="female"/>
+    <gender value="female">
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+                    <code value="F"/>
+                    <display value="Vrouw"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+    </gender>
     <birthDate value="1970-03-04"/>
     <deceasedBoolean value="false"/>
     <address>
@@ -81,7 +113,8 @@
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
                 <valueString value="12"/>
             </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+            <extension
+                url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
                 <valueString value="bII"/>
             </extension>
         </line>
@@ -128,9 +161,29 @@
             <given value="Gerard"/>
         </name>
         <telecom>
-            <system value="phone"/>
+            <system value="phone">
+                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                            <code value="LL"/>
+                            <display value="Vast telefoonnummer"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+            </system>
             <value value="015-23456789"/>
-            <use value="home"/>
+            <use value="home">
+                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                            <code value="LL"/>
+                            <display value="Vast telefoonnummer"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+            </use>
         </telecom>
     </contact>
     <generalPractitioner>
