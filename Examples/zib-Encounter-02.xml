@@ -1,65 +1,64 @@
-<Encounter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xmlns="http://hl7.org/fhir"
-           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
-   <id value="zib-encounter-02"/>
-   <meta>
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
-   </meta>
-   <text>
-      <status value="additional"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-         <table>
-            <caption>Patient with id example</caption>
-            <thead>
-               <tr>
-                  <th>ContactType</th>
-                  <th>StartDateTime</th>
-                  <th>ProblemName</th>
-                  <th>HealthProfessional</th>
-                  <th>OrganizationType</th>
-                  <th>OrganizationName</th>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td>emergency</td>
-                  <td>16-08-2012</td>
-                  <td>Broken leg</td>
-                  <td>H. de Vries</td>
-                  <td>Hospital</td>
-                  <td>Universitair Medisch Centrum Groningen</td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </text>
-   <status value="finished"/>
-   <class>
-      <system value="http://hl7.org/fhir/v3/ActCode"/>
-      <code value="EMER"/>
-      <display value="emergency"/>
-   </class>
-   <subject>
-      <reference value="Patient/nl-core-patient-03"/>
-      <display value="I. Jongeneel-de Haas"/>
-   </subject>
-   <participant>
-      <individual>
-         <reference value="Practitioner/nl-core-practitioner-01"/>
-         <display value="H. de Vries"/>
-      </individual>
-   </participant>
-   <period>
-      <start value="2012-08-16"/>
-   </period>
-   <diagnosis>
-      <condition>
-         <reference value="Condition/zib-problem-05"/>
-         <display value="Broken leg"/>
-      </condition>
-   </diagnosis>
-   <serviceProvider>
-      <reference value="Organization/nl-core-organization-02"/>
-      <display value="Universitair Medisch Centrum Groningen"/>
-   </serviceProvider>
+<Encounter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
+    <id value="zib-encounter-02"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
+    </meta>
+    <text>
+        <status value="additional"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Patient with id example</caption>
+                <thead>
+                    <tr>
+                        <th>ContactType</th>
+                        <th>StartDateTime</th>
+                        <th>ProblemName</th>
+                        <th>HealthProfessional</th>
+                        <th>OrganizationType</th>
+                        <th>OrganizationName</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>emergency</td>
+                        <td>16-08-2012</td>
+                        <td>Broken leg</td>
+                        <td>H. de Vries</td>
+                        <td>Hospital</td>
+                        <td>Universitair Medisch Centrum Groningen</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="finished"/>
+    <class>
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="EMER"/>
+        <display value="emergency"/>
+    </class>
+    <subject>
+        <reference value="Patient/nl-core-patient-03"/>
+        <display value="I. Jongeneel-de Haas"/>
+    </subject>
+    <participant>
+        <individual>
+            <reference value="Practitioner/nl-core-practitioner-01"/>
+            <display value="H. de Vries"/>
+        </individual>
+    </participant>
+    <period>
+        <start value="2012-08-16"/>
+    </period>
+    <diagnosis>
+        <condition>
+            <reference value="Condition/zib-problem-05"/>
+            <display value="Broken leg"/>
+        </condition>
+    </diagnosis>
+    <serviceProvider>
+        <reference value="Organization/nl-core-organization-02"/>
+        <display value="Universitair Medisch Centrum Groningen"/>
+    </serviceProvider>
 </Encounter>

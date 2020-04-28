@@ -1,67 +1,68 @@
-<RelatedPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xmlns="http://hl7.org/fhir"
-               xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
-   <id value="nl-core-relatedperson-03"/>
-   <meta>
-      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-   </meta>
-   <text>
-      <status value="generated"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-         <div>P. de Haas (Piet)</div>
-         <div>
-            <a href="tel:06-11111111">06-11111111</a> (Tel Mobiel), <a href="mailto:p.dehaas@example.com">p.dehaas@example.com</a> (E-mail)</div>
-         <div>Knalweg 900, 1234XA Sitswaard, Nederland (Privé)</div>
-         <div>
-            <span title="Natural father (NFTH - v3/RoleCode)">Natural father</span> van <a href="Patient/nl-core-patient-01">Irma Jongeneel-de Haas</a>
-         </div>
-      </div>
-   </text>
-   <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
-      <valueCodeableConcept>
-         <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
-            <code value="1"/>
-            <display value="Eerste relatie/contactpersoon"/>
-         </coding>
-      </valueCodeableConcept>
-   </extension>
-   <patient>
-      <reference value="Patient/nl-core-patient-01"/>
-      <display value="Irma Jongeneel-de Haas"/>
-   </patient>
-   <relationship>
-      <coding>
-         <system value="http://hl7.org/fhir/v3/RoleCode"/>
-         <code value="NFTH"/>
-         <display value="Natural father"/>
-      </coding>
-   </relationship>
-   <name>
-      <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
-         <valueCode value="NL4"/>
-      </extension>
-      <use value="official"/>
-      <family value="de Haas">
-         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
-            <valueString value="de"/>
-         </extension>
-         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
-            <valueString value="Haas"/>
-         </extension>
-      </family>
-      <given value="Piet">
-         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
-            <valueCode value="CL"/>
-         </extension>
-      </given>
-      <given value="P.">
-         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
-            <valueCode value="IN"/>
-         </extension>
-      </given>
-   </name>
-   <telecom>
+<RelatedPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
+    <id value="nl-core-relatedperson-03"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <div>P. de Haas (Piet)</div>
+            <div>
+                <a href="tel:06-11111111">06-11111111</a> (Tel Mobiel), <a
+                    href="mailto:p.dehaas@example.com">p.dehaas@example.com</a> (E-mail)</div>
+            <div>Knalweg 900, 1234XA Sitswaard, Nederland (Privé)</div>
+            <div>
+                <span title="Natural father (NFTH - v3/RoleCode)">Natural father</span> van <a
+                    href="Patient/nl-core-patient-01">Irma Jongeneel-de Haas</a>
+            </div>
+        </div>
+    </text>
+    <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
+                <code value="1"/>
+                <display value="Eerste relatie/contactpersoon"/>
+            </coding>
+        </valueCodeableConcept>
+    </extension>
+    <patient>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Irma Jongeneel-de Haas"/>
+    </patient>
+    <relationship>
+        <coding>
+            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <code value="NFTH"/>
+            <display value="Natural father"/>
+        </coding>
+    </relationship>
+    <name>
+        <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
+            <valueCode value="NL4"/>
+        </extension>
+        <use value="official"/>
+        <family value="de Haas">
+            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+                <valueString value="de"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                <valueString value="Haas"/>
+            </extension>
+        </family>
+        <given value="Piet">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                <valueCode value="CL"/>
+            </extension>
+        </given>
+        <given value="P.">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                <valueCode value="IN"/>
+            </extension>
+        </given>
+    </name>
+    <telecom>
         <system value="phone">
             <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
                 <valueCodeableConcept>
@@ -73,7 +74,7 @@
                 </valueCodeableConcept>
             </extension>
         </system>
-      <value value="06-11111111"/>
+        <value value="06-11111111"/>
         <use value="mobile">
             <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
                 <valueCodeableConcept>
@@ -85,33 +86,33 @@
                 </valueCodeableConcept>
             </extension>
         </use>
-   </telecom>
-   <telecom>
-      <system value="email"/>
-      <value value="p.dehaas@example.com"/>
-   </telecom>
-   <address>
-      <use value="home"/>
-      <line value="Knalweg 900">
-         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
-            <valueString value="Knalweg"/>
-         </extension>
-         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
-            <valueString value="900"/>
-         </extension>
-      </line>
-      <city value="Sitswaard"/>
-      <postalCode value="1234XA"/>
-      <country value="Nederland">
-         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-            <valueCodeableConcept>
-               <coding>
-                  <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
-                  <code value="6030"/>
-                  <display value="Nederland"/>
-               </coding>
-            </valueCodeableConcept>
-         </extension>
-      </country>
-   </address>
+    </telecom>
+    <telecom>
+        <system value="email"/>
+        <value value="p.dehaas@example.com"/>
+    </telecom>
+    <address>
+        <use value="home"/>
+        <line value="Knalweg 900">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                <valueString value="Knalweg"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                <valueString value="900"/>
+            </extension>
+        </line>
+        <city value="Sitswaard"/>
+        <postalCode value="1234XA"/>
+        <country value="Nederland">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                        <code value="6030"/>
+                        <display value="Nederland"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </country>
+    </address>
 </RelatedPerson>

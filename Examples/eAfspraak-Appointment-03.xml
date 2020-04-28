@@ -1,101 +1,107 @@
-<Appointment xmlns="http://hl7.org/fhir"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/appointment.xsd">
-   <id value="eafspraak-appointment-03"/>
-   <meta>
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment"/>
-   </meta>
-   <text>
-      <status value="generated"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-         <table>
-            <caption>AfspraakId: 0000000003 (http://example-xis.org/fhir/appointmentID), Status: geboekt</caption>
-            <tbody>
-               <tr>
-                  <th>Patiëntinstructies</th>
-                  <td>Nuchter</td>
-               </tr>
-               <tr>
-                  <th>Specialisme</th>
-                  <td>
-                     <span title="Medisch specialisten, radiologie (0360 - AGB-medisch specialisme)">Medisch specialisten, radiologie</span>
-                  </td>
-               </tr>
-               <tr>
-                  <th>Type</th>
-                  <td>
-                     <span title="Ambulatory (AMB - v3/ActCode)">Ambulatory</span>
-                  </td>
-               </tr>
-               <tr>
-                  <th>Omschrijving</th>
-                  <td>CT-scan</td>
-               </tr>
-               <tr>
-                  <th>Timing</th>
-                  <td>09:30 - 09:45 op 20 juni 2018</td>
-               </tr>
-               <tr>
-                  <th>Deelnemers</th>
-                  <td>
-                     <ul>
-                        <li>geaccepteerd - <a href="Patient/eafspraak-patient-01">Alex XXX_Verweij</a>
-                        </li>
-                        <li>geaccepteerd - <a href="Practitioner/eafspraak-practitioner-03">F. Kiek</a>
-                        </li>
-                        <li>geaccepteerd - <a href="Location/eafspraak-location-02">Oost vleugel</a>
-                        </li>
-                     </ul>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </text>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment-PatientInstructions">
-      <valueString value="Nuchter"/>
-   </extension>
-   <identifier>
-      <system value="http://example-xis.org/fhir/appointmentID"/>
-      <value value="0000000003"/>
-   </identifier>
-   <status value="booked"/>
-   <specialty>
-      <coding>
-         <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
-         <code value="0360"/>
-         <display value="Medisch specialisten, radiologie"/>
-      </coding>
-   </specialty>
-   <appointmentType>
-      <coding>
-         <system value="http://hl7.org/fhir/v3/ActCode"/>
-         <code value="AMB"/>
-         <display value="Ambulatory"/>
-      </coding>
-   </appointmentType>
-   <description value="CT-scan"/>
-   <start value="2018-06-20T09:30:00+01:00"/>
-   <end value="2018-06-20T09:45:00+01:00"/>
-   <participant>
-      <actor>
-         <reference value="Patient/eafspraak-patient-01"/>
-         <display value="Alex XXX_Verweij"/>
-      </actor>
-      <status value="accepted"/>
-   </participant>
-   <participant>
-      <actor>
-         <reference value="Practitioner/eafspraak-practitioner-03"/>
-         <display value="F. Kiek"/>
-      </actor>
-      <status value="accepted"/>
-   </participant>
-   <participant>
-      <actor>
-         <reference value="Location/eafspraak-location-02"/>
-         <display value="Oost vleugel"/>
-      </actor>
-      <status value="accepted"/>
-   </participant>
+<Appointment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/appointment.xsd">
+    <id value="eafspraak-appointment-03"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>AfspraakId: 0000000003 (http://example-xis.org/fhir/appointmentID), Status:
+                    geboekt</caption>
+                <tbody>
+                    <tr>
+                        <th>Patiëntinstructies</th>
+                        <td>Nuchter</td>
+                    </tr>
+                    <tr>
+                        <th>Specialisme</th>
+                        <td>
+                            <span
+                                title="Medisch specialisten, radiologie (0360 - AGB-medisch specialisme)"
+                                >Medisch specialisten, radiologie</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td>
+                            <span title="Ambulatory (AMB - v3/ActCode)">Ambulatory</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Omschrijving</th>
+                        <td>CT-scan</td>
+                    </tr>
+                    <tr>
+                        <th>Timing</th>
+                        <td>09:30 - 09:45 op 20 juni 2018</td>
+                    </tr>
+                    <tr>
+                        <th>Deelnemers</th>
+                        <td>
+                            <ul>
+                                <li>geaccepteerd - <a href="Patient/eafspraak-patient-01">Alex
+                                        XXX_Verweij</a>
+                                </li>
+                                <li>geaccepteerd - <a href="Practitioner/eafspraak-practitioner-03"
+                                        >F. Kiek</a>
+                                </li>
+                                <li>geaccepteerd - <a href="Location/eafspraak-location-02">Oost
+                                        vleugel</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <extension
+        url="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment-PatientInstructions">
+        <valueString value="Nuchter"/>
+    </extension>
+    <identifier>
+        <system value="http://example-xis.org/fhir/appointmentID"/>
+        <value value="0000000003"/>
+    </identifier>
+    <status value="booked"/>
+    <specialty>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+            <code value="0360"/>
+            <display value="Medisch specialisten, radiologie"/>
+        </coding>
+    </specialty>
+    <appointmentType>
+        <coding>
+            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <code value="AMB"/>
+            <display value="Ambulatory"/>
+        </coding>
+    </appointmentType>
+    <description value="CT-scan"/>
+    <start value="2018-06-20T09:30:00+01:00"/>
+    <end value="2018-06-20T09:45:00+01:00"/>
+    <participant>
+        <actor>
+            <reference value="Patient/eafspraak-patient-01"/>
+            <display value="Alex XXX_Verweij"/>
+        </actor>
+        <status value="accepted"/>
+    </participant>
+    <participant>
+        <actor>
+            <reference value="Practitioner/eafspraak-practitioner-03"/>
+            <display value="F. Kiek"/>
+        </actor>
+        <status value="accepted"/>
+    </participant>
+    <participant>
+        <actor>
+            <reference value="Location/eafspraak-location-02"/>
+            <display value="Oost vleugel"/>
+        </actor>
+        <status value="accepted"/>
+    </participant>
 </Appointment>

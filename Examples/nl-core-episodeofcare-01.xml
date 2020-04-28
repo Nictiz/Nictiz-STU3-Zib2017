@@ -1,73 +1,76 @@
-<EpisodeOfCare xmlns="http://hl7.org/fhir"
-               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/episodeofcare.xsd">
-   <id value="nl-core-episodeofcare-01"/>
-   <meta>
-      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare"/>
-   </meta>
-   <text>
-      <status value="generated"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-         <table>
-            <caption>Zorgepisode. Patiënt: <a href="Patient/nl-core-patient-02">Paul XXX_Mesker</a>. Status: actief</caption>
-            <tbody>
-               <tr>
-                  <th>Type</th>
-                  <td>
-                     <span title="Lichaamsstructuur (123037004 - SNOMED CT)">Lichaamsstructuur</span>
-                     <div>Gebroken been</div>
-                  </td>
-               </tr>
-               <tr>
-                  <th>Periode</th>
-                  <td>Vanaf 2019-02-06</td>
-               </tr>
-               <tr>
-                  <th>Zorgmanager</th>
-                  <td>
-                     <a href="Practitioner/nl-core-practitioner-04">Dr. D. de Vries</a>, <a href="Organization/nl-core-organization-05">Ziekenhuis Gooi en Overvecht</a>
-                  </td>
-               </tr>
-               <tr>
-                  <th>Diagnose</th>
-                  <td>
-                     <a href="Condition/zib-problem-07">Gebroken dijbeen</a>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </text>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-Title">
-      <valueString value="Gebroken been"/>
-   </extension>
-   <status value="active"/>
-   <type>
-      <coding>
-         <system value="http://snomed.info/sct"/>
-         <code value="123037004"/>
-         <display value="Lichaamsstructuur"/>
-      </coding>
-   </type>
-   <diagnosis>
-      <condition>
-         <reference value="Condition/zib-problem-07"/>
-         <display value="Gebroken dijbeen"/>
-      </condition>
-   </diagnosis>
-   <patient>
-      <reference value="Patient/nl-core-patient-02"/>
-      <display value="Paul XXX_Mesker"/>
-   </patient>
-   <managingOrganization>
-      <reference value="Organization/nl-core-organization-05"/>
-      <display value="Ziekenhuis Gooi en Overvecht"/>
-   </managingOrganization>
-   <period>
-      <start value="2019-02-06"/>
-   </period>
-   <careManager>
-      <reference value="Practitioner/nl-core-practitioner-04"/>
-      <display value="Dr. D. de Vries"/>
-   </careManager>
+<EpisodeOfCare xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/episodeofcare.xsd">
+    <id value="nl-core-episodeofcare-01"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-episodeofcare"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Zorgepisode. Patiënt: <a href="Patient/nl-core-patient-02">Paul
+                        XXX_Mesker</a>. Status: actief</caption>
+                <tbody>
+                    <tr>
+                        <th>Type</th>
+                        <td>
+                            <span title="Lichaamsstructuur (123037004 - SNOMED CT)"
+                                >Lichaamsstructuur</span>
+                            <div>Gebroken been</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Periode</th>
+                        <td>Vanaf 2019-02-06</td>
+                    </tr>
+                    <tr>
+                        <th>Zorgmanager</th>
+                        <td>
+                            <a href="Practitioner/nl-core-practitioner-04">Dr. D. de Vries</a>, <a
+                                href="Organization/nl-core-organization-05">Ziekenhuis Gooi en
+                                Overvecht</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Diagnose</th>
+                        <td>
+                            <a href="Condition/zib-problem-07">Gebroken dijbeen</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/EpisodeOfCare-Title">
+        <valueString value="Gebroken been"/>
+    </extension>
+    <status value="active"/>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="123037004"/>
+            <display value="Lichaamsstructuur"/>
+        </coding>
+    </type>
+    <diagnosis>
+        <condition>
+            <reference value="Condition/zib-problem-07"/>
+            <display value="Gebroken dijbeen"/>
+        </condition>
+    </diagnosis>
+    <patient>
+        <reference value="Patient/nl-core-patient-02"/>
+        <display value="Paul XXX_Mesker"/>
+    </patient>
+    <managingOrganization>
+        <reference value="Organization/nl-core-organization-05"/>
+        <display value="Ziekenhuis Gooi en Overvecht"/>
+    </managingOrganization>
+    <period>
+        <start value="2019-02-06"/>
+    </period>
+    <careManager>
+        <reference value="Practitioner/nl-core-practitioner-04"/>
+        <display value="Dr. D. de Vries"/>
+    </careManager>
 </EpisodeOfCare>

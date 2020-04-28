@@ -1,107 +1,115 @@
-<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://hl7.org/fhir"
-         xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/consent.xsd">
-   <id value="zib-treatmentdirective-02"/>
-   <meta>
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective"/>
-   </meta>
-   <text>
-      <status value="generated"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-         <table>
-            <caption>Toestemming. Patiënt: <a href="Patient/nl-core-patient-01">Johan XXX_Helleman</a>. Categorie: <span title="Treatment instructions (record artifact) (11291000146105 - SNOMED CT)">Treatment instructions (record artifact)</span>, Status: actief</caption>
-            <tbody>
-               <tr>
-                  <th>Geldigheidsperiode</th>
-                  <td>Vanaf 2018-04-09</td>
-               </tr>
-               <tr>
-                  <th>Geverifieerd</th>
-                  <td>ja - 2018-04-09 - <span title="Patient (116154003 - SNOMED CT)">Patient</span>
-                  </td>
-               </tr>
-               <tr>
-                  <th>
-                     <span title="Cardiopulmonary resuscitation (procedure) (89666000 - SNOMED CT)">Cardiopulmonary resuscitation (procedure)</span>
-                  </th>
-                  <td>
-                     <span title="Behandeling niet toegestaan en/of wenselijk (NEE - 2.16.840.1.113883.2.4.3.11.60.40.4)">Behandeling niet toegestaan en/of wenselijk</span>
-                  </td>
-               </tr>
-               <tr>
-                  <th>Bron </th>
-                  <td>
-                     <a href="zib-advancedirective-02">Niet-reanimerenpenning</a>
-                     <div>
-                        <a href="zib-advancedirective-03">Mondelinge afspraak</a>
-                     </div>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </text>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification">
-      <extension url="Verified">
-         <valueBoolean value="true"/>
-      </extension>
-      <extension url="VerifiedWith">
-         <valueCodeableConcept>
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/consent.xsd">
+    <id value="zib-treatmentdirective-02"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Toestemming. Patiënt: <a href="Patient/nl-core-patient-01">Johan
+                        XXX_Helleman</a>. Categorie: <span
+                        title="Treatment instructions (record artifact) (11291000146105 - SNOMED CT)"
+                        >Treatment instructions (record artifact)</span>, Status: actief</caption>
+                <tbody>
+                    <tr>
+                        <th>Geldigheidsperiode</th>
+                        <td>Vanaf 2018-04-09</td>
+                    </tr>
+                    <tr>
+                        <th>Geverifieerd</th>
+                        <td>ja - 2018-04-09 - <span title="Patient (116154003 - SNOMED CT)"
+                                >Patient</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span
+                                title="Cardiopulmonary resuscitation (procedure) (89666000 - SNOMED CT)"
+                                >Cardiopulmonary resuscitation (procedure)</span>
+                        </th>
+                        <td>
+                            <span
+                                title="Behandeling niet toegestaan en/of wenselijk (NEE - 2.16.840.1.113883.2.4.3.11.60.40.4)"
+                                >Behandeling niet toegestaan en/of wenselijk</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Bron </th>
+                        <td>
+                            <a href="zib-advancedirective-02">Niet-reanimerenpenning</a>
+                            <div>
+                                <a href="zib-advancedirective-03">Mondelinge afspraak</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification">
+        <extension url="Verified">
+            <valueBoolean value="true"/>
+        </extension>
+        <extension url="VerifiedWith">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="116154003"/>
+                    <display value="Patient"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="VerificationDate">
+            <valueDateTime value="2018-04-09"/>
+        </extension>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment">
+        <valueCodeableConcept>
             <coding>
-               <system value="http://snomed.info/sct"/>
-               <code value="116154003"/>
-               <display value="Patient"/>
+                <system value="http://snomed.info/sct"/>
+                <code value="89666000"/>
+                <display value="Cardiopulmonary resuscitation (procedure)"/>
             </coding>
-         </valueCodeableConcept>
-      </extension>
-      <extension url="VerificationDate">
-         <valueDateTime value="2018-04-09"/>
-      </extension>
-   </extension>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment">
-      <valueCodeableConcept>
-         <coding>
+        </valueCodeableConcept>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/consent-additionalSources">
+        <valueReference>
+            <reference value="zib-advancedirective-03"/>
+            <display value="Mondelinge afspraak"/>
+        </valueReference>
+    </extension>
+    <modifierExtension
+        url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-TreatmentPermitted">
+        <valueCodeableConcept>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4"/>
+                <code value="NEE"/>
+                <display value="Behandeling niet toegestaan en/of wenselijk"/>
+            </coding>
+        </valueCodeableConcept>
+    </modifierExtension>
+    <status value="active"/>
+    <category>
+        <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="89666000"/>
-            <display value="Cardiopulmonary resuscitation (procedure)"/>
-         </coding>
-      </valueCodeableConcept>
-   </extension>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/consent-additionalSources">
-      <valueReference>
-         <reference value="zib-advancedirective-03"/>
-         <display value="Mondelinge afspraak"/>
-      </valueReference>
-   </extension>
-   <modifierExtension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-TreatmentPermitted">
-      <valueCodeableConcept>
-         <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4"/>
-            <code value="NEE"/>
-            <display value="Behandeling niet toegestaan en/of wenselijk"/>
-         </coding>
-      </valueCodeableConcept>
-   </modifierExtension>
-   <status value="active"/>
-   <category>
-      <coding>
-         <system value="http://snomed.info/sct"/>
-         <code value="11291000146105"/>
-         <display value="Treatment instructions (record artifact)"/>
-      </coding>
-   </category>
-   <patient>
-      <reference value="Patient/nl-core-patient-01"/>
-      <display value="Johan XXX_Helleman"/>
-   </patient>
-   <period>
-      <start value="2018-04-09"/>
-   </period>
-   <sourceReference>
-      <reference value="zib-advancedirective-02"/>
-      <display value="Niet-reanimerenpenning"/>
-   </sourceReference>
-   <policy>
-      <uri value="http://wetten.overheid.nl/"/>
-   </policy>
+            <code value="11291000146105"/>
+            <display value="Treatment instructions (record artifact)"/>
+        </coding>
+    </category>
+    <patient>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </patient>
+    <period>
+        <start value="2018-04-09"/>
+    </period>
+    <sourceReference>
+        <reference value="zib-advancedirective-02"/>
+        <display value="Niet-reanimerenpenning"/>
+    </sourceReference>
+    <policy>
+        <uri value="http://wetten.overheid.nl/"/>
+    </policy>
 </Consent>

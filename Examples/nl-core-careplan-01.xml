@@ -1,199 +1,214 @@
-<?xml-model href="http://hl7.org/fhir/STU3/careplan.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xmlns="http://hl7.org/fhir"
-          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careplan.xsd">
-   <id value="nl-core-careplan-01"/>
-   <meta>
-      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-careplan"/>
-   </meta>
-   <text>
-      <status value="generated"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-         <table>
-            <caption>Zorgplan. Subject: <a href="Patient/nl-core-patient-02">Paul XXX_Mesker</a>. Id: 123456789 (http://myexample.com/system/careplan), Status: actief<div>Intentie: plan</div>
-               <div>Auteur: <a href="Practitioner/nl-core-practitioner-04">Dr. D. de Vries</a>
-               </div>
-            </caption>
-            <tbody>
-               <tr>
-                  <th>Context</th>
-                  <td>
-                     <a href="EpisodeOfCare/nl-core-episodeofcare-01">Gebroken been</a>
-                  </td>
-               </tr>
-               <tr>
-                  <th>Periode</th>
-                  <td>Vanaf 2019-02-06</td>
-               </tr>
-               <tr>
-                  <th>Auteur</th>
-                  <td>
-                     <a href="Practitioner/nl-core-practitioner-04">Dr. D. de Vries</a>
-                  </td>
-               </tr>
-               <tr>
-                  <th>Doel</th>
-                  <td>
-                     <a href="Goal/zib-treatmentdirective-01">Volledig herstel met betrekking tot het kunnen lopen</a>
-                  </td>
-               </tr>
-               <tr>
-                  <th>Activiteit</th>
-                  <td>
-                     <table>
-                        <tbody>
-                           <tr>
-                              <th>Detaildefinitie</th>
-                              <td>
-                                 <a href="ProcedureRequest/zib-procedurerequest-02">Aanvrager: Dr. J. Jansen</a>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </td>
-               </tr>
-               <tr>
-                  <th>Activiteit</th>
-                  <td>
-                     <table>
-                        <tbody>
-                           <tr>
-                              <th>Notitie</th>
-                              <td>De interventie verliep zeer soepel.</td>
-                           </tr>
-                           <tr>
-                              <th>Resultaat</th>
-                              <td>
-                                 <a href="DiagnosticReport/zib-outcomeofcare-02">Pijn is onder controle</a>
-                              </td>
-                           </tr>
-                           <tr>
-                              <td colspan="2">
-                                 <table>
-                                    <caption>Details<div>Categorie: <span title="Nursing Procedure (9632001 - SNOMED CT)">Nursing Procedure</span>, Status: voltooid</div>
-                                    </caption>
-                                    <tbody>
-                                       <tr>
-                                          <th>Code</th>
-                                          <td>
-                                             <span title="ontspanningstechniek van Benson (regime/therapie) (228567003 - SNOMED CT)">ontspanningstechniek van Benson (regime/therapie)</span>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <th>Schema</th>
-                                          <td>
-                                             <div>6 februari 2019 - 9 februari 2019, 2 maal per dag</div>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <th>Reden</th>
-                                          <td>
-                                             <a href="Condition/zib-problem-09">Gebroken Been</a>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <th>Doel</th>
-                                          <td>
-                                             <a href="Goal/zib-treatmentobjective-02">Pijn verminderen</a>
-                                          </td>
-                                       </tr>
-                                       <tr>
-                                          <th>Medisch hulpmiddel</th>
-                                          <td>
-                                             <a href="DeviceUseStatement/zib-wound-medicaldevice-01">Verband</a>
-                                          </td>
-                                       </tr>
-                                    </tbody>
-                                 </table>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </text>
-   <identifier>
-      <system value="http://myexample.com/system/careplan"/>
-      <value value="123456789"/>
-   </identifier>
-   <status value="active"/>
-   <intent value="plan"/>
-   <subject>
-      <reference value="Patient/nl-core-patient-02"/>
-      <display value="Paul XXX_Mesker"/>
-   </subject>
-   <context>
-      <reference value="EpisodeOfCare/nl-core-episodeofcare-01"/>
-      <display value="Gebroken been"/>
-   </context>
-   <period>
-      <start value="2019-02-06"/>
-   </period>
-   <author>
-      <reference value="Practitioner/nl-core-practitioner-04"/>
-      <display value="Dr. D. de Vries"/>
-   </author>
-   <goal>
-      <reference value="Goal/zib-treatmentdirective-01"/>
-      <display value="Volledig herstel met betrekking tot het kunnen lopen"/>
-   </goal>
-   <activity>
-      <reference>
-         <reference value="ProcedureRequest/zib-procedurerequest-02"/>
-         <display value="Aanvrager: Dr. J. Jansen"/>
-      </reference>
-   </activity>
-   <activity>
-      <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
-         <valueString value="De interventie verliep zeer soepel."/>
-      </extension>
-      <outcomeReference>
-         <reference value="DiagnosticReport/zib-outcomeofcare-02"/>
-         <display value="Pijn is onder controle"/>
-      </outcomeReference>
-      <detail>
-         <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
-            <valueReference>
-               <reference value="DeviceUseStatement/zib-wound-medicaldevice-01"/>
-               <display value="Verband"/>
-            </valueReference>
-         </extension>
-         <category>
-            <coding>
-               <system value="http://snomed.info/sct"/>
-               <code value="9632001"/>
-               <display value="Nursing Procedure"/>
-            </coding>
-         </category>
-         <code>
-            <coding>
-               <system value="http://snomed.info/sct"/>
-               <code value="228567003"/>
-               <display value="ontspanningstechniek van Benson (regime/therapie)"/>
-            </coding>
-         </code>
-         <reasonReference>
-            <reference value="Condition/zib-problem-09"/>
-            <display value="Gebroken Been"/>
-         </reasonReference>
-         <goal>
-            <reference value="Goal/zib-treatmentobjective-02"/>
-            <display value="Pijn verminderen"/>
-         </goal>
-         <status value="completed"/>
-         <scheduledTiming>
-            <repeat>
-               <boundsPeriod>
-                  <start value="2019-02-06"/>
-                  <end value="2019-02-09"/>
-               </boundsPeriod>
-               <frequency value="2"/>
-               <period value="1"/>
-               <periodUnit value="d"/>
-            </repeat>
-         </scheduledTiming>
-      </detail>
-   </activity>
+<?xml-model href="http://hl7.org/fhir/STU3/careplan.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careplan.xsd">
+    <id value="nl-core-careplan-01"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-careplan"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Zorgplan. Subject: <a href="Patient/nl-core-patient-02">Paul
+                    XXX_Mesker</a>. Id: 123456789 (http://myexample.com/system/careplan), Status:
+                        actief<div>Intentie: plan</div>
+                    <div>Auteur: <a href="Practitioner/nl-core-practitioner-04">Dr. D. de Vries</a>
+                    </div>
+                </caption>
+                <tbody>
+                    <tr>
+                        <th>Context</th>
+                        <td>
+                            <a href="EpisodeOfCare/nl-core-episodeofcare-01">Gebroken been</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Periode</th>
+                        <td>Vanaf 2019-02-06</td>
+                    </tr>
+                    <tr>
+                        <th>Auteur</th>
+                        <td>
+                            <a href="Practitioner/nl-core-practitioner-04">Dr. D. de Vries</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Doel</th>
+                        <td>
+                            <a href="Goal/zib-treatmentdirective-01">Volledig herstel met betrekking
+                                tot het kunnen lopen</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Activiteit</th>
+                        <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>Detaildefinitie</th>
+                                        <td>
+                                            <a href="ProcedureRequest/zib-procedurerequest-02"
+                                                >Aanvrager: Dr. J. Jansen</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Activiteit</th>
+                        <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>Notitie</th>
+                                        <td>De interventie verliep zeer soepel.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Resultaat</th>
+                                        <td>
+                                            <a href="DiagnosticReport/zib-outcomeofcare-02">Pijn is
+                                                onder controle</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <table>
+                                                <caption>Details<div>Categorie: <span
+                                                  title="Nursing Procedure (9632001 - SNOMED CT)"
+                                                  >Nursing Procedure</span>, Status: voltooid</div>
+                                                </caption>
+                                                <tbody>
+                                                  <tr>
+                                                  <th>Code</th>
+                                                  <td>
+                                                  <span
+                                                  title="ontspanningstechniek van Benson (regime/therapie) (228567003 - SNOMED CT)"
+                                                  >ontspanningstechniek van Benson
+                                                  (regime/therapie)</span>
+                                                  </td>
+                                                  </tr>
+                                                  <tr>
+                                                  <th>Schema</th>
+                                                  <td>
+                                                  <div>6 februari 2019 - 9 februari 2019, 2 maal per
+                                                  dag</div>
+                                                  </td>
+                                                  </tr>
+                                                  <tr>
+                                                  <th>Reden</th>
+                                                  <td>
+                                                  <a href="Condition/zib-problem-09">Gebroken
+                                                  Been</a>
+                                                  </td>
+                                                  </tr>
+                                                  <tr>
+                                                  <th>Doel</th>
+                                                  <td>
+                                                  <a href="Goal/zib-treatmentobjective-02">Pijn
+                                                  verminderen</a>
+                                                  </td>
+                                                  </tr>
+                                                  <tr>
+                                                  <th>Medisch hulpmiddel</th>
+                                                  <td>
+                                                  <a
+                                                  href="DeviceUseStatement/zib-wound-medicaldevice-01"
+                                                  >Verband</a>
+                                                  </td>
+                                                  </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <identifier>
+        <system value="http://myexample.com/system/careplan"/>
+        <value value="123456789"/>
+    </identifier>
+    <status value="active"/>
+    <intent value="plan"/>
+    <subject>
+        <reference value="Patient/nl-core-patient-02"/>
+        <display value="Paul XXX_Mesker"/>
+    </subject>
+    <context>
+        <reference value="EpisodeOfCare/nl-core-episodeofcare-01"/>
+        <display value="Gebroken been"/>
+    </context>
+    <period>
+        <start value="2019-02-06"/>
+    </period>
+    <author>
+        <reference value="Practitioner/nl-core-practitioner-04"/>
+        <display value="Dr. D. de Vries"/>
+    </author>
+    <goal>
+        <reference value="Goal/zib-treatmentdirective-01"/>
+        <display value="Volledig herstel met betrekking tot het kunnen lopen"/>
+    </goal>
+    <activity>
+        <reference>
+            <reference value="ProcedureRequest/zib-procedurerequest-02"/>
+            <display value="Aanvrager: Dr. J. Jansen"/>
+        </reference>
+    </activity>
+    <activity>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
+            <valueString value="De interventie verliep zeer soepel."/>
+        </extension>
+        <outcomeReference>
+            <reference value="DiagnosticReport/zib-outcomeofcare-02"/>
+            <display value="Pijn is onder controle"/>
+        </outcomeReference>
+        <detail>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
+                <valueReference>
+                    <reference value="DeviceUseStatement/zib-wound-medicaldevice-01"/>
+                    <display value="Verband"/>
+                </valueReference>
+            </extension>
+            <category>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="9632001"/>
+                    <display value="Nursing Procedure"/>
+                </coding>
+            </category>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="228567003"/>
+                    <display value="ontspanningstechniek van Benson (regime/therapie)"/>
+                </coding>
+            </code>
+            <reasonReference>
+                <reference value="Condition/zib-problem-09"/>
+                <display value="Gebroken Been"/>
+            </reasonReference>
+            <goal>
+                <reference value="Goal/zib-treatmentobjective-02"/>
+                <display value="Pijn verminderen"/>
+            </goal>
+            <status value="completed"/>
+            <scheduledTiming>
+                <repeat>
+                    <boundsPeriod>
+                        <start value="2019-02-06"/>
+                        <end value="2019-02-09"/>
+                    </boundsPeriod>
+                    <frequency value="2"/>
+                    <period value="1"/>
+                    <periodUnit value="d"/>
+                </repeat>
+            </scheduledTiming>
+        </detail>
+    </activity>
 </CarePlan>
