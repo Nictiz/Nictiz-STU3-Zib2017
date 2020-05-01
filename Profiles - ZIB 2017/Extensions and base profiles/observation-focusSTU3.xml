@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="Observation-focus-stu3" />
-  <url value="http://nictiz.nl/fhir/StructureDefinition/Observation-focus-stu3" />
-  <version value="0.1.0" />
-  <name value="Observation-focus-stu3" />
-  <title value="Observation focus STU3" />
+  <id value="observation-focusSTU3" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/observation-focusSTU3" />
+  <version value="0.2.0" />
+  <name value="Observation focus STU3" />
+  <title value="Backported Observation.focus for FHIR STU3" />
   <status value="draft" />
   <publisher value="Nictiz" />
   <contact>
@@ -26,25 +26,9 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension">
-      <path value="Extension" />
-      <short value="Optional Extensions Element" />
-      <definition value="Optional Extension Element - found in all resources." />
-      <constraint>
-        <key value="ext-1" />
-        <severity value="error" />
-        <human value="Must have either extensions or value[x], not both" />
-        <expression value="extension.exists() != value.exists()" />
-        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
-    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/Observation-focus-stu3" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/observation-focusSTU3" />
     </element>
     <element id="Extension.value[x]:valueReference">
       <path value="Extension.valueReference" />
