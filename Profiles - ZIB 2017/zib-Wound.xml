@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Wound" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound" />
-  <version value="0.1.0" />
+  <version value="0.1.1" />
   <name value="Zib Wound" />
   <title value="HCIM Wound" />
   <status value="draft" />
@@ -56,7 +56,7 @@
       <max value="1" />
       <type>
         <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/DateOfLastDressingChange" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/condition-dateOfLastDressingChange" />
       </type>
     </element>
     <element id="Condition.extension:DateOfLastDressingChange.valueDateTime:valueDateTime">
@@ -132,6 +132,10 @@
       <sliceName value="Laterality" />
       <short value="Laterality" />
       <alias value="Lateraliteit" />
+    </element>
+    <element id="Condition.bodySite.extension:Laterality.url">
+      <path value="Condition.bodySite.extension.url" />
+      <fixedUri value="Laterality" />
     </element>
     <element id="Condition.bodySite.extension:Laterality.value[x]">
       <path value="Condition.bodySite.extension.value[x]" />

@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-PressureUlcer" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-PressureUlcer" />
-  <version value="0.1.0" />
+  <version value="0.1.1" />
   <name value="Zib PressureUlcer" />
   <title value="HCIM PressureUlcer" />
   <status value="draft" />
@@ -55,7 +55,7 @@
       <sliceName value="DateOfLastDressingChange" />
       <type>
         <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/DateOfLastDressingChange" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/condition-dateOfLastDressingChange" />
       </type>
     </element>
     <element id="Condition.extension:DateOfLastDressingChange.valueDateTime:valueDateTime">
@@ -154,6 +154,10 @@
         <map value="NL-CM:19.1.13" />
         <comment value="Laterality" />
       </mapping>
+    </element>
+    <element id="Condition.bodySite.extension:Laterality.url">
+      <path value="Condition.bodySite.extension.url" />
+      <fixedUri value="Laterality" />
     </element>
     <element id="Condition.bodySite.extension:Laterality.value[x]">
       <path value="Condition.bodySite.extension.value[x]" />

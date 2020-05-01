@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-BurnWound" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound" />
-  <version value="0.1.0" />
+  <version value="0.1.1" />
   <name value="Zib BurnWound" />
   <title value="HCIM BurnWound" />
   <status value="draft" />
@@ -62,7 +62,7 @@
       <max value="1" />
       <type>
         <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/DateOfLastDressingChange" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/condition-dateOfLastDressingChange" />
       </type>
     </element>
     <element id="Condition.extension:dateOfLastDressingChange.valueDateTime:valueDateTime">
@@ -131,7 +131,6 @@
     <element id="Condition.code.extension:burnType">
       <path value="Condition.code.extension" />
       <sliceName value="burnType" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -142,7 +141,7 @@
       <path value="Condition.code.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
       <short value="BurnType" />
-      <definition value=" Indication of the kind of the burn wound, differentiated into the cause of the injury." />
+      <definition value="Indication of the kind of the burn wound, differentiated into the cause of the injury." />
       <alias value="BrandwondSoort" />
       <mapping>
         <identity value="hcim-burnwound-v3.2-2017EN" />
@@ -224,6 +223,10 @@
         <map value="NL-CM:19.4.10" />
         <comment value="Laterality" />
       </mapping>
+    </element>
+    <element id="Condition.bodySite.extension:Laterality.url">
+      <path value="Condition.bodySite.extension.url" />
+      <fixedUri value="Laterality" />
     </element>
     <element id="Condition.bodySite.extension:Laterality.value[x]">
       <path value="Condition.bodySite.extension.value[x]" />
