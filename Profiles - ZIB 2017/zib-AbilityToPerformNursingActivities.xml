@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AbilityToPerformNursingActivities" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToPerformNursingActivities" />
-  <version value="0.1.0" />
+  <version value="0.1.1" />
   <name value="Zib AbilityToPerformNursingActivities" />
   <title value="HCIM AbilityToPerformNursingActivities" />
   <status value="draft" />
@@ -56,7 +56,7 @@
       <max value="1" />
       <type>
         <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToPerformNursingActivities-NursingIntervention" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/observation-zibNursingInterventionReference" />
       </type>
     </element>
     <element id="Observation.extension:nursingIntervention.valueReference:valueReference">
@@ -66,10 +66,6 @@
       <definition value="Specification of nursing interventions where the skills relate to." />
       <alias value="VerpleegkundigeInterventie" />
       <min value="1" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention" />
-      </type>
       <mapping>
         <identity value="hcim-abilitytoperformnursingactivities-v1.0-2017EN" />
         <map value="NL-CM:4.34.3" />
