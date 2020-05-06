@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-BladderFunction-UrineCatheter" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction-UrineCatheter" />
-  <version value="0.1.0" />
+  <version value="0.2.0" />
   <name value="Zib BladderFunction UrineCatheter" />
   <title value="HCIM BladderFunction UrineCatheter" />
   <status value="draft" />
@@ -30,12 +30,40 @@
         <comment value="UrineCatheter" />
       </mapping>
     </element>
+    <element id="DeviceUseStatement.extension">
+      <path value="DeviceUseStatement.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="DeviceUseStatement.extension:reasonReference">
+      <path value="DeviceUseStatement.extension" />
+      <sliceName value="reasonReference" />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3" />
+      </type>
+    </element>
+    <element id="DeviceUseStatement.extension:reasonReference.valueReference:valueReference">
+      <path value="DeviceUseStatement.extension.valueReference" />
+      <sliceName value="valueReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction" />
+      </type>
+    </element>
     <element id="DeviceUseStatement.device">
       <path value="DeviceUseStatement.device" />
       <short value="ProductType" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-bladderfunction-urinecatheterproduct" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction-UrineCatheterProduct" />
       </type>
     </element>
   </differential>
