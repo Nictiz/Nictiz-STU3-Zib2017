@@ -4,6 +4,12 @@
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction"/>
     </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-zibStomaReference">
+        <valueReference>
+            <reference value="Observation/zib-stoma-bladderfunction-01"/>
+            <display value="Stoma (morphologic abnormality)"/>
+        </valueReference>
+    </extension>
     <status value="final"/>
     <code>
         <coding>
@@ -24,10 +30,4 @@
             <display value="Incontinent"/>
         </coding>
     </valueCodeableConcept>
-    <related>
-        <target>
-            <reference value="Observation/zib-stoma-bladderfunction-01"/>
-            <display value="Stoma (morphologic abnormality)"/>
-        </target>
-    </related>
 </Observation>
