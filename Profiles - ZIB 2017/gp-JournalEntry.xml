@@ -130,8 +130,8 @@
       <path value="Observation.component" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="code.coding.code" />
+          <type value="pattern" />
+          <path value="code" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -146,13 +146,13 @@
     <element id="Observation.component:ICPC_S.code">
       <path value="Observation.component.code" />
       <definition value="ICPC code qualifying journal entry Subjective" />
-      <fixedCodeableConcept>
+      <patternCodeableConcept>
         <coding>
           <system value="http://hl7.org/fhir/v3/ActCode" />
           <code value="ADMDX" />
           <display value="admitting diagnosis" />
         </coding>
-      </fixedCodeableConcept>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:ICPC_S.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -161,11 +161,20 @@
       <type>
         <code value="CodeableConcept" />
       </type>
-      <fixedCodeableConcept>
-        <coding>
-          <system value="http://hl7.org/fhir/sid/icpc-1-nl" />
-        </coding>
-      </fixedCodeableConcept>
+    </element>
+    <element id="Observation.component:ICPC_S.value[x]:valueCodeableConcept.coding">
+      <path value="Observation.component.valueCodeableConcept.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:ICPC_S.value[x]:valueCodeableConcept.coding.system">
+      <path value="Observation.component.valueCodeableConcept.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://hl7.org/fhir/sid/icpc-1-nl" />
+    </element>
+    <element id="Observation.component:ICPC_S.value[x]:valueCodeableConcept.coding.code">
+      <path value="Observation.component.valueCodeableConcept.coding.code" />
+      <min value="1" />
     </element>
     <element id="Observation.component:ICPC_E">
       <path value="Observation.component" />
@@ -175,13 +184,13 @@
     <element id="Observation.component:ICPC_E.code">
       <path value="Observation.component.code" />
       <definition value="ICPC code qualifying journal entry Evaluation" />
-      <fixedCodeableConcept>
+      <patternCodeableConcept>
         <coding>
           <system value="http://hl7.org/fhir/v3/ActCode" />
           <code value="DISDX" />
           <display value="discharge diagnosis" />
         </coding>
-      </fixedCodeableConcept>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.component:ICPC_E.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -190,11 +199,20 @@
       <type>
         <code value="CodeableConcept" />
       </type>
-      <fixedCodeableConcept>
-        <coding>
-          <system value="http://hl7.org/fhir/sid/icpc-1-nl" />
-        </coding>
-      </fixedCodeableConcept>
+    </element>
+    <element id="Observation.component:ICPC_E.value[x]:valueCodeableConcept.coding">
+      <path value="Observation.component.valueCodeableConcept.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Observation.component:ICPC_E.value[x]:valueCodeableConcept.coding.system">
+      <path value="Observation.component.valueCodeableConcept.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://hl7.org/fhir/sid/icpc-1-nl" />
+    </element>
+    <element id="Observation.component:ICPC_E.value[x]:valueCodeableConcept.coding.code">
+      <path value="Observation.component.valueCodeableConcept.coding.code" />
+      <min value="1" />
     </element>
   </differential>
 </StructureDefinition>
