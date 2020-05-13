@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-SkinDisorder" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-SkinDisorder" />
-  <version value="0.1.0" />
+  <version value="0.2.0" />
   <name value="Zib SkinDisorder" />
   <title value="HCIM SkinDisorder" />
   <status value="draft" />
@@ -27,9 +27,20 @@
   <kind value="resource" />
   <abstract value="false" />
   <type value="Condition" />
-  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Condition" />
   <derivation value="constraint" />
   <differential>
+    <element id="Condition">
+      <path value="Condition" />
+      <short value="SkinDisorder" />
+      <definition value="A skin condition is a disturbance of the organ skin caused by a source to be specified later on." />
+      <alias value="Huidaandoening" />
+      <mapping>
+        <identity value="zib-skindisorder-v3.2-2017EN" />
+        <map value="NL-CM:19.3.1" />
+        <comment value="SkinDisorder" />
+      </mapping>
+    </element>
     <element id="Condition.extension">
       <path value="Condition.extension" />
       <slicing>
@@ -49,6 +60,10 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/condition-dueTo" />
       </type>
     </element>
+    <element id="Condition.extension:dueTo.url">
+      <path value="Condition.extension.url" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/condition-dueTo" />
+    </element>
     <element id="Condition.extension:dueTo.value[x]:valueReference">
       <path value="Condition.extension.valueReference" />
       <sliceName value="valueReference" />
@@ -67,82 +82,66 @@
     </element>
     <element id="Condition.category">
       <path value="Condition.category" />
-      <short value="SkinDisorder" />
-      <definition value="Root concept of the SkinDisorder information model. This root concept contains all data elements of the SkinDisorder information model." />
-      <alias value="HuidAandoening" />
-      <mapping>
-        <identity value="zib-skindisorder-v3.2-2017EN" />
-        <map value="NL-CM:19.3.1" />
-        <comment value="SkinDisorder" />
-      </mapping>
+      <min value="1" />
     </element>
     <element id="Condition.category.coding">
       <path value="Condition.category.coding" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="code" />
+          <type value="pattern" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
       <min value="1" />
     </element>
-    <element id="Condition.category.coding:SkinDisorderCoding">
+    <element id="Condition.category.coding:SkinDisorder">
       <path value="Condition.category.coding" />
-      <sliceName value="SkinDisorderCoding" />
+      <sliceName value="SkinDisorder" />
       <min value="1" />
       <max value="1" />
+      <patternCoding>
+        <system value="http://snomed.info/sct" />
+        <code value="95320005" />
+      </patternCoding>
     </element>
-    <element id="Condition.category.coding:SkinDisorderCoding.system">
+    <element id="Condition.category.coding:SkinDisorder.system">
       <path value="Condition.category.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Condition.category.coding:SkinDisorderCoding.code">
+    <element id="Condition.category.coding:SkinDisorder.code">
       <path value="Condition.category.coding.code" />
       <min value="1" />
       <fixedCode value="95320005" />
     </element>
+    <element id="Condition.category.coding:SkinDisorder.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Condition.category.coding.display" />
+      <defaultValueString value="Disorder of skin" />
+    </element>
     <element id="Condition.code">
       <path value="Condition.code" />
       <short value="TypeOfDisorder" />
-      <definition value="A description of the patient’s type of skin disorder." />
-      <alias value="TypeAandoening" />
+      <alias value="SoortAandoening" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConditionKind" />
+        </extension>
+        <strength value="extensible" />
+        <description value="SoortAandoeningCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.3.1--20171231000000" />
+        <display value="SoortAandoeningCodelijst"/>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="zib-skindisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.2" />
         <comment value="TypeOfDisorder" />
       </mapping>
-    </element>
-    <element id="Condition.code.coding">
-      <path value="Condition.code.coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Condition.code.coding:TypeOfDisorderCoding">
-      <path value="Condition.code.coding" />
-      <sliceName value="TypeOfDisorderCoding" />
-      <binding>
-        <strength value="required" />
-        <description value="SoortAandoeningCodelijst" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.3.1--20171231000000" />
-          <display value="SoortAandoeningCodelijst" />
-        </valueSetReference>
-      </binding>
-    </element>
-    <element id="Condition.code.coding:TypeOfDisorderCoding.system">
-      <path value="Condition.code.coding.system" />
-      <min value="1" />
-    </element>
-    <element id="Condition.code.coding:TypeOfDisorderCoding.code">
-      <path value="Condition.code.coding.code" />
-      <min value="1" />
     </element>
     <element id="Condition.bodySite">
       <path value="Condition.bodySite" />
@@ -154,7 +153,7 @@
         <description value="HuidAnatomischeLocatieCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.3.2--20171231000000" />
-          <display value="ProbleemAnatomischeLocatieCodelijst" />
+          <display value="HuidAnatomischeLocatieCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -163,9 +162,24 @@
         <comment value="AnatomicalLocation" />
       </mapping>
     </element>
+    <element id="Condition.bodySite.extension">
+      <path value="Condition.bodySite.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
+      </type>
     </element>
     <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
       <path value="Condition.bodySite.extension.valueCodeableConcept" />
@@ -178,30 +192,35 @@
         <description value="HuidLateraliteitCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.3.3--20171231000000" />
-          <display value="ProblemLateralityCodelist" />
+            <display value="HuidLateraliteitCodelijst"/>
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="SkinDisorder-v3.2-2017EN" />
+        <identity value="zib-skindisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.8" />
         <comment value="Laterality" />
       </mapping>
     </element>
-    <element id="Condition.onsetDateTime:onsetDateTime">
+    <element id="Condition.onset[x]:onsetDateTime">
       <path value="Condition.onsetDateTime" />
       <sliceName value="onsetDateTime" />
+      <label value="OntstaansDatum" />
       <short value="DateOfOnset" />
       <definition value="The date on which the skin condition started. A ‘vague’ date, such as only the year, is permitted." />
-      <alias value="OntstaansDatum" />
+      <type>
+        <code value="dateTime" />
+      </type>
       <mapping>
         <identity value="zib-skindisorder-v3.2-2017EN" />
-        <map value="NL-CM:19.3.4" />
+        <map value="NL-CM:19.3.3" />
         <comment value="DateOfOnset" />
       </mapping>
     </element>
     <element id="Condition.note">
       <path value="Condition.note" />
+      <short value="Comment"/>
       <definition value="A comment on the skin condition and how to care for it." />
+      <alias value="Toelichting"/>
       <mapping>
         <identity value="SkinDisorder-v3.2-2017EN" />
         <map value="NL-CM:19.3.6" />
