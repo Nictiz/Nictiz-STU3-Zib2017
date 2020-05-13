@@ -130,21 +130,24 @@
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
+      </type>
+    </element>
+    <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
+      <path value="Condition.bodySite.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <short value="Laterality" />
+      <definition value="Laterality adds information about body side to the anatomic location, e.g. left" />
       <alias value="Lateraliteit" />
-    </element>
-    <element id="Condition.bodySite.extension:Laterality.url">
-      <path value="Condition.bodySite.extension.url" />
-      <fixedUri value="Laterality" />
-    </element>
-    <element id="Condition.bodySite.extension:Laterality.value[x]">
-      <path value="Condition.bodySite.extension.value[x]" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="WondLateraliteitCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.2.8--20171231000000" />
-          <display value="WondLateraliteitCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
