@@ -41,11 +41,25 @@
         <comment value="HearingAid" />
       </mapping>
     </element>
+    <element id="DeviceUseStatement.extension">
+      <path value="DeviceUseStatement.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="DeviceUseStatement.extension:reasonReference">
       <path value="DeviceUseStatement.extension" />
       <sliceName value="reasonReference" />
     </element>
-    <element id="DeviceUseStatement.extension:reasonReference.valueReference:valueReference">
+    <element id="DeviceUseStatement.extension:reasonReference.url">
+      <path value="DeviceUseStatement.extension.url" />
+      <fixedUri value="reasonReference" />
+    </element>
+    <element id="DeviceUseStatement.extension:reasonReference.value[x]:valueReference">
       <path value="DeviceUseStatement.extension.valueReference" />
       <sliceName value="valueReference" />
       <type>
@@ -57,7 +71,7 @@
       <path value="DeviceUseStatement.device" />
       <type>
         <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingAidProduct" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingAid-Product" />
       </type>
     </element>
     <element id="DeviceUseStatement.bodySite">
