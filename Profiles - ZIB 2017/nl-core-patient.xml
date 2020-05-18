@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir https://hl7.org/fhir/STU3/fhir-all.xsd" xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-patient" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
   <version value="2.1.7" />
@@ -56,6 +55,11 @@
     <name value="HCIM Payer-v1.2(2015EN)" />
   </mapping>
   <mapping>
+    <identity value="hcim-FamilySituation-v1.0-2015EN" />
+    <uri value="https://zibs.nl/wiki/FamilySituation-v1.0(2015EN)" />
+    <name value="HCIM FamilySituation-v1.0(2015EN)" />
+  </mapping>
+  <mapping>
     <identity value="hcim-patient-v3.0-2016EN" />
     <uri value="https://zibs.nl/wiki/Patient-v3.0(2016EN)" />
     <name value="HCIM Patient-v3.0(2016EN)" />
@@ -89,6 +93,11 @@
     <identity value="hcim-payer-v3.0-2016EN" />
     <uri value="https://zibs.nl/wiki/Payer-v3.0(2016EN)" />
     <name value="HCIM Payer-v3.0(2016EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-FamilySituation-v3.0-2016EN" />
+    <uri value="https://zibs.nl/wiki/FamilySituation-v3.0(2016EN)" />
+    <name value="HCIM FamilySituation-v3.0(2016EN)" />
   </mapping>
   <mapping>
     <identity value="hcim-patient-v3.1-2017EN" />
@@ -146,6 +155,11 @@
     <identity value="hcim-basicelements-v1.0-2017EN" />
     <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
     <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-FamilySituation-v3.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/FamilySituation-v3.0(2017EN)" />
+    <name value="HCIM FamilySituation-v3.0(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -286,24 +300,19 @@
         <comment value="LegalStatus" />
       </mapping>
     </element>
-    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept">
-      <path value="Patient.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Patient.extension:legalStatus.url">
+      <path value="Patient.extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-patient-legalstatus" />
+    </element>
+    <element id="Patient.extension:legalStatus.value[x]">
+      <path value="Patient.extension.value[x]" />
       <min value="1" />
       <binding>
         <strength value="extensible" />
       </binding>
     </element>
-    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding">
-      <path value="Patient.extension.valueCodeableConcept.coding" />
-      <min value="1" />
-    </element>
-    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.system">
-      <path value="Patient.extension.valueCodeableConcept.coding.system" />
-      <min value="1" />
-    </element>
-    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.code">
-      <path value="Patient.extension.valueCodeableConcept.coding.code" />
+    <element id="Patient.extension:legalStatus.coding">
+      <path value="Patient.extension.coding" />
       <min value="1" />
     </element>
     <element id="Patient.identifier">
@@ -354,8 +363,8 @@
     <element id="Patient.identifier:BSN.value">
       <path value="Patient.identifier.value" />
       <short value="BSN (Burgerservicenummer (Dutch person identification number))" />
-      <definition value="Burgerservicenummer is the Dutch person identification number which is also allowed for use in healthcare."/>
-      <comment value="The official format according to the 'Logisch Ontwerp BSN 1.4.pdf' is N8..9 and SHALL conform to an 11-proof algorithm. In order to check if the number is 11-proof the number, if N8, SHALL be prefixed with a leading zero. The expected format in FHIR is N9 with leading zero applied to any N8 bsn."/>
+      <definition value="Burgerservicenummer is the Dutch person identification number which is also allowed for use in healthcare." />
+      <comment value="The official format according to the 'Logisch Ontwerp BSN 1.4.pdf' is N8..9 and SHALL conform to an 11-proof algorithm. In order to check if the number is 11-proof the number, if N8, SHALL be prefixed with a leading zero. The expected format in FHIR is N9 with leading zero applied to any N8 bsn." />
       <alias value="BSN" />
       <min value="1" />
       <example>
@@ -406,11 +415,17 @@
         <comment value="PayerName" />
       </mapping>
     </element>
+    <element id="Patient.name.extension:humannameAssemblyOrder">
+      <path value="Patient.name.extension" />
+      <sliceName value="humannameAssemblyOrder" />
+    </element>
+    <element id="Patient.name.extension:humannameAssemblyOrder.valueCode:valueCode">
+      <path value="Patient.name.extension.valueCode" />
+      <sliceName value="valueCode" />
+    </element>
     <element id="Patient.telecom">
       <path value="Patient.telecom" />
-      <short value="ContactInformation" />
       <definition value="A contact detail for the individual. Note that there is no support for multiple use values like 'mobile business'." />
-      <alias value="Contactgegevens" />
       <type>
         <code value="ContactPoint" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
@@ -444,6 +459,37 @@
         <identity value="hcim-payer-v3.1-2017EN" />
         <map value="NL-CM:1.1.12" />
         <comment value="ContactInformation" />
+      </mapping>
+    </element>
+    <element id="Patient.telecom.use.extension:EmailAddressTypeCodelist">
+      <path value="Patient.telecom.use.extension" />
+      <sliceName value="EmailAddressTypeCodelist" />
+    </element>
+    <element id="Patient.telecom.use.extension:EmailAddressTypeCodelist.value[x]">
+      <path value="Patient.telecom.use.extension.value[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Patient.telecom.use.extension:EmailAddressTypeCodelist.value[x]:valueCodeableConcept">
+      <path value="Patient.telecom.use.extension.value[x]" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="TelecomSoortCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.20.6.1--20171231000000" />
+          <display value="TelecomSoortCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.5" />
+        <comment value="TelecomType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/TelecomSoortCodelijst-to-ContactPointUse" />
       </mapping>
     </element>
     <element id="Patient.gender">
@@ -488,9 +534,12 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
       </type>
     </element>
-    <element id="Patient.gender.extension:GeslachtCodelijst.valueCodeableConcept:valueCodeableConcept">
-      <path value="Patient.gender.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Patient.gender.extension:GeslachtCodelijst.url">
+      <path value="Patient.gender.extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+    </element>
+    <element id="Patient.gender.extension:GeslachtCodelijst.value[x]">
+      <path value="Patient.gender.extension.value[x]" />
       <binding>
         <strength value="extensible" />
         <description value="GeslachtCodelijst" />
@@ -621,6 +670,21 @@
         <map value="NL-CM:7.9.2" />
         <comment value="MaritalStatus" />
       </mapping>
+      <mapping>
+        <identity value="hcim-FamilySituation-v1.0-2015EN" />
+        <map value="NL-CM:7.13.7" />
+        <comment value="FamilySituation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-FamilySituation-v3.0-2016EN" />
+        <map value="NL-CM:7.13.7" />
+        <comment value="FamilySituation" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-FamilySituation-v3.0-2017EN" />
+        <map value="NL-CM:7.13.7" />
+        <comment value="FamilySituation" />
+      </mapping>
     </element>
     <element id="Patient.multipleBirth[x]">
       <path value="Patient.multipleBirth[x]" />
@@ -643,6 +707,9 @@
       </mapping>
     </element>
     <element id="Patient.contact">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Contact" />
+      </extension>
       <path value="Patient.contact" />
       <short value="ContactPerson" />
       <definition value="Contacts are related persons in some way, but not all related persons are contacts. The HCIM ContactPerson is designed to deal with both related persons and contacts. An HCIM ContactPerson who is a contact, is expected to have an NL-CM:3.1.2 Role primary contact ('Eerste relatie/contactpersoon') or secondary contact ('Tweede relatie/contactpersoon'). See Patient.contact.relationship in slice 'role'." />
@@ -754,11 +821,17 @@
         <comment value="NameInformation" />
       </mapping>
     </element>
+    <element id="Patient.contact.name.extension:humannameAssemblyOrder">
+      <path value="Patient.contact.name.extension" />
+      <sliceName value="humannameAssemblyOrder" />
+    </element>
+    <element id="Patient.contact.name.extension:humannameAssemblyOrder.valueCode:valueCode">
+      <path value="Patient.contact.name.extension.valueCode" />
+      <sliceName value="valueCode" />
+    </element>
     <element id="Patient.contact.telecom">
       <path value="Patient.contact.telecom" />
-      <short value="ContactInformation" />
       <comment value="Telecommunication data details (phone/email) is physically modeled in the HCIM Patient, which is why the telecommunication mappings appear to be coming from the HCIM Patient instead of the HCIM ContactPerson" />
-      <alias value="Contactgegevens" />
       <type>
         <code value="ContactPoint" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
@@ -777,6 +850,37 @@
         <identity value="hcim-contactperson-v3.1-2017EN" />
         <map value="NL-CM:3.1.6" />
         <comment value="ContactInformation" />
+      </mapping>
+    </element>
+    <element id="Patient.contact.telecom.use.extension:EmailAddressTypeCodelist">
+      <path value="Patient.contact.telecom.use.extension" />
+      <sliceName value="EmailAddressTypeCodelist" />
+    </element>
+    <element id="Patient.contact.telecom.use.extension:EmailAddressTypeCodelist.value[x]">
+      <path value="Patient.contact.telecom.use.extension.value[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Patient.contact.telecom.use.extension:EmailAddressTypeCodelist.value[x]:valueCodeableConcept">
+      <path value="Patient.contact.telecom.use.extension.value[x]" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="TelecomSoortCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.20.6.1--20171231000000" />
+          <display value="TelecomSoortCodelijst" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-contactinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.6.5" />
+        <comment value="TelecomType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/TelecomSoortCodelijst-to-ContactPointUse" />
       </mapping>
     </element>
     <element id="Patient.contact.address">
@@ -846,13 +950,26 @@
         <comment value="LanguageControlReading" />
       </mapping>
     </element>
+    <element id="Patient.communication.extension:languageProficiency.extension">
+      <path value="Patient.communication.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Patient.communication.extension:languageProficiency.extension:type">
       <path value="Patient.communication.extension.extension" />
       <sliceName value="type" />
     </element>
-    <element id="Patient.communication.extension:languageProficiency.extension:type.valueCoding:valueCoding">
-      <path value="Patient.communication.extension.extension.valueCoding" />
-      <sliceName value="valueCoding" />
+    <element id="Patient.communication.extension:languageProficiency.extension:type.url">
+      <path value="Patient.communication.extension.extension.url" />
+      <fixedUri value="type" />
+    </element>
+    <element id="Patient.communication.extension:languageProficiency.extension:type.value[x]">
+      <path value="Patient.communication.extension.extension.value[x]" />
       <binding>
         <strength value="extensible" />
       </binding>
@@ -861,12 +978,19 @@
       <path value="Patient.communication.extension.extension" />
       <sliceName value="level" />
     </element>
-    <element id="Patient.communication.extension:languageProficiency.extension:level.valueCoding:valueCoding">
-      <path value="Patient.communication.extension.extension.valueCoding" />
-      <sliceName value="valueCoding" />
+    <element id="Patient.communication.extension:languageProficiency.extension:level.url">
+      <path value="Patient.communication.extension.extension.url" />
+      <fixedUri value="level" />
+    </element>
+    <element id="Patient.communication.extension:languageProficiency.extension:level.value[x]">
+      <path value="Patient.communication.extension.extension.value[x]" />
       <binding>
         <strength value="extensible" />
       </binding>
+    </element>
+    <element id="Patient.communication.extension:languageProficiency.url">
+      <path value="Patient.communication.extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/patient-proficiency" />
     </element>
     <element id="Patient.communication.extension:comment">
       <path value="Patient.communication.extension" />
