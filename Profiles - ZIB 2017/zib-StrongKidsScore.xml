@@ -36,6 +36,10 @@
       <slicing>
         <discriminator>
           <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
           <path value="code" />
         </discriminator>
         <rules value="open" />
@@ -50,10 +54,12 @@
     </element>
     <element id="Observation.code.coding:strongKidsScoreCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.code.coding:strongKidsScoreCode.code">
       <path value="Observation.code.coding.code" />
+      <min value="1" />
       <fixedCode value="108341000146107" />
     </element>
     <element id="Observation.code.coding:strongKidsScoreCode.display">
