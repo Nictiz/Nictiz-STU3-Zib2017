@@ -59,24 +59,39 @@
       <slicing>
         <discriminator>
           <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
           <path value="code" />
         </discriminator>
         <ordered value="false" />
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Observation.code.coding:PulseRate">
       <path value="Observation.code.coding" />
       <sliceName value="PulseRate" />
+      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Observation.code.coding:PulseRate.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://loinc.org" />
     </element>
     <element id="Observation.code.coding:PulseRate.code">
       <path value="Observation.code.coding.code" />
-      <definition value="Heart rate Peripheral artery by Palpation" />
+      <min value="1" />
       <fixedCode value="8893-0" />
+    </element>
+    <element id="Observation.code.coding:PulseRate.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Heart rate Peripheral artery by Palpation" />
     </element>
     <element id="Observation.subject">
       <path value="Observation.subject" />

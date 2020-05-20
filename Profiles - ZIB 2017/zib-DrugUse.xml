@@ -71,25 +71,37 @@
       <slicing>
         <discriminator>
           <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
           <path value="code" />
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Observation.code.coding:drugUseCode">
       <path value="Observation.code.coding" />
       <sliceName value="drugUseCode" />
       <short value="DrugUseCode" />
+      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Observation.code.coding:drugUseCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.code.coding:drugUseCode.code">
       <path value="Observation.code.coding.code" />
+      <min value="1" />
       <fixedCode value="228366006" />
     </element>
     <element id="Observation.code.coding:drugUseCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Finding relating to drug misuse behavior (finding)" />
     </element>
@@ -232,6 +244,9 @@
       <fixedCode value="410942007" />
     </element>
     <element id="Observation.component:DrugOrMedicationType.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Drug or medicament (substance)" />
     </element>
@@ -291,6 +306,9 @@
       <fixedCode value="410675002" />
     </element>
     <element id="Observation.component:RouteOfAdministration.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Route of administration (attribute)" />
     </element>
@@ -350,6 +368,9 @@
       <fixedCode value="228390007" />
     </element>
     <element id="Observation.component:Amount.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Frequency of drug misuse (observable entity)" />
     </element>
