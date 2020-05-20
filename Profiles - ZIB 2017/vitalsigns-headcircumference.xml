@@ -45,21 +45,38 @@
         <ordered value="false" />
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
-    <element id="Observation.code.coding:HeadCircumCode">
+    <element id="Observation.code.coding:HeadCircumferenceCode">
       <path value="Observation.code.coding" />
-      <sliceName value="HeadCircumCode" />
+      <sliceName value="HeadCircumferenceCode" />
+      <min value="1" />
+      <max value="1" />
     </element>
-    <element id="Observation.code.coding:HeadCircumCode.system">
+    <element id="Observation.code.coding:HeadCircumferenceCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://loinc.org" />
     </element>
-    <element id="Observation.code.coding:HeadCircumCode.code">
+    <element id="Observation.code.coding:HeadCircumferenceCode.code">
       <path value="Observation.code.coding.code" />
+      <min value="1" />
       <fixedCode value="9843-4" />
     </element>
+    <element id="Observation.code.coding:HeadCircumferenceCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Head Occipital-frontal circumference" />
+    </element>
+    <element id="Observation.valueQuantity:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <min value="1" />
+    </element>
     <element id="Observation.valueQuantity:valueQuantity.code">
-      <path value="Observation.value[x].code" />
+      <path value="Observation.valueQuantity.code" />
       <binding>
         <strength value="required" />
         <description value="Common UCUM units for Body Length measures such as Body Height and Head Circumference" />
