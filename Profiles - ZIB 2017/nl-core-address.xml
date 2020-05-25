@@ -572,26 +572,43 @@
           <type value="value" />
           <path value="url" />
         </discriminator>
-        <discriminator>
-          <type value="value" />
-          <path value="value.coding.system" />
-        </discriminator>
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Address.country.extension:LandGBACodelijst">
+    <element id="Address.country.extension:countryCode">
       <path value="Address.country.extension" />
-      <sliceName value="LandGBACodelijst" />
-      <short value="LandGBACode" />
+      <sliceName value="countryCode" />
+      <short value="CountryGBACode | CountryISOCode" />
       <max value="1" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
       </type>
     </element>
-    <element id="Address.country.extension:LandGBACodelijst.valueCodeableConcept:valueCodeableConcept">
+    <element id="Address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept">
       <path value="Address.country.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
+      <short value="CountryGBACode | CountryISOCode" />
+      <alias value="LandGBACodelijst" />
+      <alias value="LandISOCodelijst" />
+    </element>
+    <element id="Address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept.coding">
+      <path value="Address.country.extension.valueCodeableConcept.coding" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept.coding:countryGBACodelist">
+      <path value="Address.country.extension.valueCodeableConcept.coding" />
+      <sliceName value="countryGBACodelist" />
+      <patternCoding>
+        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34" />
+      </patternCoding>
       <binding>
         <strength value="extensible" />
         <description value="LandGBACodelijst" />
@@ -601,19 +618,12 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Address.country.extension:LandISOCodelijst">
-      <path value="Address.country.extension" />
-      <sliceName value="LandISOCodelijst" />
-      <short value="LandISOCode" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
-      </type>
-    </element>
-    <element id="Address.country.extension:LandISOCodelijst.valueCodeableConcept:valueCodeableConcept">
-      <path value="Address.country.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Address.country.extension:countryCode.valueCodeableConcept:valueCodeableConcept.coding:countryISOCodelist">
+      <path value="Address.country.extension.valueCodeableConcept.coding" />
+      <sliceName value="countryISOCodelist" />
+      <patternCoding>
+        <system value="urn:iso:std:iso:3166" />
+      </patternCoding>
       <binding>
         <strength value="extensible" />
         <description value="LandISOCodelijst" />
