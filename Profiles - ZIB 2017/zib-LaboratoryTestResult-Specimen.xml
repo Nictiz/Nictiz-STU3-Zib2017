@@ -168,40 +168,25 @@
         <comment value="Specimen" />
       </mapping>
     </element>
-    <element id="Specimen.collection.extension">
-      <path value="Specimen.collection.extension" />
+    <element id="Specimen.collection.collected[x]">
+      <path value="Specimen.collection.collected[x]" />
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="url" />
+          <type value="type" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
-    </element>
-    <element id="Specimen.collection.extension:duration">
-      <path value="Specimen.collection.extension" />
-      <sliceName value="duration" />
-      <short value="CollectionPeriod Duration" />
-      <definition value="Duration of the collection procedure period." />
-      <requirements value="In zib LaboratoryResult release 2017 there is a problem in the definition of NL-CM:13.1.24 CollectionPeriod as it is defined as a TS (Timestamp). This has been changed to a TimeInterval in later releases (start | end | duration) based on https://bits.nictiz.nl/browse/ZIB-669. &#xD;&#xA;However in FHIR STU3 there is a problem in Specimen.collection as it does not support duration. This has been added in FHIR R4. So for full support for CollectionPeriod as duration (e.g. 24 hour urine) in FHIR STU3, we need a pre-adopt of both a newer version of the zib LaboratoryResult and a FHIR extension." />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Specimen-CollectionDuration" />
-      </type>
-      <mapping>
-        <identity value="hcim-laboratorytestresult-v4.4-2019EN" />
-        <map value="NL-CM:13.1.24" />
-        <comment value="CollectionPeriod::TimeInterval Duration" />
-      </mapping>
-    </element>
-    <element id="Specimen.collection.collected[x]">
-      <path value="Specimen.collection.collected[x]" />
-      <short value="CollectionDateTime" />
       <definition value="Time at which the material was collected.&#xD;&#xA;&#xD;&#xA;If the material has not been collected at a single point in time but over a certain period, this period can be captured in this concept. An example is 24 hour urine." />
+    </element>
+    <element id="Specimen.collection.collected[x]:collectedDateTime">
+      <path value="Specimen.collection.collected[x]" />
+      <sliceName value="collectedDateTime" />
+      <short value="CollectionDateTime" />
       <alias value="AfnameDatumTijd" />
-      <alias value="CollectionPeriod" />
-      <alias value="Verzamelperiode" />
+      <type>
+        <code value="dateTime" />
+      </type>
       <mapping>
         <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
         <map value="NL-CM:13.1.17" />
@@ -217,6 +202,15 @@
         <map value="NL-CM:13.1.17" />
         <comment value="CollectionDateTime" />
       </mapping>
+    </element>
+    <element id="Specimen.collection.collected[x]:collectedPeriod">
+      <path value="Specimen.collection.collected[x]" />
+      <sliceName value="collectedPeriod" />
+      <short value="CollectionPeriod" />
+      <alias value="Verzamelperiode" />
+      <type>
+        <code value="Period" />
+      </type>
       <mapping>
         <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.24" />
@@ -227,6 +221,25 @@
         <map value="NL-CM:13.1.24" />
         <comment value="CollectionPeriod::TimeInterval Duration" />
       </mapping>
+    </element>
+    <element id="Specimen.collection.collected[x]:collectedPeriod.extension">
+      <path value="Specimen.collection.collected[x].extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Specimen.collection.collected[x]:collectedPeriod.extension:period-duration">
+      <path value="Specimen.collection.collected[x].extension" />
+      <sliceName value="period-duration" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/period-duration" />
+      </type>
     </element>
     <element id="Specimen.collection.quantity">
       <path value="Specimen.collection.quantity" />
