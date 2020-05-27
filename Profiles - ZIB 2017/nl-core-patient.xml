@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir https://hl7.org/fhir/STU3/fhir-all.xsd" xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-patient" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
   <version value="2.1.7" />
@@ -354,8 +353,8 @@
     <element id="Patient.identifier:BSN.value">
       <path value="Patient.identifier.value" />
       <short value="BSN (Burgerservicenummer (Dutch person identification number))" />
-      <definition value="Burgerservicenummer is the Dutch person identification number which is also allowed for use in healthcare."/>
-      <comment value="The official format according to the 'Logisch Ontwerp BSN 1.4.pdf' is N8..9 and SHALL conform to an 11-proof algorithm. In order to check if the number is 11-proof the number, if N8, SHALL be prefixed with a leading zero. The expected format in FHIR is N9 with leading zero applied to any N8 bsn."/>
+      <definition value="Burgerservicenummer is the Dutch person identification number which is also allowed for use in healthcare." />
+      <comment value="The official format according to the 'Logisch Ontwerp BSN 1.4.pdf' is N8..9 and SHALL conform to an 11-proof algorithm. In order to check if the number is 11-proof the number, if N8, SHALL be prefixed with a leading zero. The expected format in FHIR is N9 with leading zero applied to any N8 bsn." />
       <alias value="BSN" />
       <min value="1" />
       <example>
@@ -406,11 +405,17 @@
         <comment value="PayerName" />
       </mapping>
     </element>
+    <element id="Patient.name.extension:humannameAssemblyOrder">
+      <path value="Patient.name.extension" />
+      <sliceName value="humannameAssemblyOrder" />
+    </element>
+    <element id="Patient.name.extension:humannameAssemblyOrder.valueCode:valueCode">
+      <path value="Patient.name.extension.valueCode" />
+      <sliceName value="valueCode" />
+    </element>
     <element id="Patient.telecom">
       <path value="Patient.telecom" />
-      <short value="ContactInformation" />
       <definition value="A contact detail for the individual. Note that there is no support for multiple use values like 'mobile business'." />
-      <alias value="Contactgegevens" />
       <type>
         <code value="ContactPoint" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
@@ -643,6 +648,9 @@
       </mapping>
     </element>
     <element id="Patient.contact">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Contact" />
+      </extension>
       <path value="Patient.contact" />
       <short value="ContactPerson" />
       <definition value="Contacts are related persons in some way, but not all related persons are contacts. The HCIM ContactPerson is designed to deal with both related persons and contacts. An HCIM ContactPerson who is a contact, is expected to have an NL-CM:3.1.2 Role primary contact ('Eerste relatie/contactpersoon') or secondary contact ('Tweede relatie/contactpersoon'). See Patient.contact.relationship in slice 'role'." />
@@ -754,11 +762,17 @@
         <comment value="NameInformation" />
       </mapping>
     </element>
+    <element id="Patient.contact.name.extension:humannameAssemblyOrder">
+      <path value="Patient.contact.name.extension" />
+      <sliceName value="humannameAssemblyOrder" />
+    </element>
+    <element id="Patient.contact.name.extension:humannameAssemblyOrder.valueCode:valueCode">
+      <path value="Patient.contact.name.extension.valueCode" />
+      <sliceName value="valueCode" />
+    </element>
     <element id="Patient.contact.telecom">
       <path value="Patient.contact.telecom" />
-      <short value="ContactInformation" />
       <comment value="Telecommunication data details (phone/email) is physically modeled in the HCIM Patient, which is why the telecommunication mappings appear to be coming from the HCIM Patient instead of the HCIM ContactPerson" />
-      <alias value="Contactgegevens" />
       <type>
         <code value="ContactPoint" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
