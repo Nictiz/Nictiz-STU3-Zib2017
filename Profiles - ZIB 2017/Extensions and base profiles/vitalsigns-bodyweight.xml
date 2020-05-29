@@ -47,17 +47,23 @@
         <ordered value="false" />
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Observation.code.coding:bodyWeightCode">
       <path value="Observation.code.coding" />
       <sliceName value="bodyWeightCode" />
+      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Observation.code.coding:bodyWeightCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://loinc.org" />
     </element>
     <element id="Observation.code.coding:bodyWeightCode.code">
       <path value="Observation.code.coding.code" />
+      <min value="1" />
+      <defaultValueCode value="Body weight" />
       <fixedCode value="29463-7" />
     </element>
     <element id="Observation.valueQuantity:valueQuantity.code">
