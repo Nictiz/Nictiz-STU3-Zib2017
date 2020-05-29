@@ -57,18 +57,30 @@
         <ordered value="false" />
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Observation.code.coding:HeartRateCode">
       <path value="Observation.code.coding" />
       <sliceName value="HeartRateCode" />
+      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Observation.code.coding:HeartRateCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://loinc.org" />
     </element>
     <element id="Observation.code.coding:HeartRateCode.code">
       <path value="Observation.code.coding.code" />
+      <min value="1" />
       <fixedCode value="8867-4" />
+    </element>
+    <element id="Observation.code.coding:HeartRateCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Heart rate" />
     </element>
     <element id="Observation.valueQuantity:valueQuantity.code">
       <path value="Observation.valueQuantity.code" />
