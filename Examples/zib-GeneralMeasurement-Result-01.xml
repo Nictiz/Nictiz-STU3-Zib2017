@@ -1,6 +1,6 @@
 <Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
     xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-generalmeasurement-01"/>
+    <id value="zib-generalmeasurement-result-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement"/>
     </meta>
@@ -25,24 +25,19 @@
     <code>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="273513009"/>
-            <display value="Health of the Nation Outcome Scale (generic version) (assessment scale)"/>
+            <code value="281113000"/>
+            <display value="Health of the Nation Outcome Scale - summated (generic version) (assessment scale)"/>
         </coding>
     </code>
     <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="Irma Jongeneel-de Haas"/>
     </subject>
-    <related>
-        <target>
-            <reference value="Observation/zib-generalmeasurement-result-01"/>
-            <display value="MeasurementResult - Health of the Nation Outcome Scale - summated (generic version)"/>
-        </target>
-    </related>
-    <related>
-        <target>
-            <reference value="Observation/zib-generalmeasurement-result-02"/>
-            <display value="MeasurementResult - Health of the Nation Outcome Scale item 1 - aggressive/disruptive behavior"/>
-        </target>
-    </related>
+    <effectiveDateTime value="2018-09-05T12:00:00+01:00"/>
+    <valueQuantity>
+        <value value="7"/>
+        <system value="http://unitsofmeasure.org"/> 
+        <code value="{score}"/> 
+    </valueQuantity>
+    <comment value="Waarschijnlijk delier"/>
 </Observation>

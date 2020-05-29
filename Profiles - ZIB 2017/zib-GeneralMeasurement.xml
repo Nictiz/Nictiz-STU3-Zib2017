@@ -44,6 +44,7 @@
       <path value="Observation" />
       <short value="GeneralMeasurement" />
       <definition value="Root concept of the GeneralMeasurement information model. This root concept contains all data elements of the GeneralMeasurement information model." />
+      <comment value="This profile is used both for the GeneralMeasurement concept and the MeasurementResult concept of HCIM GeneralMeasurement. A GeneralMeasurement can contain mutiple related MeasurementResults. This is implemented using a parent Observation with related child Observations. See the code and related elements." />
       <alias value="MeetUitslag" />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
@@ -57,10 +58,44 @@
       </mapping>
     </element>
     <element id="Observation.status">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
+        <valueString value="default: final" />
+      </extension>
       <path value="Observation.status" />
-      <short value="ResultStatus" />
-      <definition value="The status of the total measurement." />
+      <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/ResultStatusCodelist-to-ObservationStatus) is available that maps ResultStatusCodelist to the ObservationStatus valueset." />
+    </element>
+    <element id="Observation.status.extension">
+      <path value="Observation.status.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.status.extension:ResultStatusCodelist">
+      <path value="Observation.status.extension" />
+      <sliceName value="ResultStatusCodelist" />
       <alias value="ResultaatStatus" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
+    </element>
+    <element id="Observation.status.extension:ResultStatusCodelist.valueCodeableConcept:valueCodeableConcept">
+      <path value="Observation.status.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="ResultaatStatusCodelijst" />
+      <definition value="The status of the GeneralMeasurement or MeasurementResult." />
+      <binding>
+        <strength value="extensible" />
+        <description value="ResultaatStatusCodelijst" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.1--20171231000000" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
         <map value="NL-CM:13.3.3" />
@@ -69,16 +104,20 @@
     </element>
     <element id="Observation.code">
       <path value="Observation.code" />
-      <short value="Investigation | MeasurementName" />
-      <definition value="A general measurement can contain multiple components. This concept contains the name and code of the entire measurement." />
+      <short value="Investigation or MeasurementName" />
+      <definition value="A GeneralMeasurement can contain mutiple related MeasurementResults. This is implemented using a parent Observation with related child Observations. The Observation.code element is used to descibre the GeneralMeasurement Investigation concept for parent Observations and the MeasurementResult MeasurementName concept for child Observations." />
+      <comment value="Only one of the two valueset (MeasurementNameCodelist) is bound to this element. TestCodelist is not used. This is not a problem because both valuesets contain the same codes, namely all SNOMED CT codes." />
       <alias value="Onderzoek" />
       <alias value="MetingNaam" />
       <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationCode" />
+        </extension>
         <strength value="extensible" />
-        <description value="SNOMED CT all concepts" />
+        <description value="OnderzoekCodelijst or MetingNaamCodelijst" />
         <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.3--20171231000000" />
-          <display value="OnderzoekCodelijst" />
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.2--20171231000000" />
+          <display value="MeasurementNameCodelist" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -94,7 +133,8 @@
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]" />
-      <definition value="ResultDateTime" />
+      <short value="ResultDateTime" />
+      <definition value="Date and if possible the time at which the entire or specific result measurement was carried out." />
       <alias value="UitslagDatumTijd" />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
@@ -104,7 +144,9 @@
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]" />
+      <short value="ResultValue" />
       <definition value="The result of the measurement. Depending on the type of measurement, the result will consist of a value with a unit or a coded value (ordinal or nominal) or of a textual result." />
+      <alias value="UitslagWaarde" />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
         <map value="NL-CM:13.3.7" />
@@ -141,41 +183,28 @@
         <comment value="MeasuringMethod" />
       </mapping>
     </element>
-    <element id="Observation.component">
-      <path value="Observation.component" />
+    <element id="Observation.related">
+      <path value="Observation.related" />
       <short value="MeasurementResult" />
-      <definition value="Container of the MeasurementResult concept. This container contains all data elements of the MeasurementResult concept." />
+      <definition value="Reference to related MeasurmentResults beloning to the GeneralMeasurement." />
+      <comment value="The HCIM GeneralMeasurement (parent) links to every MeasurementResult (child) through the related.target reference. The referenced Observation contains all the concepts of the HCIM MeasurmentResult container, e.g. results with the name, resultvalue, methode, etc. This GeneralMeasurement profile is used for both Observations." />
       <alias value="MeetUitslag" />
-    </element>
-    <element id="Observation.component.code">
-      <path value="Observation.component.code" />
-      <short value="MeasurementName" />
-      <definition value="Description (name and code) of the measurement." />
-      <alias value="MetingNaam" />
-      <binding>
-        <strength value="extensible" />
-        <description value="SNOMED CT - all values" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.2--20171231000000" />
-          <display value="MetingNaamCodelijst" />
-        </valueSetReference>
-      </binding>
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
-        <map value="NL-CM:13.3.6" />
-        <comment value="MeasurementName" />
+        <map value="NL-CM:13.3.5" />
+        <comment value="MeasurementResult" />
       </mapping>
     </element>
-    <element id="Observation.component.value[x]">
-      <path value="Observation.component.value[x]" />
-      <short value="ResultValue" />
-      <definition value="The result of the measurement. Depending on the type of measurement, the result will consist of a value with a unit or a coded value (ordinal or nominal) or of a textual result." />
-      <alias value="UitslagWaarde" />
-      <mapping>
-        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
-        <map value="NL-CM:13.3.7" />
-        <comment value="ResultValue" />
-      </mapping>
+    <element id="Observation.related.type">
+      <path value="Observation.related.type" />
+      <comment value="The related type will mostly likely be: 'has-member'." />
+    </element>
+    <element id="Observation.related.target">
+      <path value="Observation.related.target" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
+      </type>
     </element>
   </differential>
 </StructureDefinition>

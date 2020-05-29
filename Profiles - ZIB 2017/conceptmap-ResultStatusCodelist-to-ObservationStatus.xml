@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+      <id value="ResultStatusCodelist-to-ObservationStatus"/>
+      <url value="http://nictiz.nl/fhir/ConceptMap/ResultStatusCodelist-to-ObservationStatus"/>
+      <version value="1.0.1"/>
+      <name value="ResultStatusCodelist-to-ObservationStatus"/>
+      <title value="HCIM ResultStatusCodelist to ObservationStatus"/>
+      <status value="active"/>
+      <publisher value="Nictiz"/>
+      <contact>
+            <name value="Nictiz"/>
+            <telecom>
+                  <system value="email"/>
+                  <value value="info@nictiz.nl"/>
+                  <use value="work"/>
+            </telecom>
+      </contact>
+      <description value="Maps the HCIM GeneralMeasurement release 2017 terminology for the concept ResultStatusCodelist to the FHIR STU3 terminology associated with Observation.status."/>
+      <purpose value="To aid in mapping from HCIM GeneralMeasurement ValueSet ResultStatusCodelist to FHIR STU3 Observation.status."/>
+      <copyright value="CC0"/>
+      <sourceUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.1--20171231000000"/>
+      <targetUri value="http://hl7.org/fhir/observation-status"/>
+      <group>
+            <source value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.15.1"/>
+            <target value="http://hl7.org/fhir/observation-status"/>
+            <targetVersion value="http://hl7.org/fhir/observation-status 3.0.1"/>
+            <element>
+                  <code value="pending"/>
+                  <display value="Pending"/>
+                  <target>
+                        <code value="registered"/>
+                        <display value="Registered"/>
+                        <equivalence value="equal"/>
+                  </target>
+            </element>
+            <element>
+                  <code value="preliminary"/>
+                  <display value="Preliminary"/>
+                  <target>
+                        <code value="preliminary"/>
+                        <display value="Preliminary"/>
+                        <equivalence value="equal"/>
+                  </target>
+            </element>
+            <element>
+                  <code value="final"/>
+                  <display value="Final"/>
+                  <target>
+                        <code value="final"/>
+                        <display value="Final"/>
+                        <equivalence value="equal"/>
+                  </target>
+            </element>
+            <element>
+                  <code value="appended"/>
+                  <display value="Appended"/>
+                  <target>
+                        <code value="amended"/>
+                        <display value="Amended"/>
+                        <equivalence value="equal"/>
+                  </target>
+            </element>
+            <element>
+                  <code value="corrected"/>
+                  <display value="Corrected"/>
+                  <target>
+                        <code value="corrected"/>
+                        <display value="Corrected"/>
+                        <equivalence value="equal"/>
+                  </target>
+            </element>
+      </group>
+</ConceptMap>
