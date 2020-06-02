@@ -123,7 +123,7 @@
         <identity value="hcim-bloodpressure-v3.1-2017EN" />
         <map value="NL-CM:12.4.5" />
         <comment value="BloodPressureDateTime" />
-      </mapping>
+    </mapping>
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
@@ -224,6 +224,7 @@
         <ordered value="false" />
         <rules value="open" />
       </slicing>
+      <min value="2" />
     </element>
     <element id="Observation.component:SystolicBP">
       <path value="Observation.component" />
@@ -241,11 +242,20 @@
     </element>
     <element id="Observation.component:SystolicBP.code.coding.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://loinc.org" />
     </element>
     <element id="Observation.component:SystolicBP.code.coding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="8480-6" />
+    </element>
+    <element id="Observation.component:SystolicBP.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Systolic blood pressure" />
     </element>
     <element id="Observation.component:SystolicBP.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -289,6 +299,34 @@
       <definition value="The lowest systematic arterial blood pressure - measured in the relaxation stage or diastole of the cardiac cycle." />
       <comment value="additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system." />
       <alias value="DiastolischeBloeddruk" />
+    </element>
+    <element id="Observation.component:DiastolicBP.code.coding">
+      <path value="Observation.component.code.coding" />
+      <min value="1" />
+    </element>
+    <element id="Observation.component:DiastolicBP.code.coding.system">
+      <path value="Observation.component.code.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
+    </element>
+    <element id="Observation.component:DiastolicBP.code.coding.code">
+      <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <fixedCode value="8462-4" />
+    </element>
+    <element id="Observation.component:DiastolicBP.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Diastolic blood pressure" />
+    </element>
+    <element id="Observation.component:DiastolicBP.value[x]:valueQuantity">
+      <path value="Observation.component.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <type>
+        <code value="Quantity" />
+      </type>
       <mapping>
         <identity value="hcim-bloodpressure-v1.2-2015EN" />
         <map value="NL-CM:12.4.3" />
@@ -304,25 +342,6 @@
         <map value="NL-CM:12.4.3" />
         <comment value="DiastolicBloodPressure" />
       </mapping>
-    </element>
-    <element id="Observation.component:DiastolicBP.code.coding">
-      <path value="Observation.component.code.coding" />
-      <min value="1" />
-    </element>
-    <element id="Observation.component:DiastolicBP.code.coding.system">
-      <path value="Observation.component.code.coding.system" />
-      <fixedUri value="http://loinc.org" />
-    </element>
-    <element id="Observation.component:DiastolicBP.code.coding.code">
-      <path value="Observation.component.code.coding.code" />
-      <fixedCode value="8462-4" />
-    </element>
-    <element id="Observation.component:DiastolicBP.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
-      <type>
-        <code value="Quantity" />
-      </type>
     </element>
     <element id="Observation.component:DiastolicBP.value[x]:valueQuantity.code">
       <path value="Observation.component.valueQuantity.code" />
@@ -343,10 +362,13 @@
     </element>
     <element id="Observation.component:AverageBloodPressureLOINC.code.coding.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://loinc.org" />
     </element>
     <element id="Observation.component:AverageBloodPressureLOINC.code.coding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
+      <defaultValueCode value="Mean blood pressure" />
       <fixedCode value="8478-0" />
     </element>
     <element id="Observation.component:AverageBloodPressureLOINC.value[x]:valueQuantity">
@@ -389,11 +411,20 @@
     </element>
     <element id="Observation.component:AverageBloodPressureSNOMED.code.coding.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.component:AverageBloodPressureSNOMED.code.coding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="6797001" />
+    </element>
+    <element id="Observation.component:AverageBloodPressureSNOMED.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Mean blood pressure" />
     </element>
     <element id="Observation.component:AverageBloodPressureSNOMED.value[x]:valueQuantity">
       <path value="Observation.component.valueQuantity" />
@@ -442,11 +473,20 @@
     </element>
     <element id="Observation.component:diastolicEndpoint.code.coding.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.component:diastolicEndpoint.code.coding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="85549003" />
+    </element>
+    <element id="Observation.component:diastolicEndpoint.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Korotkoff sounds" />
     </element>
     <element id="Observation.component:diastolicEndpoint.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -498,10 +538,12 @@
     </element>
     <element id="Observation.component:cuffTypeLOINC.code.coding.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://loinc.org" />
     </element>
     <element id="Observation.component:cuffTypeLOINC.code.coding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="8358-4" />
     </element>
     <element id="Observation.component:cuffTypeLOINC.value[x]:valueCodeableConcept">
@@ -550,11 +592,20 @@
     </element>
     <element id="Observation.component:cuffTypeSNOMED.code.coding.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.component:cuffTypeSNOMED.code.coding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="70665002" />
+    </element>
+    <element id="Observation.component:cuffTypeSNOMED.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Blood pressure cuff" />
     </element>
     <element id="Observation.component:cuffTypeSNOMED.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -600,11 +651,20 @@
     </element>
     <element id="Observation.component:positionSNOMED.code.coding.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.component:positionSNOMED.code.coding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="424724000" />
+    </element>
+    <element id="Observation.component:positionSNOMED.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Body position for blood pressure measurement" />
     </element>
     <element id="Observation.component:positionSNOMED.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
@@ -646,11 +706,20 @@
     </element>
     <element id="Observation.component:positionLOINC.code.coding.system">
       <path value="Observation.component.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://loinc.org" />
     </element>
     <element id="Observation.component:positionLOINC.code.coding.code">
       <path value="Observation.component.code.coding.code" />
+      <min value="1" />
       <fixedCode value="8361-8" />
+    </element>
+    <element id="Observation.component:positionLOINC.code.coding.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="Observation.component.code.coding.display" />
+      <defaultValueString value="Body position with respect to gravity" />
     </element>
     <element id="Observation.component:positionLOINC.value[x]:valueCodeableConcept">
       <path value="Observation.component.valueCodeableConcept" />
