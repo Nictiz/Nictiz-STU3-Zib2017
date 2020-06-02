@@ -23,7 +23,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="Profile on DocumentManifest based on IHE IT Infrastructure Technical Framework Supplement - Mobile access to Health Documents (MHD) Rev. 2.3.  - revised by Nictiz to add a correct slicing on .content.p[x] and replaces incorrect references.&#xD;&#xA;&#xD;&#xA;See http://wiki.ihe.net/index.php/Mobile_access_to_Health_Documents_(MHD)  The IHE MHD Profile text is Normative, this conformance resource is Informative." />
+  <description value="Profile on DocumentManifest based on IHE IT Infrastructure Technical Framework Supplement - Mobile access to Health Documents (MHD) Rev. 2.3,  revised by Nictiz to:&#xD;&#xA;* add a correct slicing on .content.p[x]&#xD;&#xA;* replace incorrect references&#xD;&#xA;* open up restrictions on .author&#xD;&#xA;&#xD;&#xA;See http://wiki.ihe.net/index.php/Mobile_access_to_Health_Documents_(MHD)  The IHE MHD Profile text is Normative, this conformance resource is Informative." />
   <purpose value="Copied profile from IHE MHD - revised by Nictiz to add a correct slicing on .content.p[x] and replaces incorrect references." />
   <fhirVersion value="3.0.2" />
   <kind value="resource" />
@@ -71,14 +71,6 @@
     <element id="DocumentManifest.author">
       <path value="DocumentManifest.author" />
       <comment value="Contained resource of type Practitioner or Organization with:&#xD;&#xA;* authorInstitution: Organization&#xD;&#xA;For Practionioner, also with:&#xD;&#xA;* authorPerson: Practitioner.identifier and Practitioner.name&#xD;&#xA;* authorRole:—Not supported in STU3&#xD;&#xA;* authorSpecialty: Practitioner.qualification&#xD;&#xA;* authorTelecommunication: Practitioner.telecom" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />
-      </type>
       <mustSupport value="true" />
     </element>
     <element id="DocumentManifest.source">
