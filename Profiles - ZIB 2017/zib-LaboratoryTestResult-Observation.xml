@@ -69,11 +69,6 @@
       <path value="Observation.identifier" />
       <short value="Identifier" />
       <alias value="Identificatie" />
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.6" />
-        <comment value="IdentificationNumber" />
-      </mapping>
     </element>
     <element id="Observation.basedOn">
       <path value="Observation.basedOn" />
@@ -305,32 +300,35 @@
     </element>
     <element id="Observation.interpretation">
       <path value="Observation.interpretation" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.interpretation:ObservationInterpretation">
+      <path value="Observation.interpretation" />
+      <sliceName value="ObservationInterpretation" />
+      <min value="1" />
+    </element>
+    <element id="Observation.interpretation:InterpretatieVlaggenCodelijst">
+      <path value="Observation.interpretation" />
+      <sliceName value="InterpretatieVlaggenCodelijst" />
       <short value="ResultFlags" />
       <definition value="Attention codes indicating whether the result is above or below certain reference values or interpreting the result otherwise. (Resistent)" />
-      <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/InterpretatieVlaggenCodelijst-to-observation-interpretation) is available that explains the relationship between the FHIR observation-interpretation value set and the HCIM ResultFlagsCodelist." />
+      <comment value="This slice binds the ValueSet from the HCIM, which overlaps the ValueSet from the core FHIR Observation. A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/InterpretatieVlaggenCodelijst-to-observation-interpretation) is available that explains the relationship between the FHIR observation-interpretation value set and the HCIM ResultFlagsCodelist." />
       <alias value="InterpretatieVlaggen" />
       <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationInterpretation" />
+        </extension>
         <strength value="extensible" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.7--20171231000000" />
-          <display value="InterpretatieVlaggenCodelijst" />
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
-        <map value="NL-CM:13.1.14" />
-        <comment value="ResultFlags" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresultfortransfer-v3.0-2016EN" />
-        <map value="NL-CM:13.1.14" />
-        <comment value="ResultFlags" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
-        <map value="NL-CM:13.1.14" />
-        <comment value="ResultFlags - see ConceptMap 'HCIM InterpretatieVlaggenCodelijst to Observation Interpretation Codes'" />
-      </mapping>
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
