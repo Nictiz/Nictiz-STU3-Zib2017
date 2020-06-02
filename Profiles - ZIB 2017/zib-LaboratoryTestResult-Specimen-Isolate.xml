@@ -33,6 +33,11 @@
     <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)" />
     <name value="HCIM LaboratoryTestResult-v4.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="hcim-laboratorytestresult-v4.4-2019EN" />
+    <uri value="https://zibs.nl/wiki/LaboratoriumUitslag-v4.4(2019NL)" />
+    <name value="HCIM LaboratoryTestResult-v4.4(2019EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Specimen" />
@@ -151,11 +156,23 @@
     </element>
     <element id="Specimen.collection.collected[x]">
       <path value="Specimen.collection.collected[x]" />
-      <short value="CollectionDateTime" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <definition value="Time at which the material was collected.&#xD;&#xA;&#xD;&#xA;If the material has not been collected at a single point in time but over a certain period, this period can be captured in this concept. An example is 24 hour urine." />
+    </element>
+    <element id="Specimen.collection.collected[x]:collectedDateTime">
+      <path value="Specimen.collection.collected[x]" />
+      <sliceName value="collectedDateTime"/>
+      <short value="CollectionDateTime" />
       <alias value="AfnameDatumTijd" />
-      <alias value="CollectionPeriod" />
-      <alias value="Verzamelperiode" />
+      <type>
+        <code value="dateTime" />
+      </type>
       <mapping>
         <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
         <map value="NL-CM:13.1.17" />
@@ -171,11 +188,44 @@
         <map value="NL-CM:13.1.17" />
         <comment value="CollectionDateTime" />
       </mapping>
+    </element>
+    <element id="Specimen.collection.collected[x]:collectedPeriod">
+      <path value="Specimen.collection.collected[x]" />
+      <sliceName value="collectedPeriod"/>
+      <short value="CollectionPeriod" />
+      <alias value="Verzamelperiode" />
+      <type>
+        <code value="Period"/>
+      </type>
       <mapping>
         <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.24" />
         <comment value="CollectionPeriod" />
       </mapping>
+      <mapping>
+        <identity value="hcim-laboratorytestresult-v4.4-2019EN" />
+        <map value="NL-CM:13.1.24" />
+        <comment value="CollectionPeriod::TimeInterval Duration" />
+      </mapping>
+    </element>
+    <element id="Specimen.collection.collected[x]:collectedPeriod.extension">
+      <path value="Specimen.collection.collected[x].extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Specimen.collection.collected[x]:collectedPeriod.extension:period-duration">
+      <path value="Specimen.collection.collected[x].extension" />
+      <sliceName value="period-duration" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/period-duration" />
+      </type>
     </element>
     <element id="Specimen.collection.quantity">
       <path value="Specimen.collection.quantity" />
@@ -222,9 +272,6 @@
       <definition value="Anatomic location where the material is collected, e.g. elbow." />
       <alias value="AnatomischeLocatie" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite" />
-        </extension>
         <strength value="extensible" />
         <description value="SpecimenAnatomicalLocationCodelist" />
         <valueSetReference>
@@ -325,9 +372,6 @@
       <definition value="Container type describes the envelope in which the material is collected or sent. Examples include blood tubes, transport container, possibly including culture medium." />
       <alias value="Containertype" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SpecimenContainerType" />
-        </extension>
         <strength value="extensible" />
         <description value="ContainerTypeCodelist" />
         <valueSetReference>
