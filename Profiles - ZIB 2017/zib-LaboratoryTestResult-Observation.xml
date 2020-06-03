@@ -298,8 +298,8 @@
         <comment value="TestResult" />
       </mapping>
     </element>
-    <element id="Observation.interpretation">
-      <path value="Observation.interpretation" />
+    <element id="Observation.interpretation.coding">
+      <path value="Observation.interpretation.coding" />
       <slicing>
         <discriminator>
           <type value="value" />
@@ -307,14 +307,22 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-    </element>
-    <element id="Observation.interpretation:ObservationInterpretation">
-      <path value="Observation.interpretation" />
-      <sliceName value="ObservationInterpretation" />
       <min value="1" />
     </element>
-    <element id="Observation.interpretation:InterpretatieVlaggenCodelijst">
-      <path value="Observation.interpretation" />
+    <element id="Observation.interpretation.coding:ObservationInterpretation">
+      <path value="Observation.interpretation.coding" />
+      <sliceName value="ObservationInterpretation" />
+      <min value="1" />
+      <binding>
+        <strength value="extensible" />
+        <description value="Observation Interpretation Codes" />
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-interpretation" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation.interpretation.coding:InterpretatieVlaggenCodelijst">
+      <path value="Observation.interpretation.coding" />
       <sliceName value="InterpretatieVlaggenCodelijst" />
       <short value="ResultFlags" />
       <definition value="Attention codes indicating whether the result is above or below certain reference values or interpreting the result otherwise. (Resistent)" />
@@ -325,6 +333,7 @@
           <valueString value="ObservationInterpretation" />
         </extension>
         <strength value="extensible" />
+        <description value="InterpretatieVlaggenCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.7--20171231000000" />
         </valueSetReference>
