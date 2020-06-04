@@ -97,7 +97,8 @@
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]" />
-      <definition value="ResultDateTime" />
+      <short value="ResultDateTime" />
+      <definition value="Date and if possible the time at which the entire or specific result measurement was carried out." />
       <alias value="UitslagDatumTijd" />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
@@ -145,18 +146,18 @@
         <comment value="MeasuringMethod" />
       </mapping>
     </element>
+    <element id="Observation.related">
+      <path value="Observation.related" />
+      <short value="MeasurementResult" />
+      <definition value="Container of the MeasurementResult concept. This container contains all data elements of the MeasurementResult concept." />
+      <alias value="MeetUitslag" />
+    </element>
     <element id="Observation.related.target">
       <path value="Observation.related.target" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
       </type>
-    </element>
-    <element id="Observation.component">
-      <path value="Observation.component" />
-      <short value="MeasurementResult" />
-      <definition value="Container of the MeasurementResult concept. This container contains all data elements of the MeasurementResult concept." />
-      <alias value="MeetUitslag" />
     </element>
     <element id="Observation.component.code">
       <path value="Observation.component.code" />
@@ -171,11 +172,6 @@
           <display value="MetingNaamCodelijst" />
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="hcim-generalmeasurment-v3.0-2017EN" />
-        <map value="NL-CM:13.3.6" />
-        <comment value="MeasurementName" />
-      </mapping>
     </element>
   </differential>
 </StructureDefinition>
