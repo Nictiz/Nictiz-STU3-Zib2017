@@ -17,7 +17,7 @@
         <use value="work"/>
       </telecom>
     </contact>
-    <description value="Maps AddressType codes as found in HCIM AddressInformation (release 2017) to Address.use codes as found in FHIR STU3"/>
+    <description value="Maps AddressType codes as found in HCIM AddressInformation (v1.0, 2017) to Address.use codes as found in FHIR STU3"/>
     <sourceReference>
         <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.20.5.3--20171231000000"/>
         <display value="AdresSoortCodelijst"/>
@@ -34,7 +34,7 @@
             <code value="PST"/>
             <target>
                 <equivalence value="unmatched"/>
-                <comment value="PST: Postal Address/postadres. Postal address are marked in Address.type = postal"/>
+                <comment value="PST: Postal Address/Postadres. Postal addresses are marked in Address.type = postal"/>
             </target>
         </element>
         <element>
@@ -42,7 +42,7 @@
             <target>
                 <code value="home"/>
                 <equivalence value="specializes"/>
-                <comment value="HP: Primary home/officieel adres. home: Home address. Use in conjunction with Address.type = physical (optional), Address.use.extension http://hl7.org/fhir/StructureDefinition/iso21090-AD-use = HP and Address.extension http://fhir.nl/fhir/StructureDefinition/nl-core-address-official = true to mark as primary"/>
+                <comment value="HP: Primary Home/Officieel adres. Use in conjunction with Address.extension:official = 'true' to mark as primary"/>
             </target>
         </element>
         <element>
@@ -50,7 +50,7 @@
             <target>
                 <code value="home"/>
                 <equivalence value="equivalent"/>
-                <comment value="PHYS: Visit Address/Woon-/verblijfadres. home: A communication address at a home. Use in conjunction with Address.type = physical, Address.use.extension http://hl7.org/fhir/StructureDefinition/iso21090-AD-use = PHYS"/>
+                <comment value="PHYS: Visit Address/Woon-/verblijfadres. A communication address at a home. Use in conjunction with Address.type = 'physical'"/>
             </target>
         </element>
         <element>
@@ -72,7 +72,7 @@
             <target>
                 <code value="temp"/>
                 <equivalence value="narrower"/>
-                <comment value="HV: Vacation Home. temp: Any temporary address. Use in conjunction with Address.type = physical (optional), Address.use.extension http://hl7.org/fhir/StructureDefinition/iso21090-AD-use = HV"/>
+                <comment value="HV: Vacation Home/Vakantie adres. Any temporary address."/>
             </target>
         </element>
     </group>
