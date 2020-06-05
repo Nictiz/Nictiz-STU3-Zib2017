@@ -70,18 +70,28 @@
         <comment value="ResultStatus" />
       </mapping>
     </element>
-    <element id="Observation.code">
-      <path value="Observation.code" />
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="closed" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Observation.code.coding:OnderzoekCodelijst">
+      <path value="Observation.code.coding" />
+      <sliceName value="OnderzoekCodelijst" />
       <short value="Investigation | MeasurementName" />
       <definition value="A general measurement can contain multiple components. This concept contains the name and code of the entire measurement." />
       <alias value="Onderzoek" />
-      <alias value="MetingNaam" />
       <binding>
         <strength value="extensible" />
         <description value="SNOMED CT all concepts" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.3--20171231000000" />
-          <display value="OnderzoekCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -89,10 +99,23 @@
         <map value="NL-CM:13.3.2" />
         <comment value="Investigation" />
       </mapping>
+    </element>
+    <element id="Observation.code.coding:sliceCoding">
+      <path value="Observation.code.coding" />
+      <sliceName value="sliceCoding" />
+      <short value="MeasurementName" />
+      <definition value="Description (name and code) of the measurement." />
+      <alias value="MetingNaam" />
+      <binding>
+        <strength value="extensible" />
+        <description value="SNOMED CT - all values" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.2--20171231000000" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
         <map value="NL-CM:13.3.6" />
-        <comment value="MeasurementName" />
       </mapping>
     </element>
     <element id="Observation.effective[x]">
@@ -158,20 +181,6 @@
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
       </type>
-    </element>
-    <element id="Observation.component.code">
-      <path value="Observation.component.code" />
-      <short value="MeasurementName" />
-      <definition value="Description (name and code) of the measurement." />
-      <alias value="MetingNaam" />
-      <binding>
-        <strength value="extensible" />
-        <description value="SNOMED CT - all values" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.2--20171231000000" />
-          <display value="MetingNaamCodelijst" />
-        </valueSetReference>
-      </binding>
     </element>
   </differential>
 </StructureDefinition>
