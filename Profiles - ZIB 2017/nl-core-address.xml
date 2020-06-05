@@ -143,33 +143,6 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Address.extension:official">
-      <path value="Address.extension" />
-      <sliceName value="official" />
-      <short value="Mark an address as an 'officially registered' address." />
-      <definition value="Mark an address as an 'officially registered' address. In Dutch context that means it is registered in the Basisregistratie persoonsgegevens (BRP)" />
-      <alias value="Markeer een adres als een 'officieel geregistreerd adres." />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official" />
-      </type>
-      <mapping>
-        <identity value="hcim-address-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.11" />
-        <comment value="AddressType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-addressinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.11" />
-        <comment value="AddressType" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-addressinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.5.8" />
-        <comment value="AddressType" />
-      </mapping>
-    </element>
     <element id="Address.extension:AddressType">
       <path value="Address.extension" />
       <sliceName value="AddressType" />
@@ -186,6 +159,33 @@
       <definition value="The type of address in question, such as a home address or mailing address." />
       <comment value="This extension can be used to include the HCIM AddressType code. See the documentation on the root level for mapping these codes to the various elements of this datatype.&#xD;&#xA;&#xD;&#xA;NOTE: FHIR core defines the AD-use extension to further specify the postal address type. However, the ValueSet used in that extension doesn't completely match the HCIM ValueSet. Therefore, a custom extension has been made. This doesn't preclude the use of the AD-use extension." />
       <alias value="AdresSoort" />
+      <mapping>
+        <identity value="hcim-address-v2.0.1-2015EN" />
+        <map value="NL-CM:0.1.11" />
+        <comment value="AddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-addressinformation-v3.0-2016EN" />
+        <map value="NL-CM:0.1.11" />
+        <comment value="AddressType" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-addressinformation-v1.0-2017EN" />
+        <map value="NL-CM:20.5.8" />
+        <comment value="AddressType" />
+      </mapping>
+    </element>
+    <element id="Address.extension:official">
+      <path value="Address.extension" />
+      <sliceName value="official" />
+      <short value="Mark an address as an 'officially registered' address." />
+      <definition value="Mark an address as an 'officially registered' address. In Dutch context that means it is registered in the Basisregistratie persoonsgegevens (BRP)" />
+      <alias value="Markeer een adres als een 'officieel geregistreerd adres." />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official" />
+      </type>
       <mapping>
         <identity value="hcim-address-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.11" />
