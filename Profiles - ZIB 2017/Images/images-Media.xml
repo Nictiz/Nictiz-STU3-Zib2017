@@ -68,13 +68,16 @@
     </element>
     <element id="Media.identifier">
       <path value="Media.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="use" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <definition value="Image identifier as assigned by the source of the image / Media. &#xD;&#xA;The Media SHALL contain a &quot;Master Version Specific Identifier&quot; which is specific to this version of the image. This unique identifier may be used elsewhere to identify this version of the image." />
       <alias value="Identifier" />
       <min value="1" />
-      <mapping>
-        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
-        <map value="DocumentReference.masterIdentifier" />
-      </mapping>
       <mapping>
         <identity value="xds" />
         <map value="DocumentEntry.uniqueId" />
@@ -84,6 +87,23 @@
         <map value="bd-dataelement-40" />
         <comment value="Identificatie" />
       </mapping>
+    </element>
+    <element id="Media.identifier:masterIdentifier">
+      <path value="Media.identifier" />
+      <sliceName value="masterIdentifier" />
+      <definition value="Image identifier as assigned by the source of the image / Media. &#xD;&#xA;The Media SHALL contain a &quot;Master Version Specific Identifier&quot; which is specific to this version of the image. This unique identifier may be used elsewhere to identify this version of the image." />
+      <alias value="masterIdentifier" />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="ihe-mhd-documentreference-xds-on-fhir" />
+        <map value="DocumentReference.masterIdentifier" />
+      </mapping>
+    </element>
+    <element id="Media.identifier:masterIdentifier.use">
+      <path value="Media.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
     </element>
     <element id="Media.basedOn">
       <path value="Media.basedOn" />
