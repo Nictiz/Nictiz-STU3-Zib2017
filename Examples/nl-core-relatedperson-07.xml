@@ -96,6 +96,18 @@
         <value value="s.vollebregt@example.com"/>
     </telecom>
     <address>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="HP"/>
+                    <display value="Officieel adres"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+            <valueBoolean value="true"/>
+        </extension>
         <use value="home"/>
         <line value="Kraakweg 465">
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
