@@ -81,15 +81,15 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Observation.code.coding:OnderzoekCodelijst">
+    <element id="Observation.code.coding:TestCodelist">
       <path value="Observation.code.coding" />
-      <sliceName value="OnderzoekCodelijst" />
-      <short value="Investigation | MeasurementName" />
-      <definition value="A general measurement can contain multiple components. This concept contains the name and code of the entire measurement." />
+      <sliceName value="TestCodelist" />
+      <short value="Investigation" />
+      <definition value="A general measurement can contain multiple components. This concept contains the name and code of the entire measurement. The components are represented in one or more MeasurementResult concepts." />
       <alias value="Onderzoek" />
+      <max value="1" />
       <binding>
         <strength value="extensible" />
-        <description value="SNOMED CT all concepts" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.3--20171231000000" />
         </valueSetReference>
@@ -100,15 +100,15 @@
         <comment value="Investigation" />
       </mapping>
     </element>
-    <element id="Observation.code.coding:sliceCoding">
+    <element id="Observation.code.coding:MeasurementNameCodelist">
       <path value="Observation.code.coding" />
-      <sliceName value="sliceCoding" />
+      <sliceName value="MeasurementNameCodelist" />
       <short value="MeasurementName" />
       <definition value="Description (name and code) of the measurement." />
       <alias value="MetingNaam" />
+      <max value="1" />
       <binding>
         <strength value="extensible" />
-        <description value="SNOMED CT - all values" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.2--20171231000000" />
         </valueSetReference>
