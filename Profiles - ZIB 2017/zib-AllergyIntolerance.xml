@@ -356,9 +356,23 @@
     </element>
     <element id="AllergyIntolerance.onset[x]">
       <path value="AllergyIntolerance.onset[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="AllergyIntolerance.onset[x]:dateTime">
+      <path value="AllergyIntolerance.onset[x]" />
+      <sliceName value="dateTime" />
       <short value="StartDateTime" />
       <definition value="The date and time at which the allergy or undesired reaction was determined.  &#xD;&#xA;This can be an exact date and time, or a rough indication of the date (such as only the year, or the month and the year)." />
       <alias value="BeginDatumTijd" />
+      <type>
+        <code value="dateTime" />
+      </type>
       <mapping>
         <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
         <map value="NL-CM:8.2.6" />
