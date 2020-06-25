@@ -3,9 +3,7 @@
     xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
     <id value="zib-laboratorytestresult-diagnosticreport"/>
     <meta>
-        <profile
-            value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport"
-        />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport" />
     </meta>
     <identifier>
         <type>
@@ -30,8 +28,8 @@
         <value value="250401"/>
     </identifier>
     <basedOn>
-        <reference value="ProcedureRequest/example"/>
-        <display value="Test"/>
+        <reference value="ProcedureRequest/zib-procedure-01"/>
+        <display value="Verrichtingaanvraag. Subject:"/>
     </basedOn>
     <status value="final">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
@@ -65,43 +63,36 @@
         <text value="Aerobic Respiratory Culture, Sputum"/>
     </code>
     <subject>
-        <reference value="Patient/example"/>
-        <display value="Test"/>
+        <!-- reference naar een andere patient die al gemaakt -->
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Id 999911120 (BSN), J. XXX_Helleman (Johan), Man, 1964-07-25"/>
     </subject>
     <effectiveDateTime value="2016-08-15"/>
     <issued value="2016-08-18T18:14:35Z"/>
-<!--    <performer>
-        <reference value="Organization/example"/>
+    <performer>
         <role>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="624-7"/>
-                <display value="Bacteria Spt Resp Cul"/>
+                <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+                <code value="RESP" />
+                <display value="Responsible Party" />
             </coding>
         </role>
         <actor>
-            <reference value="Actor/example"/>
-            <display value="Henk"/>
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-                <valueReference> </valueReference>
-                <valueReference value="nl-core-practitionerrole"/>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" >
+                <valueReference>
+                    <reference value="PractitioneRole/nl-core-practitionerrole-02" />
+                    <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
+                </valueReference>
             </extension>
         </actor>
-    </performer>-->
+    </performer>
     <specimen>
-        <reference value="Specimen/example"/>
-        <display value="Monster"/>
+        <reference value="Specimen/zib-laboratorytestresult-specimen-01"/>
+        <display value="Blood (substance)"/>
     </specimen>
     <result>
-        <reference value="Observation/organism1"/>
+        <reference value="Observation/zib-laboratorytestresult-observation-01"/>
         <display value="Normal Flora"/>
     </result>
-    <result>
-        <reference value="Observation/organism2"/>
-        <display value="Klebsiella pneumoniae"/>
-    </result>
-    <result>
-        <reference value="Observation/organism3"/>
-        <display value="Staphlyococcuc aureus"/>
-    </result>
+    <conclusion value="Test conclusion" />
 </DiagnosticReport>
