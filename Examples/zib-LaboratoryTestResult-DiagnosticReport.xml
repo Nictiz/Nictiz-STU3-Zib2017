@@ -1,7 +1,107 @@
+<?xml-model href="http://hl7.org/fhir/STU3/diagnosticreport.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <DiagnosticReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="" >
-    <id value="zib-laboratorytestresult-diagnosticreport" />
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
+    <id value="zib-laboratorytestresult-diagnosticreport"/>
     <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport"/>
-    </meta>    
+        <profile
+            value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport"
+        />
+    </meta>
+    <identifier>
+        <type>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+                <code value="PLAC"/>
+                <display value="Placer Identifier"/>
+            </coding>
+        </type>
+        <system value="https://acme.org/identifiers"/>
+        <value value="RP723234"/>
+    </identifier>
+    <identifier>
+        <type>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+                <code value="FILL"/>
+                <display value="Filler Identifier"/>
+            </coding>
+        </type>
+        <system value="https://acme.org/identifiers"/>
+        <value value="250401"/>
+    </identifier>
+    <basedOn>
+        <reference value="ProcedureRequest/example"/>
+        <display value="Test"/>
+    </basedOn>
+    <status value="final">
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.16.1"/>
+                    <code value="final"/>
+                    <display value="Definitief"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+    </status>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="4241000179101"/>
+            <display value="Laboratory report (record artifact)"/>
+        </coding>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0074"/>
+            <code value="MB"/>
+            <display value="microbiology"/>
+        </coding>
+    </category>
+    <code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="624-7"/>
+            <display value="Bacteria Spt Resp Cul"/>
+        </coding>
+        <text value="Aerobic Respiratory Culture, Sputum"/>
+    </code>
+    <subject>
+        <reference value="Patient/example"/>
+        <display value="Test"/>
+    </subject>
+    <effectiveDateTime value="2016-08-15"/>
+    <issued value="2016-08-18T18:14:35Z"/>
+<!--    <performer>
+        <reference value="Organization/example"/>
+        <role>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="624-7"/>
+                <display value="Bacteria Spt Resp Cul"/>
+            </coding>
+        </role>
+        <actor>
+            <reference value="Actor/example"/>
+            <display value="Henk"/>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                <valueReference> </valueReference>
+                <valueReference value="nl-core-practitionerrole"/>
+            </extension>
+        </actor>
+    </performer>-->
+    <specimen>
+        <reference value="Specimen/example"/>
+        <display value="Monster"/>
+    </specimen>
+    <result>
+        <reference value="Observation/organism1"/>
+        <display value="Normal Flora"/>
+    </result>
+    <result>
+        <reference value="Observation/organism2"/>
+        <display value="Klebsiella pneumoniae"/>
+    </result>
+    <result>
+        <reference value="Observation/organism3"/>
+        <display value="Staphlyococcuc aureus"/>
+    </result>
 </DiagnosticReport>
