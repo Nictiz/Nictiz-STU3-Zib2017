@@ -44,6 +44,7 @@
       <path value="Observation" />
       <short value="GeneralMeasurement" />
       <definition value="Root concept of the GeneralMeasurement information model. This root concept contains all data elements of the GeneralMeasurement information model." />
+      <comment value="This profile will be used for GeneralMeasurement and MeasurementResult." />
       <alias value="MeetUitslag" />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
@@ -62,8 +63,18 @@
       </extension>
       <path value="Observation.status" />
       <short value="ResultStatus" />
-      <definition value="The status of the total measurement." />
+      <definition value="The status of the GeneralMeasurement or MeasurementResult." />
       <alias value="ResultaatStatus" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationStatus" />
+        </extension>
+        <strength value="required" />
+        <description value="ResultStatusCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.1--20171231000000" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
         <map value="NL-CM:13.3.3" />
@@ -72,13 +83,9 @@
     </element>
     <element id="Observation.code">
       <path value="Observation.code" />
-      <code>
-        <system value="http://snomed.info/sct" />
-        <code value="2.16.840.1.113883.6.96" />
-        <display value="SNOMED - All values" />
-      </code>
       <short value="Investigation or MeasurementName" />
       <definition value="A general measurement can contain multiple components. This concept contains the name and code of the entire measurement. The components are represented in one or more MeasurementResult concepts. Herby will the description (name and code) of the measurement used." />
+      <comment value="One of the two valueset (MeasurementNameCodelist) has been excluded. Both valuesets contains the same Snomed codes." />
       <alias value="Onderzoek" />
       <alias value="MetingNaam" />
       <binding>
@@ -157,7 +164,7 @@
     <element id="Observation.related">
       <path value="Observation.related" />
       <short value="MeasurementResult" />
-      <definition value="Container of the MeasurementResult concept. This container contains all data elements of the MeasurementResult concept." />
+      <definition value="Reference to the related Result, e.g. every result with the name, resultvalue, methode, etc. The GeneralMeasurement (parent) links to every MeasurementResult (child)." />
       <alias value="MeetUitslag" />
     </element>
     <element id="Observation.related.target">
