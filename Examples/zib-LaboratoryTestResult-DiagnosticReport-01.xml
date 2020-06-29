@@ -1,7 +1,7 @@
 <?xml-model href="http://hl7.org/fhir/STU3/diagnosticreport.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <DiagnosticReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
     xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
-    <id value="zib-laboratorytestresult-diagnosticreport"/>
+    <id value="zib-laboratorytestresult-diagnosticreport-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport" />
     </meta>
@@ -29,7 +29,7 @@
     </identifier>
     <basedOn>
         <reference value="ProcedureRequest/zib-procedure-01"/>
-        <display value="Surgical procedure"/>
+        <display value="Surgical procedure - Biopsy of skin"/>
     </basedOn>
     <status value="final">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
@@ -63,7 +63,6 @@
         <text value="Aerobic Respiratory Culture, Sputum"/>
     </code>
     <subject>
-        <!-- reference naar een andere patient die al gemaakt -->
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
@@ -84,15 +83,17 @@
                     <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
                 </valueReference>
             </extension>
+            <reference value="Practitioner/nl-core-practitioner-02"/>
+            <display value="Vaste Huisarts 1"/>
         </actor>
     </performer>
     <specimen>
         <reference value="Specimen/zib-laboratorytestresult-specimen-01"/>
-        <display value="Blood (substance)"/>
+        <display value="Blood"/>
     </specimen>
     <result>
         <reference value="Observation/zib-laboratorytestresult-observation-01"/>
-        <display value="Laboratory test finding (finding)"/>
+        <display value="Laboratory test finding"/>
     </result>
     <conclusion value="Test conclusion" />
 </DiagnosticReport>
