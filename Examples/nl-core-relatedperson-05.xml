@@ -59,34 +59,24 @@
             </extension>
         </given>
     </name>
-    <telecom>
-        <system value="phone">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="MC"/>
-                        <display value="Mobiel telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </system>
+    <telecom>        
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="MC"/>
+                    <display value="Mobiel telefoonnummer"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="phone" />
         <value value="06-98765432"/>
-        <use value="mobile">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="MC"/>
-                        <display value="Mobiel telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </use>
+        <use value="home" />    
     </telecom>
-    <telecom>
+    <telecom>             
         <system value="email"/>
         <value value="a.jongeneel@example.com"/>
+        <use value="work" />  
     </telecom>
     <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">

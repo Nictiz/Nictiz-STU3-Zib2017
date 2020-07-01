@@ -63,54 +63,23 @@
         </given>
     </name>
     <telecom>
-        <system value="phone">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="MC"/>
-                        <display value="Mobiel telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </system>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="MC"/>
+                    <display value="Mobiel telefoonnummer"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="phone"/>
         <value value="06-12345678"/>
-        <use value="mobile">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="MC"/>
-                        <display value="Mobiel telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </use>
+        <use value="home"/>
     </telecom>
     <telecom>
-        <system value="email">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="HP"/>
-                        <display value="Privé e-mailadres"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </system>
+        <system value="email"/>
         <value value="XXX_Helleman@hotmail.com"/>
-        <use value="home">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="HP"/>
-                        <display value="Privé e-mailadres"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </use>
+        <use value="home"/>
     </telecom>
     <gender value="male">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
@@ -215,33 +184,23 @@
             </given>
         </name>
         <telecom>
-            <system value="phone">
-                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                            <code value="MC"/>
-                            <display value="Mobiel telefoonnummer"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-            </system>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse" />
+                        <code value="MC" />
+                        <display value="Mobiel telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+            <system value="phone"/>
             <value value="06-12345645"/>
-            <use value="mobile">
-                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                            <code value="MC"/>
-                            <display value="Mobiel telefoonnummer"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-            </use>
+            <use value="home"/>
         </telecom>
         <telecom>
             <system value="email"/>
             <value value="j.vanderjutte@example.com"/>
+            <use value="home"/>
         </telecom>
         <address>
             <use value="home"/>

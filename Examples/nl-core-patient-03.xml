@@ -57,35 +57,24 @@
             </extension>
         </given>
     </name>
-    <telecom>
-        <system value="phone">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                        <code value="LL"/>
-                        <display value="Vast telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </system>
-        <value value="030-23454567"/>
-        <use value="home">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                        <code value="LL"/>
-                        <display value="Vast telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </use>
+    <telecom>        
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                    <code value="LL"/>
+                    <display value="Vast telefoonnummer"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="phone"/>
+        <value value="030-23454567" />
+        <use value="home" />
     </telecom>
     <telecom>
         <system value="email"/>
-        <value value="user@home.nl"/>
-        <use value="home"/>
+        <value value="user@home.nl" />
+        <use value="home" />
     </telecom>
     <gender value="female">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
@@ -169,29 +158,18 @@
             <given value="Gerard"/>
         </name>
         <telecom>
-            <system value="phone">
-                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                            <code value="LL"/>
-                            <display value="Vast telefoonnummer"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-            </system>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                        <code value="LL"/>
+                        <display value="Vast telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+            <system value="phone"/>
             <value value="015-23456789"/>
-            <use value="home">
-                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                            <code value="LL"/>
-                            <display value="Vast telefoonnummer"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-            </use>
+            <use value="home"/>
         </telecom>
     </contact>
     <generalPractitioner>
