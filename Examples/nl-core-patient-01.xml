@@ -195,33 +195,32 @@
             </given>
         </name>
         <telecom>
-            <system value="phone">
-                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                            <code value="MC"/>
-                            <display value="Mobiel telefoonnummer"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-            </system>
-            <value value="06-12345645"/>
-            <use value="mobile">
-                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                            <code value="MC"/>
-                            <display value="Mobiel telefoonnummer"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-            </use>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-NumberType">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="HP"/>
+                        <display value="Primary Home"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+            <system value="phone"/>
+            <value value="+31611234567" />
+            <use value="work" />
         </telecom>
         <telecom>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-EmailAddressType">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                        <code value="WP"/>
+                        <display value="Work Place"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
             <system value="email"/>
-            <value value="j.vanderjutte@example.com"/>
+            <value value="info@nictiz.nl" />
+            <use value="work" />
         </telecom>
         <address>
             <use value="home"/>

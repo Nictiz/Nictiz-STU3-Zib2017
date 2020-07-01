@@ -58,34 +58,32 @@
         </given>
     </name>
     <telecom>
-        <system value="phone">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                        <code value="LL"/>
-                        <display value="Vast telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </system>
-        <value value="030-23454567"/>
-        <use value="home">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                        <code value="LL"/>
-                        <display value="Vast telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </use>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-NumberType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="HP"/>
+                    <display value="Primary Home"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="phone"/>
+        <value value="+31611234567" />
+        <use value="work" />
     </telecom>
     <telecom>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-EmailAddressType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="WP"/>
+                    <display value="Work Place"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
         <system value="email"/>
-        <value value="user@home.nl"/>
-        <use value="home"/>
+        <value value="info@nictiz.nl" />
+        <use value="work" />
     </telecom>
     <gender value="female">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
