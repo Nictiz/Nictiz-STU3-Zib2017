@@ -5011,85 +5011,46 @@
                     <family value="Huisarts 123"/>
                 </name>
                 <telecom>
-                    <system value="phone">
-                        <extension
-                            url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                            <valueCodeableConcept>
-                                <coding>
-                                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                                    <code value="LL"/>
-                                    <display value="Vast telefoonnummer"/>
-                                </coding>
-                            </valueCodeableConcept>
-                        </extension>
-                    </system>
+                    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+                        <valueCodeableConcept>
+                            <coding>
+                                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                                <code value="LL"/>
+                                <display value="Land Line"/>
+                            </coding>
+                        </valueCodeableConcept>
+                    </extension>
+                    <system value="phone" />
                     <value value="+31434073576"/>
-                    <use value="work">
-                        <extension
-                            url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                            <valueCodeableConcept>
-                                <coding>
-                                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                                    <code value="LL"/>
-                                    <display value="Vast telefoonnummer"/>
-                                </coding>
-                            </valueCodeableConcept>
-                        </extension>
-                    </use>
+                    <use value="work" />        
                 </telecom>
-                <telecom>
-                    <system value="phone">
-                        <extension
-                            url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                            <valueCodeableConcept>
-                                <coding>
-                                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                                    <code value="MC"/>
-                                    <display value="Mobiel telefoonnummer"/>
-                                </coding>
-                            </valueCodeableConcept>
-                        </extension>
-                    </system>
+                <telecom>                    
+                    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+                        <valueCodeableConcept>
+                            <coding>
+                                <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                                <code value="MC"/>
+                                <display value="Mobile Phone"/>
+                            </coding>
+                        </valueCodeableConcept>
+                    </extension>
+                    <system value="phone" />
                     <value value="0612345990"/>
-                    <use value="work">
-                        <extension
-                            url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                            <valueCodeableConcept>
-                                <coding>
-                                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                                    <code value="MC"/>
-                                    <display value="Mobiel telefoonnummer"/>
-                                </coding>
-                            </valueCodeableConcept>
-                        </extension>
-                    </use>
+                    <use value="work" />    
                 </telecom>
-                <telecom>
-                    <system value="email">
-                        <extension
-                            url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                            <valueCodeableConcept>
-                                <coding>
-                                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                                    <code value="WP"/>
-                                    <display value="Zakelijk e-mailadres"/>
-                                </coding>
-                            </valueCodeableConcept>
-                        </extension>
-                    </system>
-                    <value value="devries@work.com"/>
-                    <use value="work">
-                        <extension
-                            url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                            <valueCodeableConcept>
-                                <coding>
-                                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                                    <code value="WP"/>
-                                    <display value="Zakelijk e-mailadres"/>
-                                </coding>
-                            </valueCodeableConcept>
-                        </extension>
-                    </use>
+                <telecom>                    
+                    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-EmailAddressType">
+                        <valueCodeableConcept>
+                            <coding>
+                                <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                                <code value="WP"/>
+                                <display value="Work Place"/>
+                            </coding>
+                        </valueCodeableConcept>
+                    </extension>
+                    <system value="email"/>
+                    <value value="devries@work.com" />
+                    <use value="work" />             
                 </telecom>
             </Practitioner>
         </resource>
