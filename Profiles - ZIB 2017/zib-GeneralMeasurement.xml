@@ -58,9 +58,6 @@
       </mapping>
     </element>
     <element id="Observation.status">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-        <valueString value="default: final" />
-      </extension>
       <path value="Observation.status" />
       <short value="ResultStatus" />
       <definition value="The status of the GeneralMeasurement or MeasurementResult." />
@@ -73,6 +70,7 @@
         <description value="ResultStatusCodelist" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.1--20171231000000" />
+          <display value="ResultStatusCodelist" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -84,8 +82,8 @@
     <element id="Observation.code">
       <path value="Observation.code" />
       <short value="Investigation or MeasurementName" />
-      <definition value="A general measurement can contain multiple components. This concept contains the name and code of the entire measurement. The components are represented in one or more MeasurementResult concepts. Herby will the description (name and code) of the measurement used." />
-      <comment value="One of the two valueset (MeasurementNameCodelist) has been excluded. Both valuesets contains the same Snomed codes." />
+      <definition value="GeneralMeasurement can contain mutiple related MeasurementResults. This is reflected in a parent Observation with related child Observations. This element is used to descibre the GeneralMeasurement based on the concept Investigation while in the related Observations, this element is used to describe the MeasurementResults based on the concept MeasurmentName." />
+      <comment value="Only one of the two valueset (MeasurementNameCodelist) is bound to this element. TestCodelist is not used. This is not a problem because both valuesets contain the same codes, namely all SNOMED CT codes." />
       <alias value="Onderzoek" />
       <alias value="MetingNaam" />
       <binding>
@@ -95,8 +93,8 @@
         <strength value="extensible" />
         <description value="TestCodelist or MeasurementNameCodelist" />
         <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.3--20171231000000" />
-          <display value="MeetmethodeCodelijst" />
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.2--20171231000000" />
+          <display value="MeasurementNameCodelist" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -123,6 +121,7 @@
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]" />
+      <short value="ResultValue"/>
       <definition value="The result of the measurement. Depending on the type of measurement, the result will consist of a value with a unit or a coded value (ordinal or nominal) or of a textual result." />
       <alias value="UitslagWaarde" />
       <mapping>
@@ -164,13 +163,18 @@
     <element id="Observation.related">
       <path value="Observation.related" />
       <short value="MeasurementResult" />
-      <definition value="Reference to the related Result, e.g. every result with the name, resultvalue, methode, etc. The GeneralMeasurement (parent) links to every MeasurementResult (child)." />
+      <definition value="Reference to related MeasurmentResults beloning to the GeneralMeasurement." />
+      <comment value="The HCIM GeneralMeasurement (parent) links to every MeasurementResult (child) through the related.target reference. The referenced Observation contains all the concepts of the HCIM MeasurmentResult container, e.g. results with the name, resultvalue, methode, etc. This GeneralMeasurement profile is used for both Observations."/>
       <alias value="MeetUitslag" />
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
         <map value="NL-CM:13.3.5" />
         <comment value="MeasurementResult" />
       </mapping>
+    </element>
+    <element id="Observation.related.type">
+      <path value="Observation.related.type" />
+      <comment value="The related type will mostly likely be: 'has-member'."/>
     </element>
     <element id="Observation.related.target">
       <path value="Observation.related.target" />
