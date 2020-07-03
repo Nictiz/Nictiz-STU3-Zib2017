@@ -56,14 +56,16 @@
       <example>
         <label value="Example of a vacation home address" />
         <valueAddress>
-          <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
-            <valueBoolean value="false" />
+          <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                <code value="HV"/>
+                <display value="Vakantie adres"/>
+              </coding>
+            </valueCodeableConcept>
           </extension>
-          <use value="temp">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-AD-use">
-              <valueCode value="HV" />
-            </extension>
-          </use>
+          <use value="temp"/>
           <line value="Binnenkant 12A Hoog">
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
               <valueString value="Binnenkant" />
@@ -87,6 +89,15 @@
       <example>
         <label value="Example of a primary home address" />
         <valueAddress>
+          <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                <code value="HP"/>
+                <display value="Officieel adres"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>
           <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
             <valueBoolean value="true" />
           </extension>
