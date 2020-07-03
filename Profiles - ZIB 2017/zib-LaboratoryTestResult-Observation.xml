@@ -69,11 +69,6 @@
       <path value="Observation.identifier" />
       <short value="Identifier" />
       <alias value="Identificatie" />
-      <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.6" />
-        <comment value="IdentificationNumber" />
-      </mapping>
     </element>
     <element id="Observation.basedOn">
       <path value="Observation.basedOn" />
@@ -151,16 +146,12 @@
       <short value="LaboratoryTestResultCode" />
       <min value="1" />
       <max value="1" />
-    </element>
-    <element id="Observation.category:LaboratoryTestResultCode.coding.system">
-      <path value="Observation.category.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Observation.category:LaboratoryTestResultCode.coding.code">
-      <path value="Observation.category.coding.code" />
-      <min value="1" />
-      <fixedCode value="49581000146104" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="49581000146104" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
