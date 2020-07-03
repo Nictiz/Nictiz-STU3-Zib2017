@@ -41,11 +41,29 @@
         </given>
     </name>
     <telecom>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="MC"/>
+                    <display value="Mobiel telefoonnummer"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
         <system value="phone"/>
         <value value="06-12345678"/>
         <use value="mobile"/>
     </telecom>
     <telecom>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-EmailAddressType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="HP"/>
+                    <display value="Privé e-mailadres"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>        
         <system value="email"/>
         <value value="XXX_Helleman@hotmail.com"/>
         <use value="home"/>

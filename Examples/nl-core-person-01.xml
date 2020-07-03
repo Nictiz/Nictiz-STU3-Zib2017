@@ -29,55 +29,33 @@
         </family>
         <given value="Henk"/>
     </name>
-    <telecom>
-        <system value="phone">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="MC"/>
-                        <display value="Mobiel telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </system>
+    <telecom>       
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="MC"/>
+                    <display value="Mobiel telefoonnummer"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="phone" />
         <value value="0612345990"/>
-        <use value="work">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="MC"/>
-                        <display value="Mobiel telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </use>
+        <use value="work" />    
     </telecom>
-    <telecom>
-        <system value="email">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="WP"/>
-                        <display value="Zakelijk e-mailadres"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </system>
-        <value value="dehaas@work.com"/>
-        <use value="work">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="WP"/>
-                        <display value="Zakelijk e-mailadres"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </use>
+    <telecom>        
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-EmailAddressType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="WP"/>
+                    <display value="Zakelijk e-mailadres"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="email"/>
+        <value value="dehaas@work.com" />
+        <use value="work" />
     </telecom>
     <gender value="male">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">

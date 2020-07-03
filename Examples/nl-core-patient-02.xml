@@ -45,34 +45,41 @@
         </given>
     </name>
     <telecom>
-        <system value="phone">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="MC"/>
-                        <display value="Mobiel telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </system>
-        <value value="06-23456789"/>
-        <use value="mobile">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="MC"/>
-                        <display value="Mobiel telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </use>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                    <code value="LL"/>
+                    <display value="Vast telefoonnummer"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-NumberType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="HP"/>
+                    <display value="Telefoonnummer thuis"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="phone"/>
+        <value value="+31611234567" />
+        <use value="home" />
     </telecom>
     <telecom>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-EmailAddressType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="HP"/>
+                    <display value="Privé e-mailadres"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
         <system value="email"/>
-        <value value="XXX_Mesker@hotmail.com"/>
-        <use value="home"/>
+        <value value="XXX_Mesker@hotmail.com" />
+        <use value="home" />
     </telecom>
     <gender value="male">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">

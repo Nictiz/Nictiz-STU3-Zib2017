@@ -66,34 +66,33 @@
             </extension>
         </given>
     </name>
-    <telecom>
-        <system value="phone">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="MC"/>
-                        <display value="Mobiel telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </system>
+    <telecom>        
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="MC"/>
+                    <display value="Mobiel telefoonnummer"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="phone" />
         <value value="06-11223344"/>
-        <use value="mobile">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                        <code value="MC"/>
-                        <display value="Mobiel telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </use>
+        <use value="mobile" />   
     </telecom>
-    <telecom>
+    <telecom>        
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-EmailAddressType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="WP"/>
+                    <display value="Zakelijk e-mailadres"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>        
         <system value="email"/>
         <value value="s.vollebregt@example.com"/>
+        <use value="work" />        
     </telecom>
     <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">

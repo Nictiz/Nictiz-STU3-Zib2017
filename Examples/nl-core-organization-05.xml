@@ -85,29 +85,18 @@
     <name value="Ziekenhuis Gooi en Overvecht"/>
     <alias value="ZGO"/>
     <telecom>
-        <system value="phone">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                        <code value="LL"/>
-                        <display value="Vast telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </system>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                    <code value="LL"/>
+                    <display value="Vast telefoonnummer"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="phone" />
         <value value="030-1234567"/>
-        <use value="work">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                        <code value="LL"/>
-                        <display value="Vast telefoonnummer"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </use>
+        <use value="work" />
     </telecom>
     <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
@@ -152,31 +141,6 @@
         </purpose>
         <name>
             <text value="Mevrouw Pietersen"/>
-        </name>
-        <telecom>
-            <system value="phone">
-                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                            <code value="LL"/>
-                            <display value="Vast telefoonnummer"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-            </system>
-            <value value="030-1234567"/>
-            <use value="work">
-                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                            <code value="LL"/>
-                            <display value="Vast telefoonnummer"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-            </use>
-        </telecom>
+        </name>          
     </contact>
 </Organization>
