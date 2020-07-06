@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="mp612-DispenseToFHIRConversion-Dispense" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-Dispense" />
+  <version value="1.2.1" />
+  <name value="MP612 DispenseToFHIRConversion Dispense" />
+  <title value="MP612 DispenseToFHIRConversion Dispense" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This profile is derived from the profile of the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationDispense. release 2017." />
+  <purpose value="This profile defines the FHIR response for HCIM Dispense of a Medicationproces V6.12 request on the LSP." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.2" />
+  <mapping>
+    <identity value="Medication-Process-v09" />
+    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20181220T121121/tr-2.16.840.1.113883.2.4.3.11.60.20.77.4.162-2018-11-29T135611.html" />
+    <name value="Medication Process v09 - verstrekkingenvertaling" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="MedicationDispense" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="MedicationDispense">
+      <path value="MedicationDispense" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-20270" />
+        <comment value="Verstrekking" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:distributionForm">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="distributionForm" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.extension:requestDate">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="requestDate" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22500" />
+        <comment value="Aanschrijfdatum" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.extension:additionalInformation">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="additionalInformation" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.extension:medicationTreatment">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="medicationTreatment" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.extension:medicationTreatment.valueIdentifier:valueIdentifier">
+      <path value="MedicationDispense.extension.valueIdentifier" />
+      <sliceName value="valueIdentifier" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.identifier">
+      <path value="MedicationDispense.identifier" />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-20271" />
+        <comment value="Identificatie" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.identifier.system">
+      <path value="MedicationDispense.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.identifier.value">
+      <path value="MedicationDispense.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.partOf">
+      <path value="MedicationDispense.partOf" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.status">
+      <path value="MedicationDispense.status" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.category.coding">
+      <path value="MedicationDispense.category.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationDispense.category.coding:DispenseCode">
+      <path value="MedicationDispense.category.coding" />
+      <sliceName value="DispenseCode" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationDispense.category.coding:DispenseCode.system">
+      <path value="MedicationDispense.category.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.category.coding:DispenseCode.code">
+      <path value="MedicationDispense.category.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.medicationReference:medicationReference">
+      <path value="MedicationDispense.medicationReference" />
+      <sliceName value="medicationReference" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-Product" />
+      </type>
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22259" />
+        <comment value="Verstrekt geneesmiddel" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.subject">
+      <path value="MedicationDispense.subject" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-Patient" />
+      </type>
+    </element>
+    <element id="MedicationDispense.context">
+      <path value="MedicationDispense.context" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.supportingInformation">
+      <path value="MedicationDispense.supportingInformation" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer">
+      <path value="MedicationDispense.performer" />
+      <min value="1" />
+      <max value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-20858" />
+        <comment value="Verstrekker" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.performer.actor">
+      <path value="MedicationDispense.performer.actor" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-Organization" />
+      </type>
+    </element>
+    <element id="MedicationDispense.performer.onBehalfOf">
+      <path value="MedicationDispense.performer.onBehalfOf" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.authorizingPrescription">
+      <path value="MedicationDispense.authorizingPrescription" />
+      <definition value="Relationship to the dispense request. Only a logical identifier could be known of the dispense request in MP-612, hence the 0..0 constrain on reference. " />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22396" />
+        <comment value="Relatie naar verstrekkingsverzoek" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.authorizingPrescription.reference">
+      <path value="MedicationDispense.authorizingPrescription.reference" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.type">
+      <path value="MedicationDispense.type" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.quantity">
+      <path value="MedicationDispense.quantity" />
+      <min value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-20923" />
+        <comment value="Verstrekte hoeveelheid" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.quantity.value">
+      <path value="MedicationDispense.quantity.value" />
+      <min value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22601" />
+        <comment value="Aantal" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.quantity.unit">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="MedicationDispense.quantity.unit" />
+      <min value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-22602" />
+        <comment value="Eenheid" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.quantity.system">
+      <path value="MedicationDispense.quantity.system" />
+      <short value="G-Standaard thesaurus basiseenheden" />
+      <definition value="A value from the G-standaard (table 902)." />
+      <min value="1" />
+      <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2" />
+    </element>
+    <element id="MedicationDispense.quantity.code">
+      <path value="MedicationDispense.quantity.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.daysSupply">
+      <path value="MedicationDispense.daysSupply" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-20924" />
+        <comment value="Verbruiksduur" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.daysSupply.value">
+      <path value="MedicationDispense.daysSupply.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.daysSupply.unit">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
+      <path value="MedicationDispense.daysSupply.unit" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.daysSupply.system">
+      <path value="MedicationDispense.daysSupply.system" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.daysSupply.code">
+      <path value="MedicationDispense.daysSupply.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.whenPrepared">
+      <path value="MedicationDispense.whenPrepared" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.whenHandedOver">
+      <path value="MedicationDispense.whenHandedOver" />
+      <min value="1" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-20272" />
+        <comment value="Datum" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.destination">
+      <path value="MedicationDispense.destination" />
+      <mapping>
+        <identity value="Medication-Process-v09" />
+        <map value="mp-dataelement900-20925" />
+        <comment value="Afleverlocatie" />
+      </mapping>
+    </element>
+    <element id="MedicationDispense.receiver">
+      <path value="MedicationDispense.receiver" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.note">
+      <path value="MedicationDispense.note" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.substitution">
+      <path value="MedicationDispense.substitution" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.detectedIssue">
+      <path value="MedicationDispense.detectedIssue" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.notDone">
+      <path value="MedicationDispense.notDone" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.notDoneReason[x]">
+      <path value="MedicationDispense.notDoneReason[x]" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.eventHistory">
+      <path value="MedicationDispense.eventHistory" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

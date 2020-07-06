@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-MedicationUse-Duration" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration" />
+  <version value="2.0.0" />
+  <name value="Zib MedicationUse Duration" />
+  <title value="HCIM MedicationUse Duration" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The duration of the medication usage" />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.2" />
+  <kind value="primitive-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="MedicationRequest" />
+  <context value="MedicationStatement" />
+  <context value="MedicationStatement.effectivePeriod" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration" />
+    </element>
+    <element id="Extension.value[x]:valueDuration">
+      <path value="Extension.valueDuration" />
+      <sliceName value="valueDuration" />
+      <short value="UsageDuration" />
+      <alias value="Gebruiksduur" />
+      <type>
+        <code value="Duration" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

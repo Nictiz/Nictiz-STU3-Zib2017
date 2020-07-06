@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Medication-MedicationTreatment" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment" />
+  <version value="2.0.0" />
+  <name value="Zib MedicationTreatment" />
+  <title value="HCIM MedicationTreatment" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This is an extension in scope of the Dutch Health and Care Information modelss (Dutch: Zorginformatiebouwsteen or ZIB) for Medication. &amp;#xD;&amp;#xA;This extension is to be used to which Medical Treatment the specific information belongs to. This is done by the use of an identifier of that medical treatment." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.2" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="MedicationAdministration" />
+  <context value="MedicationDispense" />
+  <context value="MedicationStatement" />
+  <context value="MedicationRequest" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment" />
+    </element>
+    <element id="Extension.value[x]:valueIdentifier">
+      <path value="Extension.valueIdentifier" />
+      <sliceName value="valueIdentifier" />
+      <type>
+        <code value="Identifier" />
+      </type>
+    </element>
+    <element id="Extension.value[x]:valueIdentifier.system">
+      <path value="Extension.valueIdentifier.system" />
+      <min value="1" />
+    </element>
+    <element id="Extension.value[x]:valueIdentifier.value">
+      <path value="Extension.valueIdentifier.value" />
+      <min value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

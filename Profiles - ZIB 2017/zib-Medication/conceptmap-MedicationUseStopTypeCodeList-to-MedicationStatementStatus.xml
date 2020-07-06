@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+      <id value="MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus"/>
+      <url value="http://nictiz.nl/fhir/ConceptMap/MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus"/>
+      <version value="1.0.1"/>
+      <name value="MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus"/>
+      <title value="HCIM MedicationUseStopTypeCodeLijst to MedicationStatementStatus"/>
+      <status value="active"/>
+      <publisher value="Nictiz"/>
+      <contact>
+            <name value="Nictiz"/>
+            <telecom>
+                  <system value="email"/>
+                  <value value="info@nictiz.nl"/>
+                  <use value="work"/>
+            </telecom>
+      </contact>
+      <description value="Maps the HCIM MedicationUse release 2017 terminology for the concept MedicationUseStopType to the FHIR STU3 terminology associated with MedicationStatement.status."/>
+      <purpose value="To aid in mapping from HCIM MedicationUse ValueSet MedicationUseStopTypeCodeLijst to FHIR STU3 MedicationStatement.status."/>
+      <copyright value="CC0"/>
+      <sourceUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.9.11.1--20171231000000"/>
+      <targetUri value="http://hl7.org/fhir/medication-statement-status"/>
+      <group>
+            <source value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.1"/>
+            <target value="http://hl7.org/fhir/medication-statement-status"/>
+            <targetVersion value="http://hl7.org/fhir/medication-statement-status 3.0.1"/>
+            <element>
+                  <code value="1"/>
+                  <display value="Tijdelijk"/>
+                  <target>
+                        <code value="on-hold"/>
+                        <display value="On Hold"/>
+                        <equivalence value="equal"/>
+                  </target>
+            </element>
+            <element>
+                  <code value="2"/>
+                  <display value="Definitief"/>
+                  <target>
+                        <code value="stopped"/>
+                        <display value="Stopped"/>
+                        <equivalence value="equal"/>
+                  </target>
+            </element>
+      </group>
+</ConceptMap>

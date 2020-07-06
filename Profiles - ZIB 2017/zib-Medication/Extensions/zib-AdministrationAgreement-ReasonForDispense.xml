@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-AdministrationAgreement-AgreementReason" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AgreementReason" />
+  <version value="2.0.0" />
+  <name value="Zib Agreement Reason" />
+  <title value="HCIM Reason For Dispense" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="The reason a medication is (to be) dispended." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.2" />
+  <kind value="primitive-type" />
+  <abstract value="false" />
+  <contextType value="resource" />
+  <context value="MedicationDispense" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AgreementReason" />
+    </element>
+    <element id="Extension.value[x]:valueString">
+      <path value="Extension.valueString" />
+      <sliceName value="valueString" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
