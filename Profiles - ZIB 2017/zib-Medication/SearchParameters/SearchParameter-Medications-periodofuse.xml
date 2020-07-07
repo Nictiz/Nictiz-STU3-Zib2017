@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SearchParameter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/searchparameter.xsd">
+  <id value="Medications-periodofuse"/>
+  <url value="http://nictiz.nl/fhir/SearchParameter/Medications-periodofuse" />
+  <version value="1.0.2"/>
+  <name value="Medications-periodofuse" />
+    <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <purpose value="To search MedicationRequest and MedicationDispense resources based on the Period datatype of the PeriodOfUse extension (http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse) and Duration datatype in the MedicactionUse-Duration extension (http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration)."/>
+  <code value="periodofuse"/>
+  <base value="MedicationRequest"/>
+  <base value="MedicationDispense"/>
+  <type value="date"/>
+  <description value="This SearchParameter searches on the FHIR DataType Period in the PeriodOfUse extension, which is added to profiles on MedicationRequest and MedicationDispense resources.  
+    Clients use date parameter searches as described by the FHIR specification: http://hl7.org/fhir/stu3/search.html#date.
+    Servers are expected to take the MedicationUse-Duration extension (http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration) into account when processing a client's search. 
+    This means that either a Period.start + Period.end or Period.start + Duration is used to determine the search results. 
+    To illustrate the expected behavior: if a Period.start and a Duration is known, but not the Period, the Duration should be added to the Period.start date to calculate the Period.end. 
+    The calculated Period.end date is then used to determine the search results." />
+  <expression value="MedicationRequest.extension('http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse') | MedicationDispense.extension('http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse')"/>
+  <xpath value="f:MedicationRequest/f:extension[@url='http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse'] | f:MedicationDispense/f:extension[@url='http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse']"/>
+  <xpathUsage value="normal"/>
+  <comparator value="eq"/>
+  <comparator value="le"/>
+  <comparator value="ge"/>
+</SearchParameter>
+
