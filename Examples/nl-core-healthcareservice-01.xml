@@ -1,0 +1,29 @@
+<?xml-model href="http://hl7.org/fhir/STU3/healthcareservice.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
+<HealthCareService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/healthcareservice.xsd">
+    <id value="nl-core-healthcareservice-01"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-healthcareservice" />
+    </meta>    
+    <providedBy>
+        <reference value="Location/nl-core-organization-01"/>
+        <display value="Huisartspraktijk (zelfstandig of groepspraktijk)"/>
+    </providedBy>
+    <location>
+        <reference value="Location/nl-core-location-01"/>
+        <display value="Den Haag"/>
+    </location>
+    <telecom>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="MC"/>
+                    <display value="Mobile Phone"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="phone"/>
+        <value value="0679854345" />
+        <use value="mobile" />
+    </telecom>   
+</HealthCareService>
