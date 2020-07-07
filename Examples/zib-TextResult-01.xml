@@ -1,0 +1,59 @@
+<DiagnosticReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
+    <id value="zib-textresult-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult"/>
+    </meta>
+    <identifier>
+        <use value="official" />
+        <system value="http://www.acme.com/identifiers/patient" />
+        <value value="123456" />
+    </identifier>
+    <status value="appended">
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.16.1"/>
+                    <code value="appended"/>
+                    <display value="Aanvullend"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+    </status>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="363680008"/>
+            <display value="röntgen"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <context>
+        <reference value="Episodeofcare/nl-core-episodeofcare-01"/>
+        <display value="Gebroken been"/>
+    </context>
+    <effectiveDateTime value="2000-12-23T10:25:00+00:00"/>
+    <performer>
+        <role>
+            <coding>
+                <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+                <code value="RESP"/>
+                <display value="Responsible Party"/>
+            </coding>
+        </role>
+        <actor>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                <valueReference>
+                    <reference value="PractitioneRole/nl-core-practitionerrole-02"/>
+                    <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
+                </valueReference>
+            </extension>
+            <reference value="Practitioner/nl-core-practitioner-02"/>
+            <display value="Vaste Huisarts 1"/>
+        </actor>
+    </performer>
+    <conclusion value="Helaas moet de breuk geopereerd worden."/>
+</DiagnosticReport>

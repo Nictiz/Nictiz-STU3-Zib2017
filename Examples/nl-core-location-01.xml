@@ -1,0 +1,73 @@
+<Location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/location.xsd">
+    <id value="nl-core-location-01"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location"/>
+    </meta>
+    <name value="Orthopodie afdeling ACME in Den Haag"/>
+    <telecom>
+        <system value="email"/>
+        <value value="info@nictiz.nl"/>
+        <use value="work"/>
+    </telecom>
+    <telecom>
+        <extension
+            url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="MC"/>
+                    <display value="Mobile Phone"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="phone"/>
+        <value value="+31611234567"/>
+        <use value="home"/>
+    </telecom>    
+    <address>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="HP"/>
+                    <display value="Officieel adres"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+            <valueBoolean value="true"/>
+        </extension>
+        <use value="home"/>
+        <type value="both"/>
+        <line value="Oude middeweg 55">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                <valueString value="Knolweg"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                <valueString value="55"/>
+            </extension>
+        </line>
+        <city value="Den Haag"/>
+        <postalCode value="9132AG"/>
+        <country value="NLD">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                        <code value="6030"/>
+                        <display value="Nederland"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </country>
+    </address>  
+    <managingOrganization>
+        <reference value="Organization/nl-core-organization-02"/>
+        <display value="Orthopedie - UMCG"/>
+    </managingOrganization>
+    <partOf>
+        <reference value="Location/nl-core-location-02"/>
+        <display value="ACME in Den Haag"/>
+    </partOf>
+</Location>
