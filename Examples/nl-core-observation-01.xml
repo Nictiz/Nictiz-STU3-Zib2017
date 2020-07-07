@@ -1,0 +1,22 @@
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="nl-core-observation-01"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+    </meta>    
+    <identifier>
+        <system value="test"/>
+        <value value="test"/>
+    </identifier>
+    <subject>
+        <display value="nuchter" />
+    </subject>
+    <performer>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+        <valueReference>
+        <reference value="Practitionerrole/nl-core-practitioner-01"/>
+        <display value="de Vries"/>
+        </valueReference>
+    </extension>
+    </performer>
+</Observation>
