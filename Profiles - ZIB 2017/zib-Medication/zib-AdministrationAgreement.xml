@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on the Dutch Health and Care Information (HCIM) models (Dutch: Zorginformatiebouwsteen or ZIB) nl.zorg.Toedieningsafspraak version 1.0, year 2017." />
+  <description value="This profile is based on the Dutch Health and Care Information (HCIM) models (Dutch: Zorginformatiebouwsteen or ZIB) Toedieningsafspraak version 1.0, year 2017." />
   <purpose value="The goal of the administration agreement is to provide insight into the concrete instructions for administration/use of medication." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.2" />
@@ -88,7 +88,7 @@
       <path value="MedicationDispense.extension" />
       <sliceName value="agreementReason" />
       <short value="AgreementReason" />
-      <definition value="Reason for this agreement. This will often be the same reason as the one for the medication agreement. &#xD;&#xA;This field has the option to - if applicable - enter a specific reason for the administration agreement. Examples include: substitution, transfer to GDS, patient request for different product, etc" />
+      <definition value="Reason for this agreement. This will often be the same reason as the one for the medication agreement.  This field has the option to - if applicable - enter a specific reason for the administration agreement. Examples include: substitution, transfer to GDS, patient request for different product, etc" />
       <alias value="RedenAfspraak" />
       <max value="1" />
       <type>
@@ -157,6 +157,7 @@
         <label value="Example of AdditionalInformation" />
         <valueCodeableConcept>
           <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.3.999" />
             <code value="4" />
             <display value="Medicatieafspraak gewijzigd: dosering" />
           </coding>
@@ -187,22 +188,6 @@
         <identity value="Medication-Process-v09" />
         <map value="mp-dataelement900-22092" />
         <comment value="Medicamenteuze behandeling" />
-      </mapping>
-    </element>
-    <element id="MedicationDispense.extension:copyIndicator">
-      <path value="MedicationDispense.extension" />
-      <sliceName value="copyIndicator" />
-      <short value="copy indicator" />
-      <alias value="kopie indicator" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-CopyIndicator" />
-      </type>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-23412" />
-        <comment value="Kopie Indicator" />
       </mapping>
     </element>
     <element id="MedicationDispense.modifierExtension">
@@ -256,13 +241,6 @@
     </element>
     <element id="MedicationDispense.identifier">
       <path value="MedicationDispense.identifier" />
-      <short value="MedicationAdministrationIdentifier" />
-      <alias value="ToedieningsafspraakIdentificatie" />
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-20134" />
-        <comment value="Identificatie" />
-      </mapping>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.6" />
@@ -368,7 +346,7 @@
       <mapping>
         <identity value="hcim-administrationagreement-v1.0-2017EN" />
         <map value="NL-CM:9.8.22097" />
-        <comment value="Supplier. For MP: Use a reference to an nl-core-organization using the actor.reference element" />
+        <comment value="Supplier" />
       </mapping>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />

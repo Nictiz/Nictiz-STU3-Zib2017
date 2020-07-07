@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) DispenseRequest version 1.0.1, year 2017. The dispense request is the request of a prescriber to the pharmacist to dispense medication(s) to the patient to support current medication agreements. The prescriber asks them to dispense a certain amount of medicine or to dispense medicine(s) for a period of use." />
+  <description value="This profile is based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) DispenseRequest version 1.0.1, year 2017. The dispense request is the request of a prescriber to the pharmacist to dispense medication(s) to the patient to support current medication agreements. The prescriber asks them to dispense a certain amount of medicine or to dispense medicine(s) for a period of use." />
   <purpose value="The goal of the dispense request is for the pharmacist to supply the medicine so the patient has a sufficient amount." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.2" />
@@ -94,23 +94,6 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="MedicationRequest.extension:relatedMedicationAgreement">
-      <path value="MedicationRequest.extension" />
-      <sliceName value="relatedMedicationAgreement" />
-      <short value="RelatedMedicationAgreement" />
-      <definition value="Medication agreement related to this dispense request" />
-      <alias value="GerelateerdeMedicatieAfspraak" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-DispenseRequest-RelatedMedicationAgreement" />
-      </type>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-23286" />
-        <comment value="Relatie naar medicatieafspraak" />
-      </mapping>
-    </element>
     <element id="MedicationRequest.extension:medicationTreatment">
       <path value="MedicationRequest.extension" />
       <sliceName value="medicationTreatment" />
@@ -131,13 +114,6 @@
     </element>
     <element id="MedicationRequest.identifier">
       <path value="MedicationRequest.identifier" />
-      <short value="DispenseRequestIdentifier" />
-      <alias value="VerstrekkingsverzoekIdentificatie" />
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22003" />
-        <comment value="Identificatie" />
-      </mapping>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.6" />
@@ -401,7 +377,7 @@
     <element id="MedicationRequest.dispenseRequest.numberOfRepeatsAllowed">
       <path value="MedicationRequest.dispenseRequest.numberOfRepeatsAllowed" />
       <short value="NumberOfRefills" />
-      <definition value="The number of additional times the medication may be dispensed after the first time.  The total amount that may be dispensed is: (Number of refills + 1) x amount to be dispensed" />
+      <definition value="The number of additional times the medication may be dispensed after the first time.  The total amount that may be dispensed is: (Number of refills + 1) x amount to be dispensed." />
       <alias value="AantalHerhalingen" />
       <mapping>
         <identity value="hcim-dispenserequest-v1.0-2017EN" />
