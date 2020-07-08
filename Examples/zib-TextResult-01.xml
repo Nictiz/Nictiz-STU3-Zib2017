@@ -1,0 +1,47 @@
+<?xml-model href="http://hl7.org/fhir/STU3/diagnosticreport.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<DiagnosticReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
+    <id value="zib-textresult-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult"/>
+    </meta>
+    <status>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.16.1"/>
+            <code value="pending"/>
+            <display value="Uitslag volgt"/>
+        </extension>
+    </status>
+    <code value="19851009"/>
+    <display value="microbiologie"/>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <context>
+        <reference value="Episodeofcare/nl-core-episodeofcare-01"/>
+        <display value="test"/>
+    </context>
+    <effectiveDateTime value="2000-12-23T10:25:00+00:00"/>
+    <issued value="1951-11-04T22:56:00+00:00"/>
+    <performer>
+        <role>
+            <coding>
+                <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+                <code value="RESP"/>
+                <display value="Responsible Party"/>
+            </coding>
+        </role>
+        <actor>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                <valueReference>
+                    <reference value="PractitioneRole/nl-core-practitionerrole-02"/>
+                    <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
+                </valueReference>
+            </extension>
+            <reference value="Practitioner/nl-core-practitioner-02"/>
+            <display value="Vaste Huisarts 1"/>
+        </actor>
+    </performer>
+    <conclusion value="Approved"/>
+</DiagnosticReport>
