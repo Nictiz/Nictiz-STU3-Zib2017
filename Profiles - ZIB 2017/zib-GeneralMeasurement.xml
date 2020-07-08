@@ -57,27 +57,44 @@
         <comment value="MeasurementValue" />
       </mapping>
     </element>
-    <element id="Observation.status">
-      <path value="Observation.status" />
-      <short value="ResultStatus" />
+    <element id="Observation.status.extension">
+      <path value="Observation.status.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.status.extension:ResultStatusCodelist">
+      <path value="Observation.status.extension" />
+      <sliceName value="ResultStatusCodelist" />
+      <short value="ResultStatusCodelist" />
       <definition value="The status of the GeneralMeasurement or MeasurementResult." />
       <alias value="ResultaatStatus" />
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationStatus" />
-        </extension>
-        <strength value="required" />
-        <description value="ResultStatusCodelist" />
-        <valueSetReference>
-          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.1--20171231000000" />
-          <display value="ResultStatusCodelist" />
-        </valueSetReference>
-      </binding>
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
+      </type>
       <mapping>
         <identity value="hcim-generalmeasurment-v3.0-2017EN" />
         <map value="NL-CM:13.3.3" />
         <comment value="ResultStatus" />
       </mapping>
+    </element>
+    <element id="Observation.status.extension:ResultStatusCodelist.valueCodeableConcept:valueCodeableConcept">
+      <path value="Observation.status.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="required" />
+        <description value="ResultStatusCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.1--20171231000000" />
+        </valueSetReference>
+      </binding>
     </element>
     <element id="Observation.code">
       <path value="Observation.code" />
@@ -94,7 +111,7 @@
         <description value="TestCodelist or MeasurementNameCodelist" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.2--20171231000000" />
-          <display value="MeasurementNameCodelist" />
+          <display value="MeasurementNameCodelist"/>
         </valueSetReference>
       </binding>
       <mapping>
@@ -151,7 +168,7 @@
         <description value="SNOMED CT - all concepts" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.3.4--20171231000000" />
-          <display value="MeetmethodeCodelijst" />
+          <display value="MeetmethodeCodelijst"/>
         </valueSetReference>
       </binding>
       <mapping>
