@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationUse version 1.0.1, year 2017.&#xD;&#xA;&#xD;&#xA;MedicationUse is a statement on the historic, current or intended use of a certain medicine." />
+  <description value="This profile is based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationUse version 1.0.1, year 2017.&#xD;&#xA;&#xD;&#xA;MedicationUse is a statement on the historic, current or intended use of a certain medicine." />
   <purpose value="The goal of the medication use is to provide insight into the patient’s pattern of use." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.2" />
@@ -28,12 +28,6 @@
     <identity value="hcim-timeinterval-v1.0-2017EN" />
     <uri value="https://zibs.nl/wiki/TimeInterval-v1.0(2017EN)" />
     <name value="HCIM Part TimeInterval-v1.0(2017EN)" />
-  </mapping>
-  <mapping>
-    <identity value="Medication-Process-v09" />
-    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20181220T121121/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
-    <name value="Medication Process v09" />
-    <comment value="Language of Medication Process is Dutch." />
   </mapping>
   <mapping>
     <identity value="hcim-instructionsforuse-v1.0-2017EN" />
@@ -119,7 +113,7 @@
       <sliceName value="author" />
       <short value="Author" />
       <definition value="The author of this MedicationStatement. This is either a patient, a health professional or a healthcare provicer." />
-      <comment value="A patient as author maps to the MP9 concept: mp-dataelement900-22472.&#xD;&#xA;A health professional as author maps to the MP9 concept: mp-dataelement900-22473.&#xD;&#xA;A healthcare provider as author maps to the MP9 concept: mp-dataelement900-23994.&#xD;&#xA;&#xD;&#xA;The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
+      <comment value="The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
       <alias value="Auteur" />
       <max value="1" />
       <type>
@@ -127,48 +121,9 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author" />
       </type>
       <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22471" />
-        <comment value="Auteur" />
-      </mapping>
-      <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.7" />
         <comment value="Author" />
-      </mapping>
-    </element>
-    <element id="MedicationStatement.extension:medicationTreatment">
-      <path value="MedicationStatement.extension" />
-      <sliceName value="medicationTreatment" />
-      <short value="Medical Treatment" />
-      <definition value="This extension is to describe which overarching medical treatment this information is part of. This is done by the use of an identifier of that medical treatment." />
-      <comment value="No HCIM concept is available for this element. Therefore a mapping to the relevant element Medication Process data element is provided." />
-      <alias value="Medicamenteuze Behandeling" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment" />
-      </type>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22092" />
-        <comment value="Medicamenteuze behandeling" />
-      </mapping>
-    </element>
-    <element id="MedicationStatement.extension:copyIndicator">
-      <path value="MedicationStatement.extension" />
-      <sliceName value="copyIndicator" />
-      <short value="copy indicator" />
-      <alias value="kopie indicator" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-CopyIndicator" />
-      </type>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-23413" />
-        <comment value="Kopie Indicator" />
       </mapping>
     </element>
     <element id="MedicationStatement.extension:reasonForChangeOrDiscontinuationOfUse">
@@ -200,8 +155,8 @@
         <strength value="extensible" />
       </binding>
       <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22493" />
+        <identity value="hcim-medicationuse2-v1.0-2017EN" />
+        <map value="NL-CM:9.11.22493" />
         <comment value="Reden wijzigen of stoppen gebruik" />
       </mapping>
     </element>
@@ -234,13 +189,6 @@
     </element>
     <element id="MedicationStatement.identifier">
       <path value="MedicationStatement.identifier" />
-      <short value="MedicationUseIdentifier" />
-      <alias value="MedicatiegebruikIdentificatie" />
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22760" />
-        <comment value="Identificatie" />
-      </mapping>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.6" />
@@ -396,7 +344,7 @@
     </element>
     <element id="MedicationStatement.informationSource">
       <path value="MedicationStatement.informationSource" />
-      <comment value="The informationSource can be a RelatedPerson (mp-dataelement900-22425), Patient (mp-dataelement900-22452) or a health profesional (mp-dataelement900-22453).&#xD;&#xA;&#xD;&#xA;If a health professional is the informationSource the PractitionerRole reference extension can be used for a PractitionerRole reference. The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
+      <comment value="If a health professional is the informationSource the PractitionerRole reference extension can be used for a PractitionerRole reference. The health professional's specialty, role, and organization are captured and communicated through the PractitionerRole Resource based on the nl-core-practitionerrole profile." />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
@@ -413,11 +361,6 @@
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
       </type>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22424" />
-        <comment value="Informant" />
-      </mapping>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.2" />
@@ -453,78 +396,6 @@
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.11" />
         <comment value="Subject" />
-      </mapping>
-    </element>
-    <element id="MedicationStatement.derivedFrom">
-      <path value="MedicationStatement.derivedFrom" />
-      <slicing>
-        <discriminator>
-          <type value="profile" />
-          <path value="reference.resolve()" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <short value="Related Agreement and Dispense" />
-      <definition value="A reference to the underlying MedicatationAgreement, MedicationAgreement or Dispense of this MedicationUse." />
-      <alias value="Gerelateerde afspraak" />
-      <alias value="Gerelateerde verstrekking" />
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22402" />
-        <comment value="Gerelateerde afspraak" />
-      </mapping>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22404" />
-        <comment value="Gerelateerde verstrekking" />
-      </mapping>
-    </element>
-    <element id="MedicationStatement.derivedFrom:relatedMedicationAgreement">
-      <path value="MedicationStatement.derivedFrom" />
-      <sliceName value="relatedMedicationAgreement" />
-      <short value="Related MedicationAgreement" />
-      <definition value="A reference to the underlying MedicationAgreement." />
-      <alias value="Identificatie medicatieafspraak" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
-      </type>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22403" />
-        <comment value="Identificatie medicatieafspraak" />
-      </mapping>
-    </element>
-    <element id="MedicationStatement.derivedFrom:relatedAdministrationAgreement">
-      <path value="MedicationStatement.derivedFrom" />
-      <sliceName value="relatedAdministrationAgreement" />
-      <short value="Related AdministrationAgreement" />
-      <definition value="A reference to the underlying AdministrationAgreement." />
-      <alias value="Identificatie toedieningsafspraak" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement" />
-      </type>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-23236" />
-        <comment value="Identificatie toedieningsafspraak" />
-      </mapping>
-    </element>
-    <element id="MedicationStatement.derivedFrom:relatedDispense">
-      <path value="MedicationStatement.derivedFrom" />
-      <sliceName value="relatedDispense" />
-      <short value="Related Dispense" />
-      <definition value="A reference to the underlying Dispense." />
-      <alias value="Identificatie verstrekking" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense" />
-      </type>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22404" />
-        <comment value="Identificatie" />
       </mapping>
     </element>
     <element id="MedicationStatement.taken">

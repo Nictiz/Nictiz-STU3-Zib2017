@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This profile is based on Medicatieproces V9.0.7 and the related Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAdministration version 1.0.1, year 2017. Medication administration is the registration of the individual administrations of the medicine on the patient by the administrator (e.g. a nurse or patient themselves), in relation to the entered agreements." />
+  <description value="This profile is based on the Dutch Health and Care Information model (Dutch: Zorginformatiebouwsteen or ZIB) MedicationAdministration version 1.0.1, year 2017. Medication administration is the registration of the individual administrations of the medicine on the patient by the administrator (e.g. a nurse or patient themselves), in relation to the entered agreements." />
   <purpose value="The goal of administering the medication is to provide insight into the actual administered products." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.2" />
@@ -23,12 +23,6 @@
     <identity value="hcim-MedicationAdministration2-v1.0-2017EN" />
     <uri value="https://zibs.nl/wiki/MedicationAdministration2-v1.0(2017EN)" />
     <name value="HCIM MedicationAdministration2-v1.0(2017EN)" />
-  </mapping>
-  <mapping>
-    <identity value="Medication-Process-v09" />
-    <uri value="https://decor.nictiz.nl/medicatieproces/mp-html-20181220T121121/ds-2.16.840.1.113883.2.4.3.11.60.20.77.1.3-2016-06-01T000000.html" />
-    <name value="Medication Process v09" />
-    <comment value="Language of Medication Process is Dutch." />
   </mapping>
   <mapping>
     <identity value="hcim-plannedcareactivityfortransfer-v1.2.1-2015EN" />
@@ -108,10 +102,6 @@
         <comment value="AgreedDateTime" />
       </mapping>
     </element>
-    <element id="MedicationAdministration.extension:agreedDateTime.valueDateTime:valueDateTime">
-      <path value="MedicationAdministration.extension.valueDateTime" />
-      <sliceName value="valueDateTime" />
-    </element>
     <element id="MedicationAdministration.extension:doubleCheckPerformed">
       <path value="MedicationAdministration.extension" />
       <sliceName value="doubleCheckPerformed" />
@@ -128,32 +118,6 @@
         <map value="NL-CM:9.13.23168" />
         <comment value="DoubleCheckPerformed" />
       </mapping>
-    </element>
-    <element id="MedicationAdministration.extension:doubleCheckPerformed.valueBoolean:valueBoolean">
-      <path value="MedicationAdministration.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
-    </element>
-    <element id="MedicationAdministration.extension:medicationTreatment">
-      <path value="MedicationAdministration.extension" />
-      <sliceName value="medicationTreatment" />
-      <short value="Medicational Treatment" />
-      <definition value="This extension is to describe which overarching medication treatment this information is part of. This is done by the use of an identifier of that medication treatment." />
-      <comment value="No HCIM concept is available for this element. Therefore a mapping to the relevant element Medication Process data element is provided." />
-      <alias value="Medicamenteuze behandeling" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment" />
-      </type>
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-22092" />
-        <comment value="Medicamenteuze behandeling" />
-      </mapping>
-    </element>
-    <element id="MedicationAdministration.extension:medicationTreatment.valueIdentifier:valueIdentifier">
-      <path value="MedicationAdministration.extension.valueIdentifier" />
-      <sliceName value="valueIdentifier" />
     </element>
     <element id="MedicationAdministration.extension:deviatingAdministration">
       <path value="MedicationAdministration.extension" />
@@ -173,10 +137,6 @@
         <comment value="DeviatingAdministration" />
       </mapping>
     </element>
-    <element id="MedicationAdministration.extension:deviatingAdministration.extension:deviation.valueBoolean:valueBoolean">
-      <path value="MedicationAdministration.extension.extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
-    </element>
     <element id="MedicationAdministration.extension:deviatingAdministration.extension:reasonForDeviation">
       <path value="MedicationAdministration.extension.extension" />
       <sliceName value="reasonForDeviation" />
@@ -193,19 +153,8 @@
         <comment value="MedicationAdministrationReasonForDeviation" />
       </mapping>
     </element>
-    <element id="MedicationAdministration.extension:deviatingAdministration.extension:reasonForDeviation.valueCodeableConcept:valueCodeableConcept">
-      <path value="MedicationAdministration.extension.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-    </element>
     <element id="MedicationAdministration.identifier">
       <path value="MedicationAdministration.identifier" />
-      <short value="MedicationAdministrationIdentifier" />
-      <alias value="MedicatietoedieningIdentificatie" />
-      <mapping>
-        <identity value="Medication-Process-v09" />
-        <map value="mp-dataelement900-23036" />
-        <comment value="Identificatie" />
-      </mapping>
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.6" />
