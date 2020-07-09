@@ -1,44 +1,45 @@
-<?xml-model href="http://hl7.org/fhir/STU3/journalentry.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
-<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/journalentry.xsd">
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
     <id value="gp-JournalEntry-01"/>
     <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-JournalEntry" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-JournalEntry"/>
     </meta>
     <identifier>
-        <use value="temp" />
-        <system value="http://www.acme.com/identifiers/patient" />
-        <value value="123456" />
+        <use value="temp"/>
+        <system value="http://www.acme.com/identifiers/patient"/>
+        <value value="123456"/>
     </identifier>
-    <status value="final
-        <category>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="4241000179101"/>
-                <display value="Laboratory report (record artifact)"/>
-            </coding>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="19851009"/>
-                <display value="Microbiologie"/>
-            </coding>
-        </category>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="624-7"/>
-                <display value="Bacteria Spt Resp Cul"/>
-            </coding>
-            <text value="Aerobic Respiratory Culture, Sputum"/>
-        </code>
+    <status value="final"/>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="4241000179101"/>
+            <display value="Laboratory report (record artifact)"/>
+        </coding>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="19851009"/>
+            <display value="Microbiologie"/>
+        </coding>
+    </category>
+    <code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="624-7"/>
+            <display value="Bacteria Spt Resp Cul"/>
+        </coding>
+        <text value="Aerobic Respiratory Culture, Sputum"/>
+    </code>
     <subject>
-        <reference value="Patient/nl-core-patient-01" />
-        <display value="J. XXX_Helleman (Johan)" />
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="J. XXX_Helleman (Johan)"/>
     </subject>
     <context>
-        <reference value="Encounter/gp-encounter-01" />
-        <display value="abc" />
+        <reference value="Encounter/gp-encounter-01"/>
+        <display value="abc"/>
     </context>
-    <effectiveDateTime value="2009-11-03T03:17:00+00:00" />
-    <issued value="1967-03-20T17:54:00+00:00" />
-    <valueString value="abc" />    
+    <effectiveDateTime value="2009-11-03T03:17:00+00:00"/>
+    <issued value="1967-03-20T17:54:00+00:00"/>
+    <valueString value="abc"/>
 </Observation>
