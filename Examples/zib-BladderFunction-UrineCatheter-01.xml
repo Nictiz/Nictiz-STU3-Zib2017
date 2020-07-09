@@ -1,13 +1,16 @@
-<?xml-model href="http://hl7.org/fhir/STU3/device.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
-<DeviceUseStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/device.xsd">
+<?xml-model href="http://hl7.org/fhir/STU3/deviceusestatement.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
+<DeviceUseStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
     <id value="zib-bladderfunction-urinecatheter-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction-UrineCatheter" />
-    </meta>        
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3">
-     <valueReference>
-         <reference value="Reason/?" />
-         <display value="Nog aan te maken"/>
-     </valueReference>
- </extension>
+    </meta>
+    <status value="active"/>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="J. XXX_Helleman (Johan)"/>
+    </subject>
+    <device>
+        <reference value="Urinecatheterproduct/zib-bladderfunction-urinecatheter-product-01"/>
+        <display value="Verblijfskatheter"/>
+    </device>
 </DeviceUseStatement>

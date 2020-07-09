@@ -1,23 +1,28 @@
 <?xml-model href="http://hl7.org/fhir/STU3/encounter.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
-<Encounter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
+<Encounter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
     <id value="gp-encounter-01"/>
     <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
-    </meta>        
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter"/>
+    </meta>
     <identifier>
-        <use value="usual" />
-        <system value="http://www.acme.com/identifiers/patient" />
-        <value value="123456" />
+        <use value="usual"/>
+        <system value="http://www.acme.com/identifiers/patient"/>
+        <value value="123456"/>
     </identifier>
-    <status value="onleave" />
+    <status value="onleave"/>
     <class>
-        <system value="http://hl7.org/fhir/reference" />
-        <version value="abc" />
-        <code value="code-980" />
-        <display value="abc" />
-        <userSelected value="false" />
+        <system value="http://hl7.org/fhir/reference"/>
+        <version value="abc"/>
+        <code value="code-980"/>
+        <display value="abc"/>
+        <userSelected value="false"/>
     </class>
     <type>
-        <text value="abc" />
+        <coding>
+            <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-14-contactwijze"/>
+            <code value="01"/>
+            <display value="visite"/>
+        </coding>
     </type>
 </Encounter>
