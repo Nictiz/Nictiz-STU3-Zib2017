@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocumentManifest xmlns="http://hl7.org/fhir">
+    <id value="pdfa-documentmanifest-example"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.DocumentManifest"/>
+    </meta>
+    <contained>
+        <Practitioner>
+            <id value="p1"/>
+            <name>
+                <family value="Kneder"/>
+                <given value="B.">
+                    <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                        <valueCode value="IN"/>
+                    </extension>
+                </given>
+            </name>
+        </Practitioner>
+    </contained>
+    <masterIdentifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:1.2.276.0.7230010.3.1.2.1787205428.8024.1526514975.440899"/>
+    </masterIdentifier>
+    <identifier>
+        <system value="http://xis.org/fhir/NamingSystem/DocumentManifestID"/>
+        <value value="7899777"/>
+    </identifier>
+    <status value="superseded"/>
+    <type>
+        <coding>
+            <system value="http://loinc.org/"/>
+            <code value="18842-5"/>
+            <display value="Discharge summary"/>
+        </coding>
+    </type>
+    <subject>
+        <reference value="Patient/nl-core-patient-02"/>
+        <display value="Paul XXX_Mesker"/>
+    </subject>
+    <created value="10-3-2020"/>
+    <author>
+        <reference value="#p1"/>
+        <display value="B. Kneder"/>
+    </author>
+    <source value="http://xis.org/example"/>
+    <content>
+        <pReference>
+            <reference value="DocumentReference/pdfa-documentreference-example1"/>
+        </pReference>
+    </content>
+    <content>
+        <pReference>
+            <reference value="DocumentReference/pdfa-documentreference-example2"/>
+        </pReference>
+    </content>
+</DocumentManifest>
