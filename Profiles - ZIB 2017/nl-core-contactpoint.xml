@@ -443,35 +443,6 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="ContactPoint.extension:EmailAddressType">
-      <path value="ContactPoint.extension" />
-      <sliceName value="EmailAddressType" />
-      <short value="EmailAddressType" />
-      <alias value="EmailSoort" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-EmailAddressType" />
-      </type>
-    </element>
-    <element id="ContactPoint.extension:TelecomType.valueCodeableConcept:valueCodeableConcept">
-      <path value="ContactPoint.extension.valueCodeableConcept" />
-      <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.19" />
-        <comment value="EmailAddressType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/EmailSoortCodelijst-to-ContactPointSystem" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.19" />
-        <comment value="EmailAddressType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/EmailSoortCodelijst-to-ContactPointSystem" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.8" />
-        <comment value="EmailAddressType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/EmailSoortCodelijst-to-ContactPointSystem" />
-      </mapping>
-    </element>
     <element id="ContactPoint.extension:TelecomType">
       <path value="ContactPoint.extension" />
       <sliceName value="TelecomType" />
@@ -485,39 +456,11 @@
     </element>
     <element id="ContactPoint.extension:TelecomType.valueCodeableConcept:valueCodeableConcept">
       <path value="ContactPoint.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
       <mapping>
         <identity value="hcim-contactinformation-v1.0-2017EN" />
         <map value="NL-CM:20.6.5" />
         <comment value="TelecomType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/TelecomSoortCodelijst-to-ContactPointSystem" />
-      </mapping>
-    </element>
-    <element id="ContactPoint.extension:NumberType">
-      <path value="ContactPoint.extension" />
-      <sliceName value="NumberType" />
-      <short value="NumberType" />
-      <alias value="NummerSoort" />
-      <max value="1" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-NumberType" />
-      </type>
-    </element>
-    <element id="ContactPoint.extension:NumberType.valueCodeableConcept:valueCodeableConcept">
-      <path value="ContactPoint.extension.valueCodeableConcept" />
-      <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.22" />
-        <comment value="NumberType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/NummerSoortCodelijst-to-ContactPointUse" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.22" />
-        <comment value="NumberType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/NummerSoortCodelijst-to-ContactPointUse" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.6" />
-        <comment value="NumberType. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/NummerSoortCodelijst-to-ContactPointUse" />
       </mapping>
     </element>
     <element id="ContactPoint.system">
