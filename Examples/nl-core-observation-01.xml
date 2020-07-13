@@ -1,26 +1,38 @@
 <?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
-<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
     <id value="nl-core-observation-01"/>
     <meta>
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
-    </meta>    
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation"/>
+    </meta>
     <identifier>
-        <system value="test"/>
-        <value value="test"/>
+        <use value="official"/>
+        <system value="http://www.acme.com/identifiers/patient"/>
+        <value value="123456"/>
     </identifier>
-    <status value="cancelled" />
+    <status value="cancelled"/>
+    <code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="67781-5"/>
+        </coding>
+    </code>
     <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="J. XXX_Helleman (Johan)"/>
     </subject>
+    <context>
+        <reference value="EpisodeOfCare/nl-core-episodeofcare-01"/>
+        <display value="Gebroken been"/>
+    </context>
     <effectiveDateTime value="2009-11-03T03:17:00+00:00"/>
     <issued value="1967-03-20T17:54:00+00:00"/>
     <performer>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-        <valueReference>
-        <reference value="Practitionerrole/nl-core-practitioner-01"/>
-        <display value="de Vries"/>
-        </valueReference>
-    </extension>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+                <reference value="Practitionerrole/nl-core-practitioner-01"/>
+                <display value="de Vries"/>
+            </valueReference>
+        </extension>
     </performer>
 </Observation>

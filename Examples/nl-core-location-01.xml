@@ -1,0 +1,67 @@
+<?xml-model href="http://hl7.org/fhir/STU3/location.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
+<Location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/location.xsd">
+    <id value="nl-core-location-01"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location"/>
+    </meta>
+    <name value="Den Haag"/>
+    <telecom>
+        <extension
+            url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-EmailAddressType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="WP"/>
+                    <display value="Work Place"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="email"/>
+        <value value="info@nictiz.nl"/>
+        <use value="work"/>
+    </telecom>
+    <telecom>
+        <extension
+            url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="MC"/>
+                    <display value="Mobile Phone"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="phone"/>
+        <value value="+31611234567"/>
+        <use value="mobile"/>
+    </telecom>
+    <address>
+        <!--  <use>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-AD-use">
+                <valueCode>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="CONF"/>
+                    <display value="confidential address"/>
+                </valueCode>
+            </extension>
+        </use>-->
+        <type value="both"/>
+        <!--REVIEW-->
+        <line value="137 Nowhere Street"/>
+        <!--REVIEW-->
+        <city value="Den Haag"/>
+        <district value="Wateringen"/>
+        <state value="ZH"/>
+        <postalCode value="9132AG"/>
+        <country value="NLD"/>
+    </address>
+    <managingOrganization>
+        <reference value="Organization/nl-core-organization-01"/>
+        <display value="Maatschap Vaste Huisarts"/>
+    </managingOrganization>
+    <partOf>
+        <reference value="Organization/nl-core-organization-05"/>
+        <display value="Ziekenhuis Gooi en Overvecht"/>
+    </partOf>
+</Location>
