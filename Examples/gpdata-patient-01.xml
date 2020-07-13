@@ -1,0 +1,96 @@
+<Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd" xmlns="http://hl7.org/fhir">
+    <id value="gpdata-patient-01"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <div>Id 999911132 (http://example-xis.org/fhir/NamingSystem/patientID), Jacqueline J XXX_Cevat, Vrouw, 25 juli 1964</div>
+            <div>
+                <a href="tel:+31190531770">+31190531770</a> (Tel Privé), <a href="mailto:j_cevat950@HUISARTS.nl">j_cevat950@HUISARTS.nl</a> (E-mail Privé)</div>
+            <div>Knolweg 1001, 9999XX Stitswerd, NLD (Privé Bezoek)</div>
+            <div>Huisarts: <a href="PractitionerRole/gpdata-practitionerrole-01">Dr. V. Huisarts 1</a>
+            </div>
+        </div>
+    </text>
+    <identifier>
+        <system value="http://example-xis.org/fhir/NamingSystem/patientID"/>
+        <value value="999911132"/>
+    </identifier>
+    <name>
+        <use value="official"/>
+        <family value="XXX_Cevat">
+            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+                <valueString value="XXX_Cevat"/>
+            </extension>
+        </family>
+        <given value="Jacqueline">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                <valueCode value="BR"/>
+            </extension>
+        </given>
+        <given value="J">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                <valueCode value="IN"/>
+            </extension>
+        </given>
+    </name>
+    <telecom>
+        <system value="phone"/>
+        <value value="+31190531770"/>
+        <use value="home"/>
+    </telecom>
+    <telecom>
+        <system value="email"/>
+        <value value="j_cevat950@HUISARTS.nl"/>
+        <use value="home"/>
+    </telecom>
+    <gender value="female"/>
+    <birthDate value="1964-07-25"/>
+    <address>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
+                    <code value="PHYS"/>
+                    <display value="Visit Address"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <use value="home"/>
+        <type value="physical"/>
+        <line value="Knolweg 1001">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                <valueString value="Knolweg"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                <valueString value="1001"/>
+            </extension>
+        </line>
+        <city value="Stitswerd"/>
+        <postalCode value="9999XX"/>
+        <country value="NLD">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                        <code value="6030"/>
+                        <display value="Nederland"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </country>
+    </address>
+    <multipleBirthBoolean value="false"/>
+    <generalPractitioner>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+                <reference value="PractitionerRole/gpdata-practitionerrole-01"/>
+                <display value="Dr. V. Huisarts 1"/>
+            </valueReference>
+        </extension>
+        <reference value="Practitioner/gpdata-practitioner-01"/>
+        <display value="Dr. V. Huisarts 1"/>
+    </generalPractitioner>
+</Patient>

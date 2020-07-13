@@ -1,0 +1,90 @@
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+    <id value="gpdata-observation-contact04-e"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-JournalEntry"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Observatie/bepaling. Subject: <a href="Patient/gpdata-patient-01">Jacqueline XXX_Cevat</a>. Status: definitief<span style="display: block;">Uitvoerende: <a href="PractitionerRole/gpdata-practitionerrole-01">Dr. V. Huisarts 1</a>
+                    </span>
+                </caption>
+                <tbody>
+                    <tr>
+                        <th>Context</th>
+                        <td>
+                            <a href="Encounter/gpdata-encounter-contact04">Consult voor HNP (thoracaal/lumbaal) met Dr. V. Huisarts 1</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Bepalingdatum/tijd</th>
+                        <td>2020-03-15</td>
+                    </tr>
+                    <tr>
+                        <th>Code</th>
+                        <th>Waarde</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="Evaluatie (E - http://fhir.nl/fhir/NamingSystem/journaalregeltypen)">Evaluatie</span>
+                        </td>
+                        <td>lage rugpijn</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="discharge diagnosis (DISDX - v3/ActCode)">discharge diagnosis</span>
+                        </td>
+                        <td>
+                            <span title="Lage-rugpijn zonder uitstraling [ex. L86] (L03 - sid/icpc-1-nl)">Lage-rugpijn zonder uitstraling [ex. L86]</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://fhir.nl/fhir/NamingSystem/journaalregeltypen"/>
+            <code value="E"/>
+            <display value="Evaluatie"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/gpdata-patient-01"/>
+        <display value="Jacqueline XXX_Cevat"/>
+    </subject>
+    <context>
+        <reference value="Encounter/gpdata-encounter-contact04"/>
+        <display value="Consult voor HNP (thoracaal/lumbaal) met Dr. V. Huisarts 1"/>
+    </context>
+    <effectiveDateTime value="2020-03-15"/>
+    <performer>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+                <reference value="PractitionerRole/gpdata-practitionerrole-01"/>
+                <display value="Dr. V. Huisarts 1"/>
+            </valueReference>
+        </extension>
+        <reference value="Practitioner/gpdata-practitioner-01"/>
+        <display value="V. Huisarts 1"/>
+    </performer>
+    <valueString value="lage rugpijn"/>
+    <component>
+        <code>
+            <coding>
+                <system value="http://hl7.org/fhir/v3/ActCode"/>
+                <code value="DISDX"/>
+                <display value="discharge diagnosis"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://hl7.org/fhir/sid/icpc-1-nl"/>
+                <code value="L03"/>
+                <display value="Lage-rugpijn zonder uitstraling [ex. L86]"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
+</Observation>
