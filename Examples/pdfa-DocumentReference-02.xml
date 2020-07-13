@@ -1,0 +1,48 @@
+<DocumentReference xmlns="http://hl7.org/fhir">
+    <id value="pdfa-documentreference-02"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.Minimal.DocumentReference"/>
+    </meta>
+    <contained>
+        <Practitioner>
+            <id value="p1"/>
+            <name>
+                <family value="De Hoed"/>
+            </name>
+        </Practitioner>
+    </contained>
+    <masterIdentifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:1.2.276.0.7230010.3.1.2.1787205428.3024.1522314975.230898"/>
+    </masterIdentifier>
+    <identifier>
+        <system value="http://xis.org/fhir/NamingSystem/DocumentReferenceID"/>
+        <value value="678909905"/>
+    </identifier>
+    <status value="current"/>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="11051000146107"/>
+            <display value="verwijsbrief"/>
+        </coding>
+    </type>
+    <subject>
+        <reference value="Patient/nl-core-patient-02"/>
+        <display value="Paul XXX_Mesker"/>
+    </subject>
+    <indexed value="2019-06-12T17:27:12Z"/>
+    <author>
+        <reference value="#p1" />
+        <display value="De Hoed"/>
+    </author>
+    <description value="Verwijsbrief Arts"/>
+    <content>
+        <attachment>
+            <contentType value="application/pdf"/>
+            <language value="nl"/>
+            <url value="Binary/pdfa-binary-02"/>
+            <title value="Verwijsbrief Arts"/>
+        </attachment>
+    </content>
+</DocumentReference>
