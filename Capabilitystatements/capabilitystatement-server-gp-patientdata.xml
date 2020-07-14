@@ -42,10 +42,6 @@
         <display value="nl-core-episodeofcare"/>
     </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Procedure"/>
-        <display value="zib-Procedure"/>
-    </profile>
-    <profile>
         <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
         <display value="zib-Problem"/>
     </profile>
@@ -58,16 +54,8 @@
         <display value="zib-MedicationAgreement"/>
     </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse"/>
-        <display value="zib-MedicationUse"/>
-    </profile>
-    <profile>
         <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance"/>
         <display value="zib-AllergyIntolerance"/>
-    </profile>
-    <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.Minimal.DocumentReference"/>
-        <display value="IHE.MHD.DocumentReference"/>
     </profile>
     <profile>
         <reference value="http://nictiz.nl/fhir/StructureDefinition/gp-DiagnosticResult"/>
@@ -78,8 +66,16 @@
         <display value="gp-EncounterReport"/>
     </profile>
     <profile>
-        <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
-        <display value="zib-Encounter"/>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/gp-JournalEntry"/>
+        <display value="gp-JournalEntry"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter"/>
+        <display value="gp-Encounter"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/gp-LaboratoryResult"/>
+        <display value="gp-LaboratoryResult"/>
     </profile>
     <rest>
         <mode value="server"/>
@@ -102,20 +98,6 @@
             <searchRevInclude value="Flag:detail"/>
             <searchParam>
                 <name value="identifier"/>
-                <type value="token"/>
-            </searchParam>
-        </resource>
-        <resource>
-            <type value="Procedure"/>
-            <interaction>
-                <code value="search-type"/>
-            </interaction>
-            <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
-            <searchParam>
-                <name value="category"/>
                 <type value="token"/>
             </searchParam>
         </resource>
@@ -167,64 +149,6 @@
             </searchParam>
         </resource>
         <resource>
-            <type value="DocumentReference"/>
-            <interaction>
-                <code value="search-type"/>
-            </interaction>
-            <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
-            <searchParam>
-                <name value="status"/>
-                <type value="token"/>
-            </searchParam>
-            <searchParam>
-                <name value="indexed"/>
-                <type value="date"/>
-            </searchParam>
-            <searchParam>
-                <name value="author"/>
-                <type value="reference"/>
-            </searchParam>
-            <searchParam>
-                <name value="class"/>
-                <type value="token"/>
-            </searchParam>
-            <searchParam>
-                <name value="type"/>
-                <type value="token"/>
-            </searchParam>
-            <searchParam>
-                <name value="setting"/>
-                <type value="token"/>
-            </searchParam>
-            <searchParam>
-                <name value="period"/>
-                <type value="date"/>
-            </searchParam>
-            <searchParam>
-                <name value="facility"/>
-                <type value="token"/>
-            </searchParam>
-            <searchParam>
-                <name value="event"/>
-                <type value="token"/>
-            </searchParam>
-            <searchParam>
-                <name value="securityLabel"/>
-                <type value="token"/>
-            </searchParam>
-            <searchParam>
-                <name value="format"/>
-                <type value="token"/>
-            </searchParam>
-            <searchParam>
-                <name value="related-id"/>
-                <type value="token"/>
-            </searchParam>
-        </resource>
-        <resource>
             <type value="Composition"/>
             <interaction>
                 <code value="search-type"/>
@@ -233,6 +157,12 @@
                 <name value="type"/>
                 <type value="token"/>
             </searchParam>
+        </resource>
+        <resource>
+            <type value="Encounter"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
         </resource>
         <interaction>
             <code value="batch"/>
