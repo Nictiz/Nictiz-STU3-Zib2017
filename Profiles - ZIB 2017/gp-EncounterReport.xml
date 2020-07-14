@@ -23,6 +23,10 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
   <derivation value="constraint" />
   <differential>
+    <element id="Composition">
+      <path value="Composition" />
+      <alias value="Deelcontactverslag" />
+    </element>
     <element id="Composition.type.coding.system">
       <path value="Composition.type.coding.system" />
       <fixedUri value="http://loinc.org" />
@@ -161,7 +165,7 @@
     </element>
     <element id="Composition.section.entry">
       <path value="Composition.section.entry" />
-      <definition value="A reference to data that supports this section. Examples of references could be a diagnostic result on the &quot;O&quot; entry, or a medication agreement or a care plan on the &quot;P&quot; entry." />
+      <definition value="A reference to data that supports this section. At minimum, there should be an entry for the gp-JournalEntry(Observation) that the section.entry.text was based on. Note that this gp-JournalEntry in turn will connect to the ICPC coding if relevant.&#xD;&#xA;&#xD;&#xA;Other references are the nl-core-episodeofcare(EpisodeOfCare) that this section relates to, a diagnostic result on the &quot;O&quot; entry, or a medication agreement or a care plan on the &quot;P&quot; entry.&#xD;&#xA;&#xD;&#xA;While it is possible *not* to relate to an EpisodeOfCare, this is not likely due to the episode based record keeping by GPs." />
     </element>
   </differential>
 </StructureDefinition>
