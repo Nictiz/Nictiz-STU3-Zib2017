@@ -11,6 +11,7 @@
         <value value="123456"/>
     </identifier>
     <status value="final"/>
+    <!--check-->
     <code>
         <coding>
             <system value="http://loinc.org"/>
@@ -27,8 +28,24 @@
         <reference value="Encounter/gp-encounter-01"/>
         <display value="abc"/>
     </context>
-    <effectiveDateTime value="2009-11-03T03:17:00+00:00"/>
-    <issued value="1967-03-20T17:54:00+00:00"/>
+    <effectiveDateTime value="2009-11-03T03:17:00+00:00"/>    
+    <!--check-->
     <valueString value="abc"/>
     <!--Hier nog iets over component?-->
+    <component>
+        <code>
+            <coding>
+                <system value="http://hl7.org/fhir/v3/ActCode"/>
+                <code value="DISDX"/>
+                <display value="discharge diagnosis"/>
+            </coding>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://hl7.org/fhir/sid/icpc-1-nl"/>
+                <code value="K78"/>
+                <display value="xxxxx"/>
+            </coding>
+        </valueCodeableConcept>
+    </component>
 </Observation>

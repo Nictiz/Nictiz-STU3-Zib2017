@@ -11,12 +11,19 @@
         <value value="123456"/>
     </identifier>
     <status value="onleave"/>
-    <class>        
-        <system value="http://hl7.org/fhir/reference"/>
-        <version value="abc"/>
-        <code value="code-980"/>
-        <display value="abc"/>
-        <userSelected value="false"/>
+    <class>    
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+            <valueCodeableConcept>
+                <coding>
+                    <system value="http://hl7.org/fhir/v3/ActCode"/>
+                    <code value="IMP"/>
+                    <display value="inpatient encounter"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="IMP"/>
+        <display value="inpatient encounter"/>
     </class>
     <type>
         <coding>
@@ -29,4 +36,27 @@
         <reference value="Patient/nl-core-patient-01"/>
         <display value="J. XXX_Helleman (Johan)"/>
     </subject>
+    <episodeOfCare>
+        <reference value="EpisodeOfCare/gpdata-episodeofcare-icpc-d02"/>
+        <display value="Maagpijn"/>
+    </episodeOfCare>
+    <participant>
+        <individual>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                <valueReference>
+                    <reference value="PractitionerRole/xxxxxxxxxxxxxxxxxx"/>
+                    <display value="Dr. V. Huisarts 1"/>
+                </valueReference>
+            </extension>
+            <reference value="Practitioner/xxxxxxxxxxxxxxxxx"/>
+            <display value="Dr. V. Huisarts 1"/>
+        </individual>
+    </participant>
+    <period>
+        <start value="xxxxxxxxxxxxxxxxxxxx"/>
+    </period>
+    <serviceProvider>
+        <reference value="Organization/xxxxxxxxxxxxxxxxxxxxxxx"/>
+        <display value="Aesculaap"/>
+    </serviceProvider>
 </Encounter>

@@ -4,13 +4,20 @@
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction-UrineCatheter" />
     </meta>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3
+        ">
+        <valueReference>
+            <reference value="Observation/zib-bladderfunction-01"/>
+            <display value="Micturition (observable entity)"/>
+        </valueReference>
+    </extension>
     <status value="active"/>
     <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="J. XXX_Helleman (Johan)"/>
     </subject>
     <device>
-        <reference value="Urinecatheterproduct/zib-bladderfunction-urinecatheter-product-01"/>
+        <reference value="Device/zib-bladderfunction-urinecatheter-product-01"/>
         <display value="Verblijfskatheter"/>
     </device>
 </DeviceUseStatement>
