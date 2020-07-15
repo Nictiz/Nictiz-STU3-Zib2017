@@ -11,14 +11,12 @@
         <value value="123456"/>
     </identifier>
     <status value="final"/>
-    <!--check-->
     <code>
         <coding>
-            <system value="http://loinc.org"/>
-            <code value="624-7"/>
-            <display value="Bacteria Spt Resp Cul"/>
+            <system value="http://fhir.nl/fhir/NamingSystem/journaalregeltypen"/>
+            <code value="S"/>
+            <display value="Subjectief"/>
         </coding>
-        <text value="Aerobic Respiratory Culture, Sputum"/>
     </code>
     <subject>
         <reference value="Patient/nl-core-patient-01"/>
@@ -28,23 +26,33 @@
         <reference value="Encounter/gp-encounter-01"/>
         <display value="abc"/>
     </context>
-    <effectiveDateTime value="2009-11-03T03:17:00+00:00"/>    
-    <!--check-->
-    <valueString value="abc"/>
-    <!--Hier nog iets over component?-->
+    <effectiveDateTime value="2009-11-03T03:17:00+00:00"/>  
+    <!-- -->
+    <performer>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+                <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
+                <display value="Medisch specialisten, orthopedie"/>
+            </valueReference>
+        </extension>
+        <reference value="Practitioner/nl-core-practitioner-01"/>
+        <display value="Huisarts H. de Vries"/>
+    </performer>
+    <!-- -->
+    <valueString value="Benauwd en hoesten tijdens en na sporten. Gebruikt reeds ICS."/>
     <component>
         <code>
             <coding>
                 <system value="http://hl7.org/fhir/v3/ActCode"/>
-                <code value="DISDX"/>
-                <display value="discharge diagnosis"/>
+                <code value="ADMDX"/>
+                <display value="admitting diagnosis"/>
             </coding>
         </code>
         <valueCodeableConcept>
             <coding>
                 <system value="http://hl7.org/fhir/sid/icpc-1-nl"/>
-                <code value="K78"/>
-                <display value="xxxxx"/>
+                <code value="R02"/>
+                <display value="Dyspnoe/benauwdheid toegeschreven aan luchtwegen [ex. K02]"/>
             </coding>
         </valueCodeableConcept>
     </component>

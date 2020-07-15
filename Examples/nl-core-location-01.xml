@@ -35,28 +35,44 @@
         <system value="phone"/>
         <value value="+31611234567"/>
         <use value="mobile"/>
-    </telecom>
+    </telecom>    
     <address>
-        <!--  <use>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-AD-use">
-                <valueCode>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+            <valueCodeableConcept>
+                <coding>
                     <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="CONF"/>
-                    <display value="confidential address"/>
-                </valueCode>
-            </extension>
-        </use>-->
-        <!--Examplle van reallese -->
+                    <code value="HP"/>
+                    <display value="Officieel adres"/>
+                </coding>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+            <valueBoolean value="true"/>
+        </extension>
+        <use value="home"/>
         <type value="both"/>
-        <!--REVIEW-->
-        <line value="137 Nowhere Street"/>
-        <!--REVIEW-->
+        <line value="Oude middeweg 55">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+                <valueString value="Knolweg"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+                <valueString value="55"/>
+            </extension>
+        </line>
         <city value="Den Haag"/>
-        <district value="Wateringen"/>
-        <state value="ZH"/>
         <postalCode value="9132AG"/>
-        <country value="NLD"/>
-    </address>
+        <country value="NLD">
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                        <code value="6030"/>
+                        <display value="Nederland"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+        </country>
+    </address>  
     <managingOrganization>
         <reference value="Organization/nl-core-organization-01"/>
         <display value="Maatschap Vaste Huisarts"/>
