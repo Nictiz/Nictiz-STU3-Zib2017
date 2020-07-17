@@ -75,7 +75,7 @@
       <path value="Device.identifier" />
       <slicing>
         <discriminator>
-          <type value="value" />
+          <type value="pattern" />
           <path value="type" />
         </discriminator>
         <rules value="open" />
@@ -118,6 +118,12 @@
     <element id="Device.identifier:serialNumber.type">
       <path value="Device.identifier.type" />
       <min value="1" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/identifier-type" />
+          <code value="SNO" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Device.identifier:serialNumber.type.coding">
       <path value="Device.identifier.type.coding" />
