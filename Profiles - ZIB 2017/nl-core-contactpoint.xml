@@ -45,7 +45,27 @@
     <element id="ContactPoint">
       <path value="ContactPoint" />
       <short value="ContactInformation" />
-      <definition value="Contact information includes a person's telephone numbers en e-mail addresses." />
+      <definition value="Contact information includes a person's telephone numbers and email addresses. This datatype defines a common basis for expressing all contact information around the world, but adds extensions to express Dutch contacts specifically, according to the HCIM ContactInformation (v1.0, 2017). A Dutch ContactPoint still is a proper FHIR ContactPoint, which means that systems that cannot interpret the extensions will still be able to render and work with this datatype. The table below explains how the HCIM concepts are mapped to the various FHIR elements. The HCIM code itself should also be included using the TelecomType extension.&#xD;&#xA;&#xD;&#xA;
+        | HCIM                                                                  | .ext:TelecomType | .system | .use |&#xD;&#xA;&#xD;&#xA;
+        |-----------------------------------------------------------------------|------------------|---------|------|&#xD;&#xA;&#xD;&#xA;
+        | Primary Home Land Line/Telefoonnummer thuis Vast telefoonnummer       | LL               | phone   | home |&#xD;&#xA;&#xD;&#xA;
+        | Temporary Land Line/Tijdelijk telefoonnummer Vast telefoonnummer      | LL               | phone   | temp |&#xD;&#xA;&#xD;&#xA;
+        | Primary Work Land Line/Zakelijk telefoonnummer Vast telefoonnummer    | LL               | phone   | work |&#xD;&#xA;&#xD;&#xA;
+        |                                                                       |                  |         |      |&#xD;&#xA;&#xD;&#xA;
+        | Primary Home Fax/Telefoonnummer thuis Fax                             | FAX              | fax     | home |&#xD;&#xA;&#xD;&#xA;
+        | Temporary Fax/Tijdelijk telefoonnummer Fax                            | FAX              | fax     | temp |&#xD;&#xA;&#xD;&#xA;
+        | Primary Work Fax/Zakelijk Telefoonnummer Fax                          | FAX              | fax     | work |&#xD;&#xA;&#xD;&#xA;
+        |                                                                       |                  |         |      |&#xD;&#xA;&#xD;&#xA;
+        | Primary Home Mobile Phone/Telefoonnummer thuis Mobiel telefoonnummer  | MC               | phone   | home |&#xD;&#xA;&#xD;&#xA;
+        | Temporary Mobile Phone/Tijdelijk telefoonnummer Mobiel telefoonnummer | MC               | phone   | temp |&#xD;&#xA;&#xD;&#xA;
+        | Primary Work Mobile Phone/Zakelijk telefoonnummer Vast telefoonnummer | MC               | phone   | work |&#xD;&#xA;&#xD;&#xA;
+        |                                                                       |                  |         |      |&#xD;&#xA;&#xD;&#xA;
+        | Primary Home Pager/Telefoonnummer thuis Pieper                        | PG               | pager   | home |&#xD;&#xA;&#xD;&#xA;
+        | Temporary Pager/Tijdelijk telefoonnummer Pieper                       | PG               | pager   | temp |&#xD;&#xA;&#xD;&#xA;
+        | Primary Work Pager/Zakelijk telefoonnummer Pieper                     | PG               | pager   | work |&#xD;&#xA;&#xD;&#xA;
+        |                                                                       |                  |         |      |&#xD;&#xA;&#xD;&#xA;
+        | Private email address/Prive e-mailadres                               |                  | email   | home |&#xD;&#xA;&#xD;&#xA;
+        | Work email address/Zakelijk e-mailadres                               |                  | email   | work |" />
       <alias value="Contactgegevens" />
       <example>
         <label value="Mobile business phone number. Note: the mobile nature stems from the number being an 06-* number." />
@@ -171,7 +191,7 @@
           <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
               <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1" />
+                <system value="http://hl7.org/fhir/v3/AddressUse" />
                 <code value="MC" />
                 <display value="Mobile Phone" />
               </coding>
@@ -188,7 +208,7 @@
           <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
               <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1" />
+                <system value="http://hl7.org/fhir/v3/AddressUse" />
                 <code value="MC" />
                 <display value="Mobile Phone" />
               </coding>
@@ -205,7 +225,7 @@
           <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
               <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1" />
+                <system value="http://hl7.org/fhir/v3/AddressUse" />
                 <code value="MC" />
                 <display value="Mobile Phone" />
               </coding>
@@ -222,7 +242,7 @@
           <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
               <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1" />
+                <system value="http://hl7.org/fhir/v3/AddressUse" />
                 <code value="PG" />
                 <display value="Pager" />
               </coding>
@@ -239,7 +259,7 @@
           <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
               <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1" />
+                <system value="http://hl7.org/fhir/v3/AddressUse" />
                 <code value="PG" />
                 <display value="Pager" />
               </coding>
@@ -256,7 +276,7 @@
           <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
               <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1" />
+                <system value="http://hl7.org/fhir/v3/AddressUse" />
                 <code value="PG" />
                 <display value="Pager" />
               </coding>

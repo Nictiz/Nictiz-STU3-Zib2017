@@ -58,12 +58,12 @@
         </given>
     </name>
     <telecom>        
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-NumberType">
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="HP"/>
-                    <display value="Primary Home"/>
+                    <system value="2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                    <code value="LL"/>
+                    <display value="Vast telefoonnummer"/>
                 </coding>
             </valueCodeableConcept>
         </extension>
@@ -72,15 +72,6 @@
         <use value="home" />
     </telecom>
     <telecom>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-EmailAddressType">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="HP"/>
-                    <display value="Privé e-mailadres"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
         <system value="email"/>
         <value value="user@home.nl" />
         <use value="home" />
@@ -159,29 +150,18 @@
             <given value="Gerard"/>
         </name>
         <telecom>
-            <system value="phone">
-                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                            <code value="LL"/>
-                            <display value="Vast telefoonnummer"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-            </system>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+                <valueCodeableConcept>
+                    <coding>
+                        <system value="2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+                        <code value="LL"/>
+                        <display value="Vast telefoonnummer"/>
+                    </coding>
+                </valueCodeableConcept>
+            </extension>
+            <system value="phone"/>
             <value value="015-23456789"/>
-            <use value="home">
-                <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                            <code value="LL"/>
-                            <display value="Vast telefoonnummer"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-            </use>
+            <use value="home"/>
         </telecom>
     </contact>
     <generalPractitioner>

@@ -5038,16 +5038,7 @@
                     <value value="0612345990"/>
                     <use value="work" />    
                 </telecom>
-                <telecom>                    
-                    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-EmailAddressType">
-                        <valueCodeableConcept>
-                            <coding>
-                                <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                                <code value="WP"/>
-                                <display value="Zakelijk e-mailadres"/>
-                            </coding>
-                        </valueCodeableConcept>
-                    </extension>
+                <telecom>
                     <system value="email"/>
                     <value value="devries@work.com" />
                     <use value="work" />             
@@ -5201,47 +5192,23 @@
                     <prefix value="Dr."/>
                 </name>
                 <telecom>
-                    <system value="phone">
-                        <extension
-                            url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                            <valueCodeableConcept>
-                                <coding>
-                                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                                    <code value="MC"/>
-                                    <display value="Mobiel telefoonnummer"/>
-                                </coding>
-                            </valueCodeableConcept>
-                        </extension>
-                    </system>
+                    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+                        <valueCodeableConcept>
+                            <coding>
+                                <system value="http://hl7.org/fhir/v3/AddressUse" />
+                                <code value="MC" />
+                                <display value="Mobiel telefoonnummer" />
+                            </coding>
+                        </valueCodeableConcept>
+                    </extension>
+                    <system value="phone"/>
                     <value value="0612345990"/>
-                    <use value="work">
-                        <extension
-                            url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                            <valueCodeableConcept>
-                                <coding>
-                                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                                    <code value="MC"/>
-                                    <display value="Mobiel telefoonnummer"/>
-                                </coding>
-                            </valueCodeableConcept>
-                        </extension>
-                    </use>
+                    <use value="work"/>
                 </telecom>
                 <telecom>
                     <system value="email"/>
                     <value value="devries@work.com"/>
-                    <use value="work">
-                        <extension
-                            url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                            <valueCodeableConcept>
-                                <coding>
-                                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                                    <code value="WP"/>
-                                    <display value="Zakelijk e-mailadres"/>
-                                </coding>
-                            </valueCodeableConcept>
-                        </extension>
-                    </use>
+                    <use value="work"/>
                 </telecom>
             </Practitioner>
         </resource>
@@ -5326,31 +5293,18 @@
                 </identifier>
                 <name value="Tést Zorginstelling 04"/>
                 <telecom>
-                    <system value="phone">
-                        <extension
-                            url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                            <valueCodeableConcept>
-                                <coding>
-                                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                                    <code value="MC"/>
-                                    <display value="Mobiel telefoonnummer"/>
-                                </coding>
-                            </valueCodeableConcept>
-                        </extension>
-                    </system>
+                    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+                        <valueCodeableConcept>
+                            <coding>
+                                <system value="http://hl7.org/fhir/v3/AddressUse" />
+                                <code value="MC" />
+                                <display value="Mobiel telefoonnummer" />
+                            </coding>
+                        </valueCodeableConcept>
+                    </extension>
+                    <system value="phone"/>
                     <value value="0612345990"/>
-                    <use value="work">
-                        <extension
-                            url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                            <valueCodeableConcept>
-                                <coding>
-                                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                                    <code value="MC"/>
-                                    <display value="Mobiel telefoonnummer"/>
-                                </coding>
-                            </valueCodeableConcept>
-                        </extension>
-                    </use>
+                    <use value="work"/>
                 </telecom>
                 <telecom>
                     <system value="email"/>
