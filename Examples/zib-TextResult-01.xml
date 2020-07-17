@@ -10,21 +10,20 @@
         <system value="http://www.acme.com/identifiers/patient" />
         <value value="123456" />
     </identifier>
-    <!-- status waarde nog geven -->
-    <status>
+    <status value="appended">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
                     <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.16.1"/>
-                    <code value="pending"/>
-                    <display value="Uitslag volgt"/>
+                    <code value="appended"/>
+                    <display value="Aanvullend"/>
                 </coding>
             </valueCodeableConcept>
         </extension>
     </status>
-    <!-- System vullen -->
     <code>
         <coding>
+            <system value="http://snomed.info/sct" />
             <code value="19851009"/>
             <display value="microbiologie"/>
         </coding>
@@ -57,6 +56,5 @@
             <display value="Vaste Huisarts 1"/>
         </actor>
     </performer>
-    <!-- conllusion doesn't match with the status of this example. -->
-    <conclusion value="Approved"/>
+    <conclusion value="Pending"/>
 </DiagnosticReport>
