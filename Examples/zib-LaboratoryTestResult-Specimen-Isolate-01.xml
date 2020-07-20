@@ -1,0 +1,49 @@
+<Specimen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/specimen.xsd" xmlns="http://hl7.org/fhir">
+    <id value="zib-laboratorytestresult-specimen-isolate-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Specimen-Isolate"/>
+    </meta>
+    <identifier>     
+        <system value="http://www.acme.com/identifiers/patient" />
+        <value value="123456" />
+    </identifier>
+    <status value="available" />
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="246513007"/>
+            <display value="Revision status"/>
+        </coding>
+    </type>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="J. XXX_Helleman (Johan)"/>
+    </subject>
+    <receivedTime value="2020-03-01T22:03:00+00:00" />
+    <parent>
+        <reference value="Specimen/zib-laboratorytestresult-specimen-01" />
+        <display value="Blood (substance)" />
+    </parent>
+    <request>
+        <reference value="ProcedureRequest/zib-procedurerequest-01" />
+        <display value="Pigmented nevus, no International
+            Classification of Diseases for Oncology subtype (morphologic
+            abnormality)" />
+    </request>
+    <collection>
+        <collectedDateTime value="2020-03-01T22:03:00+01:00"/>
+    </collection>
+    <container>
+        <type>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="370133003"/>
+                <display value="Specimen substance"/>
+            </coding>
+        </type>
+    </container>
+    <note>
+        <time value="2020-03-01T22:03:00+00:00" />
+        <text value="het monster toont afwijkingen" />
+    </note>
+</Specimen>
