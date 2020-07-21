@@ -289,16 +289,21 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="$this" />
+          <path value="system" />
         </discriminator>
         <rules value="open" />
       </slicing>
       <min value="1" />
+      <constraint>
+        <key value="zib-LaboratoryTestResult-Observation-1" />
+        <severity value="error" />
+        <human value="If a value from the HCIM ValueSet 'InterperatatieVlaggenCodelijst' is present a mapped code from the FHIR ValueSet 'Observation Interpretation Codes&quot; is also expected. A ConceptMap is available that maps the HCIM values to the FHIR values." />
+        <expression value="coding.where(system = 'http://snomed.info/sct' and (code = '281302008' or '281300000' or '11896004' or '30714006' or '131196009')  ).exists() implies coding.where(system = 'http://hl7.org/fhir/v2/0078').exists()" />
+      </constraint>
     </element>
     <element id="Observation.interpretation.coding:ObservationInterpretation">
       <path value="Observation.interpretation.coding" />
       <sliceName value="ObservationInterpretation" />
-      <min value="1" />
       <binding>
         <strength value="required" />
         <description value="Observation Interpretation Codes" />
@@ -307,18 +312,28 @@
         </valueSetReference>
       </binding>
     </element>
+    <element id="Observation.interpretation.coding:ObservationInterpretation.system">
+      <path value="Observation.interpretation.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://hl7.org/fhir/v2/0078" />
+    </element>
+    <element id="Observation.interpretation.coding:ObservationInterpretation.code">
+      <path value="Observation.interpretation.coding.code" />
+      <min value="1" />
+    </element>
     <element id="Observation.interpretation.coding:InterpretatieVlaggenCodelijst">
       <path value="Observation.interpretation.coding" />
       <sliceName value="InterpretatieVlaggenCodelijst" />
       <short value="ResultFlags" />
       <definition value="Attention codes indicating whether the result is above or below certain reference values or interpreting the result otherwise. (Resistent)" />
-      <comment value="This slice binds the ValueSet from the HCIM, which overlaps the ValueSet from the core FHIR Observation. A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/InterpretatieVlaggenCodelijst-to-observation-interpretation) is available that explains the relationship between the FHIR observation-interpretation value set and the HCIM ResultFlagsCodelist." />
+      <comment value="This slice binds the ValueSet from the HCIM, which overlaps the ValueSet from the core FHIR Observation. To satisfy the FHIR profiling rules, the code from the core FHIR ValueSet SHOULD be included as well if a code from this ValueSet is included. A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/InterpretatieVlaggenCodelijst-to-observation-interpretation) is available that explains the relationship between the FHIR observation-interpretation value set and the HCIM ResultFlagsCodelist." />
       <alias value="InterpretatieVlaggen" />
       <binding>
         <strength value="required" />
         <description value="InterpretatieVlaggenCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.13.1.7--20171231000000" />
+          <display value="InterpretatieVlaggenCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -336,6 +351,15 @@
         <map value="NL-CM:13.1.14" />
         <comment value="ResultFlags - see ConceptMap 'HCIM InterpretatieVlaggenCodelijst to Observation Interpretation Codes'" />
       </mapping>
+    </element>
+    <element id="Observation.interpretation.coding:InterpretatieVlaggenCodelijst.system">
+      <path value="Observation.interpretation.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Observation.interpretation.coding:InterpretatieVlaggenCodelijst.code">
+      <path value="Observation.interpretation.coding.code" />
+      <min value="1" />
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
