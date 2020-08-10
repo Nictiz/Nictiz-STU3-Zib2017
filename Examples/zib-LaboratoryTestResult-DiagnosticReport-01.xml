@@ -1,10 +1,47 @@
-<?xml-model href="http://hl7.org/fhir/STU3/diagnosticreport.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<DiagnosticReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
+<?xml-model href="http://hl7.org/fhir/STU3/diagnosticreport.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><DiagnosticReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
     <id value="zib-laboratorytestresult-diagnosticreport-01"/>
     <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport"/>
     </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Diagnostisch verslag. Subject: <a href="Patient/nl-core-patient-01">Johan XXX_Helleman</a>. Id: RP723234 (https://acme.org/identifiers), 250401 (https://acme.org/identifiers), Categorie: <span title="Laboratory report (record artifact) (4241000179101 - SNOMED CT)">Laboratory report (record artifact)</span>, Status: definitief<span style="display: block;">Uitvoerende (<span title="Responsible Party (RESP - v3/ParticipationType)">Responsible Party</span>): <a href="PractitionerRole/nl-core-practitionerrole-02">Vaste Huisarts 1 - Maatschap Vaste Huisarts</a>
+                    </span>
+                </caption>
+                <tbody>
+                    <tr>
+                        <th>Code</th>
+                        <td>
+                            <span title="Bacteria Spt Resp Cul (624-7 - LOINC)">Bacteria Spt Resp Cul</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Gemaakt</th>
+                        <td>2016-08-15<div>Deze versie: </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Conclusie</th>
+                        <td>Test conclusion</td>
+                    </tr>
+                    <tr>
+                        <th>Resultaat</th>
+                        <td>
+                            <a href="Observation/zib-laboratorytestresult-observation-01">Laboratory test finding</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Specimen</th>
+                        <td>
+                            <a href="Specimen/zib-laboratorytestresult-specimen-01">Blood</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
     <identifier>
         <type>
             <coding>
@@ -72,14 +109,14 @@
         <role>
             <coding>
                 <system value="http://hl7.org/fhir/v3/ParticipationType"/>
-                <code value="RESP" />
-                <display value="Responsible Party" />
+                <code value="RESP"/>
+                <display value="Responsible Party"/>
             </coding>
         </role>
         <actor>
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" >
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
                 <valueReference>
-                    <reference value="PractitionerRole/nl-core-practitionerrole-02" />
+                    <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
                     <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
                 </valueReference>
             </extension>
@@ -95,5 +132,5 @@
         <reference value="Observation/zib-laboratorytestresult-observation-01"/>
         <display value="Laboratory test finding"/>
     </result>
-    <conclusion value="Test conclusion" />
+    <conclusion value="Test conclusion"/>
 </DiagnosticReport>

@@ -1,17 +1,14 @@
-<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
     <id value="zib-familysituationchild-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild"/>
     </meta>
     <text>
-        <status value="generated"/>
+        <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
-                <caption>Observatie/bepaling. Subject: <a href="Patient/nl-core-patient-03">Irma
-                        Jongeneel-de Haas</a>. Status: definitief<div>Uitvoerende: <a
-                            href="Practitioner/nl-core-practitioner-01">Huisarts H. de Vries</a>
-                    </div>
+                <caption>Observatie/bepaling. Subject: <a href="Patient/nl-core-patient-03">Irma Jongeneel-de Haas</a>. Status: definitief<span style="display: block;">Uitvoerende: <a href="Practitioner/nl-core-practitioner-01">Huisarts H. de Vries</a>
+                    </span>
                 </caption>
                 <tfoot>
                     <tr>
@@ -29,65 +26,57 @@
                     </tr>
                     <tr>
                         <td>
-                            <span
-                                title="Finding of family details and household composition of child (finding) (55801000146105 - SNOMED CT)"
-                                >Finding of family details and household composition of child
-                                (finding)</span>
+                            <span title="Finding of family details and household composition of child (finding) (55801000146105 - SNOMED CT)">Finding of family details and household composition of child (finding)</span>
                         </td>
                         <td/>
                     </tr>
                     <tr>
                         <td>
-                            <span
-                                title="Household composition (observable entity) (224130005 - SNOMED CT)"
-                                >Household composition (observable entity)</span>
+                            <span title="Household composition (observable entity) (224130005 - SNOMED CT)">Household composition (observable entity)</span>
                         </td>
                         <td>
-                            <span title="Lives with mother (224139006 - SNOMED CT)">Lives with
-                                mother</span>
+                            <span title="Lives with mother (224139006 - SNOMED CT)">Lives with mother</span>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <span
-                                title="Number of siblings (observable entity) (224095004 - SNOMED CT)"
-                                >Number of siblings (observable entity)</span>
+                            <span title="Number of siblings (observable entity) (224095004 - SNOMED CT)">Number of siblings (observable entity)</span>
                         </td>
                         <td>2</td>
                     </tr>
                     <tr>
                         <td>
-                            <span title="Parent (person) (40683002 - SNOMED CT)">Parent
-                                (person)</span>
+                            <span title="Parent (person) (40683002 - SNOMED CT)">Parent (person)</span>
                         </td>
-                        <td/>
+                        <td>
+                            <a href="RelatedPerson/nl-core-relatedperson-03">Natural father</a>
+                        </td>
                     </tr>
                     <tr>
                         <td>
-                            <span title="Parent (person) (40683002 - SNOMED CT)">Parent
-                                (person)</span>
+                            <span title="Parent (person) (40683002 - SNOMED CT)">Parent (person)</span>
                         </td>
-                        <td/>
+                        <td>
+                            <a href="RelatedPerson/nl-core-relatedperson-04">Natural mother</a>
+                        </td>
                     </tr>
                     <tr>
                         <td>
                             <span title="Child (67822003 - SNOMED CT)">Child</span>
                         </td>
-                        <td>2018-06-02</td>
+                        <td>2018-06-02 (<a href="RelatedPerson/nl-core-relatedperson-05">Natural daughter</a>)</td>
                     </tr>
                     <tr>
                         <td>
-                            <span title="Sibling (person) (375005 - SNOMED CT)">Sibling
-                                (person)</span>
+                            <span title="Sibling (person) (375005 - SNOMED CT)">Sibling (person)</span>
                         </td>
-                        <td>2009-12-20</td>
+                        <td>2009-12-20 (<a href="RelatedPerson/nl-core-relatedperson-06">Brother</a>)</td>
                     </tr>
                     <tr>
                         <td>
-                            <span title="Sibling (person) (375005 - SNOMED CT)">Sibling
-                                (person)</span>
+                            <span title="Sibling (person) (375005 - SNOMED CT)">Sibling (person)</span>
                         </td>
-                        <td>2013-02-03</td>
+                        <td>2013-02-03 (<a href="RelatedPerson/nl-core-relatedperson-07">Sister</a>)</td>
                     </tr>
                 </tbody>
             </table>
@@ -98,8 +87,7 @@
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="55801000146105"/>
-            <display value="Finding of family details and household composition of child (finding)"
-            />
+            <display value="Finding of family details and household composition of child (finding)"/>
         </coding>
     </code>
     <subject>
@@ -141,10 +129,8 @@
             <value value="2"/>
         </valueQuantity>
     </component>
-    <component>
-        <!-- parent #1 -->
-        <extension
-            url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+    <component><!-- parent #1 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
                 <reference value="RelatedPerson/nl-core-relatedperson-03"/>
                 <display value="Natural father"/>
@@ -158,10 +144,8 @@
             </coding>
         </code>
     </component>
-    <component>
-        <!-- parent #2 -->
-        <extension
-            url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+    <component><!-- parent #2 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
                 <reference value="RelatedPerson/nl-core-relatedperson-04"/>
                 <display value="Natural mother"/>
@@ -175,10 +159,8 @@
             </coding>
         </code>
     </component>
-    <component>
-        <!-- child #1 -->
-        <extension
-            url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+    <component><!-- child #1 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
                 <reference value="RelatedPerson/nl-core-relatedperson-05"/>
                 <display value="Natural daughter"/>
@@ -193,10 +175,8 @@
         </code>
         <valueDateTime value="2018-06-02"/>
     </component>
-    <component>
-        <!-- sibling #1 -->
-        <extension
-            url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+    <component><!-- sibling #1 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
                 <reference value="RelatedPerson/nl-core-relatedperson-06"/>
                 <display value="Brother"/>
@@ -211,10 +191,8 @@
         </code>
         <valueDateTime value="2009-12-20"/>
     </component>
-    <component>
-        <!-- sibling #2 -->
-        <extension
-            url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
+    <component><!-- sibling #2 -->
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
                 <reference value="RelatedPerson/nl-core-relatedperson-07"/>
                 <display value="Sister"/>

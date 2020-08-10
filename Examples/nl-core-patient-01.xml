@@ -1,30 +1,21 @@
-<Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/patient.xsd">
+<Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/patient.xsd">
     <id value="nl-core-patient-01"/>
     <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
     </meta>
     <text>
-        <status value="generated"/>
+        <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
-            <div>Id 999911120 (BSN), J. XXX_Helleman (Johan), Man, 1964-07-25, <span
-                    title="Married (M - v3/MaritalStatus)">Married</span>
+            <div>Id 999911120 (BSN), J. XXX_Helleman (Johan), Man, 25 juli 1964, <span title="Married (M - v3/MaritalStatus)">Married</span>
             </div>
             <div>
-                <a href="tel:06-12345678">06-12345678</a> (Tel Mobiel), <a
-                    href="mailto:XXX_Helleman@hotmail.com">XXX_Helleman@hotmail.com</a> (E-mail
-                Privé)</div>
-            <div>Knolweg 1000, 9999XA Stitswerd, NLD (officieel Privé Post/Bezoek)</div>
+                <a href="tel:06-12345645">06-12345645</a> (Tel Privé), <a href="mailto:XXX_Helleman@hotmail.com">XXX_Helleman@hotmail.com</a> (E-mail Privé)</div>
+            <div>Knolweg 1000, 9999XA Stitswerd, NLD (officieel Privé (hoofd))</div>
             <div>
-                <span title="Eerste relatie/contactpersoon (1 - RoleCodeLijst (COD472-VEKT))">Eerste
-                    relatie/contactpersoon</span>, <span title="Wife (WIFE - v3/RoleCode)"
-                    >Wife</span> J.P.M. van Putten XXX_Helleman (Jannie)<div>
-                    <a href="tel:06-12345645">06-12345645</a> (Tel Mobiel), <a
-                        href="mailto:j.vanderjutte@example.com">j.vanderjutte@example.com</a>
-                    (E-mail), Knolweg 1000, 9999XA Sitswerd, Nederland (Privé)</div>
+                <span title="Eerste relatie/contactpersoon (1 - RoleCodeLijst (COD472-VEKT))">Eerste relatie/contactpersoon</span>, <span title="Wife (WIFE - v3/RoleCode)">Wife</span> J.P.M. van Putten XXX_Helleman (Jannie)<div>
+                    <a href="tel:+31611234567">+31611234567</a> (Tel Werk), <a href="mailto:info@nictiz.nl">info@nictiz.nl</a> (E-mail Werk), Knolweg 1000, 9999XA Sitswerd, Nederland (Bezoek)</div>
             </div>
-            <div>Huisarts: <a href="Organization/nl-core-organization-01">Maatschap Vaste
-                    Huisarts</a>
+            <div>Huisarts: <a href="Organization/nl-core-organization-01">Maatschap Vaste Huisarts</a>
             </div>
         </div>
     </text>
@@ -55,7 +46,7 @@
             </extension>
         </given>
     </name>
-    <telecom>       
+    <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
@@ -67,12 +58,12 @@
         </extension>
         <system value="phone"/>
         <value value="06-12345645"/>
-        <use value="home"/>  
+        <use value="home"/>
     </telecom>
-    <telecom>        
+    <telecom>
         <system value="email"/>
         <value value="XXX_Helleman@hotmail.com"/>
-        <use value="home" />
+        <use value="home"/>
     </telecom>
     <gender value="male">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
@@ -184,13 +175,13 @@
                 </valueCodeableConcept>
             </extension>
             <system value="phone"/>
-            <value value="+31611234567" />
-            <use value="work" />
+            <value value="+31611234567"/>
+            <use value="work"/>
         </telecom>
         <telecom>
             <system value="email"/>
-            <value value="info@nictiz.nl" />
-            <use value="work" />
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
         </telecom>
         <address>
             <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">

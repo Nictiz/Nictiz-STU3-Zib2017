@@ -1,9 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?> <?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir/STU3/observation.xsd">
+<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir/STU3/observation.xsd">
     <id value="zib-snaqscore-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-SNAQScore"/>
     </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Observatie/bepaling. Subject: <a href="Patient/nl-core-patient-03">I. Jongeneel-de Haas</a>. Status: voorlopig</caption>
+                <tbody>
+                    <tr>
+                        <th>Bepalingdatum/tijd</th>
+                        <td>10:00:00, 7 februari 2018</td>
+                    </tr>
+                    <tr>
+                        <th>Code</th>
+                        <th>Waarde</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="Short Nutritional Assessment Questionnaire (8881000146104 - SNOMED CT)">Short Nutritional Assessment Questionnaire</span>
+                        </td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="WeightLoss Score (4.6.3 - zib elementcode)">WeightLoss Score</span>
+                        </td>
+                        <td>
+                            <span title="LossAverage (G2 - 2.16.840.1.113883.2.4.3.11.60.40.4.5.1)">LossAverage</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="Nutrition Score (4.6.5 - zib elementcode)">Nutrition Score</span>
+                        </td>
+                        <td>
+                            <span title="Voeding (Z1 - 2.16.840.1.113883.2.4.3.11.60.40.4.5.3)">Voeding</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="Appetite Score (4.6.4 - zib elementcode)">Appetite Score</span>
+                        </td>
+                        <td>
+                            <span title="GeenEetlust (B1 - 2.16.840.1.113883.2.4.3.11.60.40.4.5.2)">GeenEetlust</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
     <status value="preliminary"/>
     <code>
         <coding>
@@ -20,8 +67,7 @@
     <valueQuantity>
         <value value="4"/>
     </valueQuantity>
-    <component>
-        <!--WeightLossScore-->
+    <component><!--WeightLossScore-->
         <code>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0"/>
@@ -37,8 +83,7 @@
             </coding>
         </valueCodeableConcept>
     </component>
-    <component>
-        <!--NutritionScore-->
+    <component><!--NutritionScore-->
         <code>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0"/>
@@ -54,8 +99,7 @@
             </coding>
         </valueCodeableConcept>
     </component>
-    <component>
-        <!--AppetiteScore-->
+    <component><!--AppetiteScore-->
         <code>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0"/>

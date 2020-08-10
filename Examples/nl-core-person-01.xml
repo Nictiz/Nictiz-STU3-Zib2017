@@ -1,5 +1,4 @@
-<Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/person.xsd">
+<Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/person.xsd">
     <id value="nl-core-person-01"/>
     <meta>
         <versionId value="1"/>
@@ -7,13 +6,12 @@
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-person"/>
     </meta>
     <text>
-        <status value="generated"/>
+        <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div>Henk de Haas, Man</div>
             <div>
-                <a href="tel:0612345990">0612345990</a> (Tel Werk), <a href="mailto:dehaas@work.com"
-                    >dehaas@work.com</a> (E-mail Werk)</div>
-            <div>Straatweg 12bII, 1012AB Weesp Amsterdam, NLD (officieel Privé Post/Bezoek)</div>
+                <a href="tel:0612345990">0612345990</a> (Tel Werk), <a href="mailto:dehaas@work.com">dehaas@work.com</a> (E-mail Werk)</div>
+            <div>Straatweg 12bII, 1012AB Weesp Amsterdam, NLD (officieel Privé (hoofd))</div>
             <div>Gekoppeld aan: <a href="Patient/nl-core-patient-03">Irma Jongeneel-de Haas</a>
             </div>
         </div>
@@ -29,7 +27,7 @@
         </family>
         <given value="Henk"/>
     </name>
-    <telecom>       
+    <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
@@ -39,14 +37,14 @@
                 </coding>
             </valueCodeableConcept>
         </extension>
-        <system value="phone" />
+        <system value="phone"/>
         <value value="0612345990"/>
-        <use value="work" />    
+        <use value="work"/>
     </telecom>
     <telecom>
         <system value="email"/>
-        <value value="dehaas@work.com" />
-        <use value="work" />
+        <value value="dehaas@work.com"/>
+        <use value="work"/>
     </telecom>
     <gender value="male">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
@@ -80,8 +78,7 @@
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
                 <valueString value="12"/>
             </extension>
-            <extension
-                url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
                 <valueString value="bII"/>
             </extension>
         </line>

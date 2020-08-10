@@ -1,19 +1,21 @@
-<Encounter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
+<Encounter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
     <id value="zib-encounter-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
     </meta>
     <text>
-        <status value="generated"/>
+        <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
-                <caption>Contact. Subject: <a href="Patient/nl-core-patient-01">Johan
-                        XXX_Helleman</a>. Status: voltooid</caption>
+                <caption>Contact. Subject: <a href="Patient/nl-core-patient-01">Johan XXX_Helleman</a>. Status: voltooid</caption>
                 <tbody>
                     <tr>
                         <th>Type contact</th>
-                        <td/>
+                        <td>
+                            <div>
+                                <span title="inpatient encounter (IMP - v3/ActCode)">inpatient encounter</span>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <th>Periode</th>
@@ -24,12 +26,10 @@
                         <td>
                             <ul>
                                 <li>
-                                    <a href="Condition/zib-problem-05">Fracture of lower limb
-                                        (disorder)</a>
+                                    <a href="Condition/zib-problem-05">Fracture of lower limb (disorder)</a>
                                 </li>
                                 <li>
-                                    <a href="Procedure/zib-procedure-02">Surgical reduction of
-                                        fracture (procedure)</a>
+                                    <a href="Procedure/zib-procedure-02">Surgical reduction of fracture (procedure)</a>
                                 </li>
                             </ul>
                         </td>
@@ -40,6 +40,12 @@
                             <div>
                                 <a href="Practitioner/nl-core-practitioner-03">G.Z.M. de Wit</a>
                             </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Zorgaanbieder</th>
+                        <td>
+                            <a href="Organization/nl-core-organization-02">UMCG - Afdeling Orthopedie</a>
                         </td>
                     </tr>
                 </tbody>

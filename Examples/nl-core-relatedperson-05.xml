@@ -1,20 +1,17 @@
-<RelatedPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
+<RelatedPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
     <id value="nl-core-relatedperson-05"/>
     <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
     </meta>
     <text>
-        <status value="generated"/>
+        <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div>A.B.C. Jongeneel (Anne)</div>
             <div>
-                <a href="tel:06-98765432">06-98765432</a> (Tel Mobiel), <a
-                    href="mailto:a.jongeneel@example.com">a.jongeneel@example.com</a> (E-mail)</div>
-            <div>Knolweg 1000, 9999XA Sitswerd, Nederland (Privé)</div>
+                <a href="tel:06-98765432">06-98765432</a> (Tel Privé), <a href="mailto:a.jongeneel@example.com">a.jongeneel@example.com</a> (E-mail Werk)</div>
+            <div>Knolweg 1000, 9999XA Sitswerd, Nederland (officieel Privé (hoofd))</div>
             <div>
-                <span title="Natural daughter (DAU - v3/RoleCode)">Natural daughter</span> van <a
-                    href="Patient/nl-core-patient-01">Irma Jongeneel-de Haas</a>
+                <span title="Eerste relatie/contactpersoon (1 - RoleCodeLijst (COD472-VEKT))">Eerste relatie/contactpersoon</span>, <span title="Natural daughter (DAU - v3/RoleCode)">Natural daughter</span> van <a href="Patient/nl-core-patient-01">Irma Jongeneel-de Haas</a>
             </div>
         </div>
     </text>
@@ -59,7 +56,7 @@
             </extension>
         </given>
     </name>
-    <telecom>        
+    <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
@@ -69,14 +66,14 @@
                 </coding>
             </valueCodeableConcept>
         </extension>
-        <system value="phone" />
+        <system value="phone"/>
         <value value="06-98765432"/>
-        <use value="home" />    
+        <use value="home"/>
     </telecom>
-    <telecom>             
+    <telecom>
         <system value="email"/>
         <value value="a.jongeneel@example.com"/>
-        <use value="work" />  
+        <use value="work"/>
     </telecom>
     <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">

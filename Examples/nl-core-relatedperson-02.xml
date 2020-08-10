@@ -1,5 +1,4 @@
-<RelatedPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
+<RelatedPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
     <id value="nl-core-releatedperson-02"/>
     <meta>
         <versionId value="3"/>
@@ -7,16 +6,14 @@
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
     </meta>
     <text>
-        <status value="generated"/>
+        <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div>Henk de Haas</div>
             <div>
-                <a href="tel:0612345990">0612345990</a> (Tel Werk), <a href="mailto:dehaas@work.com"
-                    >dehaas@work.com</a> (E-mail Werk)</div>
-            <div>Straatweg 12bII, 1200AA Woonplaats, NLD (officieel Privé Post/Bezoek)</div>
+                <a href="tel:0612345990">0612345990</a> (Tel Werk), <a href="mailto:dehaas@work.com">dehaas@work.com</a> (E-mail Werk)</div>
+            <div>Straatweg 12bII, 1200AA Woonplaats, NLD (officieel Privé (hoofd))</div>
             <div>
-                <span title="husband (HUSB - v3/RoleCode)">husband</span> van <a
-                    href="Patient/nl-core-patient-03">Irma Jongeneel-de Haas</a>
+                <span title="Eerste relatie/contactpersoon (1 - RoleCodeLijst (COD472-VEKT))">Eerste relatie/contactpersoon</span>, <span title="husband (HUSB - v3/RoleCode)">husband</span> van <a href="Patient/nl-core-patient-03">Irma Jongeneel-de Haas</a>
             </div>
         </div>
     </text>
@@ -51,7 +48,7 @@
         </family>
         <given value="Henk"/>
     </name>
-    <telecom>        
+    <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
@@ -61,11 +58,11 @@
                 </coding>
             </valueCodeableConcept>
         </extension>
-        <system value="phone" />
+        <system value="phone"/>
         <value value="0612345990"/>
-        <use value="work" /> 
+        <use value="work"/>
     </telecom>
-    <telecom>               
+    <telecom>
         <system value="email"/>
         <value value="dehaas@work.com"/>
         <use value="work"/>
@@ -91,8 +88,7 @@
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
                 <valueString value="12"/>
             </extension>
-            <extension
-                url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
                 <valueString value="bII"/>
             </extension>
         </line>
