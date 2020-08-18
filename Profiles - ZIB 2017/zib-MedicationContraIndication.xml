@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-MedicationContraIndication" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationContraIndication" />
+  <version value="0.1" />
+  <name value="Zib MedicationContraIndication" />
+  <status value="draft" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <fhirVersion value="3.0.2" />
+  <mapping>
+    <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+    <uri value="https://zibs.nl/wiki/MedicationContraIndication-v0.1(2020EN)" />
+    <name value="HCIM MedicationContraIndication-v0.1(2020EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Flag" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Flag" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Flag">
+      <path value="Flag" />
+      <comment value="Root concept of the MedicationContraIndication information model. This root concept contains all data elements of the MedicationContraIndication information model." />
+      <mapping>
+        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <map value="NL-CM:9.14.1" />
+        <comment value="MedicationContraIndication" />
+      </mapping>
+    </element>
+    <element id="Flag.extension">
+      <path value="Flag.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Flag.extension:note">
+      <path value="Flag.extension" />
+      <sliceName value="note" />
+      <short value="Note" />
+      <comment value="Comment on the contraindication important for interpretation which cannot be captured in any of the other data items. For example, a comment on a contraindication with an end date in the future." />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/Comment" />
+      </type>
+      <mapping>
+        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <map value="NL-CM:9.14.7" />
+        <comment value="Note" />
+      </mapping>
+    </element>
+    <element id="Flag.extension:ReasonClosure">
+      <path value="Flag.extension" />
+      <sliceName value="ReasonClosure" />
+      <short value="ReasonClosure" />
+      <comment value="Reason for closing the medication contraindication." />
+      <alias value="RedenVanAfsluiten" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationContraIndication-ReasonClosure" />
+      </type>
+      <mapping>
+        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <map value="NL-CM:9.14.4" />
+        <comment value="ReasonClosure" />
+      </mapping>
+    </element>
+    <element id="Flag.identifier">
+      <path value="Flag.identifier" />
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.6" />
+        <comment value="IdentificationNumber" />
+      </mapping>
+    </element>
+    <element id="Flag.status">
+      <path value="Flag.status" />
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid." />
+    </element>
+    <element id="Flag.category.coding.system">
+      <path value="Flag.category.coding.system" />
+      <fixedUri value="http://snomed.info/sct" />
+    </element>
+    <element id="Flag.category.coding.code">
+      <path value="Flag.category.coding.code" />
+      <fixedCode value="438833006" />
+    </element>
+    <element id="Flag.code">
+      <path value="Flag.code" />
+      <comment value="The name of the contraindication from the G-Standard." />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FlagCode" />
+        </extension>
+        <strength value="required" />
+        <description value="Detail codes identifying specific contraindications." />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.26.11.2--20200415172250" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <map value="NL- CM:9.14.6" />
+        <comment value="MedicationContraIndicationName" />
+      </mapping>
+    </element>
+    <element id="Flag.subject">
+      <path value="Flag.subject" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.11" />
+        <comment value="Subject" />
+      </mapping>
+    </element>
+    <element id="Flag.period.start">
+      <path value="Flag.period.start" />
+      <short value="StartDate" />
+      <comment value="The date and time (with or without time) when the contra-indication was identified or (again) confirmed to be accurate and true." />
+      <alias value="BeginDatum" />
+      <mapping>
+        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <map value="NL-CM:9.14.2" />
+        <comment value="StartDate" />
+      </mapping>
+    </element>
+    <element id="Flag.period.end">
+      <path value="Flag.period.end" />
+      <short value="EndDate" />
+      <comment value="The date and, if applicable, time when the contraindication for medication monitoring is considered no longer applicable." />
+      <alias value="EindDatum" />
+      <mapping>
+        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <map value="NL-CM:9.14.3" />
+        <comment value="EndDate" />
+      </mapping>
+    </element>
+    <element id="Flag.author">
+      <path value="Flag.author" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/nl-core-organization" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+      </type>
+      <mapping>
+        <identity value="hcim-basicelements-v1.0-2017EN" />
+        <map value="NL-CM:0.0.7" />
+        <comment value="Author" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <map value="NL-CM:9.14.5" />
+        <comment value="Author" />
+      </mapping>
+    </element>
+    <element id="Flag.author.extension">
+      <path value="Flag.author.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Flag.author.extension:practitionerrole">
+      <path value="Flag.author.extension" />
+      <sliceName value="practitionerrole" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,44 @@
+<Flag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/flag.xsd">
+    <id value="zib-Contraindication-Flag-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationContraIndication"/>
+    </meta>
+    <text>
+        <status value="empty"/>
+        <div xmlns="http://www.w3.org/1999/xhtml"/>
+    </text>
+    <status value="inactive"/>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
+        <valueString value="Toelichting op de contraindicatie."/>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationContraIndication-ReasonClosure">
+        <valueString value="Kind gekregen."/>
+    </extension>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="395170001"/><!-- TBD -->
+            <display value="monitoren van medicatie (regime/therapie)"/>
+        </coding>
+    </category>
+    <code>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.4.1.902.40"/><!-- G-Standaard TH040 Contraindicaties -->
+            <code value="43"/>
+            <display value="Kinderwens (man)"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <period>
+        <start value="2010-06-01"/>
+        <end value="2020-01-01"/>
+    </period>
+    <author>
+        <reference value="Practitioner/nl-core-practitioner-04"/>
+        <display value="Dr. D. de Vries"/>
+    </author>
+</Flag>
