@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-LaboratoryTestResult-Observation" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation" />
@@ -47,6 +48,7 @@
       <path value="Observation" />
       <short value="LaboratoryTestResult" />
       <definition value="Measurements and simple assertions made about a patient, device or other subject. These may be a simple or a complex observations. Simple Observations could consist of just a code and a value, whereas complex observations like panels and batteries could have related Observations and or components.&#xD;&#xA;The HCIM LaboratoryResult also supports simple and more complex situations. For a simple result there will be a single LaboratoryTestResult.LaboratoryTest.TestName in Observation.code and no LaboratoryTestresult.Test. For a more complex situation there will be a LaboratoryTestResult.Test and any number of related LaboratoryTestResult.LaboratoryTest, e.g. parts of a panel or battery. Each related LaboratoryTest shall be conveyed in Observation.related or Observation.component. The deciding factor in choosing between related or component is: does the observation have use as independent observation (Observation.related) or is the observation only relevant in the context of its parent (Observation.component).&#xD;&#xA;Note that (textual) reports on individual (panels of) observations, like conclusions, go into a different resource DiagnosticReport. The DiagnosticReport then contains the references to the Observation resources it concerns." />
+      <comment value="This profile is used both for the LaboratoryTestResult concept and the RelatedResult concept of HCIM LaboratoryTestResult. A LaboratoryTestResult can contain mutiple related RelatedResults. This is implemented using a parent Observation with related child Observations. See the code and related elements." />
       <alias value="LaboratoriumUitslag" />
       <mapping>
         <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
@@ -501,7 +503,8 @@
     <element id="Observation.related">
       <path value="Observation.related" />
       <short value="RelatedResults" />
-      <definition value="Reference to related tests, e.g. paired tests or sequential tests like gram staining and microbiological cultures." />
+      <definition value="Reference to related RelatedResults beloning to the LaboratoryTestResult." />
+      <comment value="The HCIM LaboratoryTestResult (parent) links to every RelatedResult (child) through the related.target reference. The referenced Observation contains all the concepts of the HCIM LaboratoryTestResult container, e.g. results with the name, resultvalue, methode, etc. This LaboratoryTestResult profile is used for both Observations." />
       <requirements value="Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes QuestionnaireResponse from which the measure is derived." />
       <alias value="GerelateerdeUitslag" />
       <mapping>
@@ -512,6 +515,7 @@
     </element>
     <element id="Observation.related.type">
       <path value="Observation.related.type" />
+      <comment value="The related type will mostly likely be: 'has-member'." />
       <min value="1" />
       <fixedCode value="has-member" />
     </element>
