@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-PressureUlcer" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-PressureUlcer" />
@@ -37,6 +38,7 @@
     <element id="Condition">
       <path value="Condition" />
       <short value="PressureUlcer" />
+      <comment value="The individual component observations for this HCIM are captured using the [WoundCharacteristics profile](http://nictiz.nl/fhir/StructureDefinition/WoundCharacteristics)." />
       <alias value="DecubitusWond" />
     </element>
     <element id="Condition.extension">
@@ -112,9 +114,6 @@
       <fixedCode value="399912005" />
     </element>
     <element id="Condition.code.coding:PressureUlcerCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Condition.code.coding.display" />
       <defaultValueString value="Pressure ulcer" />
     </element>
@@ -148,7 +147,6 @@
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
