@@ -89,13 +89,31 @@
         <comment value="IdentificationNumber" />
       </mapping>
     </element>
-    <element id="Flag.category.coding.system">
-      <path value="Flag.category.coding.system" />
-      <fixedUri value="http://snomed.info/sct" />
+    <element id="Flag.category">
+      <path value="Flag.category" />
+      <min value="1" />
     </element>
-    <element id="Flag.category.coding.code">
-      <path value="Flag.category.coding.code" />
-      <fixedCode value="438833006" />
+    <element id="Flag.category.coding">
+      <path value="Flag.category.coding" />
+      <slicing>
+        <discriminator>
+          <type value="pattern" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <definition value="A reference to a code defined by a terminology system." />
+      <min value="1" />
+    </element>
+    <element id="Flag.category.coding:contraIndicationCode">
+      <path value="Flag.category.coding" />
+      <sliceName value="contraIndicationCode" />
+      <min value="1" />
+      <max value="1" />
+      <patternCoding>
+        <system value="http://snomed.info/sct" />
+        <code value="438833006" />
+      </patternCoding>
     </element>
     <element id="Flag.code">
       <path value="Flag.code" />
@@ -186,11 +204,11 @@
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/nl-core-organization" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
       </type>
       <type>
         <code value="Reference" />
-        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+        <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
       </type>
       <type>
         <code value="Reference" />
