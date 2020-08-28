@@ -1,0 +1,38 @@
+<DeviceRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/devicerequest.xsd">
+    <id value="zib-medicaldevicerequest-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceRequest"/>
+    </meta>  
+    <status value="active"/>
+    <intent value="plan"/>
+   <!--Code-->
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <occurrencePeriod>
+        <start value="2012-03-13"/>
+    </occurrencePeriod>
+    <requester>
+        <agent>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                <valueReference>
+                    <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
+                    <display value="Orthopedie - UMCG"/>
+                </valueReference>
+            </extension>
+            <reference value="Practitioner/gpdata-practitioner-01"/>
+            <display value="V. Huisarts 1"/>
+        </agent>
+    </requester>
+    <performer>       
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                <valueReference>
+                    <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
+                    <display value="Medisch specialisten, orthopedie"/>
+                </valueReference>
+            </extension>
+            <reference value="Organization/nl-core-organization-02"/>
+            <display value="UMCG - Afdeling Orthopedie"/>        
+    </performer>
+</DeviceRequest>
