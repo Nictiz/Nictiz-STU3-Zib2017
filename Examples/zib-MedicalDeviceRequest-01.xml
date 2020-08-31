@@ -1,11 +1,22 @@
-<DeviceRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/devicerequest.xsd">
+<DeviceRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
+    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/devicerequest.xsd">
     <id value="zib-medicaldevicerequest-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceRequest"/>
-    </meta>  
+    </meta>
     <status value="active"/>
-    <intent value="plan"/>
-   <!--Code-->
+    <intent value="plan"/>    
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="405815000"/>
+            <display value="Procedure device"/>
+        </coding>
+        <codeReference>
+            <reference value="MedicalDeviceProduct/zib-medicaldeviceproduct-01" />
+            <display value="Knee joint prosthesis, device (physical object)" />
+        </codeReference>
+    </code>
     <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
@@ -17,22 +28,22 @@
         <agent>
             <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
                 <valueReference>
-                    <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
-                    <display value="Orthopedie - UMCG"/>
+                    <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
+                    <display value="Huisartsen, niet nader gespecificeerd"/>
                 </valueReference>
             </extension>
-            <reference value="Practitioner/gpdata-practitioner-01"/>
-            <display value="V. Huisarts 1"/>
+            <reference value="Practioner/nl-core-practioner-02"/>
+            <display value="Vaste Huisarts 1"/>
         </agent>
     </requester>
-    <performer>       
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-                <valueReference>
-                    <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
-                    <display value="Medisch specialisten, orthopedie"/>
-                </valueReference>
-            </extension>
-            <reference value="Organization/nl-core-organization-02"/>
-            <display value="UMCG - Afdeling Orthopedie"/>        
+    <performer>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+                <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
+                <display value="Medisch specialisten, orthopedie"/>
+            </valueReference>
+        </extension>
+        <reference value="Organization/nl-core-organization-02"/>
+        <display value="UMCG - Afdeling Orthopedie"/>
     </performer>
 </DeviceRequest>
