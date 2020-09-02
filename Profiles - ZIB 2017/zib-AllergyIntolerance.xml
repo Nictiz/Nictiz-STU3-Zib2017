@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AllergyIntolerance" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance" />
@@ -413,7 +414,7 @@
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.14" />
-        <comment value="StartDateTime" />
+        <comment value="DateTime" />
       </mapping>
     </element>
     <element id="AllergyIntolerance.recorder">
@@ -566,17 +567,17 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-  </element>
+    </element>
     <element id="AllergyIntolerance.note.author[x]:authorReference.extension:practitionerRole">
-    <path value="AllergyIntolerance.note.author[x].extension" />
-    <sliceName value="practitionerRole" />
+      <path value="AllergyIntolerance.note.author[x].extension" />
+      <sliceName value="practitionerRole" />
       <comment value="Relevant only in combination with Reference(Practitioner)" />
-    <max value="1" />
-    <type>
-      <code value="Extension" />
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-    </type>
-  </element>
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
     <element id="AllergyIntolerance.note.author[x]:authorString">
       <path value="AllergyIntolerance.note.author[x]" />
       <sliceName value="authorString" />
