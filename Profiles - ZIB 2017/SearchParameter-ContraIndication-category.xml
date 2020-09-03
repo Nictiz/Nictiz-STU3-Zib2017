@@ -1,8 +1,8 @@
 <SearchParameter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/searchparameter.xsd">
-    <id value="ContraIndication-category" />
+    <id value="MedicationContraindications-category" />
     <url value="http://nictiz.nl/fhir/SearchParameter/MedicationContraindications-category" />
     <version value="1.0.0"/>
-    <name value="ContraIndications-category" />
+    <name value="MedicationContraindications-category" />
     <status value="active" />
     <publisher value="Nictiz" />
     <contact>
@@ -13,11 +13,12 @@
             <use value="work" />
         </telecom>
     </contact>
-    <purpose value="To CIM."/>
+    <purpose value="To select the contraindication instances. This category element can be used to retrieve a Resource that reflects a specific patient."/>
     <code value="category"/>
     <base value="Flag"/> 
     <type value="token"/>
-    <description value="test"/>
-    <xpath value="test"/>
+    <description value="Contraindication (CI) for medication safety is a condition or characteristic of a patient where healthcare providers are not allowed to subscribe certain medicines, or only under certain conditions."/>
+    <expression value="MedicationContraindications.category"/>
+    <xpath value="f:MedicationContraindications/f:category"/>
     <xpathUsage value="normal"/>
 </SearchParameter>
