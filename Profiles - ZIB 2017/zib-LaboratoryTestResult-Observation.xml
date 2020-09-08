@@ -83,9 +83,6 @@
       </mapping>
     </element>
     <element id="Observation.status">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-        <valueString value="default: final" />
-      </extension>
       <path value="Observation.status" />
       <short value="TestUitslagStatus" />
       <definition value="The status of the test result of this test. If the laboratory test is an panel/cluster, the overall status is given in the status of the panel/cluster." />
@@ -155,9 +152,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.category:LaboratoryTestResultCode.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.category.coding.display" />
       <defaultValueString value="Laboratory test finding (finding)" />
     </element>
@@ -169,9 +163,6 @@
       <alias value="ResultaatType" />
       <max value="1" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationCategory" />
-        </extension>
         <strength value="required" />
         <description value="ResultaatTypeCodelijst" />
         <valueSetReference>
@@ -503,20 +494,20 @@
     <element id="Observation.related">
       <path value="Observation.related" />
       <short value="RelatedResults" />
-      <definition value="Reference to related RelatedResults beloning to the LaboratoryTestResult." />
-      <comment value="The HCIM LaboratoryTestResult (parent) links to every RelatedResult (child) through the related.target reference. The referenced Observation contains all the concepts of the HCIM LaboratoryTestResult container, e.g. results with the name, resultvalue, methode, etc. This LaboratoryTestResult profile is used for both Observations." />
-      <requirements value="Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes QuestionnaireResponse from which the measure is derived." />
+      <definition value="Reference to related LaboratoryTestResult instances, or to the LaboratoryTest concept if this is a grouping Observation." />
+      <comment value="The Observation.related field is used for two different HCIM use cases:&#xD;&#xA;1. The LaboratoryTestResult can reference other, related LaboratoryTestResults (RelatedResult, NL-CM:13.1.33). In this case, `related.type` should be set to an appropriate value.&#xD;&#xA;2. The LaboratoryTestResult can consist of multiple LaboratoryTest concepts (NL-CM:13.1.3). In this case, there should be one parent instance of this profile that uses Observation.related to reference multiple child instances. `related.type` should in this case be set to &quot;has-member&quot;." />
       <alias value="GerelateerdeUitslag" />
+      <alias value="LaboratoriumTest" />
       <mapping>
         <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.33" />
         <comment value="RelatedResults" />
       </mapping>
-    </element>
-    <element id="Observation.related.type">
-      <path value="Observation.related.type" />
-      <min value="1" />
-      <fixedCode value="has-member" />
+      <mapping>
+        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
+        <map value="NL-CM:13.1.3" />
+        <comment value="LaboratoryTest" />
+      </mapping>
     </element>
     <element id="Observation.related.target">
       <path value="Observation.related.target" />
@@ -532,11 +523,6 @@
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation" />
       </type>
-      <mapping>
-        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
-        <map value="NL-CM:13.1.1" />
-        <comment value="LaboratoryTestResult" />
-      </mapping>
     </element>
     <element id="Observation.component">
       <path value="Observation.component" />
