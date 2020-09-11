@@ -1,7 +1,7 @@
 name: Check formatting of examples using Prettier
 
 on:
-  push:
+  pull_request:
     branches:
       - Prettier
     paths:
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with: 
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.1
