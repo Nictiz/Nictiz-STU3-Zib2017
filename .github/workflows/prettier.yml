@@ -8,7 +8,7 @@ on:
       - 'Examples/*.xml'
 
 jobs:
-  check:
+  format:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,6 +22,15 @@ jobs:
       - name: Install Prettier
         run: npm install --save-dev prettier @prettier/plugin-xml
         
-      - name: Check the changed files for conformance
+      - name: Format the modified files
         shell: bash
-        run: npx prettier --check $(git diff --name-only HEAD..HEAD~1 -- Examples/)
+        run: npx prettier -w $(git diff --name-only github.base_ref -- Examples/)
+        
+      - name: Commit changes (if any)
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Format XML files"
+          commit_user_name: Prettier Bot
+          commit_user_email: prettier@noreply.com
+          commit_author: Prettier Bot <prettier@noreply.com>
+
