@@ -51,6 +51,11 @@
     <element id="Flag.extension:note">
       <path value="Flag.extension" />
       <sliceName value="note" />
+      <code>
+        <system value="http://loinc.org" />
+        <code value="48767-8" />
+        <display value="Annotation comment" />
+      </code>
       <short value="Note" />
       <comment value="Comment on the contraindication important for interpretation which cannot be captured in any of the other data items. For example, a comment on a contraindication with an end date in the future." />
       <max value="1" />
@@ -67,6 +72,10 @@
     <element id="Flag.extension:reasonClosure">
       <path value="Flag.extension" />
       <sliceName value="reasonClosure" />
+      <code>
+        <system value="http://snomed.info/sct" />
+        <code value="140411000146107" />
+      </code>
       <short value="ReasonClosure" />
       <comment value="Reason for closing the medication contraindication." />
       <alias value="RedenVanAfsluiten" />
@@ -102,7 +111,6 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-      <definition value="A reference to a code defined by a terminology system." />
       <min value="1" />
     </element>
     <element id="Flag.category.coding:contraIndicationCode">
@@ -118,10 +126,15 @@
     <element id="Flag.code">
       <path value="Flag.code" />
       <comment value="The name of the contraindication from the G-Standard." />
+      <alias value="MedicatieContraIndicatieNaam" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="129850005" />
+          <display value="At risk for negative response to medication" />
+        </coding>
+      </patternCodeableConcept>
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FlagCode" />
-        </extension>
         <strength value="required" />
         <description value="Detail codes identifying specific contraindications." />
         <valueSetReference>
@@ -130,7 +143,7 @@
       </binding>
       <mapping>
         <identity value="hcim-medicationcontraindication-0.1-2020EN" />
-        <map value="NL- CM:9.14.6" />
+        <map value="NL-CM:9.14.6" />
         <comment value="MedicationContraIndicationName" />
       </mapping>
     </element>
@@ -198,6 +211,8 @@
     </element>
     <element id="Flag.author">
       <path value="Flag.author" />
+      <definition value="The healthcare provider who takes responsibility for registering the contraindication" />
+      <alias value="Zorgverlener" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
@@ -215,14 +230,9 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
       </type>
       <mapping>
-        <identity value="hcim-basicelements-v1.0-2017EN" />
-        <map value="NL-CM:0.0.7" />
-        <comment value="Author" />
-      </mapping>
-      <mapping>
         <identity value="hcim-medicationcontraindication-0.1-2020EN" />
         <map value="NL-CM:9.14.5" />
-        <comment value="Author" />
+        <comment value="HealthProfessional" />
       </mapping>
     </element>
     <element id="Flag.author.extension">
