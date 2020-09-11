@@ -1,0 +1,28 @@
+name: Check formatting of examples using Prettier
+
+on:
+  push:
+    branches:
+      - Prettier
+    paths:
+      - 'Examples/*.xml'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+
+      - name: Install Prettier
+        run: npm install --save-dev prettier @prettier/plugin-xml
+      
+      - name: Collect files that have been changed
+        run: 
+        
+      - name: Check the changed files for conformance
+        shell: bash
+        run: npx prettier --check $(git diff --name-only HEAD..HEAD~1 -- Examples/)
