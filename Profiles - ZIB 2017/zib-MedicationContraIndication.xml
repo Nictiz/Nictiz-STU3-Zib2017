@@ -2,8 +2,8 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationContraIndication" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationContraIndication" />
-  <version value="0.1" />
-  <name value="Zib MedicationContraIndication" />
+  <version value="1.0" />
+  <name value="HCIM MedicationContraIndication" />
   <status value="draft" />
   <contact>
     <name value="Nictiz" />
@@ -13,10 +13,11 @@
       <use value="work" />
     </telecom>
   </contact>
+  <description value="MedicationContraIndication as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version v1.0, release 2020. A contra-indication (CI) for medication safety is a condition or characteristic of a patient where healthcare professionals are not allowed to subscribe certain medicines, or only under certain conditions." />
   <fhirVersion value="3.0.2" />
   <mapping>
-    <identity value="hcim-medicationcontraindication-0.1-2020EN" />
-    <uri value="https://zibs.nl/wiki/MedicationContraIndication-v0.1(2020EN)" />
+    <identity value="hcim-medicationcontraindication-1.0-2020EN" />
+    <uri value="https://zibs.nl/wiki/MedicationContraIndication-v1.0(2020EN)" />
     <name value="HCIM MedicationContraIndication-v0.1(2020EN)" />
   </mapping>
   <mapping>
@@ -51,11 +52,6 @@
     <element id="Flag.extension:note">
       <path value="Flag.extension" />
       <sliceName value="note" />
-      <code>
-        <system value="http://loinc.org" />
-        <code value="48767-8" />
-        <display value="Annotation comment" />
-      </code>
       <short value="Note" />
       <comment value="Comment on the contraindication important for interpretation which cannot be captured in any of the other data items. For example, a comment on a contraindication with an end date in the future." />
       <max value="1" />
@@ -64,7 +60,7 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/Comment" />
       </type>
       <mapping>
-        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <identity value="hcim-medicationcontraindication-1.0-2020EN" />
         <map value="NL-CM:9.14.7" />
         <comment value="Note" />
       </mapping>
@@ -72,10 +68,6 @@
     <element id="Flag.extension:reasonClosure">
       <path value="Flag.extension" />
       <sliceName value="reasonClosure" />
-      <code>
-        <system value="http://snomed.info/sct" />
-        <code value="140411000146107" />
-      </code>
       <short value="ReasonClosure" />
       <comment value="Reason for closing the medication contraindication." />
       <alias value="RedenVanAfsluiten" />
@@ -85,7 +77,7 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationContraIndication-ReasonClosure" />
       </type>
       <mapping>
-        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <identity value="hcim-medicationcontraindication-1.0-2020EN" />
         <map value="NL-CM:9.14.4" />
         <comment value="ReasonClosure" />
       </mapping>
@@ -113,30 +105,26 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Flag.category.coding:contraIndicationCode">
+    <element id="Flag.category.coding:medicationContraIndicationCode">
       <path value="Flag.category.coding" />
-      <sliceName value="contraIndicationCode" />
+      <sliceName value="medicationContraIndicationCode" />
+      <short value="MedicationContraIndicationCode" />
       <min value="1" />
       <max value="1" />
       <patternCoding>
         <system value="http://snomed.info/sct" />
-        <code value="438833006" />
+        <code value="140401000146105" />
       </patternCoding>
     </element>
     <element id="Flag.code">
       <path value="Flag.code" />
+      <short value="MedicationContraIndicationName" />
+      <definition value="The name and code of the contraindication from the Dutch National Contra-indication list (G-standard Thesaurus 40)." />
       <comment value="The name of the contraindication from the G-Standard." />
       <alias value="MedicatieContraIndicatieNaam" />
-      <patternCodeableConcept>
-        <coding>
-          <system value="http://snomed.info/sct" />
-          <code value="129850005" />
-          <display value="At risk for negative response to medication" />
-        </coding>
-      </patternCodeableConcept>
       <binding>
         <strength value="required" />
-        <description value="Detail codes identifying specific contraindications." />
+        <description value="MedicatieContraIndicatieNaamCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.26.11.2--20200415172250" />
         </valueSetReference>
@@ -149,6 +137,7 @@
     </element>
     <element id="Flag.subject">
       <path value="Flag.subject" />
+      <short value="Who is the contra-indication (CI) for medication safety about?" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
@@ -193,7 +182,7 @@
       <comment value="The date and time (with or without time) when the contra-indication was identified or (again) confirmed to be accurate and true." />
       <alias value="BeginDatum" />
       <mapping>
-        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <identity value="hcim-medicationcontraindication-1.0-2020EN" />
         <map value="NL-CM:9.14.2" />
         <comment value="StartDate" />
       </mapping>
@@ -204,7 +193,7 @@
       <comment value="The date and, if applicable, time when the contraindication for medication monitoring is considered no longer applicable." />
       <alias value="EindDatum" />
       <mapping>
-        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <identity value="hcim-medicationcontraindication-1.0-2020EN" />
         <map value="NL-CM:9.14.3" />
         <comment value="EndDate" />
       </mapping>
@@ -230,7 +219,7 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
       </type>
       <mapping>
-        <identity value="hcim-medicationcontraindication-0.1-2020EN" />
+        <identity value="hcim-medicationcontraindication-1.0-2020EN" />
         <map value="NL-CM:9.14.5" />
         <comment value="HealthProfessional" />
       </mapping>
