@@ -49,9 +49,9 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Flag.extension:note">
+    <element id="Flag.extension:comment">
       <path value="Flag.extension" />
-      <sliceName value="note" />
+      <sliceName value="comment" />
       <short value="Note" />
       <comment value="Comment on the contraindication important for interpretation which cannot be captured in any of the other data items. For example, a comment on a contraindication with an end date in the future." />
       <max value="1" />
@@ -62,7 +62,7 @@
       <mapping>
         <identity value="hcim-medicationcontraindication-1.0-2020EN" />
         <map value="NL-CM:9.14.7" />
-        <comment value="Note" />
+        <comment value="Comment" />
       </mapping>
     </element>
     <element id="Flag.extension:reasonClosure">
@@ -84,6 +84,7 @@
     </element>
     <element id="Flag.identifier">
       <path value="Flag.identifier" />
+      <alias value="Identificatienummer" />
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.6" />
@@ -105,10 +106,11 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Flag.category.coding:medicationContraIndicationCode">
+    <element id="Flag.category.coding:medicationContraIndication">
       <path value="Flag.category.coding" />
-      <sliceName value="medicationContraIndicationCode" />
-      <short value="MedicationContraIndicationCode" />
+      <sliceName value="medicationContraIndication" />
+      <short value="MedicationContraIndication" />
+      <alias value="MedicatieContraIndicatie" />
       <min value="1" />
       <max value="1" />
       <patternCoding>
@@ -202,6 +204,7 @@
       <path value="Flag.author" />
       <definition value="The healthcare provider who takes responsibility for registering the contraindication" />
       <alias value="Zorgverlener" />
+      <min value="1" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
