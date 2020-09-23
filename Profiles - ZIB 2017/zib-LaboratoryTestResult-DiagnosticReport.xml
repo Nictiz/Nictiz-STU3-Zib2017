@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-LaboratoryTestResult-DiagnosticReport" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport" />
@@ -15,6 +16,7 @@
     </telecom>
   </contact>
   <description value="A LaboratoryTestResult as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB)  version 4.1, release 2017." />
+  <purpose value="# Purpose of HCIM&#xD;&#xA;&#xD;&#xA;Laboratory tests are done for the purpose of diagnosing and preventing disease and follow-up on the effects of treatment." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.2" />
   <mapping>
@@ -61,7 +63,8 @@
     <element id="DiagnosticReport">
       <path value="DiagnosticReport" />
       <short value="LaboratoryTestResult" />
-      <definition value="The findings and interpretation of diagnostic tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports. &#xD;&#xA;The HCIM LaboratoryResult also supports simple and more complex situations. For a simple result there will be a single LaboratoryTestResult.LaboratoryTest.TestName in Observation.code and no LaboratoryTestresult.Test. For a more complex situation there will be a LaboratoryTestResult.Test and any number of related LaboratoryTestResult.LaboratoryTest, e.g. parts of a panel or battery. Each related LaboratoryTest shall be conveyed in Observation.related or Observation.component. The deciding factor in choosing between related or component is: does the observation have use as independent observation (Observation.related) or is the observation only relevant in the context of its parent (Observation.component).&#xD;&#xA;Note that (textual) reports on individual (panels of) observations, like conclusions, go into a different resource DiagnosticReport. The DiagnosticReport then contains the references to the Observation resources it concerns." />
+      <definition value="A laboratory result describes the result of a laboratory analysis.&#xD;&#xA;These are specimen-oriented tests as performed in laboratories such as Clinical Chemistry, Serology, Microbiology, etc.&#xD;&#xA;In addition to the results of tests with a singular result, this concept can also contain the results of more complex tests with multiple results or a ‘panel’." />
+      <comment value="The HCIM LaboratoryTestResult supports simple and more complex situations. This profile is used for (textual) reports on individual (panels of) observations, like conclusions. The actual tests are captured using the profile [zib-LaboratoryTestResult-Observation](http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation), which should be referenced from this resource." />
       <alias value="LaboratoriumUitslag" />
       <mapping>
         <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
@@ -130,7 +133,6 @@
     <element id="DiagnosticReport.status.extension:ResultStatus.valueCodeableConcept:valueCodeableConcept">
       <path value="DiagnosticReport.status.extension.valueCodeableConcept" />
       <sliceName value="valueCodeableConcept" />
-      <max value="1" />
       <binding>
         <strength value="extensible" />
         <valueSetReference>
