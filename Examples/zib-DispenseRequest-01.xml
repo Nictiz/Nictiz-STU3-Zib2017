@@ -57,15 +57,6 @@
          <text value="aanvullende wens in vrije tekst"/>
       </valueCodeableConcept>
    </extension>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-DispenseRequest-RelatedMedicationAgreement">
-      <valueReference>
-         <identifier>
-            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
-            <value value="MBH_907_mgEx_1_MA1"/>
-         </identifier>
-         <display value="Relatie naar medicatieafspraak, id = MBH_907_mgEx_1_MA1 || 2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
-      </valueReference>
-   </extension>
    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
       <valueIdentifier>
          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
@@ -86,24 +77,24 @@
       <text value="Verstrekkingsverzoek"/>
    </category>
    <medicationReference>
-      <reference value="Medication/67903-2-16-840-1-113883-2-4-4-10"/>
+      <reference value="Medication/zib-Product-02"/>
       <display value="PARACETAMOL 500MG TABLET"/>
    </medicationReference>
    <subject>
-      <reference value="Patient/JORISHANSMAN"/>
-      <display value="Joris Hansman"/>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
    </subject>
    <authoredOn value="2016-06-23T16:54:23+02:00"/>
    <requester>
       <agent>
          <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>
-               <reference value="PractitionerRole/be1dd8d8-f1e1-11ea-1585-020000000000"/>
-               <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+               <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
+               <display value="Vaste Huisarts 1 || Huisartsen || Maatschap Vaste Huisarts"/>
             </valueReference>
          </extension>
-         <reference value="Practitioner/0000011112-16-528-1-1007-3-1"/>
-         <display value="Peter van Pulver"/>
+         <reference value="Practitioner/nl-core-practitioner-02"/>
+         <display value="Vaste Huisarts 1"/>
       </agent>
    </requester>
    <note>
@@ -112,8 +103,8 @@
    <dispenseRequest>
       <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense-Location">
          <valueReference>
-            <reference value="Location/LETOPWERKAANDEWEG-OMLEIDINGSTAATAANGEGEVEN-PRIKSTRAAT12AMSTERDAM"/>
-            <display value="Let op! Werk aan de weg. Omleiding staat aangegeven.Prikstraat12Amsterdam"/>
+            <reference value="Location/nl-core-location-01"/>
+            <display value="Orthopodie afdeling ACME in Den Haag"/>
          </valueReference>
       </extension>
       <quantity>
@@ -123,7 +114,7 @@
          <code value="245"/>
       </quantity>
       <performer>
-         <reference value="Organization/012365782-16-528-1-1007-3-3"/>
+         <reference value="Organization/nl-core-organization-06"/>
          <display value="Apotheek De Gulle Gaper"/>
       </performer>
    </dispenseRequest>
