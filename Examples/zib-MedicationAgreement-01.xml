@@ -1,122 +1,132 @@
 <MedicationRequest xmlns="http://hl7.org/fhir">
-   <id value="zib-MedicationAgreement-01"/>
-   <meta>
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
-   </meta>
-   <text>
-      <status value="extensions"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-         <table>
-            <caption>MedicationRequest. Subject: Joris Hansman. Id: #MB_01h#MA_01 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1), Categorie: <span title="Prescription (procedure) (16076005 - SNOMED CT)">Prescription (procedure)</span>, <span style="display: block;">Intentie: aanvraag</span>
-               <span style="display: block;">Aangevraagd door: Dr Jansen || Internist || Ziekenhuis zus en zo</span>
-            </caption>
-            <tbody>
-               <tr>
-                  <th>Medicamenteuze behandel-id</th>
-                  <td>#MB_01h (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1)</td>
-               </tr>
-               <tr>
-                  <th>Medicatie</th>
-                  <td>Metoclopramide zetpil 20mg</td>
-               </tr>
-               <tr>
-                  <th>Gemaakt</th>
-                  <td>10:54:23, 8 juni 2020</td>
-               </tr>
-               <tr>
-                  <th>Gebruiksduur</th>
-                  <td>Vanaf 8 juni 2020</td>
-               </tr>
-               <tr>
-                  <th>Doseerinstructie</th>
-                  <td>
-                     <div>Volgnummer: 1</div>
-                     <div>Timing: <div>eenmalig per dag</div>
-                     </div>
-                     <div>Zo nodig: <span title="zo nodig (1137 - nhg-tabel-25-gebruiksvoorschrift#aanvullend-numeriek)">zo nodig</span>
-                     </div>
-                     <div>Toedieningsweg: <span title="rectaal (12 - G-Standaard thesaurus subtabel 0007)">rectaal</span>
-                     </div>
-                     <div>Dosering: 1 stuk</div>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </text>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
-      <valuePeriod>
-         <start value="2020-06-08"/>
-      </valuePeriod>
-   </extension>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
-      <valueIdentifier>
-         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
-         <value value="#MB_01h"/>
-      </valueIdentifier>
-   </extension>
-   <identifier>
-      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
-      <value value="#MB_01h#MA_01"/>
-   </identifier>
-   <intent value="order"/>
-   <category>
-      <coding>
-         <system value="http://snomed.info/sct"/>
-         <code value="16076005"/>
-         <display value="Prescription (procedure)"/>
-      </coding>
-      <text value="Medicatieafspraak"/>
-   </category>
-   <medicationReference>
-      <reference value="Medication/zib-Product-03"/>
-      <display value="Metoclopramide zetpil 20mg"/>
-   </medicationReference>
-   <subject>
-      <reference value="Patient/nl-core-patient-01"/>
-      <display value="Johan XXX_Helleman"/>
-   </subject>
-   <authoredOn value="2020-06-08T10:54:23+02:00"/>
-   <requester>
-      <agent>
-         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-            <valueReference>
-               <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
-               <display value="Vaste Huisarts 1 || Huisartsen || Maatschap Vaste Huisarts"/>
-            </valueReference>
-         </extension>
-         <reference value="Practitioner/nl-core-practitioner-02"/>
-         <display value="Vaste Huisarts 1"/>
-      </agent>
-   </requester>
-   <dosageInstruction>
-      <sequence value="1"/>
-      <timing>
-         <repeat>
-            <frequency value="1"/>
-            <period value="1"/>
-            <periodUnit value="d"/>
-         </repeat>
-      </timing>
-      <asNeededCodeableConcept>
-         <coding>
-            <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-25-gebruiksvoorschrift#aanvullend-numeriek"/>
-            <code value="1137"/>
-            <display value="zo nodig"/>
-         </coding>
-      </asNeededCodeableConcept>
-      <route>
-         <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
-            <code value="12"/>
-            <display value="rectaal"/>
-         </coding>
-      </route>
-      <doseQuantity>
-         <value value="1"/>
-         <unit value="stuk"/>
-         <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
-         <code value="245"/>
-      </doseQuantity>
-   </dosageInstruction>
+    <id value="zib-MedicationAgreement-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
+    </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>
+                    Medicatieafspraak. Subject: Johan XXX_Helleman. Id: #MB_01h#MA_01 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1), Categorie: 
+                    <span title="Prescription (procedure) (16076005 - SNOMED CT)">Prescription (procedure)</span>
+                    , 
+                    <span style="display: block;">Intentie: aanvraag</span>
+                    <span style="display: block;">Aangevraagd door: Vaste Huisarts 1 || Huisartsen || Maatschap Vaste Huisarts</span>
+                </caption>
+                <tbody>
+                    <tr>
+                        <th>Medicamenteuze behandel-id</th>
+                        <td>#MB_01h (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1)</td>
+                    </tr>
+                    <tr>
+                        <th>Medicatie</th>
+                        <td>Metoclopramide zetpil 20mg</td>
+                    </tr>
+                    <tr>
+                        <th>Gemaakt</th>
+                        <td>10:54:23, 8 juni 2020</td>
+                    </tr>
+                    <tr>
+                        <th>Gebruiksduur</th>
+                        <td>Vanaf 8 juni 2020</td>
+                    </tr>
+                    <tr>
+                        <th>Doseerinstructie</th>
+                        <td>
+                            <div>Volgnummer: 1</div>
+                            <div>
+                                Timing: 
+                                <div>eenmalig per dag</div>
+                            </div>
+                            <div>
+                                Zo nodig: 
+                                <span title="zo nodig (1137 - nhg-tabel-25-gebruiksvoorschrift#aanvullend-numeriek)">zo nodig</span>
+                            </div>
+                            <div>
+                                Toedieningsweg: 
+                                <span title="rectaal (12 - G-Standaard thesaurus subtabel 0007)">rectaal</span>
+                            </div>
+                            <div>Dosering: 1 stuk</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
+        <valuePeriod>
+            <start value="2020-06-08"/>
+        </valuePeriod>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+        <valueIdentifier>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+            <value value="#MB_01h"/>
+        </valueIdentifier>
+    </extension>
+    <identifier>
+        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+        <value value="#MB_01h#MA_01"/>
+    </identifier>
+    <intent value="order"/>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="16076005"/>
+            <display value="Prescription (procedure)"/>
+        </coding>
+        <text value="Medicatieafspraak"/>
+    </category>
+    <medicationReference>
+        <reference value="Medication/zib-Product-03"/>
+        <display value="Metoclopramide zetpil 20mg"/>
+    </medicationReference>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="Johan XXX_Helleman"/>
+    </subject>
+    <authoredOn value="2020-06-08T10:54:23+02:00"/>
+    <requester>
+        <agent>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                <valueReference>
+                    <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
+                    <display value="Vaste Huisarts 1 || Huisartsen || Maatschap Vaste Huisarts"/>
+                </valueReference>
+            </extension>
+            <reference value="Practitioner/nl-core-practitioner-02"/>
+            <display value="Vaste Huisarts 1"/>
+        </agent>
+    </requester>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <asNeededCodeableConcept>
+            <coding>
+                <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-25-gebruiksvoorschrift#aanvullend-numeriek"/>
+                <code value="1137"/>
+                <display value="zo nodig"/>
+            </coding>
+        </asNeededCodeableConcept>
+        <route>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                <code value="12"/>
+                <display value="rectaal"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="1"/>
+            <unit value="stuk"/>
+            <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+            <code value="245"/>
+        </doseQuantity>
+    </dosageInstruction>
 </MedicationRequest>

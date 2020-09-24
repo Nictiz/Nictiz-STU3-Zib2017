@@ -1,13 +1,54 @@
-<Specimen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/specimen.xsd" xmlns="http://hl7.org/fhir">
+<Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/specimen.xsd">
     <id value="zib-laboratorytestresult-specimen-isolate-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Specimen-Isolate"/>
     </meta>
-    <identifier>     
-        <system value="http://www.acme.com/identifiers/patient" />
-        <value value="123456" />
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Specimen. Subject: J. XXX_Helleman (Johan). Id: 123456 (http://www.acme.com/identifiers/patient), Status: beschikbaar</caption>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            (22:03:00, 1 maart 2020) 
+                            <div>het monster toont afwijkingen</div>
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <th>Type</th>
+                        <td>
+                            <span title="Revision status (246513007 - SNOMED CT)">Revision status</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Received</th>
+                        <td>22:03:00, 1 maart 2020</td>
+                    </tr>
+                    <tr>
+                        <th>Inzameling</th>
+                        <td>22:03:00, 1 maart 2020</td>
+                    </tr>
+                    <tr>
+                        <th>Container</th>
+                        <td>
+                            <div>
+                                Type: 
+                                <span title="Specimen substance (370133003 - SNOMED CT)">Specimen substance</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <identifier>
+        <system value="http://www.acme.com/identifiers/patient"/>
+        <value value="123456"/>
     </identifier>
-    <status value="available" />
+    <status value="available"/>
     <type>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -19,16 +60,14 @@
         <reference value="Patient/nl-core-patient-01"/>
         <display value="J. XXX_Helleman (Johan)"/>
     </subject>
-    <receivedTime value="2020-03-01T22:03:00+00:00" />
+    <receivedTime value="2020-03-01T22:03:00+00:00"/>
     <parent>
-        <reference value="Specimen/zib-laboratorytestresult-specimen-01" />
-        <display value="Blood (substance)" />
+        <reference value="Specimen/zib-laboratorytestresult-specimen-01"/>
+        <display value="Blood (substance)"/>
     </parent>
     <request>
-        <reference value="ProcedureRequest/zib-procedurerequest-01" />
-        <display value="Pigmented nevus, no International
-            Classification of Diseases for Oncology subtype (morphologic
-            abnormality)" />
+        <reference value="ProcedureRequest/zib-procedurerequest-01"/>
+        <display value="Pigmented nevus, no International             Classification of Diseases for Oncology subtype (morphologic             abnormality)"/>
     </request>
     <collection>
         <collectedDateTime value="2020-03-01T22:03:00+01:00"/>
@@ -43,7 +82,7 @@
         </type>
     </container>
     <note>
-        <time value="2020-03-01T22:03:00+00:00" />
-        <text value="het monster toont afwijkingen" />
+        <time value="2020-03-01T22:03:00+00:00"/>
+        <text value="het monster toont afwijkingen"/>
     </note>
 </Specimen>

@@ -1,9 +1,35 @@
-<Location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/location.xsd">
+<Location xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/location.xsd">
     <id value="nl-core-location-02"/>
     <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location"/>
     </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Locatie. </caption>
+                <tbody>
+                    <tr>
+                        <th>Naam</th>
+                        <td>ACME in Den Haag</td>
+                    </tr>
+                    <tr>
+                        <th>Contactgegevens</th>
+                        <td>
+                            <a href="mailto:info@nictiz.nl">info@nictiz.nl</a>
+                             (E-mail Werk)br
+                            <a href="tel:+31611234567">+31611234567</a>
+                             (Tel Privé)br
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Adres</th>
+                        <td>Oude middeweg 55, 9132AG Den Haag, NLD (officieel Privé (hoofd) Post / Bezoek)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
     <name value="ACME in Den Haag"/>
     <telecom>
         <system value="email"/>
@@ -11,8 +37,7 @@
         <use value="work"/>
     </telecom>
     <telecom>
-        <extension
-            url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
                     <system value="http://hl7.org/fhir/v3/AddressUse"/>
@@ -24,7 +49,7 @@
         <system value="phone"/>
         <value value="+31611234567"/>
         <use value="home"/>
-    </telecom>    
+    </telecom>
     <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
             <valueCodeableConcept>
@@ -61,7 +86,7 @@
                 </valueCodeableConcept>
             </extension>
         </country>
-    </address>  
+    </address>
     <managingOrganization>
         <reference value="Organization/nl-core-organization-02"/>
         <display value="Orthopedie - UMCG"/>

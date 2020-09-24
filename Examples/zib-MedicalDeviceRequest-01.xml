@@ -1,14 +1,49 @@
-<DeviceRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/devicerequest.xsd">
+<DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/devicerequest.xsd">
     <id value="zib-medicaldevicerequest-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceRequest"/>
     </meta>
-    <status value="active"/>   
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>
+                    DeviceRequest. Subject: Johan XXX_Helleman. Status: actief
+                    <span style="display: block;">Intentie: aanvraag</span>
+                    <span style="display: block;">
+                        Aangevraagd door: Vaste Huisarts 1
+                        <span style="display: block;">Zorgverlenerrol: Huisartsen, niet nader gespecificeerd</span>
+                    </span>
+                </caption>
+                <tbody>
+                    <tr>
+                        <th>Code</th>
+                        <td>
+                            <span title="Procedure device (405815000 - SNOMED CT)">Procedure device</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Wanneer</th>
+                        <td>Vanaf 13 maart 2012</td>
+                    </tr>
+                    <tr>
+                        <th>Beoogde uitvoerende</th>
+                        <td>
+                            <div>
+                                UMCG - Afdeling Orthopedie
+                                <div>Zorgverlenerrol: Medisch specialisten, orthopedie</div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <status value="active"/>
     <intent>
         <coding>
-            <system value="http://hl7.org/fhir/request-intent" />
-            <code value="order" />
+            <system value="http://hl7.org/fhir/request-intent"/>
+            <code value="order"/>
         </coding>
     </intent>
     <codeCodeableConcept>

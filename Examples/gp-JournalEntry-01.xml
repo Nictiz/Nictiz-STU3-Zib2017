@@ -1,9 +1,50 @@
-<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
     <id value="gp-JournalEntry-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-JournalEntry"/>
     </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>
+                    Observatie/bepaling. Subject: J. XXX_Helleman (Johan). Id: 123456 (http://www.acme.com/identifiers/patient), Status: definitief
+                    <span style="display: block;">
+                        Uitvoerende: Vaste Huisarts 1
+                        <span style="display: block;">Zorgverlenerrol: Huisartsen, niet nader gespecificeerd</span>
+                    </span>
+                </caption>
+                <tbody>
+                    <tr>
+                        <th>Context</th>
+                        <td>Visite bij Huisartspraktijk 2013-02-06</td>
+                    </tr>
+                    <tr>
+                        <th>Bepalingdatum/tijd</th>
+                        <td>03:17:00, 6 februari 2013</td>
+                    </tr>
+                    <tr>
+                        <th>Code</th>
+                        <th>Waarde</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="Subjectief (S - http://fhir.nl/fhir/NamingSystem/journaalregeltypen)">Subjectief</span>
+                        </td>
+                        <td>Benauwd en hoesten tijdens en na sporten. Gebruikt reeds ICS.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="admitting diagnosis (ADMDX - v3/ActCode)">admitting diagnosis</span>
+                        </td>
+                        <td>
+                            <span title="Dyspnoe/benauwdheid toegeschreven aan luchtwegen [ex. K02] (R02 - sid/icpc-1-nl)">Dyspnoe/benauwdheid toegeschreven aan luchtwegen [ex. K02]</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
     <identifier>
         <system value="http://www.acme.com/identifiers/patient"/>
         <value value="123456"/>
@@ -24,7 +65,7 @@
         <reference value="Encounter/gp-encounter-01"/>
         <display value="Visite bij Huisartspraktijk 2013-02-06"/>
     </context>
-    <effectiveDateTime value="2013-02-06T03:17:00+00:00"/>    
+    <effectiveDateTime value="2013-02-06T03:17:00+00:00"/>
     <performer>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>

@@ -1,170 +1,180 @@
-<MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationstatement.xsd">
-   <id value="zib-medicationuse-01"/>
-   <meta>
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse"/>
-   </meta>
-   <text>
-      <status value="extensions"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-         <table>
-            <caption>MedicationStatement. Subject: Joris Hansman. Id: #MB_01i1#GE_01 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1), Categorie: <span title="Medicatiegebruik (6 - 2.16.840.1.113883.2.4.3.11.60.20.77.5.3)">Medicatiegebruik</span>, Status: <i>onbekend (ontbrekend gegeven)</i>
-               <span style="display: block;">Auteur: Dr Jansen || Internist || Ziekenhuis zus en zo</span>
-            </caption>
-            <tbody>
-               <tr>
-                  <th>Medicamenteuze behandel-id</th>
-                  <td>#MB_01i1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1)</td>
-               </tr>
-               <tr>
-                  <th>Medicatie</th>
-                  <td>PARACETAMOL TABLET 500MG</td>
-               </tr>
-               <tr>
-                  <th>Datum/tijd</th>
-                  <td>Vanaf 21 juli 2020, 30 dag</td>
-               </tr>
-               <tr>
-                  <th>Informant</th>
-                  <td>2020-07-21</td>
-               </tr>
-               <tr>
-                  <th>Ondersteunende informatie</th>
-                  <td>relatie naar medicatieafspraak (Id: #MB_01i1#MA_01 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1))</td>
-               </tr>
-               <tr>
-                  <th>Dosering</th>
-                  <td>
-                     <div>Volgnummer: 1</div>
-                     <div>Tekst: Vanaf 21 jul 2020, gedurende 30 dagen, zo nodig maal per dag 1 à 2 stuks , maximaal 6 stuks per dag, ORAAL</div>
-                     <div>Timing: <div>max frequentie 4 maal per dag</div>
-                     </div>
-                     <div>Zo nodig: <span title="zo nodig (1137 - nhg-tabel-25-gebruiksvoorschrift#aanvullend-numeriek)">zo nodig</span>
-                     </div>
-                     <div>Toedieningsweg: <span title="ORAAL (9 - G-Standaard thesaurus subtabel 0007)">ORAAL</span>
-                     </div>
-                     <div>Dosering: 1 Stuk - 2 Stuk</div>
-                     <div>Max dosering: 6 Stuk / 1 dag (per period)</div>
-                  </td>
-               </tr>
-               <tr>
-                  <th>Medicatie gebruikt</th>
-                  <td>ja</td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </text>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-AsAgreedIndicator">
-      <valueBoolean value="true"/>
-   </extension>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author">
-      <valueReference>
-         <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
-         <display value="Vaste Huisarts 1 || Huisartsen || Maatschap Vaste Huisarts"/>
-      </valueReference>
-   </extension>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
-      <valueIdentifier>
-         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
-         <value value="#MB_01i1"/>
-      </valueIdentifier>
-   </extension>
-   <identifier>
-      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
-      <value value="#MB_01i1#GE_01"/>
-   </identifier>
-   <status>
-      <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-         <valueCode value="unknown"/>
-      </extension>
-   </status>
-   <category>
-      <coding>
-         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3"/>
-         <code value="6"/>
-         <display value="Medicatiegebruik"/>
-      </coding>
-      <text value="Medicatiegebruik"/>
-   </category>
-   <medicationReference>
-      <reference value="Medication/zib-Product-02"/>
-      <display value="PARACETAMOL TABLET 500MG"/>
-   </medicationReference>
-   <effectivePeriod>
-      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration">
-         <valueDuration>
-            <value value="30"/>
-            <unit value="dag"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="d"/>
-         </valueDuration>
-      </extension>
-      <start value="2020-07-21"/>
-   </effectivePeriod>
-   <dateAsserted value="2020-07-21"/>
-   <subject>
-      <reference value="Patient/nl-core-patient-01"/>
-      <display value="XXX_Helleman"/>
-   </subject>
-   <derivedFrom>
-      <identifier>
-         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
-         <value value="#MB_01i1#MA_01"/>
-      </identifier>
-      <display value="relatie naar medicatieafspraak"/>
-   </derivedFrom>
-   <taken value="y"/>
-   <dosage>
-      <sequence value="1"/>
-      <text value="Vanaf 21 jul 2020, gedurende 30 dagen, zo nodig maal per dag 1 à 2 stuks , maximaal 6 stuks per dag, ORAAL"/>
-      <timing>
-         <repeat>
-            <frequencyMax value="4"/>
-            <period value="1"/>
-            <periodUnit value="d"/>
-         </repeat>
-      </timing>
-      <asNeededCodeableConcept>
-         <coding>
-            <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-25-gebruiksvoorschrift#aanvullend-numeriek"/>
-            <code value="1137"/>
-            <display value="zo nodig"/>
-         </coding>
-      </asNeededCodeableConcept>
-      <route>
-         <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
-            <code value="9"/>
-            <display value="ORAAL"/>
-         </coding>
-      </route>
-      <doseRange>
-         <low>
-            <value value="1"/>
-            <unit value="Stuk"/>
-            <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
-            <code value="245"/>
-         </low>
-         <high>
-            <value value="2"/>
-            <unit value="Stuk"/>
-            <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
-            <code value="245"/>
-         </high>
-      </doseRange>
-      <maxDosePerPeriod>
-         <numerator>
-            <value value="6"/>
-            <unit value="Stuk"/>
-            <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
-            <code value="245"/>
-         </numerator>
-         <denominator>
-            <value value="1"/>
-            <unit value="dag"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="d"/>
-         </denominator>
-      </maxDosePerPeriod>
-   </dosage>
+<MedicationStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationstatement.xsd">
+    <id value="zib-medicationuse-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse"/>
+    </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>
+                    MedicationStatement. Subject: XXX_Helleman. Id: #MB_01i1#GE_01 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1), Categorie: 
+                    <span title="Medicatiegebruik (6 - 2.16.840.1.113883.2.4.3.11.60.20.77.5.3)">Medicatiegebruik</span>
+                    , Status: 
+                    <i>onbekend (ontbrekend gegeven)</i>
+                    <span style="display: block;">Auteur: Vaste Huisarts 1 || Huisartsen || Maatschap Vaste Huisarts</span>
+                </caption>
+                <tbody>
+                    <tr>
+                        <th>Medicamenteuze behandel-id</th>
+                        <td>#MB_01i1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1)</td>
+                    </tr>
+                    <tr>
+                        <th>Medicatie</th>
+                        <td>PARACETAMOL TABLET 500MG</td>
+                    </tr>
+                    <tr>
+                        <th>Datum/tijd</th>
+                        <td>Vanaf 21 juli 2020, 30 dag</td>
+                    </tr>
+                    <tr>
+                        <th>Informant</th>
+                        <td>2020-07-21</td>
+                    </tr>
+                    <tr>
+                        <th>Ondersteunende informatie</th>
+                        <td>relatie naar medicatieafspraak (Id: #MB_01i1#MA_01 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1))</td>
+                    </tr>
+                    <tr>
+                        <th>Dosering</th>
+                        <td>
+                            <div>Volgnummer: 1</div>
+                            <div>Tekst: Vanaf 21 jul 2020, gedurende 30 dagen, zo nodig maal per dag 1 à 2 stuks , maximaal 6 stuks per dag, ORAAL</div>
+                            <div>
+                                Timing: 
+                                <div>max frequentie 4 maal per dag</div>
+                            </div>
+                            <div>
+                                Zo nodig: 
+                                <span title="zo nodig (1137 - nhg-tabel-25-gebruiksvoorschrift#aanvullend-numeriek)">zo nodig</span>
+                            </div>
+                            <div>
+                                Toedieningsweg: 
+                                <span title="ORAAL (9 - G-Standaard thesaurus subtabel 0007)">ORAAL</span>
+                            </div>
+                            <div>Dosering: 1 Stuk - 2 Stuk</div>
+                            <div>Max dosering: 6 Stuk / 1 dag (per period)</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Medicatie gebruikt</th>
+                        <td>ja</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-AsAgreedIndicator">
+        <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author">
+        <valueReference>
+            <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
+            <display value="Vaste Huisarts 1 || Huisartsen || Maatschap Vaste Huisarts"/>
+        </valueReference>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+        <valueIdentifier>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+            <value value="#MB_01i1"/>
+        </valueIdentifier>
+    </extension>
+    <identifier>
+        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
+        <value value="#MB_01i1#GE_01"/>
+    </identifier>
+    <status>
+        <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
+            <valueCode value="unknown"/>
+        </extension>
+    </status>
+    <category>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3"/>
+            <code value="6"/>
+            <display value="Medicatiegebruik"/>
+        </coding>
+        <text value="Medicatiegebruik"/>
+    </category>
+    <medicationReference>
+        <reference value="Medication/zib-Product-02"/>
+        <display value="PARACETAMOL TABLET 500MG"/>
+    </medicationReference>
+    <effectivePeriod>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration">
+            <valueDuration>
+                <value value="30"/>
+                <unit value="dag"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="d"/>
+            </valueDuration>
+        </extension>
+        <start value="2020-07-21"/>
+    </effectivePeriod>
+    <dateAsserted value="2020-07-21"/>
+    <subject>
+        <reference value="Patient/nl-core-patient-01"/>
+        <display value="XXX_Helleman"/>
+    </subject>
+    <derivedFrom>
+        <identifier>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+            <value value="#MB_01i1#MA_01"/>
+        </identifier>
+        <display value="relatie naar medicatieafspraak"/>
+    </derivedFrom>
+    <taken value="y"/>
+    <dosage>
+        <sequence value="1"/>
+        <text value="Vanaf 21 jul 2020, gedurende 30 dagen, zo nodig maal per dag 1 à 2 stuks , maximaal 6 stuks per dag, ORAAL"/>
+        <timing>
+            <repeat>
+                <frequencyMax value="4"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <asNeededCodeableConcept>
+            <coding>
+                <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-25-gebruiksvoorschrift#aanvullend-numeriek"/>
+                <code value="1137"/>
+                <display value="zo nodig"/>
+            </coding>
+        </asNeededCodeableConcept>
+        <route>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                <code value="9"/>
+                <display value="ORAAL"/>
+            </coding>
+        </route>
+        <doseRange>
+            <low>
+                <value value="1"/>
+                <unit value="Stuk"/>
+                <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                <code value="245"/>
+            </low>
+            <high>
+                <value value="2"/>
+                <unit value="Stuk"/>
+                <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                <code value="245"/>
+            </high>
+        </doseRange>
+        <maxDosePerPeriod>
+            <numerator>
+                <value value="6"/>
+                <unit value="Stuk"/>
+                <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+                <code value="245"/>
+            </numerator>
+            <denominator>
+                <value value="1"/>
+                <unit value="dag"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="d"/>
+            </denominator>
+        </maxDosePerPeriod>
+    </dosage>
 </MedicationStatement>

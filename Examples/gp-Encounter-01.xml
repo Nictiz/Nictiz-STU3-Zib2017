@@ -1,16 +1,51 @@
-<Encounter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
     <id value="gp-encounter-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter"/>
     </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Contact. Subject: J. XXX_Helleman (Johan). Id: 123456 (http://www.acme.com/identifiers/patient), Status: gearriveerd</caption>
+                <tbody>
+                    <tr>
+                        <th>Type contact</th>
+                        <td>
+                            <div>
+                                <span title="inpatient encounter (IMP - v3/ActCode)">inpatient encounter</span>
+                            </div>
+                            <span title="visite (01 - nhg-tabel-14-contactwijze)">visite</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Periode</th>
+                        <td>Vanaf 06:43:00, 8 februari 2013</td>
+                    </tr>
+                    <tr>
+                        <th>Participant</th>
+                        <td>
+                            <div>
+                                Huisarts H. de Vries
+                                <div>Zorgverlenerrol: Medisch specialisten, orthopedie</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Zorgaanbieder</th>
+                        <td>Huisartspraktijk (zelfstandig of groepspraktijk)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
     <identifier>
         <use value="usual"/>
         <system value="http://www.acme.com/identifiers/patient"/>
         <value value="123456"/>
     </identifier>
     <status value="arrived"/>
-    <class>    
+    <class>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -52,8 +87,8 @@
         </individual>
     </participant>
     <appointment>
-        <reference value="Afspraak/eAfspraak-Appointment-04" />
-        <display value="Fysiotherapie Controle afspraak" />
+        <reference value="Afspraak/eAfspraak-Appointment-04"/>
+        <display value="Fysiotherapie Controle afspraak"/>
     </appointment>
     <period>
         <start value="2013-02-08T06:43:00+02:00"/>
