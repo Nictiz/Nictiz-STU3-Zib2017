@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-patient" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
@@ -261,6 +262,16 @@
         <comment value="Nationality" />
       </mapping>
     </element>
+    <element id="Patient.extension:nationality.extension">
+      <path value="Patient.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Patient.extension:nationality.extension:code">
       <path value="Patient.extension.extension" />
       <sliceName value="code" />
@@ -419,6 +430,16 @@
         <comment value="PayerName" />
       </mapping>
     </element>
+    <element id="Patient.name.extension">
+      <path value="Patient.name.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Patient.name.extension:humannameAssemblyOrder">
       <path value="Patient.name.extension" />
       <sliceName value="humannameAssemblyOrder" />
@@ -469,15 +490,26 @@
       <path value="Patient.gender" />
       <short value="Gender" />
       <alias value="Geslacht" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-AdministrativeGender" />
+              <display value="GeslachtCodelijst-to-AdministrativeGender" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-administrative-gender" />
+        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-Administrative-gender" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-administrative-gender" />
+        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-Administrative-gender" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.1-2017EN" />
@@ -677,9 +709,6 @@
       </mapping>
     </element>
     <element id="Patient.contact">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Contact" />
-      </extension>
       <path value="Patient.contact" />
       <short value="ContactPerson" />
       <definition value="Contacts are related persons in some way, but not all related persons are contacts. The HCIM ContactPerson is designed to deal with both related persons and contacts. An HCIM ContactPerson who is a contact, is expected to have an NL-CM:3.1.2 Role primary contact ('Eerste relatie/contactpersoon') or secondary contact ('Tweede relatie/contactpersoon'). See Patient.contact.relationship in slice 'role'." />
@@ -791,6 +820,16 @@
         <comment value="NameInformation" />
       </mapping>
     </element>
+    <element id="Patient.contact.name.extension">
+      <path value="Patient.contact.name.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="Patient.contact.name.extension:humannameAssemblyOrder">
       <path value="Patient.contact.name.extension" />
       <sliceName value="humannameAssemblyOrder" />
@@ -888,6 +927,16 @@
         <map value="NL-CM:7.12.8" />
         <comment value="LanguageControlReading" />
       </mapping>
+    </element>
+    <element id="Patient.communication.extension:languageProficiency.extension">
+      <path value="Patient.communication.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
     <element id="Patient.communication.extension:languageProficiency.extension:type">
       <path value="Patient.communication.extension.extension" />

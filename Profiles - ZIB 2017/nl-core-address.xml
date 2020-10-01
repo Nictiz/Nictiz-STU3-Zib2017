@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-address" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-address" />
@@ -50,16 +51,7 @@
     <element id="Address">
       <path value="Address" />
       <short value="Address information" />
-      <definition value="This datatype defines a common basis for expressing all addresses around the world, but adds extensions to express Dutch addresses specifically, according to the HCIM AddressInformation (v1.0, 2017). A Dutch Address still is a proper FHIR Address, which means that systems that cannot interpret the extensions will still be able to render and work with this datatype.&#xD;&#xA;&#xD;&#xA;To have true compatibility an implementer SHOULD use the core Address parts as intended. To have addresses work for Dutch context, the implementer SHOULD in addition use the extension elements.&#xD;&#xA;&#xD;&#xA;**Separate address parts**&#xD;&#xA;&#xD;&#xA;The first addition is that Dutch addresses make certain address parts separately communicable. These parts are required for use in true Dutch systems when dealing with Dutch addresses, but may not have value for international systems when information gets sent abroad.&#xD;&#xA;&#xD;&#xA;**Custom address types**&#xD;&#xA;&#xD;&#xA;The second addition is that the HCIM defines its own ValueSet for address types, which can only be partially expressed using the FHIR Address datatype and requires a mapping to multiple elements. The table below explains how the HCIM concepts are mapped to the various FHIR elements (see the ConceptMaps http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressUse and http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressType as well). The HCIM code itself should also be included using the AddressType extension.&#xD;&#xA;&#xD;&#xA;
-        | HCIM                              | .ext:AddressType | .ext:official | .use | .type    |&#xD;&#xA;&#xD;&#xA;
-        |-----------------------------------|------------------|---------------|------|----------|&#xD;&#xA;&#xD;&#xA;
-        | Postal Address/Postadres          | PST              |               |      | postal   |&#xD;&#xA;&#xD;&#xA;
-        | Primary Home/Officieel adres      | HP               | true          | home |          |&#xD;&#xA;&#xD;&#xA;
-        | Visit Address/Woon-/verblijfadres | PHYS             |               | home | physical |&#xD;&#xA;&#xD;&#xA;
-        | Temporary Address/Tijdelijk adres | TMP              |               | temp |          |&#xD;&#xA;&#xD;&#xA;
-        | Work Place/Werkadres              | WP               |               | work |          |&#xD;&#xA;&#xD;&#xA;
-        | Vacation Home/Vakantie adres      | HV               |               | temp |          |&#xD;&#xA;&#xD;&#xA;
-If Address.type is &quot;both&quot; then this is to be understood as a dual purpose address (postal and physical). Systems that support importing it like this are encouraged to do so, otherwise they may need to import this as two separate addresses.&#xD;&#xA;&#xD;&#xA;NOTE: FHIR core defines the AD-use extension to further specify the postal address type. However, the ValueSet used in that extension doesn't completely match the HCIM ValueSet. Therefore, a custom extension has been made. This doesn't preclude the use of the AD-use extension." />
+      <definition value="This datatype defines a common basis for expressing all addresses around the world, but adds extensions to express Dutch addresses specifically, according to the HCIM AddressInformation (v1.0, 2017). A Dutch Address still is a proper FHIR Address, which means that systems that cannot interpret the extensions will still be able to render and work with this datatype.&#xD;&#xA;&#xD;&#xA;To have true compatibility an implementer SHOULD use the core Address parts as intended. To have addresses work for Dutch context, the implementer SHOULD in addition use the extension elements.&#xD;&#xA;&#xD;&#xA;**Separate address parts**&#xD;&#xA;&#xD;&#xA;The first addition is that Dutch addresses make certain address parts separately communicable. These parts are required for use in true Dutch systems when dealing with Dutch addresses, but may not have value for international systems when information gets sent abroad.&#xD;&#xA;&#xD;&#xA;**Custom address types**&#xD;&#xA;&#xD;&#xA;The second addition is that the HCIM defines its own ValueSet for address types, which can only be partially expressed using the FHIR Address datatype and requires a mapping to multiple elements. The table below explains how the HCIM concepts are mapped to the various FHIR elements (see the ConceptMaps http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressUse and http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressType as well). The HCIM code itself should also be included using the AddressType extension.&#xD;&#xA;&#xD;&#xA;         | HCIM                              | .ext:AddressType | .ext:official | .use | .type    |&#xD;&#xA;&#xD;&#xA;         |-----------------------------------|------------------|---------------|------|----------|&#xD;&#xA;&#xD;&#xA;         | Postal Address/Postadres          | PST              |               |      | postal   |&#xD;&#xA;&#xD;&#xA;         | Primary Home/Officieel adres      | HP               | true          | home |          |&#xD;&#xA;&#xD;&#xA;         | Visit Address/Woon-/verblijfadres | PHYS             |               | home | physical |&#xD;&#xA;&#xD;&#xA;         | Temporary Address/Tijdelijk adres | TMP              |               | temp |          |&#xD;&#xA;&#xD;&#xA;         | Work Place/Werkadres              | WP               |               | work |          |&#xD;&#xA;&#xD;&#xA;         | Vacation Home/Vakantie adres      | HV               |               | temp |          |&#xD;&#xA;&#xD;&#xA; If Address.type is &quot;both&quot; then this is to be understood as a dual purpose address (postal and physical). Systems that support importing it like this are encouraged to do so, otherwise they may need to import this as two separate addresses.&#xD;&#xA;&#xD;&#xA;NOTE: FHIR core defines the AD-use extension to further specify the postal address type. However, the ValueSet used in that extension doesn't completely match the HCIM ValueSet. Therefore, a custom extension has been made. This doesn't preclude the use of the AD-use extension." />
       <alias value="AdresInformatie" />
       <example>
         <label value="Example of a Vacation Home address" />
@@ -67,13 +59,13 @@ If Address.type is &quot;both&quot; then this is to be understood as a dual purp
           <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
             <valueCodeableConcept>
               <coding>
-                <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                <code value="HV"/>
-                <display value="Vakantie adres"/>
+                <system value="http://hl7.org/fhir/v3/AddressUse" />
+                <code value="HV" />
+                <display value="Vakantie adres" />
               </coding>
             </valueCodeableConcept>
           </extension>
-          <use value="temp"/>
+          <use value="temp" />
           <line value="Binnenkant 12A Hoog">
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
               <valueString value="Binnenkant" />
@@ -100,9 +92,9 @@ If Address.type is &quot;both&quot; then this is to be understood as a dual purp
           <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
             <valueCodeableConcept>
               <coding>
-                <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                <code value="HP"/>
-                <display value="Officieel adres"/>
+                <system value="http://hl7.org/fhir/v3/AddressUse" />
+                <code value="HP" />
+                <display value="Officieel adres" />
               </coding>
             </valueCodeableConcept>
           </extension>
@@ -224,6 +216,17 @@ If Address.type is &quot;both&quot; then this is to be understood as a dual purp
     <element id="Address.use">
       <path value="Address.use" />
       <definition value="Purpose of this address" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressUse" />
+              <display value="AdresSoortCodelijst-to-AddressUse" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-address-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.11" />
@@ -242,6 +245,17 @@ If Address.type is &quot;both&quot; then this is to be understood as a dual purp
     </element>
     <element id="Address.type">
       <path value="Address.type" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressType" />
+              <display value="AdresSoortCodelijst-to-AddressType" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-address-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.11" />

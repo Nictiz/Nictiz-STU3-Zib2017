@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Encounter" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />
@@ -91,23 +92,33 @@
       <path value="Encounter.class" />
       <short value="ContactType" />
       <definition value="The type of contact." />
-      <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode) is available that maps ContactTypeCodelist to the ActEncounterCode valueset." />
       <alias value="ContactType" />
       <min value="1" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
+              <display value="ContactTypeCodelijst-to-ActEncounterCode" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-encounter-v1.2-2015EN" />
         <map value="NL-CM:15.1.2" />
-        <comment value="ContactType" />
+        <comment value="ContactType. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
       </mapping>
       <mapping>
         <identity value="hcim-encounter-v3.0-2016EN" />
         <map value="NL-CM:15.1.2" />
-        <comment value="ContactType" />
+        <comment value="ContactType. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
       </mapping>
       <mapping>
         <identity value="hcim-encounter-v3.1-2017EN" />
         <map value="NL-CM:15.1.2" />
-        <comment value="ContactType" />
+        <comment value="ContactType. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
       </mapping>
     </element>
     <element id="Encounter.class.extension">
@@ -123,6 +134,7 @@
     <element id="Encounter.class.extension:ContactTypeCodelist">
       <path value="Encounter.class.extension" />
       <sliceName value="ContactTypeCodelist" />
+      <definition value="Defines a more specific coded value for a code or string. Especially useful for FHIR's required ValueSets. These extensions are primarily used on codes bound to a required value set, where you would like to use a more specific code than the codes in the bounded value set." />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
@@ -327,9 +339,6 @@
       <alias value="AfwijkendeUitslag" />
     </element>
     <element id="Encounter.reason.text">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Encounter.reason.text" />
       <short value="DeviatingResult" />
       <definition value="A deviating result which serves as the reason for the contact." />
@@ -401,9 +410,6 @@
       <definition value="Location from which the patient came before the encounter. In most cases this will only be used when the patient is admitted." />
       <alias value="Herkomst" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdmitSource" />
-        </extension>
         <strength value="extensible" />
         <description value="HerkomstCodelijst" />
         <valueSetReference>
@@ -423,9 +429,6 @@
       <definition value="Location to which the patient will go after the encounter. In most cases this will only be used when the patient is discharged." />
       <alias value="Bestemming" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DischargeDisp" />
-        </extension>
         <strength value="extensible" />
         <description value="BestemmingCodelijst" />
         <valueSetReference>

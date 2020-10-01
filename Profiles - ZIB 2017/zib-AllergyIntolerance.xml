@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AllergyIntolerance" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance" />
@@ -194,6 +195,20 @@
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.8.2.2--20171231000000" />
           <display value="AllergieCategorieCodelijst" />
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="AllergyIntolerance.criticality">
+      <path value="AllergyIntolerance.criticality" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality" />
+              <display value="MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality" />
+            </valueReference>
+          </extension>
         </valueSetReference>
       </binding>
     </element>
@@ -566,17 +581,17 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-  </element>
+    </element>
     <element id="AllergyIntolerance.note.author[x]:authorReference.extension:practitionerRole">
-    <path value="AllergyIntolerance.note.author[x].extension" />
-    <sliceName value="practitionerRole" />
+      <path value="AllergyIntolerance.note.author[x].extension" />
+      <sliceName value="practitionerRole" />
       <comment value="Relevant only in combination with Reference(Practitioner)" />
-    <max value="1" />
-    <type>
-      <code value="Extension" />
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
-    </type>
-  </element>
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference" />
+      </type>
+    </element>
     <element id="AllergyIntolerance.note.author[x]:authorString">
       <path value="AllergyIntolerance.note.author[x]" />
       <sliceName value="authorString" />
@@ -815,15 +830,26 @@
       <short value="Severity" />
       <definition value="The severity of the reaction as a result of exposure to the causative substance." />
       <alias value="Ernst" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/ErnstCodelijst-to-AllergyIntoleranceSeverity" />
+              <display value="ErnstCodelijst-to-AllergyIntoleranceSeverity" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
         <map value="NL-CM:8.2.14" />
-        <comment value="Severity" />
+        <comment value="Severity. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/ErnstCodelijst-to-AllergyIntoleranceSeverity" />
       </mapping>
       <mapping>
         <identity value="hcim-allergyintolerance-v3.0-2016EN" />
         <map value="NL-CM:8.2.14" />
-        <comment value="Severity" />
+        <comment value="Severity. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/ErnstCodelijst-to-AllergyIntoleranceSeverity" />
       </mapping>
       <mapping>
         <identity value="hcim-allergyintolerance-v3.2-2017EN" />

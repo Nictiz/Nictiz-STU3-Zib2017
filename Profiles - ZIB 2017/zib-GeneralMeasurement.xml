@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-GeneralMeasurement" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement" />
@@ -57,11 +58,19 @@
       </mapping>
     </element>
     <element id="Observation.status">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-        <valueString value="default: final" />
-      </extension>
       <path value="Observation.status" />
       <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/ResultStatusCodelist-to-ObservationStatus) is available that maps ResultStatusCodelist to the ObservationStatus valueset." />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/ResultStatusCodelist-to-ObservationStatus" />
+              <display value="ResultStatusCodelist-to-ObservationStatus" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
     </element>
     <element id="Observation.status.extension">
       <path value="Observation.status.extension" />
@@ -109,9 +118,6 @@
       <alias value="Onderzoek" />
       <alias value="MetingNaam" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationCode" />
-        </extension>
         <strength value="extensible" />
         <description value="OnderzoekCodelijst or MetingNaamCodelijst" />
         <valueSetReference>

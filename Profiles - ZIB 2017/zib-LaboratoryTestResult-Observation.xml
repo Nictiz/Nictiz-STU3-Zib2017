@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-LaboratoryTestResult-Observation" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation" />
-  <version value="2.1.5" />
+  <version value="2.1.4" />
   <name value="Zib LaboratoryTestResult Observation" />
   <title value="HCIM LaboratoryTestResult Observation" />
   <status value="active" />
@@ -16,7 +16,6 @@
     </telecom>
   </contact>
   <description value="A LaboratoryTestResult as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB)  version 4.1, release 2017." />
-  <purpose value="# Purpose of HCIM&#xD;&#xA;Laboratory tests are done for the purpose of diagnosing and preventing disease and follow-up on the effects of treatment." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.2" />
   <mapping>
@@ -48,8 +47,7 @@
     <element id="Observation">
       <path value="Observation" />
       <short value="LaboratoryTestResult" />
-      <definition value="A laboratory result describes the result of a laboratory analysis.&#xD;&#xA;These are specimen-oriented tests as performed in laboratories such as Clinical Chemistry, Serology, Microbiology, etc.&#xD;&#xA;In addition to the results of tests with a singular result, this concept can also contain the results of more complex tests with multiple results or a ‘panel’." />
-      <comment value="This profile is used for two concepts of the HCIM LaboratoryTestResult at te same time: the root concept (NL-CM:13.1.1) and the LaboratoryTest concept (NL-CM:13.1.3). A LaboratoryTestResult can consist of just one LaboratoryTest or can be a panel of multiple LaboratoryTests. If there's just one LaboratoryTest, a single instance of this profile may be used to represent both concepts, but if there are multiple LaboratoryTests, there should be one parent instance representing the LaboratoryTestResult that uses `Observation.related` to link child instances representing individual LaboratoryTests.&#xD;&#xA;&#xD;&#xA;Note that the `Observation.related` field in is also used for a third case where there are multiple related LaboratoryTestResults (RelatedResult, NL-CM:13.1.33).&#xD;&#xA;&#xD;&#xA;The list below summarizes the different situations:&#xD;&#xA;1. Single LaboratoryTestResult with single LaboratoryTest:&#xD;&#xA;* single instance of this profile&#xD;&#xA;* `.code` represents the HCIM concept Test (NL-CM:13.1.8)&#xD;&#xA;2. Single LaboratoryTestResult with multiple LaboratoryTests&#xD;&#xA;* parent instance with child instances in `.related.target` (&#xD;&#xA;* `.code` of parent represents the HCIM concept PanelOrBattery (NL-CM:13.1.4)&#xD;&#xA;* `.code` of child represents the HCIM concept Test (NL-CM:13.1.8)&#xD;&#xA;* `.related.type` of parent set to &quot;has-member&quot;&#xD;&#xA;3. Multiple related LaboratoryTestResults&#xD;&#xA;* multiple instances representing the root concept&#xD;&#xA;* `.code` represents the HCIM concept Test (NL-CM:13.1.8)&#xD;&#xA;* `.related.target` references the related instances&#xD;&#xA;* `.related.type` set to whichever value is appropriate&#xD;&#xA;&#xD;&#xA;Also note that there is the additional profile [zib-LaboratoryTestResult-DiagnosticReport](http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport), which is used for (textual) reports on individual (panels of) observations, like conclusions. The DiagnosticReport contains references to instances of this profile and can be used in all three the situations described above." />
+      <definition value="Measurements and simple assertions made about a patient, device or other subject. These may be a simple or a complex observations. Simple Observations could consist of just a code and a value, whereas complex observations like panels and batteries could have related Observations and or components.&#xD;&#xA;The HCIM LaboratoryResult also supports simple and more complex situations. For a simple result there will be a single LaboratoryTestResult.LaboratoryTest.TestName in Observation.code and no LaboratoryTestresult.Test. For a more complex situation there will be a LaboratoryTestResult.Test and any number of related LaboratoryTestResult.LaboratoryTest, e.g. parts of a panel or battery. Each related LaboratoryTest shall be conveyed in Observation.related or Observation.component. The deciding factor in choosing between related or component is: does the observation have use as independent observation (Observation.related) or is the observation only relevant in the context of its parent (Observation.component).&#xD;&#xA;Note that (textual) reports on individual (panels of) observations, like conclusions, go into a different resource DiagnosticReport. The DiagnosticReport then contains the references to the Observation resources it concerns." />
       <alias value="LaboratoriumUitslag" />
       <mapping>
         <identity value="hcim-laboratorytestresultfortransfer-v1.2.2-2015EN" />
@@ -191,7 +189,7 @@
       <path value="Observation.code" />
       <short value="TestCode or PanelOrBattery" />
       <definition value="The name and code of the executed test or for laboratory tests comprising multiple subtests and often requested together as a whole, this concept contains the name of the compound request (often indicated as a ‘panel’, ‘battery’ or ‘cluster’). Examples include: blood gases and EBV serology." />
-      <comment value="This can either be the HCIM concept Test (NL-CM:13.1.4) or TestName (NL-CM:13.1.8) depending on the use case. See the documentation on the root of this profile for guidance on implementing the different uses cases." />
+      <comment value="This can either be the ZIB concept Test (NL-CM:13.1.4) or TestName (NL-CM:13.1.8) depending on the use of DiagnosticReport resource. This element shall be mapped to TestName if DiagnosticReport is used and .component.code is not used. If component.code is used, the ZIB concept Test shall be mapped to this element." />
       <alias value="TestCode" />
       <alias value="Onderzoek" />
       <mapping>
@@ -301,6 +299,12 @@
         <strength value="required" />
         <description value="Observation Interpretation Codes" />
         <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/InterpretatieVlaggenCodelijst-To-Observation-Interpretation" />
+              <display value="InterpretatieVlaggenCodelijst-To-Observation-Interpretation" />
+            </valueReference>
+          </extension>
           <reference value="http://hl7.org/fhir/ValueSet/observation-interpretation" />
         </valueSetReference>
       </binding>
@@ -495,20 +499,19 @@
     <element id="Observation.related">
       <path value="Observation.related" />
       <short value="RelatedResults" />
-      <definition value="Reference to related LaboratoryTestResult instances, or to the LaboratoryTest concept if this is a grouping Observation." />
-      <comment value="The `Observation.related` field is used for two different HCIM use cases:&#xD;&#xA;1. The LaboratoryTestResult can reference other, related LaboratoryTestResults (RelatedResult, NL-CM:13.1.33).&#xD;&#xA;2. The LaboratoryTestResult can consist of multiple LaboratoryTest concepts (NL-CM:13.1.3)&#xD;&#xA;&#xD;&#xA;See the documentation on the root if this profile for guidance on implementing these use cases." />
+      <definition value="Reference to related tests, e.g. paired tests or sequential tests like gram staining and microbiological cultures." />
+      <requirements value="Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes QuestionnaireResponse from which the measure is derived." />
       <alias value="GerelateerdeUitslag" />
-      <alias value="LaboratoriumTest" />
       <mapping>
         <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
         <map value="NL-CM:13.1.33" />
         <comment value="RelatedResults" />
       </mapping>
-      <mapping>
-        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
-        <map value="NL-CM:13.1.3" />
-        <comment value="LaboratoryTest" />
-      </mapping>
+    </element>
+    <element id="Observation.related.type">
+      <path value="Observation.related.type" />
+      <min value="1" />
+      <fixedCode value="has-member" />
     </element>
     <element id="Observation.related.target">
       <path value="Observation.related.target" />
@@ -524,6 +527,11 @@
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation" />
       </type>
+      <mapping>
+        <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
+        <map value="NL-CM:13.1.1" />
+        <comment value="LaboratoryTestResult" />
+      </mapping>
     </element>
     <element id="Observation.component">
       <path value="Observation.component" />

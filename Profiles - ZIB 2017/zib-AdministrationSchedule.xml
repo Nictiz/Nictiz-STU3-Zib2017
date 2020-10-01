@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AdministrationSchedule" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationSchedule" />
@@ -153,6 +154,17 @@
       <definition value="WeekDay indicates a pattern of doses on fixed week days." />
       <comment value="Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday. A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/WeekdagCodelijst-to-days-of-week) is available that maps WeekDayCodelist to the days-of-week valueset." />
       <alias value="Weekdagen" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/WeekdagCodelijst-to-days-of-week" />
+              <display value="WeekdagCodelijst-to-days-of-week" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />
         <map value="NL-CM:9.12.19952" />
@@ -174,12 +186,22 @@
       <path value="Timing.repeat.when" />
       <short value="TimeOfDay" />
       <definition value="Time of day: morning, afternoon, evening, night." />
-      <comment value="Time of day: morning, afternoon, evening, night. A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/DagdeelCodelijst-to-EventTiming) is available that maps TimeOfDayCodelist to the EventTiming valueset." />
       <alias value="Dagdeel" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/DagdeelCodelijst-to-EventTiming" />
+              <display value="DagdeelCodelijst-to-EventTiming" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-instructionsforuse-v1.0-2017EN" />
         <map value="NL-CM:9.12.19953" />
-        <comment value="TimeOfDay" />
+        <comment value="TimeOfDay. See for details the ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/DagdeelCodelijst-to-EventTiming)" />
       </mapping>
     </element>
   </differential>
