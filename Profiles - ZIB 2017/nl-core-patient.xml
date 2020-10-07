@@ -469,15 +469,26 @@
       <path value="Patient.gender" />
       <short value="Gender" />
       <alias value="Geslacht" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-AdministrativeGender" />
+              <display value="GeslachtCodelijst-to-AdministrativeGender" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-patient-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-administrative-gender" />
+        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-Administrative-gender" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.0-2016EN" />
         <map value="NL-CM:0.1.9" />
-        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-administrative-gender" />
+        <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-Administrative-gender" />
       </mapping>
       <mapping>
         <identity value="hcim-patient-v3.1-2017EN" />

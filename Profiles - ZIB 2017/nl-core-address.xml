@@ -224,6 +224,17 @@ If Address.type is &quot;both&quot; then this is to be understood as a dual purp
     <element id="Address.use">
       <path value="Address.use" />
       <definition value="Purpose of this address" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressUse" />
+              <display value="AdresSoortCodelijst-to-AddressUse" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-address-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.11" />
@@ -242,6 +253,17 @@ If Address.type is &quot;both&quot; then this is to be understood as a dual purp
     </element>
     <element id="Address.type">
       <path value="Address.type" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/AdresSoortCodelijst-to-AddressType" />
+              <display value="AdresSoortCodelijst-to-AddressType" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-address-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.11" />

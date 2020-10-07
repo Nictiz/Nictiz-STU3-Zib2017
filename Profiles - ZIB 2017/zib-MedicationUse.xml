@@ -221,12 +221,24 @@
     <element id="MedicationStatement.status">
       <path value="MedicationStatement.status" />
       <short value="MedicationUseStopType" />
-      <comment value="MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xD;&#xA;&#xD;&#xA;This element is also used for the concept 'Stop type'; the manner in which this medication is discontinued (temporary or definitive).  A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus) is available that maps MedicationUseStopTypeCodeLijst to the MedicationStatementStatus valueset." />
+      <comment value="MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xD;&#xA;&#xD;&#xA;This element is also used for the concept 'Stop type'; the manner in which this medication is discontinued (temporary or definitive). " />
       <alias value="MedicatieGebruikStopType" />
+      <binding>
+        <strength value="required" />
+        <description value="Allergy Intolerance critically Code list"/>
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus" />
+              <display value="MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-medicationuse2-v1.0-2017EN" />
         <map value="NL-CM:9.11.23132" />
-        <comment value="MedicationUseStopType" />
+        <comment value="MedicationUseStopType.  See for details the ConceptMap (http://nictiz.nl/fhir/ConceptMap/MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus) is available that maps MedicationUseStopTypeCodeLijst to the MedicationStatementStatus valueset." />
       </mapping>
     </element>
     <element id="MedicationStatement.category">

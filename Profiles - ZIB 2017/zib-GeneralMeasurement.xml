@@ -61,7 +61,18 @@
         <valueString value="default: final" />
       </extension>
       <path value="Observation.status" />
-      <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/ResultStatusCodelist-to-ObservationStatus) is available that maps ResultStatusCodelist to the ObservationStatus valueset." />
+      <comment value="A ConceptMap (http://nictiz.nl/fhir/ConceptMap/ResultStatusCodelist-to-ObservationStatus) is available that maps ResultStatusCodelist to the ObservationStatus valueset." />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/ResultStatusCodelist-to-ObservationStatus" />
+              <display value="ResultStatusCodelist-to-ObservationStatus" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
     </element>
     <element id="Observation.status.extension">
       <path value="Observation.status.extension" />
