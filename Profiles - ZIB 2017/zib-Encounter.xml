@@ -91,23 +91,33 @@
       <path value="Encounter.class" />
       <short value="ContactType" />
       <definition value="The type of contact." />
-      <comment value="A ConceptMap (https://simplifier.net/resolve?canonical=http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode) is available that maps ContactTypeCodelist to the ActEncounterCode valueset." />
       <alias value="ContactType" />
       <min value="1" />
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
+              <display value="ContactTypeCodelijst-to-ActEncounterCode" />
+            </valueReference>
+          </extension>
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-encounter-v1.2-2015EN" />
         <map value="NL-CM:15.1.2" />
-        <comment value="ContactType" />
+        <comment value="ContactType. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
       </mapping>
       <mapping>
         <identity value="hcim-encounter-v3.0-2016EN" />
         <map value="NL-CM:15.1.2" />
-        <comment value="ContactType" />
+        <comment value="ContactType. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
       </mapping>
       <mapping>
         <identity value="hcim-encounter-v3.1-2017EN" />
         <map value="NL-CM:15.1.2" />
-        <comment value="ContactType" />
+        <comment value="ContactType. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
       </mapping>
     </element>
     <element id="Encounter.class.extension">
