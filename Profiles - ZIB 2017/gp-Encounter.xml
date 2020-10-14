@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="gp-Encounter" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
@@ -14,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="Contact as defined by the Dutch General Practitioners Association (Nederlands Huisartsengenootschap or NHG) based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 1.0.&#xD;&#xA;&#xD;&#xA;A contact is any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions.&#xD;&#xA;&#xD;&#xA;Contacts can be visits to the general practitioner or other practices, home visits, admissions (in hospitals, nursing homes or care homes, psychiatric institutions or convalescent homes) or other relevant contacts. This only includes past contacts. Future contacts can be documented in the PlannedCareActivity information model." />
+  <description value="Contact as defined by the Dutch General Practitioners Association (Nederlands Huisartsengenootschap or NHG) based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 1.0.&#xD;&#xA;&#xD;&#xA;A contact is any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions.&#xD;&#xA;&#xD;&#xA;A general practitioner encounter could be used to discuss multiple 'episodes'. Based on the axis op 'episode', one FHIR Encounter (Dutch: 'consult' or 'contactmoment') there will be multiple virtual partial encounters (Dutch: 'deelcontact'). The FHIR Encounter is always about the whole encounter spanning everything that was discussed, regardless of the number of 'episodes'. This profile only deals with past contacts. Future contacts can be documented in the PlannedCareActivity information model." />
   <fhirVersion value="3.0.2" />
   <kind value="resource" />
   <abstract value="false" />
@@ -31,9 +32,6 @@
       <definition value="The type of encounter as defined in NHG Table 14 ContactWijze" />
       <max value="1" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EncounterType" />
-        </extension>
         <strength value="required" />
         <description value="NHG Table 14 ContactWijze" />
         <valueSetReference>
@@ -41,6 +39,11 @@
           <display value="NHG Table 14 Contactwijze" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Encounter.period">
+      <path value="Encounter.period" />
+      <definition value="The start and end time of the encounter. When all is known is a single value for an Encounter that already took place, you should populate this same value in both Period.start and Period.end. When only the period.start is populated, this indicates a Encounter at given value, without specifying a timeframe. See comment for more background." />
+      <comment value="If not (yet) known, the Period.end may be omitted. While a general practitioner (GP) encounter generally is a ten minute consultation, most GP systems will only export a date. Some systems will actually export the ten minute consultation as expected.&#xD;&#xA;&#xD;&#xA;In FHIR STU3 and R4, the Period datatype has an invariant that inconsistently in text says that Period.start shall be lower than Period.end, but actually supports lower than or equal in its expression which reflects the original intent. This has been fixed for FHIR R5 so the text now reflects the expression. This means that both Period.start and Period.end should be populated with the same date, for GP systems that only have a date. See [MM-1453](https://bits.nictiz.nl/browse/MM-1453) and [FHIR-28621](https://jira.hl7.org/browse/FHIR-28621) that discuss this issue." />
     </element>
   </differential>
 </StructureDefinition>
