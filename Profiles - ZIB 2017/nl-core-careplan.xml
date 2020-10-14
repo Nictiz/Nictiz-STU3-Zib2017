@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-careplan" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-careplan" />
@@ -40,6 +41,14 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CarePlan" />
   <derivation value="constraint" />
   <differential>
+    <element id="CarePlan">
+      <path value="CarePlan" />
+      <definition value="Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.&#xD;&#xA;&#xD;&#xA;The CarePlan structure bears relationship to a number of HCIMs including TreatmentObjective and NursingIntervention. Not all systems currently capture care plans this way. For this reason this profile explicitly allows for fallback to an unstructured description, leveraging `CarePlan.text`.&#xD;&#xA;&#xD;&#xA;The CarePlan SHALL be either:&#xD;&#xA;&#xD;&#xA;* fully structured with clinically relevant text as xhtml in `CarePlan.text` with `.text.status` = *extensions*, or&#xD;&#xA;* fully unstructured with clinically relevant text as xhtml in `CarePlan.text` with `.text.status` = *additional*&#xD;&#xA;  * Required other elements are `CarePlan.status`, `CarePlan.intent`, `CarePlan.subject`&#xD;&#xA;  * Additional elements MAY be populated&#xD;&#xA;&#xD;&#xA;The `CarePlan.text` (`Resource.text`) is explained in more detail in the [FHIR DomainResource](https://hl7.org/fhir/STU3/domainresource.html). The status *additional* generically signals receivers that the contents of the narrative may contain additional information not found in the structured data, which means the `CarePlan.text` SHALL NOT be ignored. In an unstructured care plan the `CarePlan.text` is expected to be meaningful to the human receiver without further inspection of any structured data that may or may not be present in the care plan as well." />
+    </element>
+    <element id="CarePlan.text">
+      <path value="CarePlan.text" />
+      <comment value="Note: see the documentation on the root element for guidance on using this element to communicate the care plan in an unstructured way." />
+    </element>
     <element id="CarePlan.identifier">
       <path value="CarePlan.identifier" />
       <mapping>
