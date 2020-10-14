@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="gp-Encounter" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
@@ -14,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="Contact as defined by the Dutch General Practitioners Association (Nederlands Huisartsengenootschap or NHG) based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 1.0.&#xD;&#xA;&#xD;&#xA;A contact is any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions.&#xD;&#xA;&#xD;&#xA;Contacts can be visits to the general practitioner or other practices, home visits, admissions (in hospitals, nursing homes or care homes, psychiatric institutions or convalescent homes) or other relevant contacts. This only includes past contacts. Future contacts can be documented in the PlannedCareActivity information model." />
+  <description value="Contact as defined by the Dutch General Practitioners Association (Nederlands Huisartsengenootschap or NHG) based on the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 1.0.&#xD;&#xA;&#xD;&#xA;A contact is any interaction, regardless of the situation, between a patient and the healthcare provider, in which the healthcare provider has primary responsibility for diagnosing, evaluating and treating the patient’s condition and informing the patient. These can be visits, appointments or non face-to-face interactions.&#xD;&#xA;&#xD;&#xA;A general practitioner encounter could be used to discuss multiple 'episodes'. Based on the axis op 'episode', one FHIR Encounter (Dutch: 'consult' or 'contactmoment') there will be multiple virtual partial encounters (Dutch: 'deelcontact'). The FHIR Encounter is always about the whole encounter spanning everything that was discussed, regardless of the number of 'episodes'. This profile only deals with past contacts. Future contacts can be documented in the PlannedCareActivity information model." />
   <fhirVersion value="3.0.2" />
   <kind value="resource" />
   <abstract value="false" />
@@ -31,9 +32,6 @@
       <definition value="The type of encounter as defined in NHG Table 14 ContactWijze" />
       <max value="1" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EncounterType" />
-        </extension>
         <strength value="required" />
         <description value="NHG Table 14 ContactWijze" />
         <valueSetReference>
@@ -41,6 +39,11 @@
           <display value="NHG Table 14 Contactwijze" />
         </valueSetReference>
       </binding>
+    </element>
+    <element id="Encounter.period">
+      <path value="Encounter.period" />
+      <definition value="The start and end time of the encounter. When only the period.start is populated, this indicates a Encounter at given value, without specifying a timeframe. See comment for more background." />
+      <comment value="If not (yet) known, the end of the Period may be omitted. While a general practitioner (GP) encounter generally is a ten minute consultation, the only thing a GP system will export is a date. Not all GP systems export just a date, some will actually export the ten minute consultation as expected. FHIR Encounter does not support just a date, and a change request has been filed (https://jira.hl7.org/browse/FHIR-28621) for a future version of FHIR. For this version of FHIR the choice has been made to bring the 15 old status quo in HL7 V3 as-is to FHIR. This status quo has been implemented by every GP data system and consumer to date.&#xD;&#xA;&#xD;&#xA;This means that if all we know is the date, then this date is populated in period.start. This should not be interpreted as an infinite encounter, but as an encounter at given date. The alternative would be populating both period.start and peiod.end which would lead to a 24 hour consultation on said date. Not only is that inaccurate as well, it is unecessarily different from the status quo of the last 15 years. See https://bits.nictiz.nl/browse/MM-1453 which disucsses this issue." />
     </element>
   </differential>
 </StructureDefinition>
