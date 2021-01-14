@@ -1,0 +1,94 @@
+<MedicationDispense xmlns="http://hl7.org/fhir">
+   <id value="ta-vv-example-907-1"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-AdministrationAgreement"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>MedicationDispense. Subject: Joris Hansman. Categorie: <span title="Provider medication administration instructions (procedure) (422037009 - SNOMED CT)">Provider medication administration instructions (procedure)</span>
+               <span style="display: block;">Uitvoerende: Organisatie met id '01234567' in identificerend systeem '2.16.528.1.1007.3.3'.</span>
+            </caption>
+            <tbody>
+               <tr>
+                  <th>Medicamenteuze behandel-id</th>
+                  <td>vv-example-907_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.373784005.1)</td>
+               </tr>
+               <tr>
+                  <th>Gemaakt</th>
+                  <td>2020-02-29</td>
+               </tr>
+               <tr>
+                  <th>Medicatie</th>
+                  <td>PARACETAMOL PCH TABLET 500MG</td>
+               </tr>
+               <tr>
+                  <th>Doseerinstructie</th>
+                  <td>
+                     <div>Tekst: zo nodig bij pijn , maximaal 6 stuks per dag</div>
+                     <div>Zo nodig: <span title="zo nodig bij pijn (1140 - nhg-tabel-25-gebruiksvoorschrift#aanvullend-numeriek)">zo nodig bij pijn</span>
+                     </div>
+                     <div>Max dosering: 6 stuk / 1 dag (per period)</div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AuthoredOn">
+      <valueDateTime value="2020-02-29"/>
+   </extension>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+      <valueIdentifier>
+         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.373784005.1"/>
+         <value value="vv-example-907_1"/>
+      </valueIdentifier>
+   </extension>
+   <category>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="422037009"/>
+         <display value="Provider medication administration instructions (procedure)"/>
+      </coding>
+      <text value="Toedieningsafspraak"/>
+   </category>
+   <medicationReference>
+      <reference value="Medication/15401367-2-16-840-1-113883-2-4-4-8"/>
+      <display value="PARACETAMOL PCH TABLET 500MG"/>
+   </medicationReference>
+   <subject>
+      <reference value="Patient/JORISHANSMAN"/>
+      <display value="Joris Hansman"/>
+   </subject>
+   <performer>
+      <actor>
+         <reference value="Organization/012345672-16-528-1-1007-3-3"/>
+         <display value="Organisatie met id '01234567' in identificerend systeem '2.16.528.1.1007.3.3'."/>
+      </actor>
+   </performer>
+   <dosageInstruction>
+      <text value="zo nodig bij pijn , maximaal 6 stuks per dag"/>
+      <asNeededCodeableConcept>
+         <coding>
+            <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-25-gebruiksvoorschrift#aanvullend-numeriek"/>
+            <code value="1140"/>
+            <display value="zo nodig bij pijn"/>
+         </coding>
+      </asNeededCodeableConcept>
+      <maxDosePerPeriod>
+         <numerator>
+            <value value="6"/>
+            <unit value="stuk"/>
+            <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+            <code value="245"/>
+         </numerator>
+         <denominator>
+            <value value="1"/>
+            <unit value="dag"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/>
+         </denominator>
+      </maxDosePerPeriod>
+   </dosageInstruction>
+</MedicationDispense>
