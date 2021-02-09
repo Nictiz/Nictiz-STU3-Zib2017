@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="gp-JournalEntry" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/gp-JournalEntry" />
@@ -31,9 +32,6 @@
       <max value="0" />
     </element>
     <element id="Observation.status">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-        <valueString value="default: final" />
-      </extension>
       <path value="Observation.status" />
       <short value="final" />
       <definition value="The status of the journal entry" />
@@ -63,10 +61,32 @@
       <path value="Observation.context" />
       <short value="Encounter during which this observation is made" />
       <definition value="The encounter during which this journal entry was made." />
+      <comment value="It is recommended to use the nl-core-episodeofcare extension to reference nl-core-episodeofcare (EpisodeOfCare) instances rather than the `context` element directly, as this approach will be enforced in FHIR R4." />
       <min value="1" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter" />
+      </type>
+    </element>
+    <element id="Observation.context.extension">
+      <path value="Observation.context.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.context.extension:nl-core-episodeofcare">
+      <path value="Observation.context.extension" />
+      <sliceName value="nl-core-episodeofcare" />
+      <comment value="It is recommended to use the nl-core-episodeofcare extension to reference nl-core-episodeofcare (EpisodeOfCare) instances rather than the `context` element directly, as this approach will be enforced in FHIR R4." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-context-nl-core-episodeofcare" />
       </type>
     </element>
     <element id="Observation.effective[x]">
