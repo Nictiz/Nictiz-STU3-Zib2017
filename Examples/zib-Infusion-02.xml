@@ -3,44 +3,6 @@
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion"/>
     </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Beschrijving apparaatgebruik. Subject: I. Jongeneel-de Haas. Status: actief</caption>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Het systeem is op 2018-10-28 schoon gemaakt</td>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <th>Apparaat/Systeem</th>
-                        <td>Catheter, device (physical object)</td>
-                    </tr>
-                    <tr>
-                        <th>Lumen of lijn</th>
-                        <td>
-                            <div>
-                                Lijnstatus: 
-                                <span title="Lopend (LNP - 2.16.840.1.113883.2.4.3.11.60.40.4.12.1)">Lopend</span>
-                            </div>
-                            <div>
-                                Lumenlocatie: 
-                                <span title="Proximal (40415009 - SNOMED CT)">Proximal</span>
-                            </div>
-                            <div>Slotvloeistof: Lockfluid NaCl 0.9 %</div>
-                            <div>Toedieningssysteem: NaCl 0,9% + medicatie 5000 E heparine (totaal 48ml)</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Gebruiksperiode</th>
-                        <td>Vanaf 1 november 2018</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
     <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine">
         <extension url="LineStatus">
             <valueCodeableConcept>
@@ -62,13 +24,13 @@
         </extension>
         <extension url="LockFluid">
             <valueReference>
-                <reference value="MedicationAdministration/lockfluid-example"/>
+                <reference value="MedicationAdministration/zib-medicationadministration-03"/>
                 <display value="Lockfluid NaCl 0.9 %"/>
             </valueReference>
         </extension>
         <extension url="AdministeringSystem">
             <valueReference>
-                <reference value="MedicationAdministration/infusionfluid-example"/>
+                <reference value="MedicationAdministration/zib-medicationadministration-04"/>
                 <display value="NaCl 0,9% + medicatie 5000 E heparine (totaal 48ml)"/>
             </valueReference>
         </extension>
@@ -76,7 +38,7 @@
     <status value="active"/>
     <subject>
         <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
+        <display value="J. XXX_Helleman"/>
     </subject>
     <whenUsed>
         <start value="2018-11-01"/>
