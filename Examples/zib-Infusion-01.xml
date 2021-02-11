@@ -1,74 +1,9 @@
 <DeviceUseStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
+<!--Disclaimer: This is a minimal example of Infusion (DeviceUseStatement). Some references may contain another information (like patient). -->
     <id value="zib-infusion-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion"/>
     </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Beschrijving apparaatgebruik. Subject: I. Jongeneel-de Haas. Status: actief</caption>
-                <tbody>
-                    <tr>
-                        <th>Apparaat/Systeem</th>
-                        <td>Centraal veneuze katheter</td>
-                    </tr>
-                    <tr>
-                        <th>Deel van lichaam</th>
-                        <td>
-                            <span title="Structure of left subclavian vein (body structure) (734747003 - SNOMED CT)">Structure of left subclavian vein (body structure)</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Lumen of lijn</th>
-                        <td>
-                            <div>
-                                Lijnstatus: 
-                                <span title="Lopend (LNP - 2.16.840.1.113883.2.4.3.11.60.40.4.12.1)">Lopend</span>
-                            </div>
-                            <div>
-                                Lumenlocatie: 
-                                <span title="Proximal (40415009 - SNOMED CT)">Proximal</span>
-                            </div>
-                            <div>Toedieningssysteem: TPV 1 liter per 24 uur</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Lumen of lijn</th>
-                        <td>
-                            <div>
-                                Lijnstatus: 
-                                <span title="Afgedopt (DOP - 2.16.840.1.113883.2.4.3.11.60.40.4.12.1)">Afgedopt</span>
-                            </div>
-                            <div>
-                                Lumenlocatie: 
-                                <span title="Medial (255561001 - SNOMED CT)">Medial</span>
-                            </div>
-                            <div>Slotvloeistof: Lockfluid NaCl 0.9 %</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Lumen of lijn</th>
-                        <td>
-                            <div>
-                                Lijnstatus: 
-                                <span title="Lopend (LNP - 2.16.840.1.113883.2.4.3.11.60.40.4.12.1)">Lopend</span>
-                            </div>
-                            <div>
-                                Lumenlocatie: 
-                                <span title="Distal (46053002 - SNOMED CT)">Distal</span>
-                            </div>
-                            <div>Toedieningssysteem: NaCl 0.9 % 500 ml per 24 uur</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Gebruiksperiode</th>
-                        <td>Vanaf 30 november 2014</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
     <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine">
         <extension url="LineStatus">
             <valueCodeableConcept>
@@ -91,7 +26,7 @@
         <extension url="AdministeringSystem">
             <valueReference>
                 <reference value="MedicationAdministration/zib-medicationadministration-01"/>
-                <display value="TPV 1 liter per 24 uur (ntb infusionfluid-tpv-example)"/>
+                <display value="TPV 1 liter per 24 uur (infusionfluid-tpv-example)"/>
             </valueReference>
         </extension>
     </extension>
@@ -117,7 +52,7 @@
         <extension url="LockFluid">
             <valueReference>
                 <reference value="MedicationAdministration/zib-medicationadministration-01"/>
-                <display value="Lockfluid NaCl 0.9 % (ntb lockfluid-nacl-example)"/>
+                <display value="Lockfluid NaCl 0.9 % (lockfluid-nacl-example)"/>
             </valueReference>
         </extension>
     </extension>
@@ -143,7 +78,7 @@
         <extension url="AdministeringSystem">
             <valueReference>
                 <reference value="MedicationAdministration/zib-medicationadministration-01"/>
-                <display value="NaCl 0.9 % 500 ml per 24 uur (ntb infusionfluid-nacl-example)"/>
+                <display value="NaCl 0.9 % 500 ml per 24 uur (infusionfluid-nacl-example)"/>
             </valueReference>
         </extension>
     </extension>
