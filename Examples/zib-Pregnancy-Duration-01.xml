@@ -1,4 +1,4 @@
-<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
     <id value="zib-pregnancy-duration-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy-PregnancyDuration"/>
@@ -49,9 +49,8 @@
     <valueQuantity>
         <value value="24"/>
         <unit value="wk"/>
-        <!-- OID for unitofmeasure -->
-        <system value="urn:oid:2.16.840.1.113883.6.8"/>
-        <!-- <system value="http://unitsofmeasure.org"/>  -->
+        <!-- Validator incorrectly complains about this URI. See https://bits.nictiz.nl/browse/MM-1845-->
+        <system value="http://unitsofmeasure.org"/>
         <code value="wk"/>
     </valueQuantity>
 </Observation>
