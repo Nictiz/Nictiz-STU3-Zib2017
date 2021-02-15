@@ -1,0 +1,44 @@
+<PractitionerRole xmlns="http://hl7.org/fhir">
+    <id value="nl-core-practitionerrole-01234567801-016URANUMMER"/>
+    <meta>
+        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+    </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Zorgverlenerrol. </caption>
+                <tbody>
+                    <tr>
+                        <th>Zorgverlener</th>
+                        <td>
+                            <div>Dr Jansen</div>
+                            <div>Ziekenhuis zus en zo</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Specialisme</th>
+                        <td>
+                            <span title="Internist (01.016 - http://fhir.nl/fhir/NamingSystem/uzi-rolcode)">Internist</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <practitioner>
+        <reference value="Practitioner/nl-core-practitioner-0123456782-16-528-1-1007-3-1"/>
+        <display value="Dr Jansen"/>
+    </practitioner>
+    <organization>
+        <reference value="Organization/nl-core-organization-URANUMMER1-2-3-4"/>
+        <display value="Ziekenhuis zus en zo"/>
+    </organization>
+    <specialty>
+        <coding>
+            <system value="http://fhir.nl/fhir/NamingSystem/uzi-rolcode"/>
+            <code value="01.016"/>
+            <display value="Internist"/>
+        </coding>
+    </specialty>
+</PractitionerRole>

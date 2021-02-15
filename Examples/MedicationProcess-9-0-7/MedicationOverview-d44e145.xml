@@ -1,0 +1,89 @@
+<List xmlns="http://hl7.org/fhir">
+    <id value="MedicationOverview-d44e145"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/MedicationOverview"/>
+    </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>Lijst. Subject: Joris Hansman. Status: actueel</caption>
+                <tbody>
+                    <tr>
+                        <th>Wijze</th>
+                        <td>Snapshot-kopie</td>
+                    </tr>
+                    <tr>
+                        <th>Gemaakt</th>
+                        <td>14:15:18, 23 juni 2016</td>
+                    </tr>
+                    <tr>
+                        <td>Medicatieafspraak identifier: value='#MB_01h#MA_01', system='urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1'</td>
+                    </tr>
+                    <tr>
+                        <td>Toedieningsafspraak identifier: value='zib-AdministrationAgreement-1546339-f6753t65r', system='urn:oid:2.16.840.1.113883.2.4.3.11.999.77.422037009.1'</td>
+                    </tr>
+                    <tr>
+                        <td>Medicatiegebruik identifier: value='#MB_01i1#GE_01', system='urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/MedicationOverview-Verification">
+        <extension url="VerificationPatient">
+            <valueBoolean value="true"/>
+        </extension>
+        <extension url="VerificationPatientDate">
+            <valueDateTime value="2020-07-21T14:15:17+02:00"/>
+        </extension>
+        <extension url="VerificationHealthProfessional">
+            <valueBoolean value="true"/>
+        </extension>
+        <extension url="VerificationHealthProfessionalDate">
+            <valueDateTime value="2020-07-21T14:15:17+02:00"/>
+        </extension>
+    </extension>
+    <status value="current"/>
+    <mode value="snapshot"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="11181000146103"/>
+            <display value="Actual medication overview (record artifact)"/>
+        </coding>
+        <text value="Medicatieoverzicht"/>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-JORISHANSMAN"/>
+        <display value="Joris Hansman"/>
+    </subject>
+    <date value="2016-06-23T14:15:18+02:00"/>
+    <source>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/MedicationOverview-SourceOrganization">
+            <valueReference>
+                <reference value="Organization/nl-core-organization-ccdce845-50da-11eb-1428-020000000000"/>
+                <display value="Ziekenhuis zus en zo"/>
+            </valueReference>
+        </extension>
+        <display value="Ziekenhuis zus en zo"/>
+    </source>
+    <entry>
+        <item>
+            <reference value="MedicationRequest/zib-MedicationAgreement-MB-01hMA-01"/>
+            <display value="Medicatieafspraak identifier: value='#MB_01h#MA_01', system='urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1'"/>
+        </item>
+    </entry>
+    <entry>
+        <item>
+            <reference value="MedicationDispense/zib-AdministrationAgreement-1546339-f6753t65r"/>
+            <display value="Toedieningsafspraak identifier: value='zib-AdministrationAgreement-1546339-f6753t65r', system='urn:oid:2.16.840.1.113883.2.4.3.11.999.77.422037009.1'"/>
+        </item>
+    </entry>
+    <entry>
+        <item>
+            <reference value="MedicationStatement/zib-MedicationUse-MB-01i1GE-01"/>
+            <display value="Medicatiegebruik identifier: value='#MB_01i1#GE_01', system='urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1'"/>
+        </item>
+    </entry>
+</List>
