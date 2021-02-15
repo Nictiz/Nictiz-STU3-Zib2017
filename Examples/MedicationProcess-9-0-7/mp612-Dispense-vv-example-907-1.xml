@@ -1,86 +1,88 @@
 <MedicationDispense xmlns="http://hl7.org/fhir">
-   <id value="mp612-Dispense-vv-example-907-1"/>
-   <meta>
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-Dispense"/>
-   </meta>
-   <text>
-      <status value="extensions"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-         <table>
-            <caption>MedicationDispense. Subject: Joris Hansman. Id: vv-example-907_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.373784005.1), Categorie: <span title="Dispensing medication (procedure) (373784005 - SNOMED CT)">Dispensing medication (procedure)</span>
-               <span style="display: block;">Uitvoerende: Organisatie met id '01234567' in identificerend systeem '2.16.528.1.1007.3.3'.</span>
-            </caption>
-            <tbody>
-               <tr>
-                  <th>Medicamenteuze behandel-id</th>
-                  <td>vv-example-907_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.373784005.1)</td>
-               </tr>
-               <tr>
-                  <th>Aanvraagdatum</th>
-                  <td>2020-02-29</td>
-               </tr>
-               <tr>
-                  <th>Medicatie</th>
-                  <td>PARACETAMOL PCH TABLET 500MG</td>
-               </tr>
-               <tr>
-                  <th>Hoeveelheid</th>
-                  <td>20 stuk</td>
-               </tr>
-               <tr>
-                  <th>Datum overhandigd</th>
-                  <td>
-                     <i>geen informatie (ontbrekend gegeven)</i>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </text>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense-RequestDate">
-      <valueDateTime value="2020-02-29"/>
-   </extension>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
-      <valueIdentifier>
-         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.373784005.1"/>
-         <value value="vv-example-907_1"/>
-      </valueIdentifier>
-   </extension>
-   <identifier>
-      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.373784005.1"/>
-      <value value="vv-example-907_1"/>
-   </identifier>
-   <category>
-      <coding>
-         <system value="http://snomed.info/sct"/>
-         <code value="373784005"/>
-         <display value="Dispensing medication (procedure)"/>
-      </coding>
-      <text value="Medicatieverstrekking"/>
-   </category>
-   <medicationReference>
-      <reference value="Medication/mp612-Product-15401367-2-16-840-1-113883-2-4-4-8"/>
-      <display value="PARACETAMOL PCH TABLET 500MG"/>
-   </medicationReference>
-   <subject>
-      <reference value="Patient/mp612-Patient-JORISHANSMAN"/>
-      <display value="Joris Hansman"/>
-   </subject>
-   <performer>
-      <actor>
-         <reference value="Organization/mp612-Organization-012345672-16-528-1-1007-3-3"/>
-         <display value="Organisatie met id '01234567' in identificerend systeem '2.16.528.1.1007.3.3'."/>
-      </actor>
-   </performer>
-   <quantity>
-      <value value="20"/>
-      <unit value="stuk"/>
-      <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
-      <code value="245"/>
-   </quantity>
-   <whenHandedOver>
-      <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor">
-         <valueCode value="NI"/>
-      </extension>
-   </whenHandedOver>
+    <id value="mp612-Dispense-vv-example-907-1"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/mp612-DispenseToFHIRConversion-Dispense"/>
+    </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>
+                    MedicationDispense. Subject: Joris Hansman. Id: vv-example-907_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.373784005.1), Categorie: 
+                    <span title="Dispensing medication (procedure) (373784005 - SNOMED CT)">Dispensing medication (procedure)</span>
+                    <span style="display: block;">Uitvoerende: Organisatie met id '01234567' in identificerend systeem '2.16.528.1.1007.3.3'.</span>
+                </caption>
+                <tbody>
+                    <tr>
+                        <th>Medicamenteuze behandel-id</th>
+                        <td>vv-example-907_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.373784005.1)</td>
+                    </tr>
+                    <tr>
+                        <th>Aanvraagdatum</th>
+                        <td>2020-02-29</td>
+                    </tr>
+                    <tr>
+                        <th>Medicatie</th>
+                        <td>PARACETAMOL PCH TABLET 500MG</td>
+                    </tr>
+                    <tr>
+                        <th>Hoeveelheid</th>
+                        <td>20 stuk</td>
+                    </tr>
+                    <tr>
+                        <th>Datum overhandigd</th>
+                        <td>
+                            <i>geen informatie (ontbrekend gegeven)</i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense-RequestDate">
+        <valueDateTime value="2020-02-29"/>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+        <valueIdentifier>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.373784005.1"/>
+            <value value="vv-example-907_1"/>
+        </valueIdentifier>
+    </extension>
+    <identifier>
+        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.373784005.1"/>
+        <value value="vv-example-907_1"/>
+    </identifier>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373784005"/>
+            <display value="Dispensing medication (procedure)"/>
+        </coding>
+        <text value="Medicatieverstrekking"/>
+    </category>
+    <medicationReference>
+        <reference value="Medication/mp612-Product-15401367-2-16-840-1-113883-2-4-4-8"/>
+        <display value="PARACETAMOL PCH TABLET 500MG"/>
+    </medicationReference>
+    <subject>
+        <reference value="Patient/mp612-Patient-JORISHANSMAN"/>
+        <display value="Joris Hansman"/>
+    </subject>
+    <performer>
+        <actor>
+            <reference value="Organization/mp612-Organization-012345672-16-528-1-1007-3-3"/>
+            <display value="Organisatie met id '01234567' in identificerend systeem '2.16.528.1.1007.3.3'."/>
+        </actor>
+    </performer>
+    <quantity>
+        <value value="20"/>
+        <unit value="stuk"/>
+        <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+        <code value="245"/>
+    </quantity>
+    <whenHandedOver>
+        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor">
+            <valueCode value="NI"/>
+        </extension>
+    </whenHandedOver>
 </MedicationDispense>

@@ -1,128 +1,136 @@
 <MedicationRequest xmlns="http://hl7.org/fhir">
-   <id value="zib-MedicationAgreement-MBH-907-mgEx-1-MA1"/>
-   <meta>
-      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
-   </meta>
-   <text>
-      <status value="extensions"/>
-      <div xmlns="http://www.w3.org/1999/xhtml">
-         <table>
-            <caption>Medicatieafspraak. Subject: Joris Hansman. Id: MBH_907_mgEx_1_MA1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1), Categorie: <span title="Prescription (procedure) (16076005 - SNOMED CT)">Prescription (procedure)</span>, <span style="display: block;">Intentie: aanvraag</span>
-               <span style="display: block;">Aangevraagd door: Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners</span>
-            </caption>
-            <tbody>
-               <tr>
-                  <th>Medicamenteuze behandel-id</th>
-                  <td>MBH_907_mgEx_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1)</td>
-               </tr>
-               <tr>
-                  <th>Gebaseerd op</th>
-                  <td>relatie naar medicatiegebruik: REF2GEBRUIK || 2.16.840.1.113883.2.4.3.11.999.77.6.1 (Id: REF2GEBRUIK (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1))</td>
-               </tr>
-               <tr>
-                  <th>Medicatie</th>
-                  <td>PARACETAMOL 500MG TABLET</td>
-               </tr>
-               <tr>
-                  <th>Gemaakt</th>
-                  <td>09:15:00, 8 juni 2020</td>
-               </tr>
-               <tr>
-                  <th>Gebruiksduur</th>
-                  <td>Vanaf 00:00:00, 8 juni 2020</td>
-               </tr>
-               <tr>
-                  <th>Doseerinstructie</th>
-                  <td>
-                     <div>Volgnummer: 1</div>
-                     <div>Tekst: Vanaf 8 jun 2020, 1 maal per dag 1 stuk, Oraal</div>
-                     <div>Timing: <div>eenmalig per dag</div>
-                     </div>
-                     <div>Toedieningsweg: <span title="Oraal (9 - G-Standaard thesaurus subtabel 0007)">Oraal</span>
-                     </div>
-                     <div>Dosering: 1 stuk</div>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </text>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
-      <valuePeriod>
-         <start value="2020-06-08T00:00:00+02:00"/>
-      </valuePeriod>
-   </extension>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
-      <valueIdentifier>
-         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
-         <value value="MBH_907_mgEx_1"/>
-      </valueIdentifier>
-   </extension>
-   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse">
-      <valueReference>
-         <identifier>
-            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
-            <value value="REF2GEBRUIK"/>
-         </identifier>
-         <display value="relatie naar medicatiegebruik: REF2GEBRUIK || 2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
-      </valueReference>
-   </extension>
-   <identifier>
-      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
-      <value value="MBH_907_mgEx_1_MA1"/>
-   </identifier>
-   <intent value="order"/>
-   <category>
-      <coding>
-         <system value="http://snomed.info/sct"/>
-         <code value="16076005"/>
-         <display value="Prescription (procedure)"/>
-      </coding>
-      <text value="Medicatieafspraak"/>
-   </category>
-   <medicationReference>
-      <reference value="Medication/zib-Product-67903-2-16-840-1-113883-2-4-4-10"/>
-      <display value="PARACETAMOL 500MG TABLET"/>
-   </medicationReference>
-   <subject>
-      <reference value="Patient/nl-core-patient-JORISHANSMAN"/>
-      <display value="Joris Hansman"/>
-   </subject>
-   <authoredOn value="2020-06-08T09:15:00+02:00"/>
-   <requester>
-      <agent>
-         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-            <valueReference>
-               <reference value="PractitionerRole/nl-core-practitionerrole-000001111010000001111"/>
-               <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
-            </valueReference>
-         </extension>
-         <reference value="Practitioner/nl-core-practitioner-0000011112-16-528-1-1007-3-1"/>
-         <display value="Peter van Pulver"/>
-      </agent>
-   </requester>
-   <dosageInstruction>
-      <sequence value="1"/>
-      <text value="Vanaf 8 jun 2020, 1 maal per dag 1 stuk, Oraal"/>
-      <timing>
-         <repeat>
-            <frequency value="1"/>
-            <period value="1"/>
-            <periodUnit value="d"/>
-         </repeat>
-      </timing>
-      <route>
-         <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
-            <code value="9"/>
-            <display value="Oraal"/>
-         </coding>
-      </route>
-      <doseQuantity>
-         <value value="1"/>
-         <unit value="stuk"/>
-         <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
-         <code value="245"/>
-      </doseQuantity>
-   </dosageInstruction>
+    <id value="zib-MedicationAgreement-MBH-907-mgEx-1-MA1"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
+    </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>
+                    Medicatieafspraak. Subject: Joris Hansman. Id: MBH_907_mgEx_1_MA1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1), Categorie: 
+                    <span title="Prescription (procedure) (16076005 - SNOMED CT)">Prescription (procedure)</span>
+                    , 
+                    <span style="display: block;">Intentie: aanvraag</span>
+                    <span style="display: block;">Aangevraagd door: Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners</span>
+                </caption>
+                <tbody>
+                    <tr>
+                        <th>Medicamenteuze behandel-id</th>
+                        <td>MBH_907_mgEx_1 (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1)</td>
+                    </tr>
+                    <tr>
+                        <th>Gebaseerd op</th>
+                        <td>relatie naar medicatiegebruik: REF2GEBRUIK || 2.16.840.1.113883.2.4.3.11.999.77.6.1 (Id: REF2GEBRUIK (urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1))</td>
+                    </tr>
+                    <tr>
+                        <th>Medicatie</th>
+                        <td>PARACETAMOL 500MG TABLET</td>
+                    </tr>
+                    <tr>
+                        <th>Gemaakt</th>
+                        <td>09:15:00, 8 juni 2020</td>
+                    </tr>
+                    <tr>
+                        <th>Gebruiksduur</th>
+                        <td>Vanaf 00:00:00, 8 juni 2020</td>
+                    </tr>
+                    <tr>
+                        <th>Doseerinstructie</th>
+                        <td>
+                            <div>Volgnummer: 1</div>
+                            <div>Tekst: Vanaf 8 jun 2020, 1 maal per dag 1 stuk, Oraal</div>
+                            <div>
+                                Timing: 
+                                <div>eenmalig per dag</div>
+                            </div>
+                            <div>
+                                Toedieningsweg: 
+                                <span title="Oraal (9 - G-Standaard thesaurus subtabel 0007)">Oraal</span>
+                            </div>
+                            <div>Dosering: 1 stuk</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
+        <valuePeriod>
+            <start value="2020-06-08T00:00:00+02:00"/>
+        </valuePeriod>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+        <valueIdentifier>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
+            <value value="MBH_907_mgEx_1"/>
+        </valueIdentifier>
+    </extension>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement-BasedOnAgreementOrUse">
+        <valueReference>
+            <identifier>
+                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
+                <value value="REF2GEBRUIK"/>
+            </identifier>
+            <display value="relatie naar medicatiegebruik: REF2GEBRUIK || 2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
+        </valueReference>
+    </extension>
+    <identifier>
+        <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
+        <value value="MBH_907_mgEx_1_MA1"/>
+    </identifier>
+    <intent value="order"/>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="16076005"/>
+            <display value="Prescription (procedure)"/>
+        </coding>
+        <text value="Medicatieafspraak"/>
+    </category>
+    <medicationReference>
+        <reference value="Medication/zib-Product-67903-2-16-840-1-113883-2-4-4-10"/>
+        <display value="PARACETAMOL 500MG TABLET"/>
+    </medicationReference>
+    <subject>
+        <reference value="Patient/nl-core-patient-JORISHANSMAN"/>
+        <display value="Joris Hansman"/>
+    </subject>
+    <authoredOn value="2020-06-08T09:15:00+02:00"/>
+    <requester>
+        <agent>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                <valueReference>
+                    <reference value="PractitionerRole/nl-core-practitionerrole-000001111010000001111"/>
+                    <display value="Peter van Pulver || Huisartsen, niet nader gespecificeerd || Huisartsenpraktijk Pulver &amp; Partners"/>
+                </valueReference>
+            </extension>
+            <reference value="Practitioner/nl-core-practitioner-0000011112-16-528-1-1007-3-1"/>
+            <display value="Peter van Pulver"/>
+        </agent>
+    </requester>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text value="Vanaf 8 jun 2020, 1 maal per dag 1 stuk, Oraal"/>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+                <code value="9"/>
+                <display value="Oraal"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="1"/>
+            <unit value="stuk"/>
+            <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+            <code value="245"/>
+        </doseQuantity>
+    </dosageInstruction>
 </MedicationRequest>
