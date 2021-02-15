@@ -26,18 +26,14 @@
                         <td>
                             <ul>
                                 <li>
-                                    <span title="Psychologist (59944000 - SNOMED CT)">Psychologist</span>
-                                    H. de Vries
+                                    <span title="Verwijzer (REF - v3/ParticipationType)">Verwijzer</span>
+                                    Vaste Huisarts 1 - Maatschap Vaste Huisarts
                                     <div>1 februari 2013 08:53:00 - 1 februari 2015 08:53:00</div>
                                 </li>
                                 <li>
-                                    <span title="Psychologist (59944000 - SNOMED CT)">Psychologist</span>
-                                    D. de Vries
-                                    <div>Vanaf 08:53:00, 1 februari 2015</div>
-                                </li>
-                                <li>
-                                    <span title="Addiction medicine specialist (446701002 - SNOMED CT)">Addiction medicine specialist</span>
-                                    G.Z.M. de Wit
+                                    <span title="Hoofdbehandelaar (RESP - v3/ParticipationType)">Hoofdbehandelaar</span>
+                                    Dirk de Vries
+                                    <div>Zorgverlenerrol: Medisch specialisten, geriatrie</div>
                                     <div>Vanaf 08:53:00, 1 februari 2013</div>
                                 </li>
                             </ul>
@@ -77,14 +73,20 @@
     <participant>
         <role>
             <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="59944000"/>
-                <display value="Psychologist"/>
+                <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+                <code value="REF"/>
+                <display value="Verwijzer"/>
             </coding>
         </role>
         <member>
-            <reference value="Practitioner/nl-core-practitioner-01"/>
-            <display value="H. de Vries"/>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                <valueReference>
+                    <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
+                    <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
+                </valueReference>
+            </extension>
+            <reference value="Practitioner/nl-core-practitioner-02"/>
+            <display value="Vaste Huisarts 1"/>
         </member>
         <period>
             <start value="2013-02-01T08:53:00+01:00"/>
@@ -94,30 +96,20 @@
     <participant>
         <role>
             <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="59944000"/>
-                <display value="Psychologist"/>
+                <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+                <code value="RESP"/>
+                <display value="Hoofdbehandelaar"/>
             </coding>
         </role>
         <member>
+            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                <valueReference>
+                    <reference value="PractitionerRole/nl-core-practitionerrole-04"/>
+                    <display value="Medisch specialisten, geriatrie"/>
+                </valueReference>
+            </extension>
             <reference value="Practitioner/nl-core-practitioner-04"/>
-            <display value="D. de Vries"/>
-        </member>
-        <period>
-            <start value="2015-02-01T08:53:00+01:00"/>
-        </period>
-    </participant>
-    <participant>
-        <role>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="446701002"/>
-                <display value="Addiction medicine specialist"/>
-            </coding>
-        </role>
-        <member>
-            <reference value="Practitioner/nl-core-practitioner-03"/>
-            <display value="G.Z.M. de Wit"/>
+            <display value="Dirk de Vries"/>
         </member>
         <period>
             <start value="2013-02-01T08:53:00+01:00"/>
