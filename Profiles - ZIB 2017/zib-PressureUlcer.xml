@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-PressureUlcer" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-PressureUlcer" />
@@ -112,9 +113,6 @@
       <fixedCode value="399912005" />
     </element>
     <element id="Condition.code.coding:PressureUlcerCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Condition.code.coding.display" />
       <defaultValueString value="Pressure ulcer" />
     </element>
@@ -148,7 +146,6 @@
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -221,9 +218,9 @@
     </element>
     <element id="Condition.note.text">
       <path value="Condition.note.text" />
+      <short value="Comment" />
       <definition value="A comment of the decubitus wound." />
       <alias value="Toelichting" />
-      <fixedString value="Comment" />
       <mapping>
         <identity value="hcim-PressureUlcer-v3.2-2017EN" />
         <map value="NL-CM:19.1.5" />
