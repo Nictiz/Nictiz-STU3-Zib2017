@@ -1,4 +1,4 @@
-<?xml-model href="http://hl7.org/fhir/STU3/observation.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+<Observation xmlns="http://hl7.org/fhir">
     <id value="zib-pregnancy-datelastmenstruation-01"/>
     <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy-DateLastMenstruation"/>
@@ -8,7 +8,7 @@
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
                 <caption>
-                    Observatie/bepaling. Status: definitief
+                    Observatie/bepaling. Subject: Irma Jongeneel-de Haas. Status: definitief
                     <span style="display: block;">
                         Uitvoerende: Vaste Huisarts 1
                         <span style="display: block;">Zorgverlenerrol: Medisch specialisten, orthopedie</span>
@@ -23,13 +23,13 @@
                         <td>
                             <span title="Date of last menstrual period (21840007 - SNOMED CT)">Date of last menstrual period</span>
                         </td>
-                        <td>09:26:03, 19 december 2018</td>
+                        <td>2018-12-19</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/Observation-focus-stu3">
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-focusSTU3">
         <valueReference>
             <reference value="Condition/zib-pregnancy-01"/>
             <display value="Observatie betreffende zwangerschap"/>
@@ -43,6 +43,10 @@
             <display value="Date of last menstrual period"/>
         </coding>
     </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-03"/>
+        <display value="Irma Jongeneel-de Haas"/>
+    </subject>
     <performer>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>
@@ -53,5 +57,5 @@
         <reference value="Practitioner/nl-core-practitioner-02"/>
         <display value="Vaste Huisarts 1"/>
     </performer>
-    <valueDateTime value="2018-12-19T09:26:03.478039+01:00"/>
+    <valueDateTime value="2018-12-19"/>
 </Observation>
