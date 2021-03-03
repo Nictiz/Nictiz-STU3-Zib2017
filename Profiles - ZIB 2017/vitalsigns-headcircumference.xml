@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="vitalsigns-headcircum" />
+  <id value="headcircum" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/headcircum" />
   <version value="0.1.0" />
   <name value="Vital Signs HeadCircum" />
@@ -26,7 +27,7 @@
     <element id="Observation">
       <path value="Observation" />
       <short value="FHIR Head Circumference Profile" />
-      <definition value="This profile defines  how to represent Head Circumference observations in FHIR using a standard LOINC code and UCUM units of measure." />
+      <comment value="This profile is cloned from the FHIR core HeadCircum profile (&lt;http://hl7.org/fhir/StructureDefinition/headcircum&gt;) to be able to derive from the custom Vital Signs profile (&lt;http://nictiz.nl/fhir/StructureDefinition/zib-VitalSign&gt;)." />
     </element>
     <element id="Observation.code">
       <path value="Observation.code" />
@@ -50,6 +51,7 @@
     <element id="Observation.code.coding:HeadCircumferenceCode">
       <path value="Observation.code.coding" />
       <sliceName value="HeadCircumferenceCode" />
+      <comment value="This cloned profile pre-adopts LOINC code 9843-4 from FHIR R4. This code is more generic than the code used in the STU3 version of this profile (8287-5)." />
       <min value="1" />
       <max value="1" />
     </element>
@@ -64,9 +66,6 @@
       <fixedCode value="9843-4" />
     </element>
     <element id="Observation.code.coding:HeadCircumferenceCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Head Occipital-frontal circumference" />
     </element>

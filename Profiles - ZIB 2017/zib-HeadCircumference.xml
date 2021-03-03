@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="zib-headCircumference" />
+  <id value="zib-HeadCircumference" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HeadCircumference" />
   <version value="0.1.0" />
   <name value="Zib HeadCircumference" />
@@ -45,25 +46,10 @@
         <comment value="HeadCircumference" />
       </mapping>
     </element>
-    <element id="Observation.code.coding">
-      <path value="Observation.code.coding" />
-      <min value="1" />
-    </element>
-    <element id="Observation.code.coding:HeadCircumCode">
-      <path value="Observation.code.coding" />
-      <sliceName value="HeadCircumCode" />
-    </element>
-    <element id="Observation.code.coding:HeadCircumCode.system">
-      <path value="Observation.code.coding.system" />
-      <min value="1" />
-    </element>
-    <element id="Observation.code.coding:HeadCircumCode.code">
-      <path value="Observation.code.coding.code" />
-      <min value="1" />
-    </element>
     <element id="Observation.code.coding:HCIMHeadCircumCode">
       <path value="Observation.code.coding" />
       <sliceName value="HCIMHeadCircumCode" />
+      <comment value="SNOMED code 56792006 is prescribed by HCIM HeadCircumference, but both the 2020 release of this HCIM and the Vital Signs HeadCircum profile in FHIR R4 will adopt LOINC code 9843-4. Therefore, this SNOMED code is made optional in favor of the LOINC code in the HeadCircumferenceCode slice." />
     </element>
     <element id="Observation.code.coding:HCIMHeadCircumCode.system">
       <path value="Observation.code.coding.system" />
@@ -83,11 +69,10 @@
         <comment value="HeadCircumferenceDate" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueQuantity">
+    <element id="Observation.valueQuantity:valueQuantity">
       <path value="Observation.valueQuantity" />
       <sliceName value="valueQuantity" />
       <alias value="SchedelomvangWaarde" />
-      <min value="1" />
       <mapping>
         <identity value="hcim-HeadCircumference-v3.1-2018EN" />
         <map value="NL-CM:12.14.3" />
