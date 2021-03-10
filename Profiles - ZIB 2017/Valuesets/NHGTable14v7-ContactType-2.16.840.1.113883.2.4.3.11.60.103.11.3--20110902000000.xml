@@ -1,12 +1,11 @@
 <ValueSet xmlns="http://hl7.org/fhir">
     <id value="2.16.840.1.113883.2.4.3.11.60.103.11.3--20110902000000"/>
     <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-      <!--<profile value="http://hl7.org/fhir/3.0/StructureDefinition/ValueSet"/>-->
+        <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/><!--<profile value="http://hl7.org/fhir/3.0/StructureDefinition/ValueSet"/>-->
     </meta>
     <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
         <valuePeriod>
-            <start value="2011-09-02T00:00:00+02:00"/>
+            <start value="2011-09-02T00:00:00+01:00"/>
         </valuePeriod>
     </extension>
     <url value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.103.11.3--20110902000000"/>
@@ -32,8 +31,9 @@
             <value value="F 070 320 74 37"/>
         </telecom>
     </contact>
-    <description value="Type of encounter"/>
+    <description value="Type of encounter. Note: Historically, these codes have a leading zero, whereas these are omitted in the [NHG Reference Model](https://referentiemodel.nhg.org/tabellen/inkijkexemplaren)."/>
     <immutable value="false"/>
+    <copyright value="NHG - Nederlands Huisartsen Genootschap"/>
     <compose>
         <include>
             <system value="http://hl7.org/fhir/v3/NullFlavor"/>
