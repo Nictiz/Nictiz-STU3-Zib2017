@@ -131,6 +131,21 @@
         <comment value="IdentificationNumber" />
       </mapping>
     </element>
+    <element id="ProcedureRequest.status">
+      <path value="ProcedureRequest.status" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/OrderStatusCodelijst-To-ActStatus" />
+              <display value="OrderStatusCodelijst-To-ActStatus" />
+            </valueReference>
+          </extension>
+          <reference value="http://terminology.hl7.org/ValueSet/v3-ActStatus"/>
+        </valueSetReference>
+      </binding>
+    </element>
     <element id="ProcedureRequest.status.extension">
       <path value="ProcedureRequest.status.extension" />
       <slicing>
