@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-SNAQ65plusScore" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-SNAQ65plusScore" />
@@ -31,8 +32,13 @@
   <differential>
     <element id="Observation">
       <path value="Observation" />
-      <short value="SNAQ65plusScore" />
-      <definition value="The Short Nutritional Assessment Questionnaire (SNAQ) is a (validated) measuring tool for determining the extent of a patient’s malnutrition. The tool comprises three questions, each of which is assigned a score. The total score determines the extent of malnutrition.  &#xD;&#xA;The SNAQ helps to recognize and treat malnutrition at an early stage. &#xD;&#xA;Three varieties of the measuring tool were developed for different care settings: hospitals, nursing and retirement homes and independently living seniors. This concept describes the tool intended for the hospital setting." />
+      <short value="SNAQ65+Score" />
+      <alias value="SNAQ65+Score" />
+      <mapping>
+        <identity value="hcim-SNAQ65plusScore-v1.0-2017EN" />
+        <map value="NL-CM:4.30.1" />
+        <comment value="SNAQ65+Score" />
+      </mapping>
     </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
@@ -50,10 +56,6 @@
       <sliceName value="SNAQ65plusScoreCode" />
       <min value="1" />
       <max value="1" />
-      <mapping>
-        <identity value="hcim-SNAQ65plusScore-v1.0" />
-        <map value="NL-CM:4.30.1" />
-      </mapping>
     </element>
     <element id="Observation.code.coding:SNAQ65plusScoreCode.system">
       <path value="Observation.code.coding.system" />
@@ -66,9 +68,6 @@
       <fixedCode value="108321000146101" />
     </element>
     <element id="Observation.code.coding:SNAQ65plusScoreCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Short Nutritional Questionaire for 65+ (assessment scale)" />
     </element>
@@ -142,9 +141,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:WeightLossScore.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Weightloss score" />
     </element>
@@ -195,9 +191,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:AppetiteScore.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Appetite score" />
     </element>
@@ -248,9 +241,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:UpperarmCircumference.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Upperarm Circumference" />
     </element>
@@ -301,9 +291,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:ExerciseScore.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Exercise score" />
     </element>

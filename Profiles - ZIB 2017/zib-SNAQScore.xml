@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-SNAQScore" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-SNAQScore" />
@@ -31,14 +32,20 @@
   <differential>
     <element id="Observation">
       <path value="Observation" />
-      <short value="SNAQ Score" />
+      <short value="SNAQScore" />
       <definition value="The Short Nutritional Assessment Questionnaire (SNAQ) is a (validated) measuring tool for determining the extent of a patient’s malnutrition. The tool comprises three questions, each of which is assigned a score. The total score determines the extent of malnutrition.  &#xD;&#xA;The SNAQ helps to recognize and treat malnutrition at an early stage. &#xD;&#xA;Three varieties of the measuring tool were developed for different care settings: hospitals, nursing and retirement homes and independently living seniors. This concept describes the tool intended for the hospital setting." />
+      <alias value="SNAQScore" />
       <constraint>
         <key value="Zib-SNAQScore-1" />
         <severity value="error" />
         <human value="If one of the component codes is present, all SHALL be present." />
         <expression value="( component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.5').empty() and component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.4').empty() and component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.3').empty() ) or ( component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.5').exists() and component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.4').exists() and component.code.coding.where(system='urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0').where(code='4.6.3').exists() )" />
       </constraint>
+      <mapping>
+        <identity value="hcim-snaqscore-v3.1-2017EN" />
+        <map value="NL-CM:4.6.1" />
+        <comment value="SNAQScore" />
+      </mapping>
     </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
@@ -56,10 +63,6 @@
       <sliceName value="SNAQScoreCode" />
       <min value="1" />
       <max value="1" />
-      <mapping>
-        <identity value="hcim-SNAQScore-v3.0" />
-        <map value="NL-CM:4.6.1" />
-      </mapping>
     </element>
     <element id="Observation.code.coding:SNAQScoreCode.system">
       <path value="Observation.code.coding.system" />
@@ -72,9 +75,6 @@
       <fixedCode value="8881000146104" />
     </element>
     <element id="Observation.code.coding:SNAQScoreCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Short Nutritional Assessment Questionnaire" />
     </element>
@@ -116,11 +116,13 @@
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
+      <short value="Comment" />
       <definition value="A comment on the circumstances during the measurement." />
       <alias value="Toelichting" />
       <mapping>
         <identity value="hcim-SNAQScore-v3.0-2017EN" />
         <map value="NL-CM:4.6.7" />
+        <comment value="Comment" />
       </mapping>
     </element>
     <element id="Observation.component">
@@ -194,9 +196,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:AppetiteScore.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Appetite score" />
     </element>
@@ -247,9 +246,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:NutritionScore.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Nutrition score" />
     </element>

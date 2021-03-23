@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-SNAQrcScore" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-SNAQrcScore" />
@@ -31,8 +32,13 @@
   <differential>
     <element id="Observation">
       <path value="Observation" />
-      <short value="SNAQrc Score" />
-      <definition value="The Short Nutritional Assessment Questionnaire (SNAQ) is a (validated) measuring tool for determining the extent of a patient’s malnutrition. The tool comprises three questions, each of which is assigned a score. The total score determines the extent of malnutrition.  &#xD;&#xA;The SNAQ helps to recognize and treat malnutrition at an early stage. &#xD;&#xA;Three varieties of the measuring tool were developed for different care settings: hospitals, nursing and retirement homes and independently living seniors. This concept describes the tool intended for the hospital setting." />
+      <short value="SNAQrcScore" />
+      <alias value="SNAQrcScore" />
+      <mapping>
+        <identity value="hcim-SNAQrcScore-v1.0-2017EN" />
+        <map value="NL-CM:4.29.1" />
+        <comment value="SNAQrcScore" />
+      </mapping>
     </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
@@ -50,10 +56,6 @@
       <sliceName value="SNAQrcScoreCode" />
       <min value="1" />
       <max value="1" />
-      <mapping>
-        <identity value="hcim-SNAQrcScore-v1.0" />
-        <map value="NL-CM:4.29.1" />
-      </mapping>
     </element>
     <element id="Observation.code.coding:SNAQrcScoreCode.system">
       <path value="Observation.code.coding.system" />
@@ -66,9 +68,6 @@
       <fixedCode value="108311000146106" />
     </element>
     <element id="Observation.code.coding:SNAQrcScoreCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="MISSING" />
     </element>
@@ -142,9 +141,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:WeightLossScore.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Weightloss score" />
     </element>
@@ -195,9 +191,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:AppetiteScore.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Appetite score" />
     </element>
@@ -248,9 +241,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:BMIScore.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="BMI score" />
     </element>
@@ -282,7 +272,7 @@
       </binding>
       <mapping>
         <identity value="hcim-SNAQrcScore-v1.0-2017EN" />
-        <map value="NL-CM:4.6.5" />
+        <map value="NL-CM:4.29.5" />
         <comment value="BMIScore" />
       </mapping>
     </element>
@@ -301,9 +291,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:AssistedEating.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Assisted eating" />
     </element>
