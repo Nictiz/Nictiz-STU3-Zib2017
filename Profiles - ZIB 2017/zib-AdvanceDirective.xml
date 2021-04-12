@@ -138,7 +138,7 @@
       <slicing>
         <discriminator>
           <type value="value" />
-          <path value="coding.system" />
+          <path value="$this" />
         </discriminator>
         <rules value="open" />
       </slicing>
@@ -151,21 +151,12 @@
       <definition value="Category snomed code used for indexing/retrieval of LivingWills" />
       <min value="1" />
       <max value="1" />
-    </element>
-    <element id="Consent.category:livingWill.coding">
-      <path value="Consent.category.coding" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Consent.category:livingWill.coding.system">
-      <path value="Consent.category.coding.system" />
-      <min value="1" />
-      <fixedUri value="http://snomed.info/sct" />
-    </element>
-    <element id="Consent.category:livingWill.coding.code">
-      <path value="Consent.category.coding.code" />
-      <min value="1" />
-      <fixedCode value="11341000146107" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="11341000146107" />
+        </coding>
+      </patternCodeableConcept>
     </element>
     <element id="Consent.category:livingWill.coding.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -183,7 +174,7 @@
       <min value="1" />
       <max value="1" />
       <binding>
-        <strength value="extensible" />
+        <strength value="required" />
         <description value="List of the different types of living wills." />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.7.15.1--20171231000000" />
