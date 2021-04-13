@@ -1,11 +1,11 @@
 <ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
-  <id value="OrderStatusCodelijst-To-RequestStatus"/>
+  <id value="OrderStatusCodelijst-to-RequestStatus"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/concept-bidirectional">
     <valueBoolean value="false"/>
   </extension>
-  <url value="http://nictiz.nl/fhir/ConceptMap/OrderStatusCodelijst-To-RequestStatus"/>
+  <url value="http://nictiz.nl/fhir/ConceptMap/OrderStatusCodelijst-to-RequestStatus"/>
   <version value="2.1.1"/>
-  <name value="OrderStatusCodelijst-To-RequestStatus"/>
+  <name value="OrderStatusCodelijst-to-RequestStatus"/>
   <title value="HCIM OrderStatusCodelijst to RequestStatus"/>
   <status value="active"/>
   <publisher value="Nictiz"/>
@@ -21,18 +21,17 @@
   <purpose value="To aid in mapping from HCIM ProcedureRequest value set OrderStatus to FHIR STU3 Codesystem.RequestStatus"/>
   <copyright value="CC0"/>
   <sourceUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000"/>
-  <targetUri value="http://hl7.org/fhir/ValueSet/request-status"/>
+  <targetUri value="http://hl7.org/fhir/request-status"/>
   <group>
     <source value="http://snomed.info/sct"/>
-    <target value="http://hl7.org/fhir/ValueSet/request-status"/>
-    <targetVersion value="http://hl7.org/fhir/ValueSet/request-status version 3"/>
+    <target value="http://hl7.org/fhir/request-status"/>
     <element>
       <code value="385644000"/>
       <display value="Requested"/>
       <target>
         <code value="active"/>
         <display value="Active"/>
-        <equivalence value="equal"/>
+        <equivalence value="specializes"/>
       </target>
     </element>
     <element>
@@ -41,21 +40,20 @@
       <target>
         <code value="active"/>
         <display value="Active"/>
-        <equivalence value="equal"/>
+        <equivalence value="specializes"/>
       </target>
     </element>
   </group>
   <group>
-    <source value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2"/>
-    <target value="http://hl7.org/fhir/ValueSet/request-status"/>
-    <targetVersion value="http://hl7.org/fhir/ValueSet/request-status version 3"/>
+    <source value="http://hl7.org/fhir/v3/ActStatus"/>
+    <target value="http://hl7.org/fhir/request-status"/>
     <element>
       <code value="new"/>
       <display value="Ordered"/>
       <target>
         <code value="active"/>
         <display value="Active"/>
-        <equivalence value="equal"/>
+        <equivalence value="specializes"/>
       </target>
     </element>
     <element>
@@ -64,7 +62,7 @@
       <target>
         <code value="active"/>
         <display value="Active"/>
-        <equivalence value="equal"/>
+        <equivalence value="specializes"/>
       </target>
     </element>
     <element>
@@ -91,7 +89,7 @@
       <target>
         <code value="active"/>
         <display value="Active"/>
-        <equivalence value="equal"/>
+        <equivalence value="subsumes"/>
       </target>
     </element>
   </group>
