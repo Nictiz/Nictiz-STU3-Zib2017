@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MUSTScore" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MUSTScore" />
-  <version value="0.1.0" />
+  <version value="1.0.0" />
   <name value="Zib MUSTScore" />
   <title value="HCIM MUSTScore" />
-  <status value="draft" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -31,10 +32,11 @@
   <differential>
     <element id="Observation">
       <path value="Observation" />
-      <short value="MUST Score" />
+      <short value="MUSTScore" />
       <definition value="The Malnutrition Universal Screening Tool (MUST) is a (validated) diagnostic screening tool for determining the extent of a patient’s malnutrition.  &#xD;&#xA;For this screening tool, every patient’s Body Mass Index (BMI) and  &#xD;&#xA;weight loss percentage is calculated, after which the patient is assigned a disease factor. The MUST helps to recognize and treat malnutrition at an early stage. &#xD;&#xA; &#xD;&#xA;(Source: Guidelines for Screening and Treating Malnutrition.)" />
+      <alias value="MUSTScore" />
       <mapping>
-        <identity value="hcim-MUSTScore-v3.0" />
+        <identity value="hcim-MUSTscore-v3.0-2017EN" />
         <map value="NL-CM:4.5.1" />
         <comment value="MUSTScore" />
       </mapping>
@@ -67,9 +69,6 @@
       <fixedCode value="444297006" />
     </element>
     <element id="Observation.code.coding:MUSTScoreCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Malnutrition universal screening tool" />
     </element>
@@ -144,9 +143,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:WeightLossScore.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Weight loss score" />
     </element>
@@ -197,9 +193,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:BMIScore.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="BMI score" />
     </element>
@@ -250,9 +243,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:IllnessScore.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Illness score" />
     </element>

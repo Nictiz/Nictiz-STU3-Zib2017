@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-AbilityToPerformMouthcareActivities-MedicalDevice" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToPerformMouthcareActivities-MedicalDevice" />
-  <version value="0.1.0" />
+  <version value="1.0.0" />
   <name value="Zib AbilityToPerformMouthcareActivities MedicalDevice" />
   <title value="HCIM AbilityToPerformMouthcareActivities MedicalDevice" />
-  <status value="draft" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -40,11 +41,25 @@
         <comment value="Prosthesis:MedicalDevice" />
       </mapping>
     </element>
+    <element id="DeviceUseStatement.extension">
+      <path value="DeviceUseStatement.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="DeviceUseStatement.extension:reasonReference">
       <path value="DeviceUseStatement.extension" />
       <sliceName value="reasonReference" />
     </element>
-    <element id="DeviceUseStatement.extension:reasonReference.valueReference:valueReference">
+    <element id="DeviceUseStatement.extension:reasonReference.url">
+      <path value="DeviceUseStatement.extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3" />
+    </element>
+    <element id="DeviceUseStatement.extension:reasonReference.value[x]:valueReference">
       <path value="DeviceUseStatement.extension.valueReference" />
       <sliceName value="valueReference" />
       <type>

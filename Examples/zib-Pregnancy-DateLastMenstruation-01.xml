@@ -1,0 +1,61 @@
+<Observation xmlns="http://hl7.org/fhir">
+    <id value="zib-pregnancy-datelastmenstruation-01"/>
+    <meta>
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy-DateLastMenstruation"/>
+    </meta>
+    <text>
+        <status value="extensions"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+                <caption>
+                    Observatie/bepaling. Subject: Irma Jongeneel-de Haas. Status: definitief
+                    <span style="display: block;">
+                        Uitvoerende: Vaste Huisarts 1
+                        <span style="display: block;">Zorgverlenerrol: Medisch specialisten, orthopedie</span>
+                    </span>
+                </caption>
+                <tbody>
+                    <tr>
+                        <th>Code</th>
+                        <th>Waarde</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="Date of last menstrual period (21840007 - SNOMED CT)">Date of last menstrual period</span>
+                        </td>
+                        <td>2018-12-19</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </text>
+    <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-focusSTU3">
+        <valueReference>
+            <reference value="Condition/zib-pregnancy-01"/>
+            <display value="Observatie betreffende zwangerschap"/>
+        </valueReference>
+    </extension>
+    <status value="final"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="21840007"/>
+            <display value="Date of last menstrual period"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/nl-core-patient-03"/>
+        <display value="Irma Jongeneel-de Haas"/>
+    </subject>
+    <performer>
+        <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+                <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
+                <display value="Medisch specialisten, orthopedie"/>
+            </valueReference>
+        </extension>
+        <reference value="Practitioner/nl-core-practitioner-02"/>
+        <display value="Vaste Huisarts 1"/>
+    </performer>
+    <valueDateTime value="2018-12-19"/>
+</Observation>

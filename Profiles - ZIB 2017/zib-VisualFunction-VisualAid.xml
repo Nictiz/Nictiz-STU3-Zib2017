@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-VisualFunction-VisualAid" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-VisualFunction-VisualAid" />
-  <version value="0.1.0" />
+  <version value="1.0.0" />
   <name value="Zib VisualFunction VisualAid" />
   <title value="HCIM VisualFunction VisualAid" />
-  <status value="draft" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -39,6 +40,16 @@
         <map value="NL-CM:4.16.4" />
         <comment value="VisualAid" />
       </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension">
+      <path value="DeviceUseStatement.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
     <element id="DeviceUseStatement.extension:reasonReference">
       <path value="DeviceUseStatement.extension" />

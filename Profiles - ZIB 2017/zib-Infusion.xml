@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Infusion" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion" />
-  <version value="1.0.1" />
+  <version value="1.0.2" />
   <name value="Zib Infusion" />
   <title value="HCIM Infusion" />
   <status value="active" />
@@ -70,6 +71,16 @@
         <map value="NL-CM:10.2.10" />
         <comment value="LumenOrLine" />
       </mapping>
+    </element>
+    <element id="DeviceUseStatement.extension:LumenOrLine.extension">
+      <path value="DeviceUseStatement.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
     <element id="DeviceUseStatement.extension:LumenOrLine.extension:LineStatus">
       <path value="DeviceUseStatement.extension.extension" />

@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-BurnWound" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound" />
-  <version value="0.1.1" />
+  <version value="1.0.0" />
   <name value="Zib BurnWound" />
   <title value="HCIM BurnWound" />
-  <status value="draft" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -97,15 +98,6 @@
         <comment value="Extent" />
       </mapping>
     </element>
-    <element id="Condition.category">
-      <path value="Condition.category" />
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ConditionCategory" />
-        </extension>
-        <strength value="extensible" />
-      </binding>
-    </element>
     <element id="Condition.code">
       <path value="Condition.code" />
       <short value="BurnWound" />
@@ -176,9 +168,6 @@
       <fixedCode value="125666000" />
     </element>
     <element id="Condition.code.coding:BurnWoundCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Condition.code.coding.display" />
       <defaultValueString value="Brandwond" />
     </element>
@@ -214,7 +203,6 @@
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
-      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />

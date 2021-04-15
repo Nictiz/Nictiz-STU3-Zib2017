@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-FeedingPatternInfant" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingPatternInfant" />
-  <version value="0.1.0" />
+  <version value="1.0.0" />
   <name value="Zib FeedingPatternInfant" />
   <title value="HCIM FeedingPatternInfant" />
-  <status value="draft" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -68,9 +69,6 @@
       <fixedCode value="289145007" />
     </element>
     <element id="Observation.code.coding:FeedingPatternInfantCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Finding of infant feeding pattern" />
     </element>
@@ -125,9 +123,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:FeedingSupplement.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Nutritional supplement" />
     </element>
@@ -161,9 +156,6 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:FeedingFrequency.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Frequency of infant feeding" />
     </element>
@@ -211,9 +203,6 @@
       <short value="FeedingMethod" />
       <definition value="The method how the feeding is given to the infant." />
       <alias value="VoedingMethode" />
-      <binding>
-        <strength value="extensible" />
-      </binding>
       <mapping>
         <identity value="zib-feedingpatterninfant-v1.0-2017EN" />
         <map value="NL-CM:4.31.4" />
@@ -224,15 +213,12 @@
       <path value="Observation.component.code" />
       <patternCodeableConcept>
         <coding>
-          <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0" />
-          <code value="4.31.3" />
+          <system value="http://snomed.info/sct" />
+          <code value="109021000146107" />
         </coding>
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:FeedingType.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Feeding Type" />
     </element>

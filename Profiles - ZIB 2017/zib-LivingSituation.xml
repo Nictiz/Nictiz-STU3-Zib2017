@@ -1,7 +1,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-LivingSituation" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-LivingSituation" />
-  <version value="2.1.1" />
+  <version value="2.1.2" />
   <name value="Zib LivingSituation" />
   <title value="HCIM LivingSituation" />
   <status value="active" />
@@ -70,24 +70,36 @@
       <slicing>
         <discriminator>
           <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <discriminator>
+          <type value="value" />
           <path value="code" />
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Observation.code.coding:livingSituationCode">
       <path value="Observation.code.coding" />
       <sliceName value="livingSituationCode" />
+      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Observation.code.coding:livingSituationCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
     <element id="Observation.code.coding:livingSituationCode.code">
       <path value="Observation.code.coding.code" />
+      <min value="1" />
       <fixedCode value="365508006" />
     </element>
     <element id="Observation.code.coding:livingSituationCode.display">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true" />
+      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Finding of residence and accommodation circumstances (finding)" />
     </element>

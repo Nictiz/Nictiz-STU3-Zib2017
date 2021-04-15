@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="zib-headCircumference" />
+  <id value="zib-HeadCircumference" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-HeadCircumference" />
-  <version value="0.1.0" />
+  <version value="1.0.0" />
   <name value="Zib HeadCircumference" />
   <title value="HCIM HeadCircumference" />
-  <status value="draft" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -24,9 +25,9 @@
     <name value="HCIM BasicElements-v1.0(2017EN)" />
   </mapping>
   <mapping>
-    <identity value="hcim-HeadCircumference-v3.1-2018EN" />
-    <uri value="https://zibs.nl/wiki/HeadCircumference-v1.1(2018EN)" />
-    <name value="HCIM HeadCircumference-v3.1(2018EN)" />
+    <identity value="hcim-HeadCircumference-v1.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/HeadCircumference-v1.1(2017EN)" />
+    <name value="HCIM HeadCircumference-v1.1(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -40,30 +41,15 @@
       <definition value="This profile defines  how to represent Head Circumference observations in FHIR using a standard LOINC code and UCUM units of measure. The Head Circumference is measured in centimeters." />
       <alias value="Schedelomvang" />
       <mapping>
-        <identity value="hcim-HeadCircumference-v3.1-2018EN" />
+        <identity value="hcim-HeadCircumference-v1.1-2017EN" />
         <map value="NL-CM:12.14.1" />
         <comment value="HeadCircumference" />
       </mapping>
     </element>
-    <element id="Observation.code.coding">
-      <path value="Observation.code.coding" />
-      <min value="1" />
-    </element>
-    <element id="Observation.code.coding:HeadCircumCode">
-      <path value="Observation.code.coding" />
-      <sliceName value="HeadCircumCode" />
-    </element>
-    <element id="Observation.code.coding:HeadCircumCode.system">
-      <path value="Observation.code.coding.system" />
-      <min value="1" />
-    </element>
-    <element id="Observation.code.coding:HeadCircumCode.code">
-      <path value="Observation.code.coding.code" />
-      <min value="1" />
-    </element>
     <element id="Observation.code.coding:HCIMHeadCircumCode">
       <path value="Observation.code.coding" />
       <sliceName value="HCIMHeadCircumCode" />
+      <comment value="SNOMED code 56792006 is prescribed by HCIM HeadCircumference, but both the 2020 release of this HCIM and the Vital Signs HeadCircum profile in FHIR R4 will adopt LOINC code 9843-4. Therefore, this SNOMED code is made optional in favor of the LOINC code in the HeadCircumferenceCode slice." />
     </element>
     <element id="Observation.code.coding:HCIMHeadCircumCode.system">
       <path value="Observation.code.coding.system" />
@@ -77,37 +63,41 @@
     </element>
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]" />
+      <short value="HeadCircumferenceDate" />
+      <definition value="The date on which the head circumference was measured." />
+      <alias value="SchedelomvangDatumTijd" />
       <mapping>
-        <identity value="hcim-HeadCircumference-v3.1-2018EN" />
+        <identity value="hcim-HeadCircumference-v1.1-2017EN" />
         <map value="NL-CM:12.14.2" />
         <comment value="HeadCircumferenceDate" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueQuantity">
+    <element id="Observation.valueQuantity:valueQuantity">
       <path value="Observation.valueQuantity" />
       <sliceName value="valueQuantity" />
+      <short value="SchedelomvangDatumTijd" />
+      <definition value="The value of the head circumference as measured in centimeters (cm)." />
       <alias value="SchedelomvangWaarde" />
-      <min value="1" />
       <mapping>
-        <identity value="hcim-HeadCircumference-v3.1-2018EN" />
+        <identity value="hcim-HeadCircumference-v1.1-2017EN" />
         <map value="NL-CM:12.14.3" />
-        <comment value="Comment" />
+        <comment value="HeadCircumferenceMeasurement" />
       </mapping>
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
       <short value="Comment" />
-      <definition value="Comment on any problems or factors that may influence the measurement. Further explanation can be provided here as well." />
+      <definition value="Comment on the head circumference." />
       <alias value="Toelichting" />
       <mapping>
-        <identity value="hcim-HeadCircumference-v3.1-2018EN" />
+        <identity value="hcim-HeadCircumference-v1.1-2017EN" />
         <map value="NL-CM:12.14.4" />
-        <comment value="HeadCircumferenceMeasurement" />
+        <comment value="Comment" />
       </mapping>
     </element>
     <element id="Observation.method">
       <path value="Observation.method" />
-      <short value="NL-CM:12.14.4" />
+      <short value="HeadCircumferenceMeasuringMethod" />
       <definition value="There are different methods to measure the head circumference: prenatal measurement using ultrasound or postnatal measurement using a measuring tape by measuring from the backside of the head (occiput) to above the eyes (supraorbital)." />
       <alias value="SchedelomvangMeetmethode" />
       <binding>
@@ -119,9 +109,9 @@
         </valueSetReference>
       </binding>
       <mapping>
-        <identity value="hcim-HeadCircumference-v3.1-2018EN" />
+        <identity value="hcim-HeadCircumference-v1.1-2017EN" />
         <map value="NL-CM:12.14.5" />
-        <comment value="MeasuringMethod" />
+        <comment value="HeadCircumferenceMeasuringMethod" />
       </mapping>
     </element>
   </differential>

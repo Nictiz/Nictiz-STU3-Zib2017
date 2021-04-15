@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="vitalsigns-headcircum" />
+  <id value="headcircum" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/headcircum" />
-  <version value="0.1.0" />
+  <version value="1.0.0" />
   <name value="Vital Signs HeadCircum" />
   <title value="VitalSigns HeadCircum" />
-  <status value="draft" />
+  <status value="active" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -26,7 +27,7 @@
     <element id="Observation">
       <path value="Observation" />
       <short value="FHIR Head Circumference Profile" />
-      <definition value="This profile defines  how to represent Head Circumference observations in FHIR using a standard LOINC code and UCUM units of measure." />
+      <comment value="This profile is cloned from the FHIR core HeadCircum profile (&lt;http://hl7.org/fhir/StructureDefinition/headcircum&gt;) to be able to derive from the custom Vital Signs profile (&lt;http://nictiz.nl/fhir/StructureDefinition/zib-VitalSign&gt;)." />
     </element>
     <element id="Observation.code">
       <path value="Observation.code" />
@@ -45,21 +46,36 @@
         <ordered value="false" />
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
-    <element id="Observation.code.coding:HeadCircumCode">
+    <element id="Observation.code.coding:HeadCircumferenceCode">
       <path value="Observation.code.coding" />
-      <sliceName value="HeadCircumCode" />
+      <sliceName value="HeadCircumferenceCode" />
+      <comment value="This cloned profile pre-adopts LOINC code 9843-4 from FHIR R4. This code is more generic than the code used in the STU3 version of this profile (8287-5)." />
+      <min value="1" />
+      <max value="1" />
     </element>
-    <element id="Observation.code.coding:HeadCircumCode.system">
+    <element id="Observation.code.coding:HeadCircumferenceCode.system">
       <path value="Observation.code.coding.system" />
+      <min value="1" />
       <fixedUri value="http://loinc.org" />
     </element>
-    <element id="Observation.code.coding:HeadCircumCode.code">
+    <element id="Observation.code.coding:HeadCircumferenceCode.code">
       <path value="Observation.code.coding.code" />
+      <min value="1" />
       <fixedCode value="9843-4" />
     </element>
+    <element id="Observation.code.coding:HeadCircumferenceCode.display">
+      <path value="Observation.code.coding.display" />
+      <defaultValueString value="Head Occipital-frontal circumference" />
+    </element>
+    <element id="Observation.valueQuantity:valueQuantity">
+      <path value="Observation.valueQuantity" />
+      <sliceName value="valueQuantity" />
+      <min value="1" />
+    </element>
     <element id="Observation.valueQuantity:valueQuantity.code">
-      <path value="Observation.value[x].code" />
+      <path value="Observation.valueQuantity.code" />
       <binding>
         <strength value="required" />
         <description value="Common UCUM units for Body Length measures such as Body Height and Head Circumference" />
