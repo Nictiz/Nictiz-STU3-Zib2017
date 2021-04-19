@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationAgreement" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement" />
@@ -156,6 +157,17 @@
         <comment value="Medicamenteuze behandeling" />
       </mapping>
     </element>
+    <element id="MedicationRequest.extension:nl-core-episodeofcare">
+      <path value="MedicationRequest.extension" />
+      <sliceName value="nl-core-episodeofcare" />
+      <comment value="It is recommended to use the nl-core-episodeofcare extension to reference nl-core-episodeofcare (EpisodeOfCare) instances rather than the `context` element, as this approach will be enforced in FHIR R4." />
+      <min value="0" />
+      <max value="*" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-context-nl-core-episodeofcare" />
+      </type>
+    </element>
     <element id="MedicationRequest.modifierExtension">
       <path value="MedicationRequest.modifierExtension" />
       <slicing>
@@ -246,9 +258,6 @@
       <fixedCode value="16076005" />
     </element>
     <element id="MedicationRequest.category.coding:medicationAgreementCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="MedicationRequest.category.coding.display" />
       <defaultValueString value="Prescription (procedure)" />
     </element>
@@ -287,6 +296,7 @@
     </element>
     <element id="MedicationRequest.context">
       <path value="MedicationRequest.context" />
+      <comment value="It is recommended to use the nl-core-episodeofcare extension to reference nl-core-episodeofcare (EpisodeOfCare) instances rather than the `context` element, as this approach will be enforced in FHIR R4." />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter" />

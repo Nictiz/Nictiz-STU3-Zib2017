@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="gp-LaboratoryResult" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/gp-LaboratoryResult" />
@@ -23,6 +24,27 @@
   <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation" />
   <derivation value="constraint" />
   <differential>
+    <element id="Observation.extension">
+      <path value="Observation.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.extension:nl-core-episodeofcare">
+      <path value="Observation.extension" />
+      <sliceName value="nl-core-episodeofcare" />
+      <comment value="It is recommended to use the nl-core-episodeofcare extension to reference nl-core-episodeofcare (EpisodeOfCare) instances rather than the `context` element, as this approach will be enforced in FHIR R4." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-context-nl-core-episodeofcare" />
+      </type>
+    </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
       <slicing>
@@ -42,6 +64,10 @@
     <element id="Observation.code.coding:NHGTable45.system">
       <path value="Observation.code.coding.system" />
       <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen" />
+    </element>
+    <element id="Observation.context">
+      <path value="Observation.context" />
+      <comment value="It is recommended to use the nl-core-episodeofcare extension to reference nl-core-episodeofcare (EpisodeOfCare) instances rather than the `context` element, as this approach will be enforced in FHIR R4." />
     </element>
   </differential>
 </StructureDefinition>
