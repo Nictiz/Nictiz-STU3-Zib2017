@@ -1,9 +1,9 @@
-<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/capabilitystatement.xsd">
+<CapabilityStatement xmlns="http://hl7.org/fhir">
   <url value="http://nictiz.nl/fhir/CapabilityStatement/vitalsigns-clientcapabilities" />
   <version value="1.0.0"/>
   <name value="VitalSignsClient" />
   <status value="active" />
-  <date value="2017-12-20" />
+  <date value="2021-04-15" />
   <publisher value="Nictiz" />
   <contact>
     <name value="Nictiz" />
@@ -33,6 +33,9 @@
     <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyHeight" />
   </profile>
   <profile>
+    <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyWeight"/>
+  </profile>
+  <profile>
     <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyTemperature" />
   </profile>
   <profile>
@@ -42,16 +45,10 @@
     <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-HeartRate" />
   </profile>
   <profile>
-    <reference value="http://nictiz.nl/fhir/StructureDefinition/bp"/>
+    <reference value="http://nictiz.nl/fhir/StructureDefinition/zib-PulseRate" />
   </profile>
   <profile>
-    <reference value="http://nictiz.nl/fhir/StructureDefinition/bodyweight"/>
-  </profile>
-  <profile>
-    <reference value="http://nictiz.nl/fhir/StructureDefinition/oxygensat"/>
-  </profile>
-  <profile>
-    <reference value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+    <reference value="http://nictiz.nl/fhir/StructureDefinition/vitalsign-bloodglucose"/>
   </profile>
   <rest>
     <mode value="client" />
@@ -89,5 +86,12 @@
     <interaction>
       <code value="transaction"/>
     </interaction>
+    <operation>
+      <name value="Last N Observations Query"/>
+      <definition>
+        <reference value="http://hl7.org/fhir/OperationDefinition/Observation-lastn"/>
+        <display value="Observation-lastn"/>
+      </definition>
+    </operation>
   </rest>
 </CapabilityStatement>
