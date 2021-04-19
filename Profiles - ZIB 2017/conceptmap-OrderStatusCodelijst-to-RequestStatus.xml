@@ -1,0 +1,96 @@
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+  <id value="OrderStatusCodelijst-to-RequestStatus"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/concept-bidirectional">
+    <valueBoolean value="false"/>
+  </extension>
+  <url value="http://nictiz.nl/fhir/ConceptMap/OrderStatusCodelijst-to-RequestStatus"/>
+  <version value="2.1.1"/>
+  <name value="OrderStatusCodelijst-to-RequestStatus"/>
+  <title value="HCIM OrderStatusCodelijst to RequestStatus"/>
+  <status value="active"/>
+  <publisher value="Nictiz"/>
+  <contact>
+    <name value="Nictiz"/>
+    <telecom>
+      <system value="email"/>
+      <value value="info@nictiz.nl"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="Maps the HCIM ProcedureRequest release 2017 terminology for OrderStatus to the FHIR STU3 terminology associated with ProcedureRequest.status"/>
+  <purpose value="To aid in mapping from HCIM ProcedureRequest value set OrderStatus to FHIR STU3 RequestStatus value set"/>
+  <copyright value="CC0"/>
+  <sourceUri value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.16.1.2--20171231000000"/>
+  <targetUri value="http://hl7.org/fhir/ValueSet/request-status"/>
+  <group>
+    <source value="http://snomed.info/sct"/>
+    <target value="http://hl7.org/fhir/request-status"/>
+    <element>
+      <code value="385644000"/>
+      <display value="Requested"/>
+      <target>
+        <code value="active"/>
+        <display value="Active"/>
+        <equivalence value="specializes"/>
+      </target>
+    </element>
+    <element>
+      <code value="385651009"/>
+      <display value="In progress"/>
+      <target>
+        <code value="active"/>
+        <display value="Active"/>
+        <equivalence value="specializes"/>
+      </target>
+    </element>
+  </group>
+  <group>
+    <source value="http://hl7.org/fhir/v3/ActStatus"/>
+    <target value="http://hl7.org/fhir/request-status"/>
+    <element>
+      <code value="new"/>
+      <display value="Ordered"/>
+      <target>
+        <code value="active"/>
+        <display value="Active"/>
+        <equivalence value="specializes"/>
+      </target>
+    </element>
+    <element>
+      <code value="active"/>
+      <display value="Pending"/>
+      <target>
+        <code value="active"/>
+        <display value="Active"/>
+        <equivalence value="specializes"/>
+      </target>
+    </element>
+    <element>
+      <code value="held"/>
+      <display value="On hold"/>
+      <target>
+        <code value="suspended"/>
+        <display value="Suspended"/>
+        <equivalence value="equal"/>
+      </target>
+    </element>
+    <element>
+      <code value="cancelled"/>
+      <display value="Cancelled"/>
+      <target>
+        <code value="cancelled"/>
+        <display value="Cancelled"/>
+        <equivalence value="equal"/>
+      </target>
+    </element>
+    <element>
+      <code value="aborted"/>
+      <display value="Noshow"/>
+      <target>
+        <code value="active"/>
+        <display value="Active"/>
+        <equivalence value="subsumes"/>
+      </target>
+    </element>
+  </group>
+</ConceptMap>
