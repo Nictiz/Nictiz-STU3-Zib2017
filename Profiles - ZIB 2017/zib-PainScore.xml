@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-PainScore" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-PainScore" />
@@ -54,6 +55,7 @@
       <mapping>
         <identity value="hcim-painscore-v3.1-2017EN" />
         <map value="NL-CM:12.9.1" />
+        <comment value="PainScore" />
       </mapping>
     </element>
     <element id="Observation.identifier">
@@ -92,9 +94,6 @@
       <fixedCode value="225908003" />
     </element>
     <element id="Observation.code.coding:PainScoreCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Pain score (observable entity)" />
     </element>
@@ -108,6 +107,8 @@
     <element id="Observation.effective[x]:effectiveDateTime">
       <path value="Observation.effectiveDateTime" />
       <sliceName value="effectiveDateTime" />
+      <definition value="The date and time at which the pain score was measured." />
+      <alias value="PijnscoreDatumTijd" />
       <min value="1" />
       <type>
         <code value="dateTime" />
@@ -115,11 +116,14 @@
       <mapping>
         <identity value="hcim-painscore-v3.1-2017EN" />
         <map value="NL-CM:12.9.3" />
+        <comment value="PainScoreDateTime" />
       </mapping>
     </element>
     <element id="Observation.value[x]:valueQuantity">
-      <path value="Observation.value[x]" />
+      <path value="Observation.valueQuantity" />
       <sliceName value="valueQuantity" />
+      <definition value="The score is a general measurement of pain experience, not a description of specific, localized pain.&#xD;&#xA;&#xD;&#xA;Depending on the measuring method used, it indicates the level of pain experienced by the patient on a scale of 0 to 10: 0 = no pain and 10 = the worst pain imaginable. No descriptions are used for the intermediate values, so that the value is displayed as a number and not as a code.&#xD;&#xA;&#xD;&#xA;Sometimes a value range of 0-100 is used instead of 0-10." />
+      <alias value="PijnscoreWaarde" />
       <min value="1" />
       <type>
         <code value="Quantity" />
@@ -132,16 +136,24 @@
           <code value="{score}" />
         </valueQuantity>
       </example>
+      <mapping>
+        <identity value="hcim-painscore-v3.1-2017EN" />
+        <map value="NL-CM:12.9.2" />
+        <comment value="PainScoreValue" />
+      </mapping>
     </element>
     <element id="Observation.value[x]:valueQuantity.value">
-      <path value="Observation.value[x].value" />
+      <path value="Observation.valueQuantity.value" />
       <min value="1" />
     </element>
     <element id="Observation.comment">
       <path value="Observation.comment" />
+      <definition value="Comment on the pain score measurement, including comments on for example the circumstances and/or disruptive factors that may influence the result." />
+      <alias value="Toelichting" />
       <mapping>
         <identity value="hcim-painscore-v3.1-2017EN" />
         <map value="NL-CM:12.9.5" />
+        <comment value="Comment" />
       </mapping>
     </element>
     <element id="Observation.bodySite">
@@ -159,7 +171,7 @@
       <mapping>
         <identity value="hcim-painscore-v3.1-2017EN" />
         <map value="NL-CM:12.9.6" />
-        <comment value="PainMeasuringMethodCodelist" />
+        <comment value="AnatomicalLocation" />
       </mapping>
     </element>
     <element id="Observation.bodySite.extension">
@@ -175,6 +187,7 @@
     <element id="Observation.bodySite.extension:Laterality">
       <path value="Observation.bodySite.extension" />
       <sliceName value="Laterality" />
+      <definition value="Laterality adds information about body side to the anatomic location, e.g. left" />
       <alias value="Lateraliteit" />
       <type>
         <code value="Extension" />
@@ -201,6 +214,7 @@
     <element id="Observation.method">
       <path value="Observation.method" />
       <label value="PainMeasuringMethod" />
+      <definition value="The measuring method describes the method used to determine the pain score. The measurement involves a visualization of the pain scale." />
       <alias value="PijnMeetmethode" />
       <min value="1" />
       <binding>
