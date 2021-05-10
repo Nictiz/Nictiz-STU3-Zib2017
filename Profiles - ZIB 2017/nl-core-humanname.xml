@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-humanname" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname" />
@@ -49,7 +50,7 @@
   <differential>
     <element id="HumanName">
       <path value="HumanName" />
-      <comment value="Names may be changed, or repudiated, or people may have different names in different contexts. Names may be divided into parts of different type that have variable significance depending on context, though the division into parts does not always matter. With personal names, the different parts may or may not be imbued with some implicit meaning; various cultures associate different importance with the name parts and the degree to which systems must care about name parts around the world varies widely.&#xD;&#xA;&#xD;&#xA;A Dutch HumanName is a proper FHIR HumanName. Systems that do not understand any of the extensions, will be able to render and work with a Dutch name. Dutch names make certain name parts seaprately communicable. These parts are required for use in true Dutch systems when dealing with Dutch names, but may not have value for international systems when information gets sent abroad.&#xD;&#xA;&#xD;&#xA;To have true compatibility an implementer SHOULD use the core HumanName parts as intended. To have names work for Dutch context, the implementer SHOULD in addition use the extension elements.&#xD;&#xA;&#xD;&#xA;The extension elements cover birth name (NL: eigennaam / geslachtsnaam) and partner/spouse name. Both may have a prefix (NL: voorvoegsel). When a person marries, he or she may keep their own name, assume the partner name, append the partner name to their own name, or the other way around.&#xD;&#xA;&#xD;&#xA;For this reason, there are extensions for marking each part for what it is. &#xD;&#xA;&#xD;&#xA;Example: miss Irma Jongeneel marries mister de Haas and assumes the name Irma Jongeneel-de Haas&#xD;&#xA;family = &quot;Jongeneel-de Haas&quot;&#xD;&#xA;given = &quot;Irma&quot;&#xD;&#xA;humanname-own-name = &quot;Jongeneel&quot;&#xD;&#xA;humanname-partner-prefix = &quot;de &quot;&#xD;&#xA;humanname-partner-name = &quot;Haas&quot;" />
+      <comment value="Dutch names require that certain name parts are separately communicable. For this reason, extensions are defined on the base HumanName element to mark the meaning of each part. A Dutch HumanName is still a proper FHIR HumanName; however, see the incompatibilty note below.&#xD;&#xA;&#xD;&#xA;The extension elements cover birth name (NL: eigennaam / geslachtsnaam) and partner/spouse name. Both may have a prefix (NL: voorvoegsel). When a person marries, he or she may keep their own name, assume the partner name, append the partner name to their own name, or the other way around.&#xD;&#xA;&#xD;&#xA;**Incompatibility note**: This specification deviates from the way that the HumanName datatype is normally used. Alternative representations of a name, like initials or a nickname, are normally communicated using multiple HumanName instances and differentiated using the `.use` element. However, this specification allows for including all alternative representations in the _same_ HumanName instance and differentiate them using the extensions. This is a known issue that will be fixed in a future release. In the meantime, sending systems are encouraged to send different representations using multiple instances and receiving systems should be able to handle them. In addition:&#xD;&#xA;* Receiving systems should not assume that the `.given` names can be concatenated to the full list of given names. This can be a mixture of official names, nicknames and initials.&#xD;&#xA;* It is advisable to populate and consult the plain text represention in `.text`.&#xD;&#xA;* _If_ sending systems populate the `.use` element, its meaning should not conflict with the structured contents. For example, when `.use` = _official_, the nickname must be absent (it can be communicated using a different instance where `.use` = _nickname_).&#xD;&#xA;&#xD;&#xA;Example: miss Irma Jongeneel marries mister de Haas and assumes the name Irma Jongeneel-de Haas&#xD;&#xA;* `.family` = &quot;Jongeneel-de Haas&quot;&#xD;&#xA;* `.given` = &quot;Irma&quot; (with `.given:iso21090EnQualifier` = _BR_)&#xD;&#xA;* `.family:humannameOwnName = &quot;Jongeneel&quot;&#xD;&#xA;* `.family:humannamePartnerPrefix` = &quot;de &quot;&#xD;&#xA;* `.family:humannamePartnerName` = &quot;Haas&quot;" />
       <example>
         <label value="Structured HumanName (preferred above unstructured)" />
         <valueHumanName>
@@ -57,6 +58,7 @@
             <valueCode value="NL4" />
           </extension>
           <use value="official" />
+          <text value="Irma Jongeneel-de Haas" />
           <family value="Jongeneel-de Haas">
             <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
               <valueString value="Jongeneel" />
@@ -73,17 +75,12 @@
               <valueCode value="CL" />
             </extension>
           </given>
-          <given value="I.">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
-              <valueCode value="IN" />
-            </extension>
-          </given>
+          <given value="I." />
         </valueHumanName>
       </example>
       <example>
         <label value="Unstructured HumanName" />
         <valueHumanName>
-          <use value="official" />
           <text value="Irma Jongeneel-de Haas" />
         </valueHumanName>
       </example>
@@ -141,17 +138,17 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order" />
       </type>
       <binding>
-        <valueSetReference>
-        <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
-          <valueReference>
-            <reference value="http://nictiz.nl/fhir/ConceptMap/NaamgebruikCodelijst-to-HumanNameAssemblyOrder" />
-            <display value="NaamgebruikCodelijst-to-HumanNameAssemblyOrder" />
-          </valueReference>
-        </extension>
-        <reference value="http://hl7.org/fhir/ValueSet/name-assembly-order"/>
-        </valueSetReference>
         <strength value="required" />
         <description value="Human Name Assembly Order" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/NaamgebruikCodelijst-to-HumanNameAssemblyOrder" />
+              <display value="NaamgebruikCodelijst-to-HumanNameAssemblyOrder" />
+            </valueReference>
+          </extension>
+          <reference value="http://hl7.org/fhir/ValueSet/name-assembly-order" />
+        </valueSetReference>
       </binding>
       <mapping>
         <identity value="hcim-nameinformation-v2.0.1-2015EN" />
@@ -168,6 +165,10 @@
         <map value="NL-CM:20.4.7" />
         <comment value="NameUsage. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/NaamgebruikCodelijst-to-HumanNameAssemblyOrder" />
       </mapping>
+    </element>
+    <element id="HumanName.extension:humannameAssemblyOrder.valueCode:valueCode">
+      <path value="HumanName.extension.valueCode" />
+      <sliceName value="valueCode" />
     </element>
     <element id="HumanName.text">
       <path value="HumanName.text" />
