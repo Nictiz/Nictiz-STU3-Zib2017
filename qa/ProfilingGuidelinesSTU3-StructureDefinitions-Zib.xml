@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ProfilingGuidelinesSTU3-StructureDefinitions-Zib" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/ProfilingGuidelinesSTU3-StructureDefinitions-Zib" />
+  <name value="ProfilingGuidelinesSTU3StructureDefinitionsZib" />
+  <title value="Zib StructureDefinition conformance to FHIR Profiling Guidelines for FHIR STU3" />
+  <status value="draft" />
+  <fhirVersion value="3.0.2" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="StructureDefinition" />
+  <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/ProfilingGuidelinesSTU3-StructureDefinitions" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="StructureDefinition.purpose">
+      <path value="StructureDefinition.purpose" />
+      <min value="1" />
+    </element>
+    <element id="StructureDefinition.mapping">
+      <path value="StructureDefinition.mapping" />
+      <constraint>
+        <key value="sd-zpg-04" />
+        <severity value="error" />
+        <human value="HCIM mapping name and identity should follow the profiling guidelines" />
+        <expression value="name.lower().startsWith('hcim') implies (name.startsWith('HCIM ') and identity.startsWith('hcim-'))" />
+        <source value="http://nictiz.nl/fhir/StructureDefinition/ProfilingGuidelinesSTU3-StructureDefinitions-Zib" />
+      </constraint>
+      <constraint>
+        <key value="sd-zpg-05" />
+        <severity value="error" />
+        <human value="The URI for zib mappings should align with the mapping name" />
+        <expression value="name.lower().startsWith('hcim') implies uri = 'https://zibs.nl/wiki/' + name.replaceMatches('.* ', '')" />
+        <source value="http://nictiz.nl/fhir/StructureDefinition/ProfilingGuidelinesSTU3-StructureDefinitions-Zib" />
+      </constraint>
+      <constraint>
+        <key value="sd-zpg-06" />
+        <severity value="error" />
+        <human value="The mapping identity and mapping name for zibs should align according to the profiling guidelines" />
+        <expression value="identity.lower().startsWith('hcim') implies identity = name.replaceMatches('\\(.*', '').replace(' ', '-').lower() + name.replaceMatches('.*\\((?&lt;suffix&gt;.*)\\)', '-${suffix}')" />
+        <source value="http://nictiz.nl/fhir/StructureDefinition/ProfilingGuidelinesSTU3-StructureDefinitions-Zib" />
+      </constraint>
+    </element>
+    <element id="StructureDefinition.differential.element">
+      <path value="StructureDefinition.differential.element" />
+      <constraint>
+        <key value="sd-zpg-08" />
+        <severity value="error" />
+        <human value="If an alias exists, mapping.map needs to be present." />
+        <expression value="alias.exists() implies mapping.map.exists()" />
+        <source value="https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_STU3" />
+      </constraint>
+    </element>
+  </differential>
+</StructureDefinition>

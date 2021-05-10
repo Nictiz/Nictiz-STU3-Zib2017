@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ProfilingGuidelinesSTU3-StructureDefinitions" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/ProfilingGuidelinesSTU3-StructureDefinitions" />
+  <name value="ProfilingGuidelinesSTU3-StructureDefinitions" />
+  <title value="StructureDefinition conformance to FHIR Profiling Guidelines for FHIR STU3" />
+  <status value="draft" />
+  <experimental value="true" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Profile to validate against Profiling Guidlines for STU3." />
+  <purpose value="For QA on the StructureDefinitions created for STU3." />
+  <copyright value="Copyright and related rights waived via CC0, https://creativecommons.org/publicdomain/zero/1.0/. This does not apply to information from third parties, for example a medical terminology system. The implementer alone is responsible for identifying and obtaining any necessary licenses or authorizations to utilize third party IP in connection with the specification or otherwise." />
+  <fhirVersion value="3.0.2" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="StructureDefinition" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/StructureDefinition" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="StructureDefinition">
+      <path value="StructureDefinition" />
+      <constraint>
+        <key value="sd-pg-01" />
+        <severity value="warning" />
+        <human value="The canonical URL should conform to the profiling guidelines" />
+        <expression value="StructureDefinition.url = 'http://nictiz.nl/fhir/StructureDefinition/' + StructureDefinition.id" />
+        <source value="https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4" />
+      </constraint>
+      <constraint>
+        <key value="sd-pg-08" />
+        <severity value="warning" />
+        <human value="The title of the StructureDefinition should conform to the profiling guidelines" />
+        <expression value="StructureDefinition.title = StructureDefinition.id.replace('zib-', 'HCIM ').replace('-',' ')" />
+        <source value="https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4" />
+      </constraint>
+      <constraint>
+        <key value="sd-pg-07" />
+        <severity value="warning" />
+        <human value="The name of the StructureDefinition should conform to the profiling guidelines" />
+        <expression value="StructureDefinition.name.substring(0, 1).matches('[A-Z]') and StructureDefinition.name.substring(1) = StructureDefinition.id.substring(1).replace('-',' ').replace('.', '')" />
+        <source value="https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4" />
+      </constraint>
+      <constraint>
+        <key value="sd-pg-09" />
+        <severity value="error" />
+        <human value="When a mapping is defined in the profile, it should be used on one or more of the elements." />
+        <expression value="mapping.identity.subsetOf(%resource.differential.element.mapping.identity)" />
+        <source value="https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4" />
+      </constraint>
+      <constraint>
+        <key value="sd-pg-10" />
+        <severity value="error" />
+        <human value="When a mapping is defined on an element, it should be declared in the profile." />
+        <expression value="differential.element.mapping.identity.subsetOf(%resource.mapping.identity)" />
+        <source value="https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4" />
+      </constraint>
+    </element>
+    <element id="StructureDefinition.url">
+      <path value="StructureDefinition.url" />
+      <definition value="The canonical URL, which is the external identifier for conformance resources. All conformance resources SHALL have a canonical URL. This URL is preferably resolvable but does not have to be processable. Canonical URL's are about the identity of artifacts, not necessarily about retrieval location. Canonical URLs aren't meant to be human recognizable. The canonical URL will be created as: http://nictiz.nl/fhir/StructureDefinition/[id]" />
+    </element>
+    <element id="StructureDefinition.name">
+      <path value="StructureDefinition.name" />
+      <definition value="A recognizable name that is still computer processable. The name will be the .id capitalized, with hyphens removed." />
+    </element>
+    <element id="StructureDefinition.title">
+      <path value="StructureDefinition.title" />
+      <definition value="A recognizable title purely for human consumption. The title will generally be the .id with hyphens replaced by spaces." />
+      <min value="1" />
+    </element>
+    <element id="StructureDefinition.publisher">
+      <path value="StructureDefinition.publisher" />
+      <min value="1" />
+      <fixedString value="Nictiz" />
+    </element>
+    <element id="StructureDefinition.contact">
+      <path value="StructureDefinition.contact" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="StructureDefinition.contact.name">
+      <path value="StructureDefinition.contact.name" />
+      <min value="1" />
+      <fixedString value="Nictiz" />
+    </element>
+    <element id="StructureDefinition.contact.telecom">
+      <path value="StructureDefinition.contact.telecom" />
+      <min value="1" />
+      <max value="1" />
+      <patternContactPoint>
+        <system value="email" />
+        <value value="info@nictiz.nl" />
+        <use value="work" />
+      </patternContactPoint>
+    </element>
+    <element id="StructureDefinition.description">
+      <path value="StructureDefinition.description" />
+      <definition value="For profiles:                 - For zib profiles: the 'Concept' section from the zib.                 - For uniprofiles: TBD                 - For standard specific profiles: TBD                 For extensions:                 - A description of what the extension is for." />
+      <min value="1" />
+    </element>
+    <element id="StructureDefinition.copyright">
+      <path value="StructureDefinition.copyright" />
+      <min value="1" />
+      <fixedMarkdown value="CC0" />
+    </element>
+    <element id="StructureDefinition.fhirVersion">
+      <path value="StructureDefinition.fhirVersion" />
+      <min value="1" />
+    </element>
+    <element id="StructureDefinition.mapping.uri">
+      <path value="StructureDefinition.mapping.uri" />
+      <min value="1" />
+    </element>
+    <element id="StructureDefinition.mapping.name">
+      <path value="StructureDefinition.mapping.name" />
+      <min value="1" />
+    </element>
+    <element id="StructureDefinition.baseDefinition">
+      <path value="StructureDefinition.baseDefinition" />
+      <min value="1" />
+    </element>
+    <element id="StructureDefinition.snapshot">
+      <path value="StructureDefinition.snapshot" />
+      <max value="0" />
+    </element>
+    <element id="StructureDefinition.differential.element">
+      <path value="StructureDefinition.differential.element" />
+      <constraint>
+        <key value="sd-pg-02" />
+        <severity value="error" />
+        <human value="If mapping.map exists, short exists" />
+        <expression value="mapping.map.exists() implies short.exists()" />
+        <source value="https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4" />
+      </constraint>
+      <constraint>
+        <key value="sd-pg-03" />
+        <severity value="error" />
+        <human value="If mapping.map exists and the element is not the root element, definition should exist." />
+        <expression value="(mapping.map.exists() and $this.indexOf('.') != -1) implies definition.exists()" />
+        <source value="https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4" />
+      </constraint>
+      <constraint>
+        <key value="sd-pg-04" />
+        <severity value="error" />
+        <human value="If mapping.map exists, alias exists." />
+        <expression value="mapping.map.exists() implies alias.exists()" />
+        <source value="https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4" />
+      </constraint>
+      <constraint>
+        <key value="sd-pg-11" />
+        <severity value="error" />
+        <human value="If an alias exists and this element is not the root element, mapping.map needs to be present." />
+        <expression value="(alias.exists() and $this.indexOf('.') != -1) implies mapping.map.exists()" />
+        <source value="https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4" />
+      </constraint>
+    </element>
+    <element id="StructureDefinition.differential.element.binding">
+      <path value="StructureDefinition.differential.element.binding" />
+      <constraint>
+        <key value="sd-pg-05" />
+        <severity value="error" />
+        <human value="If a ConceptMap is defined for a binding, it should be mentioned in the description." />
+        <expression value="valueSet.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap').exists() implies description.contains('ConceptMap')" />
+        <source value="https://informatiestandaarden.nictiz.nl/wiki/FHIR:V1.0_FHIR_Profiling_Guidelines_R4" />
+      </constraint>
+    </element>
+    <element id="StructureDefinition.differential.element.mapping.comment">
+      <path value="StructureDefinition.differential.element.mapping.comment" />
+      <min value="1" />
+    </element>
+  </differential>
+</StructureDefinition>
