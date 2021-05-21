@@ -79,6 +79,18 @@
     <element id="AllergyIntolerance.clinicalStatus">
       <path value="AllergyIntolerance.clinicalStatus" />
       <comment value="See the comment on the root for guidance how to populate this element." />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-clinical-status" />
+              <display value="AllergieStatusCodelijst-to-allergy-clinical-status" />
+            </valueReference>
+          </extension>
+          <reference value="http://hl7.org/fhir/ValueSet/allergy-clinical-status"/>
+        </valueSetReference>
+      </binding>
     </element>
     <element id="AllergyIntolerance.clinicalStatus.extension">
       <path value="AllergyIntolerance.clinicalStatus.extension" />
@@ -156,6 +168,21 @@
     <element id="AllergyIntolerance.verificationStatus.extension:dataAbsentReason.valueCode:valueCode">
       <path value="AllergyIntolerance.verificationStatus.extension.valueCode" />
       <sliceName value="valueCode" />
+    </element>
+    <element id="AllergyIntolerance.category">
+      <path value="AllergyIntolerance.category" />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/AllergieCategorieCodelijst-to-allergy-intolerance-category" />
+              <display value="AllergieCategorieCodelijst-to-allergy-intolerance-category" />
+            </valueReference>
+          </extension>
+          <reference value="http://hl7.org/fhir/ValueSet/allergy-intolerance-category"/>
+        </valueSetReference>
+      </binding>
     </element>
     <element id="AllergyIntolerance.category.extension">
       <path value="AllergyIntolerance.category.extension" />
