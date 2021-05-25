@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationAdministration" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration" />
@@ -151,6 +152,16 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration-DeviatingAdministration" />
       </type>
     </element>
+    <element id="MedicationAdministration.extension:deviatingAdministration.extension">
+      <path value="MedicationAdministration.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
     <element id="MedicationAdministration.extension:deviatingAdministration.extension:deviation">
       <path value="MedicationAdministration.extension.extension" />
       <sliceName value="deviation" />
@@ -261,9 +272,6 @@
       <fixedCode value="18629005" />
     </element>
     <element id="MedicationAdministration.category.coding:MedicationAdministrationCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="MedicationAdministration.category.coding.display" />
       <defaultValueString value="Administration of drug or medicament (procedure)" />
     </element>
@@ -304,7 +312,11 @@
     </element>
     <element id="MedicationAdministration.supportingInformation">
       <path value="MedicationAdministration.supportingInformation" />
+      <short value="RelatedAgreement / MedicationAgreement / AdministrationAgreement" />
       <definition value="Medication or administration agreement on which this administration.is based." />
+      <alias value="GerelateerdeAfspraak" />
+      <alias value="Medicatieafspraak" />
+      <alias value="Toedieningsafspraak" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
@@ -337,6 +349,16 @@
         <identity value="hcim-medicationadministration2-v1.0.1-2017EN" />
         <map value="NL-CM:9.13.23169" />
         <comment value="RelatedAgreement" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-MedicationAdministration2-v1.0-2017EN" />
+        <map value="NL-CM:9.13.23170" />
+        <comment value="MedicationAgreement" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-MedicationAdministration2-v1.0-2017EN" />
+        <map value="NL-CM:9.13.23237" />
+        <comment value="AdministrationAgreement" />
       </mapping>
     </element>
     <element id="MedicationAdministration.effective[x]">
@@ -480,9 +502,6 @@
       <alias value="Toedieningsweg" />
       <min value="1" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="RouteOfAdministration" />
-        </extension>
         <strength value="extensible" />
         <description value="MedicatieToedieningToedieningswegCodelijst" />
         <valueSetReference>
