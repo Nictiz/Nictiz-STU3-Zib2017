@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Problem" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem" />
@@ -88,7 +89,7 @@
     <element id="Condition.clinicalStatus">
       <path value="Condition.clinicalStatus" />
       <short value="ProblemStatus" />
-      <definition value="The problem status describes the condition of the problem: &#xD;&#xA;&lt;ol&gt;&#xD;&#xA;  &lt;li&gt;Active problems are problems of which the patient experiences symptoms or for which evidence exists.&lt;/li&gt;&#xD;&#xA;  &lt;li&gt;Problems with the status 'Inactive' refer to problems that don't affect the patient anymore or that of which there is no evidence of existence anymore..&lt;/li&gt;&#xD;&#xA;&lt;/ol&gt;" />
+      <definition value="The problem status describes the condition of the problem: &#xD;&#xA;&#xD;&#xA;* Active problems are problems of which the patient experiences symptoms or for which evidence exists.&#xD;&#xA;* Problems with the status 'Inactive' refer to problems that don't affect the patient anymore or that of which there is no evidence of existence anymore.." />
       <alias value="ProbleemStatus" />
       <min value="1" />
       <binding>
@@ -100,7 +101,6 @@
               <display value="Condition-Clinical-Status-Codes-to-ProbleemStatusCodelijst" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/condition-clinical"/>
         </valueSetReference>
       </binding>
       <mapping>
@@ -181,7 +181,6 @@
               <display value="VerificatieStatusCodelijst-to-ConditionVerificationStatus" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/condition-ver-status"/>
         </valueSetReference>
       </binding>
       <mapping>
@@ -294,9 +293,6 @@
       <definition value="Anatomical location which is the focus of the procedure." />
       <alias value="ProbleemAnatomischeLocatie" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite" />
-        </extension>
         <strength value="extensible" />
         <description value="ProbleemAnatomischeLocatieCodelijst" />
         <valueSetReference>
@@ -374,10 +370,10 @@
     </element>
     <element id="Condition.onset[x]:onsetDateTime">
       <path value="Condition.onsetDateTime" />
+      <sliceName value="onsetDateTime" />
       <short value="ProblemStartDate" />
       <definition value="Start of the disorder to which the problem applies. Especially in symptoms in which it takes longer for the final diagnosis, it is important to know not only the date of the diagnosis, but also how long the patient has had the disorder. A ‘vague’ date, such as only the year or the month and the year, is permitted." />
       <alias value="ProbleemBeginDatum" />
-      <sliceName value="onsetDateTime" />
       <type>
         <code value="dateTime" />
       </type>
@@ -404,10 +400,10 @@
     </element>
     <element id="Condition.abatement[x]:abatementDateTime">
       <path value="Condition.abatementDateTime" />
+      <sliceName value="abatementDateTime" />
       <short value="ProblemEndDate" />
       <definition value="Date on which the disorder to which the problem applies, is considered not to be present anymore. This date does not need to be the same as the date of the change in problem status. A ‘vague’ date, such as only the year or the month and the year, is permitted." />
       <alias value="ProbleemEindDatum" />
-      <sliceName value="abatementDateTime" />
       <type>
         <code value="dateTime" />
       </type>
