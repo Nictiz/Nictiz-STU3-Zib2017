@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-OutcomeOfCare" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-OutcomeOfCare" />
@@ -21,7 +22,7 @@
   <mapping>
     <identity value="hcim-outcomeofcare-v3.1-2017EN" />
     <uri value="https://zibs.nl/wiki/OutcomeOfCare-v3.1(2017EN)" />
-    <name value="HCIM OutcomeOfCare-v3.1 (2017EN)" />
+    <name value="HCIM OutcomeOfCare-v3.1(2017EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -31,12 +32,19 @@
   <differential>
     <element id="DiagnosticReport">
       <path value="DiagnosticReport" />
+      <short value="OutcomeOfCare" />
+      <alias value="UitkomstVanZorg" />
       <constraint>
         <key value="hicm-outcomeofcare-1" />
         <severity value="error" />
         <human value="Provide a HealthcareResult text or a reference, not both" />
         <expression value="conclusion.empty() or result.empty()" />
       </constraint>
+      <mapping>
+        <identity value="hcim-outcomeofcare-v3.1-2017EN" />
+        <map value="NL-CM:13.4.1" />
+        <comment value="OutcomeOfCare" />
+      </mapping>
     </element>
     <element id="DiagnosticReport.extension">
       <path value="DiagnosticReport.extension" />
@@ -57,11 +65,7 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/event-partOf" />
       </type>
     </element>
-    <element id="DiagnosticReport.extension:Intervention.url">
-      <path value="DiagnosticReport.extension.url" />
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/event-partOf" />
-    </element>
-    <element id="DiagnosticReport.extension:Intervention.value[x]:valueReference">
+    <element id="DiagnosticReport.extension:Intervention.valueReference:valueReference">
       <path value="DiagnosticReport.extension.valueReference" />
       <sliceName value="valueReference" />
       <short value="Interventie" />
@@ -132,9 +136,6 @@
       <fixedCode value="27574-3" />
     </element>
     <element id="DiagnosticReport.code.coding:outcomOfCareCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="DiagnosticReport.code.coding.display" />
       <defaultValueString value="Skilled nursing treatment plan Progress note and attainment of goals (narrative)" />
     </element>
