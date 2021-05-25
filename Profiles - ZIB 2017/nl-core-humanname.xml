@@ -50,14 +50,14 @@
   <differential>
     <element id="HumanName">
       <path value="HumanName" />
-      <comment value="Names may be changed, or repudiated, or people may have different names in different contexts. Names may be divided into parts of different type that have variable significance depending on context, though the division into parts does not always matter. With personal names, the different parts may or may not be imbued with some implicit meaning; various cultures associate different importance with the name parts and the degree to which systems must care about name parts around the world varies widely.&#xD;&#xA;&#xD;&#xA;A Dutch HumanName is a proper FHIR HumanName. Systems that do not understand any of the extensions, will be able to render and work with a Dutch name. Dutch names make certain name parts seaprately communicable. These parts are required for use in true Dutch systems when dealing with Dutch names, but may not have value for international systems when information gets sent abroad.&#xD;&#xA;&#xD;&#xA;To have true compatibility an implementer SHOULD use the core HumanName parts as intended. To have names work for Dutch context, the implementer SHOULD in addition use the extension elements.&#xD;&#xA;&#xD;&#xA;The extension elements cover birth name (NL: eigennaam / geslachtsnaam) and partner/spouse name. Both may have a prefix (NL: voorvoegsel). When a person marries, he or she may keep their own name, assume the partner name, append the partner name to their own name, or the other way around.&#xD;&#xA;&#xD;&#xA;For this reason, there are extensions for marking each part for what it is. &#xD;&#xA;&#xD;&#xA;Example: miss Irma Jongeneel marries mister de Haas and assumes the name Irma Jongeneel-de Haas&#xD;&#xA;family = &quot;Jongeneel-de Haas&quot;&#xD;&#xA;given = &quot;Irma&quot;&#xD;&#xA;humanname-own-name = &quot;Jongeneel&quot;&#xD;&#xA;humanname-partner-prefix = &quot;de &quot;&#xD;&#xA;humanname-partner-name = &quot;Haas&quot;" />
+      <comment value="Dutch names require that certain name parts are separately communicable. For this reason, extensions are added onto the base HumanName element to mark the meaning of each part. A Dutch HumanName is still a proper FHIR HumanName; however, there might be an incompatibilty with the default FHIR mechanism for communicating given names. See the compatibility note below for more information.&#xD;&#xA;&#xD;&#xA;The extension elements cover birth name (NL: eigennaam / geslachtsnaam) and partner/spouse name. Both may have a prefix (NL: voorvoegsel). When a person marries, he or she may keep their own name, assume the partner name, append the partner name to their own name, or the other way around.&#xD;&#xA;&#xD;&#xA;**Incompatibility note**: It has come to light that this specification deviates from the way that the HumanName datatype is normally used. This will be fixed in a future release. However, current implementations should be aware of the special considerations regarding the use of this specification. &#xD;&#xA;&#xD;&#xA;The issue at hand is the way alternative representations of a name, like initials or a nickname, are communicated. Normally this is done using multiple HumanName instances, which are differentiated using the `.use` element. However, this specification allows for including all alternative representations in the _same_ HumanName instance, with the expectation that the extensions provide enough information for recieving systems to differentiate them. However, this means that contrary to the normal usage of this datatype, repetitions of `.given` names cannot be concatenated to get the full list of given names; the list might be a mix of full names, nicknames and initials.&#xD;&#xA;&#xD;&#xA;Since multiple implementations are based on this specification, sending systems are advised (but not required) to keep the approach with one HumanName instance, while recieving systems should be able to handle this one-instance approach. More specifically:&#xD;&#xA;&#xD;&#xA;* Sending and recieving systems SHOULD always use the specified extensions when using this datatype.&#xD;&#xA;* Sending systems are encouraged to populate the `.text` element to unambigiously communicate the patient name.&#xD;&#xA;* Sending systems are encouraged to send either the full given names or the initials, but not both. This alleviates the duplication of names in `.given`.&#xD;&#xA;* When a sending system uses the current one-instance approach for communicating multiple representations, `.use` MAY NOT be populated. After all, it is not possible to select a single `.use` when the instance contains different representations.&#xD;&#xA;* When a recieving system interprets the instance as the single-instance-multiple-representations approach, the `.given` names marked as initials SHOULD be interpreted as alternatives to the full given names. Note the underlying HCIM expects both the _list_ of full names and _list_ of initials to be a single string; there's no match for an initial to a full name. The instance SHOULD be regarded as using this approach when:&#xD;&#xA;  * They encounter a single instance&#xD;&#xA;  * And the `.use` element is absent&#xD;&#xA;  * And all the name parts are differentiated using the specified extensions&#xD;&#xA;* In any other circumstance, recieving systems SHOULD interpret the usage as the normal use.&#xD;&#xA;&#xD;&#xA;Example: miss Irma Jongeneel marries mister de Haas and assumes the name Irma Jongeneel-de Haas:&#xD;&#xA;&#xD;&#xA;* `.family` = &quot;Jongeneel-de Haas&quot;&#xD;&#xA;* `.given` = &quot;Irma&quot; (with `.given:iso21090EnQualifier` = _BR_)&#xD;&#xA;* `.family:humannameOwnName` = &quot;Jongeneel&quot;&#xD;&#xA;* `.family:humannamePartnerPrefix` = &quot;de &quot;&#xD;&#xA;* `.family:humannamePartnerName` = &quot;Haas&quot;" />
       <example>
         <label value="Structured HumanName (preferred above unstructured)" />
         <valueHumanName>
           <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
             <valueCode value="NL4" />
           </extension>
-          <use value="official" />
+          <text value="Irma Jongeneel-de Haas" />
           <family value="Jongeneel-de Haas">
             <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
               <valueString value="Jongeneel" />
@@ -74,17 +74,11 @@
               <valueCode value="CL" />
             </extension>
           </given>
-          <given value="I.">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
-              <valueCode value="IN" />
-            </extension>
-          </given>
         </valueHumanName>
       </example>
       <example>
         <label value="Unstructured HumanName" />
         <valueHumanName>
-          <use value="official" />
           <text value="Irma Jongeneel-de Haas" />
         </valueHumanName>
       </example>
@@ -144,7 +138,7 @@
       <mapping>
         <identity value="hcim-nameinformation-v2.0.1-2015EN" />
         <map value="NL-CM:0.1.34" />
-          <comment value="NameUsage. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/NaamgebruikCodelijst-to-HumanNameAssemblyOrder" />
+        <comment value="NameUsage. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/NaamgebruikCodelijst-to-HumanNameAssemblyOrder" />
       </mapping>
       <mapping>
         <identity value="hcim-nameinformation-v3.0-2016EN" />
@@ -315,8 +309,8 @@
     <element id="HumanName.given">
       <path value="HumanName.given" />
       <short value="Given" />
-      <definition value="Note that in order to mark the type of a given name, that you use the FHIR standard extension for ISO 21090 EN Qualifiers. Examples include call me name (Dutch: roepnaam) and initials. Each initial is expected to be delimited by a dot." />
-      <comment value="To be conformant to the Zib for NameInformation, at least the following qualifiers SHALL be supported: BR, IN and CL. The qualifier 'BR' maps to the Zib concept FirstNames, 'IN' maps to Initials and 'CL' to GivenName." />
+      <definition value="Note that in order to mark the type of a given name, the FHIR standard extension for ISO 21090 EN Qualifiers is to be used. Examples include call me name (Dutch: roepnaam) and initials. Each initial is expected to be delimited by a dot." />
+      <comment value="Note that in order to mark the type of a given name, the FHIR standard extension for ISO 21090 EN Qualifiers is to be used. Examples include call me name (Dutch: roepnaam) and initials. Each initial is expected to be delimited by a dot. To be conformant to the HCIM for NameInformation, at least the following qualifiers SHALL be supported: _BR_, _IN_ and _CL_. The qualifier _BR_maps to the HCIM concept FirstNames, _IN_ maps to Initials and _CL_ to GivenName.&#xD;&#xA;&#xD;&#xA;Please see the compatibility note on the containing element as well!" />
       <alias value="Voornamen" />
       <alias value="Initialen" />
       <alias value="Roepnaam" />
