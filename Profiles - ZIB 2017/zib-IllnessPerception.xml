@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-IllnessPerception" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-IllnessPerception" />
@@ -19,11 +20,6 @@
   <copyright value="CC0" />
   <fhirVersion value="3.0.2" />
   <mapping>
-    <identity value="hcim-basicelements-v1.0-2017EN" />
-    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
-    <name value="HCIM BasicElements-v1.0(2017EN)" />
-  </mapping>
-  <mapping>
     <identity value="hcim-illnessperception-v3.1-2017EN" />
     <uri value="https://zibs.nl/wiki/IllnessPerception-v3.1(2017EN)" />
     <name value="HCIM IllnessPerception-v3.1(2017EN)" />
@@ -34,6 +30,16 @@
   <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
   <derivation value="constraint" />
   <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="IllnessPerception" />
+      <alias value="Ziektebeleving" />
+      <mapping>
+        <identity value="hcim-illnessperception-v3.1-2017EN" />
+        <map value="NL-CM:18.5.1" />
+        <comment value="IllnessPerception" />
+      </mapping>
+    </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
       <slicing>
@@ -54,11 +60,6 @@
       <sliceName value="illnessPerceptionCode" />
       <min value="1" />
       <max value="1" />
-      <mapping>
-        <identity value="hcim-illnessperception-v3.1-2017EN" />
-        <map value="NL-CM:18.5.1" />
-        <comment value="IllnessPerception" />
-      </mapping>
     </element>
     <element id="Observation.code.coding:illnessPerceptionCode.system">
       <path value="Observation.code.coding.system" />
@@ -71,9 +72,6 @@
       <fixedCode value="363910003" />
     </element>
     <element id="Observation.code.coding:illnessPerceptionCode.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Characteristic of psychosocial functioning" />
     </element>
@@ -99,9 +97,11 @@
       <sliceName value="PatientIllnessInsight" />
       <short value="Patient Illness Insight" />
       <definition value="The patient’s illness insight describes their awareness of having an illness or health problem and what that means for their daily life." />
+      <alias value="ZiekteInzichtVanPatiënt" />
       <mapping>
         <identity value="hcim-illnessperception-v3.1-2017EN" />
         <map value="NL-CM:18.5.3" />
+        <comment value="PatientIllnessInsight" />
       </mapping>
     </element>
     <element id="Observation.component:PatientIllnessInsight.code">
@@ -132,6 +132,7 @@
       <sliceName value="CopingWithIllnessByPatient" />
       <short value="Coping With Illness By Patient" />
       <definition value="The description of how the patient deals with their illness or health problem." />
+      <alias value="OmgaanMetZiekteprocesDoorPatiënt" />
       <mapping>
         <identity value="hcim-illnessperception-v3.1-2017EN" />
         <map value="NL-CM:18.5.4" />
@@ -159,6 +160,7 @@
       <sliceName value="CopingWithIllnessByFamily" />
       <short value="Coping With Illness By Family" />
       <definition value="The description of how the family deals with the patient’s illness or health problem." />
+      <alias value="OmgaanMetZiekteprocesDoorNaasten" />
       <mapping>
         <identity value="hcim-illnessperception-v3.1-2017EN" />
         <map value="NL-CM:18.5.5" />
