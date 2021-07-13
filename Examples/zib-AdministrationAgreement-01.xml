@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns="http://hl7.org/fhir">
-    <id value="zib-administrationagreement-01"/>
-    <meta>
+   <id value="zib-administrationagreement-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -57,15 +58,15 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AuthoredOn">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AdministrationAgreement-AuthoredOn">
         <valueDateTime value="2020-06-08T10:54:12+02:00"/>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
         <valuePeriod>
             <start value="2020-06-08"/>
         </valuePeriod>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-AdditionalInformation">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-AdditionalInformation">
         <valueCodeableConcept>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.2.14.2053"/>
@@ -74,17 +75,21 @@
             </coding>
         </valueCodeableConcept>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
         <valueIdentifier>
             <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
             <value value="#MB_01h"/>
         </valueIdentifier>
     </extension>
-    <identifier>
+   <identifier>
         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.422037009.1"/>
         <value value="1546339-f6753t65r"/>
     </identifier>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="3e0df8cb-e3de-11eb-1413-020000000000"/>
+   </identifier>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="422037009"/>
@@ -92,31 +97,31 @@
         </coding>
         <text value="Toedieningsafspraak"/>
     </category>
-    <medicationReference>
+   <medicationReference>
         <reference value="Medication/zib-Product-01"/>
         <display value="PRIMPERAN ZETPIL 20MG"/>
     </medicationReference>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <performer>
+   <performer>
         <actor>
             <reference value="Organization/nl-core-organization-06"/>
             <display value="Apotheek De Gulle Gaper"/>
         </actor>
     </performer>
-    <authorizingPrescription>
+   <authorizingPrescription>
         <identifier>
             <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
             <value value="#MB_01h#MA_01"/>
         </identifier>
         <display value="relatie naar medicatieafspraak: #MB_01h#MA_01 || 2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
     </authorizingPrescription>
-    <note>
+   <note>
         <text value="Tekstuele toelichting bij deze toedieningsafspraak"/>
     </note>
-    <dosageInstruction>
+   <dosageInstruction>
         <sequence value="1"/>
         <text value="Vanaf 8 jun 2020, 1 maal per dag, rectaal"/>
         <timing>

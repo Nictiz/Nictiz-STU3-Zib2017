@@ -1,9 +1,12 @@
-<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/nutritionorder.xsd">
-    <id value="zib-nutritionadvice-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionOrder xmlns="http://hl7.org/fhir"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/nutritionorder.xsd">
+   <id value="zib-nutritionadvice-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-NutritionAdvice"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -36,13 +39,17 @@
             </table>
         </div>
     </text>
-    <status value="active"/>
-    <patient>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="5b1b692b-e3de-11eb-1032-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <patient>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </patient>
-    <dateTime value="2018-01-01"/>
-    <oralDiet>
+   <dateTime value="2018-01-01"/>
+   <oralDiet>
         <type>
             <text value="Energie verrijkt"/>
         </type>

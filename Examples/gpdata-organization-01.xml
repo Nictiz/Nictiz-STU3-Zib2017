@@ -1,9 +1,12 @@
-<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/organization.xsd">
-    <id value="gpdata-organization-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/organization.xsd">
+   <id value="gpdata-organization-01"/>
+   <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -27,19 +30,23 @@
             </table>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <system value="http://fhir.nl/fhir/NamingSystem/ura"/>
         <value value="00003333"/>
     </identifier>
-    <type>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="26fe0a8b-e3de-11eb-1996-020000000000"/>
+   </identifier>
+   <type>
         <coding>
             <system value="http://nictiz.nl/fhir/NamingSystem/organization-type"/>
             <code value="Z3"/>
             <display value="Huisartspraktijk (zelfstandig of groepspraktijk)"/>
         </coding>
     </type>
-    <name value="Aesculaap"/>
-    <address>
+   <name value="Aesculaap"/>
+   <address>
         <use value="work"/>
         <line value="Valkendael 45">
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">

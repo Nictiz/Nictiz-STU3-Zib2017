@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-pregnancy-duration-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-pregnancy-duration-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy-PregnancyDuration"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -27,26 +30,30 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-focusSTU3">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-focusSTU3">
         <valueReference>
             <reference value="Condition/zib-pregnancy-01"/>
             <display value="Observatie betreffende zwangerschap (waarneembare entiteit)"/>
         </valueReference>
     </extension>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="5eb3d22b-e3de-11eb-1521-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="57036006"/>
             <display value="Zwangerschapsduur"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="Irma Jongeneel-de Haas"/>
     </subject>
-    <effectiveDateTime value="2014-09-18"/>
-    <valueQuantity>
+   <effectiveDateTime value="2014-09-18"/>
+   <valueQuantity>
         <value value="24"/>
         <unit value="wk"/>
         <!-- Validator incorrectly complains about this URI. See https://bits.nictiz.nl/browse/MM-1845-->

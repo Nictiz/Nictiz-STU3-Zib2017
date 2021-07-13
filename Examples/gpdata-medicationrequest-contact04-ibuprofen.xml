@@ -1,9 +1,12 @@
-<MedicationRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
-    <id value="gpdata-medicationrequest-contact04-ibuprofen"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns="http://hl7.org/fhir"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
+   <id value="gpdata-medicationrequest-contact04-ibuprofen"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAgreement"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -59,39 +62,43 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
         <valueIdentifier>
             <system value="http://fhir.nl/fhir/NamingSystem/ura/00003333/medicamenteuzebehandelingen"/>
             <value value="9795"/>
         </valueIdentifier>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse">
         <valuePeriod>
             <start value="2020-03-15"/>
         </valuePeriod>
     </extension>
-    <intent value="order"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="25e9663b-e3de-11eb-1836-020000000000"/>
+   </identifier>
+   <intent value="order"/>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="16076005"/>
             <display value="Prescription (procedure)"/>
         </coding>
     </category>
-    <medicationReference>
+   <medicationReference>
         <reference value="Medication/gpdata-product-ibuprofen"/>
         <display value="IBUPROFEN 400MG TABLET"/>
     </medicationReference>
-    <subject>
+   <subject>
         <reference value="Patient/gpdata-patient-01"/>
         <display value="Jacqueline XXX_Cevat"/>
     </subject>
-    <context>
+   <context>
         <reference value="Encounter/gpdata-encounter-contact04"/>
         <display value="Consult voor HNP (thoracaal/lumbaal) met Dr. V. Huisarts 1"/>
     </context>
-    <authoredOn value="2020-03-15"/>
-    <requester>
+   <authoredOn value="2020-03-15"/>
+   <requester>
         <agent>
             <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
                 <valueReference>
@@ -103,7 +110,7 @@
             <display value="V. Huisarts 1"/>
         </agent>
     </requester>
-    <dosageInstruction>
+   <dosageInstruction>
         <sequence value="1"/>
         <text value="3D1T zn (3 maal daags, 1 tablet, zo nodig)"/>
         <timing>

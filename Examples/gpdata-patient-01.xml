@@ -1,9 +1,12 @@
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
-    <id value="gpdata-patient-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
+   <id value="gpdata-patient-01"/>
+   <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div>Id 999911132 (http://example-xis.org/fhir/NamingSystem/patientID), Jacqueline J XXX_Cevat, Vrouw, 25 juli 1964</div>
@@ -17,11 +20,15 @@
             <div>Huisarts: Dr. V. Huisarts 1</div>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <system value="http://example-xis.org/fhir/NamingSystem/patientID"/>
         <value value="999911132"/>
     </identifier>
-    <name>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="2756159b-e3de-11eb-5969-020000000000"/>
+   </identifier>
+   <name>
         <use value="official"/>
         <family value="XXX_Cevat">
             <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
@@ -39,19 +46,19 @@
             </extension>
         </given>
     </name>
-    <telecom>
+   <telecom>
         <system value="phone"/>
         <value value="+31190531770"/>
         <use value="home"/>
     </telecom>
-    <telecom>
+   <telecom>
         <system value="email"/>
         <value value="j_cevat950@HUISARTS.nl"/>
         <use value="home"/>
     </telecom>
-    <gender value="female"/>
-    <birthDate value="1964-07-25"/>
-    <address>
+   <gender value="female"/>
+   <birthDate value="1964-07-25"/>
+   <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
             <valueCodeableConcept>
                 <coding>
@@ -85,8 +92,8 @@
             </extension>
         </country>
     </address>
-    <multipleBirthBoolean value="false"/>
-    <generalPractitioner>
+   <multipleBirthBoolean value="false"/>
+   <generalPractitioner>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>
                 <reference value="PractitionerRole/gpdata-practitionerrole-01"/>

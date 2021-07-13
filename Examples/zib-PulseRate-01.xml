@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-pulserate-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-pulserate-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-PulseRate"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -45,46 +48,50 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="67e1facb-e3de-11eb-1817-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <category>
         <coding>
             <system value="http://hl7.org/fhir/observation-category"/>
             <code value="vital-signs"/>
             <display value="Vital Signs"/>
         </coding>
     </category>
-    <code>
+   <code>
         <coding>
             <system value="http://loinc.org"/>
             <code value="8893-0"/>
             <display value="Heart rate Peripheral artery by palpation"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <context>
+   <context>
         <reference value="Encounter/zib-encounter-03"/>
         <display value="inpatient encounter"/>
     </context>
-    <effectiveDateTime value="2013-02-08T06:43:00+02:00"/>
-    <performer>
+   <effectiveDateTime value="2013-02-08T06:43:00+02:00"/>
+   <performer>
         <reference value="Practitioner/nl-core-practitioner-03"/>
         <display value="Nurse G.Z.M. de Wit"/>
     </performer>
-    <valueQuantity>
+   <valueQuantity>
         <value value="50"/>
         <unit value="/min"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="/min"/>
     </valueQuantity>
-    <interpretation>
+   <interpretation>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="61086009"/>
             <display value="Pulse irregular"/>
         </coding>
     </interpretation>
-    <comment value="Sportvrouw"/>
+   <comment value="Sportvrouw"/>
 </Observation>

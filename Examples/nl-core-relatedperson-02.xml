@@ -1,11 +1,14 @@
-<RelatedPerson xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
-    <id value="nl-core-releatedperson-02"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<RelatedPerson xmlns="http://hl7.org/fhir"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
+   <id value="nl-core-releatedperson-02"/>
+   <meta>
         <versionId value="3"/>
         <lastUpdated value="2016-12-08T14:07:59.978+00:00"/>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div>Henk de Haas</div>
@@ -24,7 +27,7 @@
             </div>
         </div>
     </text>
-    <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
+   <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
         <valueCodeableConcept>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
@@ -33,18 +36,22 @@
             </coding>
         </valueCodeableConcept>
     </extension>
-    <patient>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="337d0bdb-e3de-11eb-1778-020000000000"/>
+   </identifier>
+   <patient>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="Irma Jongeneel-de Haas"/>
     </patient>
-    <relationship>
+   <relationship>
         <coding>
             <system value="http://hl7.org/fhir/v3/RoleCode"/>
             <code value="HUSB"/>
             <display value="husband"/>
         </coding>
     </relationship>
-    <name>
+   <name>
         <family value="de Haas">
             <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
                 <valueString value="de"/>
@@ -55,7 +62,7 @@
         </family>
         <given value="Henk"/>
     </name>
-    <telecom>
+   <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
@@ -69,12 +76,12 @@
         <value value="0612345990"/>
         <use value="work"/>
     </telecom>
-    <telecom>
+   <telecom>
         <system value="email"/>
         <value value="dehaas@work.com"/>
         <use value="work"/>
     </telecom>
-    <address>
+   <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
             <valueCodeableConcept>
                 <coding>

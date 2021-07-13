@@ -1,9 +1,12 @@
-<DeviceUseStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
-    <id value="zib-feedingtubesystem-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceUseStatement xmlns="http://hl7.org/fhir"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
+   <id value="zib-feedingtubesystem-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -26,19 +29,23 @@
             </table>
         </div>
     </text>
-    <status value="active"/>
-    <subject>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="499b200b-e3de-11eb-1892-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <whenUsed>
+   <whenUsed>
         <start value="2018-12-22"/>
     </whenUsed>
-    <device>
+   <device>
         <reference value="Device/zib-feedingtubesystem-product-01"/>
         <display value="Percutaneous endoscopic gastrostomy catheter"/>
     </device>
-    <note>
+   <note>
         <text value="Sonde is met spoed toegebracht."/>
     </note>
 </DeviceUseStatement>

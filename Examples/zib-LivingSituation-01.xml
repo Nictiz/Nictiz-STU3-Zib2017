@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-livingsituation-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-livingsituation-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LivingSituation"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -25,19 +28,23 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="54682b9b-e3de-11eb-1850-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="365508006"/>
             <display value="Finding of residence and accommodation circumstances (finding)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <valueCodeableConcept>
+   <valueCodeableConcept>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.13.1"/>
             <code value="EENGEZW"/>

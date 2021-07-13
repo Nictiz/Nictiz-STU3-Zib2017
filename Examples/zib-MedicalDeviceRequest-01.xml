@@ -1,9 +1,12 @@
-<DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/devicerequest.xsd">
-    <id value="zib-medicaldevicerequest-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceRequest xmlns="http://hl7.org/fhir"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/devicerequest.xsd">
+   <id value="zib-medicaldevicerequest-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceRequest"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -39,28 +42,32 @@
             </table>
         </div>
     </text>
-    <status value="active"/>
-    <intent>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="57352e4b-e3de-11eb-1414-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <intent>
         <coding>
             <system value="http://hl7.org/fhir/request-intent"/>
             <code value="order"/>
         </coding>
     </intent>
-    <codeCodeableConcept>
+   <codeCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="405815000"/>
             <display value="Procedure device"/>
         </coding>
     </codeCodeableConcept>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <occurrencePeriod>
+   <occurrencePeriod>
         <start value="2012-03-13"/>
     </occurrencePeriod>
-    <requester>
+   <requester>
         <agent>
             <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
                 <valueReference>
@@ -72,7 +79,7 @@
             <display value="Vaste Huisarts 1"/>
         </agent>
     </requester>
-    <performer>
+   <performer>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>
                 <reference value="PractitionerRole/nl-core-practitionerrole-01"/>

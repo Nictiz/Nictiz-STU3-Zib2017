@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-respiration-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-respiration-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Respiration"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -49,7 +52,7 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Respiration-AdministeredOxygen">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Respiration-AdministeredOxygen">
         <extension url="extraOxygenAdministration">
             <valueBoolean value="true"/>
         </extension>
@@ -68,20 +71,24 @@
             </valueQuantity>
         </extension>
     </extension>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="68594dab-e3de-11eb-6651-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="422834003"/>
             <display value="Respiratory assessment"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <effectiveDateTime value="2015-03-11T14:47:00Z"/>
-    <component>
+   <effectiveDateTime value="2015-03-11T14:47:00Z"/>
+   <component>
         <code>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -97,7 +104,7 @@
             </coding>
         </valueCodeableConcept>
     </component>
-    <component>
+   <component>
         <code>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -113,7 +120,7 @@
             </coding>
         </valueCodeableConcept>
     </component>
-    <component>
+   <component>
         <code>
             <coding>
                 <system value="http://loinc.org"/>

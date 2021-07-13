@@ -1,11 +1,14 @@
-<Person xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/person.xsd">
-    <id value="nl-core-person-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Person xmlns="http://hl7.org/fhir"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/person.xsd">
+   <id value="nl-core-person-01"/>
+   <meta>
         <versionId value="1"/>
         <lastUpdated value="2018-06-06T14:07:59.978+00:00"/>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-person"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div>Henk de Haas, Man</div>
@@ -19,7 +22,11 @@
             <div>Gekoppeld aan: Irma Jongeneel-de Haas</div>
         </div>
     </text>
-    <name>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="30071efb-e3de-11eb-2869-020000000000"/>
+   </identifier>
+   <name>
         <family value="de Haas">
             <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
                 <valueString value="de"/>
@@ -30,7 +37,7 @@
         </family>
         <given value="Henk"/>
     </name>
-    <telecom>
+   <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
@@ -44,12 +51,12 @@
         <value value="0612345990"/>
         <use value="work"/>
     </telecom>
-    <telecom>
+   <telecom>
         <system value="email"/>
         <value value="dehaas@work.com"/>
         <use value="work"/>
     </telecom>
-    <gender value="male">
+   <gender value="male">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -60,7 +67,7 @@
             </valueCodeableConcept>
         </extension>
     </gender>
-    <address>
+   <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
             <valueCodeableConcept>
                 <coding>
@@ -100,7 +107,7 @@
             </extension>
         </country>
     </address>
-    <link>
+   <link>
         <target>
             <reference value="Patient/nl-core-patient-03"/>
             <display value="Irma Jongeneel-de Haas"/>

@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-stoma-bladderfunction-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-stoma-bladderfunction-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Stoma"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -40,28 +43,32 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="6bc96e2b-e3de-11eb-7156-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="245857005"/>
             <display value="Stoma (morphologic abnormality)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <effectiveDateTime value="2014"/>
-    <valueCodeableConcept>
+   <effectiveDateTime value="2014"/>
+   <valueCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="281601009"/>
             <display value="Urological stoma"/>
         </coding>
     </valueCodeableConcept>
-    <comment value="Patient heeft veel last van dit type stoma."/>
-    <bodySite>
+   <comment value="Patient heeft veel last van dit type stoma."/>
+   <bodySite>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="362692001"/>

@@ -1,9 +1,12 @@
-<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
-    <id value="zib-textresult-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
+   <id value="zib-textresult-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -39,12 +42,16 @@
             </table>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <use value="official"/>
         <system value="http://www.acme.com/identifiers/patient"/>
         <value value="123456"/>
     </identifier>
-    <status value="appended">
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="6d2af9fb-e3de-11eb-9601-020000000000"/>
+   </identifier>
+   <status value="appended">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -55,23 +62,23 @@
             </valueCodeableConcept>
         </extension>
     </status>
-    <code>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="363680008"/>
             <display value="röntgen"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <context>
+   <context>
         <reference value="EpisodeOfCare/nl-core-episodeofcare-01"/>
         <display value="Gebroken been"/>
     </context>
-    <effectiveDateTime value="2000-12-23T10:25:00+00:00"/>
-    <performer>
+   <effectiveDateTime value="2000-12-23T10:25:00+00:00"/>
+   <performer>
         <role>
             <coding>
                 <system value="http://hl7.org/fhir/v3/ParticipationType"/>
@@ -90,5 +97,5 @@
             <display value="Vaste Huisarts 1"/>
         </actor>
     </performer>
-    <conclusion value="Helaas moet de breuk geopereerd worden."/>
+   <conclusion value="Helaas moet de breuk geopereerd worden."/>
 </DiagnosticReport>

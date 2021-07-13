@@ -1,9 +1,12 @@
-<Goal xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/goal.xsd">
-    <id value="zib-treatmentobjective-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Goal xmlns="http://hl7.org/fhir"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/goal.xsd">
+   <id value="zib-treatmentobjective-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentObjective"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -40,23 +43,27 @@
             </table>
         </div>
     </text>
-    <status value="accepted"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="6eac69db-e3de-11eb-8541-020000000000"/>
+   </identifier>
+   <status value="accepted"/>
+   <category>
         <coding>
             <system value="http://hl7.org/fhir/goal-category"/>
             <code value="physiotherapy"/>
             <display value="Physiotherapy"/>
         </coding>
     </category>
-    <description>
+   <description>
         <text value="Target is to be able to wash independently, with a slight impairment."/>
     </description>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <startDate value="2015-04-05"/>
-    <target>
+   <startDate value="2015-04-05"/>
+   <target>
         <measure>
             <coding>
                 <system value="http://hl7.org/fhir/sid/icf-nl"/>
@@ -73,7 +80,7 @@
         </detailCodeableConcept>
         <dueDate value="2016-04-05"/>
     </target>
-    <addresses>
+   <addresses>
         <reference value="Condition/zib-problem-02"/>
         <display value="Arthropathy (disorder)"/>
     </addresses>

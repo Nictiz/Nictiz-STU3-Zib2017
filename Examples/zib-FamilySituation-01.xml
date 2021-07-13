@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-familysituation-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-familysituation-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -76,21 +79,25 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="4837e68b-e3de-11eb-1398-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="365470003"/>
             <display value="Finding of family details and household composition (finding)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="Irma Jongeneel-de Haas"/>
     </subject>
-    <effectiveDateTime value="2018-08-10"/>
-    <comment value="Beide inwonende kinderen zijn zeer zelfstandig."/>
-    <component>
+   <effectiveDateTime value="2018-08-10"/>
+   <comment value="Beide inwonende kinderen zijn zeer zelfstandig."/>
+   <component>
         <!-- familyComposition -->
         <code>
             <coding>
@@ -108,7 +115,7 @@
             <text value="Woont samen met familie"/>
         </valueCodeableConcept>
     </component>
-    <component>
+   <component>
         <!-- numberOfChildren -->
         <code>
             <coding>
@@ -121,7 +128,7 @@
             <value value="3"/>
         </valueQuantity>
     </component>
-    <component>
+   <component>
         <!-- numberOfChildrenLivingAtHome -->
         <code>
             <coding>
@@ -134,7 +141,7 @@
             <value value="2"/>
         </valueQuantity>
     </component>
-    <component>
+   <component>
         <!-- careResponsibility -->
         <code>
             <coding>
@@ -145,7 +152,7 @@
         </code>
         <valueString value="Heeft zorg voor vader die in huis woont."/>
     </component>
-    <component>
+   <component>
         <!-- child #1 -->
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LivingAtHomeIndicator">
             <valueBoolean value="true"/>
@@ -159,7 +166,7 @@
         </code>
         <valueDateTime value="2009-08-02"/>
     </component>
-    <component>
+   <component>
         <!-- child #2 -->
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LivingAtHomeIndicator">
             <valueBoolean value="true"/>
@@ -173,7 +180,7 @@
         </code>
         <valueDateTime value="2011-04-02"/>
     </component>
-    <component>
+   <component>
         <!-- child #3 -->
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituation-LivingAtHomeIndicator">
             <valueBoolean value="false"/>

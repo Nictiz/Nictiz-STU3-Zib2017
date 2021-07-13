@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
-    <id value="zib-fluidbalance-01"/>
-    <meta>
+   <id value="zib-fluidbalance-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FluidBalance"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -44,24 +45,28 @@
             </table>
         </div>
     </text>
-    <status value="preliminary"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="4af1d66b-e3de-11eb-1487-020000000000"/>
+   </identifier>
+   <status value="preliminary"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="364396009"/>
             <display value="Fluid balance observable"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <effectivePeriod>
+   <effectivePeriod>
         <start value="2018-03-11T10:00:00+02:00"/>
         <end value="2018-03-11T17:30:00+02:00"/>
     </effectivePeriod>
-    <comment value="meting output via catheterzak"/>
-    <component>
+   <comment value="meting output via catheterzak"/>
+   <component>
         <!--FluidTotalIn-->
         <code>
             <coding>
@@ -77,7 +82,7 @@
             <code value="mL"/>
         </valueQuantity>
     </component>
-    <component>
+   <component>
         <!--FluidTotalOut-->
         <code>
             <coding>

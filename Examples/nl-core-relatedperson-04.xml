@@ -1,9 +1,12 @@
-<RelatedPerson xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
-    <id value="nl-core-relatedperson-04"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<RelatedPerson xmlns="http://hl7.org/fhir"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
+   <id value="nl-core-relatedperson-04"/>
+   <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div>H.A.K. de Haas - ter Boom (Hanneke)</div>
@@ -22,7 +25,7 @@
             </div>
         </div>
     </text>
-    <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
+   <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
         <valueCodeableConcept>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
@@ -31,18 +34,22 @@
             </coding>
         </valueCodeableConcept>
     </extension>
-    <patient>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="3432521b-e3de-11eb-2110-020000000000"/>
+   </identifier>
+   <patient>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Irma Jongeneel-de Haas"/>
     </patient>
-    <relationship>
+   <relationship>
         <coding>
             <system value="http://hl7.org/fhir/v3/RoleCode"/>
             <code value="NMTH"/>
             <display value="Natural mother"/>
         </coding>
     </relationship>
-    <name>
+   <name>
         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
             <valueCode value="NL4"/>
         </extension>
@@ -72,7 +79,7 @@
             </extension>
         </given>
     </name>
-    <telecom>
+   <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
@@ -86,12 +93,12 @@
         <value value="06-22222222"/>
         <use value="home"/>
     </telecom>
-    <telecom>
+   <telecom>
         <system value="email"/>
         <value value="h.terboom@example.com"/>
         <use value="work"/>
     </telecom>
-    <address>
+   <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
             <valueCodeableConcept>
                 <coding>

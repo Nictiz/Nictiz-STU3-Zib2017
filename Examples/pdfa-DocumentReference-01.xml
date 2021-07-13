@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <DocumentReference xmlns="http://hl7.org/fhir">
-    <id value="pdfa-documentreference-01"/>
-    <meta>
+   <id value="pdfa-documentreference-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.Minimal.DocumentReference"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -36,7 +37,7 @@
             </table>
         </div>
     </text>
-    <contained>
+   <contained>
         <Practitioner>
             <id value="p1"/>
             <name>
@@ -48,29 +49,33 @@
         <system value="urn:ietf:rfc:3986"/>
         <value value="urn:oid:1.2.276.0.7230010.3.1.2.1787205428.3024.1522314975.251898"/>
     </masterIdentifier>
-    <identifier>
+   <identifier>
         <system value="http://xis.org/fhir/NamingSystem/DocumentReferenceID"/>
         <value value="678909902"/>
     </identifier>
-    <status value="current"/>
-    <type>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="373d482b-e3de-11eb-1074-020000000000"/>
+   </identifier>
+   <status value="current"/>
+   <type>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="11071000146104"/>
             <display value="ontslagbrief"/>
         </coding>
     </type>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-02"/>
         <display value="Paul XXX_Mesker"/>
     </subject>
-    <indexed value="2019-06-10T11:13:21Z"/>
-    <author>
+   <indexed value="2019-06-10T11:13:21Z"/>
+   <author>
         <reference value="#p1"/>
         <display value="De Hoed"/>
     </author>
-    <description value="Kopie van ontslagbrief"/>
-    <content>
+   <description value="Kopie van ontslagbrief"/>
+   <content>
         <attachment>
             <contentType value="application/pdf"/>
             <language value="nl"/>

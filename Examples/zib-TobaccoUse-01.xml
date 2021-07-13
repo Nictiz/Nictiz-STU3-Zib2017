@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-tobaccouse-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-tobaccouse-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TobaccoUse"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -49,30 +52,34 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="6d9e553b-e3de-11eb-1803-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="365980008"/>
             <display value="Finding of tobacco use and exposure (finding)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <effectivePeriod>
+   <effectivePeriod>
         <start value="1980"/>
         <end value="1983"/>
     </effectivePeriod>
-    <valueCodeableConcept>
+   <valueCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="8517006"/>
             <display value="Ex-smoker (finding)"/>
         </coding>
     </valueCodeableConcept>
-    <component>
+   <component>
         <code>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -88,7 +95,7 @@
             </coding>
         </valueCodeableConcept>
     </component>
-    <component>
+   <component>
         <code>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -103,7 +110,7 @@
             <code value="{packs}/wk"/>
         </valueQuantity>
     </component>
-    <component>
+   <component>
         <code>
             <coding>
                 <system value="http://snomed.info/sct"/>

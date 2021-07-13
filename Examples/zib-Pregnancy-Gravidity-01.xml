@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-pregnancy-gravidity-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-pregnancy-gravidity-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy-Gravidity"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -23,25 +26,29 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-focusSTU3">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-focusSTU3">
         <valueReference>
             <reference value="Condition/zib-pregnancy-01"/>
             <display value="Observatie betreffende zwangerschap (waarneembare entiteit)"/>
         </valueReference>
     </extension>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="5f4c419b-e3de-11eb-1549-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://loinc.org"/>
             <code value="11996-6"/>
             <display value="Gravidity"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="Irma Jongeneel-de Haas"/>
     </subject>
-    <valueQuantity>
+   <valueQuantity>
         <value value="2"/>
         <unit value="times"/>
         <system value="http://unitsofmeasure.org"/>

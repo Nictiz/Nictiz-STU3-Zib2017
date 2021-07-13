@@ -1,11 +1,14 @@
-<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitioner.xsd">
-    <id value="nl-core-practitioner-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitioner.xsd">
+   <id value="nl-core-practitioner-01"/>
+   <meta>
         <versionId value="5"/>
         <lastUpdated value="2016-12-08T14:05:42.283+00:00"/>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
     </meta>
-    <text>
+   <text>
         <status value="additional"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -67,19 +70,23 @@
             </table>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <system value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"/>
         <value value="129854656"/>
     </identifier>
-    <identifier>
+   <identifier>
         <system value="http://fhir.nl/fhir/NamingSystem/agb-z"/>
         <value value="01069857"/>
     </identifier>
-    <identifier>
+   <identifier>
         <system value="http://fhir.nl/fhir/NamingSystem/big"/>
         <value value="12345678912"/>
     </identifier>
-    <name>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="304cb37b-e3de-11eb-1144-020000000000"/>
+   </identifier>
+   <name>
         <family value="de Vries">
             <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
                 <valueString value="de"/>
@@ -90,7 +97,7 @@
         </family>
         <given value="Henk"/>
     </name>
-    <telecom>
+   <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
@@ -104,12 +111,12 @@
         <value value="0612345990"/>
         <use value="work"/>
     </telecom>
-    <telecom>
+   <telecom>
         <system value="email"/>
         <value value="devries@work.com"/>
         <use value="work"/>
     </telecom>
-    <address>
+   <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
             <valueCodeableConcept>
                 <coding>

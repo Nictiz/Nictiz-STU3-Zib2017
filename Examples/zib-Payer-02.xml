@@ -1,9 +1,12 @@
-<Coverage xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/coverage.xsd">
-    <id value="zib-payer-02"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Coverage xmlns="http://hl7.org/fhir"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/coverage.xsd">
+   <id value="zib-payer-02"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -32,15 +35,19 @@
             </table>
         </div>
     </text>
-    <subscriber>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="5d574f6b-e3de-11eb-3176-020000000000"/>
+   </identifier>
+   <subscriber>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subscriber>
-    <beneficiary>
+   <beneficiary>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </beneficiary>
-    <payor>
+   <payor>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Payer-BankInformation">
             <extension url="BankName">
                 <valueString value="ING"/>

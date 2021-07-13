@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
-    <id value="WoundCharacteristics-02"/>
-    <meta>
+   <id value="WoundCharacteristics-02"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/WoundCharacteristics"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -36,32 +37,38 @@
                             <span title="Photographic image (72170-4 - LOINC)">Photographic image</span>
                         </td>
                         <td>
-                            <img src="http://www.acme.com/logo-small.png" alt="" title="Official Corporate Logo"/>
+                            <img src="http://www.acme.com/logo-small.png"
+                          alt=""
+                          title="Official Corporate Logo"/>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </text>
-    <extension url="http://hl7.org/fhir/StructureDefinition/event-reasonReference">
+   <extension url="http://hl7.org/fhir/StructureDefinition/event-reasonReference">
         <valueReference>
             <reference value="Condition/zib-pressureulcer-01"/>
             <display value="PressureUlcer"/>
         </valueReference>
     </extension>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="38d155ab-e3de-11eb-1555-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="364554009"/>
             <display value="Wound observable (observable entity)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <component>
+   <component>
         <code>
             <coding>
                 <system value="http://loinc.org"/>
@@ -76,7 +83,7 @@
             <code value="cm"/>
         </valueQuantity>
     </component>
-    <component>
+   <component>
         <code>
             <coding>
                 <system value="http://loinc.org"/>
@@ -91,7 +98,7 @@
             <code value="cm"/>
         </valueQuantity>
     </component>
-    <component>
+   <component>
         <!-- WoundImage -->
         <code>
             <coding>

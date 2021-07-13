@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-laboratorytestresult-observation-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-laboratorytestresult-observation-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -45,40 +48,44 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="52e55c2b-e3de-11eb-1088-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="49581000146104"/>
             <display value="Laboratory test finding (finding)"/>
         </coding>
     </category>
-    <category>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="275711006"/>
             <display value="Serum chemistry test"/>
         </coding>
     </category>
-    <code>
+   <code>
         <coding>
             <system value="http://loinc.org"/>
             <code value="2069-3"/>
             <display value="Chloride [Moles/volume] in Blood"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <effectiveDateTime value="2012-05-23T12:00:00+02:00"/>
-    <valueQuantity>
+   <effectiveDateTime value="2012-05-23T12:00:00+02:00"/>
+   <valueQuantity>
         <value value="109"/>
         <unit value="mmol/l"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="mmol/L"/>
     </valueQuantity>
-    <interpretation>
+   <interpretation>
         <coding>
             <system value="http://hl7.org/fhir/v2/0078"/>
             <code value="H"/>
@@ -90,11 +97,11 @@
             <display value="Above reference range"/>
         </coding>
     </interpretation>
-    <specimen>
+   <specimen>
         <reference value="Specimen/zib-laboratorytestresult-specimen-01"/>
         <display value="Blood (substance)"/>
     </specimen>
-    <referenceRange>
+   <referenceRange>
         <low>
             <value value="99"/>
             <unit value="mmol/l"/>

@@ -1,9 +1,12 @@
-<DeviceUseStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
-    <id value="zib-medicaldevice-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceUseStatement xmlns="http://hl7.org/fhir"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
+   <id value="zib-medicaldevice-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -39,25 +42,29 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Organization">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Organization">
         <valueReference>
             <reference value="Organization/nl-core-organization-03"/>
             <display value="Test Medisch Centrum"/>
         </valueReference>
     </extension>
-    <status value="active"/>
-    <subject>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="54d8528b-e3de-11eb-5040-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <whenUsed>
+   <whenUsed>
         <start value="2007"/>
     </whenUsed>
-    <device>
+   <device>
         <reference value="Device/zib-MedicalDeviceProduct-03"/>
         <display value="Gehoorapparaat"/>
     </device>
-    <indication>
+   <indication>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice-Problem">
             <valueReference>
                 <reference value="Condition/zib-problem-04"/>
@@ -65,7 +72,7 @@
             </valueReference>
         </extension>
     </indication>
-    <bodySite>
+   <bodySite>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
             <valueCodeableConcept>
                 <coding>
@@ -81,7 +88,7 @@
             <display value="Ear Structure"/>
         </coding>
     </bodySite>
-    <note>
+   <note>
         <text value="Apparaat niet zichtbaar (diep in de gehooringang)"/>
     </note>
 </DeviceUseStatement>

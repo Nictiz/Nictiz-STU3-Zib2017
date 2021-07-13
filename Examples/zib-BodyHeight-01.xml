@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-bodyheight-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-bodyheight-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BodyHeight"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -37,15 +40,19 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="4266a48b-e3de-11eb-1557-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <category>
         <coding>
             <system value="http://hl7.org/fhir/observation-category"/>
             <code value="vital-signs"/>
             <display value="Vital Signs"/>
         </coding>
     </category>
-    <code>
+   <code>
         <coding>
             <system value="http://loinc.org"/>
             <code value="8302-2"/>
@@ -57,20 +64,20 @@
             <display value="Body height --standing"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <effectiveDateTime value="2013-02-08"/>
-    <performer>
+   <effectiveDateTime value="2013-02-08"/>
+   <performer>
         <reference value="Practitioner/nl-core-practitioner-02"/>
         <display value="Vaste Huisarts 1"/>
     </performer>
-    <valueQuantity>
+   <valueQuantity>
         <value value="183"/>
         <unit value="cm"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="cm"/>
     </valueQuantity>
-    <comment value="met schoenen aan"/>
+   <comment value="met schoenen aan"/>
 </Observation>

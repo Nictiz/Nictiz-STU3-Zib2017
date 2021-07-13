@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
-    <id value="zib-pregnancy-datelastmenstruation-01"/>
-    <meta>
+   <id value="zib-pregnancy-datelastmenstruation-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Pregnancy-DateLastMenstruation"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -29,25 +30,29 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-focusSTU3">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-focusSTU3">
         <valueReference>
             <reference value="Condition/zib-pregnancy-01"/>
             <display value="Observatie betreffende zwangerschap"/>
         </valueReference>
     </extension>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="5e50074b-e3de-11eb-1543-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="21840007"/>
             <display value="Date of last menstrual period"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="Irma Jongeneel-de Haas"/>
     </subject>
-    <performer>
+   <performer>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>
                 <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
@@ -57,5 +62,5 @@
         <reference value="Practitioner/nl-core-practitioner-02"/>
         <display value="Vaste Huisarts 1"/>
     </performer>
-    <valueDateTime value="2018-12-19"/>
+   <valueDateTime value="2018-12-19"/>
 </Observation>

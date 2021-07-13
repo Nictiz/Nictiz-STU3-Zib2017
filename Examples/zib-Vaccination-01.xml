@@ -1,9 +1,12 @@
-<Immunization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/immunization.xsd">
-    <id value="zib-vaccination-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Immunization xmlns="http://hl7.org/fhir"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/immunization.xsd">
+   <id value="zib-vaccination-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Vaccination"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -31,28 +34,32 @@
             </table>
         </div>
     </text>
-    <status value="completed"/>
-    <notGiven value="false"/>
-    <vaccineCode>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="6f96f0eb-e3de-11eb-9700-020000000000"/>
+   </identifier>
+   <status value="completed"/>
+   <notGiven value="false"/>
+   <vaccineCode>
         <coding>
             <system value="http://www.whocc.no/atc"/>
             <code value="J06BB11"/>
             <display value="hepatitis A immunoglobulin"/>
         </coding>
     </vaccineCode>
-    <patient>
+   <patient>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </patient>
-    <date value="1999-03-09"/>
-    <primarySource value="false"/>
-    <practitioner>
+   <date value="1999-03-09"/>
+   <primarySource value="false"/>
+   <practitioner>
         <actor>
             <reference value="Practitioner/nl-core-practitioner-01"/>
             <display value="Huisarts H. de Vries"/>
         </actor>
     </practitioner>
-    <note>
+   <note>
         <text value="Bezoek aan Guatemala"/>
     </note>
 </Immunization>

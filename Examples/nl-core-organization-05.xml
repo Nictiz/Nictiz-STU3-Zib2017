@@ -1,11 +1,14 @@
-<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/organization.xsd">
-    <id value="nl-core-organization-05"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/organization.xsd">
+   <id value="nl-core-organization-05"/>
+   <meta>
         <versionId value="6"/>
         <lastUpdated value="2016-11-09T17:27:51.255+00:00"/>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -57,32 +60,36 @@
             </table>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <system value="http://fhir.nl/fhir/NamingSystem/agb-z"/>
         <value value="12341234"/>
     </identifier>
-    <identifier>
+   <identifier>
         <system value="http://fhir.nl/fhir/NamingSystem/ura"/>
         <value value="12341234"/>
     </identifier>
-    <active value="true"/>
-    <type>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="2cc699fb-e3de-11eb-3641-020000000000"/>
+   </identifier>
+   <active value="true"/>
+   <type>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
             <code value="0329"/>
             <display value="Psychiatrie"/>
         </coding>
     </type>
-    <type>
+   <type>
         <coding>
             <system value="http://nictiz.nl/fhir/NamingSystem/organization-type"/>
             <code value="V4"/>
             <display value="Ziekenhuis"/>
         </coding>
     </type>
-    <name value="Ziekenhuis Gooi en Overvecht"/>
-    <alias value="ZGO"/>
-    <telecom>
+   <name value="Ziekenhuis Gooi en Overvecht"/>
+   <alias value="ZGO"/>
+   <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
@@ -96,7 +103,7 @@
         <value value="030-1234567"/>
         <use value="work"/>
     </telecom>
-    <address>
+   <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
             <valueCodeableConcept>
                 <coding>
@@ -129,7 +136,7 @@
             </extension>
         </country>
     </address>
-    <contact>
+   <contact>
         <purpose>
             <coding>
                 <system value="http://hl7.org/fhir/contactentity-type"/>

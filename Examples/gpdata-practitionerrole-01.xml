@@ -1,9 +1,12 @@
-<PractitionerRole xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitionerrole.xsd">
-    <id value="gpdata-practitionerrole-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<PractitionerRole xmlns="http://hl7.org/fhir"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitionerrole.xsd">
+   <id value="gpdata-practitionerrole-01"/>
+   <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -39,31 +42,35 @@
             </table>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <system value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"/>
         <value value="000001111"/>
     </identifier>
-    <practitioner>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="2802f76b-e3de-11eb-1869-020000000000"/>
+   </identifier>
+   <practitioner>
         <reference value="Practitioner/gpdata-practitioner-01"/>
         <display value="Dr. V. Huisarts 1"/>
     </practitioner>
-    <organization>
+   <organization>
         <reference value="Organization/gpdata-organization-01"/>
         <display value="Aesculaap"/>
     </organization>
-    <specialty>
+   <specialty>
         <coding>
             <system value="http://fhir.nl/fhir/NamingSystem/uzi-rolcode"/>
             <code value="01.015"/>
             <display value="Huisarts"/>
         </coding>
     </specialty>
-    <telecom>
+   <telecom>
         <system value="phone"/>
         <value value="+31434073576"/>
         <use value="work"/>
     </telecom>
-    <telecom>
+   <telecom>
         <system value="email"/>
         <value value="Huisarts1@aesculaap.nl"/>
         <use value="work"/>

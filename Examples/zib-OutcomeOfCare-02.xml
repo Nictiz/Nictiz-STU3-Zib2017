@@ -1,9 +1,12 @@
-<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
-    <id value="zib-outcomeofcare-02"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
+   <id value="zib-outcomeofcare-02"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-OutcomeOfCare"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -23,17 +26,21 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="5bb7821b-e3de-11eb-4184-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://loinc.org"/>
             <code value="27574-3"/>
             <display value="Skilled nursing treatment plan Progress note and attainment of goals (narrative)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <conclusion value="Pijn is onder controle."/>
+   <conclusion value="Pijn is onder controle."/>
 </DiagnosticReport>

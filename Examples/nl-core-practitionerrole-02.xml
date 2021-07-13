@@ -1,9 +1,12 @@
-<PractitionerRole xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitionerrole.xsd">
-    <id value="nl-core-practitionerrole-02"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<PractitionerRole xmlns="http://hl7.org/fhir"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitionerrole.xsd">
+   <id value="nl-core-practitionerrole-02"/>
+   <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -32,22 +35,26 @@
             </table>
         </div>
     </text>
-    <practitioner>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="31fc5f4b-e3de-11eb-4309-020000000000"/>
+   </identifier>
+   <practitioner>
         <reference value="Practitioner/nl-core-practitioner-02"/>
         <display value="Vaste Huisarts 1"/>
     </practitioner>
-    <organization>
+   <organization>
         <reference value="Organization/nl-core-organization-01"/>
         <display value="Maatschap Vaste Huisarts"/>
     </organization>
-    <code>
+   <code>
         <coding>
             <system value="http://hl7.org/fhir/v3/ParticipationType"/>
             <code value="PRF"/>
             <display value="Performer"/>
         </coding>
     </code>
-    <specialty>
+   <specialty>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
             <code value="0100"/>

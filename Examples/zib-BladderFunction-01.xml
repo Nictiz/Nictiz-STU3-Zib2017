@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
-    <id value="zib-bladderfunction-01"/>
-    <meta>
+   <id value="zib-bladderfunction-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -29,26 +30,30 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-zibStomaReference">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-zibStomaReference">
         <valueReference>
             <reference value="Observation/zib-stoma-bladderfunction-01"/>
             <display value="Stoma (morphologic abnormality)"/>
         </valueReference>
     </extension>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="40f699cb-e3de-11eb-7098-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="28278009"/>
             <display value="Micturition (observable entity)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="J. XXX_Helleman (Johan)"/>
     </subject>
-    <effectiveDateTime value="2013-02-08T06:48:30+02:00"/>
-    <valueCodeableConcept>
+   <effectiveDateTime value="2013-02-08T06:48:30+02:00"/>
+   <valueCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="165232002"/>

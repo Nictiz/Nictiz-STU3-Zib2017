@@ -1,9 +1,12 @@
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
-    <id value="zib-burnwound-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
+   <id value="zib-burnwound-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -34,10 +37,10 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/condition-dateOfLastDressingChange">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/condition-dateOfLastDressingChange">
         <valueDateTime value="2019-03-07"/>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound-Extent">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound-Extent">
         <valueQuantity>
             <value value="1"/>
             <unit value="%"/>
@@ -45,9 +48,13 @@
             <code value="%"/>
         </valueQuantity>
     </extension>
-    <clinicalStatus value="active"/>
-    <verificationStatus value="unknown"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="43fe829b-e3de-11eb-1115-020000000000"/>
+   </identifier>
+   <clinicalStatus value="active"/>
+   <verificationStatus value="unknown"/>
+   <code>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound-BurnWoundType">
             <valueCodeableConcept>
                 <coding>
@@ -63,7 +70,7 @@
             <display value="Burn (disorder)"/>
         </coding>
     </code>
-    <bodySite>
+   <bodySite>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
             <valueCodeableConcept>
                 <coding>
@@ -79,12 +86,12 @@
             <display value="structuur van oppervlak van dorsum manus"/>
         </coding>
     </bodySite>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <onsetDateTime value="2018-08-16"/>
-    <stage>
+   <onsetDateTime value="2018-08-16"/>
+   <stage>
         <summary>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -93,7 +100,7 @@
             </coding>
         </summary>
     </stage>
-    <note>
+   <note>
         <text value="Werkongeval in de hoogovens IJmuiden."/>
     </note>
 </Condition>

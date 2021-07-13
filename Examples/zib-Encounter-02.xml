@@ -1,9 +1,12 @@
-<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
-    <id value="zib-encounter-02"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
+   <id value="zib-encounter-02"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
     </meta>
-    <text>
+   <text>
         <status value="additional"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -31,32 +34,36 @@
             </table>
         </div>
     </text>
-    <status value="finished"/>
-    <class>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="474f0d2b-e3de-11eb-3617-020000000000"/>
+   </identifier>
+   <status value="finished"/>
+   <class>
         <system value="http://hl7.org/fhir/v3/ActCode"/>
         <code value="EMER"/>
         <display value="emergency"/>
     </class>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <participant>
+   <participant>
         <individual>
             <reference value="Practitioner/nl-core-practitioner-01"/>
             <display value="H. de Vries"/>
         </individual>
     </participant>
-    <period>
+   <period>
         <start value="2012-08-16"/>
     </period>
-    <diagnosis>
+   <diagnosis>
         <condition>
             <reference value="Condition/zib-problem-05"/>
             <display value="Broken leg"/>
         </condition>
     </diagnosis>
-    <serviceProvider>
+   <serviceProvider>
         <reference value="Organization/nl-core-organization-02"/>
         <display value="Universitair Medisch Centrum Groningen"/>
     </serviceProvider>

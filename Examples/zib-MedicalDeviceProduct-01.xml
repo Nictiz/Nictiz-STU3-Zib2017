@@ -1,9 +1,12 @@
-<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/device.xsd">
-    <id value="zib-medicaldeviceproduct-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns="http://hl7.org/fhir"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/device.xsd">
+   <id value="zib-medicaldeviceproduct-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -32,7 +35,7 @@
             </table>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <type>
             <coding>
                 <system value="http://hl7.org/fhir/identifier-type"/>
@@ -41,23 +44,27 @@
         </type>
         <value value="1148130801"/>
     </identifier>
-    <udi>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="55d32d4b-e3de-11eb-1948-020000000000"/>
+   </identifier>
+   <udi>
         <deviceIdentifier value="05050474530799"/>
         <carrierHRF value="{01}05050474530799{17}160131{21}1148130801"/>
     </udi>
-    <type>
+   <type>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="109228008"/>
             <display value="Knee joint prosthesis, device (physical object)"/>
         </coding>
     </type>
-    <expirationDate value="2016-01-31"/>
-    <patient>
+   <expirationDate value="2016-01-31"/>
+   <patient>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </patient>
-    <note>
+   <note>
         <text value="Implantant, Gen 2 Tibia Insert 5/6-9mm"/>
     </note>
 </Device>

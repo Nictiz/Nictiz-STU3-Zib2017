@@ -1,17 +1,24 @@
-<HealthcareService xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/healthcareservice.xsd">
-    <id value="nl-core-healthcareservice-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<HealthcareService xmlns="http://hl7.org/fhir"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/healthcareservice.xsd">
+   <id value="nl-core-healthcareservice-01"/>
+   <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-healthcareservice"/>
     </meta>
-    <providedBy>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="2a79278b-e3de-11eb-3793-020000000000"/>
+   </identifier>
+   <providedBy>
         <reference value="Organization/nl-core-organization-02"/>
         <display value="Orthopedie - UMCG"/>
     </providedBy>
-    <location>
+   <location>
         <reference value="Location/nl-core-location-01"/>
         <display value="Orthopodie afdeling ACME in Den Haag"/>
     </location>
-    <telecom>
+   <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>

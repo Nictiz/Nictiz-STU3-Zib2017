@@ -1,19 +1,26 @@
-<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitioner.xsd">
-    <id value="gpdata-practitioner-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitioner.xsd">
+   <id value="gpdata-practitioner-01"/>
+   <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div>Id 000001111 (UZI-NR-PERS), Vaste V. Huisarts 1, Vrouw</div>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <system value="http://fhir.nl/fhir/NamingSystem/uzi-nr-pers"/>
         <value value="000001111"/>
     </identifier>
-    <name>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="27add28b-e3de-11eb-7778-020000000000"/>
+   </identifier>
+   <name>
         <family value="Huisarts 1">
             <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
                 <valueString value="Huisarts 1"/>
@@ -30,5 +37,5 @@
             </extension>
         </given>
     </name>
-    <gender value="female"/>
+   <gender value="female"/>
 </Practitioner>

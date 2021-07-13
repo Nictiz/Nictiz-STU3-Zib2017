@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-familysituationchild-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-familysituationchild-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -79,25 +82,29 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="48b04adb-e3de-11eb-1702-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="55801000146105"/>
             <display value="Finding of family details and household composition of child (finding)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="Irma Jongeneel-de Haas"/>
     </subject>
-    <effectiveDateTime value="2018-08-12"/>
-    <performer>
+   <effectiveDateTime value="2018-08-12"/>
+   <performer>
         <reference value="Practitioner/nl-core-practitioner-01"/>
         <display value="Huisarts H. de Vries"/>
     </performer>
-    <comment value="Patient heeft vaak ruzie met de moeder."/>
-    <component>
+   <comment value="Patient heeft vaak ruzie met de moeder."/>
+   <component>
         <code>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -114,7 +121,7 @@
             <text value="Woont bij moeder"/>
         </valueCodeableConcept>
     </component>
-    <component>
+   <component>
         <code>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -126,7 +133,7 @@
             <value value="2"/>
         </valueQuantity>
     </component>
-    <component>
+   <component>
         <!-- parent #1 -->
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
@@ -142,7 +149,7 @@
             </coding>
         </code>
     </component>
-    <component>
+   <component>
         <!-- parent #2 -->
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
@@ -158,7 +165,7 @@
             </coding>
         </code>
     </component>
-    <component>
+   <component>
         <!-- child #1 -->
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
@@ -175,7 +182,7 @@
         </code>
         <valueDateTime value="2018-06-02"/>
     </component>
-    <component>
+   <component>
         <!-- sibling #1 -->
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>
@@ -192,7 +199,7 @@
         </code>
         <valueDateTime value="2009-12-20"/>
     </component>
-    <component>
+   <component>
         <!-- sibling #2 -->
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FamilySituationChild-RelatedPerson">
             <valueReference>

@@ -1,9 +1,12 @@
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careplan.xsd">
-    <id value="nl-core-careplan-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careplan.xsd">
+   <id value="nl-core-careplan-01"/>
+   <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-careplan"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -103,38 +106,42 @@
             </table>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <system value="http://myexample.com/system/careplan"/>
         <value value="123456789"/>
     </identifier>
-    <status value="active"/>
-    <intent value="plan"/>
-    <subject>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="28a3a43b-e3de-11eb-1076-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <intent value="plan"/>
+   <subject>
         <reference value="Patient/nl-core-patient-02"/>
         <display value="Paul XXX_Mesker"/>
     </subject>
-    <context>
+   <context>
         <reference value="EpisodeOfCare/nl-core-episodeofcare-01"/>
         <display value="Gebroken been"/>
     </context>
-    <period>
+   <period>
         <start value="2019-02-06"/>
     </period>
-    <author>
+   <author>
         <reference value="Practitioner/nl-core-practitioner-04"/>
         <display value="Dr. D. de Vries"/>
     </author>
-    <goal>
+   <goal>
         <reference value="Goal/zib-treatmentobjective-01"/>
         <display value="Volledig herstel met betrekking tot het kunnen lopen"/>
     </goal>
-    <activity>
+   <activity>
         <reference>
             <reference value="ProcedureRequest/zib-procedurerequest-02"/>
             <display value="Aanvrager: Dr. J. Jansen"/>
         </reference>
     </activity>
-    <activity>
+   <activity>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
             <valueString value="De interventie verliep zeer soepel."/>
         </extension>

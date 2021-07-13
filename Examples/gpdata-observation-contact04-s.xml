@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="gpdata-observation-contact04-s"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="gpdata-observation-contact04-s"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-JournalEntry"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -34,24 +37,28 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="269b02fb-e3de-11eb-1766-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://fhir.nl/fhir/NamingSystem/journaalregeltypen"/>
             <code value="S"/>
             <display value="Subjectief"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/gpdata-patient-01"/>
         <display value="Jacqueline XXX_Cevat"/>
     </subject>
-    <context>
+   <context>
         <reference value="Encounter/gpdata-encounter-contact04"/>
         <display value="Consult voor HNP (thoracaal/lumbaal) met Dr. V. Huisarts 1"/>
     </context>
-    <effectiveDateTime value="2020-03-15"/>
-    <performer>
+   <effectiveDateTime value="2020-03-15"/>
+   <performer>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>
                 <reference value="PractitionerRole/gpdata-practitionerrole-01"/>
@@ -61,5 +68,5 @@
         <reference value="Practitioner/gpdata-practitioner-01"/>
         <display value="V. Huisarts 1"/>
     </performer>
-    <valueString value="Pijn onderrug re, geen uitstraling of hoofdpijn."/>
+   <valueString value="Pijn onderrug re, geen uitstraling of hoofdpijn."/>
 </Observation>

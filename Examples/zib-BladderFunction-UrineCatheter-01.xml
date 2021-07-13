@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <DeviceUseStatement xmlns="http://hl7.org/fhir">
-    <id value="zib-bladderfunction-urinecatheter-01"/>
-    <meta>
+   <id value="zib-bladderfunction-urinecatheter-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BladderFunction-UrineCatheter"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -17,18 +18,22 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3">
         <valueReference>
             <reference value="Observation/zib-bladderfunction-01"/>
             <display value="Micturition (observable entity)"/>
         </valueReference>
     </extension>
-    <status value="active"/>
-    <subject>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="416476cb-e3de-11eb-2047-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="J. XXX_Helleman (Johan)"/>
     </subject>
-    <device>
+   <device>
         <reference value="Device/zib-bladderfunction-urinecatheter-product-01"/>
         <display value="Verblijfskatheter"/>
     </device>

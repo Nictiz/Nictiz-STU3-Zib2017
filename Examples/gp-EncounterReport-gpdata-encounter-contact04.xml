@@ -1,10 +1,13 @@
-<Composition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
-    <id value="gp-EncounterReport-gpdata-encounter-contact04"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Composition xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
+   <id value="gp-EncounterReport-gpdata-encounter-contact04"/>
+   <meta>
         <lastUpdated value="2018-11-11T11:19:35.395+01:00"/>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-EncounterReport"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <b>Contactverslag dd. 2020-03-15</b>
@@ -32,24 +35,28 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <type>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="2340664b-e3de-11eb-1342-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <type>
         <coding>
             <system value="http://loinc.org"/>
             <code value="67781-5"/>
             <display value="Summarization of encounter note Narrative"/>
         </coding>
     </type>
-    <subject>
+   <subject>
         <reference value="Patient/gpdata-patient-01"/>
         <display value="Jacqueline XXX_Cevat"/>
     </subject>
-    <encounter>
+   <encounter>
         <reference value="Encounter/gpdata-encounter-contact04"/>
         <display value="Consult voor HNP (thoracaal/lumbaal) met Dr. V. Huisarts 1"/>
     </encounter>
-    <date value="2020-03-15"/>
-    <author>
+   <date value="2020-03-15"/>
+   <author>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>
                 <reference value="PractitionerRole/gpdata-practitionerrole-01"/>
@@ -59,8 +66,8 @@
         <reference value="Practitioner/gpdata-practitioner-01"/>
         <display value="Dr. V. Huisarts 1"/>
     </author>
-    <title value="Contactverslag dd. 2020-03-15"/>
-    <section>
+   <title value="Contactverslag dd. 2020-03-15"/>
+   <section>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-icpc-1-nl">
             <valueCodeableConcept>
                 <coding>

@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-generalmeasurement-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-generalmeasurement-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -36,7 +39,11 @@
             </table>
         </div>
     </text>
-    <status value="final">
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="4c8372eb-e3de-11eb-1698-020000000000"/>
+   </identifier>
+   <status value="final">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -47,31 +54,31 @@
             </valueCodeableConcept>
         </extension>
     </status>
-    <category>
+   <category>
         <coding>
             <system value="http://hl7.org/fhir/observation-category"/>
             <code value="survey"/>
             <display value="survey"/>
         </coding>
     </category>
-    <code>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="273513009"/>
             <display value="Health of the Nation Outcome Scale (generic version) (assessment scale)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="Irma Jongeneel-de Haas"/>
     </subject>
-    <related>
+   <related>
         <target>
             <reference value="Observation/zib-generalmeasurement-result-01"/>
             <display value="MeasurementResult - Health of the Nation Outcome Scale - summated (generic version)"/>
         </target>
     </related>
-    <related>
+   <related>
         <target>
             <reference value="Observation/zib-generalmeasurement-result-02"/>
             <display value="MeasurementResult - Health of the Nation Outcome Scale item 1 - aggressive/disruptive behavior"/>

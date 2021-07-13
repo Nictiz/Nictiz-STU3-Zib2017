@@ -1,9 +1,12 @@
-<Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/consent.xsd">
-    <id value="zib-treatmentdirective-02"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Consent xmlns="http://hl7.org/fhir"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/consent.xsd">
+   <id value="zib-treatmentdirective-02"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -43,7 +46,7 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Verification">
         <extension url="Verified">
             <valueBoolean value="true"/>
         </extension>
@@ -60,7 +63,7 @@
             <valueDateTime value="2018-04-09"/>
         </extension>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-Treatment">
         <valueCodeableConcept>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -69,13 +72,13 @@
             </coding>
         </valueCodeableConcept>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/consent-additionalSources">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/consent-additionalSources">
         <valueReference>
             <reference value="Consent/zib-advancedirective-03"/>
             <display value="Mondelinge afspraak"/>
         </valueReference>
     </extension>
-    <modifierExtension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-TreatmentPermitted">
+   <modifierExtension url="http://nictiz.nl/fhir/StructureDefinition/zib-TreatmentDirective-TreatmentPermitted">
         <valueCodeableConcept>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4"/>
@@ -84,26 +87,30 @@
             </coding>
         </valueCodeableConcept>
     </modifierExtension>
-    <status value="active"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="6e5d868b-e3de-11eb-1598-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="11291000146105"/>
             <display value="Treatment instructions (record artifact)"/>
         </coding>
     </category>
-    <patient>
+   <patient>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </patient>
-    <period>
+   <period>
         <start value="2018-04-09"/>
     </period>
-    <sourceReference>
+   <sourceReference>
         <reference value="Consent/zib-advancedirective-02"/>
         <display value="Niet-reanimerenpenning"/>
     </sourceReference>
-    <policy>
+   <policy>
         <uri value="http://wetten.overheid.nl/"/>
     </policy>
 </Consent>

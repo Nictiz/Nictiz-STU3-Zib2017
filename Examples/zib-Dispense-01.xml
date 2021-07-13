@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns="http://hl7.org/fhir">
-    <id value="zib-dispense-01"/>
-    <meta>
+   <id value="zib-dispense-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -33,17 +34,21 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
         <valueIdentifier>
             <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
             <value value="MBH_907_mgEx_2"/>
         </valueIdentifier>
     </extension>
-    <identifier>
+   <identifier>
         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.373784005.1"/>
         <value value="MBH_907_mgEx_2_MVE1"/>
     </identifier>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="457766fb-e3de-11eb-9935-020000000000"/>
+   </identifier>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="373784005"/>
@@ -51,25 +56,25 @@
         </coding>
         <text value="Medicatieverstrekking"/>
     </category>
-    <medicationReference>
+   <medicationReference>
         <reference value="Medication/zib-Product-01"/>
         <display value="PRIMPERAN ZETPIL 20MG"/>
     </medicationReference>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <performer>
+   <performer>
         <actor>
             <reference value="Organization/nl-core-organization-06"/>
             <display value="Apotheek De Gulle Gaper"/>
         </actor>
     </performer>
-    <quantity>
+   <quantity>
         <value value="50"/>
         <unit value="stuk"/>
         <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
         <code value="245"/>
     </quantity>
-    <whenHandedOver value="2020-06-08T09:59:00+02:00"/>
+   <whenHandedOver value="2020-06-08T09:59:00+02:00"/>
 </MedicationDispense>

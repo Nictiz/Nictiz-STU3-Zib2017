@@ -1,11 +1,14 @@
-<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/patient.xsd">
-    <id value="nl-core-patient-03"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/patient.xsd">
+   <id value="nl-core-patient-03"/>
+   <meta>
         <versionId value="15"/>
         <lastUpdated value="2017-01-23T13:51:41.677+00:00"/>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
     </meta>
-    <text>
+   <text>
         <status value="additional"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <div>
@@ -23,13 +26,17 @@
             </div>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <use value="official"/>
         <system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
         <value value="123456782"/>
     </identifier>
-    <active value="true"/>
-    <name>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="2ea25edb-e3de-11eb-3101-020000000000"/>
+   </identifier>
+   <active value="true"/>
+   <name>
         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
             <valueCode value="NL4"/>
         </extension>
@@ -56,7 +63,7 @@
             </extension>
         </given>
     </name>
-    <telecom>
+   <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
@@ -70,12 +77,12 @@
         <value value="030-23454567"/>
         <use value="home"/>
     </telecom>
-    <telecom>
+   <telecom>
         <system value="email"/>
         <value value="user@home.nl"/>
         <use value="home"/>
     </telecom>
-    <gender value="female">
+   <gender value="female">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -86,9 +93,9 @@
             </valueCodeableConcept>
         </extension>
     </gender>
-    <birthDate value="1970-03-04"/>
-    <deceasedBoolean value="false"/>
-    <address>
+   <birthDate value="1970-03-04"/>
+   <deceasedBoolean value="false"/>
+   <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
             <valueCodeableConcept>
                 <coding>
@@ -127,15 +134,15 @@
             </extension>
         </country>
     </address>
-    <maritalStatus>
+   <maritalStatus>
         <coding>
             <system value="http://hl7.org/fhir/v3/MaritalStatus"/>
             <code value="M"/>
             <display value="Married"/>
         </coding>
     </maritalStatus>
-    <multipleBirthBoolean value="false"/>
-    <contact>
+   <multipleBirthBoolean value="false"/>
+   <contact>
         <relationship>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
@@ -170,7 +177,7 @@
             <use value="home"/>
         </telecom>
     </contact>
-    <generalPractitioner>
+   <generalPractitioner>
         <reference value="Organization/nl-core-organization-01"/>
         <display value="Maatschap Vaste Huisarts"/>
     </generalPractitioner>

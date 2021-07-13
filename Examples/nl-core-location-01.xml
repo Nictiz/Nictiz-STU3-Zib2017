@@ -1,9 +1,12 @@
-<Location xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/location.xsd">
-    <id value="nl-core-location-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Location xmlns="http://hl7.org/fhir"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/location.xsd">
+   <id value="nl-core-location-01"/>
+   <meta>
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -30,13 +33,17 @@
             </table>
         </div>
     </text>
-    <name value="Orthopodie afdeling ACME in Den Haag"/>
-    <telecom>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="2aace1bb-e3de-11eb-1015-020000000000"/>
+   </identifier>
+   <name value="Orthopodie afdeling ACME in Den Haag"/>
+   <telecom>
         <system value="email"/>
         <value value="info@nictiz.nl"/>
         <use value="work"/>
     </telecom>
-    <telecom>
+   <telecom>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
             <valueCodeableConcept>
                 <coding>
@@ -50,7 +57,7 @@
         <value value="+31611234567"/>
         <use value="home"/>
     </telecom>
-    <address>
+   <address>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
             <valueCodeableConcept>
                 <coding>
@@ -87,11 +94,11 @@
             </extension>
         </country>
     </address>
-    <managingOrganization>
+   <managingOrganization>
         <reference value="Organization/nl-core-organization-02"/>
         <display value="Orthopedie - UMCG"/>
     </managingOrganization>
-    <partOf>
+   <partOf>
         <reference value="Location/nl-core-location-02"/>
         <display value="ACME in Den Haag"/>
     </partOf>

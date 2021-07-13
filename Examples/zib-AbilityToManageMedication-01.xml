@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
-    <id value="zib-abilitytomanagemedication-01"/>
-    <meta>
+   <id value="zib-abilitytomanagemedication-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToManageMedication"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -25,24 +26,28 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-zibNursingInterventionReference">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/observation-zibNursingInterventionReference">
         <valueReference>
             <reference value="Procedure/zib-abilitytomanagemedication-nursingintervention-01"/>
         </valueReference>
     </extension>
-    <status value="final"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="3ac647db-e3de-11eb-7419-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="285033005"/>
             <display value="ZelfstandigMedicatieGebruik"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <valueCodeableConcept>
+   <valueCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="27921000146103"/>

@@ -1,9 +1,12 @@
-<ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/procedurerequest.xsd">
-    <id value="zib-procedurerequest-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcedureRequest xmlns="http://hl7.org/fhir"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/procedurerequest.xsd">
+   <id value="zib-procedurerequest-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-ProcedureRequest"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -34,27 +37,31 @@
             </table>
         </div>
     </text>
-    <status value="active"/>
-    <intent value="plan"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="66411c0b-e3de-11eb-1521-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <intent value="plan"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="240977001"/>
             <display value="Biopsy of skin (procedure)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <occurrencePeriod>
+   <occurrencePeriod>
         <start value="2012-03-13"/>
     </occurrencePeriod>
-    <performer>
+   <performer>
         <reference value="Organization/nl-core-organization-03"/>
         <display value="Test Medisch Centrum"/>
     </performer>
-    <reasonReference>
+   <reasonReference>
         <reference value="Condition/zib-problem-06"/>
         <display value="Pigmented nevus, no International Classification of Diseases for Oncology subtype (morphologic abnormality)"/>
     </reasonReference>

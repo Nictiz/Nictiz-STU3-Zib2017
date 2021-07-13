@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <MedicationRequest xmlns="http://hl7.org/fhir">
-    <id value="zib-dispenserequest-01"/>
-    <meta>
+   <id value="zib-dispenserequest-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-DispenseRequest"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -49,7 +50,7 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-AdditionalInformation">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-AdditionalInformation">
         <valueCodeableConcept>
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor">
                 <valueCode value="OTH"/>
@@ -57,18 +58,22 @@
             <text value="aanvullende wens in vrije tekst"/>
         </valueCodeableConcept>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
         <valueIdentifier>
             <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
             <value value="MBH_907_mgEx_1"/>
         </valueIdentifier>
     </extension>
-    <identifier>
+   <identifier>
         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.52711000146108.1"/>
         <value value="MBH_907_mgEx_1_VV1"/>
     </identifier>
-    <intent value="order"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="45e51ceb-e3de-11eb-5587-020000000000"/>
+   </identifier>
+   <intent value="order"/>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="52711000146108"/>
@@ -76,16 +81,16 @@
         </coding>
         <text value="Verstrekkingsverzoek"/>
     </category>
-    <medicationReference>
+   <medicationReference>
         <reference value="Medication/zib-Product-02"/>
         <display value="PARACETAMOL 500MG TABLET"/>
     </medicationReference>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <authoredOn value="2016-06-23T16:54:23+02:00"/>
-    <requester>
+   <authoredOn value="2016-06-23T16:54:23+02:00"/>
+   <requester>
         <agent>
             <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
                 <valueReference>
@@ -97,10 +102,10 @@
             <display value="Vaste Huisarts 1"/>
         </agent>
     </requester>
-    <note>
+   <note>
         <text value="Toelichting bij verstrekkingsverzoek"/>
     </note>
-    <dispenseRequest>
+   <dispenseRequest>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense-Location">
             <valueReference>
                 <reference value="Location/nl-core-location-01"/>

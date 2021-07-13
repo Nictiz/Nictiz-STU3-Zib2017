@@ -1,9 +1,12 @@
-<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
-    <id value="gpdata-encounter-contact04"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
+   <id value="gpdata-encounter-contact04"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter"/>
     </meta>
-    <text>
+   <text>
         <status value="additional"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -28,32 +31,36 @@
             </table>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <system value="urn:oid:2.16.528.1.1007.3.3.3333"/>
         <value value="Contact04"/>
     </identifier>
-    <status value="finished"/>
-    <class>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="257d36eb-e3de-11eb-2013-020000000000"/>
+   </identifier>
+   <status value="finished"/>
+   <class>
         <system value="http://hl7.org/fhir/v3/ActCode"/>
         <code value="AMB"/>
         <display value="ambulatory"/>
     </class>
-    <type>
+   <type>
         <coding>
             <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-14-contactwijze"/>
             <code value="03"/>
             <display value="consult"/>
         </coding>
     </type>
-    <subject>
+   <subject>
         <reference value="Patient/gpdata-patient-01"/>
         <display value="Jacqueline XXX_Cevat"/>
     </subject>
-    <episodeOfCare>
+   <episodeOfCare>
         <reference value="EpisodeOfCare/gpdata-episodeofcare-icpc-l8601"/>
         <display value="HNP (thoracaal/lumbaal)"/>
     </episodeOfCare>
-    <participant>
+   <participant>
         <individual>
             <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
                 <valueReference>
@@ -65,7 +72,7 @@
             <display value="Dr. V. Huisarts 1"/>
         </individual>
     </participant>
-    <period>
+   <period>
         <start value="2020-03-15"/>
         <end value="2020-03-15"/>
     </period>
@@ -82,7 +89,7 @@
             </coding>
         </role>
     </diagnosis>-->
-    <serviceProvider>
+   <serviceProvider>
         <reference value="Organization/gpdata-organization-01"/>
         <display value="Aesculaap"/>
     </serviceProvider>

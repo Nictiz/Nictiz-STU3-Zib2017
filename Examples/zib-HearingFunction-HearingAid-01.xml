@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <DeviceUseStatement xmlns="http://hl7.org/fhir">
-    <id value="zib-hearingfunction-hearingaid-01"/>
-    <meta>
+   <id value="zib-hearingfunction-hearingaid-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingFunction-HearingAid"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -23,22 +24,26 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3">
         <valueReference>
             <reference value="Observation/zib-hearingfunction-01"/>
             <display value="Verminderde gehoorfunction"/>
         </valueReference>
     </extension>
-    <status value="active"/>
-    <subject>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="4e8f969b-e3de-11eb-1428-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <device>
+   <device>
         <reference value="Device/zib-hearingfunction-hearingaidproduct-01"/>
         <display value="Gehoorapparaat"/>
     </device>
-    <bodySite>
+   <bodySite>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="89644007"/>

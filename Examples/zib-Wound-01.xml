@@ -1,9 +1,12 @@
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
-    <id value="zib-wound-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
+   <id value="zib-wound-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -31,16 +34,20 @@
             </table>
         </div>
     </text>
-    <clinicalStatus value="active"/>
-    <verificationStatus value="confirmed"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="7143dd9b-e3de-11eb-1765-020000000000"/>
+   </identifier>
+   <clinicalStatus value="active"/>
+   <verificationStatus value="confirmed"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="112633009"/>
             <display value="Chirurgische wond"/>
         </coding>
     </code>
-    <bodySite>
+   <bodySite>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
             <valueCodeableConcept>
                 <coding>
@@ -56,12 +63,12 @@
             <display value="Heup"/>
         </coding>
     </bodySite>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <onsetDateTime value="2019-07-14T11:00:00.000+01:00"/>
-    <note>
+   <onsetDateTime value="2019-07-14T11:00:00.000+01:00"/>
+   <note>
         <time value="2019-07-14T11:00:00.000+01:00"/>
         <text value="Wond lekt steeds meer."/>
     </note>

@@ -1,9 +1,12 @@
-<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
-    <id value="gp-encounter-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
+   <id value="gp-encounter-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -39,13 +42,17 @@
             </table>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <use value="usual"/>
         <system value="http://www.acme.com/identifiers/patient"/>
         <value value="123456"/>
     </identifier>
-    <status value="arrived"/>
-    <class>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="226e493b-e3de-11eb-2082-020000000000"/>
+   </identifier>
+   <status value="arrived"/>
+   <class>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -59,22 +66,22 @@
         <code value="IMP"/>
         <display value="inpatient encounter"/>
     </class>
-    <type>
+   <type>
         <coding>
             <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-14-contactwijze"/>
             <code value="01"/>
             <display value="visite"/>
         </coding>
     </type>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="J. XXX_Helleman (Johan)"/>
     </subject>
-    <episodeOfCare>
+   <episodeOfCare>
         <reference value="EpisodeOfCare/nl-core-episodeofcare-01"/>
         <display value="Gebroken been"/>
     </episodeOfCare>
-    <participant>
+   <participant>
         <individual>
             <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
                 <valueReference>
@@ -86,10 +93,10 @@
             <display value="Huisarts H. de Vries"/>
         </individual>
     </participant>
-    <period>
+   <period>
         <start value="2013-02-08T06:43:00+02:00"/>
     </period>
-    <serviceProvider>
+   <serviceProvider>
         <reference value="Organization/nl-core-organization-01"/>
         <display value="Huisartspraktijk (zelfstandig of groepspraktijk)"/>
     </serviceProvider>

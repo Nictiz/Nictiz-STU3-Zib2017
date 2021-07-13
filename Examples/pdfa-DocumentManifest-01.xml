@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <DocumentManifest xmlns="http://hl7.org/fhir">
-    <id value="pdfa-documentmanifest-01"/>
-    <meta>
+   <id value="pdfa-documentmanifest-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.DocumentManifest"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -38,7 +39,7 @@
             </table>
         </div>
     </text>
-    <contained>
+   <contained>
         <Practitioner>
             <id value="p1"/>
             <name>
@@ -55,34 +56,38 @@
         <system value="urn:ietf:rfc:3986"/>
         <value value="urn:oid:1.2.276.0.7230010.3.1.2.1787205428.8024.1526514975.440899"/>
     </masterIdentifier>
-    <identifier>
+   <identifier>
         <system value="http://xis.org/fhir/NamingSystem/DocumentManifestID"/>
         <value value="7899777"/>
     </identifier>
-    <status value="superseded"/>
-    <type>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="36cfb94b-e3de-11eb-1324-020000000000"/>
+   </identifier>
+   <status value="superseded"/>
+   <type>
         <coding>
             <system value="http://loinc.org"/>
             <code value="18842-5"/>
             <display value="Discharge summary"/>
         </coding>
     </type>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-02"/>
         <display value="Paul XXX_Mesker"/>
     </subject>
-    <created value="2020-03-10"/>
-    <author>
+   <created value="2020-03-10"/>
+   <author>
         <reference value="#p1"/>
         <display value="B. Kneder"/>
     </author>
-    <source value="http://xis.org/example"/>
-    <content>
+   <source value="http://xis.org/example"/>
+   <content>
         <pReference>
             <reference value="DocumentReference/pdfa-documentreference-01"/>
         </pReference>
     </content>
-    <content>
+   <content>
         <pReference>
             <reference value="DocumentReference/pdfa-documentreference-02"/>
         </pReference>

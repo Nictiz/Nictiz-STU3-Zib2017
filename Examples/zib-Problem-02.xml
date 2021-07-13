@@ -1,9 +1,12 @@
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
-    <id value="zib-problem-02"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
+   <id value="zib-problem-02"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -24,7 +27,11 @@
             </table>
         </div>
     </text>
-    <clinicalStatus value="active">
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="62e260ab-e3de-11eb-2113-020000000000"/>
+   </identifier>
+   <clinicalStatus value="active">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -35,7 +42,7 @@
             </valueCodeableConcept>
         </extension>
     </clinicalStatus>
-    <verificationStatus value="confirmed">
+   <verificationStatus value="confirmed">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -46,18 +53,18 @@
             </valueCodeableConcept>
         </extension>
     </verificationStatus>
-    <code>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="399269003"/>
             <display value="Arthropathy (disorder)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <note>
+   <note>
         <text value="Beperking bij het bewegen van het gewricht, drukpijn door slijtage van twee compartimenten van de linker knie."/>
     </note>
 </Condition>

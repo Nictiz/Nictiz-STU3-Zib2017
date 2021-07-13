@@ -1,9 +1,12 @@
-<ImmunizationRecommendation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/immunizationrecommendation.xsd">
-    <id value="zib-vaccinationrecommendation-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<ImmunizationRecommendation xmlns="http://hl7.org/fhir"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/immunizationrecommendation.xsd">
+   <id value="zib-vaccinationrecommendation-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -32,7 +35,7 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation-OrderStatus">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-VaccinationRecommendation-OrderStatus">
         <valueCodeableConcept>
             <coding>
                 <system value="http://hl7.org/fhir/v3/ActStatus"/>
@@ -41,11 +44,15 @@
             </coding>
         </valueCodeableConcept>
     </extension>
-    <patient>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="6ff627eb-e3de-11eb-1922-020000000000"/>
+   </identifier>
+   <patient>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </patient>
-    <recommendation>
+   <recommendation>
         <date value="2019"/>
         <vaccineCode>
             <coding>

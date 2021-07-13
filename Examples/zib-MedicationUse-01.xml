@@ -1,9 +1,12 @@
-<MedicationStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationstatement.xsd">
-    <id value="zib-medicationuse-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationStatement xmlns="http://hl7.org/fhir"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationstatement.xsd">
+   <id value="zib-medicationuse-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -64,31 +67,35 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-AsAgreedIndicator">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-AsAgreedIndicator">
         <valueBoolean value="true"/>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Author">
         <valueReference>
             <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
             <display value="Vaste Huisarts 1 || Huisartsen || Maatschap Vaste Huisarts"/>
         </valueReference>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment">
         <valueIdentifier>
             <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.1.1"/>
             <value value="#MB_01i1"/>
         </valueIdentifier>
     </extension>
-    <identifier>
+   <identifier>
         <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.6.1"/>
         <value value="#MB_01i1#GE_01"/>
     </identifier>
-    <status>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="5973376b-e3de-11eb-4231-020000000000"/>
+   </identifier>
+   <status>
         <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
             <valueCode value="unknown"/>
         </extension>
     </status>
-    <category>
+   <category>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.20.77.5.3"/>
             <code value="6"/>
@@ -96,11 +103,11 @@
         </coding>
         <text value="Medicatiegebruik"/>
     </category>
-    <medicationReference>
+   <medicationReference>
         <reference value="Medication/zib-Product-02"/>
         <display value="PARACETAMOL TABLET 500MG"/>
     </medicationReference>
-    <effectivePeriod>
+   <effectivePeriod>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-Duration">
             <valueDuration>
                 <value value="30"/>
@@ -111,20 +118,20 @@
         </extension>
         <start value="2020-07-21"/>
     </effectivePeriod>
-    <dateAsserted value="2020-07-21"/>
-    <subject>
+   <dateAsserted value="2020-07-21"/>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="XXX_Helleman"/>
     </subject>
-    <derivedFrom>
+   <derivedFrom>
         <identifier>
             <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.77.16076005.1"/>
             <value value="#MB_01i1#MA_01"/>
         </identifier>
         <display value="relatie naar medicatieafspraak"/>
     </derivedFrom>
-    <taken value="y"/>
-    <dosage>
+   <taken value="y"/>
+   <dosage>
         <sequence value="1"/>
         <text value="Vanaf 21 jul 2020, gedurende 30 dagen, zo nodig maal per dag 1 à 2 stuks , maximaal 6 stuks per dag, ORAAL"/>
         <timing>

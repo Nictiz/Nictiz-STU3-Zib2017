@@ -1,9 +1,12 @@
-<AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/allergyintolerance.xsd">
-    <id value="zib-allergyintolerance-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<AllergyIntolerance xmlns="http://hl7.org/fhir"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/allergyintolerance.xsd">
+   <id value="zib-allergyintolerance-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AllergyIntolerance"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -46,7 +49,11 @@
             </table>
         </div>
     </text>
-    <clinicalStatus value="active">
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="404a543b-e3de-11eb-1180-020000000000"/>
+   </identifier>
+   <clinicalStatus value="active">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -57,8 +64,8 @@
             </valueCodeableConcept>
         </extension>
     </clinicalStatus>
-    <verificationStatus value="confirmed"/>
-    <category value="environment">
+   <verificationStatus value="confirmed"/>
+   <category value="environment">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -69,7 +76,7 @@
             </valueCodeableConcept>
         </extension>
     </category>
-    <criticality value="high">
+   <criticality value="high">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -80,20 +87,20 @@
             </valueCodeableConcept>
         </extension>
     </criticality>
-    <code>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="288328004"/>
             <display value="Bee venom"/>
         </coding>
     </code>
-    <patient>
+   <patient>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </patient>
-    <onsetDateTime value="2008-11-08"/>
-    <lastOccurrence value="2009-11-15"/>
-    <reaction>
+   <onsetDateTime value="2008-11-08"/>
+   <lastOccurrence value="2009-11-15"/>
+   <reaction>
         <manifestation>
             <coding>
                 <system value="http://snomed.info/sct"/>

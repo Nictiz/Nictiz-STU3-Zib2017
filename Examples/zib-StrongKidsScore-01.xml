@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-strongkidsscore-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-strongkidsscore-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-StrongKidsScore"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -64,26 +67,30 @@
             </table>
         </div>
     </text>
-    <status value="preliminary"/>
-    <code>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="6cb8d73b-e3de-11eb-6866-020000000000"/>
+   </identifier>
+   <status value="preliminary"/>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="108341000146107"/>
             <display value="STRONGkids risk screening tool (assessment scale)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <effectiveDateTime value="2013-02-08T09:30:00+02:00"/>
-    <valueQuantity>
+   <effectiveDateTime value="2013-02-08T09:30:00+02:00"/>
+   <valueQuantity>
         <value value="4"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="{score}"/>
     </valueQuantity>
-    <comment value="nog geen diagnose gesteld."/>
-    <component>
+   <comment value="nog geen diagnose gesteld."/>
+   <component>
         <code>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0"/>
@@ -99,7 +106,7 @@
             </coding>
         </valueCodeableConcept>
     </component>
-    <component>
+   <component>
         <code>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0"/>
@@ -115,7 +122,7 @@
             </coding>
         </valueCodeableConcept>
     </component>
-    <component>
+   <component>
         <code>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0"/>
@@ -131,7 +138,7 @@
             </coding>
         </valueCodeableConcept>
     </component>
-    <component>
+   <component>
         <code>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.0"/>

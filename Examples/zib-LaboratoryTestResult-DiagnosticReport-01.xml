@@ -1,9 +1,12 @@
-<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
-    <id value="zib-laboratorytestresult-diagnosticreport-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
+   <id value="zib-laboratorytestresult-diagnosticreport-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -47,7 +50,7 @@
             </table>
         </div>
     </text>
-    <identifier>
+   <identifier>
         <type>
             <coding>
                 <system value="http://hl7.org/fhir/identifier-type"/>
@@ -58,7 +61,7 @@
         <system value="https://acme.org/identifiers"/>
         <value value="RP723234"/>
     </identifier>
-    <identifier>
+   <identifier>
         <type>
             <coding>
                 <system value="http://hl7.org/fhir/identifier-type"/>
@@ -69,11 +72,15 @@
         <system value="https://acme.org/identifiers"/>
         <value value="250401"/>
     </identifier>
-    <basedOn>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="527953eb-e3de-11eb-7195-020000000000"/>
+   </identifier>
+   <basedOn>
         <reference value="ProcedureRequest/zib-procedurerequest-01"/>
         <display value="Surgical procedure - Biopsy of skin"/>
     </basedOn>
-    <status value="final">
+   <status value="final">
         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
                 <coding>
@@ -84,7 +91,7 @@
             </valueCodeableConcept>
         </extension>
     </status>
-    <category>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="4241000179101"/>
@@ -96,7 +103,7 @@
             <display value="Microbiologie"/>
         </coding>
     </category>
-    <code>
+   <code>
         <coding>
             <system value="http://loinc.org"/>
             <code value="624-7"/>
@@ -104,13 +111,13 @@
         </coding>
         <text value="Aerobic Respiratory Culture, Sputum"/>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <effectiveDateTime value="2016-08-15"/>
-    <issued value="2016-08-18T18:14:35Z"/>
-    <performer>
+   <effectiveDateTime value="2016-08-15"/>
+   <issued value="2016-08-18T18:14:35Z"/>
+   <performer>
         <role>
             <coding>
                 <system value="http://hl7.org/fhir/v3/ParticipationType"/>
@@ -129,13 +136,13 @@
             <display value="Vaste Huisarts 1"/>
         </actor>
     </performer>
-    <specimen>
+   <specimen>
         <reference value="Specimen/zib-laboratorytestresult-specimen-01"/>
         <display value="Blood"/>
     </specimen>
-    <result>
+   <result>
         <reference value="Observation/zib-laboratorytestresult-observation-01"/>
         <display value="Laboratory test finding"/>
     </result>
-    <conclusion value="Test conclusion"/>
+   <conclusion value="Test conclusion"/>
 </DiagnosticReport>

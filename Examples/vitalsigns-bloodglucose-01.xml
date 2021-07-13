@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="vitalsigns-bloodglucose-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="vitalsigns-bloodglucose-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/vitalsign-bloodglucose"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -29,7 +32,7 @@
             </table>
         </div>
     </text>
-    <extension url="http://hl7.org/fhir/StructureDefinition/observation-eventTiming">
+   <extension url="http://hl7.org/fhir/StructureDefinition/observation-eventTiming">
         <extension url="code">
             <valueCodeableConcept>
                 <coding>
@@ -48,30 +51,34 @@
             </valueQuantity>
         </extension>
     </extension>
-    <status value="final"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="37fffbeb-e3de-11eb-1647-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="49581000146104"/>
             <display value="Laboratory test finding (finding)"/>
         </coding>
     </category>
-    <code>
+   <code>
         <coding>
             <system value="http://loinc.org"/>
             <code value="14760-3"/>
             <display value="Glucose [Moles/volume] in Capillary blood --2 hours post meal"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <performer>
+   <performer>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </performer>
-    <valueQuantity>
+   <valueQuantity>
         <value value="6.3"/>
         <unit value="mmol/l"/>
         <system value="http://unitsofmeasure.org"/>

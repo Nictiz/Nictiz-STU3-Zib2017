@@ -1,9 +1,12 @@
-<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
-    <id value="zib-encounter-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
+   <id value="zib-encounter-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -44,39 +47,43 @@
             </table>
         </div>
     </text>
-    <status value="finished"/>
-    <class>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="46ddfbdb-e3de-11eb-1495-020000000000"/>
+   </identifier>
+   <status value="finished"/>
+   <class>
         <system value="http://hl7.org/fhir/v3/ActCode"/>
         <code value="IMP"/>
         <display value="inpatient encounter"/>
     </class>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <participant>
+   <participant>
         <individual>
             <reference value="Practitioner/nl-core-practitioner-03"/>
             <display value="G.Z.M. de Wit"/>
         </individual>
     </participant>
-    <period>
+   <period>
         <start value="2012-08-16"/>
         <end value="2012-08-19"/>
     </period>
-    <diagnosis>
+   <diagnosis>
         <condition>
             <reference value="Condition/zib-problem-05"/>
             <display value="Fracture of lower limb (disorder)"/>
         </condition>
     </diagnosis>
-    <diagnosis>
+   <diagnosis>
         <condition>
             <reference value="Procedure/zib-procedure-02"/>
             <display value="Surgical reduction of fracture (procedure)"/>
         </condition>
     </diagnosis>
-    <serviceProvider>
+   <serviceProvider>
         <reference value="Organization/nl-core-organization-02"/>
         <display value="UMCG - Afdeling Orthopedie"/>
     </serviceProvider>

@@ -1,9 +1,12 @@
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careplan.xsd">
-    <id value="zib-helpfromothers-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careplan.xsd">
+   <id value="zib-helpfromothers-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-HelpFromOthers"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -59,20 +62,24 @@
             </table>
         </div>
     </text>
-    <status value="draft"/>
-    <intent value="plan"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="4fb8863b-e3de-11eb-6173-020000000000"/>
+   </identifier>
+   <status value="draft"/>
+   <intent value="plan"/>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="243114000"/>
             <display value="Supportive care"/>
         </coding>
     </category>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="Irma Jongeneel-de Haas"/>
     </subject>
-    <activity>
+   <activity>
         <detail>
             <category>
                 <coding>

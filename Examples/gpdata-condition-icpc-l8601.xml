@@ -1,9 +1,12 @@
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
-    <id value="gpdata-condition-icpc-l8601"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
+   <id value="gpdata-condition-icpc-l8601"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
     </meta>
-    <text>
+   <text>
         <status value="additional"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -28,27 +31,31 @@
             </table>
         </div>
     </text>
-    <clinicalStatus value="active"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="24e2cbab-e3de-11eb-1271-020000000000"/>
+   </identifier>
+   <clinicalStatus value="active"/>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="282291009"/>
             <display value="Diagnosis interpretation"/>
         </coding>
     </category>
-    <code>
+   <code>
         <coding>
             <system value="http://hl7.org/fhir/sid/icpc-1-nl"/>
             <code value="L86.01"/>
             <display value="HNP (thoracaal/lumbaal)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/gpdata-patient-01"/>
         <display value="Jacqueline XXX_Cevat"/>
     </subject>
-    <onsetDateTime value="2020-03-15"/>
-    <asserter>
+   <onsetDateTime value="2020-03-15"/>
+   <asserter>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>
                 <reference value="PractitionerRole/gpdata-practitionerrole-01"/>

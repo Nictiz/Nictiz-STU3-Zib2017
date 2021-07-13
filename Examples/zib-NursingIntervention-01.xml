@@ -1,9 +1,12 @@
-<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/procedure.xsd">
-    <id value="zib-nursingintervention-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/procedure.xsd">
+   <id value="zib-nursingintervention-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -59,19 +62,19 @@
             </table>
         </div>
     </text>
-    <extension url="http://hl7.org/fhir/StructureDefinition/goal-pertainsToGoal">
+   <extension url="http://hl7.org/fhir/StructureDefinition/goal-pertainsToGoal">
         <valueReference>
             <reference value="Goal/zib-treatmentobjective-02"/>
             <display value="Wondgenezing"/>
         </valueReference>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention-Requester">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention-Requester">
         <valueReference>
             <reference value="Practitioner/nl-core-practitioner-01"/>
             <display value="Huisarts H. de Vries"/>
         </valueReference>
     </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/procedure-schedule">
+   <extension url="http://hl7.org/fhir/StructureDefinition/procedure-schedule">
         <valueTiming>
             <repeat>
                 <frequency value="1"/>
@@ -81,40 +84,44 @@
             </repeat>
         </valueTiming>
     </extension>
-    <status value="completed"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="5acd492b-e3de-11eb-3819-020000000000"/>
+   </identifier>
+   <status value="completed"/>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="9632001"/>
             <display value="Nursing procedure (procedure)"/>
         </coding>
     </category>
-    <code>
+   <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="182531007"/>
             <display value="Dressing of wound (procedure)"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="I. Jongeneel-de Haas"/>
     </subject>
-    <performedPeriod>
+   <performedPeriod>
         <start value="2015-06-05"/>
         <end value="2015-06-10"/>
     </performedPeriod>
-    <performer>
+   <performer>
         <actor>
             <reference value="Practitioner/nl-core-practitioner-03"/>
             <display value="Nurse G.Z.M. de Wit"/>
         </actor>
     </performer>
-    <reasonReference>
+   <reasonReference>
         <reference value="Condition/zib-problem-07"/>
         <display value="Derdegraads brandwond linker knie"/>
     </reasonReference>
-    <bodySite>
+   <bodySite>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
             <valueCodeableConcept>
                 <coding>
@@ -130,7 +137,7 @@
             <display value="Knee region structure (body structure)"/>
         </coding>
     </bodySite>
-    <usedReference>
+   <usedReference>
         <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
             <valueReference>
                 <reference value="DeviceUseStatement/zib-wound-medicaldevice-01"/>

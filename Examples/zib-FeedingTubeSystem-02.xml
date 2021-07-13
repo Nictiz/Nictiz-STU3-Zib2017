@@ -1,10 +1,12 @@
-<DeviceUseStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
-    <!--Disclaimer: This is a minimal example of DeviceUseStatement. The information that is presented may not be realistic. -->
-    <id value="zib-feedingtubesystem-02"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceUseStatement xmlns="http://hl7.org/fhir"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
+   <id value="zib-feedingtubesystem-02"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -31,7 +33,7 @@
             </table>
         </div>
     </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-FeedingTubeLength">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-FeedingTubeLength">
         <valueQuantity>
             <value value="52"/>
             <unit value="cm"/>
@@ -39,31 +41,35 @@
             <code value="cm"/>
         </valueQuantity>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-EnteralNutrition">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-EnteralNutrition">
         <valueReference>
             <reference value="MedicationAdministration/zib-medicationadministration-01"/>
             <display value="XXX Nutrition"/>
         </valueReference>
     </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
         <valueReference>
             <reference value="DeviceUseStatement/zib-infusion-01"/>
             <display value="Enteral feeding pump"/>
         </valueReference>
     </extension>
-    <status value="active"/>
-    <subject>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="4a0ddf0b-e3de-11eb-1941-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <whenUsed>
+   <whenUsed>
         <start value="2018-12-22"/>
     </whenUsed>
-    <device>
+   <device>
         <reference value="Device/zib-feedingtubesystem-product-01"/>
         <display value="Percutaneous endoscopic gastrostomy catheter"/>
     </device>
-    <note>
+   <note>
         <text value="Sonde is met spoed toegebracht."/>
     </note>
 </DeviceUseStatement>

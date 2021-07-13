@@ -1,10 +1,12 @@
-<MedicationAdministration xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationadministration.xsd">
-    <!--Disclaimer: This is a minimal example of MedicationAdministration. The information that is presented may not be realistic. -->
-    <id value="zib-medicationadministration-03"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns="http://hl7.org/fhir"
+                          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationadministration.xsd">
+   <id value="zib-medicationadministration-03"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -36,24 +38,28 @@
             </table>
         </div>
     </text>
-    <status value="completed"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="58d6341b-e3de-11eb-8386-020000000000"/>
+   </identifier>
+   <status value="completed"/>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="18629005"/>
             <display value="Administration of medication"/>
         </coding>
     </category>
-    <medicationReference>
+   <medicationReference>
         <reference value="Medication/zib-product-02"/>
         <display value="NaCl 0,9% + medicatie 5000 E heparine (totaal 48ml)"/>
     </medicationReference>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-03"/>
         <display value="J. XXX_Helleman"/>
     </subject>
-    <effectiveDateTime value="2020-07-21"/>
-    <dosage>
+   <effectiveDateTime value="2020-07-21"/>
+   <dosage>
         <route>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>

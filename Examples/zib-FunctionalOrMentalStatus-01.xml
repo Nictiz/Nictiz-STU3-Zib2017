@@ -1,9 +1,12 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-functionalormentalstatus-01"/>
-    <meta>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-functionalormentalstatus-01"/>
+   <meta>
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FunctionalOrMentalStatus"/>
     </meta>
-    <text>
+   <text>
         <status value="extensions"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <table>
@@ -33,29 +36,33 @@
             </table>
         </div>
     </text>
-    <status value="final"/>
-    <category>
+   <identifier>
+      <system value="https://example.org/nictiz/basic-components/identification-number"/>
+      <value value="4c11ec6b-e3de-11eb-7436-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <category>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="118228005"/>
             <display value="Functional finding (finding)"/>
         </coding>
     </category>
-    <code>
+   <code>
         <coding>
             <system value="http://hl7.org/fhir/sid/icf-nl"/>
             <code value="d510"/>
             <display value="Zich wassen"/>
         </coding>
     </code>
-    <subject>
+   <subject>
         <reference value="Patient/nl-core-patient-01"/>
         <display value="Johan XXX_Helleman"/>
     </subject>
-    <effectivePeriod>
+   <effectivePeriod>
         <start value="2001"/>
     </effectivePeriod>
-    <valueCodeableConcept>
+   <valueCodeableConcept>
         <coding>
             <system value="http://hl7.org/fhir/sid/icf-nl"/>
             <code value="d510.3"/>
