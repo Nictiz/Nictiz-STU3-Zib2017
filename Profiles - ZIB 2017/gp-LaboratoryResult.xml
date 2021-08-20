@@ -2,7 +2,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="gp-LaboratoryResult" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/gp-LaboratoryResult" />
-  <version value="1.0.1" />
+  <version value="1.0.2" />
   <name value="gp LaboratoryResult" />
   <title value="gp-LaboratoryResult" />
   <status value="active" />
@@ -38,8 +38,8 @@
       <path value="Observation.extension" />
       <sliceName value="nl-core-episodeofcare" />
       <comment value="It is recommended to use the nl-core-episodeofcare extension to reference nl-core-episodeofcare (EpisodeOfCare) instances rather than the `context` element, as this approach will be enforced in FHIR R4." />
-      <min value="1" />
-      <max value="1" />
+      <min value="0" />
+      <max value="*" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-context-nl-core-episodeofcare" />
