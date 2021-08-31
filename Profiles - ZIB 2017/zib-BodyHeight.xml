@@ -68,6 +68,18 @@
     <element id="Observation.code">
       <path value="Observation.code" />
       <definition value="A LOINC code is used to code this observation and to specify the position of the body height measurement.          The HCIM concept Position has two SNOMED codes that map to LOINC codes for this element, namely:         * SNOMED CT code 10904000 - Orthostatic body position (Staande positie) maps to LOINC code 8308-9.         * SNOMED CT code 102538003 - Recumbent body position (Liggende positie) maps to LOINC code 8306-3." />
+      <binding>
+        <strength value="required" />
+        <valueSetReference>
+          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+            <valueReference>
+              <reference value="http://nictiz.nl/fhir/ConceptMap/PositieCodelijst-to-LOINC" />
+              <display value="PositieCodelijst-to-LOINC" />
+            </valueReference>
+          </extension>
+          <reference value="http://loinc.org" />
+        </valueSetReference>
+      </binding>
       <mapping>
         <identity value="hcim-bodyheight-v1.2-2015EN" />
         <map value="NL-CM:12.2.5" />
