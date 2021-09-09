@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="nl-core-relatedperson" />
   <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson" />
@@ -183,9 +184,6 @@
       <definition value="Defines the contact’s familial relationship to the patient." />
       <alias value="Relatie" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PatientRelationshipType" />
-        </extension>
         <strength value="extensible" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.3.1.1--20171231000000" />
@@ -250,8 +248,6 @@
     </element>
     <element id="RelatedPerson.telecom">
       <path value="RelatedPerson.telecom" />
-      <short value="ContactInformation" />
-      <alias value="Contactgegevens" />
       <type>
         <code value="ContactPoint" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
@@ -270,21 +266,6 @@
         <identity value="hcim-contactperson-v3.1-2017EN" />
         <map value="NL-CM:3.1.6" />
         <comment value="ContactInformation" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v2.0.1-2015EN" />
-        <map value="NL-CM:0.1.5" />
-        <comment value="ContactInformation" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v3.0-2016EN" />
-        <map value="NL-CM:0.1.5" />
-        <comment value="ContactInformation" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-contactinformation-v1.0-2017EN" />
-        <map value="NL-CM:20.6.4" />
-        <comment value="TelephoneNumber" />
       </mapping>
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
