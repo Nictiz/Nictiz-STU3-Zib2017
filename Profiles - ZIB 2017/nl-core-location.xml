@@ -55,6 +55,11 @@
     <uri value="https://zibs.nl/wiki/HealthcareProvider-v3.1.1(2017EN)" />
     <name value="HCIM HealthcareProvider-v3.1.1(2017EN)" />
   </mapping>
+  <mapping>
+    <identity value="art-decor-eafspraak" />
+    <uri value="https://decor.nictiz.nl/art-decor/decor-datasets--eafspraken-?id=2.16.840.1.113883.2.4.3.11.60.61.1.1&amp;effectiveDate=2017-08-01T00:00:00&amp;language=nl-NL" />
+    <name value="ART-DECOR Dataset eAfspraak" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Location" />
@@ -82,6 +87,11 @@
         <identity value="hcim-healthcareprovider-v3.1.1-2017EN" />
         <map value="NL-CM:17.2.8" />
         <comment value="OrganizationLocation" />
+      </mapping>
+      <mapping>
+        <identity value="art-decor-eafspraak" />
+        <map value="eafspraak-dataelement-37" />
+        <comment value="ContactLocatieNaam" />
       </mapping>
     </element>
     <element id="Location.telecom">
@@ -136,7 +146,20 @@
         <map value="NL-CM:20.5.1" />
         <comment value="AddressInformation" />
       </mapping>
+      <mapping>
+        <identity value="art-decor-eafspraak" />
+        <map value="eafspraak-dataelement-39" />
+        <comment value="Adresgegevens" />
+      </mapping>
     </element>
+    <element id="Location.physicalType">
+      <path value="Location.physicalType" />
+      <mapping>
+        <identity value="art-decor-eafspraak" />
+        <map value="eafspraak-dataelement-36" />
+        <comment value="ContactLocatieType" />
+      </mapping>
+    </element>      
     <element id="Location.managingOrganization">
       <path value="Location.managingOrganization" />
       <type>
