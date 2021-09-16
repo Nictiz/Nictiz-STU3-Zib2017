@@ -48,7 +48,6 @@
     <element id="AllergyIntolerance">
       <path value="AllergyIntolerance" />
       <short value="AllergyIntolerance" />
-      <comment value="The HCIM defines certain allergy statuses in the AllergieStatusCodelijst (HCIM NL-CM:8.2.5 AllergyStatus). These statuses are represented using the FHIR elements `AllergyIntolerance.clinicalStatus` and `AllergyIntolerance.verificationStatus`. The mapping from the HCIM to these elements is summarized below, because there is no one-to-one relationship. This relationship is also defined using the ConceptMap [AllergieStatusCodelijst-to-allergy-status](http://nictiz.nl/fhir/conceptmap/allergiestatuscodelijst-to-allergy-status).&#xD;&#xA;&#xD;&#xA;* HCIM AllergyStatus = _Active_ maps to&#xD;&#xA;  * `AllergyIntolerance.clinicalStatus` = _active_ +&#xD;&#xA;  * `AllergyIntolerance.clinicalStatus:AllergieStatusCodelijst` (extension) = _active_ +&#xD;&#xA;  * `AllergyIntolerance.verificationStatus:dataAbsentReason` (extension) = _unknown_&#xD;&#xA;* HCIM AllergyStatus = _Completed_ maps to&#xD;&#xA;  * `AllergyIntolerance.clinicalStatus` = _resolved_ +&#xD;&#xA;  * `AllergyIntolerance.clinicalStatus:AllergieStatusCodelijst` (extension) = _completed_ +&#xD;&#xA;  * `AllergyIntolerance.verificationStatus:dataAbsentReason` (extension) = _unknown_&#xD;&#xA;* HCIM AllergyStatus = _Obsolete_ maps to&#xD;&#xA;  * `AllergyIntolerance.clinicalStatus` = _inactive_ +&#xD;&#xA;  * `AllergyIntolerance.clinicalStatus:AllergieStatusCodelijst` (extension) = _obsolete_ +&#xD;&#xA;  * `AllergyIntolerance.verificationStatus:dataAbsentReason` (extension) = _unknown_&#xD;&#xA;* HCIM AllergyStatus = _Nullified_ maps to&#xD;&#xA;  * `AllergyIntolerance.clinicalStatus:AllergieStatusCodelijst` (extension) = _nullified_ +&#xD;&#xA;  * `AllergyIntolerance.verificationStatus` = _entered-in-error_" />
       <alias value="AllergieIntolerantie" />
       <mapping>
         <identity value="hcim-allergyintolerance-v1.0.2-2015EN" />
@@ -142,10 +141,6 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="AllergyIntolerance.verificationStatus">
-      <path value="AllergyIntolerance.verificationStatus" />
-      <comment value="See the comment on the root for guidance how to populate this element." />
-    </element>
     <element id="AllergyIntolerance.verificationStatus.extension">
       <path value="AllergyIntolerance.verificationStatus.extension" />
       <slicing>
@@ -159,7 +154,6 @@
     <element id="AllergyIntolerance.verificationStatus.extension:dataAbsentReason">
       <path value="AllergyIntolerance.verificationStatus.extension" />
       <sliceName value="dataAbsentReason" />
-      <comment value="Refer to the AllergyIntolerance.comment for instructions on mapping the HCIM codes to this element." />
       <type>
         <code value="Extension" />
         <profile value="http://hl7.org/fhir/StructureDefinition/data-absent-reason" />
