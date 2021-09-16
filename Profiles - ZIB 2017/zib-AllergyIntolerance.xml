@@ -77,7 +77,9 @@
     </element>
     <element id="AllergyIntolerance.clinicalStatus">
       <path value="AllergyIntolerance.clinicalStatus" />
+      <short value="AllergyStatus" />
       <comment value="See the comment on the root for guidance how to populate this element." />
+      <alias value="AllergieStatus" />
       <binding>
         <strength value="required" />
         <valueSetReference>
@@ -87,9 +89,13 @@
               <display value="AllergieStatusCodelijst-to-allergy-status" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/allergy-clinical-status"/>
         </valueSetReference>
       </binding>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.5" />
+        <comment value="AllergyStatus. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status" />
+      </mapping>
     </element>
     <element id="AllergyIntolerance.clinicalStatus.extension">
       <path value="AllergyIntolerance.clinicalStatus.extension" />
@@ -106,7 +112,6 @@
       <sliceName value="AllergieStatusCodelijst" />
       <short value="AllergyStatus" />
       <definition value="Statement on the status of the patient’s hypersensitivity." />
-      <comment value="Refer to the AllergyIntolerance.comment for instructions on mapping the HCIM codes to this element." />
       <alias value="AllergieStatus" />
       <max value="1" />
       <type>
@@ -141,27 +146,16 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="AllergyIntolerance.verificationStatus.extension">
-      <path value="AllergyIntolerance.verificationStatus.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="AllergyIntolerance.verificationStatus.extension:dataAbsentReason">
-      <path value="AllergyIntolerance.verificationStatus.extension" />
-      <sliceName value="dataAbsentReason" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/data-absent-reason" />
-      </type>
-    </element>
-    <element id="AllergyIntolerance.verificationStatus.extension:dataAbsentReason.valueCode:valueCode">
-      <path value="AllergyIntolerance.verificationStatus.extension.valueCode" />
-      <sliceName value="valueCode" />
+    <element id="AllergyIntolerance.verificationStatus">
+      <path value="AllergyIntolerance.verificationStatus" />
+      <short value="AllergyStatus" />
+      <comment value="When HCIM AllergyStatus = _Nullified_, `.verificationStatus` should be set to _entered-in-error_. In all other cases it is up to the sending system to populate this element with the correct value." />
+      <alias value="AllergieStatus" />
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.5" />
+        <comment value="AllergyStatus (for Nullified only)" />
+      </mapping>
     </element>
     <element id="AllergyIntolerance.category">
       <path value="AllergyIntolerance.category" />
@@ -174,7 +168,6 @@
               <display value="AllergieCategorieCodelijst-to-allergy-intolerance-category" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/allergy-intolerance-category"/>
         </valueSetReference>
       </binding>
     </element>
@@ -238,7 +231,6 @@
               <display value="MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality"/>
         </valueSetReference>
       </binding>
     </element>
@@ -869,7 +861,6 @@
               <display value="ErnstCodelijst-to-AllergyIntoleranceSeverity" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/reaction-event-severity"/>
         </valueSetReference>
       </binding>
       <mapping>
