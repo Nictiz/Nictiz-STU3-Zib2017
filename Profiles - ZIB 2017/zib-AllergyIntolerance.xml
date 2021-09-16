@@ -77,7 +77,8 @@
     </element>
     <element id="AllergyIntolerance.clinicalStatus">
       <path value="AllergyIntolerance.clinicalStatus" />
-      <comment value="See the comment on the root for guidance how to populate this element." />
+      <short value="AllergyStatus" />
+      <alias value="AllergieStatus" />
       <binding>
         <strength value="required" />
         <valueSetReference>
@@ -87,9 +88,13 @@
               <display value="AllergieStatusCodelijst-to-allergy-status" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/allergy-clinical-status"/>
         </valueSetReference>
       </binding>
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.5" />
+        <comment value="AllergyStatus. See for details the ConceptMap https://simplifier.net/resolve?target=simplifier&amp;canonical=http://nictiz.nl/fhir/ConceptMap/AllergieStatusCodelijst-to-allergy-status" />
+      </mapping>
     </element>
     <element id="AllergyIntolerance.clinicalStatus.extension">
       <path value="AllergyIntolerance.clinicalStatus.extension" />
@@ -100,14 +105,15 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="0" />
     </element>
     <element id="AllergyIntolerance.clinicalStatus.extension:AllergieStatusCodelijst">
       <path value="AllergyIntolerance.clinicalStatus.extension" />
       <sliceName value="AllergieStatusCodelijst" />
       <short value="AllergyStatus" />
       <definition value="Statement on the status of the patient’s hypersensitivity." />
-      <comment value="Refer to the AllergyIntolerance.comment for instructions on mapping the HCIM codes to this element." />
       <alias value="AllergieStatus" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -141,27 +147,16 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="AllergyIntolerance.verificationStatus.extension">
-      <path value="AllergyIntolerance.verificationStatus.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="AllergyIntolerance.verificationStatus.extension:dataAbsentReason">
-      <path value="AllergyIntolerance.verificationStatus.extension" />
-      <sliceName value="dataAbsentReason" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/data-absent-reason" />
-      </type>
-    </element>
-    <element id="AllergyIntolerance.verificationStatus.extension:dataAbsentReason.valueCode:valueCode">
-      <path value="AllergyIntolerance.verificationStatus.extension.valueCode" />
-      <sliceName value="valueCode" />
+    <element id="AllergyIntolerance.verificationStatus">
+      <path value="AllergyIntolerance.verificationStatus" />
+      <short value="AllergyStatus" />
+      <comment value="When HCIM AllergyStatus = _Nullified_, `.verificationStatus` should be set to _entered-in-error_. In all other cases it is up to the sending system to populate this element with the correct value." />
+      <alias value="AllergieStatus" />
+      <mapping>
+        <identity value="hcim-allergyintolerance-v3.2-2017EN" />
+        <map value="NL-CM:8.2.5" />
+        <comment value="AllergyStatus (for Nullified only)" />
+      </mapping>
     </element>
     <element id="AllergyIntolerance.category">
       <path value="AllergyIntolerance.category" />
@@ -174,7 +169,6 @@
               <display value="AllergieCategorieCodelijst-to-allergy-intolerance-category" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/allergy-intolerance-category"/>
         </valueSetReference>
       </binding>
     </element>
@@ -187,6 +181,7 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="0" />
     </element>
     <element id="AllergyIntolerance.category.extension:AllergieCategorieCodelijst">
       <path value="AllergyIntolerance.category.extension" />
@@ -194,6 +189,7 @@
       <short value="AllergyCategory" />
       <definition value="Identifies the allergy category such as medication, food or environment." />
       <alias value="AllergieCategorie" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -238,7 +234,6 @@
               <display value="MateVanKritiekZijnCodelijst-to-allergy-intolerance-criticality" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality"/>
         </valueSetReference>
       </binding>
     </element>
@@ -251,6 +246,7 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="0" />
     </element>
     <element id="AllergyIntolerance.criticality.extension:CriticalExtentCodelist">
       <path value="AllergyIntolerance.criticality.extension" />
@@ -258,6 +254,7 @@
       <short value="Criticality" />
       <definition value="Critical extent is defined as “the potential severity of future reactions.” &#xD;&#xA;This represents a clinical evaluation of the worst case scenario for a future reaction. It can be based on the severity of past reactions, the dose and manner of exposure which caused reactions in the past, and the life-threatening potential of the type of reaction. Critical extent is a property of the allergy, and not of the reaction itself." />
       <alias value="MateVanKritiekZijn" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -488,10 +485,12 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="0" />
     </element>
     <element id="AllergyIntolerance.recorder.extension:practitionerRole">
       <path value="AllergyIntolerance.recorder.extension" />
       <sliceName value="practitionerRole" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -528,10 +527,12 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="0" />
     </element>
     <element id="AllergyIntolerance.asserter.extension:practitionerRole">
       <path value="AllergyIntolerance.asserter.extension" />
       <sliceName value="practitionerRole" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -611,11 +612,13 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="0" />
     </element>
     <element id="AllergyIntolerance.note.author[x]:authorReference.extension:practitionerRole">
       <path value="AllergyIntolerance.note.author[x].extension" />
       <sliceName value="practitionerRole" />
       <comment value="Relevant only in combination with Reference(Practitioner)" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -869,7 +872,6 @@
               <display value="ErnstCodelijst-to-AllergyIntoleranceSeverity" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/reaction-event-severity"/>
         </valueSetReference>
       </binding>
       <mapping>
@@ -897,10 +899,12 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="0" />
     </element>
     <element id="AllergyIntolerance.reaction.severity.extension:SeverityCodelist">
       <path value="AllergyIntolerance.reaction.severity.extension" />
       <sliceName value="SeverityCodelist" />
+      <min value="0" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
