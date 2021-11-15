@@ -1,0 +1,49 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+  <url value="http://nictiz.nl/fhir/CapabilityStatement/eappointment-clientcapabilities" />
+  <version value="1.0.0"/>
+  <name value="eAppointmentClient" />
+  <status value="active" />
+  <date value="2021-11-30" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="email" />
+      <value value="info@nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="This CapabilityStatement describes the minimal requirements for a client to fulfill the eAppointment use cases described for MedMij. The MedMij use cases can be found here: https://informatiestandaarden.nictiz.nl/wiki/MedMij:Vcurrent_FHIR_IG" />
+  <purpose value="This CapabilityStatement is informative in nature and does not represent the minimum or maximum set of capabilities the client or server should support. The aim is to design the CapabilityStatement as complete as possible, however for the exact set of capabilities the implementation guide of the corresponding information standard should be consulted."/>
+  <copyright value="CC0" />
+  <kind value="requirements" />
+  <fhirVersion value="3.0.2" />
+  <acceptUnknown value="both" />
+  <format value="xml" />
+  <format value="json" />
+  <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
+  </profile>
+  <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
+  </profile>
+  <profile>
+    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
+  </profile>
+  <profile>
+    <reference value="http://nictiz.nl/fhir/StructureDefinition/eAfspraak-Appointment" />
+  </profile>
+  <rest>
+    <mode value="client" />
+    <resource>
+      <type value="Appointment" />
+      <interaction>
+        <code value="search-type" />
+      </interaction>
+      <searchParam>
+        <name value="date" />
+        <type value="date" />
+      </searchParam>
+    </resource>
+  </rest>
+</CapabilityStatement>
