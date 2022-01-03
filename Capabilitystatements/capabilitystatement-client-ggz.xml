@@ -128,23 +128,15 @@
             <interaction>
                 <code value="search-type"/>
             </interaction>
-            <searchInclude value="general-practitioner"/>
-            <searchParam>
-                <name value="identifier"/>
-                <type value="token"/>
-            </searchParam>
+            <searchInclude value="Patient:general-practitioner"/>
         </resource>
         <resource>
             <type value="Observation" />
             <interaction>
                 <code value="search-type" />
             </interaction>
-            <searchInclude value="related-target"/>
-            <searchInclude value="specimen"/>
-            <searchParam>
-                <name value="patient" />
-                <type value="reference" />
-            </searchParam>
+            <searchInclude value="Observation:related-target"/>
+            <searchInclude value="Observation:specimen"/>
             <searchParam>
                 <name value="category" />
                 <type value="token" />
@@ -159,35 +151,19 @@
             <interaction>
                 <code value="search-type" />
             </interaction>
-            <searchParam>
-                <name value="patient" />
-                <type value="reference" />
-            </searchParam>
-            <searchParam>
-                <name value="code" />
-                <type value="token" />
-            </searchParam>
         </resource>
         <resource>
             <type value="Coverage"/>
             <interaction>
                 <code value="search-type"/>
             </interaction>
-            <searchInclude value="payor"/>
-            <searchParam>
-                <name value="subscriber"/>
-                <type value="reference"/>
-            </searchParam>
+            <searchInclude value="Coverage:payor"/>
         </resource>
         <resource>
             <type value="Consent"/>
             <interaction>
                 <code value="search-type"/>
             </interaction>
-            <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
             <searchParam>
                 <name value="category"/>
                 <type value="token"/>
@@ -204,24 +180,12 @@
             <interaction>
                 <code value="search-type" />
             </interaction>
-            <searchParam>
-                <name value="patient" />
-                <type value="reference" />
-            </searchParam>
-            <searchParam>
-                <name value="category" />
-                <type value="token" />
-            </searchParam>
         </resource>
         <resource>
             <type value="CarePlan" />
             <interaction>
                 <code value="search-type" />
             </interaction>
-            <searchParam>
-                <name value="patient" />
-                <type value="reference" />
-            </searchParam>
             <searchParam>
                 <name value="category" />
                 <type value="token" />
@@ -232,11 +196,7 @@
             <interaction>
                 <code value="search-type" />
             </interaction>
-            <searchInclude value="participant" />
-            <searchParam>
-                <name value="patient" />
-                <type value="reference" />
-            </searchParam>
+            <searchInclude value="CareTeam:participant"/>
         </resource>
         <operation>
             <name value="Last N Observations Query" />
