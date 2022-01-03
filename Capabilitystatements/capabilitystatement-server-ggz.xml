@@ -122,51 +122,35 @@
         <display value="zib-TextResult"/>
     </profile>
     <rest>
-        <mode value="server"/>
+        <mode value="server" />
         <resource>
             <type value="Patient"/>
             <interaction>
                 <code value="search-type"/>
             </interaction>
             <searchInclude value="Patient:general-practitioner"/>
-            <searchParam>
-                <name value="identifier"/>
-                <type value="token"/>
-            </searchParam>
         </resource>
         <resource>
-            <type value="Observation"/>
+            <type value="Observation" />
             <interaction>
-                <code value="search-type"/>
+                <code value="search-type" />
             </interaction>
             <searchInclude value="Observation:related-target"/>
             <searchInclude value="Observation:specimen"/>
             <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
+                <name value="category" />
+                <type value="token" />
             </searchParam>
             <searchParam>
-                <name value="category"/>
-                <type value="token"/>
-            </searchParam>
-            <searchParam>
-                <name value="code"/>
-                <type value="token"/>
+                <name value="code" />
+                <type value="token" />
             </searchParam>
         </resource>
         <resource>
-            <type value="DiagnosticReport"/>
+            <type value="DiagnosticReport" />
             <interaction>
-                <code value="search-type"/>
+                <code value="search-type" />
             </interaction>
-            <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
-            <searchParam>
-                <name value="code"/>
-                <type value="token"/>
-            </searchParam>
         </resource>
         <resource>
             <type value="Coverage"/>
@@ -174,10 +158,6 @@
                 <code value="search-type"/>
             </interaction>
             <searchInclude value="Coverage:payor"/>
-            <searchParam>
-                <name value="subscriber"/>
-                <type value="reference"/>
-            </searchParam>
         </resource>
         <resource>
             <type value="Consent"/>
@@ -185,61 +165,41 @@
                 <code value="search-type"/>
             </interaction>
             <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
-            <searchParam>
                 <name value="category"/>
                 <type value="token"/>
             </searchParam>
         </resource>
         <resource>
-            <type value="Condition"/>
+            <type value="Condition" />
             <interaction>
-                <code value="search-type"/>
+                <code value="search-type" />
             </interaction>
         </resource>
         <resource>
-            <type value="Procedure"/>
+            <type value="Procedure" />
             <interaction>
-                <code value="search-type"/>
+                <code value="search-type" />
+            </interaction>
+        </resource>
+        <resource>
+            <type value="CarePlan" />
+            <interaction>
+                <code value="search-type" />
             </interaction>
             <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
-            <searchParam>
-                <name value="category"/>
-                <type value="token"/>
+                <name value="category" />
+                <type value="token" />
             </searchParam>
         </resource>
         <resource>
-            <type value="CarePlan"/>
+            <type value="CareTeam" />
             <interaction>
-                <code value="search-type"/>
-            </interaction>
-            <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
-            <searchParam>
-                <name value="category"/>
-                <type value="token"/>
-            </searchParam>
-        </resource>
-        <resource>
-            <type value="CareTeam"/>
-            <interaction>
-                <code value="search-type"/>
+                <code value="search-type" />
             </interaction>
             <searchInclude value="CareTeam:participant"/>
-            <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
         </resource>
         <operation>
-            <name value="Last N Observations Query"/>
+            <name value="Last N Observations Query" />
             <definition>
                 <reference value="http://hl7.org/fhir/OperationDefinition/Observation-lastn"/>
                 <display value="Observation-lastn"/>
