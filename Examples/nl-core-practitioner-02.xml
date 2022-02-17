@@ -1,74 +1,81 @@
-<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitioner.xsd">
-    <id value="nl-core-practitioner-02"/>
-    <meta>
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <div>Vaste Huisarts 1</div>
-            <div>
-                <a href="tel:+31434073576">+31434073576</a>
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/practitioner.xsd">
+   <id value="nl-core-practitioner-02"/>
+   <meta>
+      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <div>Vaste Huisarts 1</div>
+         <div>
+            <a href="tel:+31434073576">+31434073576</a>
                  (Tel Werk), 
                 <a href="mailto:huisarts@huisarts.nl">huisarts@huisarts.nl</a>
                  (E-mail Werk)
             </div>
-            <div>Valkendael 45, 6245HK Maastricht, Nederland (WP)</div>
-        </div>
-    </text>
-    <name>
-        <family value="Vaste Huisarts 1"/>
-    </name>
-    <telecom>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+         <div>Valkendael 45, 6245HK Maastricht, Nederland (WP)</div>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="16e29a33-8fdf-11ec-6379-020000000000"/>
+   </identifier>
+   <name>
+      <family value="Vaste Huisarts 1"/>
+   </name>
+   <telecom>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+         <valueCodeableConcept>
+            <coding>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+               <code value="LL"/>
+               <display value="Vast telefoonnummer"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <system value="phone"/>
+      <value value="+31434073576"/>
+      <use value="work"/>
+   </telecom>
+   <telecom>
+      <system value="email"/>
+      <value value="huisarts@huisarts.nl"/>
+      <use value="work"/>
+   </telecom>
+   <address>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/AddressUse"/>
+               <code value="WP"/>
+               <display value="Werkadres"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <use value="work"/>
+      <line value="Valkendael 45">
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+            <valueString value="Valkendael"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+            <valueString value="45"/>
+         </extension>
+      </line>
+      <city value="Maastricht"/>
+      <postalCode value="6245HK"/>
+      <country value="Nederland">
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
-                <coding>
-                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                    <code value="LL"/>
-                    <display value="Vast telefoonnummer"/>
-                </coding>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                  <code value="6030"/>
+                  <display value="Nederland"/>
+               </coding>
             </valueCodeableConcept>
-        </extension>
-        <system value="phone"/>
-        <value value="+31434073576"/>
-        <use value="work"/>
-    </telecom>
-    <telecom>
-        <system value="email"/>
-        <value value="huisarts@huisarts.nl"/>
-        <use value="work"/>
-    </telecom>
-    <address>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="WP"/>
-                    <display value="Werkadres"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <use value="work"/>
-        <line value="Valkendael 45">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
-                <valueString value="Valkendael"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
-                <valueString value="45"/>
-            </extension>
-        </line>
-        <city value="Maastricht"/>
-        <postalCode value="6245HK"/>
-        <country value="Nederland">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
-                        <code value="6030"/>
-                        <display value="Nederland"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </country>
-    </address>
+         </extension>
+      </country>
+   </address>
 </Practitioner>

@@ -1,69 +1,75 @@
-<DeviceUseStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
-    <!--Disclaimer: This is a minimal example of DeviceUseStatement. The information that is presented may not be realistic. -->
-    <id value="zib-feedingtubesystem-02"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Beschrijving apparaatgebruik. Subject: Johan XXX_Helleman. Status: actief</caption>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Sonde is met spoed ingebracht.</td>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <th>Apparaat/Systeem</th>
-                        <td>
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceUseStatement xmlns="http://hl7.org/fhir"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
+   <id value="zib-feedingtubesystem-02"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Beschrijving apparaatgebruik. Subject: Johan XXX_Helleman. Status: actief</caption>
+            <tfoot>
+               <tr>
+                  <td colspan="2">Sonde is met spoed ingebracht.</td>
+               </tr>
+            </tfoot>
+            <tbody>
+               <tr>
+                  <th>Apparaat/Systeem</th>
+                  <td>
                             Percutaneous endoscopic gastrostomy catheter
                             <div>Sondevoeding: XXX Nutrition</div>
-                            <div>Sondelengte: 52 cm</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Gebruiksperiode</th>
-                        <td>Vanaf 22 december 2018</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-FeedingTubeLength">
-        <valueQuantity>
-            <value value="52"/>
-            <unit value="cm"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="cm"/>
-        </valueQuantity>
-    </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-EnteralNutrition">
-        <valueReference>
-            <reference value="MedicationAdministration/zib-medicationadministration-01"/>
-            <display value="XXX Nutrition"/>
-        </valueReference>
-    </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
-        <valueReference>
-            <reference value="DeviceUseStatement/zib-infusion-01"/>
-            <display value="Enteral feeding pump"/>
-        </valueReference>
-    </extension>
-    <status value="active"/>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <whenUsed>
-        <start value="2018-12-22"/>
-    </whenUsed>
-    <device>
-        <reference value="Device/zib-feedingtubesystem-product-01"/>
-        <display value="Percutaneous endoscopic gastrostomy catheter"/>
-    </device>
-    <note>
-        <text value="Sonde is met spoed ingebracht."/>
-    </note>
+                     <div>Sondelengte: 52 cm</div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Gebruiksperiode</th>
+                  <td>Vanaf 22 december 2018</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-FeedingTubeLength">
+      <valueQuantity>
+         <value value="52"/>
+         <unit value="cm"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="cm"/>
+      </valueQuantity>
+   </extension>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-EnteralNutrition">
+      <valueReference>
+         <reference value="MedicationAdministration/zib-medicationadministration-01"/>
+         <display value="XXX Nutrition"/>
+      </valueReference>
+   </extension>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
+      <valueReference>
+         <reference value="DeviceUseStatement/zib-infusion-01"/>
+         <display value="Enteral feeding pump"/>
+      </valueReference>
+   </extension>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1a022477-8fdf-11ec-1414-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <whenUsed>
+      <start value="2018-12-22"/>
+   </whenUsed>
+   <device>
+      <reference value="Device/zib-feedingtubesystem-product-01"/>
+      <display value="Percutaneous endoscopic gastrostomy catheter"/>
+   </device>
+   <note>
+      <text value="Sonde is met spoed ingebracht."/>
+   </note>
 </DeviceUseStatement>

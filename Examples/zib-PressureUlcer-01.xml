@@ -1,86 +1,93 @@
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
-    <id value="zib-pressureulcer-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-PressureUlcer"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Aandoening. Subject: Johan XXX_Helleman. Status: actief / bevestigd</caption>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
+   <id value="zib-pressureulcer-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-PressureUlcer"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Aandoening. Subject: Johan XXX_Helleman. Status: actief / bevestigd</caption>
+            <tfoot>
+               <tr>
+                  <td colspan="2">
                             (11:00:00, 14 juli 2019) 
                             <div>Blaar met vocht op hiel.</div>
-                        </td>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <th>Code</th>
-                        <td>
-                            <span title="Doorligplek (399912005 - SNOMED CT)">Doorligplek</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Eerste symptomen</th>
-                        <td>2019-07-02</td>
-                    </tr>
-                    <tr>
-                        <th>Stadium</th>
-                        <td>
-                            <span title="Decubitus categorie 2 (420324007 - SNOMED CT)">Decubitus categorie 2</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/condition-dateOfLastDressingChange">
-        <valueDateTime value="2019-07-10"/>
-    </extension>
-    <clinicalStatus value="active"/>
-    <verificationStatus value="confirmed"/>
-    <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="399912005"/>
-            <display value="Doorligplek"/>
-        </coding>
-    </code>
-    <bodySite>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="7771000"/>
-                    <display value="Left"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="76853006"/>
-            <display value="Hiel"/>
-        </coding>
-    </bodySite>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <onsetDateTime value="2019-07-02"/>
-    <stage>
-        <summary>
+                  </td>
+               </tr>
+            </tfoot>
+            <tbody>
+               <tr>
+                  <th>Code</th>
+                  <td>
+                     <span title="Doorligplek (399912005 - SNOMED CT)">Doorligplek</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Eerste symptomen</th>
+                  <td>2019-07-02</td>
+               </tr>
+               <tr>
+                  <th>Stadium</th>
+                  <td>
+                     <span title="Decubitus categorie 2 (420324007 - SNOMED CT)">Decubitus categorie 2</span>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/condition-dateOfLastDressingChange">
+      <valueDateTime value="2019-07-10"/>
+   </extension>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1ced17b9-8fdf-11ec-3693-020000000000"/>
+   </identifier>
+   <clinicalStatus value="active"/>
+   <verificationStatus value="confirmed"/>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="399912005"/>
+         <display value="Doorligplek"/>
+      </coding>
+   </code>
+   <bodySite>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
+         <valueCodeableConcept>
             <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="420324007"/>
-                <display value="Decubitus categorie 2"/>
+               <system value="http://snomed.info/sct"/>
+               <code value="7771000"/>
+               <display value="Left"/>
             </coding>
-        </summary>
-    </stage>
-    <note>
-        <time value="2019-07-14T11:00:00.000+01:00"/>
-        <text value="Blaar met vocht op hiel."/>
-    </note>
+         </valueCodeableConcept>
+      </extension>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="76853006"/>
+         <display value="Hiel"/>
+      </coding>
+   </bodySite>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <onsetDateTime value="2019-07-02"/>
+   <stage>
+      <summary>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="420324007"/>
+            <display value="Decubitus categorie 2"/>
+         </coding>
+      </summary>
+   </stage>
+   <note>
+      <time value="2019-07-14T11:00:00.000+01:00"/>
+      <text value="Blaar met vocht op hiel."/>
+   </note>
 </Condition>

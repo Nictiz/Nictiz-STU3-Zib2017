@@ -1,92 +1,98 @@
-<DeviceUseStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
-    <!--Disclaimer: This is a minimal example of Infusion (DeviceUseStatement) and may not be realistic. Some references may contain incorrect and not matching information.-->
-    <id value="zib-infusion-02"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Beschrijving apparaatgebruik. Subject: J. XXX_Helleman. Status: actief</caption>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Het systeem is op 2018-10-28 schoon gemaakt</td>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <th>Apparaat/Systeem</th>
-                        <td>Catheter, device (physical object)</td>
-                    </tr>
-                    <tr>
-                        <th>Lumen of lijn</th>
-                        <td>
-                            <div>
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceUseStatement xmlns="http://hl7.org/fhir"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/deviceusestatement.xsd">
+   <id value="zib-infusion-02"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Beschrijving apparaatgebruik. Subject: J. XXX_Helleman. Status: actief</caption>
+            <tfoot>
+               <tr>
+                  <td colspan="2">Het systeem is op 2018-10-28 schoon gemaakt</td>
+               </tr>
+            </tfoot>
+            <tbody>
+               <tr>
+                  <th>Apparaat/Systeem</th>
+                  <td>Catheter, device (physical object)</td>
+               </tr>
+               <tr>
+                  <th>Lumen of lijn</th>
+                  <td>
+                     <div>
                                 Lijnstatus: 
                                 <span title="Lopend (LNP - 2.16.840.1.113883.2.4.3.11.60.40.4.12.1)">Lopend</span>
-                            </div>
-                            <div>
+                     </div>
+                     <div>
                                 Lumenlocatie: 
                                 <span title="Proximal (40415009 - SNOMED CT)">Proximal</span>
-                            </div>
-                            <div>Slotvloeistof: Lockfluid NaCl 0.9 %</div>
-                            <div>Toedieningssysteem: NaCl 0,9% + medicatie 5000 E heparine (totaal 48ml)</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Gebruiksperiode</th>
-                        <td>Vanaf 1 november 2018</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine">
-        <extension url="LineStatus">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.12.1"/>
-                    <code value="LNP"/>
-                    <display value="Lopend"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <extension url="LumenLocation">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="40415009"/>
-                    <display value="Proximal"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <extension url="LockFluid">
-            <valueReference>
-                <reference value="MedicationAdministration/zib-medicationadministration-02"/>
-                <display value="Lockfluid NaCl 0.9 %"/>
-            </valueReference>
-        </extension>
-        <extension url="AdministeringSystem">
-            <valueReference>
-                <reference value="MedicationAdministration/zib-medicationadministration-04"/>
-                <display value="NaCl 0,9% + medicatie 5000 E heparine (totaal 48ml)"/>
-            </valueReference>
-        </extension>
-    </extension>
-    <status value="active"/>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="J. XXX_Helleman"/>
-    </subject>
-    <whenUsed>
-        <start value="2018-11-01"/>
-    </whenUsed>
-    <device>
-        <reference value="Device/zib-infusion-product-02"/>
-        <display value="Catheter, device (physical object)"/>
-    </device>
-    <note>
-        <text value="Het systeem is op 2018-10-28 schoon gemaakt"/>
-    </note>
+                     </div>
+                     <div>Slotvloeistof: Lockfluid NaCl 0.9 %</div>
+                     <div>Toedieningssysteem: NaCl 0,9% + medicatie 5000 E heparine (totaal 48ml)</div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Gebruiksperiode</th>
+                  <td>Vanaf 1 november 2018</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-LumenOrLine">
+      <extension url="LineStatus">
+         <valueCodeableConcept>
+            <coding>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.12.1"/>
+               <code value="LNP"/>
+               <display value="Lopend"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <extension url="LumenLocation">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://snomed.info/sct"/>
+               <code value="40415009"/>
+               <display value="Proximal"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <extension url="LockFluid">
+         <valueReference>
+            <reference value="MedicationAdministration/zib-medicationadministration-02"/>
+            <display value="Lockfluid NaCl 0.9 %"/>
+         </valueReference>
+      </extension>
+      <extension url="AdministeringSystem">
+         <valueReference>
+            <reference value="MedicationAdministration/zib-medicationadministration-04"/>
+            <display value="NaCl 0,9% + medicatie 5000 E heparine (totaal 48ml)"/>
+         </valueReference>
+      </extension>
+   </extension>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1aeadfe1-8fdf-11ec-5991-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="J. XXX_Helleman"/>
+   </subject>
+   <whenUsed>
+      <start value="2018-11-01"/>
+   </whenUsed>
+   <device>
+      <reference value="Device/zib-infusion-product-02"/>
+      <display value="Catheter, device (physical object)"/>
+   </device>
+   <note>
+      <text value="Het systeem is op 2018-10-28 schoon gemaakt"/>
+   </note>
 </DeviceUseStatement>

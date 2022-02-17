@@ -1,124 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <RelatedPerson xmlns="http://hl7.org/fhir"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
-    <id value="nl-core-relatedperson-01"/>
-    <meta>
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <div>Janni van Putten-van der Giessen (Janni)</div>
-            <div>
-                <a href="tel:06-12345678">06-12345678</a> (Tel Privé), <a href="mailto:j.vanderputten@example.com">j.vanderputten@example.com</a> (E-mail Werk)</div>
-            <div>Knolweg 1000, 9999XA Stitswerd, Nederland (officieel Privé (hoofd))</div>
-            <div>
-                <span title="Eerste relatie/contactpersoon (1 - RoleCodeLijst (COD472-VEKT))">Eerste relatie/contactpersoon</span>, <span title="Husband (HUSB - v3/RoleCode)">Husband</span> van Johan XXX_Helleman</div>
-        </div>
-    </text>
-    <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
-        <valueCodeableConcept>
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
+   <id value="nl-core-relatedperson-01"/>
+   <meta>
+      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <div>Janni van Putten-van der Giessen (Janni)</div>
+         <div>
+            <a href="tel:06-12345678">06-12345678</a> (Tel Privé), <a href="mailto:j.vanderputten@example.com">j.vanderputten@example.com</a> (E-mail Werk)</div>
+         <div>Knolweg 1000, 9999XA Stitswerd, Nederland (officieel Privé (hoofd))</div>
+         <div>
+            <span title="Eerste relatie/contactpersoon (1 - RoleCodeLijst (COD472-VEKT))">Eerste relatie/contactpersoon</span>, <span title="Husband (HUSB - v3/RoleCode)">Husband</span> van Johan XXX_Helleman</div>
+      </div>
+   </text>
+   <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
+      <valueCodeableConcept>
+         <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
+            <code value="1"/>
+            <display value="Eerste relatie/contactpersoon"/>
+         </coding>
+      </valueCodeableConcept>
+   </extension>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1730b191-8fdf-11ec-1225-020000000000"/>
+   </identifier>
+   <patient>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </patient>
+   <relationship>
+      <coding>
+         <system value="http://hl7.org/fhir/v3/RoleCode"/>
+         <code value="HUSB"/>
+         <display value="Husband"/>
+      </coding>
+   </relationship>
+   <name>
+      <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
+         <valueCode value="NL4"/>
+      </extension>
+      <text value="Janni van Putten-van der Giessen"/>
+      <family value="van Putten-van der Giessen">
+         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+            <valueString value="van"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+            <valueString value="Putten"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix">
+            <valueString value="van der"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-partner-name">
+            <valueString value="Giessen"/>
+         </extension>
+      </family>
+      <given value="Janni">
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+            <valueCode value="CL"/>
+         </extension>
+      </given>
+      <given value="J.P.M.">
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+            <valueCode value="IN"/>
+         </extension>
+      </given>
+   </name>
+   <telecom>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+         <valueCodeableConcept>
             <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
-                <code value="1"/>
-                <display value="Eerste relatie/contactpersoon"/>
+               <system value="http://hl7.org/fhir/v3/AddressUse"/>
+               <code value="MC"/>
+               <display value="Mobiel telefoonnummer"/>
             </coding>
-        </valueCodeableConcept>
-    </extension>
-    <patient>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </patient>
-    <relationship>
-        <coding>
-            <system value="http://hl7.org/fhir/v3/RoleCode"/>
-            <code value="HUSB"/>
-            <display value="Husband"/>
-        </coding>
-    </relationship>
-    <name>
-        <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
-            <valueCode value="NL4"/>
-        </extension>
-        <text value="Janni van Putten-van der Giessen"/>
-        <family value="van Putten-van der Giessen">
-            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
-                <valueString value="van"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
-                <valueString value="Putten"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix">
-                <valueString value="van der"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-partner-name">
-                <valueString value="Giessen"/>
-            </extension>
-        </family>
-        <given value="Janni">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
-                <valueCode value="CL"/>
-            </extension>
-        </given>
-        <given value="J.P.M.">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
-                <valueCode value="IN"/>
-            </extension>
-        </given>
-    </name>
-    <telecom>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+         </valueCodeableConcept>
+      </extension>
+      <system value="phone"/>
+      <value value="06-12345678"/>
+      <use value="home"/>
+   </telecom>
+   <telecom>
+      <system value="email"/>
+      <value value="j.vanderputten@example.com"/>
+      <use value="work"/>
+   </telecom>
+   <address>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/AddressUse"/>
+               <code value="HP"/>
+               <display value="Officieel adres"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+         <valueBoolean value="true"/>
+      </extension>
+      <use value="home"/>
+      <line value="Knolweg 1000">
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+            <valueString value="Knolweg"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+            <valueString value="1000"/>
+         </extension>
+      </line>
+      <city value="Stitswerd"/>
+      <postalCode value="9999XA"/>
+      <country value="Nederland">
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="MC"/>
-                    <display value="Mobiel telefoonnummer"/>
-                </coding>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                  <code value="6030"/>
+                  <display value="Nederland"/>
+               </coding>
             </valueCodeableConcept>
-        </extension>
-        <system value="phone"/>
-        <value value="06-12345678"/>
-        <use value="home"/>
-    </telecom>
-    <telecom>
-        <system value="email"/>
-        <value value="j.vanderputten@example.com"/>
-        <use value="work"/>
-    </telecom>
-    <address>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="HP"/>
-                    <display value="Officieel adres"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
-            <valueBoolean value="true"/>
-        </extension>
-        <use value="home"/>
-        <line value="Knolweg 1000">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
-                <valueString value="Knolweg"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
-                <valueString value="1000"/>
-            </extension>
-        </line>
-        <city value="Stitswerd"/>
-        <postalCode value="9999XA"/>
-        <country value="Nederland">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
-                        <code value="6030"/>
-                        <display value="Nederland"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </country>
-    </address>
+         </extension>
+      </country>
+   </address>
 </RelatedPerson>

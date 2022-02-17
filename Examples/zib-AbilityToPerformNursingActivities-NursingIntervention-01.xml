@@ -1,68 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir">
-    <id value="zib-abilitytoperformnursinginterventions-intervention-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>
+   <id value="zib-abilitytoperformnursinginterventions-intervention-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-NursingIntervention"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>
                     Verrichting. Subject: I. Jongeneel-de Haas. Categorie: 
                     <span title="verpleegkundige verrichting (9632001 - SNOMED CT)">verpleegkundige verrichting</span>
                     , Status: is bezig
                 </caption>
-                <tbody>
-                    <tr>
-                        <td>
-                            <span title="Katheteriseren (45211000 - SNOMED CT)">Katheteriseren</span>
-                        </td>
-                        <td>
-                            <div>Uitgevoerd: Vanaf 18 december 2016</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Timing</th>
-                        <td>
-                            <div>3 maal per dag</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <extension url="http://hl7.org/fhir/StructureDefinition/procedure-schedule">
-        <valueTiming>
-            <repeat>
-                <frequency value="3"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </valueTiming>
-    </extension>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
-        <valueString value="Toezicht bij uitvoer, en instructie hygiënisch werken"/>
-    </extension>
-    <status value="in-progress"/>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="9632001"/>
-            <display value="verpleegkundige verrichting"/>
-        </coding>
-    </category>
-    <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="45211000"/>
-            <display value="Katheteriseren"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
-    </subject>
-    <performedPeriod>
-        <start value="2016-12-18"/>
-    </performedPeriod>
+            <tbody>
+               <tr>
+                  <td>
+                     <span title="Katheteriseren (45211000 - SNOMED CT)">Katheteriseren</span>
+                  </td>
+                  <td>
+                     <div>Uitgevoerd: Vanaf 18 december 2016</div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Timing</th>
+                  <td>
+                     <div>3 maal per dag</div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://hl7.org/fhir/StructureDefinition/procedure-schedule">
+      <valueTiming>
+         <repeat>
+            <frequency value="3"/>
+            <period value="1"/>
+            <periodUnit value="d"/>
+         </repeat>
+      </valueTiming>
+   </extension>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/Comment">
+      <valueString value="Toezicht bij uitvoer, en instructie hygiënisch werken"/>
+   </extension>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="187befc5-8fdf-11ec-1799-020000000000"/>
+   </identifier>
+   <status value="in-progress"/>
+   <category>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="9632001"/>
+         <display value="verpleegkundige verrichting"/>
+      </coding>
+   </category>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="45211000"/>
+         <display value="Katheteriseren"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="I. Jongeneel-de Haas"/>
+   </subject>
+   <performedPeriod>
+      <start value="2016-12-18"/>
+   </performedPeriod>
 </Procedure>

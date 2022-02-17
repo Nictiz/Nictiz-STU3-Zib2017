@@ -1,90 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <DocumentManifest xmlns="http://hl7.org/fhir">
-    <id value="pdfa-documentmanifest-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.DocumentManifest"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>
+   <id value="pdfa-documentmanifest-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.DocumentManifest"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>
                     DocumentManifest. Subject: Paul XXX_Mesker. Set‑Id: urn:oid:1.2.276.0.7230010.3.1.2.1787205428.8024.1526514975.440899 (urn:ietf:rfc:3986), Id: 7899777 (http://xis.org/fhir/NamingSystem/DocumentManifestID), Status: vervangen
                     <span style="display: block;">Auteur: B. Kneder</span>
-                </caption>
-                <tbody>
-                    <tr>
-                        <th>Type</th>
-                        <td>
-                            <span title="Discharge summary (18842-5 - LOINC)">Discharge summary</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Gemaakt</th>
-                        <td>2020-03-10</td>
-                    </tr>
-                    <tr>
-                        <th>Bron</th>
-                        <td>http://xis.org/example</td>
-                    </tr>
-                    <tr>
-                        <th>Content</th>
-                        <td>DocumentReference/pdfa-documentreference-01</td>
-                    </tr>
-                    <tr>
-                        <th>Content</th>
-                        <td>DocumentReference/pdfa-documentreference-02</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <contained>
-        <Practitioner>
-            <id value="p1"/>
-            <name>
-                <family value="Kneder"/>
-                <given value="B.">
-                    <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
-                        <valueCode value="IN"/>
-                    </extension>
-                </given>
-            </name>
-        </Practitioner>
-    </contained>
-    <masterIdentifier>
-        <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:oid:1.2.276.0.7230010.3.1.2.1787205428.8024.1526514975.440899"/>
-    </masterIdentifier>
-    <identifier>
-        <system value="http://xis.org/fhir/NamingSystem/DocumentManifestID"/>
-        <value value="7899777"/>
-    </identifier>
-    <status value="superseded"/>
-    <type>
-        <coding>
-            <system value="http://loinc.org"/>
-            <code value="18842-5"/>
-            <display value="Discharge summary"/>
-        </coding>
-    </type>
-    <subject>
-        <reference value="Patient/nl-core-patient-02"/>
-        <display value="Paul XXX_Mesker"/>
-    </subject>
-    <created value="2020-03-10"/>
-    <author>
-        <reference value="#p1"/>
-        <display value="B. Kneder"/>
-    </author>
-    <source value="http://xis.org/example"/>
-    <content>
-        <pReference>
-            <reference value="DocumentReference/pdfa-documentreference-01"/>
-        </pReference>
-    </content>
-    <content>
-        <pReference>
-            <reference value="DocumentReference/pdfa-documentreference-02"/>
-        </pReference>
-    </content>
+            </caption>
+            <tbody>
+               <tr>
+                  <th>Type</th>
+                  <td>
+                     <span title="Discharge summary (18842-5 - LOINC)">Discharge summary</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Gemaakt</th>
+                  <td>2020-03-10</td>
+               </tr>
+               <tr>
+                  <th>Bron</th>
+                  <td>http://xis.org/example</td>
+               </tr>
+               <tr>
+                  <th>Content</th>
+                  <td>DocumentReference/pdfa-documentreference-01</td>
+               </tr>
+               <tr>
+                  <th>Content</th>
+                  <td>DocumentReference/pdfa-documentreference-02</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <contained>
+      <Practitioner>
+         <id value="p1"/>
+         <name>
+            <family value="Kneder"/>
+            <given value="B.">
+               <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+                  <valueCode value="IN"/>
+               </extension>
+            </given>
+         </name>
+      </Practitioner>
+   </contained>
+   <identifier>
+      <system value="http://xis.org/fhir/NamingSystem/DocumentManifestID"/>
+      <value value="7899777"/>
+   </identifier>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="17acf409-8fdf-11ec-6275-020000000000"/>
+   </identifier>
+   <masterIdentifier>
+      <system value="urn:ietf:rfc:3986"/>
+      <value value="urn:oid:1.2.276.0.7230010.3.1.2.1787205428.8024.1526514975.440899"/>
+   </masterIdentifier>
+   <status value="superseded"/>
+   <type>
+      <coding>
+         <system value="http://loinc.org"/>
+         <code value="18842-5"/>
+         <display value="Discharge summary"/>
+      </coding>
+   </type>
+   <subject>
+      <reference value="Patient/nl-core-patient-02"/>
+      <display value="Paul XXX_Mesker"/>
+   </subject>
+   <created value="2020-03-10"/>
+   <author>
+      <reference value="#p1"/>
+      <display value="B. Kneder"/>
+   </author>
+   <source value="http://xis.org/example"/>
+   <content>
+      <pReference>
+         <reference value="DocumentReference/pdfa-documentreference-01"/>
+      </pReference>
+   </content>
+   <content>
+      <pReference>
+         <reference value="DocumentReference/pdfa-documentreference-02"/>
+      </pReference>
+   </content>
 </DocumentManifest>

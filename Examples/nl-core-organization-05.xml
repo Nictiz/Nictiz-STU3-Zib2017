@@ -1,144 +1,151 @@
-<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/organization.xsd">
-    <id value="nl-core-organization-05"/>
-    <meta>
-        <versionId value="6"/>
-        <lastUpdated value="2016-11-09T17:27:51.255+00:00"/>
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Organisatie. Id: 12341234 (AGB-Z), 12341234 (URA)</caption>
-                <tbody>
-                    <tr>
-                        <th>Naam</th>
-                        <td>
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/organization.xsd">
+   <id value="nl-core-organization-05"/>
+   <meta>
+      <versionId value="6"/>
+      <lastUpdated value="2016-11-09T17:27:51.255+00:00"/>
+      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Organisatie. Id: 12341234 (AGB-Z), 12341234 (URA)</caption>
+            <tbody>
+               <tr>
+                  <th>Naam</th>
+                  <td>
                             Ziekenhuis Gooi en Overvecht
                             <div>Alias: ZGO</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Type</th>
-                        <td>
-                            <div>
-                                <span title="Psychiatrie (0329 - AGB-medisch specialisme)">Psychiatrie</span>
-                            </div>
-                            <div>
-                                <span title="Ziekenhuis (V4 - organization-type)">Ziekenhuis</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Contactgegevens</th>
-                        <td>
-                            <a href="tel:030-1234567">030-1234567</a>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Type</th>
+                  <td>
+                     <div>
+                        <span title="Psychiatrie (0329 - AGB-medisch specialisme)">Psychiatrie</span>
+                     </div>
+                     <div>
+                        <span title="Ziekenhuis (V4 - organization-type)">Ziekenhuis</span>
+                     </div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Contactgegevens</th>
+                  <td>
+                     <a href="tel:030-1234567">030-1234567</a>
                              (Tel Werk)
                         </td>
-                    </tr>
-                    <tr>
-                        <th>Adres</th>
-                        <td>Ventweg 12, 1000AA Utrecht, NLD (WP)</td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">
-                            <hr/>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>
-                            <span title="Administrative (ADMIN - contactentity-type)">Administrative</span>
-                        </th>
-                        <td>
-                            <div>Mevrouw Pietersen</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <identifier>
-        <system value="http://fhir.nl/fhir/NamingSystem/agb-z"/>
-        <value value="12341234"/>
-    </identifier>
-    <identifier>
-        <system value="http://fhir.nl/fhir/NamingSystem/ura"/>
-        <value value="12341234"/>
-    </identifier>
-    <active value="true"/>
-    <type>
-        <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
-            <code value="0329"/>
-            <display value="Psychiatrie"/>
-        </coding>
-    </type>
-    <type>
-        <coding>
-            <system value="http://nictiz.nl/fhir/NamingSystem/organization-type"/>
-            <code value="V4"/>
-            <display value="Ziekenhuis"/>
-        </coding>
-    </type>
-    <name value="Ziekenhuis Gooi en Overvecht"/>
-    <alias value="ZGO"/>
-    <telecom>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
-                    <code value="LL"/>
-                    <display value="Vast telefoonnummer"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <system value="phone"/>
-        <value value="030-1234567"/>
-        <use value="work"/>
-    </telecom>
-    <address>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="WP"/>
-                    <display value="Werkadres"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <use value="work"/>
-        <line value="Ventweg 12">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
-                <valueString value="Ventweg"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
-                <valueString value="12"/>
-            </extension>
-        </line>
-        <city value="Utrecht"/>
-        <postalCode value="1000AA"/>
-        <country value="NLD">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
-                        <code value="6030"/>
-                        <display value="Nederland"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </country>
-    </address>
-    <contact>
-        <purpose>
+               </tr>
+               <tr>
+                  <th>Adres</th>
+                  <td>Ventweg 12, 1000AA Utrecht, NLD (WP)</td>
+               </tr>
+               <tr>
+                  <th colspan="2">
+                     <hr/>
+                  </th>
+               </tr>
+               <tr>
+                  <th>
+                     <span title="Administrative (ADMIN - contactentity-type)">Administrative</span>
+                  </th>
+                  <td>
+                     <div>Mevrouw Pietersen</div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="http://fhir.nl/fhir/NamingSystem/agb-z"/>
+      <value value="12341234"/>
+   </identifier>
+   <identifier>
+      <system value="http://fhir.nl/fhir/NamingSystem/ura"/>
+      <value value="12341234"/>
+   </identifier>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="165c4ed3-8fdf-11ec-1779-020000000000"/>
+   </identifier>
+   <active value="true"/>
+   <type>
+      <coding>
+         <system value="urn:oid:2.16.840.1.113883.2.4.6.7"/>
+         <code value="0329"/>
+         <display value="Psychiatrie"/>
+      </coding>
+   </type>
+   <type>
+      <coding>
+         <system value="http://nictiz.nl/fhir/NamingSystem/organization-type"/>
+         <code value="V4"/>
+         <display value="Ziekenhuis"/>
+      </coding>
+   </type>
+   <name value="Ziekenhuis Gooi en Overvecht"/>
+   <alias value="ZGO"/>
+   <telecom>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+         <valueCodeableConcept>
             <coding>
-                <system value="http://hl7.org/fhir/contactentity-type"/>
-                <code value="ADMIN"/>
-                <display value="Administrative"/>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+               <code value="LL"/>
+               <display value="Vast telefoonnummer"/>
             </coding>
-        </purpose>
-        <name>
-            <text value="Mevrouw Pietersen"/>
-        </name>
-    </contact>
+         </valueCodeableConcept>
+      </extension>
+      <system value="phone"/>
+      <value value="030-1234567"/>
+      <use value="work"/>
+   </telecom>
+   <address>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/AddressUse"/>
+               <code value="WP"/>
+               <display value="Werkadres"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <use value="work"/>
+      <line value="Ventweg 12">
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+            <valueString value="Ventweg"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+            <valueString value="12"/>
+         </extension>
+      </line>
+      <city value="Utrecht"/>
+      <postalCode value="1000AA"/>
+      <country value="NLD">
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+            <valueCodeableConcept>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                  <code value="6030"/>
+                  <display value="Nederland"/>
+               </coding>
+            </valueCodeableConcept>
+         </extension>
+      </country>
+   </address>
+   <contact>
+      <purpose>
+         <coding>
+            <system value="http://hl7.org/fhir/contactentity-type"/>
+            <code value="ADMIN"/>
+            <display value="Administrative"/>
+         </coding>
+      </purpose>
+      <name>
+         <text value="Mevrouw Pietersen"/>
+      </name>
+   </contact>
 </Organization>

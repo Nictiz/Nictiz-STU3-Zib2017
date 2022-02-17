@@ -1,89 +1,96 @@
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
-    <id value="zib-problem-03"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Aandoening. Subject: Johan XXX_Helleman. Status: actief / onbekend</caption>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Gevallen op de kunstijsbaan</td>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <th>Code</th>
-                        <td>
-                            <span title="Fracture of wrist (disorder) (31641000146105 - SNOMED CT)">Fracture of wrist (disorder)</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Eerste symptomen</th>
-                        <td>2001</td>
-                    </tr>
-                    <tr>
-                        <th>Oplossing/remissie</th>
-                        <td>2002</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <clinicalStatus value="active">
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="55561003"/>
-                    <display value="Active"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-    </clinicalStatus>
-    <verificationStatus value="unknown">
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/NullFlavor"/>
-                    <code value="UNK"/>
-                    <display value="Unknown"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-    </verificationStatus>
-    <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="31641000146105"/>
-            <display value="Fracture of wrist (disorder)"/>
-        </coding>
-    </code>
-    <bodySite>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="24028007"/>
-                    <display value="Right"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="361289009"/>
-            <display value="Entire wrist region"/>
-        </coding>
-    </bodySite>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <onsetDateTime value="2001"/>
-    <abatementDateTime value="2002"/>
-    <note>
-        <text value="Gevallen op de kunstijsbaan"/>
-    </note>
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
+   <id value="zib-problem-03"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Aandoening. Subject: Johan XXX_Helleman. Status: actief / onbekend</caption>
+            <tfoot>
+               <tr>
+                  <td colspan="2">Gevallen op de kunstijsbaan</td>
+               </tr>
+            </tfoot>
+            <tbody>
+               <tr>
+                  <th>Code</th>
+                  <td>
+                     <span title="Fracture of wrist (disorder) (31641000146105 - SNOMED CT)">Fracture of wrist (disorder)</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Eerste symptomen</th>
+                  <td>2001</td>
+               </tr>
+               <tr>
+                  <th>Oplossing/remissie</th>
+                  <td>2002</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1d1451f3-8fdf-11ec-5384-020000000000"/>
+   </identifier>
+   <clinicalStatus value="active">
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://snomed.info/sct"/>
+               <code value="55561003"/>
+               <display value="Active"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+   </clinicalStatus>
+   <verificationStatus value="unknown">
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+               <code value="UNK"/>
+               <display value="Unknown"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+   </verificationStatus>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="31641000146105"/>
+         <display value="Fracture of wrist (disorder)"/>
+      </coding>
+   </code>
+   <bodySite>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://snomed.info/sct"/>
+               <code value="24028007"/>
+               <display value="Right"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="361289009"/>
+         <display value="Entire wrist region"/>
+      </coding>
+   </bodySite>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <onsetDateTime value="2001"/>
+   <abatementDateTime value="2002"/>
+   <note>
+      <text value="Gevallen op de kunstijsbaan"/>
+   </note>
 </Condition>

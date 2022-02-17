@@ -1,28 +1,35 @@
-<HealthcareService xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/healthcareservice.xsd">
-    <id value="nl-core-healthcareservice-01"/>
-    <meta>
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-healthcareservice"/>
-    </meta>
-    <providedBy>
-        <reference value="Organization/nl-core-organization-02"/>
-        <display value="Orthopedie - UMCG"/>
-    </providedBy>
-    <location>
-        <reference value="Location/nl-core-location-01"/>
-        <display value="Orthopodie afdeling ACME in Den Haag"/>
-    </location>
-    <telecom>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="MC"/>
-                    <display value="Mobile Phone"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <system value="phone"/>
-        <value value="0679854345"/>
-        <use value="mobile"/>
-    </telecom>
+<?xml version="1.0" encoding="UTF-8"?>
+<HealthcareService xmlns="http://hl7.org/fhir"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/healthcareservice.xsd">
+   <id value="nl-core-healthcareservice-01"/>
+   <meta>
+      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-healthcareservice"/>
+   </meta>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1607ae23-8fdf-11ec-1824-020000000000"/>
+   </identifier>
+   <providedBy>
+      <reference value="Organization/nl-core-organization-02"/>
+      <display value="Orthopedie - UMCG"/>
+   </providedBy>
+   <location>
+      <reference value="Location/nl-core-location-01"/>
+      <display value="Orthopodie afdeling ACME in Den Haag"/>
+   </location>
+   <telecom>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/AddressUse"/>
+               <code value="MC"/>
+               <display value="Mobile Phone"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <system value="phone"/>
+      <value value="0679854345"/>
+      <use value="mobile"/>
+   </telecom>
 </HealthcareService>

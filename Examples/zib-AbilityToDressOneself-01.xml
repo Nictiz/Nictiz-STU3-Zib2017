@@ -1,71 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
-    <id value="zib-abilitytodressoneself-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToDressOneself"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Observatie/bepaling. Subject: I. Jongeneel-de Haas. Status: definitief</caption>
-                <tbody>
-                    <tr>
-                        <th>Code</th>
-                        <th>Waarde</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="ZichKleden (165235000 - SNOMED CT)">ZichKleden</span>
-                        </td>
-                        <td>
-                            <span title="Hulp nodig (129039006 - SNOMED CT)">Hulp nodig</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="TeKledenLichaamsdeel (38866009 - SNOMED CT)">TeKledenLichaamsdeel</span>
-                        </td>
-                        <td>
-                            <span title="Bovenlichaam (362874006 - SNOMED CT)">Bovenlichaam</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="final"/>
-    <code>
-        <coding>
+   <id value="zib-abilitytodressoneself-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToDressOneself"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Observatie/bepaling. Subject: I. Jongeneel-de Haas. Status: definitief</caption>
+            <tbody>
+               <tr>
+                  <th>Code</th>
+                  <th>Waarde</th>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="ZichKleden (165235000 - SNOMED CT)">ZichKleden</span>
+                  </td>
+                  <td>
+                     <span title="Hulp nodig (129039006 - SNOMED CT)">Hulp nodig</span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="TeKledenLichaamsdeel (38866009 - SNOMED CT)">TeKledenLichaamsdeel</span>
+                  </td>
+                  <td>
+                     <span title="Bovenlichaam (362874006 - SNOMED CT)">Bovenlichaam</span>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="17f89f35-8fdf-11ec-1969-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="165235000"/>
+         <display value="ZichKleden"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="I. Jongeneel-de Haas"/>
+   </subject>
+   <valueCodeableConcept>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="129039006"/>
+         <display value="Hulp nodig"/>
+      </coding>
+   </valueCodeableConcept>
+   <component>
+      <code>
+         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="165235000"/>
-            <display value="ZichKleden"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
-    </subject>
-    <valueCodeableConcept>
-        <coding>
+            <code value="38866009"/>
+            <display value="TeKledenLichaamsdeel"/>
+         </coding>
+      </code>
+      <valueCodeableConcept>
+         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="129039006"/>
-            <display value="Hulp nodig"/>
-        </coding>
-    </valueCodeableConcept>
-    <component>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="38866009"/>
-                <display value="TeKledenLichaamsdeel"/>
-            </coding>
-        </code>
-        <valueCodeableConcept>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="362874006"/>
-                <display value="Bovenlichaam"/>
-            </coding>
-        </valueCodeableConcept>
-    </component>
+            <code value="362874006"/>
+            <display value="Bovenlichaam"/>
+         </coding>
+      </valueCodeableConcept>
+   </component>
 </Observation>

@@ -1,91 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
-    <id value="zib-illnessperception-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-IllnessPerception"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Observatie/bepaling. Subject: Johan XXX_Helleman. Status: definitief</caption>
-                <tbody>
-                    <tr>
-                        <th>Bepalingdatum/tijd</th>
-                        <td>2019-03-31</td>
-                    </tr>
-                    <tr>
-                        <th>Code</th>
-                        <th>Waarde</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Characteristic of psychosocial functioning (observable entity) (363910003 - SNOMED CT)">Characteristic of psychosocial functioning (observable entity)</span>
-                        </td>
-                        <td/>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Patient Illness Insight (27026000 - SNOMED CT)">Patient Illness Insight</span>
-                        </td>
-                        <td>Kan niet overzien wat de ziekte betekent in het dagelijks leven.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Coping With Illness By Patient (364667003 - SNOMED CT)">Coping With Illness By Patient</span>
-                        </td>
-                        <td>Patiënt wil niet praten over de toekomst.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Coping With Illness By Family (405199009 - SNOMED CT)">Coping With Illness By Family</span>
-                        </td>
-                        <td>Partner heeft veel vragen over hoe de toekomst er uit ziet.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="final"/>
-    <code>
-        <coding>
+   <id value="zib-illnessperception-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-IllnessPerception"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Observatie/bepaling. Subject: Johan XXX_Helleman. Status: definitief</caption>
+            <tbody>
+               <tr>
+                  <th>Bepalingdatum/tijd</th>
+                  <td>2019-03-31</td>
+               </tr>
+               <tr>
+                  <th>Code</th>
+                  <th>Waarde</th>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Characteristic of psychosocial functioning (observable entity) (363910003 - SNOMED CT)">Characteristic of psychosocial functioning (observable entity)</span>
+                  </td>
+                  <td/>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Patient Illness Insight (27026000 - SNOMED CT)">Patient Illness Insight</span>
+                  </td>
+                  <td>Kan niet overzien wat de ziekte betekent in het dagelijks leven.</td>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Coping With Illness By Patient (364667003 - SNOMED CT)">Coping With Illness By Patient</span>
+                  </td>
+                  <td>Patiënt wil niet praten over de toekomst.</td>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Coping With Illness By Family (405199009 - SNOMED CT)">Coping With Illness By Family</span>
+                  </td>
+                  <td>Partner heeft veel vragen over hoe de toekomst er uit ziet.</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1ad32c93-8fdf-11ec-1865-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="363910003"/>
+         <display value="Characteristic of psychosocial functioning (observable entity)"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <effectiveDateTime value="2019-03-31"/>
+   <component>
+      <code>
+         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="363910003"/>
-            <display value="Characteristic of psychosocial functioning (observable entity)"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <effectiveDateTime value="2019-03-31"/>
-    <component>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="27026000"/>
-                <display value="Patient Illness Insight"/>
-            </coding>
-        </code>
-        <valueString value="Kan niet overzien wat de ziekte betekent in het dagelijks leven."/>
-    </component>
-    <component>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="364667003"/>
-                <display value="Coping With Illness By Patient"/>
-            </coding>
-        </code>
-        <valueString value="Patiënt wil niet praten over de toekomst."/>
-    </component>
-    <component>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="405199009"/>
-                <display value="Coping With Illness By Family"/>
-            </coding>
-        </code>
-        <valueString value="Partner heeft veel vragen over hoe de toekomst er uit ziet."/>
-    </component>
+            <code value="27026000"/>
+            <display value="Patient Illness Insight"/>
+         </coding>
+      </code>
+      <valueString value="Kan niet overzien wat de ziekte betekent in het dagelijks leven."/>
+   </component>
+   <component>
+      <code>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="364667003"/>
+            <display value="Coping With Illness By Patient"/>
+         </coding>
+      </code>
+      <valueString value="Patiënt wil niet praten over de toekomst."/>
+   </component>
+   <component>
+      <code>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="405199009"/>
+            <display value="Coping With Illness By Family"/>
+         </coding>
+      </code>
+      <valueString value="Partner heeft veel vragen over hoe de toekomst er uit ziet."/>
+   </component>
 </Observation>

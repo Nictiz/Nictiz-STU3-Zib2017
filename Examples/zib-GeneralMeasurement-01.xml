@@ -1,80 +1,87 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-generalmeasurement-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-generalmeasurement-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-GeneralMeasurement"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>
                     Observatie/bepaling. Subject: Irma Jongeneel-de Haas. Categorie: 
                     <span title="survey (survey - observation-category)">survey</span>
                     , Status: definitief
                 </caption>
-                <tbody>
-                    <tr>
-                        <th>Gerelateerd</th>
-                        <td>
-                            <ul>
-                                <li>MeasurementResult - Health of the Nation Outcome Scale - summated (generic version)</li>
-                                <li>MeasurementResult - Health of the Nation Outcome Scale item 1 - aggressive/disruptive behavior</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Code</th>
-                        <th>Waarde</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Health of the Nation Outcome Scale (generic version) (assessment scale) (273513009 - SNOMED CT)">Health of the Nation Outcome Scale (generic version) (assessment scale)</span>
-                        </td>
-                        <td/>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="final">
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.15.1"/>
-                    <code value="final"/>
-                    <display value="Final"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-    </status>
-    <category>
-        <coding>
-            <system value="http://hl7.org/fhir/observation-category"/>
-            <code value="survey"/>
-            <display value="survey"/>
-        </coding>
-    </category>
-    <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="273513009"/>
-            <display value="Health of the Nation Outcome Scale (generic version) (assessment scale)"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="Irma Jongeneel-de Haas"/>
-    </subject>
-    <related>
-        <target>
-            <reference value="Observation/zib-generalmeasurement-result-01"/>
-            <display value="MeasurementResult - Health of the Nation Outcome Scale - summated (generic version)"/>
-        </target>
-    </related>
-    <related>
-        <target>
-            <reference value="Observation/zib-generalmeasurement-result-02"/>
-            <display value="MeasurementResult - Health of the Nation Outcome Scale item 1 - aggressive/disruptive behavior"/>
-        </target>
-    </related>
+            <tbody>
+               <tr>
+                  <th>Gerelateerd</th>
+                  <td>
+                     <ul>
+                        <li>MeasurementResult - Health of the Nation Outcome Scale - summated (generic version)</li>
+                        <li>MeasurementResult - Health of the Nation Outcome Scale item 1 - aggressive/disruptive behavior</li>
+                     </ul>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Code</th>
+                  <th>Waarde</th>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Health of the Nation Outcome Scale (generic version) (assessment scale) (273513009 - SNOMED CT)">Health of the Nation Outcome Scale (generic version) (assessment scale)</span>
+                  </td>
+                  <td/>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1a63f585-8fdf-11ec-7434-020000000000"/>
+   </identifier>
+   <status value="final">
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+         <valueCodeableConcept>
+            <coding>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.15.1"/>
+               <code value="final"/>
+               <display value="Final"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+   </status>
+   <category>
+      <coding>
+         <system value="http://hl7.org/fhir/observation-category"/>
+         <code value="survey"/>
+         <display value="survey"/>
+      </coding>
+   </category>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="273513009"/>
+         <display value="Health of the Nation Outcome Scale (generic version) (assessment scale)"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="Irma Jongeneel-de Haas"/>
+   </subject>
+   <related>
+      <target>
+         <reference value="Observation/zib-generalmeasurement-result-01"/>
+         <display value="MeasurementResult - Health of the Nation Outcome Scale - summated (generic version)"/>
+      </target>
+   </related>
+   <related>
+      <target>
+         <reference value="Observation/zib-generalmeasurement-result-02"/>
+         <display value="MeasurementResult - Health of the Nation Outcome Scale item 1 - aggressive/disruptive behavior"/>
+      </target>
+   </related>
 </Observation>

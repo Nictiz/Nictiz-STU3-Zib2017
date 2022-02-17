@@ -1,121 +1,128 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-tobaccouse-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TobaccoUse"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Observatie/bepaling. Subject: Johan XXX_Helleman. Status: definitief</caption>
-                <tbody>
-                    <tr>
-                        <th>Bepalingdatum/tijd</th>
-                        <td>1980 - 1983</td>
-                    </tr>
-                    <tr>
-                        <th>Code</th>
-                        <th>Waarde</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Finding of tobacco use and exposure (finding) (365980008 - SNOMED CT)">Finding of tobacco use and exposure (finding)</span>
-                        </td>
-                        <td>
-                            <span title="Ex-smoker (finding) (8517006 - SNOMED CT)">Ex-smoker (finding)</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Type of tobacco used (observable entity) (53661000146106 - SNOMED CT)">Type of tobacco used (observable entity)</span>
-                        </td>
-                        <td>
-                            <span title="Cigarette smoker (finding) (65568007 - SNOMED CT)">Cigarette smoker (finding)</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Tobacco smoking consumption (observable entity) (266918002 - SNOMED CT)">Tobacco smoking consumption (observable entity)</span>
-                        </td>
-                        <td>2 packs per week</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Cigarette pack-years (observable entity) (401201003 - SNOMED CT)">Cigarette pack-years (observable entity)</span>
-                        </td>
-                        <td>1 PackYears</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="final"/>
-    <code>
-        <coding>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-tobaccouse-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TobaccoUse"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Observatie/bepaling. Subject: Johan XXX_Helleman. Status: definitief</caption>
+            <tbody>
+               <tr>
+                  <th>Bepalingdatum/tijd</th>
+                  <td>1980 - 1983</td>
+               </tr>
+               <tr>
+                  <th>Code</th>
+                  <th>Waarde</th>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Finding of tobacco use and exposure (finding) (365980008 - SNOMED CT)">Finding of tobacco use and exposure (finding)</span>
+                  </td>
+                  <td>
+                     <span title="Ex-smoker (finding) (8517006 - SNOMED CT)">Ex-smoker (finding)</span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Type of tobacco used (observable entity) (53661000146106 - SNOMED CT)">Type of tobacco used (observable entity)</span>
+                  </td>
+                  <td>
+                     <span title="Cigarette smoker (finding) (65568007 - SNOMED CT)">Cigarette smoker (finding)</span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Tobacco smoking consumption (observable entity) (266918002 - SNOMED CT)">Tobacco smoking consumption (observable entity)</span>
+                  </td>
+                  <td>2 packs per week</td>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Cigarette pack-years (observable entity) (401201003 - SNOMED CT)">Cigarette pack-years (observable entity)</span>
+                  </td>
+                  <td>1 PackYears</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1eb10781-8fdf-11ec-7373-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="365980008"/>
+         <display value="Finding of tobacco use and exposure (finding)"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <effectivePeriod>
+      <start value="1980"/>
+      <end value="1983"/>
+   </effectivePeriod>
+   <valueCodeableConcept>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="8517006"/>
+         <display value="Ex-smoker (finding)"/>
+      </coding>
+   </valueCodeableConcept>
+   <component>
+      <code>
+         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="365980008"/>
-            <display value="Finding of tobacco use and exposure (finding)"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <effectivePeriod>
-        <start value="1980"/>
-        <end value="1983"/>
-    </effectivePeriod>
-    <valueCodeableConcept>
-        <coding>
+            <code value="53661000146106"/>
+            <display value="Type of tobacco used (observable entity)"/>
+         </coding>
+      </code>
+      <valueCodeableConcept>
+         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="8517006"/>
-            <display value="Ex-smoker (finding)"/>
-        </coding>
-    </valueCodeableConcept>
-    <component>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="53661000146106"/>
-                <display value="Type of tobacco used (observable entity)"/>
-            </coding>
-        </code>
-        <valueCodeableConcept>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="65568007"/>
-                <display value="Cigarette smoker (finding)"/>
-            </coding>
-        </valueCodeableConcept>
-    </component>
-    <component>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="266918002"/>
-                <display value="Tobacco smoking consumption (observable entity)"/>
-            </coding>
-        </code>
-        <valueQuantity>
-            <value value="2"/>
-            <unit value="packs per week"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="{packs}/wk"/>
-        </valueQuantity>
-    </component>
-    <component>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="401201003"/>
-                <display value="Cigarette pack-years (observable entity)"/>
-            </coding>
-        </code>
-        <valueQuantity>
-            <value value="1"/>
-            <unit value="PackYears"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="{PackYears}"/>
-        </valueQuantity>
-    </component>
+            <code value="65568007"/>
+            <display value="Cigarette smoker (finding)"/>
+         </coding>
+      </valueCodeableConcept>
+   </component>
+   <component>
+      <code>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="266918002"/>
+            <display value="Tobacco smoking consumption (observable entity)"/>
+         </coding>
+      </code>
+      <valueQuantity>
+         <value value="2"/>
+         <unit value="packs per week"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="{packs}/wk"/>
+      </valueQuantity>
+   </component>
+   <component>
+      <code>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="401201003"/>
+            <display value="Cigarette pack-years (observable entity)"/>
+         </coding>
+      </code>
+      <valueQuantity>
+         <value value="1"/>
+         <unit value="PackYears"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="{PackYears}"/>
+      </valueQuantity>
+   </component>
 </Observation>

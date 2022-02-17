@@ -1,81 +1,88 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-stoma-02"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Stoma"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Observatie/bepaling. Subject: Johan XXX_Helleman. Status: definitief</caption>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">Patient heeft veel last van dit type stoma.</td>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <th>Bepalingdatum/tijd</th>
-                        <td>2014</td>
-                    </tr>
-                    <tr>
-                        <th>Deel van lichaam</th>
-                        <td>
-                            <span title="Entire lower abdomen (362692001 - SNOMED CT)">Entire lower abdomen</span>
-                            <span title="Right (24028007 - SNOMED CT)">Right</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Code</th>
-                        <th>Waarde</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Stoma (morphologic abnormality) (245857005 - SNOMED CT)">Stoma (morphologic abnormality)</span>
-                        </td>
-                        <td>
-                            <span title="End colostomy - stoma (261030007 - SNOMED CT)">End colostomy - stoma</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="final"/>
-    <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="245857005"/>
-            <display value="Stoma (morphologic abnormality)"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <effectiveDateTime value="2014"/>
-    <valueCodeableConcept>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="261030007"/>
-            <display value="End colostomy - stoma"/>
-        </coding>
-    </valueCodeableConcept>
-    <comment value="Patient heeft veel last van dit type stoma."/>
-    <bodySite>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="24028007"/>
-                    <display value="Right"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="362692001"/>
-            <display value="Entire lower abdomen"/>
-        </coding>
-    </bodySite>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-stoma-02"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Stoma"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Observatie/bepaling. Subject: Johan XXX_Helleman. Status: definitief</caption>
+            <tfoot>
+               <tr>
+                  <td colspan="2">Patient heeft veel last van dit type stoma.</td>
+               </tr>
+            </tfoot>
+            <tbody>
+               <tr>
+                  <th>Bepalingdatum/tijd</th>
+                  <td>2014</td>
+               </tr>
+               <tr>
+                  <th>Deel van lichaam</th>
+                  <td>
+                     <span title="Entire lower abdomen (362692001 - SNOMED CT)">Entire lower abdomen</span>
+                     <span title="Right (24028007 - SNOMED CT)">Right</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Code</th>
+                  <th>Waarde</th>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Stoma (morphologic abnormality) (245857005 - SNOMED CT)">Stoma (morphologic abnormality)</span>
+                  </td>
+                  <td>
+                     <span title="End colostomy - stoma (261030007 - SNOMED CT)">End colostomy - stoma</span>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1e5d9105-8fdf-11ec-1604-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="245857005"/>
+         <display value="Stoma (morphologic abnormality)"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <effectiveDateTime value="2014"/>
+   <valueCodeableConcept>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="261030007"/>
+         <display value="End colostomy - stoma"/>
+      </coding>
+   </valueCodeableConcept>
+   <comment value="Patient heeft veel last van dit type stoma."/>
+   <bodySite>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://snomed.info/sct"/>
+               <code value="24028007"/>
+               <display value="Right"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="362692001"/>
+         <display value="Entire lower abdomen"/>
+      </coding>
+   </bodySite>
 </Observation>
