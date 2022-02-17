@@ -1,40 +1,47 @@
-<Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/specimen.xsd">
-    <id value="zib-laboratorytestresult-specimen-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Specimen"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Specimen. Subject: Johan XXX_Helleman. </caption>
-                <tbody>
-                    <tr>
-                        <th>Type</th>
-                        <td>
-                            <span title="Blood (substance) (87612001 - SNOMED CT)">Blood (substance)</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Inzameling</th>
-                        <td>08:08:00, 23 mei 2012</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <type>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="87612001"/>
-            <display value="Blood (substance)"/>
-        </coding>
-    </type>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <collection>
-        <collectedDateTime value="2012-05-23T08:08:00+01:00"/>
-    </collection>
+<?xml version="1.0" encoding="UTF-8"?>
+<Specimen xmlns="http://hl7.org/fhir"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/specimen.xsd">
+   <id value="zib-laboratorytestresult-specimen-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Specimen"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Specimen. Subject: Johan XXX_Helleman. </caption>
+            <tbody>
+               <tr>
+                  <th>Type</th>
+                  <td>
+                     <span title="Blood (substance) (87612001 - SNOMED CT)">Blood (substance)</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Inzameling</th>
+                  <td>08:08:00, 23 mei 2012</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1b3b213b-8fdf-11ec-5198-020000000000"/>
+   </identifier>
+   <type>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="87612001"/>
+         <display value="Blood (substance)"/>
+      </coding>
+   </type>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <collection>
+      <collectedDateTime value="2012-05-23T08:08:00+01:00"/>
+   </collection>
 </Specimen>

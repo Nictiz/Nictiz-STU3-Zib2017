@@ -1,13 +1,16 @@
-<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
-    <id value="zib-laboratorytestresult-diagnosticreport-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
+   <id value="zib-laboratorytestresult-diagnosticreport-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-DiagnosticReport"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>
                     Diagnostisch verslag. Subject: Johan XXX_Helleman. Id: RP723234 (https://acme.org/identifiers), 250401 (https://acme.org/identifiers), Categorie: 
                     <span title="Laboratory report (record artifact) (4241000179101 - SNOMED CT)">Laboratory report (record artifact)</span>
                     , Status: definitief
@@ -16,126 +19,130 @@
                         <span title="Responsible Party (RESP - v3/ParticipationType)">Responsible Party</span>
                         ): Vaste Huisarts 1 - Maatschap Vaste Huisarts
                     </span>
-                </caption>
-                <tbody>
-                    <tr>
-                        <th>Code</th>
-                        <td>
-                            <span title="Bacteria Spt Resp Cul (624-7 - LOINC)">Bacteria Spt Resp Cul</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Gemaakt</th>
-                        <td>
+            </caption>
+            <tbody>
+               <tr>
+                  <th>Code</th>
+                  <td>
+                     <span title="Bacteria Spt Resp Cul (624-7 - LOINC)">Bacteria Spt Resp Cul</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Gemaakt</th>
+                  <td>
                             2016-08-15
                             <div>Deze versie: </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Conclusie</th>
-                        <td>Test conclusion</td>
-                    </tr>
-                    <tr>
-                        <th>Resultaat</th>
-                        <td>Laboratory test finding</td>
-                    </tr>
-                    <tr>
-                        <th>Specimen</th>
-                        <td>Blood</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <identifier>
-        <type>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Conclusie</th>
+                  <td>Test conclusion</td>
+               </tr>
+               <tr>
+                  <th>Resultaat</th>
+                  <td>Laboratory test finding</td>
+               </tr>
+               <tr>
+                  <th>Specimen</th>
+                  <td>Blood</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/identifier-type"/>
+            <code value="PLAC"/>
+            <display value="Placer Identifier"/>
+         </coding>
+      </type>
+      <system value="https://acme.org/identifiers"/>
+      <value value="RP723234"/>
+   </identifier>
+   <identifier>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/identifier-type"/>
+            <code value="FILL"/>
+            <display value="Filler Identifier"/>
+         </coding>
+      </type>
+      <system value="https://acme.org/identifiers"/>
+      <value value="250401"/>
+   </identifier>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1b1d9f5d-8fdf-11ec-1170-020000000000"/>
+   </identifier>
+   <basedOn>
+      <reference value="ProcedureRequest/zib-procedurerequest-01"/>
+      <display value="Surgical procedure - Biopsy of skin"/>
+   </basedOn>
+   <status value="final">
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+         <valueCodeableConcept>
             <coding>
-                <system value="http://hl7.org/fhir/identifier-type"/>
-                <code value="PLAC"/>
-                <display value="Placer Identifier"/>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.16.1"/>
+               <code value="final"/>
+               <display value="Definitief"/>
             </coding>
-        </type>
-        <system value="https://acme.org/identifiers"/>
-        <value value="RP723234"/>
-    </identifier>
-    <identifier>
-        <type>
-            <coding>
-                <system value="http://hl7.org/fhir/identifier-type"/>
-                <code value="FILL"/>
-                <display value="Filler Identifier"/>
-            </coding>
-        </type>
-        <system value="https://acme.org/identifiers"/>
-        <value value="250401"/>
-    </identifier>
-    <basedOn>
-        <reference value="ProcedureRequest/zib-procedurerequest-01"/>
-        <display value="Surgical procedure - Biopsy of skin"/>
-    </basedOn>
-    <status value="final">
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.16.1"/>
-                    <code value="final"/>
-                    <display value="Definitief"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-    </status>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="4241000179101"/>
-            <display value="Laboratory report (record artifact)"/>
-        </coding>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="19851009"/>
-            <display value="Microbiologie"/>
-        </coding>
-    </category>
-    <code>
-        <coding>
-            <system value="http://loinc.org"/>
-            <code value="624-7"/>
-            <display value="Bacteria Spt Resp Cul"/>
-        </coding>
-        <text value="Aerobic Respiratory Culture, Sputum"/>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <effectiveDateTime value="2016-08-15"/>
-    <issued value="2016-08-18T18:14:35Z"/>
-    <performer>
-        <role>
-            <coding>
-                <system value="http://hl7.org/fhir/v3/ParticipationType"/>
-                <code value="RESP"/>
-                <display value="Responsible Party"/>
-            </coding>
-        </role>
-        <actor>
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-                <valueReference>
-                    <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
-                    <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
-                </valueReference>
-            </extension>
-            <reference value="Practitioner/nl-core-practitioner-02"/>
-            <display value="Vaste Huisarts 1"/>
-        </actor>
-    </performer>
-    <specimen>
-        <reference value="Specimen/zib-laboratorytestresult-specimen-01"/>
-        <display value="Blood"/>
-    </specimen>
-    <result>
-        <reference value="Observation/zib-laboratorytestresult-observation-01"/>
-        <display value="Laboratory test finding"/>
-    </result>
-    <conclusion value="Test conclusion"/>
+         </valueCodeableConcept>
+      </extension>
+   </status>
+   <category>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="4241000179101"/>
+         <display value="Laboratory report (record artifact)"/>
+      </coding>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="19851009"/>
+         <display value="Microbiologie"/>
+      </coding>
+   </category>
+   <code>
+      <coding>
+         <system value="http://loinc.org"/>
+         <code value="624-7"/>
+         <display value="Bacteria Spt Resp Cul"/>
+      </coding>
+      <text value="Aerobic Respiratory Culture, Sputum"/>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <effectiveDateTime value="2016-08-15"/>
+   <issued value="2016-08-18T18:14:35Z"/>
+   <performer>
+      <role>
+         <coding>
+            <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+            <code value="RESP"/>
+            <display value="Responsible Party"/>
+         </coding>
+      </role>
+      <actor>
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+               <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
+               <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
+            </valueReference>
+         </extension>
+         <reference value="Practitioner/nl-core-practitioner-02"/>
+         <display value="Vaste Huisarts 1"/>
+      </actor>
+   </performer>
+   <specimen>
+      <reference value="Specimen/zib-laboratorytestresult-specimen-01"/>
+      <display value="Blood"/>
+   </specimen>
+   <result>
+      <reference value="Observation/zib-laboratorytestresult-observation-01"/>
+      <display value="Laboratory test finding"/>
+   </result>
+   <conclusion value="Test conclusion"/>
 </DiagnosticReport>

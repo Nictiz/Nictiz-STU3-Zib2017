@@ -1,65 +1,72 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="gpdata-observation-contact04-s"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-JournalEntry"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="gpdata-observation-contact04-s"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-JournalEntry"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>
                     Observatie/bepaling. Subject: Jacqueline XXX_Cevat. Status: definitief
                     <span style="display: block;">Uitvoerende: Dr. V. Huisarts 1</span>
-                </caption>
-                <tbody>
-                    <tr>
-                        <th>Context</th>
-                        <td>Consult voor HNP (thoracaal/lumbaal) met Dr. V. Huisarts 1</td>
-                    </tr>
-                    <tr>
-                        <th>Bepalingdatum/tijd</th>
-                        <td>2020-03-15</td>
-                    </tr>
-                    <tr>
-                        <th>Code</th>
-                        <th>Waarde</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Subjectief (S - http://fhir.nl/fhir/NamingSystem/journaalregeltypen)">Subjectief</span>
-                        </td>
-                        <td>Pijn onderrug re, geen uitstraling of hoofdpijn.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="final"/>
-    <code>
-        <coding>
-            <system value="http://fhir.nl/fhir/NamingSystem/journaalregeltypen"/>
-            <code value="S"/>
-            <display value="Subjectief"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/gpdata-patient-01"/>
-        <display value="Jacqueline XXX_Cevat"/>
-    </subject>
-    <context>
-        <reference value="Encounter/gpdata-encounter-contact04"/>
-        <display value="Consult voor HNP (thoracaal/lumbaal) met Dr. V. Huisarts 1"/>
-    </context>
-    <effectiveDateTime value="2020-03-15"/>
-    <performer>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-            <valueReference>
-                <reference value="PractitionerRole/gpdata-practitionerrole-01"/>
-                <display value="Dr. V. Huisarts 1"/>
-            </valueReference>
-        </extension>
-        <reference value="Practitioner/gpdata-practitioner-01"/>
-        <display value="V. Huisarts 1"/>
-    </performer>
-    <valueString value="Pijn onderrug re, geen uitstraling of hoofdpijn."/>
+            </caption>
+            <tbody>
+               <tr>
+                  <th>Context</th>
+                  <td>Consult voor HNP (thoracaal/lumbaal) met Dr. V. Huisarts 1</td>
+               </tr>
+               <tr>
+                  <th>Bepalingdatum/tijd</th>
+                  <td>2020-03-15</td>
+               </tr>
+               <tr>
+                  <th>Code</th>
+                  <th>Waarde</th>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Subjectief (S - http://fhir.nl/fhir/NamingSystem/journaalregeltypen)">Subjectief</span>
+                  </td>
+                  <td>Pijn onderrug re, geen uitstraling of hoofdpijn.</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="15874ab7-8fdf-11ec-1378-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
+      <coding>
+         <system value="http://fhir.nl/fhir/NamingSystem/journaalregeltypen"/>
+         <code value="S"/>
+         <display value="Subjectief"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/gpdata-patient-01"/>
+      <display value="Jacqueline XXX_Cevat"/>
+   </subject>
+   <context>
+      <reference value="Encounter/gpdata-encounter-contact04"/>
+      <display value="Consult voor HNP (thoracaal/lumbaal) met Dr. V. Huisarts 1"/>
+   </context>
+   <effectiveDateTime value="2020-03-15"/>
+   <performer>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+         <valueReference>
+            <reference value="PractitionerRole/gpdata-practitionerrole-01"/>
+            <display value="Dr. V. Huisarts 1"/>
+         </valueReference>
+      </extension>
+      <reference value="Practitioner/gpdata-practitioner-01"/>
+      <display value="V. Huisarts 1"/>
+   </performer>
+   <valueString value="Pijn onderrug re, geen uitstraling of hoofdpijn."/>
 </Observation>

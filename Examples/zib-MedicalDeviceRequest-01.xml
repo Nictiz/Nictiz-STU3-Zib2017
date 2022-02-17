@@ -1,85 +1,92 @@
-<DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/devicerequest.xsd">
-    <id value="zib-medicaldevicerequest-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceRequest"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceRequest xmlns="http://hl7.org/fhir"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/devicerequest.xsd">
+   <id value="zib-medicaldevicerequest-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceRequest"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>
                     DeviceRequest. Subject: Johan XXX_Helleman. Status: actief
                     <span style="display: block;">Intentie: aanvraag</span>
-                    <span style="display: block;">
+               <span style="display: block;">
                         Aangevraagd door: Vaste Huisarts 1
                         <span style="display: block;">Zorgverlenerrol: Huisartsen, niet nader gespecificeerd</span>
-                    </span>
-                </caption>
-                <tbody>
-                    <tr>
-                        <th>Code</th>
-                        <td>
-                            <span title="Procedure device (405815000 - SNOMED CT)">Procedure device</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Wanneer</th>
-                        <td>Vanaf 13 maart 2012</td>
-                    </tr>
-                    <tr>
-                        <th>Beoogde uitvoerende</th>
-                        <td>
-                            <div>
+               </span>
+            </caption>
+            <tbody>
+               <tr>
+                  <th>Code</th>
+                  <td>
+                     <span title="Procedure device (405815000 - SNOMED CT)">Procedure device</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Wanneer</th>
+                  <td>Vanaf 13 maart 2012</td>
+               </tr>
+               <tr>
+                  <th>Beoogde uitvoerende</th>
+                  <td>
+                     <div>
                                 UMCG - Afdeling Orthopedie
                                 <div>Zorgverlenerrol: Medisch specialisten, orthopedie</div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="active"/>
-    <intent>
-        <coding>
-            <system value="http://hl7.org/fhir/request-intent"/>
-            <code value="order"/>
-        </coding>
-    </intent>
-    <codeCodeableConcept>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="405815000"/>
-            <display value="Procedure device"/>
-        </coding>
-    </codeCodeableConcept>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <occurrencePeriod>
-        <start value="2012-03-13"/>
-    </occurrencePeriod>
-    <requester>
-        <agent>
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-                <valueReference>
-                    <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
-                    <display value="Huisartsen, niet nader gespecificeerd"/>
-                </valueReference>
-            </extension>
-            <reference value="Practitioner/nl-core-practitioner-02"/>
-            <display value="Vaste Huisarts 1"/>
-        </agent>
-    </requester>
-    <performer>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+                     </div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1bbb2101-8fdf-11ec-1269-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <intent>
+      <coding>
+         <system value="http://hl7.org/fhir/request-intent"/>
+         <code value="order"/>
+      </coding>
+   </intent>
+   <codeCodeableConcept>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="405815000"/>
+         <display value="Procedure device"/>
+      </coding>
+   </codeCodeableConcept>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <occurrencePeriod>
+      <start value="2012-03-13"/>
+   </occurrencePeriod>
+   <requester>
+      <agent>
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
             <valueReference>
-                <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
-                <display value="Medisch specialisten, orthopedie"/>
+               <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
+               <display value="Huisartsen, niet nader gespecificeerd"/>
             </valueReference>
-        </extension>
-        <reference value="Organization/nl-core-organization-02"/>
-        <display value="UMCG - Afdeling Orthopedie"/>
-    </performer>
+         </extension>
+         <reference value="Practitioner/nl-core-practitioner-02"/>
+         <display value="Vaste Huisarts 1"/>
+      </agent>
+   </requester>
+   <performer>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+         <valueReference>
+            <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
+            <display value="Medisch specialisten, orthopedie"/>
+         </valueReference>
+      </extension>
+      <reference value="Organization/nl-core-organization-02"/>
+      <display value="UMCG - Afdeling Orthopedie"/>
+   </performer>
 </DeviceRequest>

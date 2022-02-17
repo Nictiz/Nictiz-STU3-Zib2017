@@ -1,160 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Patient xmlns="http://hl7.org/fhir">
-    <id value="nl-core-patient-lifeStance-01"/>
-    <meta>
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <div>Id 999911120 (BSN), Alex XXX_Helleman (Alex), Man, 2 augustus 1964, <span title="Married (M - v3/MaritalStatus)">Married</span>
-            </div>
-            <div>
-                <a href="tel:06-12345678">06-12345678</a> (Tel Mobiel), <a href="mailto:XXX_Helleman@hotmail.com">XXX_Helleman@hotmail.com</a> (E-mail Privé)</div>
-            <div>Knolweg 1020, 9999XB Stitswerd Nederland, NLD (officieel Privé Post / Bezoek)</div>
-            <div>
-                <span title="Eerste relatie/contactpersoon (1 - RoleCodeLijst (COD472-VEKT))">Eerste relatie/contactpersoon</span>, <span title="Husband (HUSB - v3/RoleCode)">Husband</span> Janni van Molenaar van der Jutte (Janni)<div>
-                    <a href="tel:06-12345645">06-12345645</a> (Tel Mobiel), <a href="mailto:j.vanderjutte@example.com">j.vanderjutte@example.com</a> (E-mail), Knolweg 1020, 9999XB Sitswerd, Nederland (Privé)</div>
-            </div>
-            <div>Huisarts: Vaste Huisarts 1</div>
-        </div>
-    </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance">
-        <valueCodeableConcept>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="428821008"/>
-                <display value="Zevendedagsadventist"/>
-            </coding>
-        </valueCodeableConcept>
-    </extension>
-    <identifier>
-        <use value="official"/>
-        <system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
-        <value value="999911120"/>
-    </identifier>
-    <active value="true"/>
-    <name>
-        <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
+   <id value="nl-core-patient-lifeStance-01"/>
+   <meta>
+      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <div>Id 999911120 (BSN), Alex XXX_Helleman (Alex), Man, 2 augustus 1964, <span title="Married (M - v3/MaritalStatus)">Married</span>
+         </div>
+         <div>
+            <a href="tel:06-12345678">06-12345678</a> (Tel Mobiel), <a href="mailto:XXX_Helleman@hotmail.com">XXX_Helleman@hotmail.com</a> (E-mail Privé)</div>
+         <div>Knolweg 1020, 9999XB Stitswerd Nederland, NLD (officieel Privé Post / Bezoek)</div>
+         <div>
+            <span title="Eerste relatie/contactpersoon (1 - RoleCodeLijst (COD472-VEKT))">Eerste relatie/contactpersoon</span>, <span title="Husband (HUSB - v3/RoleCode)">Husband</span> Janni van Molenaar van der Jutte (Janni)<div>
+               <a href="tel:06-12345645">06-12345645</a> (Tel Mobiel), <a href="mailto:j.vanderjutte@example.com">j.vanderjutte@example.com</a> (E-mail), Knolweg 1020, 9999XB Sitswerd, Nederland (Privé)</div>
+         </div>
+         <div>Huisarts: Vaste Huisarts 1</div>
+      </div>
+   </text>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance">
+      <valueCodeableConcept>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="428821008"/>
+            <display value="Zevendedagsadventist"/>
+         </coding>
+      </valueCodeableConcept>
+   </extension>
+   <identifier>
+      <use value="official"/>
+      <system value="http://fhir.nl/fhir/NamingSystem/bsn"/>
+      <value value="999911120"/>
+   </identifier>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="16bf2a5d-8fdf-11ec-1343-020000000000"/>
+   </identifier>
+   <active value="true"/>
+   <name>
+      <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
+         <valueCode value="NL4"/>
+      </extension>
+      <text value="Alex XXX_Helleman"/>
+      <family value="XXX_Helleman">
+         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+            <valueString value="XXX_Verweij"/>
+         </extension>
+      </family>
+      <given value="Alex">
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
+            <valueCode value="CL"/>
+         </extension>
+      </given>
+   </name>
+   <telecom>
+      <system value="phone"/>
+      <value value="06-12345678"/>
+      <use value="mobile"/>
+   </telecom>
+   <telecom>
+      <system value="email"/>
+      <value value="XXX_Helleman@hotmail.com"/>
+      <use value="home"/>
+   </telecom>
+   <gender value="male"/>
+   <birthDate value="1964-08-02"/>
+   <deceasedBoolean value="false"/>
+   <address>
+      <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+         <valueBoolean value="true"/>
+      </extension>
+      <use value="home"/>
+      <type value="both"/>
+      <line value="Knolweg 1020">
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+            <valueString value="Knolweg"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+            <valueString value="1020"/>
+         </extension>
+      </line>
+      <city value="Stitswerd"/>
+      <district value="Nederland"/>
+      <postalCode value="9999XB"/>
+      <country value="NLD"/>
+   </address>
+   <maritalStatus>
+      <coding>
+         <system value="http://hl7.org/fhir/v3/MaritalStatus"/>
+         <code value="M"/>
+         <display value="Married"/>
+      </coding>
+   </maritalStatus>
+   <multipleBirthBoolean value="false"/>
+   <contact>
+      <relationship>
+         <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
+            <code value="1"/>
+            <display value="Eerste relatie/contactpersoon"/>
+         </coding>
+      </relationship>
+      <relationship>
+         <coding>
+            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <code value="HUSB"/>
+            <display value="Husband"/>
+         </coding>
+      </relationship>
+      <name>
+         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
             <valueCode value="NL4"/>
-        </extension>
-        <text value="Alex XXX_Helleman"/>
-        <family value="XXX_Helleman">
+         </extension>
+         <text value="Janni van Molenaar van der Jutte"/>
+         <family value="van Molenaar van der Jutte">
+            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+               <valueString value="van"/>
+            </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
-                <valueString value="XXX_Verweij"/>
+               <valueString value="Molenaar"/>
             </extension>
-        </family>
-        <given value="Alex">
+            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix">
+               <valueString value="van der"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-partner-name">
+               <valueString value="Jutte"/>
+            </extension>
+         </family>
+         <given value="Janni">
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
-                <valueCode value="CL"/>
+               <valueCode value="CL"/>
             </extension>
-        </given>
-    </name>
-    <telecom>
-        <system value="phone"/>
-        <value value="06-12345678"/>
-        <use value="mobile"/>
-    </telecom>
-    <telecom>
-        <system value="email"/>
-        <value value="XXX_Helleman@hotmail.com"/>
-        <use value="home"/>
-    </telecom>
-    <gender value="male"/>
-    <birthDate value="1964-08-02"/>
-    <deceasedBoolean value="false"/>
-    <address>
-        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
-            <valueBoolean value="true"/>
-        </extension>
-        <use value="home"/>
-        <type value="both"/>
-        <line value="Knolweg 1020">
+         </given>
+      </name>
+      <telecom>
+         <system value="phone"/>
+         <value value="06-12345645"/>
+         <use value="mobile"/>
+      </telecom>
+      <telecom>
+         <system value="email"/>
+         <value value="j.vanderjutte@example.com"/>
+      </telecom>
+      <address>
+         <use value="home"/>
+         <line value="Knolweg 1020">
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
-                <valueString value="Knolweg"/>
+               <valueString value="Knolweg"/>
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
-                <valueString value="1020"/>
+               <valueString value="1020"/>
             </extension>
-        </line>
-        <city value="Stitswerd"/>
-        <district value="Nederland"/>
-        <postalCode value="9999XB"/>
-        <country value="NLD"/>
-    </address>
-    <maritalStatus>
-        <coding>
-            <system value="http://hl7.org/fhir/v3/MaritalStatus"/>
-            <code value="M"/>
-            <display value="Married"/>
-        </coding>
-    </maritalStatus>
-    <multipleBirthBoolean value="false"/>
-    <contact>
-        <relationship>
-            <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
-                <code value="1"/>
-                <display value="Eerste relatie/contactpersoon"/>
-            </coding>
-        </relationship>
-        <relationship>
-            <coding>
-                <system value="http://hl7.org/fhir/v3/RoleCode"/>
-                <code value="HUSB"/>
-                <display value="Husband"/>
-            </coding>
-        </relationship>
-        <name>
-            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-assembly-order">
-                <valueCode value="NL4"/>
-            </extension>
-            <text value="Janni van Molenaar van der Jutte"/>
-            <family value="van Molenaar van der Jutte">
-                <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
-                    <valueString value="van"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
-                    <valueString value="Molenaar"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/humanname-partner-prefix">
-                    <valueString value="van der"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/humanname-partner-name">
-                    <valueString value="Jutte"/>
-                </extension>
-            </family>
-            <given value="Janni">
-                <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier">
-                    <valueCode value="CL"/>
-                </extension>
-            </given>
-        </name>
-        <telecom>
-            <system value="phone"/>
-            <value value="06-12345645"/>
-            <use value="mobile"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="j.vanderjutte@example.com"/>
-        </telecom>
-        <address>
-            <use value="home"/>
-            <line value="Knolweg 1020">
-                <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
-                    <valueString value="Knolweg"/>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
-                    <valueString value="1020"/>
-                </extension>
-            </line>
-            <city value="Sitswerd"/>
-            <postalCode value="9999XB"/>
-            <country value="Nederland"/>
-        </address>
-    </contact>
-    <generalPractitioner>
-        <reference value="Practitioner/nl-core-practitioner-01"/>
-        <display value="Vaste Huisarts 1"/>
-    </generalPractitioner>
+         </line>
+         <city value="Sitswerd"/>
+         <postalCode value="9999XB"/>
+         <country value="Nederland"/>
+      </address>
+   </contact>
+   <generalPractitioner>
+      <reference value="Practitioner/nl-core-practitioner-01"/>
+      <display value="Vaste Huisarts 1"/>
+   </generalPractitioner>
 </Patient>

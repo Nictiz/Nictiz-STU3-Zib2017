@@ -1,83 +1,90 @@
-<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
-    <id value="zib-encounter-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Contact. Subject: Johan XXX_Helleman. Status: voltooid</caption>
-                <tbody>
-                    <tr>
-                        <th>Type contact</th>
-                        <td>
-                            <div>
-                                <span title="inpatient encounter (IMP - v3/ActCode)">inpatient encounter</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Periode</th>
-                        <td>16 augustus 2012 - 19 augustus 2012</td>
-                    </tr>
-                    <tr>
-                        <th>Probleem</th>
-                        <td>
-                            <ul>
-                                <li>Fracture of lower limb (disorder)</li>
-                                <li>Surgical reduction of fracture (procedure)</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Participant</th>
-                        <td>
-                            <div>G.Z.M. de Wit</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Zorgaanbieder</th>
-                        <td>UMCG - Afdeling Orthopedie</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="finished"/>
-    <class>
-        <system value="http://hl7.org/fhir/v3/ActCode"/>
-        <code value="IMP"/>
-        <display value="inpatient encounter"/>
-    </class>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <participant>
-        <individual>
-            <reference value="Practitioner/nl-core-practitioner-03"/>
-            <display value="G.Z.M. de Wit"/>
-        </individual>
-    </participant>
-    <period>
-        <start value="2012-08-16"/>
-        <end value="2012-08-19"/>
-    </period>
-    <diagnosis>
-        <condition>
-            <reference value="Condition/zib-problem-05"/>
-            <display value="Fracture of lower limb (disorder)"/>
-        </condition>
-    </diagnosis>
-    <diagnosis>
-        <condition>
-            <reference value="Procedure/zib-procedure-02"/>
-            <display value="Surgical reduction of fracture (procedure)"/>
-        </condition>
-    </diagnosis>
-    <serviceProvider>
-        <reference value="Organization/nl-core-organization-02"/>
-        <display value="UMCG - Afdeling Orthopedie"/>
-    </serviceProvider>
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
+   <id value="zib-encounter-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Encounter"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Contact. Subject: Johan XXX_Helleman. Status: voltooid</caption>
+            <tbody>
+               <tr>
+                  <th>Type contact</th>
+                  <td>
+                     <div>
+                        <span title="inpatient encounter (IMP - v3/ActCode)">inpatient encounter</span>
+                     </div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Periode</th>
+                  <td>16 augustus 2012 - 19 augustus 2012</td>
+               </tr>
+               <tr>
+                  <th>Probleem</th>
+                  <td>
+                     <ul>
+                        <li>Fracture of lower limb (disorder)</li>
+                        <li>Surgical reduction of fracture (procedure)</li>
+                     </ul>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Participant</th>
+                  <td>
+                     <div>G.Z.M. de Wit</div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Zorgaanbieder</th>
+                  <td>UMCG - Afdeling Orthopedie</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="19adad57-8fdf-11ec-1860-020000000000"/>
+   </identifier>
+   <status value="finished"/>
+   <class>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="IMP"/>
+      <display value="inpatient encounter"/>
+   </class>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <participant>
+      <individual>
+         <reference value="Practitioner/nl-core-practitioner-03"/>
+         <display value="G.Z.M. de Wit"/>
+      </individual>
+   </participant>
+   <period>
+      <start value="2012-08-16"/>
+      <end value="2012-08-19"/>
+   </period>
+   <diagnosis>
+      <condition>
+         <reference value="Condition/zib-problem-05"/>
+         <display value="Fracture of lower limb (disorder)"/>
+      </condition>
+   </diagnosis>
+   <diagnosis>
+      <condition>
+         <reference value="Procedure/zib-procedure-02"/>
+         <display value="Surgical reduction of fracture (procedure)"/>
+      </condition>
+   </diagnosis>
+   <serviceProvider>
+      <reference value="Organization/nl-core-organization-02"/>
+      <display value="UMCG - Afdeling Orthopedie"/>
+   </serviceProvider>
 </Encounter>

@@ -1,68 +1,75 @@
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
-    <id value="zib-wound-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Aandoening. Subject: Johan XXX_Helleman. Status: actief / bevestigd</caption>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/condition.xsd">
+   <id value="zib-wound-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Aandoening. Subject: Johan XXX_Helleman. Status: actief / bevestigd</caption>
+            <tfoot>
+               <tr>
+                  <td colspan="2">
                             (11:00:00, 14 juli 2019) 
                             <div>Wond lekt steeds meer.</div>
-                        </td>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <th>Code</th>
-                        <td>
-                            <span title="Chirurgische wond (112633009 - SNOMED CT)">Chirurgische wond</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Eerste symptomen</th>
-                        <td>11:00:00, 14 juli 2019</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <clinicalStatus value="active"/>
-    <verificationStatus value="confirmed"/>
-    <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="112633009"/>
-            <display value="Chirurgische wond"/>
-        </coding>
-    </code>
-    <bodySite>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="7771000"/>
-                    <display value="Left"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="29836001"/>
-            <display value="Heup"/>
-        </coding>
-    </bodySite>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <onsetDateTime value="2019-07-14T11:00:00.000+01:00"/>
-    <note>
-        <time value="2019-07-14T11:00:00.000+01:00"/>
-        <text value="Wond lekt steeds meer."/>
-    </note>
+                  </td>
+               </tr>
+            </tfoot>
+            <tbody>
+               <tr>
+                  <th>Code</th>
+                  <td>
+                     <span title="Chirurgische wond (112633009 - SNOMED CT)">Chirurgische wond</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Eerste symptomen</th>
+                  <td>11:00:00, 14 juli 2019</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1f3da817-8fdf-11ec-6848-020000000000"/>
+   </identifier>
+   <clinicalStatus value="active"/>
+   <verificationStatus value="confirmed"/>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="112633009"/>
+         <display value="Chirurgische wond"/>
+      </coding>
+   </code>
+   <bodySite>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://snomed.info/sct"/>
+               <code value="7771000"/>
+               <display value="Left"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="29836001"/>
+         <display value="Heup"/>
+      </coding>
+   </bodySite>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <onsetDateTime value="2019-07-14T11:00:00.000+01:00"/>
+   <note>
+      <time value="2019-07-14T11:00:00.000+01:00"/>
+      <text value="Wond lekt steeds meer."/>
+   </note>
 </Condition>

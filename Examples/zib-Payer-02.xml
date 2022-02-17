@@ -1,58 +1,65 @@
-<Coverage xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/coverage.xsd">
-    <id value="zib-payer-02"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Verzekering/garantstelling. </caption>
-                <tbody>
-                    <tr>
-                        <th>abonnee</th>
-                        <td>Johan XXX_Helleman</td>
-                    </tr>
-                    <tr>
-                        <th>Betaler</th>
-                        <td>
+<?xml version="1.0" encoding="UTF-8"?>
+<Coverage xmlns="http://hl7.org/fhir"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/coverage.xsd">
+   <id value="zib-payer-02"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Verzekering/garantstelling. </caption>
+            <tbody>
+               <tr>
+                  <th>abonnee</th>
+                  <td>Johan XXX_Helleman</td>
+               </tr>
+               <tr>
+                  <th>Betaler</th>
+                  <td>
                             Johan XXX_Helleman
                             <div>
-                                <div>Bank naam: ING</div>
-                                <div>Rekeningnummer: NL85INGB0001234567</div>
+                        <div>Bank naam: ING</div>
+                        <div>Rekeningnummer: NL85INGB0001234567</div>
                                 Bank code: INGBNL2A
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>begunstigde</th>
-                        <td>Johan XXX_Helleman</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <subscriber>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subscriber>
-    <beneficiary>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </beneficiary>
-    <payor>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Payer-BankInformation">
-            <extension url="BankName">
-                <valueString value="ING"/>
-            </extension>
-            <extension url="AccountNumber">
-                <valueString value="NL85INGB0001234567"/>
-            </extension>
-            <extension url="Bankcode">
-                <valueString value="INGBNL2A"/>
-            </extension>
-        </extension>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </payor>
+                  </td>
+               </tr>
+               <tr>
+                  <th>begunstigde</th>
+                  <td>Johan XXX_Helleman</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1c86f137-8fdf-11ec-2475-020000000000"/>
+   </identifier>
+   <subscriber>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subscriber>
+   <beneficiary>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </beneficiary>
+   <payor>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-Payer-BankInformation">
+         <extension url="BankName">
+            <valueString value="ING"/>
+         </extension>
+         <extension url="AccountNumber">
+            <valueString value="NL85INGB0001234567"/>
+         </extension>
+         <extension url="Bankcode">
+            <valueString value="INGBNL2A"/>
+         </extension>
+      </extension>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </payor>
 </Coverage>

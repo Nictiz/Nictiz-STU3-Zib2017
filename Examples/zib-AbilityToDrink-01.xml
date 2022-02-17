@@ -1,95 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
-    <id value="zib-abilitytodrink-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToDrink"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Observatie/bepaling. Subject: I. Jongeneel-de Haas. Status: definitief</caption>
-                <tbody>
-                    <tr>
-                        <th>Code</th>
-                        <th>Waarde</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Drinken (288852001 - SNOMED CT)">Drinken</span>
-                        </td>
-                        <td>
-                            <span title="Hulp nodig (16681000146102 - SNOMED CT)">Hulp nodig</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Drinkbeperkingen (288851008 - SNOMED CT)">Drinkbeperkingen</span>
-                        </td>
-                        <td>
-                            <span title="Vastpakken (307071002 - SNOMED CT)">Vastpakken</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Drinkbeperkingen (288851008 - SNOMED CT)">Drinkbeperkingen</span>
-                        </td>
-                        <td>
-                            <span title="Naar mond brengen (288876009 - SNOMED CT)">Naar mond brengen</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="final"/>
-    <code>
-        <coding>
+   <id value="zib-abilitytodrink-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AbilityToDrink"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Observatie/bepaling. Subject: I. Jongeneel-de Haas. Status: definitief</caption>
+            <tbody>
+               <tr>
+                  <th>Code</th>
+                  <th>Waarde</th>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Drinken (288852001 - SNOMED CT)">Drinken</span>
+                  </td>
+                  <td>
+                     <span title="Hulp nodig (16681000146102 - SNOMED CT)">Hulp nodig</span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Drinkbeperkingen (288851008 - SNOMED CT)">Drinkbeperkingen</span>
+                  </td>
+                  <td>
+                     <span title="Vastpakken (307071002 - SNOMED CT)">Vastpakken</span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Drinkbeperkingen (288851008 - SNOMED CT)">Drinkbeperkingen</span>
+                  </td>
+                  <td>
+                     <span title="Naar mond brengen (288876009 - SNOMED CT)">Naar mond brengen</span>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="18054b3b-8fdf-11ec-1192-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="288852001"/>
+         <display value="Drinken"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="I. Jongeneel-de Haas"/>
+   </subject>
+   <valueCodeableConcept>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="16681000146102"/>
+         <display value="Hulp nodig"/>
+      </coding>
+   </valueCodeableConcept>
+   <component>
+      <code>
+         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="288852001"/>
-            <display value="Drinken"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
-    </subject>
-    <valueCodeableConcept>
-        <coding>
+            <code value="288851008"/>
+            <display value="Drinkbeperkingen"/>
+         </coding>
+      </code>
+      <valueCodeableConcept>
+         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="16681000146102"/>
-            <display value="Hulp nodig"/>
-        </coding>
-    </valueCodeableConcept>
-    <component>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="288851008"/>
-                <display value="Drinkbeperkingen"/>
-            </coding>
-        </code>
-        <valueCodeableConcept>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="307071002"/>
-                <display value="Vastpakken"/>
-            </coding>
-        </valueCodeableConcept>
-    </component>
-    <component>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="288851008"/>
-                <display value="Drinkbeperkingen"/>
-            </coding>
-        </code>
-        <valueCodeableConcept>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="288876009"/>
-                <display value="Naar mond brengen"/>
-            </coding>
-        </valueCodeableConcept>
-    </component>
+            <code value="307071002"/>
+            <display value="Vastpakken"/>
+         </coding>
+      </valueCodeableConcept>
+   </component>
+   <component>
+      <code>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="288851008"/>
+            <display value="Drinkbeperkingen"/>
+         </coding>
+      </code>
+      <valueCodeableConcept>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="288876009"/>
+            <display value="Naar mond brengen"/>
+         </coding>
+      </valueCodeableConcept>
+   </component>
 </Observation>

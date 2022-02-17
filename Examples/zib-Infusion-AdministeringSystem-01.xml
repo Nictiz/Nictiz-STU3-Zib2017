@@ -1,107 +1,114 @@
-<MedicationAdministration xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationadministration.xsd">
-    <id value="zib-infusion-administeringsystem-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-AdministeringSystem"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns="http://hl7.org/fhir"
+                          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationadministration.xsd">
+   <id value="zib-infusion-administeringsystem-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Infusion-AdministeringSystem"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>
                     Medicatietoediening. Subject: I. Jongeneel-de Haas. Categorie: 
                     <span title="Administration of drug or medicament (procedure) (18629005 - SNOMED CT)">Administration of drug or medicament (procedure)</span>
                     , Status: is bezig
                 </caption>
-                <tbody>
-                    <tr>
-                        <th>Medicatie</th>
-                        <td>Tipranavir (TPV)</td>
-                    </tr>
-                    <tr>
-                        <th>Datum/tijd</th>
-                        <td>Vanaf 30 november 2014</td>
-                    </tr>
-                    <tr>
-                        <th>Apparaat/Systeem</th>
-                        <td>
+            <tbody>
+               <tr>
+                  <th>Medicatie</th>
+                  <td>Tipranavir (TPV)</td>
+               </tr>
+               <tr>
+                  <th>Datum/tijd</th>
+                  <td>Vanaf 30 november 2014</td>
+               </tr>
+               <tr>
+                  <th>Apparaat/Systeem</th>
+                  <td>
                             Catheter, device (physical object)
                             <span>Medisch hulpmiddel: Infuuspomp</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Dosering</th>
-                        <td>
-                            <div>Tekst: 1 liter per 24 uur</div>
-                            <div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Dosering</th>
+                  <td>
+                     <div>Tekst: 1 liter per 24 uur</div>
+                     <div>
                                 Toedieningsweg: 
                                 <span title="parenteraal (10 - G-Standaard thesaurus subtabel 0007)">parenteraal</span>
-                            </div>
-                            <div>Dosering: 1 stuk</div>
-                            <div>Doseerverhouding: 1000 milliliter / 24 uur</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="in-progress"/>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="18629005"/>
-            <display value="Administration of drug or medicament (procedure)"/>
-        </coding>
-    </category>
-    <medicationReference>
-        <reference value="Medication/76333-2-16-830-1-112183-2-4-4-10"/>
-        <display value="Tipranavir (TPV)"/>
-    </medicationReference>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
-    </subject>
-    <effectivePeriod>
-        <start value="2014-11-30"/>
-    </effectivePeriod>
-    <device>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
-            <valueReference>
-                <reference value="DeviceUseStatement/zib-infusion-02"/>
-                <display value="Infuuspomp"/>
-            </valueReference>
-        </extension>
-        <!-- Or use direct reference to Device when no meta data about the use of the device is required.  -->
-        <reference value="Device/zib-infusion-product-02"/>
-        <display value="Catheter, device (physical object)"/>
-    </device>
-    <dosage>
-        <text value="1 liter per 24 uur"/>
-        <route>
-            <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
-                <code value="10"/>
-                <display value="parenteraal"/>
-            </coding>
-        </route>
-        <dose>
-            <value value="1"/>
-            <unit value="stuk"/>
+                     </div>
+                     <div>Dosering: 1 stuk</div>
+                     <div>Doseerverhouding: 1000 milliliter / 24 uur</div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1af73557-8fdf-11ec-8708-020000000000"/>
+   </identifier>
+   <status value="in-progress"/>
+   <category>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="18629005"/>
+         <display value="Administration of drug or medicament (procedure)"/>
+      </coding>
+   </category>
+   <medicationReference>
+      <reference value="Medication/76333-2-16-830-1-112183-2-4-4-10"/>
+      <display value="Tipranavir (TPV)"/>
+   </medicationReference>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="I. Jongeneel-de Haas"/>
+   </subject>
+   <effectivePeriod>
+      <start value="2014-11-30"/>
+   </effectivePeriod>
+   <device>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/extension-medicaldevice">
+         <valueReference>
+            <reference value="DeviceUseStatement/zib-infusion-02"/>
+            <display value="Infuuspomp"/>
+         </valueReference>
+      </extension>
+      <!-- Or use direct reference to Device when no meta data about the use of the device is required.  -->
+      <reference value="Device/zib-infusion-product-02"/>
+      <display value="Catheter, device (physical object)"/>
+   </device>
+   <dosage>
+      <text value="1 liter per 24 uur"/>
+      <route>
+         <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+            <code value="10"/>
+            <display value="parenteraal"/>
+         </coding>
+      </route>
+      <dose>
+         <value value="1"/>
+         <unit value="stuk"/>
+         <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+         <code value="245"/>
+      </dose>
+      <rateRatio>
+         <numerator>
+            <value value="1000"/>
+            <unit value="milliliter"/>
             <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
-            <code value="245"/>
-        </dose>
-        <rateRatio>
-            <numerator>
-                <value value="1000"/>
-                <unit value="milliliter"/>
-                <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
-                <code value="233"/>
-            </numerator>
-            <denominator>
-                <value value="24"/>
-                <unit value="uur"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="h"/>
-            </denominator>
-        </rateRatio>
-    </dosage>
+            <code value="233"/>
+         </numerator>
+         <denominator>
+            <value value="24"/>
+            <unit value="uur"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="h"/>
+         </denominator>
+      </rateRatio>
+   </dosage>
 </MedicationAdministration>

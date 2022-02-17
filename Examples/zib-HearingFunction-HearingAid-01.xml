@@ -1,48 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <DeviceUseStatement xmlns="http://hl7.org/fhir">
-    <id value="zib-hearingfunction-hearingaid-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingFunction-HearingAid"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Beschrijving apparaatgebruik. Subject: I. Jongeneel-de Haas. Status: actief</caption>
-                <tbody>
-                    <tr>
-                        <th>Apparaat/Systeem</th>
-                        <td>Gehoorapparaat</td>
-                    </tr>
-                    <tr>
-                        <th>Deel van lichaam</th>
-                        <td>
-                            <span title="Linkeroor (89644007 - SNOMED CT)">Linkeroor</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3">
-        <valueReference>
-            <reference value="Observation/zib-hearingfunction-01"/>
-            <display value="Verminderde gehoorfunction"/>
-        </valueReference>
-    </extension>
-    <status value="active"/>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
-    </subject>
-    <device>
-        <reference value="Device/zib-hearingfunction-hearingaidproduct-01"/>
-        <display value="Gehoorapparaat"/>
-    </device>
-    <bodySite>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="89644007"/>
-            <display value="Linkeroor"/>
-        </coding>
-    </bodySite>
+   <id value="zib-hearingfunction-hearingaid-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-HearingFunction-HearingAid"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Beschrijving apparaatgebruik. Subject: I. Jongeneel-de Haas. Status: actief</caption>
+            <tbody>
+               <tr>
+                  <th>Apparaat/Systeem</th>
+                  <td>Gehoorapparaat</td>
+               </tr>
+               <tr>
+                  <th>Deel van lichaam</th>
+                  <td>
+                     <span title="Linkeroor (89644007 - SNOMED CT)">Linkeroor</span>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3">
+      <valueReference>
+         <reference value="Observation/zib-hearingfunction-01"/>
+         <display value="Verminderde gehoorfunction"/>
+      </valueReference>
+   </extension>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1aa289d5-8fdf-11ec-1695-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="I. Jongeneel-de Haas"/>
+   </subject>
+   <device>
+      <reference value="Device/zib-hearingfunction-hearingaidproduct-01"/>
+      <display value="Gehoorapparaat"/>
+   </device>
+   <bodySite>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="89644007"/>
+         <display value="Linkeroor"/>
+      </coding>
+   </bodySite>
 </DeviceUseStatement>

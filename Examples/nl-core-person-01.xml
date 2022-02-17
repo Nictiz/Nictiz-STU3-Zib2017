@@ -1,110 +1,117 @@
-<Person xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/person.xsd">
-    <id value="nl-core-person-01"/>
-    <meta>
-        <versionId value="1"/>
-        <lastUpdated value="2018-06-06T14:07:59.978+00:00"/>
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-person"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <div>Henk de Haas, Man</div>
-            <div>
-                <a href="tel:0612345990">0612345990</a>
+<?xml version="1.0" encoding="UTF-8"?>
+<Person xmlns="http://hl7.org/fhir"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/person.xsd">
+   <id value="nl-core-person-01"/>
+   <meta>
+      <versionId value="1"/>
+      <lastUpdated value="2018-06-06T14:07:59.978+00:00"/>
+      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-person"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <div>Henk de Haas, Man</div>
+         <div>
+            <a href="tel:0612345990">0612345990</a>
                  (Tel Werk), 
                 <a href="mailto:dehaas@work.com">dehaas@work.com</a>
                  (E-mail Werk)
             </div>
-            <div>Straatweg 12bII, 1012AB Weesp Amsterdam, NLD (officieel Privé (hoofd))</div>
-            <div>Gekoppeld aan: Irma Jongeneel-de Haas</div>
-        </div>
-    </text>
-    <name>
-        <text value="Henk de Haas"/>
-        <family value="de Haas">
-            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
-                <valueString value="de"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
-                <valueString value="Haas"/>
-            </extension>
-        </family>
-        <given value="Henk"/>
-    </name>
-    <telecom>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+         <div>Straatweg 12bII, 1012AB Weesp Amsterdam, NLD (officieel Privé (hoofd))</div>
+         <div>Gekoppeld aan: Irma Jongeneel-de Haas</div>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="16cbe5f9-8fdf-11ec-1822-020000000000"/>
+   </identifier>
+   <name>
+      <text value="Henk de Haas"/>
+      <family value="de Haas">
+         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+            <valueString value="de"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+            <valueString value="Haas"/>
+         </extension>
+      </family>
+      <given value="Henk"/>
+   </name>
+   <telecom>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/AddressUse"/>
+               <code value="MC"/>
+               <display value="Mobiel telefoonnummer"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <system value="phone"/>
+      <value value="0612345990"/>
+      <use value="work"/>
+   </telecom>
+   <telecom>
+      <system value="email"/>
+      <value value="dehaas@work.com"/>
+      <use value="work"/>
+   </telecom>
+   <gender value="male">
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+               <code value="M"/>
+               <display value="Man"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+   </gender>
+   <address>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/AddressUse"/>
+               <code value="HP"/>
+               <display value="Officieel adres"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+         <valueBoolean value="true"/>
+      </extension>
+      <use value="home"/>
+      <line value="Straatweg 12bII">
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+            <valueString value="Straatweg"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+            <valueString value="12"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+            <valueString value="bII"/>
+         </extension>
+      </line>
+      <city value="Weesp"/>
+      <district value="Amsterdam"/>
+      <postalCode value="1012AB"/>
+      <country value="NLD">
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="MC"/>
-                    <display value="Mobiel telefoonnummer"/>
-                </coding>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                  <code value="6030"/>
+                  <display value="Nederland"/>
+               </coding>
             </valueCodeableConcept>
-        </extension>
-        <system value="phone"/>
-        <value value="0612345990"/>
-        <use value="work"/>
-    </telecom>
-    <telecom>
-        <system value="email"/>
-        <value value="dehaas@work.com"/>
-        <use value="work"/>
-    </telecom>
-    <gender value="male">
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-                    <code value="M"/>
-                    <display value="Man"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-    </gender>
-    <address>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="HP"/>
-                    <display value="Officieel adres"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
-            <valueBoolean value="true"/>
-        </extension>
-        <use value="home"/>
-        <line value="Straatweg 12bII">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
-                <valueString value="Straatweg"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
-                <valueString value="12"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
-                <valueString value="bII"/>
-            </extension>
-        </line>
-        <city value="Weesp"/>
-        <district value="Amsterdam"/>
-        <postalCode value="1012AB"/>
-        <country value="NLD">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
-                        <code value="6030"/>
-                        <display value="Nederland"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </country>
-    </address>
-    <link>
-        <target>
-            <reference value="Patient/nl-core-patient-03"/>
-            <display value="Irma Jongeneel-de Haas"/>
-        </target>
-    </link>
+         </extension>
+      </country>
+   </address>
+   <link>
+      <target>
+         <reference value="Patient/nl-core-patient-03"/>
+         <display value="Irma Jongeneel-de Haas"/>
+      </target>
+   </link>
 </Person>
