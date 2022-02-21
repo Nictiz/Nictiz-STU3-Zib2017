@@ -85,35 +85,20 @@
                 <code value="search-type"/>
             </interaction>
             <searchInclude value="Patient:general-practitioner"/>
-            <searchParam>
-                <name value="identifier"/>
-                <type value="token"/>
-            </searchParam>
         </resource>
         <resource>
             <type value="EpisodeOfCare"/>
             <interaction>
                 <code value="search-type"/>
             </interaction>
-            <searchRevInclude value="Flag:detail"/>
-            <searchParam>
-                <name value="identifier"/>
-                <type value="token"/>
-            </searchParam>
         </resource>
         <resource>
             <type value="Observation"/>
             <interaction>
                 <code value="search-type"/>
             </interaction>
-            <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
-            <searchParam>
-                <name value="category"/>
-                <type value="token"/>
-            </searchParam>
+            <searchInclude value="Observation:related-target"/>
+            <searchInclude value="Observation:specimen"/>
             <searchParam>
                 <name value="code"/>
                 <type value="token"/>
@@ -130,14 +115,6 @@
             </interaction>
             <searchInclude value="MedicationRequest:medication"/>
             <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
-            <searchParam>
-                <name value="status"/>
-                <type value="token"/>
-            </searchParam>
-            <searchParam>
                 <name value="category"/>
                 <type value="token"/>
             </searchParam>
@@ -152,10 +129,6 @@
             <interaction>
                 <code value="search-type"/>
             </interaction>
-            <searchParam>
-                <name value="patient"/>
-                <type value="reference"/>
-            </searchParam>
             <searchParam>
                 <name value="category"/>
                 <type value="token"/>
