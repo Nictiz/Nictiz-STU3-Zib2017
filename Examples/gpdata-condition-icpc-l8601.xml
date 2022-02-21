@@ -1,61 +1,68 @@
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
-    <id value="gpdata-condition-icpc-l8601"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
-    </meta>
-    <text>
-        <status value="additional"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ProbleemType</th>
-                        <th>ProbleemNaam</th>
-                        <th>Probleem BeginDatum</th>
-                        <th>ProbleemStatus</th>
-                        <th>Toelichting</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Diagnosis</td>
-                        <td>HNP (thoracaal/lumbaal)</td>
-                        <td>2020-03-15</td>
-                        <td>Actief</td>
-                        <td/>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <clinicalStatus value="active"/>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="282291009"/>
-            <display value="Diagnosis interpretation"/>
-        </coding>
-    </category>
-    <code>
-        <coding>
-            <system value="http://hl7.org/fhir/sid/icpc-1-nl"/>
-            <code value="L86.01"/>
-            <display value="HNP (thoracaal/lumbaal)"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/gpdata-patient-01"/>
-        <display value="Jacqueline XXX_Cevat"/>
-    </subject>
-    <onsetDateTime value="2020-03-15"/>
-    <asserter>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-            <valueReference>
-                <reference value="PractitionerRole/gpdata-practitionerrole-01"/>
-                <display value="Dr. V. Huisarts 1"/>
-            </valueReference>
-        </extension>
-        <reference value="Practitioner/gpdata-practitioner-01"/>
-        <display value="V. Huisarts 1"/>
-    </asserter>
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
+   <id value="gpdata-condition-icpc-l8601"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Problem"/>
+   </meta>
+   <text>
+      <status value="additional"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <thead>
+               <tr>
+                  <th>ProbleemType</th>
+                  <th>ProbleemNaam</th>
+                  <th>Probleem BeginDatum</th>
+                  <th>ProbleemStatus</th>
+                  <th>Toelichting</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>Diagnosis</td>
+                  <td>HNP (thoracaal/lumbaal)</td>
+                  <td>2020-03-15</td>
+                  <td>Actief</td>
+                  <td/>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1546ea03-8fdf-11ec-1922-020000000000"/>
+   </identifier>
+   <clinicalStatus value="active"/>
+   <category>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="282291009"/>
+         <display value="Diagnosis interpretation"/>
+      </coding>
+   </category>
+   <code>
+      <coding>
+         <system value="http://hl7.org/fhir/sid/icpc-1-nl"/>
+         <code value="L86.01"/>
+         <display value="HNP (thoracaal/lumbaal)"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/gpdata-patient-01"/>
+      <display value="Jacqueline XXX_Cevat"/>
+   </subject>
+   <onsetDateTime value="2020-03-15"/>
+   <asserter>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+         <valueReference>
+            <reference value="PractitionerRole/gpdata-practitionerrole-01"/>
+            <display value="Dr. V. Huisarts 1"/>
+         </valueReference>
+      </extension>
+      <reference value="Practitioner/gpdata-practitioner-01"/>
+      <display value="V. Huisarts 1"/>
+   </asserter>
 </Condition>

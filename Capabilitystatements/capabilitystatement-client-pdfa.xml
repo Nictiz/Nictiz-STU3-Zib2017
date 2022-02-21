@@ -1,145 +1,85 @@
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-  <url value="http://nictiz.nl/fhir/CapabilityStatement/pdfa-clientcapabilities" />
-  <version value="3.0.1"/>
-  <name value="PDFAClient" />
-  <status value="active" />
-  <date value="2021-04-15" />
-  <publisher value="Nictiz" />
-  <contact>
-    <name value="Nictiz" />
-    <telecom>
-      <system value="email" />
-      <value value="info@nictiz.nl" />
-      <use value="work" />
-    </telecom>
-  </contact>
-  <description value="This CapabilityStatement describes the minimal requirements for a client to retrieve and send PDFA documents. The requirements are based on the IHE technical framework supplement for Mobile access to Health Documents (MHD)." />
-  <purpose value="This CapabilityStatement is informative in nature and does not represent the minimum or maximum set of capabilities the client or server should support. The aim is to design the CapabilityStatement as complete as possible, however for the exact set of capabilities the implementation guide of the corresponding information standard should be consulted."/>
-  <copyright value="CC0" />
-  <kind value="requirements" />
-  <fhirVersion value="3.0.2" />
-  <acceptUnknown value="both" />
-  <format value="xml" />
-  <format value="json" />
-  <profile>
-    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
-  </profile>
-  <profile>
-    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner" />
-  </profile>
-  <profile>
-    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole" />
-  </profile>
-  <profile>
-    <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization" />
-  </profile>
-  <profile>
-    <reference value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.Minimal.ProvideDocumentBundle" />
-  </profile> 
-  <profile>
-    <reference value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.DocumentManifest" />
-  </profile> 
-  <profile>
-    <reference value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.Minimal.DocumentReference" />
-  </profile>
-  <profile>
-    <reference value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.List" />
-  </profile>
-  <rest>
-    <mode value="client" />
-     <resource>
-      <type value="DocumentManifest" />
-      <interaction>
-        <code value="search-type" />
-      </interaction>
-      <searchParam>
-        <name value="patient" />
-        <type value="reference" />
-      </searchParam>
-      <searchParam>
-        <name value="created" />
-        <type value="date" />
-      </searchParam>
-      <searchParam>
-        <name value="author" />
-        <type value="reference" />
-      </searchParam>
-      <searchParam>
-        <name value="type" />
-        <type value="token" />
-      </searchParam>
-      <searchParam>
-        <name value="source" />
-        <type value="uri" />
-      </searchParam>
-      <searchParam>
-        <name value="status" />
-        <type value="token" />
-      </searchParam>
-    </resource>
-    <resource>
-      <type value="DocumentReference" />
-      <interaction>
-        <code value="search-type" />
-      </interaction>
-      <searchParam>
-        <name value="patient" />
-        <type value="reference" />
-      </searchParam>
-      <searchParam>
-        <name value="status" />
-        <type value="token" />
-      </searchParam>
-      <searchParam>
-        <name value="indexed" />
-        <type value="date" />
-      </searchParam>
-      <searchParam>
-        <name value="author" />
-        <type value="reference" />
-      </searchParam>
-      <searchParam>
-        <name value="class" />
-        <type value="token" />
-      </searchParam>
-      <searchParam>
-        <name value="type" />
-        <type value="token" />
-      </searchParam>
-      <searchParam>
-        <name value="setting" />
-        <type value="token" />
-      </searchParam>
-      <searchParam>
-        <name value="period" />
-        <type value="date" />
-      </searchParam>
-      <searchParam>
-        <name value="facility" />
-        <type value="token" />
-      </searchParam>
-      <searchParam>
-        <name value="event" />
-        <type value="token" />
-      </searchParam>
-      <searchParam>
-        <name value="securityLabel" />
-        <type value="token" />
-      </searchParam>
-      <searchParam>
-        <name value="format" />
-        <type value="token" />
-      </searchParam>
-      <searchParam>
-        <name value="related-id" />
-        <type value="token" />
-      </searchParam>
-    </resource>
-    <resource>
-      <type value="Binary"/>
-      <interaction>
-        <code value="read"/>
-      </interaction>
-    </resource>
-  </rest>
+    <url value="http://nictiz.nl/fhir/CapabilityStatement/pdfa-clientcapabilities"/>
+    <version value="3.0.1"/>
+    <name value="PDFAClient"/>
+    <status value="active"/>
+    <date value="2021-04-15"/>
+    <publisher value="Nictiz"/>
+    <contact>
+        <name value="Nictiz"/>
+        <telecom>
+            <system value="email"/>
+            <value value="info@nictiz.nl"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="This CapabilityStatement describes the minimal requirements for a client to retrieve and send PDFA documents. The requirements are based on the IHE technical framework supplement for Mobile access to Health Documents (MHD)."/>
+    <purpose value="This CapabilityStatement is informative in nature and does not represent the minimum or maximum set of capabilities the client or server should support. The aim is to design the CapabilityStatement as complete as possible, however for the exact set of capabilities the implementation guide of the corresponding information standard should be consulted."/>
+    <copyright value="CC0"/>
+    <kind value="requirements"/>
+    <fhirVersion value="3.0.2"/>
+    <acceptUnknown value="both"/>
+    <format value="xml"/>
+    <format value="json"/>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+    </profile>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitioner"/>
+    </profile>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-practitionerrole"/>
+    </profile>
+    <profile>
+        <reference value="http://fhir.nl/fhir/StructureDefinition/nl-core-organization"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.Minimal.ProvideDocumentBundle"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.DocumentManifest"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.Minimal.DocumentReference"/>
+    </profile>
+    <profile>
+        <reference value="http://nictiz.nl/fhir/StructureDefinition/IHE.MHD.List"/>
+    </profile>
+    <rest>
+        <mode value="server"/>
+        <resource>
+            <type value="DocumentManifest"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchParam>
+                <name value="created"/>
+                <type value="date"/>
+            </searchParam>
+            <searchParam>
+                <name value="status"/>
+                <type value="token"/>
+            </searchParam>
+        </resource>
+        <resource>
+            <type value="DocumentReference"/>
+            <interaction>
+                <code value="search-type"/>
+            </interaction>
+            <searchParam>
+                <name value="status"/>
+                <type value="token"/>
+            </searchParam>
+            <searchParam>
+                <name value="indexed"/>
+                <type value="date"/>
+            </searchParam>
+        </resource>
+        <resource>
+            <type value="Binary"/>
+            <interaction>
+                <code value="read"/>
+            </interaction>
+        </resource>
+    </rest>
 </CapabilityStatement>

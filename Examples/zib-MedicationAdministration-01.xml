@@ -1,70 +1,77 @@
-<MedicationAdministration xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationadministration.xsd">
-    <id value="zib-medicationadministration-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationAdministration xmlns="http://hl7.org/fhir"
+                          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/medicationadministration.xsd">
+   <id value="zib-medicationadministration-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>
                     Medicatietoediening. Subject: J. XXX_Helleman. Categorie: 
                     <span title="Administration of medication (18629005 - SNOMED CT)">Administration of medication</span>
                     , Status: voltooid
                 </caption>
-                <tbody>
-                    <tr>
-                        <th>Medicatie</th>
-                        <td>PARACETAMOL TABLET 500MG</td>
-                    </tr>
-                    <tr>
-                        <th>Datum/tijd</th>
-                        <td>2020-07-21</td>
-                    </tr>
-                    <tr>
-                        <th>Dosering</th>
-                        <td>
-                            <div>
+            <tbody>
+               <tr>
+                  <th>Medicatie</th>
+                  <td>PARACETAMOL TABLET 500MG</td>
+               </tr>
+               <tr>
+                  <th>Datum/tijd</th>
+                  <td>2020-07-21</td>
+               </tr>
+               <tr>
+                  <th>Dosering</th>
+                  <td>
+                     <div>
                                 Toedieningsweg: 
                                 <span title="ORAAL (9 - G-Standaard thesaurus subtabel 0007)">ORAAL</span>
-                            </div>
-                            <div>Dosering: 1 stuk</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="completed"/>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="18629005"/>
-            <display value="Administration of medication"/>
-        </coding>
-    </category>
-    <medicationReference>
-        <reference value="Medication/zib-Product-02"/>
-        <display value="PARACETAMOL TABLET 500MG"/>
-    </medicationReference>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="J. XXX_Helleman"/>
-    </subject>
-    <effectiveDateTime value="2020-07-21"/>
-    <dosage>
-        <route>
-            <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
-                <code value="9"/>
-                <display value="ORAAL"/>
-            </coding>
-        </route>
-        <dose>
-            <value value="1"/>
-            <unit value="stuk"/>
-            <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
-            <code value="245"/>
-        </dose>
-    </dosage>
+                     </div>
+                     <div>Dosering: 1 stuk</div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1bc71d67-8fdf-11ec-2100-020000000000"/>
+   </identifier>
+   <status value="completed"/>
+   <category>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="18629005"/>
+         <display value="Administration of medication"/>
+      </coding>
+   </category>
+   <medicationReference>
+      <reference value="Medication/zib-Product-02"/>
+      <display value="PARACETAMOL TABLET 500MG"/>
+   </medicationReference>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="J. XXX_Helleman"/>
+   </subject>
+   <effectiveDateTime value="2020-07-21"/>
+   <dosage>
+      <route>
+         <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.4.9"/>
+            <code value="9"/>
+            <display value="ORAAL"/>
+         </coding>
+      </route>
+      <dose>
+         <value value="1"/>
+         <unit value="stuk"/>
+         <system value="urn:oid:2.16.840.1.113883.2.4.4.1.900.2"/>
+         <code value="245"/>
+      </dose>
+   </dosage>
 </MedicationAdministration>

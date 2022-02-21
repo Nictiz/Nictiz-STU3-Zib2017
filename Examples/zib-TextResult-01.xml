@@ -1,94 +1,96 @@
-<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
-    <id value="zib-textresult-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/diagnosticreport.xsd">
+   <id value="zib-textresult-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-TextResult"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>
                     Diagnostisch verslag. Subject: Johan XXX_Helleman. Id: 123456 (http://www.acme.com/identifiers/patient), Status: 
                     <span title="Aanvullend (appended - 2.16.840.1.113883.2.4.3.11.60.40.4.16.1)">Aanvullend</span>
-                    <span style="display: block;">
+               <span style="display: block;">
                         Uitvoerende (
                         <span title="Responsible Party (RESP - v3/ParticipationType)">Responsible Party</span>
                         ): Vaste Huisarts 1 - Maatschap Vaste Huisarts
                     </span>
-                </caption>
-                <tbody>
-                    <tr>
-                        <th>Context</th>
-                        <td>Gebroken been</td>
-                    </tr>
-                    <tr>
-                        <th>Code</th>
-                        <td>
-                            <span title="röntgen (363680008 - SNOMED CT)">röntgen</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Gemaakt</th>
-                        <td>10:25:00, 23 december 2000</td>
-                    </tr>
-                    <tr>
-                        <th>Conclusie</th>
-                        <td>Helaas moet de breuk geopereerd worden.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <identifier>
-        <use value="official"/>
-        <system value="http://www.acme.com/identifiers/patient"/>
-        <value value="123456"/>
-    </identifier>
-    <status value="appended">
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.16.1"/>
-                    <code value="appended"/>
-                    <display value="Aanvullend"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-    </status>
-    <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="363680008"/>
-            <display value="röntgen"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <context>
-        <reference value="EpisodeOfCare/nl-core-episodeofcare-01"/>
-        <display value="Gebroken been"/>
-    </context>
-    <effectiveDateTime value="2000-12-23T10:25:00+00:00"/>
-    <performer>
-        <role>
+            </caption>
+            <tbody>
+               <tr>
+                  <th>Context</th>
+                  <td>Gebroken been</td>
+               </tr>
+               <tr>
+                  <th>Code</th>
+                  <td>
+                     <span title="röntgen (363680008 - SNOMED CT)">röntgen</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Gemaakt</th>
+                  <td>10:25:00, 23 december 2000</td>
+               </tr>
+               <tr>
+                  <th>Conclusie</th>
+                  <td>Helaas moet de breuk geopereerd worden.</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1ea32625-8fdf-11ec-1302-020000000000"/>
+   </identifier>
+   <status value="appended">
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+         <valueCodeableConcept>
             <coding>
-                <system value="http://hl7.org/fhir/v3/ParticipationType"/>
-                <code value="RESP"/>
-                <display value="Responsible Party"/>
+               <system value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.16.1"/>
+               <code value="appended"/>
+               <display value="Aanvullend"/>
             </coding>
-        </role>
-        <actor>
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-                <valueReference>
-                    <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
-                    <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
-                </valueReference>
-            </extension>
-            <reference value="Practitioner/nl-core-practitioner-02"/>
-            <display value="Vaste Huisarts 1"/>
-        </actor>
-    </performer>
-    <conclusion value="Helaas moet de breuk geopereerd worden."/>
+         </valueCodeableConcept>
+      </extension>
+   </status>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="363680008"/>
+         <display value="röntgen"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <context>
+      <reference value="EpisodeOfCare/nl-core-episodeofcare-01"/>
+      <display value="Gebroken been"/>
+   </context>
+   <effectiveDateTime value="2000-12-23T10:25:00+00:00"/>
+   <performer>
+      <role>
+         <coding>
+            <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+            <code value="RESP"/>
+            <display value="Responsible Party"/>
+         </coding>
+      </role>
+      <actor>
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+               <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
+               <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
+            </valueReference>
+         </extension>
+         <reference value="Practitioner/nl-core-practitioner-02"/>
+         <display value="Vaste Huisarts 1"/>
+      </actor>
+   </performer>
+   <conclusion value="Helaas moet de breuk geopereerd worden."/>
 </DiagnosticReport>

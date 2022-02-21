@@ -1,94 +1,101 @@
-<Location xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/location.xsd">
-    <id value="nl-core-location-02"/>
-    <meta>
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Locatie. </caption>
-                <tbody>
-                    <tr>
-                        <th>Naam</th>
-                        <td>ACME in Den Haag</td>
-                    </tr>
-                    <tr>
-                        <th>Contactgegevens</th>
-                        <td>
-                            <a href="mailto:info@nictiz.nl">info@nictiz.nl</a>
+<?xml version="1.0" encoding="UTF-8"?>
+<Location xmlns="http://hl7.org/fhir"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/location.xsd">
+   <id value="nl-core-location-02"/>
+   <meta>
+      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-location"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Locatie. </caption>
+            <tbody>
+               <tr>
+                  <th>Naam</th>
+                  <td>ACME in Den Haag</td>
+               </tr>
+               <tr>
+                  <th>Contactgegevens</th>
+                  <td>
+                     <a href="mailto:info@nictiz.nl">info@nictiz.nl</a>
                              (E-mail Werk)br
                             <a href="tel:+31611234567">+31611234567</a>
                              (Tel Privé)br
                         </td>
-                    </tr>
-                    <tr>
-                        <th>Adres</th>
-                        <td>Oude middeweg 55, 9132AG Den Haag, NLD (officieel Privé (hoofd) Post / Bezoek)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <name value="ACME in Den Haag"/>
-    <telecom>
-        <system value="email"/>
-        <value value="info@nictiz.nl"/>
-        <use value="work"/>
-    </telecom>
-    <telecom>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+               </tr>
+               <tr>
+                  <th>Adres</th>
+                  <td>Oude middeweg 55, 9132AG Den Haag, NLD (officieel Privé (hoofd) Post / Bezoek)</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="161fbd15-8fdf-11ec-4490-020000000000"/>
+   </identifier>
+   <name value="ACME in Den Haag"/>
+   <telecom>
+      <system value="email"/>
+      <value value="info@nictiz.nl"/>
+      <use value="work"/>
+   </telecom>
+   <telecom>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/AddressUse"/>
+               <code value="MC"/>
+               <display value="Mobile Phone"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <system value="phone"/>
+      <value value="+31611234567"/>
+      <use value="home"/>
+   </telecom>
+   <address>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/AddressUse"/>
+               <code value="HP"/>
+               <display value="Officieel adres"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+         <valueBoolean value="true"/>
+      </extension>
+      <use value="home"/>
+      <type value="both"/>
+      <line value="Oude middeweg 55">
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+            <valueString value="Knolweg"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+            <valueString value="55"/>
+         </extension>
+      </line>
+      <city value="Den Haag"/>
+      <postalCode value="9132AG"/>
+      <country value="NLD">
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="MC"/>
-                    <display value="Mobile Phone"/>
-                </coding>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                  <code value="6030"/>
+                  <display value="Nederland"/>
+               </coding>
             </valueCodeableConcept>
-        </extension>
-        <system value="phone"/>
-        <value value="+31611234567"/>
-        <use value="home"/>
-    </telecom>
-    <address>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="HP"/>
-                    <display value="Officieel adres"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
-            <valueBoolean value="true"/>
-        </extension>
-        <use value="home"/>
-        <type value="both"/>
-        <line value="Oude middeweg 55">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
-                <valueString value="Knolweg"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
-                <valueString value="55"/>
-            </extension>
-        </line>
-        <city value="Den Haag"/>
-        <postalCode value="9132AG"/>
-        <country value="NLD">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
-                        <code value="6030"/>
-                        <display value="Nederland"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </country>
-    </address>
-    <managingOrganization>
-        <reference value="Organization/nl-core-organization-02"/>
-        <display value="Orthopedie - UMCG"/>
-    </managingOrganization>
+         </extension>
+      </country>
+   </address>
+   <managingOrganization>
+      <reference value="Organization/nl-core-organization-02"/>
+      <display value="Orthopedie - UMCG"/>
+   </managingOrganization>
 </Location>

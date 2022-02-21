@@ -1,34 +1,41 @@
-<DeviceUseStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
-    <id value="zib-stoma-medicaldevice-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Beschrijving apparaatgebruik. Subject: I. Jongeneel-de Haas. Status: actief</caption>
-                <tbody>
-                    <tr>
-                        <th>Apparaat/Systeem</th>
-                        <td>Colostomy bags</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <extension url="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3">
-        <valueReference>
-            <reference value="Observation/zib-stoma-01"/>
-        </valueReference>
-    </extension>
-    <status value="active"/>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
-    </subject>
-    <device>
-        <reference value="Device/zib-stoma-medicaldevice-product-01"/>
-        <display value="Colostomy bags"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceUseStatement xmlns="http://hl7.org/fhir"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/fhir-all.xsd">
+   <id value="zib-stoma-medicaldevice-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDevice"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Beschrijving apparaatgebruik. Subject: I. Jongeneel-de Haas. Status: actief</caption>
+            <tbody>
+               <tr>
+                  <th>Apparaat/Systeem</th>
+                  <td>Colostomy bags</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <extension url="http://nictiz.nl/fhir/StructureDefinition/deviceUseStatement-reasonReferenceSTU3">
+      <valueReference>
+         <reference value="Observation/zib-stoma-01"/>
+      </valueReference>
+   </extension>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1e78d4bf-8fdf-11ec-1493-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="I. Jongeneel-de Haas"/>
+   </subject>
+   <device>
+      <reference value="Device/zib-stoma-medicaldevice-product-01"/>
+      <display value="Colostomy bags"/>
+   </device>
 </DeviceUseStatement>

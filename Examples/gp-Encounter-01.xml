@@ -1,97 +1,104 @@
-<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
-    <id value="gp-encounter-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Contact. Subject: J. XXX_Helleman (Johan). Id: 123456 (http://www.acme.com/identifiers/patient), Status: gearriveerd</caption>
-                <tbody>
-                    <tr>
-                        <th>Type contact</th>
-                        <td>
-                            <div>
-                                <span title="inpatient encounter (IMP - v3/ActCode)">inpatient encounter</span>
-                            </div>
-                            <span title="visite (01 - nhg-tabel-14-contactwijze)">visite</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Periode</th>
-                        <td>8 februari 2013</td>
-                    </tr>
-                    <tr>
-                        <th>Participant</th>
-                        <td>
-                            <div>
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/encounter.xsd">
+   <id value="gp-encounter-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/gp-Encounter"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Contact. Subject: J. XXX_Helleman (Johan). Id: 123456 (http://www.acme.com/identifiers/patient), Status: gearriveerd</caption>
+            <tbody>
+               <tr>
+                  <th>Type contact</th>
+                  <td>
+                     <div>
+                        <span title="inpatient encounter (IMP - v3/ActCode)">inpatient encounter</span>
+                     </div>
+                     <span title="visite (01 - nhg-tabel-14-contactwijze)">visite</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Periode</th>
+                  <td>8 februari 2013</td>
+               </tr>
+               <tr>
+                  <th>Participant</th>
+                  <td>
+                     <div>
                                 Huisarts H. de Vries
                                 <div>Zorgverlenerrol: Medisch specialisten, orthopedie</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Zorgaanbieder</th>
-                        <td>Huisartspraktijk (zelfstandig of groepspraktijk)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <identifier>
-        <use value="usual"/>
-        <system value="http://www.acme.com/identifiers/patient"/>
-        <value value="123456"/>
-    </identifier>
-    <status value="arrived"/>
-    <class>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/ActCode"/>
-                    <code value="IMP"/>
-                    <display value="inpatient encounter"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <system value="http://hl7.org/fhir/v3/ActCode"/>
-        <code value="IMP"/>
-        <display value="inpatient encounter"/>
-    </class>
-    <type>
-        <coding>
-            <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-14-contactwijze"/>
-            <code value="01"/>
-            <display value="visite"/>
-        </coding>
-    </type>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="J. XXX_Helleman (Johan)"/>
-    </subject>
-    <episodeOfCare>
-        <reference value="EpisodeOfCare/nl-core-episodeofcare-01"/>
-        <display value="Gebroken been"/>
-    </episodeOfCare>
-    <participant>
-        <individual>
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-                <valueReference>
-                    <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
-                    <display value="Medisch specialisten, orthopedie"/>
-                </valueReference>
-            </extension>
-            <reference value="Practitioner/nl-core-practitioner-01"/>
-            <display value="Huisarts H. de Vries"/>
-        </individual>
-    </participant>
-    <period>
-        <start value="2013-02-08"/>
-        <end value="2013-02-08"/>
-    </period>
-    <serviceProvider>
-        <reference value="Organization/nl-core-organization-01"/>
-        <display value="Huisartspraktijk (zelfstandig of groepspraktijk)"/>
-    </serviceProvider>
+                     </div>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Zorgaanbieder</th>
+                  <td>Huisartspraktijk (zelfstandig of groepspraktijk)</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <use value="usual"/>
+      <system value="http://www.acme.com/identifiers/patient"/>
+      <value value="123456"/>
+   </identifier>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1506f28b-8fdf-11ec-1151-020000000000"/>
+   </identifier>
+   <status value="arrived"/>
+   <class>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/ActCode"/>
+               <code value="IMP"/>
+               <display value="inpatient encounter"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="IMP"/>
+      <display value="inpatient encounter"/>
+   </class>
+   <type>
+      <coding>
+         <system value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-14-contactwijze"/>
+         <code value="01"/>
+         <display value="visite"/>
+      </coding>
+   </type>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="J. XXX_Helleman (Johan)"/>
+   </subject>
+   <episodeOfCare>
+      <reference value="EpisodeOfCare/nl-core-episodeofcare-01"/>
+      <display value="Gebroken been"/>
+   </episodeOfCare>
+   <participant>
+      <individual>
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+               <reference value="PractitionerRole/nl-core-practitionerrole-01"/>
+               <display value="Medisch specialisten, orthopedie"/>
+            </valueReference>
+         </extension>
+         <reference value="Practitioner/nl-core-practitioner-01"/>
+         <display value="Huisarts H. de Vries"/>
+      </individual>
+   </participant>
+   <period>
+      <start value="2013-02-08"/>
+      <end value="2013-02-08"/>
+   </period>
+   <serviceProvider>
+      <reference value="Organization/nl-core-organization-01"/>
+      <display value="Huisartspraktijk (zelfstandig of groepspraktijk)"/>
+   </serviceProvider>
 </Encounter>

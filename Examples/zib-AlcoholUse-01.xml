@@ -1,75 +1,82 @@
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
-    <id value="zib-alcoholuse-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AlcoholUse"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Observatie/bepaling. Subject: Johan XXX_Helleman. Status: definitief</caption>
-                <tbody>
-                    <tr>
-                        <th>Bepalingdatum/tijd</th>
-                        <td>Vanaf 1980</td>
-                    </tr>
-                    <tr>
-                        <th>Code</th>
-                        <th>Waarde</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Finding relating to alcohol drinking behavior (finding) (228273003 - SNOMED CT)">Finding relating to alcohol drinking behavior (finding)</span>
-                        </td>
-                        <td>
-                            <span title="Current drinker of alcohol (219006 - SNOMED CT)">Current drinker of alcohol</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Alcohol intake (observable entity) (160573003 - SNOMED CT)">Alcohol intake (observable entity)</span>
-                        </td>
-                        <td>4 glasses per week</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="final"/>
-    <code>
-        <coding>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/observation.xsd">
+   <id value="zib-alcoholuse-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-AlcoholUse"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Observatie/bepaling. Subject: Johan XXX_Helleman. Status: definitief</caption>
+            <tbody>
+               <tr>
+                  <th>Bepalingdatum/tijd</th>
+                  <td>Vanaf 1980</td>
+               </tr>
+               <tr>
+                  <th>Code</th>
+                  <th>Waarde</th>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Finding relating to alcohol drinking behavior (finding) (228273003 - SNOMED CT)">Finding relating to alcohol drinking behavior (finding)</span>
+                  </td>
+                  <td>
+                     <span title="Current drinker of alcohol (219006 - SNOMED CT)">Current drinker of alcohol</span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Alcohol intake (observable entity) (160573003 - SNOMED CT)">Alcohol intake (observable entity)</span>
+                  </td>
+                  <td>4 glasses per week</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="18cc8831-8fdf-11ec-2010-020000000000"/>
+   </identifier>
+   <status value="final"/>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="228273003"/>
+         <display value="Finding relating to alcohol drinking behavior (finding)"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-01"/>
+      <display value="Johan XXX_Helleman"/>
+   </subject>
+   <effectivePeriod>
+      <start value="1980"/>
+   </effectivePeriod>
+   <valueCodeableConcept>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="219006"/>
+         <display value="Current drinker of alcohol"/>
+      </coding>
+   </valueCodeableConcept>
+   <component>
+      <code>
+         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="228273003"/>
-            <display value="Finding relating to alcohol drinking behavior (finding)"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-01"/>
-        <display value="Johan XXX_Helleman"/>
-    </subject>
-    <effectivePeriod>
-        <start value="1980"/>
-    </effectivePeriod>
-    <valueCodeableConcept>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="219006"/>
-            <display value="Current drinker of alcohol"/>
-        </coding>
-    </valueCodeableConcept>
-    <component>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="160573003"/>
-                <display value="Alcohol intake (observable entity)"/>
-            </coding>
-        </code>
-        <valueQuantity>
-            <value value="4"/>
-            <unit value="glasses per week"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="{glasses}/wk"/>
-        </valueQuantity>
-    </component>
+            <code value="160573003"/>
+            <display value="Alcohol intake (observable entity)"/>
+         </coding>
+      </code>
+      <valueQuantity>
+         <value value="4"/>
+         <unit value="glasses per week"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="{glasses}/wk"/>
+      </valueQuantity>
+   </component>
 </Observation>

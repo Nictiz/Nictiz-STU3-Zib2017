@@ -1,126 +1,133 @@
-<CareTeam xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careteam.xsd">
-    <id value="nl-core-careteam-01"/>
-    <meta>
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-careteam"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>
+<?xml version="1.0" encoding="UTF-8"?>
+<CareTeam xmlns="http://hl7.org/fhir"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careteam.xsd">
+   <id value="nl-core-careteam-01"/>
+   <meta>
+      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-careteam"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>
                     Zorgteam. Id: 15689532 (http://example.nl/careteamid), Categorie: 
                     <span title="Episode (episode - care-team-category)">Episode</span>
                     , Status: actief
                 </caption>
-                <tbody>
-                    <tr>
-                        <th>Context</th>
-                        <td>Drug and alcohol rehabilitation</td>
-                    </tr>
-                    <tr>
-                        <th>Periode</th>
-                        <td>Vanaf 08:53:00, 1 februari 2013</td>
-                    </tr>
-                    <tr>
-                        <th>Participant</th>
-                        <td>
-                            <ul>
-                                <li>
-                                    <span title="Verwijzer (REF - v3/ParticipationType)">Verwijzer</span>
+            <tbody>
+               <tr>
+                  <th>Context</th>
+                  <td>Drug and alcohol rehabilitation</td>
+               </tr>
+               <tr>
+                  <th>Periode</th>
+                  <td>Vanaf 08:53:00, 1 februari 2013</td>
+               </tr>
+               <tr>
+                  <th>Participant</th>
+                  <td>
+                     <ul>
+                        <li>
+                           <span title="Verwijzer (REF - v3/ParticipationType)">Verwijzer</span>
                                     Vaste Huisarts 1 - Maatschap Vaste Huisarts
                                     <div>1 februari 2013 08:53:00 - 1 februari 2015 08:53:00</div>
-                                </li>
-                                <li>
-                                    <span title="Hoofdbehandelaar (RESP - v3/ParticipationType)">Hoofdbehandelaar</span>
+                        </li>
+                        <li>
+                           <span title="Hoofdbehandelaar (RESP - v3/ParticipationType)">Hoofdbehandelaar</span>
                                     Dirk de Vries
                                     <div>Zorgverlenerrol: Medisch specialisten, geriatrie</div>
-                                    <div>Vanaf 08:53:00, 1 februari 2013</div>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Reden</th>
-                        <td>Syndroom van Korsakov</td>
-                    </tr>
-                    <tr>
-                        <th>Verantwoordelijke organisatie</th>
-                        <td>Maatschap Vaste Huisarts</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <identifier>
-        <system value="http://example.nl/careteamid"/>
-        <value value="15689532"/>
-    </identifier>
-    <status value="active"/>
-    <category>
-        <coding>
-            <system value="http://hl7.org/fhir/care-team-category"/>
-            <code value="episode"/>
-            <display value="Episode"/>
-        </coding>
-    </category>
-    <context>
-        <reference value="EpisodeOfCare/nl-core-episodeofcare-02"/>
-        <display value="Drug and alcohol rehabilitation"/>
-    </context>
-    <period>
-        <start value="2013-02-01T08:53:00+01:00"/>
-    </period>
-    <participant>
-        <role>
-            <coding>
-                <system value="http://hl7.org/fhir/v3/ParticipationType"/>
-                <code value="REF"/>
-                <display value="Verwijzer"/>
-            </coding>
-        </role>
-        <member>
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-                <valueReference>
-                    <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
-                    <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
-                </valueReference>
-            </extension>
-            <reference value="Practitioner/nl-core-practitioner-02"/>
-            <display value="Vaste Huisarts 1"/>
-        </member>
-        <period>
-            <start value="2013-02-01T08:53:00+01:00"/>
-            <end value="2015-02-01T08:53:00+01:00"/>
-        </period>
-    </participant>
-    <participant>
-        <role>
-            <coding>
-                <system value="http://hl7.org/fhir/v3/ParticipationType"/>
-                <code value="RESP"/>
-                <display value="Hoofdbehandelaar"/>
-            </coding>
-        </role>
-        <member>
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-                <valueReference>
-                    <reference value="PractitionerRole/nl-core-practitionerrole-04"/>
-                    <display value="Medisch specialisten, geriatrie"/>
-                </valueReference>
-            </extension>
-            <reference value="Practitioner/nl-core-practitioner-04"/>
-            <display value="Dirk de Vries"/>
-        </member>
-        <period>
-            <start value="2013-02-01T08:53:00+01:00"/>
-        </period>
-    </participant>
-    <reasonReference>
-        <reference value="Condition/zib-problem-08"/>
-        <display value="Syndroom van Korsakov"/>
-    </reasonReference>
-    <managingOrganization>
-        <reference value="Organization/nl-core-organization-01"/>
-        <display value="Maatschap Vaste Huisarts"/>
-    </managingOrganization>
+                           <div>Vanaf 08:53:00, 1 februari 2013</div>
+                        </li>
+                     </ul>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Reden</th>
+                  <td>Syndroom van Korsakov</td>
+               </tr>
+               <tr>
+                  <th>Verantwoordelijke organisatie</th>
+                  <td>Maatschap Vaste Huisarts</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="http://example.nl/careteamid"/>
+      <value value="15689532"/>
+   </identifier>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="15e6f5b1-8fdf-11ec-2036-020000000000"/>
+   </identifier>
+   <status value="active"/>
+   <category>
+      <coding>
+         <system value="http://hl7.org/fhir/care-team-category"/>
+         <code value="episode"/>
+         <display value="Episode"/>
+      </coding>
+   </category>
+   <context>
+      <reference value="EpisodeOfCare/nl-core-episodeofcare-02"/>
+      <display value="Drug and alcohol rehabilitation"/>
+   </context>
+   <period>
+      <start value="2013-02-01T08:53:00+01:00"/>
+   </period>
+   <participant>
+      <role>
+         <coding>
+            <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+            <code value="REF"/>
+            <display value="Verwijzer"/>
+         </coding>
+      </role>
+      <member>
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+               <reference value="PractitionerRole/nl-core-practitionerrole-02"/>
+               <display value="Vaste Huisarts 1 - Maatschap Vaste Huisarts"/>
+            </valueReference>
+         </extension>
+         <reference value="Practitioner/nl-core-practitioner-02"/>
+         <display value="Vaste Huisarts 1"/>
+      </member>
+      <period>
+         <start value="2013-02-01T08:53:00+01:00"/>
+         <end value="2015-02-01T08:53:00+01:00"/>
+      </period>
+   </participant>
+   <participant>
+      <role>
+         <coding>
+            <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+            <code value="RESP"/>
+            <display value="Hoofdbehandelaar"/>
+         </coding>
+      </role>
+      <member>
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
+            <valueReference>
+               <reference value="PractitionerRole/nl-core-practitionerrole-04"/>
+               <display value="Medisch specialisten, geriatrie"/>
+            </valueReference>
+         </extension>
+         <reference value="Practitioner/nl-core-practitioner-04"/>
+         <display value="Dirk de Vries"/>
+      </member>
+      <period>
+         <start value="2013-02-01T08:53:00+01:00"/>
+      </period>
+   </participant>
+   <reasonReference>
+      <reference value="Condition/zib-problem-08"/>
+      <display value="Syndroom van Korsakov"/>
+   </reasonReference>
+   <managingOrganization>
+      <reference value="Organization/nl-core-organization-01"/>
+      <display value="Maatschap Vaste Huisarts"/>
+   </managingOrganization>
 </CareTeam>

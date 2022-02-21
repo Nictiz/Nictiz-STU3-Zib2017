@@ -1,96 +1,103 @@
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careplan.xsd">
-    <id value="zib-helpfromothers-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-HelpFromOthers"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careplan.xsd">
+   <id value="zib-helpfromothers-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-HelpFromOthers"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>
                     Zorgplan. Subject: Irma Jongeneel-de Haas. Categorie: 
                     <span title="Supportive care (243114000 - SNOMED CT)">Supportive care</span>
                     , Status: concept
                     <span style="display: block;">Intentie: plan</span>
-                </caption>
-                <tbody>
-                    <tr>
-                        <th>Activiteit</th>
-                        <td>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td colspan="2">
-                                            <table>
-                                                <caption>
+            </caption>
+            <tbody>
+               <tr>
+                  <th>Activiteit</th>
+                  <td>
+                     <table>
+                        <tbody>
+                           <tr>
+                              <td colspan="2">
+                                 <table>
+                                    <caption>
                                                     Details
                                                     <span style="display: block;">
                                                         Categorie: 
                                                         <span title="Home care of patient (60689008 - SNOMED CT)">Home care of patient</span>
                                                         , Status: gepland
                                                     </span>
-                                                </caption>
-                                                <tbody>
-                                                    <tr>
-                                                        <th>Code</th>
-                                                        <td>Ondersteuning bij wassen</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Omschrijving</th>
-                                                        <td>Thuiszorg komt langs</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Schema</th>
-                                                        <td>Dagelijks</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Uitvoerende</th>
-                                                        <td>Zorg@Home B.V. | Vestiging van Ziekenhuis Gooi en Overvecht</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="draft"/>
-    <intent value="plan"/>
-    <category>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="243114000"/>
-            <display value="Supportive care"/>
-        </coding>
-    </category>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="Irma Jongeneel-de Haas"/>
-    </subject>
-    <activity>
-        <detail>
-            <category>
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="60689008"/>
-                    <display value="Home care of patient"/>
-                </coding>
-            </category>
-            <code>
-                <text value="Ondersteuning bij wassen"/>
-            </code>
-            <status value="scheduled"/>
-            <scheduledString value="Dagelijks"/>
-            <performer>
-                <reference value="Organization/nl-core-organization-07"/>
-                <display value="Zorg@Home B.V. | Vestiging van Ziekenhuis Gooi en Overvecht"/>
-            </performer>
-            <description value="Thuiszorg komt langs"/>
-        </detail>
-    </activity>
+                                    </caption>
+                                    <tbody>
+                                       <tr>
+                                          <th>Code</th>
+                                          <td>Ondersteuning bij wassen</td>
+                                       </tr>
+                                       <tr>
+                                          <th>Omschrijving</th>
+                                          <td>Thuiszorg komt langs</td>
+                                       </tr>
+                                       <tr>
+                                          <th>Schema</th>
+                                          <td>Dagelijks</td>
+                                       </tr>
+                                       <tr>
+                                          <th>Uitvoerende</th>
+                                          <td>Zorg@Home B.V. | Vestiging van Ziekenhuis Gooi en Overvecht</td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1ac6d4ed-8fdf-11ec-1463-020000000000"/>
+   </identifier>
+   <status value="draft"/>
+   <intent value="plan"/>
+   <category>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="243114000"/>
+         <display value="Supportive care"/>
+      </coding>
+   </category>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="Irma Jongeneel-de Haas"/>
+   </subject>
+   <activity>
+      <detail>
+         <category>
+            <coding>
+               <system value="http://snomed.info/sct"/>
+               <code value="60689008"/>
+               <display value="Home care of patient"/>
+            </coding>
+         </category>
+         <code>
+            <text value="Ondersteuning bij wassen"/>
+         </code>
+         <status value="scheduled"/>
+         <scheduledString value="Dagelijks"/>
+         <performer>
+            <reference value="Organization/nl-core-organization-07"/>
+            <display value="Zorg@Home B.V. | Vestiging van Ziekenhuis Gooi en Overvecht"/>
+         </performer>
+         <description value="Thuiszorg komt langs"/>
+      </detail>
+   </activity>
 </CarePlan>

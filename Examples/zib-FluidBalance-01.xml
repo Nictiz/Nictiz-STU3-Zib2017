@@ -1,96 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
-    <id value="zib-fluidbalance-01"/>
-    <meta>
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FluidBalance"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-                <caption>Observatie/bepaling. Subject: I. Jongeneel-de Haas. Status: voorlopig</caption>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">meting output via catheterzak</td>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <th>Bepalingdatum/tijd</th>
-                        <td>10:00 - 17:30 op 11 maart 2018</td>
-                    </tr>
-                    <tr>
-                        <th>Code</th>
-                        <th>Waarde</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Fluid balance observable (364396009 - SNOMED CT)">Fluid balance observable</span>
-                        </td>
-                        <td/>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Total fluid input (251852001 - SNOMED CT)">Total fluid input</span>
-                        </td>
-                        <td>800 mL</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span title="Total fluid output (251841007 - SNOMED CT)">Total fluid output</span>
-                        </td>
-                        <td>1300 mL</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </text>
-    <status value="preliminary"/>
-    <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="364396009"/>
-            <display value="Fluid balance observable"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="I. Jongeneel-de Haas"/>
-    </subject>
-    <effectivePeriod>
-        <start value="2018-03-11T10:00:00+02:00"/>
-        <end value="2018-03-11T17:30:00+02:00"/>
-    </effectivePeriod>
-    <comment value="meting output via catheterzak"/>
-    <component>
+   <id value="zib-fluidbalance-01"/>
+   <meta>
+      <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-FluidBalance"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <table>
+            <caption>Observatie/bepaling. Subject: I. Jongeneel-de Haas. Status: voorlopig</caption>
+            <tfoot>
+               <tr>
+                  <td colspan="2">meting output via catheterzak</td>
+               </tr>
+            </tfoot>
+            <tbody>
+               <tr>
+                  <th>Bepalingdatum/tijd</th>
+                  <td>10:00 - 17:30 op 11 maart 2018</td>
+               </tr>
+               <tr>
+                  <th>Code</th>
+                  <th>Waarde</th>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Fluid balance observable (364396009 - SNOMED CT)">Fluid balance observable</span>
+                  </td>
+                  <td/>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Total fluid input (251852001 - SNOMED CT)">Total fluid input</span>
+                  </td>
+                  <td>800 mL</td>
+               </tr>
+               <tr>
+                  <td>
+                     <span title="Total fluid output (251841007 - SNOMED CT)">Total fluid output</span>
+                  </td>
+                  <td>1300 mL</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="1a2c4031-8fdf-11ec-7206-020000000000"/>
+   </identifier>
+   <status value="preliminary"/>
+   <code>
+      <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="364396009"/>
+         <display value="Fluid balance observable"/>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="I. Jongeneel-de Haas"/>
+   </subject>
+   <effectivePeriod>
+      <start value="2018-03-11T10:00:00+02:00"/>
+      <end value="2018-03-11T17:30:00+02:00"/>
+   </effectivePeriod>
+   <comment value="meting output via catheterzak"/>
+   <component>
         <!--FluidTotalIn-->
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="251852001"/>
-                <display value="Total fluid input"/>
-            </coding>
-        </code>
-        <valueQuantity>
-            <value value="800"/>
-            <unit value="mL"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="mL"/>
-        </valueQuantity>
-    </component>
-    <component>
+      <code>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="251852001"/>
+            <display value="Total fluid input"/>
+         </coding>
+      </code>
+      <valueQuantity>
+         <value value="800"/>
+         <unit value="mL"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="mL"/>
+      </valueQuantity>
+   </component>
+   <component>
         <!--FluidTotalOut-->
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="251841007"/>
-                <display value="Total fluid output"/>
-            </coding>
-        </code>
-        <valueQuantity>
-            <value value="1300"/>
-            <unit value="mL"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="mL"/>
-        </valueQuantity>
-    </component>
+      <code>
+         <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="251841007"/>
+            <display value="Total fluid output"/>
+         </coding>
+      </code>
+      <valueQuantity>
+         <value value="1300"/>
+         <unit value="mL"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="mL"/>
+      </valueQuantity>
+   </component>
 </Observation>

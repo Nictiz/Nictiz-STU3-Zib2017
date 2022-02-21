@@ -1,117 +1,124 @@
-<RelatedPerson xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
-    <id value="nl-core-releatedperson-02"/>
-    <meta>
-        <versionId value="3"/>
-        <lastUpdated value="2016-12-08T14:07:59.978+00:00"/>
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
-    </meta>
-    <text>
-        <status value="extensions"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <div>Henk de Haas</div>
-            <div>
-                <a href="tel:0612345990">0612345990</a>
+<?xml version="1.0" encoding="UTF-8"?>
+<RelatedPerson xmlns="http://hl7.org/fhir"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/relatedperson.xsd">
+   <id value="nl-core-releatedperson-02"/>
+   <meta>
+      <versionId value="3"/>
+      <lastUpdated value="2016-12-08T14:07:59.978+00:00"/>
+      <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson"/>
+   </meta>
+   <text>
+      <status value="extensions"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <div>Henk de Haas</div>
+         <div>
+            <a href="tel:0612345990">0612345990</a>
                  (Tel Werk), 
                 <a href="mailto:dehaas@work.com">dehaas@work.com</a>
                  (E-mail Werk)
             </div>
-            <div>Straatweg 12bII, 1200AA Woonplaats, NLD (officieel Privé (hoofd))</div>
-            <div>
-                <span title="Eerste relatie/contactpersoon (1 - RoleCodeLijst (COD472-VEKT))">Eerste relatie/contactpersoon</span>
+         <div>Straatweg 12bII, 1200AA Woonplaats, NLD (officieel Privé (hoofd))</div>
+         <div>
+            <span title="Eerste relatie/contactpersoon (1 - RoleCodeLijst (COD472-VEKT))">Eerste relatie/contactpersoon</span>
                 , 
                 <span title="husband (HUSB - v3/RoleCode)">husband</span>
                  van Irma Jongeneel-de Haas
             </div>
-        </div>
-    </text>
-    <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
-        <valueCodeableConcept>
+      </div>
+   </text>
+   <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-relatedperson-role">
+      <valueCodeableConcept>
+         <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
+            <code value="1"/>
+            <display value="Eerste relatie/contactpersoon"/>
+         </coding>
+      </valueCodeableConcept>
+   </extension>
+   <identifier>
+      <system value="urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6"/>
+      <value value="173c39d5-8fdf-11ec-1310-020000000000"/>
+   </identifier>
+   <patient>
+      <reference value="Patient/nl-core-patient-03"/>
+      <display value="Irma Jongeneel-de Haas"/>
+   </patient>
+   <relationship>
+      <coding>
+         <system value="http://hl7.org/fhir/v3/RoleCode"/>
+         <code value="HUSB"/>
+         <display value="husband"/>
+      </coding>
+   </relationship>
+   <name>
+      <text value="Henk de Haas"/>
+      <family value="de Haas">
+         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+            <valueString value="de"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
+            <valueString value="Haas"/>
+         </extension>
+      </family>
+      <given value="Henk"/>
+   </name>
+   <telecom>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+         <valueCodeableConcept>
             <coding>
-                <system value="urn:oid:2.16.840.1.113883.2.4.3.11.22.472"/>
-                <code value="1"/>
-                <display value="Eerste relatie/contactpersoon"/>
+               <system value="http://hl7.org/fhir/v3/AddressUse"/>
+               <code value="MC"/>
+               <display value="Mobiel telefoonnummer"/>
             </coding>
-        </valueCodeableConcept>
-    </extension>
-    <patient>
-        <reference value="Patient/nl-core-patient-03"/>
-        <display value="Irma Jongeneel-de Haas"/>
-    </patient>
-    <relationship>
-        <coding>
-            <system value="http://hl7.org/fhir/v3/RoleCode"/>
-            <code value="HUSB"/>
-            <display value="husband"/>
-        </coding>
-    </relationship>
-    <name>
-        <text value="Henk de Haas"/>
-        <family value="de Haas">
-            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
-                <valueString value="de"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name">
-                <valueString value="Haas"/>
-            </extension>
-        </family>
-        <given value="Henk"/>
-    </name>
-    <telecom>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-ContactInformation-TelecomType">
+         </valueCodeableConcept>
+      </extension>
+      <system value="phone"/>
+      <value value="0612345990"/>
+      <use value="work"/>
+   </telecom>
+   <telecom>
+      <system value="email"/>
+      <value value="dehaas@work.com"/>
+      <use value="work"/>
+   </telecom>
+   <address>
+      <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
+         <valueCodeableConcept>
+            <coding>
+               <system value="http://hl7.org/fhir/v3/AddressUse"/>
+               <code value="HP"/>
+               <display value="Officieel adres"/>
+            </coding>
+         </valueCodeableConcept>
+      </extension>
+      <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+         <valueBoolean value="true"/>
+      </extension>
+      <use value="home"/>
+      <line value="Straatweg 12bII">
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+            <valueString value="Straatweg"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+            <valueString value="12"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+            <valueString value="bII"/>
+         </extension>
+      </line>
+      <city value="Woonplaats"/>
+      <postalCode value="1200AA"/>
+      <country value="NLD">
+         <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
             <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="MC"/>
-                    <display value="Mobiel telefoonnummer"/>
-                </coding>
+               <coding>
+                  <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
+                  <code value="6030"/>
+                  <display value="Nederland"/>
+               </coding>
             </valueCodeableConcept>
-        </extension>
-        <system value="phone"/>
-        <value value="0612345990"/>
-        <use value="work"/>
-    </telecom>
-    <telecom>
-        <system value="email"/>
-        <value value="dehaas@work.com"/>
-        <use value="work"/>
-    </telecom>
-    <address>
-        <extension url="http://nictiz.nl/fhir/StructureDefinition/zib-AddressInformation-AddressType">
-            <valueCodeableConcept>
-                <coding>
-                    <system value="http://hl7.org/fhir/v3/AddressUse"/>
-                    <code value="HP"/>
-                    <display value="Officieel adres"/>
-                </coding>
-            </valueCodeableConcept>
-        </extension>
-        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
-            <valueBoolean value="true"/>
-        </extension>
-        <use value="home"/>
-        <line value="Straatweg 12bII">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
-                <valueString value="Straatweg"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
-                <valueString value="12"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
-                <valueString value="bII"/>
-            </extension>
-        </line>
-        <city value="Woonplaats"/>
-        <postalCode value="1200AA"/>
-        <country value="NLD">
-            <extension url="http://nictiz.nl/fhir/StructureDefinition/code-specification">
-                <valueCodeableConcept>
-                    <coding>
-                        <system value="urn:oid:2.16.840.1.113883.2.4.4.16.34"/>
-                        <code value="6030"/>
-                        <display value="Nederland"/>
-                    </coding>
-                </valueCodeableConcept>
-            </extension>
-        </country>
-    </address>
+         </extension>
+      </country>
+   </address>
 </RelatedPerson>
