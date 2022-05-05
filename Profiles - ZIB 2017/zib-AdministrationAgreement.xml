@@ -105,6 +105,7 @@
       <sliceName value="periodOfUse" />
       <short value="PeriodOfUse" />
       <definition value="Start date: This is the time at which the agreement was to take effect (or took effect or will take effect). This is the time at which the instructions for use in this agreement start. In the case of an agreement to discontinue use, this is the start date of the original administration agreement. The end date indicates from when the medication is to be discontinued.&#xD;&#xA;&#xD;&#xA;End date: The time at which the period of use ends (or ended or will end). In the case of an agreement to discontinue use, this is the time at which the medication is to be discontinued. To avoid confusion between 'to' and 'up to', the submission of time is always mandatory for the end date.&#xD;&#xA;&#xD;&#xA;With medication for an indefinite period only a start date is indicated." />
+      <comment value="According to the HCIM TimeInterval, a time interval is defined by either a start and end time, a start time and duration, or a duration and end time. As this HCIM is expressed by the periodOfUse and usageDuration extensions in this profile, this means that precisely two elements out of `.valuePeriod.start`, `.valuePeriod.end` (both in the periodOfUse extension) and `.valueDuration` (in the usageDuration extension) should be present in order to correctly represent the time interval in which the agreement is used (and in particular not all three elements)." />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-PeriodOfUse" />
@@ -120,6 +121,7 @@
       <sliceName value="usageDuration" />
       <short value="Duration" />
       <definition value="The intended duration of use. E.g. 5 days or 8 weeks. It is not allowed to indicate the duration in months, because different months have a variable duration in days." />
+      <comment value="According to the HCIM TimeInterval, a time interval is defined by either a start and end time, a start time and duration, or a duration and end time. As this HCIM is expressed by the periodOfUse and usageDuration extensions in this profile, this means that precisely two elements out of `.valuePeriod.start`, `.valuePeriod.end` (both in the periodOfUse extension) and `.valueDuration` (in the usageDuration extension) should be present in order to correctly represent the time interval in which the agreement is used (and in particular not all three elements)." />
       <alias value="Gebruiksduur" />
       <max value="1" />
       <type>
