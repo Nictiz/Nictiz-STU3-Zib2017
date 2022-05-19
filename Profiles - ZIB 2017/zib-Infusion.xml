@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="A feeding tube is a special catheter used to:&#xD;&#xA;* administer liquid food to people who are incapable of oral intake of food or liquid,&#xD;&#xA;* administer medication,&#xD;&#xA;* drain (siphon) or pump out gastric juice.&#xD;&#xA;&#xD;&#xA;There are different ways to place a feeding tube. A feeding tube can be inserted through the nose, in the stomach or in the intestines (duodenum, jejunum). &#xD;&#xA;&#xD;&#xA;Percutaneous endoscopic gastrostomy (PEG) is a technique in which a feeding tube is placed into the stomach through the abdominal wall. This thin tube (PEG tube) is used to feed a patient who is incapable of oral food intake for a prolonged period of time." />
+  <description value="An infusion is a device that slowly injects fluid into a blood vessel. The infusion has a number of components.&#xD;&#xA;&#xD;&#xA;The infusion contains: &#xD;&#xA;&#xD;&#xA;* the (peripheral) cannula or the (central) catheter put into the patient peripherally or centrally;&#xD;&#xA;* the administering system connected to the cannula/catheter allowing the administered fluid to run,&#xD;&#xA;* the infusion bag containing the fluid.&#xD;&#xA;&#xD;&#xA;Multiple administering systems may be connected to one cannula/catheter. Furthermore, a central venous catheter may have multiple lumens. &#xD;&#xA;&#xD;&#xA;Arterial and epidural catheters also exist in addition to venous catheters." />
   <purpose value="The purpose of an infusion is usually to administer fluid and/or medication. &#xD;&#xA;Information on present infusions is recorded to inform other health professionals. This information is of importance in determining the care required for the patient and in safely administering medication. In a transfer situation, the information offers the option to realize continuity of care by organizing specific expertise and materials in advance, for example." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.2" />
@@ -49,6 +49,7 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="DeviceUseStatement.extension:LumenOrLine">
       <path value="DeviceUseStatement.extension" />
@@ -75,10 +76,12 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="0" />
     </element>
     <element id="DeviceUseStatement.extension:LumenOrLine.extension:LineStatus">
       <path value="DeviceUseStatement.extension.extension" />
       <sliceName value="LineStatus" />
+      <min value="0" />
       <mapping>
         <identity value="hcim-infusion-v3.2-2017EN" />
         <map value="NL-CM:10.2.9" />
@@ -95,6 +98,7 @@
     <element id="DeviceUseStatement.extension:LumenOrLine.extension:LumenLocation">
       <path value="DeviceUseStatement.extension.extension" />
       <sliceName value="LumenLocation" />
+      <min value="0" />
       <mapping>
         <identity value="hcim-infusion-v3.2-2017EN" />
         <map value="NL-CM:10.2.11" />
@@ -111,6 +115,7 @@
     <element id="DeviceUseStatement.extension:LumenOrLine.extension:LockFluid">
       <path value="DeviceUseStatement.extension.extension" />
       <sliceName value="LockFluid" />
+      <min value="0" />
       <mapping>
         <identity value="hcim-infusion-v3.2-2017EN" />
         <map value="NL-CM:10.2.13" />
@@ -120,6 +125,7 @@
     <element id="DeviceUseStatement.extension:LumenOrLine.extension:AdministeringSystem">
       <path value="DeviceUseStatement.extension.extension" />
       <sliceName value="AdministeringSystem" />
+      <min value="0" />
       <mapping>
         <identity value="hcim-infusion-v3.2-2017EN" />
         <map value="NL-CM:10.2.7" />
