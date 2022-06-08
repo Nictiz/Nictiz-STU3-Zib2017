@@ -1,0 +1,82 @@
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/conceptmap.xsd">
+    <id value="TelecomTypeCodelijst-to-ContactPointSystem"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/concept-bidirectional">
+        <valueBoolean value="false"/>
+    </extension>
+    <url value="http://nictiz.nl/fhir/ConceptMap/EmailSoortCodeLijst-TelecomTypeCodelijst-to-ContactPointSystem"/>
+    <version value="1.0.0"/>
+    <name value="EmailSoortCodeLijst-TelecomTypeCodelijst-to-ContactPointSystem"/>
+    <status value="active"/>
+    <publisher value="Nictiz"/>
+    <contact>
+      <name value="Nictiz"/>
+      <telecom>
+        <system value="email"/>
+        <value value="info@nictiz.nl"/>
+        <use value="work"/>
+      </telecom>
+    </contact>
+    <description value="Maps EmailSoort and TelecomType codes as found in HCIM ContactInformation (release 2017) to ContactPoint.system codes as found in FHIR STU3"/>
+    <purpose value="In order to use the permitted-valueset-conceptmap extension which has a cardinality of 0..1 the previous ConceptMaps 'EmailSoortCodeLijst-to-ContactPointSystem' and 'TelecomTypeCodelijst-to-ContactPointsystem' have been merged into one. The sourceReference element of this ConceptMap is absent because this ConceptMap covers two ValueSets, namely EmailSoortCodelijst and TelecomTypeCodelijst, of which some concepts are both mapped to ContactPoint.system. "/>
+    <targetReference>
+        <reference value="http://hl7.org/fhir/ValueSet/contact-point-system"/>
+        <display value="ContactPointSystem"/>
+    </targetReference>
+    <group>
+        <!-- 2.16.840.1.113883.5.1119 -->
+        <source value="http://hl7.org/fhir/v3/AddressUse"/>
+        <target value="http://hl7.org/fhir/contact-point-system"/>
+        <element>
+            <code value="HP"/>
+            <target>
+                <code value="email"/>
+                <equivalence value="relatedto"/>
+                <comment value="HP: Primary Home/Privé e-mailadres. email: The value is an email address. Use in conjunction with ContactPoint.use = home."/>
+            </target>
+        </element>
+        <element>
+            <code value="WP"/>
+            <target>
+                <code value="email"/>
+                <equivalence value="relatedto"/>
+                <comment value="WP: Work Place/Zakelijk e-mailadres. email: The value is an email address. Use in conjunction with ContactPoint.use = work."/>
+            </target>
+        </element>
+        <element>
+            <code value="MC"/>
+            <target>
+                <code value="phone"/>
+                <equivalence value="subsumes"/>
+                <comment value="MC: Mobile Contact/Mobiel telefoonnummer. phone: Any voice phone, land or mobile."/>
+            </target>
+        </element>
+        <element>
+            <code value="PG"/>
+            <target>
+                <code value="pager"/>
+                <equivalence value="equal"/>
+                <comment value="PG: Pager"/>
+            </target>
+        </element>
+    </group>
+    <group>
+        <source value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.22.1"/>
+        <target value="http://hl7.org/fhir/contact-point-system"/>
+        <element>
+            <code value="LL"/>
+            <target>
+                <code value="phone"/>
+                <equivalence value="subsumes"/>
+                <comment value="LL: Land Line/Vast telefoonnummer. phone: Any voice phone, land or mobile"/>
+            </target>
+        </element>
+        <element>
+            <code value="FAX"/>
+            <target>
+                <code value="fax"/>
+                <equivalence value="equal"/>
+                <comment value="FAX: Fax"/>
+            </target>
+        </element>
+    </group>
+</ConceptMap>
