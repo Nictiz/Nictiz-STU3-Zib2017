@@ -141,6 +141,7 @@
             <searchInclude value="CarePlan:activity-goal"/>
             <searchInclude value="CarePlan:activity-outcomereference:Observation"/>
             <searchInclude value="CarePlan:activity-medicaldevice"/>
+            <searchInclude value="DeviceUseStatement:device:Device"/>
             <searchParam>
                 <name value="activity-goal"/>
                 <definition value="http://nictiz.nl/fhir/SearchParameter/careplan-activity-goal"/>
@@ -156,14 +157,6 @@
                 <definition value="http://nictiz.nl/fhir/SearchParameter/careplan-medicaldevice"/>
                 <type value="reference"/>
             </searchParam>
-        </resource>
-        <resource>
-            <type value="DeviceUseStatement"/>
-            <interaction>
-                <code value="search-type"/>
-                <documentation value="No actual search on `[base]/DeviceUseStatement` needs to be supported. This resourceType is only added to indicate that `DeviceUseStatement:device:Device` needs to be supported as a recursive `searchInclude` on `CarePlan:activity-medicaldevice`, as the specification is unclear on how to indicate this otherwise. See also &lt;https://jira.hl7.org/browse/FHIR-36051&gt;."/>
-            </interaction>
-            <searchInclude value="DeviceUseStatement:device:Device"/>
         </resource>
         <operation>
             <name value="Last N Observations Query"/>
