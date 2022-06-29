@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." name="generateTestScriptsForProject" default="build">
+    <!-- Add narratives to all examples in the Examples folder. -->
+
+    <dirset id="in.dirs" dir="Examples"/>
+    
+    <property name="tool.reponame"    value="HL7-mappings"/>
+    <property name="tool.name"        value="fhir-narrativegenerator"/>
+    <property name="tool.version"     value="fhir-narrativegenerator-0.10.0"/>
+    <property name="tool.antfile"     value="build/build.xml"/>
+    
+    <property name="tool.localdir" value=""/>
+    
+    <!-- Relative paths turn out to be a nightmare to get right, so lets convert it to an absolute path -->
+    <property name="tool.localdir.abs" location="${tool.localdir}"/>
+    
+    <!-- Tell the main build script where to find common asserts and place the build scripts -->
+    <property name="lib.dir" location="${basedir}/lib"/>
+    
+    <!-- Construct the path to the test scripts, either the locally defined dir or a new dir under "lib" -->
+    <property name="testscripttools.repo.dir" location="${lib.dir}/${tool.reponame}/${tool.name}/${tool.version}"/>
+    <condition property="testscripttools.dir" value="${tool.localdir.abs}" else="${testscripttools.repo.dir}">
+        <length string="${tool.localdir}" trim="true" when="greater" length="0"/>
+    </condition>
+    
+    <!-- Check if we need to download the testscript tools repo from Github, which is needed if we don't have it
+         already and if we didn't specify to use a local copy (we never download anything when using a local copy so we
+         cannot accidentally override it). -->
+    <target name="checkForRepoDownload">
+        <condition property="download.repo">
+            <and>
+                <length string="${tool.localdir}" trim="true" when="equal" length="0"/>
+                <not>
+                    <available file="${testscripttools.dir}"/>
+                </not>               
+            </and>
+        </condition>
+    </target>
+    
+    <!-- Download and extract the Nictiz testscript tools from Github if we don't have them already --> 
+    <target name="get.toolrepo" depends="checkForRepoDownload" if="download.repo">
+        <sequential>
+            <echo>Downloading the testscript tools repo from Github</echo>
+            <echo>If you want to use a local copy for debugging, specifiy it with the -Dtestscripttools.local=... parameter</echo>
+            <echo/>
+            <mkdir dir="${testscripttools.dir}/"/>
+            <local name="zip.name"/>
+            <property name="zip.name" value="${testscripttools.dir}/package.zip"/>
+            <get src="https://github.com/Nictiz/${tool.reponame}/releases/download/${tool.version}/${tool.version}.zip"
+                dest="${zip.name}"/>
+            <unzip src="${zip.name}" dest="${testscripttools.dir}" failOnEmptyArchive="true">
+                <mapper type="regexp" from="^.*?/(.*)" to="\1"/>
+            </unzip>
+            <delete file="${zip.name}"/>
+            <property name="hastestscripttools" value="true" />
+        </sequential>
+    </target>
+    
+    <!-- Handover control to the build file in the lib cache. -->
+    <target name="build" depends="get.toolrepo">
+        <ant antfile="${testscripttools.dir}/${tool.antfile}" inheritAll="true" inheritRefs="true"/>
+    </target>
+</project>
