@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <CarePlan xmlns="http://hl7.org/fhir"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/STU3/careplan.xsd">
@@ -10,10 +9,9 @@
       <status value="extensions"/>
       <div xmlns="http://www.w3.org/1999/xhtml">
          <table>
-            <caption>
-                    Zorgplan. Subject: Paul XXX_Mesker. Id: 123456789 (http://myexample.com/system/careplan), Status: actief
-                    <span style="display: block;">Intentie: plan</span>
-               <span style="display: block;">Auteur: Dr. D. de Vries</span>
+            <caption>Zorgplan. Subject: Paul XXX_Mesker. Id: 123456789 (http://myexample.com/system/careplan), 15cf59bf-8fdf-11ec-5728-020000000000 (urn:oid:2.16.840.1.113883.2.4.3.11.999.7.6), Status: actief<span style="display: block;">Intentie: plan</span>
+               <span style="display: block;">Auteur: Dirk de Vries<span style="display: block;">Zorgverlenerrol: Medisch specialisten, geriatrie</span>
+               </span>
             </caption>
             <tbody>
                <tr>
@@ -26,7 +24,8 @@
                </tr>
                <tr>
                   <th>Auteur</th>
-                  <td>Dr. D. de Vries</td>
+                  <td>Dirk de Vries<div>Zorgverlenerrol: Medisch specialisten, geriatrie</div>
+                  </td>
                </tr>
                <tr>
                   <th>Doel</th>
@@ -56,18 +55,12 @@
                            </tr>
                            <tr>
                               <th>Resultaat</th>
-                              <td>Pijn is onder controle</td>
+                              <td>Health of the Nation Outcome Scale - summated: 7 score</td>
                            </tr>
                            <tr>
                               <td colspan="2">
                                  <table>
-                                    <caption>
-                                                    Details
-                                                    <span style="display: block;">
-                                                        Categorie: 
-                                                        <span title="Nursing Procedure (9632001 - SNOMED CT)">Nursing Procedure</span>
-                                                        , Status: voltooid
-                                                    </span>
+                                    <caption>Details<span style="display: block;">Categorie: <span title="Nursing Procedure (9632001 - SNOMED CT)">Nursing Procedure</span>, Status: voltooid</span>
                                     </caption>
                                     <tbody>
                                        <tr>
@@ -129,10 +122,10 @@
    </period>
    <author>
       <extension url="http://nictiz.nl/fhir/StructureDefinition/practitionerrole-reference">
-      <valueReference>
-         <reference value="PractitionerRole/nl-core-practitionerrole-04"/>
-         <display value="Medisch specialisten, geriatrie"/>
-      </valueReference>
+         <valueReference>
+            <reference value="PractitionerRole/nl-core-practitionerrole-04"/>
+            <display value="Medisch specialisten, geriatrie"/>
+         </valueReference>
       </extension>
       <reference value="Practitioner/nl-core-practitioner-04"/>
       <display value="Dirk de Vries"/>
