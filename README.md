@@ -48,3 +48,9 @@ Things to note:
 * Topic branches may be branched from a release branch (MM-1024) or a stable branch (MM-2048), at the developer's discretion.
 * Topic branches may be relevant for a single major version (MM-1024, MM-4096) or both major versions (MM-2048). For a merge to the "non-native" branch, cherry-picking or (preferably) a `rebase --onto` is required (for example: `git rebase --onto release-2.0.1 stable-1.x MM-2048` before merging MM-2048 into release-2.0.1).
 * Topic branches may have a life cycle independent from the releases (MM-2048).
+
+## Narratives in examples
+
+All examples include a [narrative](https://www.hl7.org/fhir/stu3/narrative.html) as required by the FHIR spec. These narratives are generated using the [Nictiz narrative generator](https://github.com/Nictiz/HL7-mappings/tree/master/fhir-narrativegenerator).
+
+To re-generate the narratives for the examples in the Example folder, the bat file `build-addNarratives.bat` can be used. Apache ANT needs to be installed for this to work. 
