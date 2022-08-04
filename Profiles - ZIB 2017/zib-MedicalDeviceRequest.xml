@@ -151,9 +151,13 @@
     </element>
     <element id="DeviceRequest.code[x]">
       <path value="DeviceRequest.code[x]" />
-      <short value="ProductType" />
-      <definition value="The code of the type of product." />
-      <alias value="ProductType" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
@@ -161,15 +165,47 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+    </element>
+    <element id="DeviceRequest.code[x]:codeReference">
+      <path value="DeviceRequest.code[x]" />
+      <sliceName value="codeReference" />
+      <short value="Product" />
+      <definition value="The medical aid used (internally or externally)." />
+      <alias value="Product" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicalDeviceProduct" />
+      </type>
+      <mapping>
+        <identity value="hcim-medicaldevice-v1.2-2015EN" />
+        <map value="NL-CM:10.1.2" />
+        <comment value="Product" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.0-2016EN" />
+        <map value="NL-CM:10.1.2" />
+        <comment value="Product" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-medicaldevice-v3.1-2017EN" />
+        <map value="NL-CM:10.1.2" />
+        <comment value="Product" />
+      </mapping>
+    </element>
+    <element id="DeviceRequest.code[x]:codeCodeableConcept">
+      <path value="DeviceRequest.code[x]" />
+      <sliceName value="codeCodeableConcept" />
+      <short value="ProductType" />
+      <definition value="The code of the type of product." />
+      <alias value="ProductType" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceRequestCode" />
-        </extension>
         <strength value="extensible" />
         <description value="ProductTypeCodelist" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.10.1.1--20171231000000" />
-          <display value="ProductTypeCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
