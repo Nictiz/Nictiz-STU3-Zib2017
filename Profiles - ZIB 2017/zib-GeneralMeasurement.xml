@@ -14,7 +14,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="General Measurment as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) GeneralMeasurment version 3.0, release 2017.&#xD;&#xA;&#xD;&#xA;A general measurement determines the result of a measurement or determination made for a patient. The information model is used to record the measurement results for which no specific information models have yet been formulated. The information model is not intended for laboratory determinations to be carried out on the material taken from the patient." />
+  <description value="General Measurement as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) GeneralMeasurement version 3.0, release 2017.&#xD;&#xA;&#xD;&#xA;A general measurement determines the result of a measurement or determination made for a patient. The information model is used to record the measurement results for which no specific information models have yet been formulated. The information model is not intended for laboratory determinations to be carried out on the material taken from the patient." />
   <purpose value="The measurement and documentation of physiological observations are an important tool for evaluating a patient’s condition. This information model offers the option to record various relevant measurement values." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.2" />
@@ -61,7 +61,7 @@
         <valueString value="default: final" />
       </extension>
       <path value="Observation.status" />
-      <comment value="A ConceptMap (http://nictiz.nl/fhir/ConceptMap/ResultStatusCodelist-to-ObservationStatus) is available that maps ResultStatusCodelist to the ObservationStatus valueset." />
+      <comment value="A ConceptMap (http://nictiz.nl/fhir/ConceptMap/ResultStatusCodelist-to-ObservationStatus) is available that maps ResultStatusCodelist to the ObservationStatus value set." />
       <binding>
         <strength value="required" />
         <valueSetReference>
@@ -116,8 +116,8 @@
     <element id="Observation.code">
       <path value="Observation.code" />
       <short value="Investigation or MeasurementName" />
-      <definition value="A GeneralMeasurement can contain mutiple related MeasurementResults. This is implemented using a parent Observation with related child Observations. The Observation.code element is used to descibre the GeneralMeasurement Investigation concept for parent Observations and the MeasurementResult MeasurementName concept for child Observations." />
-      <comment value="Only one of the two valueset (MeasurementNameCodelist) is bound to this element. TestCodelist is not used. This is not a problem because both valuesets contain the same codes, namely all SNOMED CT codes." />
+      <definition value="A GeneralMeasurement can contain mutiple related MeasurementResults. This is implemented using a parent Observation with related child Observations. The Observation.code element is used to describe the GeneralMeasurement Investigation concept for parent Observations and the MeasurementResult MeasurementName concept for child Observations." />
+      <comment value="Only one of the two value sets (MeasurementNameCodelist) is bound to this element. TestCodelist is not used. This is not a problem because both value sets contain the same codes, namely all SNOMED CT codes." />
       <alias value="Onderzoek" />
       <alias value="MetingNaam" />
       <binding>
@@ -197,8 +197,8 @@
     <element id="Observation.related">
       <path value="Observation.related" />
       <short value="MeasurementResult" />
-      <definition value="Reference to related MeasurmentResults beloning to the GeneralMeasurement." />
-      <comment value="The HCIM GeneralMeasurement (parent) links to every MeasurementResult (child) through the related.target reference. The referenced Observation contains all the concepts of the HCIM MeasurmentResult container, e.g. results with the name, resultvalue, methode, etc. This GeneralMeasurement profile is used for both Observations." />
+      <definition value="Reference to related MeasurementResults belonging to the GeneralMeasurement." />
+      <comment value="The HCIM GeneralMeasurement (parent) links to every MeasurementResult (child) through the related.target reference. The referenced Observation contains all the concepts of the HCIM MeasurementResult container, e.g. results with the name, resultvalue, methode, etc. This GeneralMeasurement profile is used for both Observations." />
       <alias value="MeetUitslag" />
       <mapping>
         <identity value="hcim-generalmeasurement-v3.0-2017EN" />
