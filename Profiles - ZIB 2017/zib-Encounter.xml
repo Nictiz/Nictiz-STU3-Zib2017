@@ -95,55 +95,6 @@
       <min value="1" />
       <binding>
         <strength value="extensible" />
-        <valueSetReference>
-          <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
-            <valueReference>
-              <reference value="http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
-              <display value="ContactTypeCodelijst-to-ActEncounterCode" />
-            </valueReference>
-          </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/v3-ActEncounterCode"/>
-        </valueSetReference>
-      </binding>
-      <mapping>
-        <identity value="hcim-encounter-v1.2-2015EN" />
-        <map value="NL-CM:15.1.2" />
-        <comment value="ContactType. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.0-2016EN" />
-        <map value="NL-CM:15.1.2" />
-        <comment value="ContactType. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-encounter-v3.1-2017EN" />
-        <map value="NL-CM:15.1.2" />
-        <comment value="ContactType. See for details the ConceptMap http://nictiz.nl/fhir/ConceptMap/ContactTypeCodelijst-to-ActEncounterCode" />
-      </mapping>
-    </element>
-    <element id="Encounter.class.extension">
-      <path value="Encounter.class.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Encounter.class.extension:ContactTypeCodelist">
-      <path value="Encounter.class.extension" />
-      <sliceName value="ContactTypeCodelist" />
-      <type>
-        <code value="Extension" />
-        <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
-      </type>
-    </element>
-    <element id="Encounter.class.extension:ContactTypeCodelist.valueCodeableConcept:valueCodeableConcept">
-      <path value="Encounter.class.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <binding>
-        <strength value="extensible" />
         <description value="ContactTypeCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.15.1.1--20171231000000" />
