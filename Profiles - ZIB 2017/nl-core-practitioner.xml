@@ -64,7 +64,7 @@
   <differential>
     <element id="Practitioner">
       <path value="Practitioner" />
-      <short value="HealthcareProvider" />
+      <short value="HealthProfessional" />
       <alias value="Zorgverlener" />
       <mapping>
         <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
@@ -102,7 +102,7 @@
         <rules value="open" />
       </slicing>
       <short value="HealthProfessionalIdentificationNumber" />
-      <definition value="The healthcare provider identification number is a number that uniquely identifies the healthcare provider.  &#xD;&#xA;&#xD;&#xA;The following numbers are used in the Netherlands:  &#xD;&#xA;1. UZI Health Professionals. Identification of health professionals (people) in the Dutch healthcare industry. &#xD;&#xA;2. VEKTIS AGB-Z. Identifies health professionals and healthcare organizations &#xD;&#xA;3. BIG-ID. The ID of the health professional listed in the BIG Register.  &#xD;&#xA;&#xD;&#xA;This information is not readily available for foreign health professionals." />
+      <definition value="The health professional identification number is a number that uniquely identifies the health professional.  &#xD;&#xA;&#xD;&#xA;The following numbers are used in the Netherlands:&#xD;&#xA;1. UZI Health Professionals. Identification of health professionals (people) in the Dutch healthcare industry.&#xD;&#xA;2. VEKTIS AGB-Z. Identifies health professionals and healthcare organizations.&#xD;&#xA;3. BIG-ID. The ID of the health professional listed in the BIG Register.&#xD;&#xA;&#xD;&#xA;This information is not readily available for foreign health professionals." />
       <alias value="ZorgverlenerIdentificatieNummer" />
       <mapping>
         <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
@@ -190,7 +190,7 @@
       <path value="Practitioner.name" />
       <short value="NameInformation" />
       <definition value="Health professional’s full name. If a health professional identification number is entered, it will be the name as listed in UZI, AGB or by the healthcare center." />
-      <alias value="ZorgverlenerNaam" />
+      <alias value="Naamgegevens" />
       <type>
         <code value="HumanName" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname" />
@@ -213,8 +213,6 @@
     </element>
     <element id="Practitioner.telecom">
       <path value="Practitioner.telecom" />
-      <short value="ContactInformation" />
-      <alias value="Contactgegevens" />
       <type>
         <code value="ContactPoint" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
@@ -222,12 +220,12 @@
       <mapping>
         <identity value="hcim-healthprofessional-v1.2.1-2015EN" />
         <map value="NL-CM:17.1.8" />
-        <comment value="TelephoneE-mail" />
+        <comment value="TelephoneEmail" />
       </mapping>
       <mapping>
         <identity value="hcim-healthprofessional-v3.0-2016EN" />
         <map value="NL-CM:17.1.8" />
-        <comment value="TelephoneE-mail" />
+        <comment value="TelephoneEmail" />
       </mapping>
       <mapping>
         <identity value="hcim-healthprofessional-v3.2-2017EN" />
