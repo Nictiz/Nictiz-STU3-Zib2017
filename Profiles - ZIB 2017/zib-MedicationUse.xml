@@ -1,7 +1,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-MedicationUse" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse" />
-  <version value="2.2.9" />
+  <version value="2.2.10" />
   <name value="Zib MedicationUse" />
   <title value="HCIM MedicationUse" />
   <status value="active" />
@@ -9,8 +9,8 @@
   <contact>
     <name value="Nictiz" />
     <telecom>
-      <system value="email" />
-      <value value="info@nictiz.nl" />
+      <system value="url" />
+      <value value="https://www.nictiz.nl" />
       <use value="work" />
     </telecom>
   </contact>
@@ -221,7 +221,7 @@
     <element id="MedicationStatement.status">
       <path value="MedicationStatement.status" />
       <short value="MedicationUseStopType" />
-      <comment value="MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xD;&#xA;&#xD;&#xA;This element is also used for the concept 'Stop type'; the manner in which this medication is discontinued (temporary or definitive). " />
+      <comment value="MedicationStatement is a statement at a point in time. The status is only representative at the point when it was asserted. The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xD;&#xA;&#xD;&#xA;This element is also used for the concept 'Stop type'; the manner in which this medication is discontinued (temporary or definitive). " />
       <alias value="MedicatieGebruikStopType" />
       <binding>
         <strength value="required" />
@@ -239,7 +239,7 @@
       <mapping>
         <identity value="hcim-medicationuse2-v1.0.1-2017EN" />
         <map value="NL-CM:9.11.23132" />
-        <comment value="MedicationUseStopType. A ConceptMap (http://nictiz.nl/fhir/ConceptMap/MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus) is available that maps MedicationUseStopTypeCodeLijst to the MedicationStatementStatus valueset." />
+        <comment value="MedicationUseStopType. A ConceptMap (http://nictiz.nl/fhir/ConceptMap/MedicationUseStopTypeCodeLijst-to-MedicationStatementStatus) is available that maps MedicationUseStopTypeCodeLijst to the MedicationStatementStatus value set." />
       </mapping>
     </element>
     <element id="MedicationStatement.category">
@@ -260,7 +260,7 @@
       <path value="MedicationStatement.category.coding" />
       <sliceName value="medicationUseCode" />
       <short value="MedicationUseCode" />
-      <definition value="Category code used for indexing/retrieval of the ZIB MedicationUse. The system and code are stated in the Medication Process v09." />
+      <definition value="Category code used for indexing/retrieval of the HCIM MedicationUse. The system and code are stated in the Medication Process v09." />
     </element>
     <element id="MedicationStatement.category.coding:medicationUseCode.system">
       <path value="MedicationStatement.category.coding.system" />
