@@ -61,11 +61,6 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/PractitionerRole" />
   <derivation value="constraint" />
   <differential>
-    <element id="PractitionerRole">
-      <path value="PractitionerRole" />
-      <short value="HealthProfessionalRole" />
-      <alias value="ZorgverlenerRol" />
-    </element>
     <element id="PractitionerRole.identifier">
       <path value="PractitionerRole.identifier" />
       <mapping>
@@ -107,12 +102,12 @@
     </element>
     <element id="PractitionerRole.code">
       <path value="PractitionerRole.code" />
-      <comment value="A person may have more than one role. Note: in earlier versions of this profile there used to be an association with the HCIM element NL-CM:17.1.5 HealthcareProviderRole. This mapping was semantically incorrect. The HCIM element is a property of the association of PractitionerRole to some healthcare act. In a number of FHIR Resources the association is implicit from the semantics of the resource element like in Observation.performer. In others you can make this explicit like Encounter.participant.type, CareTeam.participant.role and Procedure.performer.role. Please refer to the relevant profiles on those resources for associations with HCIM NL-CM:17.1.5 HealthcareProviderRole" />
+      <comment value="A person may have more than one role. Note: in earlier versions of this profile there used to be an association with the HCIM element NL-CM:17.1.5 HealthProfessionalRole. This mapping was semantically incorrect. The HCIM element is a property of the association of PractitionerRole to some healthcare act. In a number of FHIR Resources the association is implicit from the semantics of the resource element like in `Observation.performer`. In others you can make this explicit like `Encounter.participant.type`, `CareTeam.participant.role` and `Procedure.performer.role`. Please refer to the relevant profiles on those resources for associations with HCIM NL-CM:17.1.5 HealthProfessionalRole." />
     </element>
     <element id="PractitionerRole.specialty">
       <path value="PractitionerRole.specialty" />
       <short value="Specialty" />
-      <definition value="Healthcare provider’s medical specialty. This refers to the recognized medical specialties as stated in the BIG Act. A PractitionerRole instance SHALL be a singular association between a person acting in a certain specialty for a certain organization. It's possible however that either specialty or organization or both is/are unknown. It is also possible that equivalent specialisms are available in multiple coding systems e.g. 01.015 UZI (Huisarts) and 0101 AGB (Huisartsen, niet apotheekhoudend). For this reason you may use multiple coding elements, each indicating the relevant code from a different system." />
+      <definition value="Health professional’s medical specialty. This refers to the recognized medical specialties as stated in the BIG Act. A PractitionerRole instance SHALL be a singular association between a person acting in a certain specialty for a certain organization. It's possible however that either specialty or organization or both is/are unknown. It is also possible that equivalent specialisms are available in multiple coding systems e.g. 01.015 UZI (Huisarts) and 0101 AGB (Huisartsen, niet apotheekhoudend). For this reason you may use multiple coding elements, each indicating the relevant code from a different system." />
       <alias value="Specialisme" />
       <max value="1" />
       <mapping>
@@ -185,8 +180,6 @@
     </element>
     <element id="PractitionerRole.telecom">
       <path value="PractitionerRole.telecom" />
-      <short value="ContactInformation" />
-      <alias value="Contactgegevens" />
       <type>
         <code value="ContactPoint" />
         <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-contactpoint" />
