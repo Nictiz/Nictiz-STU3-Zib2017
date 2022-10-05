@@ -647,5 +647,43 @@
         <comment value="ProcedureAnatomicalLocation"/>
       </mapping>
     </element>
+    <element id="ProcedureRequest.bodySite.extension">
+      <path value="ProcedureRequest.bodySite.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="ProcedureRequest.bodySite.extension:ProcedureLaterality">
+      <path value="ProcedureRequest.bodySite.extension" />
+      <sliceName value="ProcedureLaterality" />
+      <short value="ProcedureLaterality" />
+      <definition value="Laterality adds information about body side to the anatomic location, e.g. left" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
+      </type>
+    </element>
+    <element id="ProcedureRequest.bodySite.extension:ProcedureLaterality.valueCodeableConcept:valueCodeableConcept">
+      <path value="ProcedureRequest.bodySite.extension.valueCodeableConcept" />
+      <sliceName value="valueCodeableConcept" />
+      <binding>
+        <strength value="extensible" />
+        <description value="ProcedureLateralityCodelist" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.14.1.3--20171231000000" />
+          <display value="ProcedureLateralityCodelist" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="hcim-procedure-v4.1-2017EN" />
+        <map value="NL-CM:14.1.11" />
+        <comment value="ProcedureLaterality" />
+      </mapping>
+    </element>
   </differential>
 </StructureDefinition>
