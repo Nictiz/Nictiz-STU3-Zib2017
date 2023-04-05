@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Payer" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer" />
@@ -169,6 +170,7 @@
     </element>
     <element id="Coverage.period">
       <path value="Coverage.period" />
+      <definition value="Time period during which the coverage is in force. A missing start date indicates the start date isn't known." />
       <mapping>
         <identity value="hcim-basicelements-v1.0-2017EN" />
         <map value="NL-CM:0.0.14" />
@@ -276,10 +278,12 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="0" />
     </element>
     <element id="Coverage.payor.extension:bankInformation">
       <path value="Coverage.payor.extension" />
       <sliceName value="bankInformation" />
+      <min value="0" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer-BankInformation" />
@@ -300,12 +304,24 @@
         <comment value="BankInformation" />
       </mapping>
     </element>
+    <element id="Coverage.payor.extension:bankInformation.extension">
+      <path value="Coverage.payor.extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
     <element id="Coverage.payor.extension:bankInformation.extension:BankName">
       <path value="Coverage.payor.extension.extension" />
       <sliceName value="BankName" />
       <short value="BankName" />
       <definition value="Name of the financial organization." />
       <alias value="BankNaam" />
+      <min value="0" />
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.9" />
@@ -328,6 +344,7 @@
       <short value="AccountNumber" />
       <definition value="The payer’s bank account number at the listed organization. For European countries, this is the IBAN." />
       <alias value="Rekeningnummer" />
+      <min value="1" />
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.11" />
@@ -350,6 +367,7 @@
       <short value="Bankcode" />
       <definition value="Code indicating the bank and branch. For European countries, this is the organization’s BIC or SWIFT code." />
       <alias value="Bankcode" />
+      <min value="0" />
       <mapping>
         <identity value="hcim-payer-v1.2-2015EN" />
         <map value="NL-CM:1.1.10" />
