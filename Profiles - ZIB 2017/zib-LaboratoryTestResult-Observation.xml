@@ -305,7 +305,7 @@
       <constraint>
         <key value="zib-LaboratoryTestResult-Observation-1" />
         <severity value="error" />
-        <human value="If a value from the HCIM ValueSet 'InterpretatieVlaggenCodelijst' is present a mapped code from the FHIR ValueSet 'Observation Interpretation Codes&quot; is also expected. A ConceptMap is available that maps the HCIM values to the FHIR values." />
+        <human value="If a value from the HCIM ValueSet 'InterpretatieVlaggenCodelijst' is present a mapped code from the FHIR ValueSet 'Observation Interpretation Codes' is also expected. A ConceptMap is available that maps the HCIM values to the FHIR values." />
         <expression value="coding.where(system = 'http://snomed.info/sct' and (code = '281302008' or '281300000' or '11896004' or '30714006' or '131196009')  ).exists() implies coding.where(system = 'http://hl7.org/fhir/v2/0078').exists()" />
       </constraint>
     </element>
