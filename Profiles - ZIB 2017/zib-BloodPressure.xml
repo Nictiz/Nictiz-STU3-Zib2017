@@ -307,7 +307,7 @@
     <element id="Observation.component:AverageBloodPressureSNOMED">
       <path value="Observation.component" />
       <sliceName value="AverageBloodPressureSNOMED" />
-      <comment value="There are two slices defined for the AverageBloodPressure concept of zib BloodPressure (NL-CM:12.4.4), one called averageBloodPressureSNOMED and one called averageBloodPressureLOINC. These slices are defined to indicate that the `Observation.component` for this concept may be identified using either SNOMED code 6797001 or LOINC code 8478-0. Sending systems can choose one of these codes, while receiving systems need to recognize them both. The actual _value_ communicated in `.valueCodeableConcept` is not affected by this choice.&#xD;&#xA;&#xD;&#xA;Please note that this way of modelling prevents the use of an `Observation.component` that identifies the cuff type using both SNOMED code 6797001 and LOINC code 8478-0. This is a modelling error that cannot be fixed in a backwards compatible way." />
+      <comment value="There are two slices defined for the AverageBloodPressure concept of zib BloodPressure (NL-CM:12.4.4), one called averageBloodPressureSNOMED and one called averageBloodPressureLOINC. These slices are defined to indicate that the `Observation.component` for this concept may be identified using either SNOMED code 6797001 or LOINC code 8478-0. Sending systems can choose one of these codes, while receiving systems need to recognize them both. The actual _value_ communicated in `.valueCodeableConcept` is not affected by this choice.&#xD;&#xA;&#xD;&#xA;Please note that this way of modelling prevents the use of an `Observation.component` that identifies the average blood pressure using both SNOMED code 6797001 and LOINC code 8478-0. This is a modelling error that cannot be fixed in a backwards compatible way." />
       <max value="1" />
     </element>
     <element id="Observation.component:AverageBloodPressureSNOMED.code">
@@ -352,7 +352,7 @@
     <element id="Observation.component:AverageBloodPressureLOINC">
       <path value="Observation.component" />
       <sliceName value="AverageBloodPressureLOINC" />
-      <comment value="There are two slices defined for the AverageBloodPressure concept of zib BloodPressure (NL-CM:12.4.4), one called averageBloodPressureSNOMED and one called averageBloodPressureLOINC. These slices are defined to indicate that the `Observation.component` for this concept may be identified using either SNOMED code 6797001 or LOINC code 8478-0. Sending systems can choose one of these codes, while receiving systems need to recognize them both. The actual _value_ communicated in `.valueCodeableConcept` is not affected by this choice.&#xD;&#xA;&#xD;&#xA;Please note that this way of modelling prevents the use of an `Observation.component` that identifies the cuff type using both SNOMED code 6797001 and LOINC code 8478-0. This is a modelling error that cannot be fixed in a backwards compatible way." />
+      <comment value="There are two slices defined for the AverageBloodPressure concept of zib BloodPressure (NL-CM:12.4.4), one called averageBloodPressureSNOMED and one called averageBloodPressureLOINC. These slices are defined to indicate that the `Observation.component` for this concept may be identified using either SNOMED code 6797001 or LOINC code 8478-0. Sending systems can choose one of these codes, while receiving systems need to recognize them both. The actual _value_ communicated in `.valueCodeableConcept` is not affected by this choice.&#xD;&#xA;&#xD;&#xA;Please note that this way of modelling prevents the use of an `Observation.component` that identifies the average blood pressure using both SNOMED code 6797001 and LOINC code 8478-0. This is a modelling error that cannot be fixed in a backwards compatible way." />
       <max value="1" />
     </element>
     <element id="Observation.component:AverageBloodPressureLOINC.code">
@@ -402,7 +402,7 @@
     </element>
     <element id="Observation.component:diastolicEndpoint.code">
       <path value="Observation.component.code" />
-      <comment value="Additional codes that translate or map to this code are allowed. For example a more granular LOINC code or code that is used locally in a system." />
+      <comment value="Additional codes that translate or map to this code are allowed. For example a more granular SNOMED code or code that is used locally in a system." />
       <alias value="Component Test" />
       <alias value="Component Name" />
       <patternCodeableConcept>
@@ -502,7 +502,7 @@
     </element>
     <element id="Observation.component:cuffTypeLOINC.code">
       <path value="Observation.component.code" />
-      <comment value="Additional codes that translate or map to this code are allowed. For example a more granular SNOMED code or code that is used locally in a system." />
+      <comment value="Additional codes that translate or map to this code are allowed. For example a more granular LOINC code or code that is used locally in a system." />
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org" />
@@ -551,6 +551,7 @@
     </element>
     <element id="Observation.component:positionSNOMED.code">
       <path value="Observation.component.code" />
+      <comment value="Additional codes that translate or map to this code are allowed. For example a more granular SNOMED code or code that is used locally in a system." />
       <patternCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct" />
@@ -599,6 +600,7 @@
     </element>
     <element id="Observation.component:positionLOINC.code">
       <path value="Observation.component.code" />
+      <comment value="Additional codes that translate or map to this code are allowed. For example a more granular LOINC code or code that is used locally in a system." />
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org" />
