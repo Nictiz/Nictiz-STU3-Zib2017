@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-FreedomRestrictingMeasures-LegallyCapable" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-FreedomRestrictingMeasures-LegallyCapable" />
@@ -23,7 +24,7 @@
     <uri value="https://zibs.nl/wiki/FreedomRestrictingMeasures-v3.1(2017EN)" />
     <name value="HCIM FreedomRestrictingMeasures-v3.1(2017EN)" />
   </mapping>
-  <kind value="resource" />
+  <kind value="complex-type" />
   <abstract value="false" />
   <contextType value="resource" />
   <context value="Procedure" />
@@ -47,6 +48,7 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Extension.extension:LegallyCapableIndicator">
       <path value="Extension.extension" />
@@ -71,6 +73,7 @@
     <element id="Extension.extension:LegallyCapableComment">
       <path value="Extension.extension" />
       <sliceName value="LegallyCapableComment" />
+      <min value="0" />
       <max value="1" />
     </element>
     <element id="Extension.extension:LegallyCapableComment.url">
