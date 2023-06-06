@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="zib-Payer-BankInformation" />
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Payer-BankInformation" />
@@ -22,7 +23,7 @@
     <uri value="https://zibs.nl/wiki/Payer-v1.2(2015EN)" />
     <name value="HCIM Payer-v1.2(2015EN)" />
   </mapping>
-  <kind value="primitive-type" />
+  <kind value="complex-type" />
   <abstract value="false" />
   <contextType value="resource" />
   <context value="Coverage.payor" />
@@ -44,10 +45,12 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <min value="1" />
     </element>
     <element id="Extension.extension:BankName">
       <path value="Extension.extension" />
       <sliceName value="BankName" />
+      <min value="0" />
       <max value="1" />
     </element>
     <element id="Extension.extension:BankName.url">
@@ -87,6 +90,7 @@
     <element id="Extension.extension:Bankcode">
       <path value="Extension.extension" />
       <sliceName value="Bankcode" />
+      <min value="0" />
       <max value="1" />
     </element>
     <element id="Extension.extension:Bankcode.url">
