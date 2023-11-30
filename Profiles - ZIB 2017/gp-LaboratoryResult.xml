@@ -18,28 +18,26 @@
   <description value="A laboratory result as defined in the Dutch GP association NHG in the GP-EHR reference model (Dutch: HIS referentiemodel) based on observations of type L in NHG Table 45 Diagnostische bepalingen. A diagnostic test is an objectifiable diagnostic procedure. The result is the outcome of the procedure. Tests include vital signs like blood pressure, weight and lab results like ferro in blood." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.2" />
+  <mapping>
+    <identity value="hcim-laboratorytestresult-v4.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/LaboratoryTestResult-v4.1(2017EN)" />
+    <name value="HCIM LaboratoryTestResult-v4.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-basicelements-v1.0-2017EN" />
+    <uri value="https://zibs.nl/wiki/BasicElements-v1.0(2017EN)" />
+    <name value="HCIM BasicElements-v1.0(2017EN)" />
+  </mapping>
   <kind value="resource" />
   <abstract value="false" />
   <type value="Observation" />
   <baseDefinition value="http://nictiz.nl/fhir/StructureDefinition/zib-LaboratoryTestResult-Observation" />
   <derivation value="constraint" />
   <differential>
-    <element id="Observation.extension">
-      <path value="Observation.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Observation.extension:nl-core-episodeofcare">
       <path value="Observation.extension" />
       <sliceName value="nl-core-episodeofcare" />
       <comment value="It is recommended to use the nl-core-episodeofcare extension to reference nl-core-episodeofcare (EpisodeOfCare) instances rather than the `context` element, as this approach will be enforced in FHIR R4." />
-      <min value="0" />
-      <max value="*" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-context-nl-core-episodeofcare" />
