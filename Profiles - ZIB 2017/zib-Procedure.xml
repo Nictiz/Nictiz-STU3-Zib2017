@@ -94,21 +94,10 @@
         <map value="NL-CM:14.1.1" />
         <comment value="Procedure" />
       </mapping>
-    </element>  
-    <element id="Procedure.extension">
-      <path value="Procedure.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
     <element id="Procedure.extension:procedureMethod">
       <path value="Procedure.extension" />
       <sliceName value="procedureMethod" />
-      <comment value="The current extension URL does not allow multiple procedureMethod elements, whereas the zib/HCIM procedure does allow multiple procedureMethod elements. It is advised the most important procedureMethod is used in this element. The future R4 zib2020 procedure profile fixes the issue on this element." />
       <type>
         <code value="Extension" />
         <profile value="http://hl7.org/fhir/StructureDefinition/procedure-method" />
@@ -119,6 +108,7 @@
       <sliceName value="valueCodeableConcept" />
       <short value="ProcedureMethod" />
       <definition value="The method or technique that was used to perform the procedure, e.g. approach, lavage, pressuring, ets." />
+      <comment value="HCIM Procedure allows for the possiblity to define multiple procedure methods, but this core extension restricts this to just a single method, resulting in a cardinality mismatch with the zib. It is advised to use the most important procedure method in this extension.&#xD;&#xA;&#xD;&#xA;This issue will be fixed in the next version of this profile." />
       <alias value="VerrichtingMethode" />
       <binding>
         <strength value="extensible" />
