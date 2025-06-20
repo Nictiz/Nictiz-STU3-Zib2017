@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="zib-Education" />
+  <url value="http://nictiz.nl/fhir/StructureDefinition/zib-Education" />
+  <name value="ZibEducation" />
+  <title value="HCIM Education" />
+  <status value="active" />
+  <publisher value="Nictiz" />
+  <contact>
+    <name value="Nictiz" />
+    <telecom>
+      <system value="url" />
+      <value value="https://www.nictiz.nl" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Education indicates the highest level of education achieved." />
+  <purpose value="This Observation resource represents the Dutch [zib ('Zorginformatiebouwsteen', i.e. Health and Care Information Model) Education v3.2 (2020)](https://zibs.nl/wiki/Education-v3.1(2017EN))." />
+  <copyright value="CC0" />
+  <fhirVersion value="3.0.2" />
+  <mapping>
+    <identity value="zib-education-v3.1-2017EN" />
+    <uri value="https://zibs.nl/wiki/Education-v3.2(2020EN)" />
+    <name value="zib Education-v3.2(2020EN)" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation.code">
+      <path value="Observation.code" />
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct" />
+          <code value="105421008" />
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Observation.value[x]:valueCodeableConcept">
+      <path value="Observation.value[x]" />
+      <sliceName value="valueCodeableConcept" />
+      <short value="SchoolType" />
+      <definition value="Indication of the highest level of education achieved." />
+      <alias value="Schooltype" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="extensible" />
+        <valueSetReference>
+          <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.121.11.9--20171231000000" />
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="zib-education-v3.1-2017EN" />
+        <map value="NL-CM:7.10.2" />
+        <comment value="SchoolType" />
+      </mapping>
+    </element>
+    <element id="Observation.comment">
+      <path value="Observation.comment" />
+      <short value="Comment" />
+      <definition value="If deemed relevant, a specification of the degree program can be provided by means of an explanation (e.g.: patient is in medical school)." />
+      <alias value="Toelichting" />
+      <mapping>
+        <identity value="zib-education-v3.1-2017EN" />
+        <map value="NL-CM:7.10.3" />
+        <comment value="Comment" />
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
