@@ -73,9 +73,8 @@
       <path value="Observation.code.coding.display" />
       <defaultValueString value="FLACC pain assessment panel" />
     </element>
-    <element id="Observation.effective[x]:effectiveDateTime">
-      <path value="Observation.effectiveDateTime" />
-      <sliceName value="effectiveDateTime" />
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
       <short value="ScoreDateTime" />
       <definition value="The date and time at which the FLACC score was determined." />
       <alias value="ScoreDatumTijd" />
@@ -89,9 +88,8 @@
         <comment value="ScoreDateTime" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueQuantity">
+    <element id="Observation.value[x]">
       <path value="Observation.value[x]" />
-      <sliceName value="valueQuantity" />
       <short value="TotalScore" />
       <definition value="The total score is the sum of all the individual scores. The total score has a range from 0 - 10." />
       <alias value="TotaalScore" />
@@ -146,15 +144,11 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:Face.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Pain severity Face FLACC" />
     </element>
-    <element id="Observation.component:Face.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:Face.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="Face" />
       <definition value="Observation faces; The extent to which the child’s expression on the face is tensed, grimace, tension of jaws." />
       <alias value="Gezicht" />
@@ -166,7 +160,7 @@
         <description value="GezichtCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.13.1--20171231000000" />
-          <display value="GezichtCodelijst"/>
+          <display value="GezichtCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -190,15 +184,11 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:Legs.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Pain severity Legs FLACC" />
     </element>
-    <element id="Observation.component:Legs.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:Legs.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="Legs" />
       <definition value="Observation legs: the extent to which the child is restless (body and legs)." />
       <alias value="Benen" />
@@ -210,7 +200,7 @@
         <description value="BenenCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.13.2--20171231000000" />
-          <display value="BenenCodelijst"/>        
+          <display value="BenenCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -240,9 +230,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Pain severity Activity FLACC" />
     </element>
-    <element id="Observation.component:Activity.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:Activity.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="Activity" />
       <definition value="Observation activity: the extent to which the child is restless and has tense muscles." />
       <alias value="Activiteit" />
@@ -254,7 +243,7 @@
         <description value="ActiviteitCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.13.3--20171231000000" />
-          <display value="ActiviteitCodelijst"/>
+          <display value="ActiviteitCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -284,9 +273,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Pain severity Cry FLACC" />
     </element>
-    <element id="Observation.component:Cry.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:Cry.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="Cry" />
       <definition value="Observation Crying: the extent to which the child is crying, whimpers or laments." />
       <alias value="Huilen" />
@@ -298,7 +286,7 @@
         <description value="HuilenCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.13.4--20171231000000" />
-          <display value="HuilenCodelijst"/>
+          <display value="HuilenCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -328,9 +316,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Pain severity Consolability FLACC" />
     </element>
-    <element id="Observation.component:Consolability.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:Consolability.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="Consolability" />
       <definition value="Observation Consolability: the extent to which the child is consolable." />
       <alias value="Troostbaar" />
@@ -342,7 +329,7 @@
         <description value="TroostbaarCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.13.5--20171231000000" />
-          <display value="TroostbaarCodelijst"/>
+          <display value="TroostbaarCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>

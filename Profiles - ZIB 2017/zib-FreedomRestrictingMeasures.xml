@@ -47,13 +47,7 @@
     </element>
     <element id="Procedure.extension">
       <path value="Procedure.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
+      <min value="2" />
     </element>
     <element id="Procedure.extension:legalStatus">
       <path value="Procedure.extension" />
@@ -71,24 +65,23 @@
         <comment value="LegalStatus" />
       </mapping>
     </element>
-    <element id="Procedure.extension:legalStatus.valueCodeableConcept:valueCodeableConcept">
-      <path value="Procedure.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Procedure.extension:legalStatus.value[x]">
+      <path value="Procedure.extension.value[x]" />
       <min value="1" />
       <binding>
         <strength value="extensible" />
       </binding>
     </element>
-    <element id="Procedure.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding">
-      <path value="Procedure.extension.valueCodeableConcept.coding" />
+    <element id="Procedure.extension:legalStatus.value[x].coding">
+      <path value="Procedure.extension.value[x].coding" />
       <min value="1" />
     </element>
-    <element id="Procedure.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.system">
-      <path value="Procedure.extension.valueCodeableConcept.coding.system" />
+    <element id="Procedure.extension:legalStatus.value[x].coding.system">
+      <path value="Procedure.extension.value[x].coding.system" />
       <min value="1" />
     </element>
-    <element id="Procedure.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.code">
-      <path value="Procedure.extension.valueCodeableConcept.coding.code" />
+    <element id="Procedure.extension:legalStatus.value[x].coding.code">
+      <path value="Procedure.extension.value[x].coding.code" />
       <min value="1" />
     </element>
     <element id="Procedure.extension:legallyCapable">
@@ -134,13 +127,12 @@
         <comment value="Permission" />
       </mapping>
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept">
-      <path value="Procedure.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Procedure.extension:permission.value[x]">
+      <path value="Procedure.extension.value[x]" />
       <min value="1" />
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding">
-      <path value="Procedure.extension.valueCodeableConcept.coding" />
+    <element id="Procedure.extension:permission.value[x].coding">
+      <path value="Procedure.extension.value[x].coding" />
       <slicing>
         <discriminator>
           <type value="value" />
@@ -150,8 +142,8 @@
       </slicing>
       <min value="1" />
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:ArgusPermissionCode">
-      <path value="Procedure.extension.valueCodeableConcept.coding" />
+    <element id="Procedure.extension:permission.value[x].coding:ArgusPermissionCode">
+      <path value="Procedure.extension.value[x].coding" />
       <sliceName value="ArgusPermissionCode" />
       <max value="1" />
       <binding>
@@ -163,16 +155,16 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:ArgusPermissionCode.system">
-      <path value="Procedure.extension.valueCodeableConcept.coding.system" />
+    <element id="Procedure.extension:permission.value[x].coding:ArgusPermissionCode.system">
+      <path value="Procedure.extension.value[x].coding.system" />
       <min value="1" />
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:ArgusPermissionCode.code">
-      <path value="Procedure.extension.valueCodeableConcept.coding.code" />
+    <element id="Procedure.extension:permission.value[x].coding:ArgusPermissionCode.code">
+      <path value="Procedure.extension.value[x].coding.code" />
       <min value="1" />
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:permissionCode">
-      <path value="Procedure.extension.valueCodeableConcept.coding" />
+    <element id="Procedure.extension:permission.value[x].coding:permissionCode">
+      <path value="Procedure.extension.value[x].coding" />
       <sliceName value="permissionCode" />
       <max value="1" />
       <binding>
@@ -184,12 +176,12 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:permissionCode.system">
-      <path value="Procedure.extension.valueCodeableConcept.coding.system" />
+    <element id="Procedure.extension:permission.value[x].coding:permissionCode.system">
+      <path value="Procedure.extension.value[x].coding.system" />
       <min value="1" />
     </element>
-    <element id="Procedure.extension:permission.valueCodeableConcept:valueCodeableConcept.coding:permissionCode.code">
-      <path value="Procedure.extension.valueCodeableConcept.coding.code" />
+    <element id="Procedure.extension:permission.value[x].coding:permissionCode.code">
+      <path value="Procedure.extension.value[x].coding.code" />
       <min value="1" />
     </element>
     <element id="Procedure.identifier">

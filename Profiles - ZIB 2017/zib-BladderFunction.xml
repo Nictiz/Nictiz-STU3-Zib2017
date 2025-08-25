@@ -39,16 +39,6 @@
         <comment value="BladderFunction" />
       </mapping>
     </element>
-    <element id="Observation.extension">
-      <path value="Observation.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Observation.extension:stoma">
       <path value="Observation.extension" />
       <sliceName value="stoma" />
@@ -107,9 +97,8 @@
       <min value="1" />
       <fixedCode value="28278009" />
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept">
-      <path value="Observation.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]" />
       <definition value="Urine continence describes control over urine discharge. This includes disorders such as stress incontinence, urge incontinence, reflex incontinence, constant incontinence and mixed incontinence." />
       <alias value="UrineContinentie" />
       <type>

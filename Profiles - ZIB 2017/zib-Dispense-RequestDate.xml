@@ -26,13 +26,16 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Dispense-RequestDate" />
     </element>
-    <element id="Extension.value[x]:valueDateTime">
-      <path value="Extension.valueDateTime" />
-      <sliceName value="valueDateTime" />
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
       <type>
         <code value="dateTime" />
       </type>

@@ -37,16 +37,6 @@
         <comment value="Respiration" />
       </mapping>
     </element>
-    <element id="Observation.extension">
-      <path value="Observation.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Observation.extension:AdministeredOxygen">
       <path value="Observation.extension" />
       <sliceName value="AdministeredOxygen" />
@@ -139,10 +129,6 @@
       <minValueDecimal value="0.0" />
       <maxValueDecimal value="1.0" />
     </element>
-    <element id="Observation.extension:AdministeredOxygen.url">
-      <path value="Observation.extension.url" />
-      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Respiration-AdministeredOxygen" />
-    </element>
     <element id="Observation.code.coding">
       <path value="Observation.code.coding" />
       <slicing>
@@ -177,9 +163,8 @@
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Respiratory assessment" />
     </element>
-    <element id="Observation.effective[x]:effectiveDateTime">
-      <path value="Observation.effectiveDateTime" />
-      <sliceName value="effectiveDateTime" />
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
       <short value="BreathingDateTime" />
       <definition value="Date and if possible time of measurement." />
       <alias value="AdemhalingDatumTijd" />
@@ -228,9 +213,8 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:BreathingFrequency.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
+    <element id="Observation.component:BreathingFrequency.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="BreathingFrequency" />
       <definition value="The value of the measured breathing frequency. The breathing frequency is the number of breaths per minute." />
       <alias value="Ademfrequentie" />
@@ -266,9 +250,8 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:Rhythm.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:Rhythm.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="Rhythm" />
       <definition value="The rhythm or regularity of breathing." />
       <alias value="Ritme" />
@@ -303,9 +286,8 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:Depth.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:Depth.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="Depth" />
       <definition value="The depth of the breaths." />
       <alias value="Diepte" />
@@ -340,9 +322,8 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:DeviatingBreathingPattern.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:DeviatingBreathingPattern.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="DeviatingBreathingPattern" />
       <definition value="Specific, abnormal breathing patterns." />
       <alias value="AfwijkendAdemhalingspatroon" />

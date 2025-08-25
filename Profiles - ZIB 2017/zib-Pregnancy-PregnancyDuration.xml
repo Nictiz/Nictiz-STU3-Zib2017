@@ -29,16 +29,6 @@
   <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
   <derivation value="constraint" />
   <differential>
-    <element id="Observation.extension">
-      <path value="Observation.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Observation.extension:zib-Pregnancy">
       <path value="Observation.extension" />
       <sliceName value="zib-Pregnancy" />
@@ -48,7 +38,7 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/observation-focusSTU3" />
       </type>
     </element>
-    <element id="Observation.extension:zib-Pregnancy.valueReference:valueReference">
+    <element id="Observation.extension:zib-Pregnancy.value[x]:valueReference">
       <path value="Observation.extension.valueReference" />
       <sliceName value="valueReference" />
       <type>
@@ -84,23 +74,18 @@
       <fixedCode value="57036006" />
     </element>
     <element id="Observation.code.coding:FetalGestationalAge.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Fetal gestational age" />
     </element>
-    <element id="Observation.effective[x]:effectiveDateTime">
-      <path value="Observation.effectiveDateTime" />
-      <sliceName value="effectiveDateTime" />
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
       <min value="1" />
       <type>
         <code value="dateTime" />
       </type>
     </element>
-    <element id="Observation.value[x]:valueQuantity">
+    <element id="Observation.value[x]">
       <path value="Observation.value[x]" />
-      <sliceName value="valueQuantity" />
       <short value="PregnancyDuration" />
       <definition value="Duration of the pregnancy on the day on which the patient was asked. The duration can be entered in days (d) or weeks (wk)." />
       <alias value="Zwangerschapsduur" />

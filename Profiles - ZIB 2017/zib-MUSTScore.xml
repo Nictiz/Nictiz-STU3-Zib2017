@@ -72,9 +72,8 @@
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Malnutrition universal screening tool" />
     </element>
-    <element id="Observation.effective[x]:effectiveDateTime">
-      <path value="Observation.effectiveDateTime" />
-      <sliceName value="effectiveDateTime" />
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
       <short value="MUSTScoreDateTime" />
       <definition value="The date and time at which the MUST score was determined." />
       <alias value="MUSTScoreDatumTijd" />
@@ -88,9 +87,8 @@
         <comment value="MUSTScoreDateTime" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueQuantity">
+    <element id="Observation.value[x]">
       <path value="Observation.value[x]" />
-      <sliceName value="valueQuantity" />
       <short value="TotalScore" />
       <definition value="The total score is the sum of all the individual scores. The total score has a range from 0 - 6." />
       <alias value="TotaalScore" />
@@ -103,7 +101,7 @@
         <comment value="TotalScore" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueQuantity.value">
+    <element id="Observation.value[x].value">
       <path value="Observation.value[x].value" />
       <minValueDecimal value="0" />
       <maxValueDecimal value="6" />
@@ -146,9 +144,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Weight loss score" />
     </element>
-    <element id="Observation.component:WeightLossScore.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:WeightLossScore.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="WeightLossScore" />
       <definition value="The score based on undesired weight loss over the past month(s)." />
       <alias value="GewichtsverliesScore" />
@@ -196,9 +193,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="BMI score" />
     </element>
-    <element id="Observation.component:BMIScore.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:BMIScore.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="BMIScore" />
       <definition value="A person’s Body Mass Index (BMI), also known as their Quetelet index (QI), is an index indicating the ratio between a person’s height and weight. This BMI is expressed in kg/m2." />
       <alias value="BMIScore" />
@@ -246,9 +242,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Illness score" />
     </element>
-    <element id="Observation.component:IllnessScore.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:IllnessScore.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="IllnessScore" />
       <definition value="Illness can result in reduced food intake, leading to a higher risk of malnutrition.&#xD;&#xA;The IllnessScore concept is used to indicate that the patient is seriously ill and that the patient has not eaten for more than 5 days or that there is a chance that the patient has not eaten for more than 5 days." />
       <alias value="ZiekteScore" />

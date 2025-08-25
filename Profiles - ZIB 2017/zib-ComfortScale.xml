@@ -2,7 +2,7 @@
   <id value="zib-ComfortScale" />
   <meta>
     <versionId value="1" />
-    <lastUpdated value="2019-09-09T08:07:00.8150537+00:00" />
+    <lastUpdated value="2025-08-25T10:00:06.8511787+00:00" />
   </meta>
   <url value="http://nictiz.nl/fhir/StructureDefinition/zib-ComfortScale" />
   <version value="1.0.1" />
@@ -72,15 +72,11 @@
       <fixedCode value="108301000146109" />
     </element>
     <element id="Observation.code.coding:comfortScaleCoding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="COMFORT scale (assessment scale)" />
     </element>
-    <element id="Observation.effective[x]:effectiveDateTime">
-      <path value="Observation.effectiveDateTime" />
-      <sliceName value="effectiveDateTime" />
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
       <short value="ScoreDateTime" />
       <definition value="The date and time at which the Comfort Behaviour scale/ComfortNeo scale was determined." />
       <alias value="ScoreDatumTijd" />
@@ -94,9 +90,8 @@
         <comment value="ScoreDateTime" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueQuantity">
+    <element id="Observation.value[x]">
       <path value="Observation.value[x]" />
-      <sliceName value="valueQuantity" />
       <short value="TotalScore" />
       <definition value="The total score is the sum of all the individual scores. The total score has a range from 0 - 35." />
       <alias value="TotaalScore" />
@@ -115,7 +110,7 @@
         <comment value="TotalScore" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueQuantity.value">
+    <element id="Observation.value[x].value">
       <path value="Observation.value[x].value" />
       <minValueDecimal value="0" />
       <maxValueDecimal value="35" />
@@ -156,15 +151,11 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:Alertness.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Alertness" />
     </element>
-    <element id="Observation.component:Alertness.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:Alertness.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="Alertness" />
       <definition value="Observation of:  Alertness" />
       <alias value="Alertheid" />
@@ -199,9 +190,8 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:CalmnessAgitation.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:CalmnessAgitation.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="Calmness_Agitation" />
       <definition value="Observation: Calmness/ agitation" />
       <alias value="Kalmte_Agitatie" />
@@ -237,15 +227,11 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:RespiratoryResponse.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Respiratory Response" />
     </element>
-    <element id="Observation.component:RespiratoryResponse.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:RespiratoryResponse.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="RespiratoryResponse" />
       <definition value="Observation: Respiratory response (only in mechanically ventilated children)" />
       <alias value="Ademhalingsreactie" />
@@ -281,15 +267,11 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:Crying.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Crying" />
     </element>
-    <element id="Observation.component:Crying.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:Crying.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="RespiratoryResponse" />
       <definition value="Observation: Respiratory response (only in mechanically ventilated children)" />
       <alias value="Ademhalingsreactie" />
@@ -325,15 +307,11 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:BodyMovement.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Body movement" />
     </element>
-    <element id="Observation.component:BodyMovement.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:BodyMovement.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="BodyMovement" />
       <definition value="Observation: Physical movement" />
       <alias value="Lichaamsbeweging" />
@@ -345,7 +323,7 @@
         <description value="LichaamsbewegingCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.12.12.5--20171231000000" />
-          <display value="LichaamsbewegingCodelijst" />          
+          <display value="LichaamsbewegingCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>
@@ -369,15 +347,11 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:FacialTone.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Facial Tone" />
     </element>
-    <element id="Observation.component:FacialTone.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:FacialTone.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="FacialTone" />
       <definition value="Observation: Facial tension" />
       <alias value="Gezichtsspanning" />
@@ -413,15 +387,11 @@
       </patternCodeableConcept>
     </element>
     <element id="Observation.component:BodyMuscleTone.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Body Muscle Tone" />
     </element>
-    <element id="Observation.component:BodyMuscleTone.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:BodyMuscleTone.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="BodyMuscleTone" />
       <definition value="Observation: Muscle tone" />
       <alias value="Spierspanning" />

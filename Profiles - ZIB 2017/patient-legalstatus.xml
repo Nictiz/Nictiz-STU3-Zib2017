@@ -34,13 +34,16 @@
       <comment value="The concept LegalStatus of the HCIM FreedomRestrictingMeasures plays an important role in the context of mental healthcare (GGZ). This concept will become an independent HCIM with the next release of HCIM (2018 release).  &#xD;&#xA;&#xD;&#xA;The LegalStatus concept and associated ValueSet will be split in two concepts: legal status and representative. These concepts are currently captured in one ValueSet. It is possible to have a legal status AND a representative. Therefore, we allow this extension to have a cardinality of 0..2." />
       <max value="2" />
     </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-patient-legalstatus" />
     </element>
-    <element id="Extension.value[x]:valueCodeableConcept">
-      <path value="Extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
       <code>
         <system value="http://snomed.info/sct" />
         <code value="303186005" />

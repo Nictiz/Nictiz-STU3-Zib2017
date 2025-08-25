@@ -26,22 +26,16 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension.extension">
-      <path value="Extension.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Extension.extension:deviation">
       <path value="Extension.extension" />
       <sliceName value="deviation" />
       <short value="DeviatingAdministration" />
       <definition value="In the administration, was there a deviation from the medication or administration agreement? This can be a deviation in product, time, amount, route of administration or administering speed or foregoing administration altogether" />
       <alias value="AfwijkendeToediening" />
+    </element>
+    <element id="Extension.extension:deviation.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
     </element>
     <element id="Extension.extension:deviation.url">
       <path value="Extension.extension.url" />
@@ -60,6 +54,10 @@
       <short value="MedicationAdministrationReasonForDeviation" />
       <definition value="Reason why the medication was not taken or administered or was taken or administered differently. Here, you can choose to enter text or one of the codes." />
       <alias value="MedicatieToedieningRedenVanAfwijken" />
+    </element>
+    <element id="Extension.extension:reasonForDeviation.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
     </element>
     <element id="Extension.extension:reasonForDeviation.url">
       <path value="Extension.extension.url" />

@@ -116,9 +116,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Household composition (observable entity)" />
     </element>
-    <element id="Observation.component:familyComposition.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:familyComposition.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="FamilyComposition" />
       <definition value="The family composition describes the patient’s home situation and the form of cohabitation. Care for family members who depend on the patient is described in the Care Responsibility concept.&#xD;&#xA;Family members who can provide the patient with care as a caregiver are entered as a caregiver in the HelpFromOthers information model. Because of KOPP policy (Kinderen van Ouders met Psychiatrische Problemen, or Children of Parents with Psychiatric Problems) mental healthcare facilities require a record stating whether there are children in the family. This means that in a mental healthcare situation, the number of children (living at home) must be recorded, with information per individual child or as a total number." />
       <alias value="Gezinssamenstelling" />
@@ -172,9 +171,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Number of siblings (observable entity)" />
     </element>
-    <element id="Observation.component:numberOfSiblings.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
+    <element id="Observation.component:numberOfSiblings.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="NumberOfSiblings" />
       <definition value="Number of brothers and sisters of the child, living at the same house. Children in this context can be biological and adopted children, stepchildren and foster children." />
       <alias value="AantalKinderen" />
@@ -191,16 +189,6 @@
       <path value="Observation.component" />
       <sliceName value="parentCarer" />
       <short value="ParentCarer" />
-    </element>
-    <element id="Observation.component:parentCarer.extension">
-      <path value="Observation.component.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
     <element id="Observation.component:parentCarer.extension:parentCarer">
       <path value="Observation.component.extension" />
@@ -249,16 +237,6 @@
         <comment value="Child" />
       </mapping>
     </element>
-    <element id="Observation.component:child.extension">
-      <path value="Observation.component.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Observation.component:child.extension:contactPerson">
       <path value="Observation.component.extension" />
       <sliceName value="contactPerson" />
@@ -294,9 +272,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Child (person)" />
     </element>
-    <element id="Observation.component:child.value[x]:valueDateTime">
-      <path value="Observation.component.valueDateTime" />
-      <sliceName value="valueDateTime" />
+    <element id="Observation.component:child.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="DateOfBirth" />
       <definition value="The child’s date of birth." />
       <alias value="Geboortedatum" />
@@ -320,16 +297,6 @@
         <map value="NL-CM:7.16.8" />
         <comment value="Sibling" />
       </mapping>
-    </element>
-    <element id="Observation.component:sibling.extension">
-      <path value="Observation.component.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
     <element id="Observation.component:sibling.extension:contactPerson">
       <path value="Observation.component.extension" />
@@ -366,9 +333,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Sibling (person)" />
     </element>
-    <element id="Observation.component:sibling.value[x]:valueDateTime">
-      <path value="Observation.component.valueDateTime" />
-      <sliceName value="valueDateTime" />
+    <element id="Observation.component:sibling.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="DateOfBirthSibling" />
       <definition value="Date of birth of the sister or brother." />
       <alias value="GeboortedatumZusBroer" />
@@ -381,5 +347,5 @@
         <comment value="DateOfBirthSibling" />
       </mapping>
     </element>
-  </differential>
+    </differential>
 </StructureDefinition>

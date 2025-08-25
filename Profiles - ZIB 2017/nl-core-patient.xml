@@ -221,16 +221,6 @@
         <comment value="Patient" />
       </mapping>
     </element>
-    <element id="Patient.extension">
-      <path value="Patient.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Patient.extension:preferredPharmacy">
       <path value="Patient.extension" />
       <sliceName value="preferredPharmacy" />
@@ -270,9 +260,8 @@
       <path value="Patient.extension.extension" />
       <sliceName value="code" />
     </element>
-    <element id="Patient.extension:nationality.extension:code.valueCodeableConcept:valueCodeableConcept">
+    <element id="Patient.extension:nationality.extension:code.valueCodeableConcept">
       <path value="Patient.extension.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
       <binding>
         <strength value="extensible" />
         <description value="Indicates the country of citizenship." />
@@ -281,14 +270,6 @@
           <display value="NationaliteitCodelijst" />
         </valueSetReference>
       </binding>
-    </element>
-    <element id="Patient.extension:nationality.extension:period">
-      <path value="Patient.extension.extension" />
-      <sliceName value="period" />
-    </element>
-    <element id="Patient.extension:nationality.extension:period.valuePeriod:valuePeriod">
-      <path value="Patient.extension.extension.valuePeriod" />
-      <sliceName value="valuePeriod" />
     </element>
     <element id="Patient.extension:legalStatus">
       <path value="Patient.extension" />
@@ -303,39 +284,16 @@
         <comment value="LegalStatus" />
       </mapping>
     </element>
-    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept">
-      <path value="Patient.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-      <min value="1" />
-      <binding>
-        <strength value="extensible" />
-      </binding>
-    </element>
-    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding">
-      <path value="Patient.extension.valueCodeableConcept.coding" />
-      <min value="1" />
-    </element>
-    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.system">
-      <path value="Patient.extension.valueCodeableConcept.coding.system" />
-      <min value="1" />
-    </element>
-    <element id="Patient.extension:legalStatus.valueCodeableConcept:valueCodeableConcept.coding.code">
-      <path value="Patient.extension.valueCodeableConcept.coding.code" />
-      <min value="1" />
-    </element>
     <element id="Patient.extension:lifeStance">
       <path value="Patient.extension" />
       <sliceName value="lifeStance" />
-      <min value="0" />
-      <max value="*" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-LifeStance" />
       </type>
     </element>
-    <element id="Patient.extension:lifeStance.valueCodeableConcept:valueCodeableConcept">
-      <path value="Patient.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Patient.extension:lifeStance.value[x]">
+      <path value="Patient.extension.value[x]" />
       <mapping>
         <identity value="hcim-lifestance-v3.1-2017EN" />
         <map value="NL-CM:7.5.2" />
@@ -390,8 +348,8 @@
     <element id="Patient.identifier:BSN.value">
       <path value="Patient.identifier.value" />
       <short value="BSN (Burgerservicenummer (Dutch person identification number))" />
-      <definition value="Burgerservicenummer is the Dutch person identification number which is also allowed for use in healthcare."/>
-      <comment value="The official format according to the 'Logisch Ontwerp BSN 1.4.pdf' is N8..9 and SHALL conform to an 11-proof algorithm. In order to check if the number is 11-proof the number, if N8, SHALL be prefixed with a leading zero. The expected format in FHIR is N9 with leading zero applied to any N8 bsn."/>
+      <definition value="Burgerservicenummer is the Dutch person identification number which is also allowed for use in healthcare." />
+      <comment value="The official format according to the 'Logisch Ontwerp BSN 1.4.pdf' is N8..9 and SHALL conform to an 11-proof algorithm. In order to check if the number is 11-proof the number, if N8, SHALL be prefixed with a leading zero. The expected format in FHIR is N9 with leading zero applied to any N8 bsn." />
       <alias value="BSN" />
       <min value="1" />
       <example>
@@ -446,10 +404,6 @@
       <path value="Patient.name.extension" />
       <sliceName value="humannameAssemblyOrder" />
     </element>
-    <element id="Patient.name.extension:humannameAssemblyOrder.valueCode:valueCode">
-      <path value="Patient.name.extension.valueCode" />
-      <sliceName value="valueCode" />
-    </element>
     <element id="Patient.telecom">
       <path value="Patient.telecom" />
       <definition value="A contact detail for the individual. Note that there is no support for multiple use values like 'mobile business'." />
@@ -501,7 +455,6 @@
               <display value="GeslachtCodelijst-to-AdministrativeGender" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
         </valueSetReference>
       </binding>
       <mapping>
@@ -520,16 +473,6 @@
         <comment value="Gender. Use FHIR Core ConceptMap for HCIM mapping: http://nictiz.nl/fhir/ConceptMap/GeslachtCodelijst-to-AdministrativeGender" />
       </mapping>
     </element>
-    <element id="Patient.gender.extension">
-      <path value="Patient.gender.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Patient.gender.extension:GeslachtCodelijst">
       <path value="Patient.gender.extension" />
       <sliceName value="GeslachtCodelijst" />
@@ -542,9 +485,8 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
       </type>
     </element>
-    <element id="Patient.gender.extension:GeslachtCodelijst.valueCodeableConcept:valueCodeableConcept">
-      <path value="Patient.gender.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Patient.gender.extension:GeslachtCodelijst.value[x]">
+      <path value="Patient.gender.extension.value[x]" />
       <binding>
         <strength value="extensible" />
         <description value="GeslachtCodelijst" />
@@ -712,9 +654,6 @@
       </mapping>
     </element>
     <element id="Patient.contact">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Contact" />
-      </extension>
       <path value="Patient.contact" />
       <short value="ContactPerson" />
       <definition value="Contacts are related persons in some way, but not all related persons are contacts. The HCIM ContactPerson is designed to deal with both related persons and contacts. An HCIM ContactPerson who is a contact, is expected to have an NL-CM:3.1.2 Role primary contact ('Eerste relatie/contactpersoon') or secondary contact ('Tweede relatie/contactpersoon'). See Patient.contact.relationship in slice 'role'." />
@@ -830,10 +769,6 @@
       <path value="Patient.contact.name.extension" />
       <sliceName value="humannameAssemblyOrder" />
     </element>
-    <element id="Patient.contact.name.extension:humannameAssemblyOrder.valueCode:valueCode">
-      <path value="Patient.contact.name.extension.valueCode" />
-      <sliceName value="valueCode" />
-    </element>
     <element id="Patient.contact.telecom">
       <path value="Patient.contact.telecom" />
       <comment value="Telecommunication data details (phone/email) is physically modeled in the HCIM Patient, which is why the telecommunication mappings appear to be coming from the HCIM Patient instead of the HCIM ContactPerson" />
@@ -889,16 +824,6 @@
         <map value="NL-CM:7.12.1" />
         <comment value="LanguageProficiency" />
       </mapping>
-    </element>
-    <element id="Patient.communication.extension">
-      <path value="Patient.communication.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
     <element id="Patient.communication.extension:languageProficiency">
       <path value="Patient.communication.extension" />
@@ -1014,16 +939,6 @@
         <map value="NL-CM:17.1.1" />
         <comment value="HealthProfessional" />
       </mapping>
-    </element>
-    <element id="Patient.generalPractitioner.extension">
-      <path value="Patient.generalPractitioner.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
     <element id="Patient.generalPractitioner.extension:practitionerRole">
       <path value="Patient.generalPractitioner.extension" />

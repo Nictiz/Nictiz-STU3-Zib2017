@@ -41,16 +41,6 @@
       <comment value="The individual component observations for this HCIM are captured using the [WoundCharacteristics profile](http://nictiz.nl/fhir/StructureDefinition/WoundCharacteristics)." />
       <alias value="DecubitusWond" />
     </element>
-    <element id="Condition.extension">
-      <path value="Condition.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Condition.extension:DateOfLastDressingChange">
       <path value="Condition.extension" />
       <sliceName value="DateOfLastDressingChange" />
@@ -59,9 +49,8 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/condition-dateOfLastDressingChange" />
       </type>
     </element>
-    <element id="Condition.extension:DateOfLastDressingChange.valueDateTime:valueDateTime">
-      <path value="Condition.extension.valueDateTime" />
-      <sliceName value="valueDateTime" />
+    <element id="Condition.extension:DateOfLastDressingChange.value[x]">
+      <path value="Condition.extension.value[x]" />
       <short value="DateOfLastDressingChange" />
       <definition value="The date on which the dressing was last changed." />
       <alias value="DatumLaatsteVerbandWissel" />
@@ -133,16 +122,6 @@
         <comment value="AnatomicalLocation" />
       </mapping>
     </element>
-    <element id="Condition.bodySite.extension">
-      <path value="Condition.bodySite.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
@@ -152,9 +131,8 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
       </type>
     </element>
-    <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
-      <path value="Condition.bodySite.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Condition.bodySite.extension:Laterality.value[x]">
+      <path value="Condition.bodySite.extension.value[x]" />
       <short value="Laterality" />
       <definition value="Laterality adds information about body side to the anatomic location, e.g. left" />
       <alias value="Lateraliteit" />
