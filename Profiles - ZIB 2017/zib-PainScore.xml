@@ -104,9 +104,8 @@
         <targetProfile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient" />
       </type>
     </element>
-    <element id="Observation.effective[x]:effectiveDateTime">
-      <path value="Observation.effectiveDateTime" />
-      <sliceName value="effectiveDateTime" />
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
       <definition value="The date and time at which the pain score was measured." />
       <alias value="PijnscoreDatumTijd" />
       <min value="1" />
@@ -119,9 +118,8 @@
         <comment value="PainScoreDateTime" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueQuantity">
-      <path value="Observation.valueQuantity" />
-      <sliceName value="valueQuantity" />
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]" />
       <definition value="The score is a general measurement of pain experience, not a description of specific, localized pain.&#xD;&#xA;&#xD;&#xA;Depending on the measuring method used, it indicates the level of pain experienced by the patient on a scale of 0 to 10: 0 = no pain and 10 = the worst pain imaginable. No descriptions are used for the intermediate values, so that the value is displayed as a number and not as a code.&#xD;&#xA;&#xD;&#xA;Sometimes a value range of 0-100 is used instead of 0-10." />
       <alias value="PijnscoreWaarde" />
       <min value="1" />
@@ -142,8 +140,8 @@
         <comment value="PainScoreValue" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueQuantity.value">
-      <path value="Observation.valueQuantity.value" />
+    <element id="Observation.value[x].value">
+      <path value="Observation.value[x].value" />
       <min value="1" />
     </element>
     <element id="Observation.comment">
@@ -174,16 +172,6 @@
         <comment value="AnatomicalLocation" />
       </mapping>
     </element>
-    <element id="Observation.bodySite.extension">
-      <path value="Observation.bodySite.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Observation.bodySite.extension:Laterality">
       <path value="Observation.bodySite.extension" />
       <sliceName value="Laterality" />
@@ -199,9 +187,8 @@
         <comment value="Laterality" />
       </mapping>
     </element>
-    <element id="Observation.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
-      <path value="Observation.bodySite.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.bodySite.extension:Laterality.value[x]">
+      <path value="Observation.bodySite.extension.value[x]" />
       <binding>
         <strength value="extensible" />
         <description value="Laterality" />

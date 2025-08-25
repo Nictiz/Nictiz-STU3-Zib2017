@@ -18,7 +18,7 @@
   <description value="Problem as defined by the Dutch Health and Care Information models (Dutch: Zorginformatiebouwsteen or ZIB) version 4.1, release 2017.&#xD;&#xA;&#xD;&#xA;A problem describes a situation with regard to an individual’s health and/or welfare. This situation can be described by the person involved (the patient) themselves (in the form of a complaint), or by their healthcare provider (in the form of a diagnosis, for example). The situation can form cause for diagnostic or therapeutic policy. A problem includes all kinds of medical or nursing information that represents a health problem. A problem can represent various types of health problems:&#xD;&#xA; &#xD;&#xA;* A complaint, finding by patient: a subjective, negatively experienced observation of the patient’s health. Examples: stomach ache, amnesia.&#xD;&#xA;* A symptom: an observation by or about the patient which may indicate a certain disease. Examples: fever, blood in stool, white spots on the roof of the mouth;&#xD;&#xA;* A diagnosis: medical interpretation of complaints and findings. Examples: Diabetes Mellitus type II, pneumonia, hemolytic-uremic syndrome.&#xD;&#xA;* A functional limitation: a reduction of functional options. Examples: reduced mobility, help required for dressing.&#xD;&#xA;* A complication: Every diagnosis seen by the healthcare provider as an unforeseen and undesired result of medical action. Examples: post-operative wound infections, loss of hearing through the use of antibiotics." />
   <purpose value="An overview of a patient’s health problems has the purpose of informing all healthcare providers involved in the patient’s care on the patient’s current and past health condition. It provides insight into which problems require medical action, which are under control and which are no longer current. The problem overview also directly provides medical context for medication administered and procedures carried out.&#xD;&#xA;The overview promotes an efficient, targeted continuation of the patient’s care.&#xD;&#xA;A complete list of problems is of importance for automated decision support and determining contraindications." />
   <copyright value="CC0" />
-  <fhirVersion value="3.0.2" />  
+  <fhirVersion value="3.0.2" />
   <mapping>
     <identity value="hcim-problem-v4.1-2017EN" />
     <uri value="https://zibs.nl/wiki/Problem-v4.1(2017EN)" />
@@ -101,7 +101,6 @@
               <display value="Condition-Clinical-Status-Codes-to-ProbleemStatusCodelijst" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/condition-clinical"/>
         </valueSetReference>
       </binding>
       <mapping>
@@ -120,16 +119,6 @@
         <comment value="ProblemStatus. A ConceptMap (http://nictiz.nl/fhir/ConceptMap/ProbleemStatusCodelijst-to-Condition-Clinical-Status-Codes) is available that maps ProblemStatusCodelist to the condition-clinical value set." />
       </mapping>
     </element>
-    <element id="Condition.clinicalStatus.extension">
-      <path value="Condition.clinicalStatus.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Condition.clinicalStatus.extension:ProblemStatusCodelist">
       <path value="Condition.clinicalStatus.extension" />
       <sliceName value="ProblemStatusCodelist" />
@@ -141,9 +130,8 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/code-specification" />
       </type>
     </element>
-    <element id="Condition.clinicalStatus.extension:ProblemStatusCodelist.valueCodeableConcept:valueCodeableConcept">
-      <path value="Condition.clinicalStatus.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Condition.clinicalStatus.extension:ProblemStatusCodelist.value[x]">
+      <path value="Condition.clinicalStatus.extension.value[x]" />
       <binding>
         <strength value="extensible" />
         <description value="ProbleemStatusCodelijst" />
@@ -182,7 +170,6 @@
               <display value="VerificatieStatusCodelijst-to-ConditionVerificationStatus" />
             </valueReference>
           </extension>
-          <reference value="http://hl7.org/fhir/ValueSet/condition-ver-status"/>
         </valueSetReference>
       </binding>
       <mapping>
@@ -190,16 +177,6 @@
         <map value="NL-CM:5.1.10" />
         <comment value="VerificationStatus. A ConceptMap (http://nictiz.nl/fhir/ConceptMap/VerificatieStatusCodelijst-to-ConditionVerificationStatus) is available." />
       </mapping>
-    </element>
-    <element id="Condition.verificationStatus.extension">
-      <path value="Condition.verificationStatus.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
     <element id="Condition.verificationStatus.extension:VerificatieStatusCodelijst">
       <path value="Condition.verificationStatus.extension" />
@@ -218,9 +195,8 @@
         <comment value="A ConceptMap (http://nictiz.nl/fhir/ConceptMap/VerificatieStatusCodelijst-to-ConditionVerificationStatus) is available" />
       </mapping>
     </element>
-    <element id="Condition.verificationStatus.extension:VerificatieStatusCodelijst.valueCodeableConcept:valueCodeableConcept">
-      <path value="Condition.verificationStatus.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Condition.verificationStatus.extension:VerificatieStatusCodelijst.value[x]">
+      <path value="Condition.verificationStatus.extension.value[x]" />
       <binding>
         <strength value="extensible" />
         <description value="VerificatieStatusCodelijst" />
@@ -308,16 +284,6 @@
         <comment value="ProblemAnatomicalLocation" />
       </mapping>
     </element>
-    <element id="Condition.bodySite.extension">
-      <path value="Condition.bodySite.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
@@ -330,9 +296,8 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
       </type>
     </element>
-    <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
-      <path value="Condition.bodySite.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Condition.bodySite.extension:Laterality.value[x]">
+      <path value="Condition.bodySite.extension.value[x]" />
       <binding>
         <strength value="extensible" />
         <description value="ProblemLateralityCodelist" />
@@ -434,16 +399,6 @@
         <map value="NL-CM:0.0.2" />
         <comment value="InformationSource" />
       </mapping>
-    </element>
-    <element id="Condition.asserter.extension">
-      <path value="Condition.asserter.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
     <element id="Condition.asserter.extension:practitionerRole">
       <path value="Condition.asserter.extension" />

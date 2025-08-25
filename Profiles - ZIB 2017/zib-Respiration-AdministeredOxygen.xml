@@ -31,20 +31,14 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
-    <element id="Extension.extension">
-      <path value="Extension.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Extension.extension:extraOxygenAdministration">
       <path value="Extension.extension" />
       <sliceName value="extraOxygenAdministration" />
       <max value="1" />
+    </element>
+    <element id="Extension.extension:extraOxygenAdministration.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
     </element>
     <element id="Extension.extension:extraOxygenAdministration.url">
       <path value="Extension.extension.url" />
@@ -62,6 +56,10 @@
       <sliceName value="flowRate" />
       <max value="1" />
     </element>
+    <element id="Extension.extension:flowRate.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.extension:flowRate.url">
       <path value="Extension.extension.url" />
       <fixedUri value="flowRate" />
@@ -78,6 +76,10 @@
       <sliceName value="fiO2" />
       <max value="1" />
     </element>
+    <element id="Extension.extension:fiO2.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.extension:fiO2.url">
       <path value="Extension.extension.url" />
       <fixedUri value="fiO2" />
@@ -88,6 +90,10 @@
       <type>
         <code value="Quantity" />
       </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Respiration-AdministeredOxygen" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

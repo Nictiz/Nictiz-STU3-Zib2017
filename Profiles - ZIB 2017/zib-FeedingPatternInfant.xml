@@ -113,9 +113,8 @@
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Finding of infant feeding pattern" />
     </element>
-    <element id="Observation.effective[x]:effectiveDateTime">
-      <path value="Observation.effectiveDateTime" />
-      <sliceName value="effectiveDateTime" />
+    <element id="Observation.effective[x]">
+      <path value="Observation.effective[x]" />
       <short value="FeedingPatternInfantDateTime" />
       <definition value="The date and time on which the characteristics of feeding of the infant are registered." />
       <alias value="VoedingspatroonZuigelingDatumTijd" />
@@ -167,9 +166,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Nutritional supplement" />
     </element>
-    <element id="Observation.component:FeedingSupplement.value[x]:valueString">
-      <path value="Observation.component.valueString" />
-      <sliceName value="valueString" />
+    <element id="Observation.component:FeedingSupplement.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="FeedingSupplement" />
       <definition value="It is possible to add supplements to breast and formula milk, such as locust bean gum to thicken milk in case of infant reflux." />
       <alias value="VoedingToevoeging" />
@@ -200,9 +198,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Frequency of infant feeding" />
     </element>
-    <element id="Observation.component:FeedingFrequency.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
+    <element id="Observation.component:FeedingFrequency.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="FeedingFrequency" />
       <definition value="The number of feeding gifts within 24 hours." />
       <alias value="VoedingFrequentie" />
@@ -218,16 +215,6 @@
     <element id="Observation.component:FeedingType">
       <path value="Observation.component" />
       <sliceName value="FeedingType" />
-    </element>
-    <element id="Observation.component:FeedingType.extension">
-      <path value="Observation.component.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
     <element id="Observation.component:FeedingType.extension:feedingMethod">
       <path value="Observation.component.extension" />
@@ -263,9 +250,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Feeding Type" />
     </element>
-    <element id="Observation.component:FeedingType.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:FeedingType.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="FeedingType" />
       <definition value="The type of feeding (breast or formula milk) that is given to the infant." />
       <alias value="VoedingSoort" />

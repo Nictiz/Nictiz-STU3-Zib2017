@@ -32,16 +32,6 @@
       <definition value="Container of the LumenOrLine concept. This container contains all data elements of the LumenOrLine concept.&#xD;&#xA;&#xD;&#xA;Central lines can contain one or more lumens; peripheral infusions do not have lumens and only have one line." />
       <alias value="LumenOfLijn" />
     </element>
-    <element id="Extension.extension">
-      <path value="Extension.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Extension.extension:LineStatus">
       <path value="Extension.extension" />
       <sliceName value="LineStatus" />
@@ -49,6 +39,10 @@
       <definition value="LineStatus is used to indicate whether it is a running infusion, whether it has been capped, or has been fitted with a heparin lock, etc." />
       <alias value="LijnStatus" />
       <max value="1" />
+    </element>
+    <element id="Extension.extension:LineStatus.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
     </element>
     <element id="Extension.extension:LineStatus.url">
       <path value="Extension.extension.url" />
@@ -77,6 +71,10 @@
       <alias value="LumenLocatie" />
       <max value="1" />
     </element>
+    <element id="Extension.extension:LumenLocation.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.extension:LumenLocation.url">
       <path value="Extension.extension.url" />
       <fixedUri value="LumenLocation" />
@@ -104,6 +102,10 @@
       <alias value="SlotVloeistof" />
       <max value="1" />
     </element>
+    <element id="Extension.extension:LockFluid.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.extension:LockFluid.url">
       <path value="Extension.extension.url" />
       <fixedUri value="LockFluid" />
@@ -122,6 +124,10 @@
       <short value="AdministeringSystem" />
       <definition value="The administering system contains the entire system making the fluid run from the infusion bag via the cannula/catheter to the patient. This also includes any three-way valves/connecting joints used." />
       <alias value="ToedieningsSysteem" />
+    </element>
+    <element id="Extension.extension:AdministeringSystem.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
     </element>
     <element id="Extension.extension:AdministeringSystem.url">
       <path value="Extension.extension.url" />

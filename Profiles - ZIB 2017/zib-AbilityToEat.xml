@@ -66,15 +66,11 @@
       <fixedCode value="288883002" />
     </element>
     <element id="Observation.code.coding:AbilityToEat.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Ability to eat" />
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept">
-      <path value="Observation.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]" />
       <short value="Eating" />
       <definition value="Feeding oneself: bringing food to the mouth and feeding oneself until satisfied." />
       <alias value="Eten" />
@@ -118,9 +114,8 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:EatingLimitations.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:EatingLimitations.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="EatingLimitations" />
       <definition value="Eating constraints specify the patient’s constraints in eating." />
       <alias value="EetBeperkingen" />

@@ -126,9 +126,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Household composition (observable entity)" />
     </element>
-    <element id="Observation.component:familyComposition.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:familyComposition.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="FamilyComposition" />
       <definition value="The family composition describes the patient’s home situation and the form of cohabitation. Care for family members who depend on the patient is described in the Care Responsibility concept.&#xD;&#xA;Family members who can provide the patient with care as a caregiver are entered as a caregiver in the HelpFromOthers information model. Because of KOPP policy (Kinderen van Ouders met Psychiatrische Problemen, or Children of Parents with Psychiatric Problems) mental healthcare facilities require a record stating whether there are children in the family. This means that in a mental healthcare situation, the number of children (living at home) must be recorded, with information per individual child or as a total number." />
       <alias value="Gezinssamenstelling" />
@@ -185,9 +184,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Number of offspring (observable entity)" />
     </element>
-    <element id="Observation.component:numberOfChildren.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
+    <element id="Observation.component:numberOfChildren.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="NumberOfOffspring" />
       <definition value="The number of children the patient has. Children in the context of this information model include step children, foster children, biological and adopted children." />
       <alias value="AantalKinderen" />
@@ -205,32 +203,30 @@
       <sliceName value="numberOfChildrenLivingAtHome" />
       <max value="1" />
     </element>
-    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:numberOfChildrenLivingAtHomeCode">
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding">
       <path value="Observation.component.code.coding" />
-      <sliceName value="numberOfChildrenLivingAtHomeCode" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:numberOfChildrenLivingAtHomeCode.system">
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding.system">
       <path value="Observation.component.code.coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>
-    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:numberOfChildrenLivingAtHomeCode.code">
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding.code">
       <path value="Observation.component.code.coding.code" />
       <min value="1" />
       <fixedCode value="55811000146107" />
     </element>
-    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding:numberOfChildrenLivingAtHomeCode.display">
+    <element id="Observation.component:numberOfChildrenLivingAtHome.code.coding.display">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true" />
       </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Number of children living at home (observable entity)" />
     </element>
-    <element id="Observation.component:numberOfChildrenLivingAtHome.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
+    <element id="Observation.component:numberOfChildrenLivingAtHome.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="NumberOfChildrenLivingAtHome" />
       <definition value="The number of children living at home with the patient." />
       <alias value="AantalKinderenInwonend" />
@@ -262,15 +258,11 @@
       <fixedCode value="406192005" />
     </element>
     <element id="Observation.component:careResponsibility.code.coding.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Caregiver behavior (observable entity)" />
     </element>
-    <element id="Observation.component:careResponsibility.value[x]:valueString">
-      <path value="Observation.component.valueString" />
-      <sliceName value="valueString" />
+    <element id="Observation.component:careResponsibility.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="CareResponsibility" />
       <definition value="The activities the patient carries out to care for a dependent family member." />
       <alias value="Zorgtaak" />
@@ -292,16 +284,6 @@
         <map value="NL-CM:7.13.3" />
         <comment value="Child" />
       </mapping>
-    </element>
-    <element id="Observation.component:child.extension">
-      <path value="Observation.component.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
     </element>
     <element id="Observation.component:child.extension:livingAtHome">
       <path value="Observation.component.extension" />
@@ -337,9 +319,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Child (person)" />
     </element>
-    <element id="Observation.component:child.value[x]:valueDateTime">
-      <path value="Observation.component.valueDateTime" />
-      <sliceName value="valueDateTime" />
+    <element id="Observation.component:child.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="DateOfBirth" />
       <definition value="The child’s date of birth." />
       <alias value="Geboortedatum" />

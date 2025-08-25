@@ -74,16 +74,6 @@
         <comment value="HealthCondition" />
       </mapping>
     </element>
-    <element id="Observation.extension">
-      <path value="Observation.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Observation.extension:MedicalDevice">
       <path value="Observation.extension" />
       <sliceName value="MedicalDevice" />
@@ -300,9 +290,8 @@
         <comment value="StatusDate" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept">
-      <path value="Observation.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]" />
       <short value="StatusValue" />
       <definition value="The extent to which the patient is limited by the functional or mental condition.&#xD;&#xA;If both the status name and the status value are recorded in code, then both values must come from the same code system. If the patient uses a medical aid, the evaluation of the extent of the limitation will take place without this aid." />
       <alias value="StatusWaarde" />
@@ -325,8 +314,8 @@
         <comment value="StatusValue" />
       </mapping>
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding">
-      <path value="Observation.valueCodeableConcept.coding" />
+    <element id="Observation.value[x].coding">
+      <path value="Observation.value[x].coding" />
       <slicing>
         <discriminator>
           <type value="value" />
@@ -335,8 +324,8 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding:statusWaardeOMAHACodelijst">
-      <path value="Observation.valueCodeableConcept.coding" />
+    <element id="Observation.value[x].coding:statusWaardeOMAHACodelijst">
+      <path value="Observation.value[x].coding" />
       <sliceName value="statusWaardeOMAHACodelijst" />
       <max value="1" />
       <binding>
@@ -348,13 +337,13 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding:statusWaardeOMAHACodelijst.system">
-      <path value="Observation.valueCodeableConcept.coding.system" />
+    <element id="Observation.value[x].coding:statusWaardeOMAHACodelijst.system">
+      <path value="Observation.value[x].coding.system" />
       <min value="1" />
       <fixedUri value="urn:oid:2.16.840.1.113883.6.98" />
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding:statusWaardeNOCCodelijst">
-      <path value="Observation.valueCodeableConcept.coding" />
+    <element id="Observation.value[x].coding:statusWaardeNOCCodelijst">
+      <path value="Observation.value[x].coding" />
       <sliceName value="statusWaardeNOCCodelijst" />
       <max value="1" />
       <binding>
@@ -366,13 +355,13 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding:statusWaardeNOCCodelijst.system">
-      <path value="Observation.valueCodeableConcept.coding.system" />
+    <element id="Observation.value[x].coding:statusWaardeNOCCodelijst.system">
+      <path value="Observation.value[x].coding.system" />
       <min value="1" />
       <fixedUri value="urn:oid:2.16.840.1.113883.6.16" />
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding:statusWaardeICFCodelijst">
-      <path value="Observation.valueCodeableConcept.coding" />
+    <element id="Observation.value[x].coding:statusWaardeICFCodelijst">
+      <path value="Observation.value[x].coding" />
       <sliceName value="statusWaardeICFCodelijst" />
       <max value="1" />
       <binding>
@@ -384,13 +373,13 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding:statusWaardeICFCodelijst.system">
-      <path value="Observation.valueCodeableConcept.coding.system" />
+    <element id="Observation.value[x].coding:statusWaardeICFCodelijst.system">
+      <path value="Observation.value[x].coding.system" />
       <min value="1" />
       <fixedUri value="http://hl7.org/fhir/sid/icf-nl" />
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding:statusWaardeSnomedCodelijst">
-      <path value="Observation.valueCodeableConcept.coding" />
+    <element id="Observation.value[x].coding:statusWaardeSnomedCodelijst">
+      <path value="Observation.value[x].coding" />
       <sliceName value="statusWaardeSnomedCodelijst" />
       <max value="1" />
       <binding>
@@ -402,8 +391,8 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept.coding:statusWaardeSnomedCodelijst.system">
-      <path value="Observation.valueCodeableConcept.coding.system" />
+    <element id="Observation.value[x].coding:statusWaardeSnomedCodelijst.system">
+      <path value="Observation.value[x].coding.system" />
       <min value="1" />
       <fixedUri value="http://snomed.info/sct" />
     </element>

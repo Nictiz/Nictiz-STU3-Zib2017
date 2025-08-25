@@ -26,13 +26,16 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationUse-AsAgreedIndicator" />
     </element>
-    <element id="Extension.value[x]:valueBoolean">
-      <path value="Extension.valueBoolean" />
-      <sliceName value="valueBoolean" />
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
       <type>
         <code value="boolean" />
       </type>

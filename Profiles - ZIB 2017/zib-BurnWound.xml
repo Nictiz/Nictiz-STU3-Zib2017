@@ -45,16 +45,6 @@
         <comment value="BurnWound" />
       </mapping>
     </element>
-    <element id="Condition.extension">
-      <path value="Condition.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Condition.extension:dateOfLastDressingChange">
       <path value="Condition.extension" />
       <sliceName value="dateOfLastDressingChange" />
@@ -65,9 +55,8 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/condition-dateOfLastDressingChange" />
       </type>
     </element>
-    <element id="Condition.extension:dateOfLastDressingChange.valueDateTime:valueDateTime">
-      <path value="Condition.extension.valueDateTime" />
-      <sliceName value="valueDateTime" />
+    <element id="Condition.extension:dateOfLastDressingChange.value[x]">
+      <path value="Condition.extension.value[x]" />
       <short value="DateOfLastDressingChange" />
       <definition value="Date on which the dressing was last changed." />
       <alias value="DatumLaatsteVerbandwissel" />
@@ -86,9 +75,8 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound-Extent" />
       </type>
     </element>
-    <element id="Condition.extension:extent.valueQuantity:valueQuantity">
-      <path value="Condition.extension.valueQuantity" />
-      <sliceName value="valueQuantity" />
+    <element id="Condition.extension:extent.value[x]">
+      <path value="Condition.extension.value[x]" />
       <short value="extent" />
       <definition value="The extent of a burn wound is indicated in a percentage of the ‘Total Body Surface Area’ (TBSA). For adults, the TBSA can be calculated on the basis of the ‘rule of nines’, in which body parts are expressed in the percentage 9 and multiples of 9. This ‘rule of nines’ cannot be used for children because a child’s body proportions are different from those of an adult. For children, separate tables were developed per age group to determine the extent of burn wounds. Another option is measuring the extent using the patient’s hand surface area. The surface area of a patient’s hand (including the fingers) equals approximately 1% of their total body surface area." />
       <alias value="Uitgebreidheid" />
@@ -109,16 +97,6 @@
         <comment value="BurnWound" />
       </mapping>
     </element>
-    <element id="Condition.code.extension">
-      <path value="Condition.code.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Condition.code.extension:burnType">
       <path value="Condition.code.extension" />
       <sliceName value="burnType" />
@@ -128,9 +106,8 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound-BurnWoundType" />
       </type>
     </element>
-    <element id="Condition.code.extension:burnType.valueCodeableConcept:valueCodeableConcept">
-      <path value="Condition.code.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Condition.code.extension:burnType.value[x]">
+      <path value="Condition.code.extension.value[x]" />
       <short value="BurnType" />
       <definition value="Indication of the kind of the burn wound, differentiated into the cause of the injury." />
       <alias value="BrandwondSoort" />
@@ -190,16 +167,6 @@
         <comment value="AnatomicalLocation" />
       </mapping>
     </element>
-    <element id="Condition.bodySite.extension">
-      <path value="Condition.bodySite.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
@@ -209,9 +176,8 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
       </type>
     </element>
-    <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
-      <path value="Condition.bodySite.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Condition.bodySite.extension:Laterality.value[x]">
+      <path value="Condition.bodySite.extension.value[x]" />
       <short value="Laterality" />
       <definition value="Laterality adds information about body side to the anatomic location, e.g. left" />
       <alias value="Lateraliteit" />

@@ -66,15 +66,11 @@
       <fixedCode value="284785009" />
     </element>
     <element id="Observation.code.coding:AbilityToWashOneSelf.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Ability to wash self" />
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept">
-      <path value="Observation.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]" />
       <short value="BathingOneself" />
       <definition value="The washing and drying of the entire body, or body parts, such as bathing, showering, washing of hands and feet, face and hair.&#xD;&#xA;The BodyPartToBeBathed concept offers the option to specify to which part of the body the limitation applies." />
       <alias value="ZichWassen" />
@@ -118,9 +114,8 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:BodyPartToBeBathed.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:BodyPartToBeBathed.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="BodyPartToBeBathed" />
       <definition value="The part or parts of the body for which help bathing is wanted/necessary." />
       <alias value="TeWassenLichaamsdeel" />

@@ -34,13 +34,16 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/observation-zibStomaReference" />
     </element>
-    <element id="Extension.value[x]:valueReference">
-      <path value="Extension.valueReference" />
-      <sliceName value="valueReference" />
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
       <short value="Stoma" />
       <definition value="Stoma describes the presence of an unnatural, surgically created opening. If the patient has a stoma, the type of stoma must be entered along with the date on and location at which the stoma and any stoma pouches were placed. An comment can also be entered." />
       <alias value="Stoma" />
