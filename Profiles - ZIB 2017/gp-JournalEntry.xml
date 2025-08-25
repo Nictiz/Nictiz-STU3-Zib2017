@@ -23,22 +23,10 @@
   <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
   <derivation value="constraint" />
   <differential>
-    <element id="Observation.extension">
-      <path value="Observation.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Observation.extension:nl-core-episodeofcare">
       <path value="Observation.extension" />
       <sliceName value="nl-core-episodeofcare" />
       <comment value="It is recommended to use the nl-core-episodeofcare extension to reference nl-core-episodeofcare (EpisodeOfCare) instances rather than the `context` element, as this approach will be enforced in FHIR R4." />
-      <min value="0" />
-      <max value="*" />
       <type>
         <code value="Extension" />
         <profile value="http://nictiz.nl/fhir/StructureDefinition/extension-context-nl-core-episodeofcare" />
@@ -98,9 +86,8 @@
       <path value="Observation.issued" />
       <max value="0" />
     </element>
-    <element id="Observation.value[x]:valueString">
-      <path value="Observation.valueString" />
-      <sliceName value="valueString" />
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]" />
       <short value="Journal Entry text" />
       <definition value="The text as recorded or generated for this journal entry." />
       <alias value="Journaalregel tekst" />
@@ -173,26 +160,25 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:ICPC_S.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:ICPC_S.value[x]">
+      <path value="Observation.component.value[x]" />
       <min value="1" />
       <type>
         <code value="CodeableConcept" />
       </type>
     </element>
-    <element id="Observation.component:ICPC_S.value[x]:valueCodeableConcept.coding">
-      <path value="Observation.component.valueCodeableConcept.coding" />
+    <element id="Observation.component:ICPC_S.value[x].coding">
+      <path value="Observation.component.value[x].coding" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.component:ICPC_S.value[x]:valueCodeableConcept.coding.system">
-      <path value="Observation.component.valueCodeableConcept.coding.system" />
+    <element id="Observation.component:ICPC_S.value[x].coding.system">
+      <path value="Observation.component.value[x].coding.system" />
       <min value="1" />
       <fixedUri value="http://hl7.org/fhir/sid/icpc-1-nl" />
     </element>
-    <element id="Observation.component:ICPC_S.value[x]:valueCodeableConcept.coding.code">
-      <path value="Observation.component.valueCodeableConcept.coding.code" />
+    <element id="Observation.component:ICPC_S.value[x].coding.code">
+      <path value="Observation.component.value[x].coding.code" />
       <min value="1" />
     </element>
     <element id="Observation.component:ICPC_E">
@@ -211,26 +197,25 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:ICPC_E.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:ICPC_E.value[x]">
+      <path value="Observation.component.value[x]" />
       <min value="1" />
       <type>
         <code value="CodeableConcept" />
       </type>
     </element>
-    <element id="Observation.component:ICPC_E.value[x]:valueCodeableConcept.coding">
-      <path value="Observation.component.valueCodeableConcept.coding" />
+    <element id="Observation.component:ICPC_E.value[x].coding">
+      <path value="Observation.component.value[x].coding" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Observation.component:ICPC_E.value[x]:valueCodeableConcept.coding.system">
-      <path value="Observation.component.valueCodeableConcept.coding.system" />
+    <element id="Observation.component:ICPC_E.value[x].coding.system">
+      <path value="Observation.component.value[x].coding.system" />
       <min value="1" />
       <fixedUri value="http://hl7.org/fhir/sid/icpc-1-nl" />
     </element>
-    <element id="Observation.component:ICPC_E.value[x]:valueCodeableConcept.coding.code">
-      <path value="Observation.component.valueCodeableConcept.coding.code" />
+    <element id="Observation.component:ICPC_E.value[x].coding.code">
+      <path value="Observation.component.value[x].coding.code" />
       <min value="1" />
     </element>
   </differential>

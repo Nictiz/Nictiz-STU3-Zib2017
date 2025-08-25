@@ -27,16 +27,6 @@
       <path value="Observation" />
       <short value="FHIR Blood Glucose Profile" />
     </element>
-    <element id="Observation.extension">
-      <path value="Observation.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Observation.extension:eventTiming">
       <path value="Observation.extension" />
       <sliceName value="eventTiming" />
@@ -46,22 +36,6 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/observation-eventTiming" />
       </type>
       <mustSupport value="true" />
-    </element>
-    <element id="Observation.extension:eventTiming.extension:code">
-      <path value="Observation.extension.extension" />
-      <sliceName value="code" />
-    </element>
-    <element id="Observation.extension:eventTiming.extension:code.valueCodeableConcept:valueCodeableConcept">
-      <path value="Observation.extension.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
-    </element>
-    <element id="Observation.extension:eventTiming.extension:offset">
-      <path value="Observation.extension.extension" />
-      <sliceName value="offset" />
-    </element>
-    <element id="Observation.extension:eventTiming.extension:offset.valueQuantity:valueQuantity">
-      <path value="Observation.extension.extension.valueQuantity" />
-      <sliceName value="valueQuantity" />
     </element>
     <element id="Observation.code">
       <path value="Observation.code" />
@@ -123,9 +97,8 @@
       <path value="Observation.code.coding.system" />
       <fixedUri value="https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen" />
     </element>
-    <element id="Observation.value[x]:valueQuantity">
-      <path value="Observation.valueQuantity" />
-      <sliceName value="valueQuantity" />
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]" />
       <comment value="Known issue: this profile does not constrain the units allowed in `.valueQuantity`. When exchanging data based on [NHG Table 45](https://referentiemodel.nhg.org/tabellen/nhg-tabel-45-diagnostische-bepalingen), it is expected that `.code` equals 'mmol/L'. See &lt;https://bits.nictiz.nl/browse/MM-2607&gt; for more details." />
       <type>
         <code value="Quantity" />

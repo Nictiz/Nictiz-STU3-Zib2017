@@ -40,16 +40,6 @@
         <comment value="SkinDisorder" />
       </mapping>
     </element>
-    <element id="Condition.extension">
-      <path value="Condition.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Condition.extension:dueTo">
       <path value="Condition.extension" />
       <sliceName value="dueTo" />
@@ -58,10 +48,6 @@
         <code value="Extension" />
         <profile value="http://hl7.org/fhir/StructureDefinition/condition-dueTo" />
       </type>
-    </element>
-    <element id="Condition.extension:dueTo.url">
-      <path value="Condition.extension.url" />
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/condition-dueTo" />
     </element>
     <element id="Condition.extension:dueTo.value[x]:valueReference">
       <path value="Condition.extension.valueReference" />
@@ -115,9 +101,6 @@
       <fixedCode value="95320005" />
     </element>
     <element id="Condition.category.coding:SkinDisorder.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Condition.category.coding.display" />
       <defaultValueString value="Disorder of skin" />
     </element>
@@ -126,9 +109,6 @@
       <short value="TypeOfDisorder" />
       <alias value="SoortAandoening" />
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ConditionKind" />
-        </extension>
         <strength value="extensible" />
         <description value="SoortAandoeningCodelijst" />
         <valueSetReference>
@@ -161,16 +141,6 @@
         <comment value="AnatomicalLocation" />
       </mapping>
     </element>
-    <element id="Condition.bodySite.extension">
-      <path value="Condition.bodySite.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Condition.bodySite.extension:Laterality">
       <path value="Condition.bodySite.extension" />
       <sliceName value="Laterality" />
@@ -180,9 +150,8 @@
         <profile value="http://nictiz.nl/fhir/StructureDefinition/BodySite-Qualifier" />
       </type>
     </element>
-    <element id="Condition.bodySite.extension:Laterality.valueCodeableConcept:valueCodeableConcept">
-      <path value="Condition.bodySite.extension.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Condition.bodySite.extension:Laterality.value[x]">
+      <path value="Condition.bodySite.extension.value[x]" />
       <short value="Laterality" />
       <definition value="Laterality adds information about body side to the anatomic location, e.g. left" />
       <alias value="Lateraliteit" />
@@ -191,7 +160,7 @@
         <description value="HuidLateraliteitCodelijst" />
         <valueSetReference>
           <reference value="http://decor.nictiz.nl/fhir/ValueSet/2.16.840.1.113883.2.4.3.11.60.40.2.19.3.3--20171231000000" />
-            <display value="HuidLateraliteitCodelijst" />
+          <display value="HuidLateraliteitCodelijst" />
         </valueSetReference>
       </binding>
       <mapping>

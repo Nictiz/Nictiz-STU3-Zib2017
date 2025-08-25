@@ -40,16 +40,6 @@
         <comment value="FarmaceuticalProduct" />
       </mapping>
     </element>
-    <element id="Medication.extension">
-      <path value="Medication.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Medication.extension:description">
       <path value="Medication.extension" />
       <sliceName value="description" />
@@ -268,9 +258,8 @@
         <comment value="Ingredient" />
       </mapping>
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept">
-      <path value="Medication.ingredient.itemCodeableConcept" />
-      <sliceName value="itemCodeableConcept" />
+    <element id="Medication.ingredient.item[x]">
+      <path value="Medication.ingredient.item[x]" />
       <short value="Substance" />
       <definition value="Active substance or excipient. &#xD;&#xA;Here, the same codes can be used as for the ProductCode (for dilutions and compounds in particular), but now, the ATC, SSK and SNK codes can also be used to indicate a substance (to list ingredients of local products prepared by the pharmacy). &#xD;&#xA;- GTIN International Article Number&#xD;&#xA;- KNMP article number&#xD;&#xA;- Trade product code (HPK)&#xD;&#xA;- Prescription code (PRK)&#xD;&#xA;- Generic product code (GPK)&#xD;&#xA;- ATC (anatomic therapeutic classification)&#xD;&#xA;- SSK (substance name code with route of administration)&#xD;&#xA;- SNK (substance name code)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;The ATC is an international classification of pharmaceutical substances without a reference to specific products on the market. Therefore, the ATC code of a generic product will not contain a reference to a certain dose, pharmaceutical form or route of administration; it will only contain a reference to the ingredients (not the amount/concentration/strength)." />
       <alias value="IngredientCode" />
@@ -293,8 +282,8 @@
         <comment value="SubstanceCode" />
       </mapping>
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding">
-      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+    <element id="Medication.ingredient.item[x].coding">
+      <path value="Medication.ingredient.item[x].coding" />
       <slicing>
         <discriminator>
           <type value="value" />
@@ -303,8 +292,8 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeZICodelijst">
-      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeZICodelijst">
+      <path value="Medication.ingredient.item[x].coding" />
       <sliceName value="ingredientCodeZICodelijst" />
       <binding>
         <strength value="required" />
@@ -315,13 +304,13 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeZICodelijst.system">
-      <path value="Medication.ingredient.itemCodeableConcept.coding.system" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeZICodelijst.system">
+      <path value="Medication.ingredient.item[x].coding.system" />
       <min value="1" />
       <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.8" />
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeGTINCodeLijst">
-      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeGTINCodeLijst">
+      <path value="Medication.ingredient.item[x].coding" />
       <sliceName value="ingredientCodeGTINCodeLijst" />
       <binding>
         <strength value="required" />
@@ -332,13 +321,13 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeGTINCodelijst.system">
-      <path value="Medication.ingredient.itemCodeableConcept.coding.system" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeGTINCodeLijst.system">
+      <path value="Medication.ingredient.item[x].coding.system" />
       <min value="1" />
       <fixedUri value="urn:oid:1.3.160" />
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeATCCodelijst">
-      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeATCCodelijst">
+      <path value="Medication.ingredient.item[x].coding" />
       <sliceName value="ingredientCodeATCCodelijst" />
       <binding>
         <strength value="required" />
@@ -349,13 +338,13 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeATCCodelijst.system">
-      <path value="Medication.ingredient.itemCodeableConcept.coding.system" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeATCCodelijst.system">
+      <path value="Medication.ingredient.item[x].coding.system" />
       <min value="1" />
       <fixedUri value="http://www.whocc.no/atc" />
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeHPKLijst">
-      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeHPKLijst">
+      <path value="Medication.ingredient.item[x].coding" />
       <sliceName value="ingredientCodeHPKLijst" />
       <binding>
         <strength value="required" />
@@ -366,13 +355,13 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeHPKCodelijst.system">
-      <path value="Medication.ingredient.itemCodeableConcept.coding.system" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeHPKLijst.system">
+      <path value="Medication.ingredient.item[x].coding.system" />
       <min value="1" />
       <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.7" />
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeGPKLijst">
-      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeGPKLijst">
+      <path value="Medication.ingredient.item[x].coding" />
       <sliceName value="ingredientCodeGPKLijst" />
       <binding>
         <strength value="required" />
@@ -383,13 +372,13 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeGPKCodelijst.system">
-      <path value="Medication.ingredient.itemCodeableConcept.coding.system" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeGPKLijst.system">
+      <path value="Medication.ingredient.item[x].coding.system" />
       <min value="1" />
       <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.1" />
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeSNKLijst">
-      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeSNKLijst">
+      <path value="Medication.ingredient.item[x].coding" />
       <sliceName value="ingredientCodeSNKLijst" />
       <binding>
         <strength value="required" />
@@ -400,13 +389,13 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeSNKCodelijst.system">
-      <path value="Medication.ingredient.itemCodeableConcept.coding.system" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeSNKLijst.system">
+      <path value="Medication.ingredient.item[x].coding.system" />
       <min value="1" />
       <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.1.750" />
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodePRKLijst">
-      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodePRKLijst">
+      <path value="Medication.ingredient.item[x].coding" />
       <sliceName value="ingredientCodePRKLijst" />
       <binding>
         <strength value="required" />
@@ -417,13 +406,13 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodePRKCodelijst.system">
-      <path value="Medication.ingredient.itemCodeableConcept.coding.system" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodePRKLijst.system">
+      <path value="Medication.ingredient.item[x].coding.system" />
       <min value="1" />
       <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.10" />
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeSSKLijst">
-      <path value="Medication.ingredient.itemCodeableConcept.coding" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeSSKLijst">
+      <path value="Medication.ingredient.item[x].coding" />
       <sliceName value="ingredientCodeSSKLijst" />
       <binding>
         <strength value="required" />
@@ -434,8 +423,8 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Medication.ingredient.item[x]:itemCodeableConcept.coding:ingredientCodeSSKCodelijst.system">
-      <path value="Medication.ingredient.itemCodeableConcept.coding.system" />
+    <element id="Medication.ingredient.item[x].coding:ingredientCodeSSKLijst.system">
+      <path value="Medication.ingredient.item[x].coding.system" />
       <min value="1" />
       <fixedUri value="urn:oid:2.16.840.1.113883.2.4.4.1.725" />
     </element>

@@ -32,13 +32,16 @@
       <definition value="The description of the fluid administered through the feeding tube and the dose administered, as given in the medication prescription.&#xD;&#xA;&#xD;&#xA;Though most cases involve food being administered through the feeding tube, medication is often administered through these tubes as well." />
       <alias value="SondeVoeding" />
     </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-FeedingTubeSystem-EnteralNutrition" />
     </element>
-    <element id="Extension.value[x]:valueReference">
-      <path value="Extension.valueReference" />
-      <sliceName value="valueReference" />
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-MedicationAdministration" />

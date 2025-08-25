@@ -28,23 +28,26 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-Medication-MedicationTreatment" />
     </element>
-    <element id="Extension.value[x]:valueIdentifier">
-      <path value="Extension.valueIdentifier" />
-      <sliceName value="valueIdentifier" />
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
       <type>
         <code value="Identifier" />
       </type>
     </element>
-    <element id="Extension.value[x]:valueIdentifier.system">
-      <path value="Extension.valueIdentifier.system" />
+    <element id="Extension.value[x].system">
+      <path value="Extension.value[x].system" />
       <min value="1" />
     </element>
-    <element id="Extension.value[x]:valueIdentifier.value">
-      <path value="Extension.valueIdentifier.value" />
+    <element id="Extension.value[x].value">
+      <path value="Extension.value[x].value" />
       <min value="1" />
     </element>
   </differential>

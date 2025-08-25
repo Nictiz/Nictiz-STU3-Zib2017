@@ -38,20 +38,16 @@
     </element>
     <element id="Extension.extension">
       <path value="Extension.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
       <min value="1" />
     </element>
     <element id="Extension.extension:BankName">
       <path value="Extension.extension" />
       <sliceName value="BankName" />
-      <min value="0" />
       <max value="1" />
+    </element>
+    <element id="Extension.extension:BankName.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
     </element>
     <element id="Extension.extension:BankName.url">
       <path value="Extension.extension.url" />
@@ -73,6 +69,10 @@
       <min value="1" />
       <max value="1" />
     </element>
+    <element id="Extension.extension:AccountNumber.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.extension:AccountNumber.url">
       <path value="Extension.extension.url" />
       <fixedUri value="AccountNumber" />
@@ -90,8 +90,11 @@
     <element id="Extension.extension:Bankcode">
       <path value="Extension.extension" />
       <sliceName value="Bankcode" />
-      <min value="0" />
       <max value="1" />
+    </element>
+    <element id="Extension.extension:Bankcode.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
     </element>
     <element id="Extension.extension:Bankcode.url">
       <path value="Extension.extension.url" />

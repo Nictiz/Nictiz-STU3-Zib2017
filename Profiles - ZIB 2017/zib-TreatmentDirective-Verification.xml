@@ -33,19 +33,13 @@
       <alias value="Verificatie" />
       <isModifier value="false" />
     </element>
-    <element id="Extension.extension">
-      <path value="Extension.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Extension.extension:Verified">
       <path value="Extension.extension" />
       <sliceName value="Verified" />
+    </element>
+    <element id="Extension.extension:Verified.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
     </element>
     <element id="Extension.extension:Verified.url">
       <path value="Extension.extension.url" />
@@ -65,6 +59,10 @@
       <path value="Extension.extension" />
       <sliceName value="VerifiedWith" />
     </element>
+    <element id="Extension.extension:VerifiedWith.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.extension:VerifiedWith.url">
       <path value="Extension.extension.url" />
       <fixedUri value="VerifiedWith" />
@@ -79,6 +77,10 @@
     <element id="Extension.extension:VerificationDate">
       <path value="Extension.extension" />
       <sliceName value="VerificationDate" />
+    </element>
+    <element id="Extension.extension:VerificationDate.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
     </element>
     <element id="Extension.extension:VerificationDate.url">
       <path value="Extension.extension.url" />

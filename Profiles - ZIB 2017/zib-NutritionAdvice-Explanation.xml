@@ -27,13 +27,16 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
   <derivation value="constraint" />
   <differential>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <max value="0" />
+    </element>
     <element id="Extension.url">
       <path value="Extension.url" />
       <fixedUri value="http://nictiz.nl/fhir/StructureDefinition/zib-NutritionAdvice-Explanation" />
     </element>
-    <element id="Extension.value[x]:valueString">
-      <path value="Extension.valueString" />
-      <sliceName value="valueString" />
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
       <short value="Comment" />
       <definition value="A comment on the nutrition advice." />
       <alias value="Toelichting" />

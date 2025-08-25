@@ -35,16 +35,6 @@
   <baseDefinition value="http://fhir.nl/fhir/StructureDefinition/nl-core-observation" />
   <derivation value="constraint" />
   <differential>
-    <element id="Observation.extension">
-      <path value="Observation.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
     <element id="Observation.extension:reasonReference">
       <path value="Observation.extension" />
       <sliceName value="reasonReference" />
@@ -139,9 +129,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Length of wound" />
     </element>
-    <element id="Observation.component:woundLength.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
+    <element id="Observation.component:woundLength.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="WoundLength" />
       <definition value="The length of the wound." />
       <alias value="Wondlengte" />
@@ -178,9 +167,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Width of wound" />
     </element>
-    <element id="Observation.component:woundWidth.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
+    <element id="Observation.component:woundWidth.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="WoundWidth" />
       <definition value="The width of the decubitus wound." />
       <alias value="Wondbreedte" />
@@ -217,9 +205,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Depth of wound" />
     </element>
-    <element id="Observation.component:woundDepth.value[x]:valueQuantity">
-      <path value="Observation.component.valueQuantity" />
-      <sliceName value="valueQuantity" />
+    <element id="Observation.component:woundDepth.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="WoundDepth" />
       <definition value="The depth of the decubitus wound." />
       <alias value="Wonddiepte" />
@@ -257,17 +244,6 @@
     </element>
     <element id="Observation.component:woundTissue.value[x]">
       <path value="Observation.component.value[x]" />
-      <slicing>
-        <discriminator>
-          <type value="type" />
-          <path value="$this" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-    </element>
-    <element id="Observation.component:woundTissue.value[x]:valueCodeableConcept">
-      <path value="Observation.component.value[x]" />
-      <sliceName value="valueCodeableConcept" />
       <short value="WoundTissue" />
       <alias value="WondWeefsel" />
       <min value="1" />
@@ -280,7 +256,7 @@
         <comment value="WoundTissue" />
       </mapping>
     </element>
-    <element id="Observation.component:woundTissue.value[x]:valueCodeableConcept.coding">
+    <element id="Observation.component:woundTissue.value[x].coding">
       <path value="Observation.component.value[x].coding" />
       <slicing>
         <discriminator>
@@ -291,7 +267,7 @@
       </slicing>
       <max value="1" />
     </element>
-    <element id="Observation.component:woundTissue.value[x]:valueCodeableConcept.coding:wondWeefselOncoUlcerCodelijst">
+    <element id="Observation.component:woundTissue.value[x].coding:wondWeefselOncoUlcerCodelijst">
       <path value="Observation.component.value[x].coding" />
       <sliceName value="wondWeefselOncoUlcerCodelijst" />
       <max value="1" />
@@ -304,16 +280,16 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.component:woundTissue.value[x]:valueCodeableConcept.coding:wondWeefselOncoUlcerCodelijst.system">
+    <element id="Observation.component:woundTissue.value[x].coding:wondWeefselOncoUlcerCodelijst.system">
       <path value="Observation.component.value[x].coding.system" />
       <min value="1" />
       <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.7.1" />
     </element>
-    <element id="Observation.component:woundTissue.value[x]:valueCodeableConcept.coding:wondWeefselOncoUlcerCodelijst.code">
+    <element id="Observation.component:woundTissue.value[x].coding:wondWeefselOncoUlcerCodelijst.code">
       <path value="Observation.component.value[x].coding.code" />
       <min value="1" />
     </element>
-    <element id="Observation.component:woundTissue.value[x]:valueCodeableConcept.coding:wondWeefselWCSCodelijst">
+    <element id="Observation.component:woundTissue.value[x].coding:wondWeefselWCSCodelijst">
       <path value="Observation.component.value[x].coding" />
       <sliceName value="wondWeefselWCSCodelijst" />
       <max value="1" />
@@ -326,12 +302,12 @@
         </valueSetReference>
       </binding>
     </element>
-    <element id="Observation.component:woundTissue.value[x]:valueCodeableConcept.coding:wondWeefselWCSCodelijst.system">
+    <element id="Observation.component:woundTissue.value[x].coding:wondWeefselWCSCodelijst.system">
       <path value="Observation.component.value[x].coding.system" />
       <min value="1" />
       <fixedUri value="urn:oid:2.16.840.1.113883.2.4.3.11.60.40.4.7.2" />
     </element>
-    <element id="Observation.component:woundTissue.value[x]:valueCodeableConcept.coding:wondWeefselWCSCodelijst.code">
+    <element id="Observation.component:woundTissue.value[x].coding:wondWeefselWCSCodelijst.code">
       <path value="Observation.component.value[x].coding.code" />
       <min value="1" />
     </element>
@@ -357,9 +333,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Infection status" />
     </element>
-    <element id="Observation.component:woundInfection.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:woundInfection.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="WoundInfection" />
       <alias value="WondInfectie" />
       <type>
@@ -392,9 +367,8 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:woundMoisture.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:woundMoisture.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="WoundMoisture" />
       <definition value="Description of the moisture in the wound." />
       <alias value="WondVochtigheid" />
@@ -432,9 +406,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Wound edge finding" />
     </element>
-    <element id="Observation.component:woundEdge.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:woundEdge.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="WoundEdge" />
       <definition value="Description of the condition of the outer edges of the wound." />
       <alias value="WondRand" />
@@ -472,9 +445,8 @@
       <path value="Observation.component.code.coding.display" />
       <defaultValueString value="Photographic image" />
     </element>
-    <element id="Observation.component:woundImage.value[x]:valueAttachment">
-      <path value="Observation.component.valueAttachment" />
-      <sliceName value="valueAttachment" />
+    <element id="Observation.component:woundImage.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="WoundImage" />
       <type>
         <code value="Attachment" />

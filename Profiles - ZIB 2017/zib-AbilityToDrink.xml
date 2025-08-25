@@ -70,15 +70,11 @@
       <fixedCode value="288852001" />
     </element>
     <element id="Observation.code.coding:AbilityToDrink.display">
-      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-        <valueBoolean value="true" />
-      </extension>
       <path value="Observation.code.coding.display" />
       <defaultValueString value="Ability to drink" />
     </element>
-    <element id="Observation.value[x]:valueCodeableConcept">
-      <path value="Observation.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.value[x]">
+      <path value="Observation.value[x]" />
       <short value="Drinking" />
       <definition value="Taking fluids during meals and during the day or when thirsty." />
       <alias value="Drinken" />
@@ -122,9 +118,8 @@
         </coding>
       </patternCodeableConcept>
     </element>
-    <element id="Observation.component:DrinkingLimitations.value[x]:valueCodeableConcept">
-      <path value="Observation.component.valueCodeableConcept" />
-      <sliceName value="valueCodeableConcept" />
+    <element id="Observation.component:DrinkingLimitations.value[x]">
+      <path value="Observation.component.value[x]" />
       <short value="DrinkingLimitations" />
       <definition value="DrinkingConstraints specifies the patient’s constraints in drinking." />
       <alias value="DrinkBeperkingen" />
