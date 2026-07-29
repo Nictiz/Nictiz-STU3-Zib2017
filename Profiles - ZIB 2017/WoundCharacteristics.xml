@@ -51,6 +51,7 @@
     </element>
     <element id="Observation.extension:reasonReference.value[x]">
       <path value="Observation.extension.value[x]" />
+      <comment value="Please note that the burnWound mapping is set to zib2020. The canonical stated in the reference references to the zib2017 burnWound profile. This is done so a BurnWoundImage can be pre-adopted for the burnwound." />
       <type>
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition" />
@@ -66,6 +67,10 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound" />
       </type>
       <mapping>
         <identity value="hcim-wound-v3.1-2017EN" />
