@@ -51,7 +51,7 @@
     </element>
     <element id="Observation.extension:reasonReference.value[x]">
       <path value="Observation.extension.value[x]" />
-      <comment value="Please note that the burnWound mapping is set to zib2020. The canonical stated in the reference references to the zib2017 burnWound profile. This is done so a BurnWoundImage can be pre-adopted for the burnwound." />
+      <comment value="Please note that the reference to the zib-BurnWound profile is a pre-adopt from the 2020 version of zib BurnWound. This allows for the use of a burn wound image in the context of the 2017 zib." />
       <type>
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition" />
@@ -81,10 +81,6 @@
         <identity value="hcim-pressureulcer-v3.2-2017EN" />
         <map value="NL-CM:19.1.1" />
         <comment value="PressureUlcer" />
-      </mapping>
-      <mapping>
-        <identity value="hcim-burnwound-v3.4-2020EN" />
-        <map value="NL-CM:19.4.1" />
       </mapping>
     </element>
     <element id="Observation.code.coding">
@@ -462,7 +458,7 @@
     <element id="Observation.component:woundImage.value[x]">
       <path value="Observation.component.value[x]" />
       <short value="WoundImage" />
-      <comment value="This element contains a pre-adopt mapping on the zib2020 for inclusion of the BurnWoundImage." />
+      <comment value="This element contains a pre-adopt of the WoundImage concept from zib publication 2020 for zib BurnWound. This concept is already present in the 2017 publication for zibs Wound and PressureUlcer." />
       <type>
         <code value="Attachment" />
       </type>
