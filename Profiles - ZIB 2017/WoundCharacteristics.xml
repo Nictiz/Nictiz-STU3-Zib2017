@@ -4,7 +4,7 @@
   <url value="http://nictiz.nl/fhir/StructureDefinition/WoundCharacteristics" />
   <version value="1.0.2" />
   <name value="WoundCharacteristics" />
-  <title value="Wound characteristics for HCIM Wound/PressureUlcer" />
+  <title value="Wound characteristics for HCIM Wound/PressureUlcer/BurnWound" />
   <status value="active" />
   <publisher value="Nictiz" />
   <contact>
@@ -15,7 +15,7 @@
       <use value="work" />
     </telecom>
   </contact>
-  <description value="This WoundObservable profile caputures mutliple concepts such as wound length, width and depth which are used in two different HCIMs:&#xD;&#xA;&#xD;&#xA;* [Wound v3.1(2017EN)](https://zibs.nl/wiki/Wound-v3.1(2017EN))&#xD;&#xA;* [PressureUlcer v3.1(2017EN)](https://zibs.nl/wiki/PressureUlcer-v3.1(2017EN))" />
+  <description value="This WoundObservable profile captures mutliple concepts such as wound length, width and depth which are used in two different HCIMs plus a pre-adopt for the mapping of the HCIM Burnwound zib2020:&#xD;&#xA;&#xD;&#xA;* [Wound v3.1(2017EN)](https://zibs.nl/wiki/Wound-v3.1(2017EN))&#xD;&#xA;* [PressureUlcer v3.1(2017EN)](https://zibs.nl/wiki/PressureUlcer-v3.1(2017EN))&#xD;&#xA;* [Burnwound v3.4(2020EN)](https://zibs.nl/wiki/Burnwound-v3.4(2020EN))" />
   <purpose value="A seperate Observation is deemed necessary for the observable properties of wounds." />
   <copyright value="CC0" />
   <fhirVersion value="3.0.2" />
@@ -28,6 +28,11 @@
     <identity value="hcim-wound-v3.1-2017EN" />
     <uri value="https://zibs.nl/wiki/Wound-v3.1(2017EN)" />
     <name value="HCIM Wound-v3.1(2017EN)" />
+  </mapping>
+  <mapping>
+    <identity value="hcim-burnwound-v3.4-2020EN" />
+    <uri value="https://zibs.nl/wiki/Burnwound-v3.4(2020EN)" />
+    <name value="HCIM BurnWound-v3.4(2020EN)" />
   </mapping>
   <kind value="resource" />
   <abstract value="false" />
@@ -46,6 +51,7 @@
     </element>
     <element id="Observation.extension:reasonReference.value[x]">
       <path value="Observation.extension.value[x]" />
+      <comment value="Please note that the reference to the zib-BurnWound profile is a pre-adopt from the 2020 version of zib BurnWound. This allows for the use of a burn wound image in the context of the 2017 zib." />
       <type>
         <code value="Reference" />
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition" />
@@ -61,6 +67,10 @@
       <type>
         <code value="Reference" />
         <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-Wound" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://nictiz.nl/fhir/StructureDefinition/zib-BurnWound" />
       </type>
       <mapping>
         <identity value="hcim-wound-v3.1-2017EN" />
@@ -448,6 +458,7 @@
     <element id="Observation.component:woundImage.value[x]">
       <path value="Observation.component.value[x]" />
       <short value="WoundImage" />
+      <comment value="This element contains a pre-adopt of the WoundImage concept from zib publication 2020 for zib BurnWound. This concept is already present in the 2017 publication for zibs Wound and PressureUlcer." />
       <type>
         <code value="Attachment" />
       </type>
@@ -459,6 +470,11 @@
       <mapping>
         <identity value="hcim-pressureulcer-v3.2-2017EN" />
         <map value="NL-CM:19.1.12" />
+        <comment value="WoundImage" />
+      </mapping>
+      <mapping>
+        <identity value="hcim-burnwound-v3.4-2020EN" />
+        <map value="NL-CM:19.4.11" />
         <comment value="WoundImage" />
       </mapping>
     </element>
